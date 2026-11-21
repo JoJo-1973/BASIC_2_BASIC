@@ -26,7 +26,7 @@
 
 <p class="breadcrumbs"><a href="../dialects/SINCLAIR_ZX80_4K.html#entries">Sinclair ZX80 BASIC 4K ROM</a> ›</p>
 <h1><span class="entry-name">INPUT</span> <span class="category">Statement</span></h1>
-<p class="subtitle">Reads a value from the keyboard and assigns it to a variable.</p>
+<div class="subtitle md"><p>Reads a value from the keyboard and assigns it to a variable.</p></div>
 <dl class="facts">
   <dt>Layer</dt><dd><code>ZX80_4K_core</code> — Sinclair ZX80 BASIC (4K ROM)</dd>
   <dt>Dialects</dt><dd><a href="../dialects/SINCLAIR_ZX80_4K.html">Sinclair ZX80 BASIC 4K ROM</a></dd>
@@ -42,12 +42,12 @@
 
 
   <table class="parameters">
-    <thead><tr><th>Parameter</th><th>Type</th><th>Values</th><th>Description</th></tr></thead>
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
     <tbody>
     <tr>
       <td><code class="par">destination</code></td>
       <td>numeric variable name<br><small>or</small> string variable name<br><small>or</small> numeric array element</td>
-      <td><small>otherwise <code>?INPUT AS COMMAND</code></small></td>
+      <td></td>
       <td>Numeric variable, string variable or array element. An expression can be typed.</td>
     </tr>
     </tbody>
@@ -60,29 +60,34 @@
   </div>
 </section>
 
+<h2>Tables</h2>
+<ul class="entry-tables">
+  <li><a href="../dialects/SINCLAIR_ZX80_4K.html#variables">Variables in memory</a>      <small>— action IO_INPUT</small></li>
+</ul>
+
 <h2>Keywords</h2>
 <table>
   <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
   <tbody>
   <tr><td><a class="kw" href="../keywords/INPUT-27.html">INPUT</a></td>
       <td><code>$EE</code></td>
-      <td></td></tr>
+      <td><code>I</code></td></tr>
   </tbody>
 </table>
 
 <h2>Examples</h2>
 <figure class="example">
-<h3>Read a number <span class="tag warning">to verify</span></h3>  <pre>10 INPUT N
+<h3>Read a number</h3>  <pre>10 INPUT N
 20 PRINT N*2</pre>
 <pre class="output" title="Expected result">42</pre><figcaption>Run the program, type 21 and press NEWLINE.
 </figcaption></figure>
 <figure class="example">
-<h3>Read a string <span class="tag warning">to verify</span></h3>  <pre>10 INPUT A$
+<h3>Read a string</h3>  <pre>10 INPUT A$
 20 PRINT A$</pre>
 <pre class="output" title="Expected result">HELLO</pre><figcaption>Run the program, type HELLO and press NEWLINE (the quotes appear by themselves).
 </figcaption></figure>
 
-<h2>Notes</h2><p>Only inside a program: as a command it gives error 8. For a string the quotes appear, and they can be deleted.</p>
+<h2>Notes</h2><div class="md"><p>Only inside a program: as a command it gives error 8. For a string the quotes appear, and they can be deleted.</p></div>
 
 <h2>Sources</h2>
 <ul><li>Sinclair ZX80 Operating Manual - A Course in BASIC Programming, Hugo Davenport (1980), p. Appendix II</li></ul>

@@ -26,7 +26,7 @@
 
 <p class="breadcrumbs"><a href="../dialects/SINCLAIR_ZX80_4K.html#entries">Sinclair ZX80 BASIC 4K ROM</a> ›</p>
 <h1><span class="entry-name">LIST</span> <span class="category">Direct command</span></h1>
-<p class="subtitle">Lists the program from a given line, which becomes the current line.</p>
+<div class="subtitle md"><p>Lists the program from a given line, which becomes the current line.</p></div>
 <dl class="facts">
   <dt>Layer</dt><dd><code>ZX80_4K_core</code> — Sinclair ZX80 BASIC (4K ROM)</dd>
   <dt>Dialects</dt><dd><a href="../dialects/SINCLAIR_ZX80_4K.html">Sinclair ZX80 BASIC 4K ROM</a></dd>
@@ -42,7 +42,7 @@
 
 
   <table class="parameters">
-    <thead><tr><th>Parameter</th><th>Type</th><th>Values</th><th>Description</th></tr></thead>
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
     <tbody>
     <tr>
       <td><code class="par">n</code></td>
@@ -60,19 +60,24 @@
   </div>
 </section>
 
+<h2>Tables</h2>
+<ul class="entry-tables">
+  <li><a href="../dialects/SINCLAIR_ZX80_4K.html#program">Program in memory</a>      <small>— action PROG_LIST</small></li>
+</ul>
+
 <h2>Keywords</h2>
 <table>
   <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
   <tbody>
   <tr><td><a class="kw" href="../keywords/LIST-19.html">LIST</a></td>
       <td><code>$E6</code></td>
-      <td></td></tr>
+      <td><code>A</code></td></tr>
   </tbody>
 </table>
 
 <h2>Examples</h2>
 <figure class="example">
-<h3>List from a line <span class="tag warning">to verify</span></h3>  <pre>LIST 100</pre>
+<h3>List from a line</h3>  <pre>LIST 100</pre>
 <pre class="output" title="Expected result">The program from line 100 onwards.</pre><figcaption>Line 100 becomes the current line. If it does not exist, the listing starts from the next line.
 </figcaption></figure>
 

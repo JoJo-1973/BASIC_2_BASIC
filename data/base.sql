@@ -129,3 +129,67 @@ INSERT INTO action (id, code, name, group_id, description) VALUES
  (132,'OP_LT','Less than',13,NULL);
 
 COMMIT;
+
+-- Feature catalogue: the questions every dialect answers (table feature).
+INSERT INTO feature_section (id, code, name, position) VALUES
+ (1,'PROGRAM','Program lines and statements',1),
+ (2,'TRUTH_VALUES','Truth values',2),
+ (3,'NUMBERS','Numbers',3),
+ (4,'LOOPS','FOR loops',4),
+ (5,'KEYBOARD','Keyboard',5),
+ (6,'OUTPUT','Screen output',6);
+
+INSERT INTO feature_kind (id, code, section_id, position, name, answers, description) VALUES
+ (1,'LINE_NUMBERS',1,1,'Range of line numbers','e.g. 1-9999, 0-63999',NULL),
+ (2,'MULTIPLE_STATEMENTS',1,2,'Multiple statements per line','No / Yes',NULL),
+ (3,'STATEMENT_SEPARATOR',1,3,'Statement separator','None / : / & / ::','Character written between two statements on the same line.'),
+ (4,'LET',1,4,'LET keyword','Mandatory / Optional','Whether an assignment must start with LET.'),
+ (5,'TRUE_VALUE',2,1,'Value produced by a true comparison','-1 / 1 / TRUE',NULL),
+ (6,'FALSE_VALUE',2,2,'Value produced by a false comparison','0 / FALSE',NULL),
+ (7,'TRUTH_TEST',2,3,'How a value used as a condition is read','NONZERO / ...','NONZERO: a number is true if it is not 0. Some dialects also read the empty string as false.'),
+ (8,'INTEGER_CONVERSION',3,1,'Conversion of non-integer values to integers','e.g. Truncation towards zero','The algorithm used when a statement or an operator needs an integer and gets a non-integer value; implementations usually use the same one everywhere.'),
+ (9,'FOR_RUNS_ONCE',4,1,'The body of a FOR loop is always executed at least once','Yes / No',NULL),
+ (10,'FOR_VARIABLE_CHANGEABLE',4,2,'The loop variable can be changed inside the loop','Yes / No',NULL),
+ (11,'MODAL_KEYBOARD',5,1,'Modal keyboard for entering keywords','Yes / No / Both','Yes: a key enters a whole keyword, depending on the current mode (e.g. the K cursor); Both: keywords can also be typed letter by letter.'),
+ (12,'TAB_ZONE_WIDTH',6,1,'Width of the fixed tabulation zones','e.g. 8 columns, 10 columns','The separator that moves to the next zone is described in the PRINT entry.'),
+ (13,'VARIABLE_TAB_STOPS',6,2,'Variable tab stops','No / Yes','Tab stops that can be set and changed (e.g. with control codes), alongside the fixed zones.');
+
+-- Rules that link actions to the tables an entry uses (view v_entry_table_kind).
+-- Transcoding -> character codes; variable assignment, creation and deletion
+-- (also the FOR loop variable) -> variables in memory; jumps to program lines
+-- (also RUN n, LIST n, CONTINUE, RETURN) and saving/loading programs (not
+-- generic memory blocks) -> program in memory. Operators are found from their precedence;
+-- colors, musical notes and redefined characters from parameter.table_kind_id.
+INSERT INTO action_table_kind (action_id, table_kind_id)
+SELECT a.id, k.id FROM action a JOIN table_kind k ON
+     (a.code IN ('STR_CHR', 'STR_CODE') AND k.code = 'CHARACTER_CODES')
+  OR (a.code IN ('VAR_LET', 'IO_INPUT', 'FLOW_FOR', 'FLOW_NEXT', 'VAR_DIM', 'VAR_CLEAR')
+      AND k.code = 'VARIABLE_LAYOUT')
+  OR (a.code IN ('FLOW_GOTO', 'FLOW_GOSUB', 'PROG_RUN', 'PROG_LIST', 'FLOW_CONTINUE', 'FLOW_RETURN',
+                 'TAPE_SAVE', 'TAPE_LOAD') AND k.code = 'PROGRAM_LAYOUT');
+
+-- Notes derived from the dialect features (view v_entry_feature_note).
+INSERT INTO feature_note_rule (feature_kind_id, selector, selector_value, target)
+SELECT k.id, r.selector, r.selector_value, r.target
+FROM feature_kind k JOIN (
+          SELECT 'LINE_NUMBERS' AS code, 'LINE_PARAMETER' AS selector, NULL AS selector_value, 'ALLOWED' AS target
+    UNION ALL SELECT 'LET', 'ACTION', 'VAR_LET', 'NOTE'
+    UNION ALL SELECT 'TRUE_VALUE', 'OPERATOR_CLASS', 'RELATIONAL', 'RETURN'
+    UNION ALL SELECT 'FALSE_VALUE', 'OPERATOR_CLASS', 'RELATIONAL', 'RETURN'
+    UNION ALL SELECT 'TRUE_VALUE', 'OPERATOR_CLASS', 'LOGICAL', 'RETURN'
+    UNION ALL SELECT 'FALSE_VALUE', 'OPERATOR_CLASS', 'LOGICAL', 'RETURN'
+    UNION ALL SELECT 'TRUTH_TEST', 'OPERATOR_CLASS', 'LOGICAL', 'NOTE'
+    UNION ALL SELECT 'TRUE_VALUE', 'OPERATOR_CLASS', 'CONDITIONAL', 'RETURN'
+    UNION ALL SELECT 'FALSE_VALUE', 'OPERATOR_CLASS', 'CONDITIONAL', 'RETURN'
+    UNION ALL SELECT 'TRUTH_TEST', 'OPERATOR_CLASS', 'CONDITIONAL', 'NOTE'
+    UNION ALL SELECT 'TRUE_VALUE', 'OPERATOR_CLASS', 'BITWISE', 'NOTE'
+    UNION ALL SELECT 'FALSE_VALUE', 'OPERATOR_CLASS', 'BITWISE', 'NOTE'
+    UNION ALL SELECT 'TRUTH_TEST', 'OPERATOR_CLASS', 'BITWISE', 'NOTE'
+    UNION ALL SELECT 'TRUTH_TEST', 'PARAMETER_NATURE', 'CONDITION', 'ALLOWED'
+    UNION ALL SELECT 'FOR_RUNS_ONCE', 'ACTION', 'FLOW_FOR', 'NOTE'
+    UNION ALL SELECT 'FOR_VARIABLE_CHANGEABLE', 'ACTION', 'FLOW_FOR', 'NOTE'
+    UNION ALL SELECT 'FOR_RUNS_ONCE', 'ACTION', 'FLOW_NEXT', 'NOTE'
+    UNION ALL SELECT 'FOR_VARIABLE_CHANGEABLE', 'ACTION', 'FLOW_NEXT', 'NOTE'
+    UNION ALL SELECT 'TAB_ZONE_WIDTH', 'ACTION', 'IO_PRINT', 'NOTE'
+    UNION ALL SELECT 'VARIABLE_TAB_STOPS', 'ACTION', 'IO_PRINT', 'NOTE'
+) r ON r.code = k.code;

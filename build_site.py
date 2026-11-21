@@ -8,7 +8,10 @@ Usage:
     python build_site.py                       (basic2basic.db -> site/)
     python build_site.py basic2basic.db --output site
 
-Requires Jinja2:  python -m pip install jinja2
+Requires Jinja2 and Markdown:  python -m pip install jinja2 markdown
+
+Long text fields (notes, descriptions) are written in Markdown: lists,
+tables, `code`, **bold**. Raw HTML in the texts is shown as text.
 """
 
 import argparse
@@ -26,9 +29,43 @@ try:
 except ImportError:
     sys.exit("Jinja2 is missing: run  python -m pip install jinja2")
 
+try:
+    import markdown as markdown_lib
+except ImportError:                      # the site is still built, texts stay plain
+    markdown_lib = None
+
 from render_syntax import Renderer
 
 FOLDER = Path(__file__).resolve().parent
+
+
+# ---------------------------------------------------------------------
+# Markdown in the text fields
+# ---------------------------------------------------------------------
+_markdown = None
+
+
+def md_block(text):
+    """Markdown -> HTML (paragraphs, lists, tables). Raw HTML is escaped."""
+    global _markdown
+    if text is None or str(text).strip() == "":
+        return Markup("")
+    text = str(text)
+    if markdown_lib is None:
+        return Markup("<p>") + escape(text).replace("\n", Markup("<br>\n")) + Markup("</p>")
+    if _markdown is None:
+        _markdown = markdown_lib.Markdown(extensions=["tables", "sane_lists"], output_format="html")
+        _markdown.preprocessors.deregister("html_block")     # no raw HTML blocks
+        _markdown.inlinePatterns.deregister("html")          # no raw HTML tags
+    return Markup(_markdown.reset().convert(text))
+
+
+def md_inline(text):
+    """Like md_block, without the <p> around a single paragraph (for table cells and sentences)."""
+    html = str(md_block(text))
+    if html.startswith("<p>") and html.endswith("</p>") and html.count("<p>") == 1:
+        html = html[3:-4]
+    return Markup(html)
 
 # ---------------------------------------------------------------------
 # Syntax as HTML: keywords, parameters, literals and notation symbols get
@@ -348,6 +385,15 @@ def entry_context(d, e):
                 replacements.append({"dialect": d.dialects[did], "entry": w,
                                      "layer": d.layers[w["layer_id"]]})
 
+    # notes derived from the dialect features (view v_entry_feature_note)
+    try:
+        feature_notes = [dict(r, dialect=d.dialects[r["dialect_id"]]) for r in d.q(
+            "SELECT * FROM v_entry_feature_note WHERE entry_id = ? "
+            "ORDER BY section_position, position, dialect_id", e["id"])]
+    except sqlite3.OperationalError:          # database without the view
+        feature_notes = []
+    many = len(d.entry_dialects[e["id"]]) > 1
+
     forms = []
     for f in d.entry_forms[e["id"]]:
         raw, expanded, constructs = d.form_syntax(f["id"])
@@ -363,6 +409,12 @@ def entry_context(d, e):
                            for l in d.limits[p["id"]]],
                 "allowed": [{"value": x["value"], "meaning": x["meaning"],
                             "machine": d.machines.get(x["machine_id"])} for x in d.allowed_values[p["id"]]],
+                # the error given for a value that is not allowed, as each dialect of the entry defines it
+                "errors": [{"dialect": d.dialects[r["dialect_id"]], "error": r}
+                           for r in d.q("SELECT x.dialect_id, e.* FROM v_dialect_error x JOIN error e ON e.id = x.error_id "
+                                        "WHERE e.code = ? ORDER BY x.dialect_id", p["error_code"])
+                           if r["dialect_id"] in d.entry_dialects[e["id"]]] if p["error_code"] else [],
+                "features": [n for n in feature_notes if n["target"] == "ALLOWED" and n["parameter_id"] == p["id"]],
             })
         rtype = d.data_types.get(f["return_type_id"])
         actions = []
@@ -395,6 +447,7 @@ def entry_context(d, e):
             "rtype_class": d.type_classes.get(rtype["type_class_id"]) if rtype else None,
             "ret": interval(f["return_min"], f["return_max"], f["return_min_inclusive"], f["return_max_inclusive"]),
             "op_class": d.operator_classes.get(f.get("operator_class_id")),
+            "feature_returns": [n for n in feature_notes if n["target"] == "RETURN" and n["form_id"] == f["id"]],
             "parameters": parameters,
             "actions": actions,
         })
@@ -443,7 +496,30 @@ def entry_context(d, e):
         "references": references,
         "examples": examples,
         "sources": sources,
+        "tables": entry_tables(d, e, active_dialects),
+        "feature_notes": [n for n in feature_notes if n["target"] == "NOTE"],
+        "many_dialects": many,
     }
+
+
+# panel of the dialect page that shows each table kind (None: the "All tables" panel)
+TABLE_PANELS = {"GLYPHS": "characters", "CHARACTER_CODES": "characters", "SCREEN_CODES": "characters",
+                "KEYBOARD_CODES": "keys", "ERRORS": "errors", "OPERATOR_PRECEDENCE": "operators",
+                "VARIABLE_LAYOUT": "variables", "PROGRAM_LAYOUT": "program", "MUSICAL_NOTES": "notes"}
+RULE_TEXT = {"PARAMETER": "parameter {}", "ACTION": "action {}", "OPERATOR": "operator", "MANUAL": "{}"}
+
+
+def entry_tables(d, e, dialects):
+    """Tables of the dialect used by the entry (view v_entry_table_kind), in the order of table_kind."""
+    try:
+        rows = d.q("SELECT * FROM v_entry_table_kind WHERE entry_id = ?", e["id"])
+    except sqlite3.OperationalError:          # database without the view
+        return []
+    why = defaultdict(list)
+    for r in rows:
+        why[r["table_kind_id"]].append(RULE_TEXT[r["rule"]].format(r["detail"] or "").strip())
+    kinds = sorted((d.table_kinds[k] for k in why), key=lambda k: k["position"])
+    return [{"k": k, "why": sorted(set(why[k["id"]])), "panel": TABLE_PANELS.get(k["code"], "tables")} for k in kinds]
 
 
 def dialect_context(d, dia):
@@ -494,13 +570,34 @@ def dialect_context(d, dia):
               "interval": interval(t["minimum"], t["maximum"])} for t in types]
     errors = d.q("SELECT e.* FROM v_dialect_error x JOIN error e ON e.id = x.error_id "
                  "WHERE x.dialect_id = ? ORDER BY e.number, e.code", did)
-    features = d.q("SELECT f.* FROM v_dialect_feature x JOIN feature f "
-                   "ON f.id = x.feature_id WHERE x.dialect_id = ? ORDER BY f.code", did)
+    features = []
+    for r in d.q("SELECT * FROM v_dialect_feature_all WHERE dialect_id = ? "
+                 "ORDER BY section_position, position", did):
+        if not features or features[-1]["section"] != r["section"]:
+            features.append({"section": r["section"], "items": []})
+        features[-1]["items"].append(dict(r, layer=d.layers.get(r["layer_id"])))
+    features_missing = sum(1 for s in features for f in s["items"] if f["feature_id"] is None)
+    features_to_verify = sum(1 for s in features for f in s["items"]
+                             if f["feature_id"] is not None and not f["verified"])
     constructs = [{"c": d.constructs[c], "syntax": d.construct_syntax(c)}
                   for c in d.active("v_dialect_construct", "construct_id", did)]
+    def layouts(v):
+        """The memory layouts of a variable type: [{"name": ..., "fields": [...]}], in order."""
+        out = []
+        for f in d.q("SELECT * FROM variable_layout_field WHERE variable_kind_id = ? ORDER BY layout, position", v):
+            if not out or out[-1]["layout"] != f["layout"]:
+                out.append({"layout": f["layout"], "name": f["layout_name"], "fields": []})
+            out[-1]["fields"].append(f)
+        return out
     variable_kinds = [{"v": d.variable_kinds[v], "type": d.data_types[d.variable_kinds[v]["data_type_id"]],
-                       "fields": d.q("SELECT * FROM variable_layout_field WHERE variable_kind_id = ? ORDER BY position", v)}
+                       "layouts": layouts(v)}
                       for v in sorted(d.active("v_dialect_variable_kind", "variable_kind_id", did))]
+    try:
+        memory_areas = {r["area"]: r for r in d.q(
+            "SELECT m.* FROM v_dialect_memory_area x JOIN memory_area m ON m.id = x.memory_area_id "
+            "WHERE x.dialect_id = ?", did)}
+    except sqlite3.OperationalError:          # database without the memory_area table
+        memory_areas = {}
     program_layout = d.q("SELECT p.* FROM v_dialect_program_layout x JOIN program_layout_field p ON p.id = x.field_id "
                          "WHERE x.dialect_id = ? ORDER BY p.position", did)
     key_codes = d.q("SELECT k.*, kw.text AS keyword_text FROM v_dialect_key_code x JOIN key_code k ON k.id = x.key_code_id "
@@ -547,14 +644,17 @@ def dialect_context(d, dia):
     layer_ids = [s["layer_id"] for s in d.stacks[did]]
     machine_ids = [m["m"]["id"] for m in machines]
     tables = d.table_states(layer_ids, machine_ids)
+    errors_notes = [st["notes"] for t in tables if t["k"]["code"] == "ERRORS"
+                    for _, st in t["owners"] if st and st["notes"]]
     custom = d.custom_for(layer_ids, machine_ids)
 
     return {"dia": dia, "stack": stack, "charsets": charsets, "machines": machines, "by_category": by_category,
-            "tables": tables, "custom": custom, "program_layout": program_layout,
+            "tables": tables, "custom": custom, "program_layout": program_layout, "memory_areas": memory_areas,
             "with_examples": with_examples, "examples_to_verify": examples_to_verify,
             "key_codes": key_codes, "musical_notes": musical_notes,
             "n_entries": len(entries), "keywords": keywords, "types": types, "errors": errors,
-            "features": features, "constructs": constructs, "operators": operators,
+            "features": features, "features_missing": features_missing,
+            "features_to_verify": features_to_verify, "errors_notes": errors_notes, "constructs": constructs, "operators": operators,
             "variable_kinds": variable_kinds, "parameter_kinds": parameter_kinds}
 
 
@@ -713,6 +813,10 @@ def main():
                       autoescape=select_autoescape(["html"]), trim_blocks=True, lstrip_blocks=True)
     env.globals.update(entry_url=entry_url, dialect_url=dialect_url, machine_url=machine_url,
                        dialect_name=dialect_name, plural=plural, keyword_url=keyword_url)
+    env.filters["md"] = md_block
+    env.filters["mdi"] = md_inline
+    if markdown_lib is None:
+        print("Warning: the markdown library is missing (python -m pip install markdown): texts are shown as plain text.")
     env.filters["codepoint"] = lambda t: " ".join("U+%04X" % ord(c) for c in (t or ""))
 
     output = Path(args.output)

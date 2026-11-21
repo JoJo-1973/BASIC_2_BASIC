@@ -26,7 +26,7 @@
 
 <p class="breadcrumbs"><a href="../dialects/SINCLAIR_ZX80_4K.html#entries">Sinclair ZX80 BASIC 4K ROM</a> ›</p>
 <h1><span class="entry-name">RND</span> <span class="category">Function</span></h1>
-<p class="subtitle">Random integer.</p>
+<div class="subtitle md"><p>Random integer.</p></div>
 <dl class="facts">
   <dt>Layer</dt><dd><code>ZX80_4K_core</code> — Sinclair ZX80 BASIC (4K ROM)</dd>
   <dt>Dialects</dt><dd><a href="../dialects/SINCLAIR_ZX80_4K.html">Sinclair ZX80 BASIC 4K ROM</a></dd>
@@ -43,13 +43,13 @@
   <p><strong>Returns:</strong> Integer</p>
 
   <table class="parameters">
-    <thead><tr><th>Parameter</th><th>Type</th><th>Values</th><th>Description</th></tr></thead>
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
     <tbody>
     <tr>
       <td><code class="par">n</code></td>
       <td>numeric expression</td>
       <td></td>
-      <td>With n&gt;0 the result goes from 1 to n; with n&lt;0 from -32768 to n-1; with n=0 it is 1.</td>
+      <td>With n&gt;0 the result goes from 1 to n; with n&lt;0 it goes from 1 to 32767 or from -32768 to n (see the algorithm in the notes); with n=0 it is 1.</td>
     </tr>
     </tbody>
   </table>
@@ -61,19 +61,20 @@
   </div>
 </section>
 
+
 <h2>Keywords</h2>
 <table>
   <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
   <tbody>
   <tr><td><a class="kw" href="../keywords/RND-45.html">RND</a></td>
       <td></td>
-      <td></td></tr>
+      <td><em>none</em></td></tr>
   <tr><td><a class="kw" href="../keywords/lparen-7.html">(</a></td>
       <td><code>$DA</code></td>
-      <td></td></tr>
+      <td><code>SHIFT + I</code></td></tr>
   <tr><td><a class="kw" href="../keywords/rparen-6.html">)</a></td>
       <td><code>$D9</code></td>
-      <td></td></tr>
+      <td><code>SHIFT + O</code></td></tr>
   </tbody>
 </table>
 
@@ -81,8 +82,74 @@
 <figure class="example">
 <h3>Throw a die <span class="tag warning">to verify</span></h3>  <pre>PRINT RND(6)</pre>
 <pre class="output" title="Expected result">A number from 1 to 6.</pre></figure>
+<figure class="example">
+<h3>A known sequence</h3>  <pre>10 RANDOMISE 5
+20 PRINT RND(100)
+30 GO TO 20</pre>
+<pre class="output" title="Expected result">1
+46
+84
+93
+10
+4
+82
+59
+69
+86
+16
+90
+54
+27
+69
+97
+94
+97
+62
+45
+92
+54
+52
+…</pre><figcaption>With the same seed the sequence is always the same; it follows the algorithm in the notes.
+</figcaption></figure>
+<figure class="example">
+<h3>Negative argument</h3>  <pre>10 RANDOMISE 5
+20 PRINT RND(-10)
+30 GO TO 20</pre>
+<pre class="output" title="Expected result">385
+29641
+-11137
+-5037
+5989
+2394
+-12280
+-27507
+-20552
+-9238
+10119
+-7211
+-30416
+17606
+-20466
+-2617
+-4290
+-2037
+-25164
+28863
+-5507
+-30205
+-31686
+…</pre><figcaption>-10 is used as 65526: the results go from 1 to 32767 or from -32768 to -10.
+</figcaption></figure>
 
-
+<h2>Notes</h2><div class="md"><p>Algorithm (checked on an emulator against the sequences of <code>RANDOMISE 5</code> with <code>RND(100)</code> and <code>RND(-10)</code>, and of <code>RANDOMISE -5</code>):</p>
+<ol>
+<li>Let n be the seed of the pseudo-random generator (a negative seed is read as an unsigned 16-bit number: -5 becomes 65531).</li>
+<li>If n = 0, let n = 65536.</li>
+<li>Let <code>m = (n*77) MOD 65537</code>.</li>
+<li>If m = 65536, let m = 0.</li>
+<li><code>RND(x)</code> gives <code>u*m/65536 + 1</code> (integer division), where u is x read as an unsigned 16-bit number (<code>x AND 65535</code>: -10 becomes 65526); the result is read as a signed 16-bit integer.</li>
+<li>Let n = m and go back to step 2.</li>
+</ol></div>
 <h2>Related entries</h2>
 <ul><li>See also: <a href="../entries/RANDOMISE-21.html">RANDOMISE</a></li></ul>
 

@@ -26,7 +26,7 @@
 
 <p class="breadcrumbs"><a href="../dialects/SINCLAIR_ZX80_4K.html#entries">Sinclair ZX80 BASIC 4K ROM</a> ›</p>
 <h1><span class="entry-name">RETURN</span> <span class="category">Statement</span></h1>
-<p class="subtitle">Goes back to the line after the last GO SUB executed.</p>
+<div class="subtitle md"><p>Goes back to the line after the last GO SUB executed.</p></div>
 <dl class="facts">
   <dt>Layer</dt><dd><code>ZX80_4K_core</code> — Sinclair ZX80 BASIC (4K ROM)</dd>
   <dt>Dialects</dt><dd><a href="../dialects/SINCLAIR_ZX80_4K.html">Sinclair ZX80 BASIC 4K ROM</a></dd>
@@ -49,13 +49,18 @@
   </div>
 </section>
 
+<h2>Tables</h2>
+<ul class="entry-tables">
+  <li><a href="../dialects/SINCLAIR_ZX80_4K.html#program">Program in memory</a>      <small>— action FLOW_RETURN</small></li>
+</ul>
+
 <h2>Keywords</h2>
 <table>
   <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
   <tbody>
   <tr><td><a class="kw" href="../keywords/RETURN-20.html">RETURN</a></td>
       <td><code>$E7</code></td>
-      <td></td></tr>
+      <td><code>B</code></td></tr>
   </tbody>
 </table>
 
@@ -68,11 +73,11 @@
 <pre class="output" title="Expected result">BACK
 9/30</pre></figure>
 <figure class="example">
-<h3>RETURN without GO SUB <span class="tag warning">to verify</span></h3>  <pre>10 RETURN</pre>
+<h3>RETURN without GO SUB</h3>  <pre>10 RETURN</pre>
 <pre class="output" title="Expected result">7/10</pre><figcaption>Report 7: RETURN without a matching GO SUB.
 </figcaption></figure>
 
-<h2>Notes</h2><p>Without a matching GO SUB: error 7.</p>
+<h2>Notes</h2><div class="md"><p>Without a matching GO SUB: error 7.</p></div>
 <h2>Related entries</h2>
 <ul><li>Opened by: <a href="../entries/GO-SUB-12.html">GO SUB</a></li></ul>
 

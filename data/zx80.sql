@@ -13,134 +13,134 @@ INSERT INTO dialect_layer (dialect_id, layer_id, position) VALUES (1, 1, 1);
 INSERT INTO machine_dialect (machine_id, dialect_id, medium, is_default) VALUES (1, 1, 'ROM', 1);
 
 INSERT INTO charset (machine_id, id, code, name, width, height, description) VALUES (1, 1, 'ZX80_ROM', 'ROM character set', 8, 8, '64 characters and their inverses; non-printable codes appear as ''?'' and tokens as their keyword.');
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 0, '0000000000000000', NULL, ' ', 'space');
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 1, '0014140000000000', NULL, '"', 'quote (string terminator)');
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 2, 'F0F0F0F0F0F0F0F0', NULL, '▌', 'graphic');
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 3, '00000000FFFFFFFF', NULL, '▄', 'graphic');
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 4, 'F0F0F0F000000000', NULL, '▘', 'graphic');
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 5, '0F0F0F0F00000000', NULL, '▝', 'graphic');
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 6, '00000000F0F0F0F0', NULL, '▖', 'graphic');
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 7, '000000000F0F0F0F', NULL, '▗', 'graphic');
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 8, '0F0F0F0FF0F0F0F0', NULL, '▞', 'graphic');
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 9, 'AA55AA55AA55AA55', NULL, '▒', 'graphic');
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 10, '00000000AA55AA55', NULL, '🮏', 'graphic');
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 11, 'AA55AA5500000000', NULL, '🮎', 'graphic');
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 12, '001E217820207F00', NULL, '£', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 13, '00083E483E093E08', NULL, '$', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 14, '0000000800000800', NULL, ':', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 15, '003E410608000800', NULL, '?', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 16, '0004080808080400', NULL, '(', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 17, '0010080808081000', NULL, ')', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 18, '000000003E000000', NULL, '-', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 19, '000008083E080800', NULL, '+', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 20, '00002A1C081C2A00', NULL, '*', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 21, '0000020408102000', NULL, '/', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 22, '0000003E003E0000', NULL, '=', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 23, '0000100804081000', NULL, '>', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 24, '0000040810080400', NULL, '<', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 25, '0000080000080810', NULL, ';', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 26, '0000000000080810', NULL, ',', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 27, '00000000000C0C00', NULL, '.', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 28, '001C224141221C00', NULL, '0', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 29, '000C140404041E00', NULL, '1', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 30, '003E41013E407F00', NULL, '2', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 31, '003E410601413E00', NULL, '3', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 32, '000C1424447F0400', NULL, '4', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 33, '007F407E01413E00', NULL, '5', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 34, '003E407E41413E00', NULL, '6', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 35, '007F010204080800', NULL, '7', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 36, '003E413E41413E00', NULL, '8', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 37, '003E41413F013E00', NULL, '9', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 38, '003E41417F414100', NULL, 'A', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 39, '007E417E41417E00', NULL, 'B', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 40, '001E214040211E00', NULL, 'C', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 41, '007C424141427C00', NULL, 'D', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 42, '007F407C40407F00', NULL, 'E', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 43, '007F407C40404000', NULL, 'F', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 44, '001E214047211E00', NULL, 'G', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 45, '0041417F41414100', NULL, 'H', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 46, '003E080808083E00', NULL, 'I', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 47, '0002020242221C00', NULL, 'J', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 48, '0042447844424100', NULL, 'K', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 49, '0040404040407F00', NULL, 'L', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 50, '0041635549414100', NULL, 'M', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 51, '0061514945434100', NULL, 'N', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 52, '003E414141413E00', NULL, 'O', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 53, '007E41417E404000', NULL, 'P', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 54, '003E414149453E00', NULL, 'Q', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 55, '007E41417E444200', NULL, 'R', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 56, '003E403E01413E00', NULL, 'S', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 57, '007F080808080800', NULL, 'T', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 58, '0041414141413E00', NULL, 'U', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 59, '0041414122140800', NULL, 'V', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 60, '0041414149552200', NULL, 'W', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 61, '0021120C0C122100', NULL, 'X', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 62, '0041221C08080800', NULL, 'Y', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 63, '007F020408107F00', NULL, 'Z', NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 128, 'FFFFFFFFFFFFFFFF', 0, '█', 'inverse space');
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 129, 'FFEBEBFFFFFFFFFF', 1, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 130, '0F0F0F0F0F0F0F0F', 2, '▐', 'inverse graphic');
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 131, 'FFFFFFFF00000000', 3, '▀', 'inverse graphic');
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 132, '0F0F0F0FFFFFFFFF', 4, '▟', 'inverse graphic');
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 133, 'F0F0F0F0FFFFFFFF', 5, '▙', 'inverse graphic');
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 134, 'FFFFFFFF0F0F0F0F', 6, '▜', 'inverse graphic');
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 135, 'FFFFFFFFF0F0F0F0', 7, '▛', 'inverse graphic');
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 136, 'F0F0F0F00F0F0F0F', 8, '▚', 'inverse graphic');
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 137, '55AA55AA55AA55AA', 9, '🮐', 'inverse graphic');
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 138, 'FFFFFFFF55AA55AA', 10, '🮑', 'inverse graphic');
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 139, '55AA55AAFFFFFFFF', 11, '🮒', 'inverse graphic');
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 140, 'FFE1DE87DFDF80FF', 12, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 141, 'FFF7C1B7C1F6C1F7', 13, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 142, 'FFFFFFF7FFFFF7FF', 14, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 143, 'FFC1BEF9F7FFF7FF', 15, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 144, 'FFFBF7F7F7F7FBFF', 16, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 145, 'FFEFF7F7F7F7EFFF', 17, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 146, 'FFFFFFFFC1FFFFFF', 18, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 147, 'FFFFF7F7C1F7F7FF', 19, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 148, 'FFFFD5E3F7E3D5FF', 20, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 149, 'FFFFFDFBF7EFDFFF', 21, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 150, 'FFFFFFC1FFC1FFFF', 22, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 151, 'FFFFEFF7FBF7EFFF', 23, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 152, 'FFFFFBF7EFF7FBFF', 24, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 153, 'FFFFF7FFFFF7F7EF', 25, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 154, 'FFFFFFFFFFF7F7EF', 26, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 155, 'FFFFFFFFFFF3F3FF', 27, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 156, 'FFE3DDBEBEDDE3FF', 28, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 157, 'FFF3EBFBFBFBE1FF', 29, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 158, 'FFC1BEFEC1BF80FF', 30, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 159, 'FFC1BEF9FEBEC1FF', 31, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 160, 'FFF3EBDBBB80FBFF', 32, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 161, 'FF80BF81FEBEC1FF', 33, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 162, 'FFC1BF81BEBEC1FF', 34, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 163, 'FF80FEFDFBF7F7FF', 35, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 164, 'FFC1BEC1BEBEC1FF', 36, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 165, 'FFC1BEBEC0FEC1FF', 37, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 166, 'FFC1BEBE80BEBEFF', 38, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 167, 'FF81BE81BEBE81FF', 39, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 168, 'FFE1DEBFBFDEE1FF', 40, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 169, 'FF83BDBEBEBD83FF', 41, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 170, 'FF80BF83BFBF80FF', 42, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 171, 'FF80BF83BFBFBFFF', 43, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 172, 'FFE1DEBFB8DEE1FF', 44, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 173, 'FFBEBE80BEBEBEFF', 45, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 174, 'FFC1F7F7F7F7C1FF', 46, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 175, 'FFFDFDFDBDDDE3FF', 47, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 176, 'FFBDBB87BBBDBEFF', 48, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 177, 'FFBFBFBFBFBF80FF', 49, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 178, 'FFBE9CAAB6BEBEFF', 50, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 179, 'FF9EAEB6BABCBEFF', 51, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 180, 'FFC1BEBEBEBEC1FF', 52, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 181, 'FF81BEBE81BFBFFF', 53, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 182, 'FFC1BEBEB6BAC1FF', 54, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 183, 'FF81BEBE81BBBDFF', 55, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 184, 'FFC1BFC1FEBEC1FF', 56, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 185, 'FF80F7F7F7F7F7FF', 57, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 186, 'FFBEBEBEBEBEC1FF', 58, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 187, 'FFBEBEBEDDEBF7FF', 59, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 188, 'FFBEBEBEB6AADDFF', 60, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 189, 'FFDEEDF3F3EDDEFF', 61, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 190, 'FFBEDDE3F7F7F7FF', 62, NULL, NULL);
-INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, name) VALUES (1, 191, 'FF80FDFBF7EF80FF', 63, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 0, '0000000000000000', NULL, ' ', 'SPACE', 'space');
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 1, '0014140000000000', NULL, '"', 'QUOTATION MARK', 'quote');
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 2, 'F0F0F0F0F0F0F0F0', NULL, '▌', 'LEFT HALF BLOCK', 'graphic');
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 3, '00000000FFFFFFFF', NULL, '▄', 'LOWER HALF BLOCK', 'graphic');
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 4, 'F0F0F0F000000000', NULL, '▘', 'QUADRANT UPPER LEFT', 'graphic');
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 5, '0F0F0F0F00000000', NULL, '▝', 'QUADRANT UPPER RIGHT', 'graphic');
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 6, '00000000F0F0F0F0', NULL, '▖', 'QUADRANT LOWER LEFT', 'graphic');
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 7, '000000000F0F0F0F', NULL, '▗', 'QUADRANT LOWER RIGHT', 'graphic');
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 8, '0F0F0F0FF0F0F0F0', NULL, '▞', 'QUADRANT UPPER RIGHT AND LOWER LEFT', 'graphic');
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 9, 'AA55AA55AA55AA55', NULL, '▒', 'MEDIUM SHADE', 'graphic');
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 10, '00000000AA55AA55', NULL, '🮏', 'LOWER HALF MEDIUM SHADE', 'graphic');
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 11, 'AA55AA5500000000', NULL, '🮎', 'UPPER HALF MEDIUM SHADE', 'graphic');
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 12, '001E217820207F00', NULL, '£', 'POUND SIGN', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 13, '00083E483E093E08', NULL, '$', 'DOLLAR SIGN', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 14, '0000000800000800', NULL, ':', 'COLON', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 15, '003E410608000800', NULL, '?', 'QUESTION MARK', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 16, '0004080808080400', NULL, '(', 'LEFT PARENTHESIS', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 17, '0010080808081000', NULL, ')', 'RIGHT PARENTHESIS', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 18, '000000003E000000', NULL, '-', 'HYPHEN-MINUS', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 19, '000008083E080800', NULL, '+', 'PLUS SIGN', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 20, '00002A1C081C2A00', NULL, '*', 'ASTERISK', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 21, '0000020408102000', NULL, '/', 'SOLIDUS', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 22, '0000003E003E0000', NULL, '=', 'EQUALS SIGN', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 23, '0000100804081000', NULL, '>', 'GREATER-THAN SIGN', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 24, '0000040810080400', NULL, '<', 'LESS-THAN SIGN', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 25, '0000080000080810', NULL, ';', 'SEMICOLON', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 26, '0000000000080810', NULL, ',', 'COMMA', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 27, '00000000000C0C00', NULL, '.', 'FULL STOP', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 28, '001C224141221C00', NULL, '0', 'DIGIT ZERO', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 29, '000C140404041E00', NULL, '1', 'DIGIT ONE', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 30, '003E41013E407F00', NULL, '2', 'DIGIT TWO', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 31, '003E410601413E00', NULL, '3', 'DIGIT THREE', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 32, '000C1424447F0400', NULL, '4', 'DIGIT FOUR', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 33, '007F407E01413E00', NULL, '5', 'DIGIT FIVE', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 34, '003E407E41413E00', NULL, '6', 'DIGIT SIX', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 35, '007F010204080800', NULL, '7', 'DIGIT SEVEN', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 36, '003E413E41413E00', NULL, '8', 'DIGIT EIGHT', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 37, '003E41413F013E00', NULL, '9', 'DIGIT NINE', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 38, '003E41417F414100', NULL, 'A', 'LATIN CAPITAL LETTER A', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 39, '007E417E41417E00', NULL, 'B', 'LATIN CAPITAL LETTER B', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 40, '001E214040211E00', NULL, 'C', 'LATIN CAPITAL LETTER C', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 41, '007C424141427C00', NULL, 'D', 'LATIN CAPITAL LETTER D', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 42, '007F407C40407F00', NULL, 'E', 'LATIN CAPITAL LETTER E', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 43, '007F407C40404000', NULL, 'F', 'LATIN CAPITAL LETTER F', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 44, '001E214047211E00', NULL, 'G', 'LATIN CAPITAL LETTER G', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 45, '0041417F41414100', NULL, 'H', 'LATIN CAPITAL LETTER H', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 46, '003E080808083E00', NULL, 'I', 'LATIN CAPITAL LETTER I', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 47, '0002020242221C00', NULL, 'J', 'LATIN CAPITAL LETTER J', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 48, '0042447844424100', NULL, 'K', 'LATIN CAPITAL LETTER K', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 49, '0040404040407F00', NULL, 'L', 'LATIN CAPITAL LETTER L', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 50, '0041635549414100', NULL, 'M', 'LATIN CAPITAL LETTER M', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 51, '0061514945434100', NULL, 'N', 'LATIN CAPITAL LETTER N', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 52, '003E414141413E00', NULL, 'O', 'LATIN CAPITAL LETTER O', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 53, '007E41417E404000', NULL, 'P', 'LATIN CAPITAL LETTER P', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 54, '003E414149453E00', NULL, 'Q', 'LATIN CAPITAL LETTER Q', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 55, '007E41417E444200', NULL, 'R', 'LATIN CAPITAL LETTER R', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 56, '003E403E01413E00', NULL, 'S', 'LATIN CAPITAL LETTER S', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 57, '007F080808080800', NULL, 'T', 'LATIN CAPITAL LETTER T', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 58, '0041414141413E00', NULL, 'U', 'LATIN CAPITAL LETTER U', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 59, '0041414122140800', NULL, 'V', 'LATIN CAPITAL LETTER V', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 60, '0041414149552200', NULL, 'W', 'LATIN CAPITAL LETTER W', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 61, '0021120C0C122100', NULL, 'X', 'LATIN CAPITAL LETTER X', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 62, '0041221C08080800', NULL, 'Y', 'LATIN CAPITAL LETTER Y', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 63, '007F020408107F00', NULL, 'Z', 'LATIN CAPITAL LETTER Z', NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 128, 'FFFFFFFFFFFFFFFF', 0, '█', 'FULL BLOCK', 'inverse space');
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 129, 'FFEBEBFFFFFFFFFF', 1, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 130, '0F0F0F0F0F0F0F0F', 2, '▐', 'RIGHT HALF BLOCK', 'inverse graphic');
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 131, 'FFFFFFFF00000000', 3, '▀', 'UPPER HALF BLOCK', 'inverse graphic');
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 132, '0F0F0F0FFFFFFFFF', 4, '▟', 'QUADRANT UPPER RIGHT AND LOWER LEFT AND LOWER RIGHT', 'inverse graphic');
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 133, 'F0F0F0F0FFFFFFFF', 5, '▙', 'QUADRANT UPPER LEFT AND LOWER LEFT AND LOWER RIGHT', 'inverse graphic');
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 134, 'FFFFFFFF0F0F0F0F', 6, '▜', 'QUADRANT UPPER LEFT AND UPPER RIGHT AND LOWER RIGHT', 'inverse graphic');
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 135, 'FFFFFFFFF0F0F0F0', 7, '▛', 'QUADRANT UPPER LEFT AND UPPER RIGHT AND LOWER LEFT', 'inverse graphic');
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 136, 'F0F0F0F00F0F0F0F', 8, '▚', 'QUADRANT UPPER LEFT AND LOWER RIGHT', 'inverse graphic');
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 137, '55AA55AA55AA55AA', 9, '🮐', 'INVERSE MEDIUM SHADE', 'inverse graphic');
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 138, 'FFFFFFFF55AA55AA', 10, '🮑', 'UPPER HALF BLOCK AND LOWER HALF INVERSE MEDIUM SHADE', 'inverse graphic');
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 139, '55AA55AAFFFFFFFF', 11, '🮒', 'UPPER HALF INVERSE MEDIUM SHADE AND LOWER HALF BLOCK', 'inverse graphic');
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 140, 'FFE1DE87DFDF80FF', 12, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 141, 'FFF7C1B7C1F6C1F7', 13, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 142, 'FFFFFFF7FFFFF7FF', 14, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 143, 'FFC1BEF9F7FFF7FF', 15, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 144, 'FFFBF7F7F7F7FBFF', 16, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 145, 'FFEFF7F7F7F7EFFF', 17, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 146, 'FFFFFFFFC1FFFFFF', 18, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 147, 'FFFFF7F7C1F7F7FF', 19, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 148, 'FFFFD5E3F7E3D5FF', 20, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 149, 'FFFFFDFBF7EFDFFF', 21, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 150, 'FFFFFFC1FFC1FFFF', 22, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 151, 'FFFFEFF7FBF7EFFF', 23, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 152, 'FFFFFBF7EFF7FBFF', 24, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 153, 'FFFFF7FFFFF7F7EF', 25, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 154, 'FFFFFFFFFFF7F7EF', 26, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 155, 'FFFFFFFFFFF3F3FF', 27, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 156, 'FFE3DDBEBEDDE3FF', 28, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 157, 'FFF3EBFBFBFBE1FF', 29, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 158, 'FFC1BEFEC1BF80FF', 30, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 159, 'FFC1BEF9FEBEC1FF', 31, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 160, 'FFF3EBDBBB80FBFF', 32, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 161, 'FF80BF81FEBEC1FF', 33, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 162, 'FFC1BF81BEBEC1FF', 34, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 163, 'FF80FEFDFBF7F7FF', 35, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 164, 'FFC1BEC1BEBEC1FF', 36, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 165, 'FFC1BEBEC0FEC1FF', 37, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 166, 'FFC1BEBE80BEBEFF', 38, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 167, 'FF81BE81BEBE81FF', 39, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 168, 'FFE1DEBFBFDEE1FF', 40, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 169, 'FF83BDBEBEBD83FF', 41, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 170, 'FF80BF83BFBF80FF', 42, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 171, 'FF80BF83BFBFBFFF', 43, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 172, 'FFE1DEBFB8DEE1FF', 44, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 173, 'FFBEBE80BEBEBEFF', 45, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 174, 'FFC1F7F7F7F7C1FF', 46, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 175, 'FFFDFDFDBDDDE3FF', 47, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 176, 'FFBDBB87BBBDBEFF', 48, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 177, 'FFBFBFBFBFBF80FF', 49, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 178, 'FFBE9CAAB6BEBEFF', 50, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 179, 'FF9EAEB6BABCBEFF', 51, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 180, 'FFC1BEBEBEBEC1FF', 52, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 181, 'FF81BEBE81BFBFFF', 53, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 182, 'FFC1BEBEB6BAC1FF', 54, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 183, 'FF81BEBE81BBBDFF', 55, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 184, 'FFC1BFC1FEBEC1FF', 56, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 185, 'FF80F7F7F7F7F7FF', 57, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 186, 'FFBEBEBEBEBEC1FF', 58, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 187, 'FFBEBEBEDDEBF7FF', 59, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 188, 'FFBEBEBEB6AADDFF', 60, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 189, 'FFDEEDF3F3EDDEFF', 61, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 190, 'FFBEDDE3F7F7F7FF', 62, NULL, NULL, NULL);
+INSERT INTO glyph (charset_id, code, bitmap, inverse_of, unicode, unicode_name, name) VALUES (1, 191, 'FF80FDFBF7EF80FF', 63, NULL, NULL, NULL);
 INSERT INTO screen_code (machine_id, code, glyph_code, notes) VALUES (1, 0, 0, NULL);
 INSERT INTO screen_code (machine_id, code, glyph_code, notes) VALUES (1, 1, 1, NULL);
 INSERT INTO screen_code (machine_id, code, glyph_code, notes) VALUES (1, 2, 2, NULL);
@@ -270,7 +270,7 @@ INSERT INTO screen_code (machine_id, code, glyph_code, notes) VALUES (1, 189, 18
 INSERT INTO screen_code (machine_id, code, glyph_code, notes) VALUES (1, 190, 190, 'Inverse video');
 INSERT INTO screen_code (machine_id, code, glyph_code, notes) VALUES (1, 191, 191, 'Inverse video');
 INSERT INTO character_code (layer_id, code, kind, screen_code) VALUES (1, 0, 'PRINTABLE', 0);
-INSERT INTO character_code (layer_id, code, kind, screen_code) VALUES (1, 1, 'PRINTABLE', 1);
+INSERT INTO character_code (layer_id, code, kind, name, action, notes) VALUES (1, 1, 'CONTROL', 'String terminator', 'Ends a string', 'Not printable (PRINT CHR$(1) prints nothing). It ends the strings in the variables area and is the byte with which typed quotes are stored in the program. The printable quote is code 212.');
 INSERT INTO character_code (layer_id, code, kind, screen_code) VALUES (1, 2, 'PRINTABLE', 2);
 INSERT INTO character_code (layer_id, code, kind, screen_code) VALUES (1, 3, 'PRINTABLE', 3);
 INSERT INTO character_code (layer_id, code, kind, screen_code) VALUES (1, 4, 'PRINTABLE', 4);
@@ -387,7 +387,7 @@ INSERT INTO character_code (layer_id, code, kind, screen_code, notes) VALUES (1,
 INSERT INTO character_code (layer_id, code, kind, screen_code, notes) VALUES (1, 115, 'UNUSED', 15, 'Printed as ''?''');
 INSERT INTO character_code (layer_id, code, kind, screen_code, notes) VALUES (1, 116, 'UNUSED', 15, 'Printed as ''?''');
 INSERT INTO character_code (layer_id, code, kind, screen_code, notes) VALUES (1, 117, 'UNUSED', 15, 'Printed as ''?''');
-INSERT INTO character_code (layer_id, code, kind, screen_code, notes) VALUES (1, 118, 'UNUSED', 15, 'Printed as ''?''');
+INSERT INTO character_code (layer_id, code, kind, name, action) VALUES (1, 118, 'CONTROL', 'NEWLINE', 'Ends a program line');
 INSERT INTO character_code (layer_id, code, kind, screen_code, notes) VALUES (1, 119, 'UNUSED', 15, 'Printed as ''?''');
 INSERT INTO character_code (layer_id, code, kind, screen_code, notes) VALUES (1, 120, 'UNUSED', 15, 'Printed as ''?''');
 INSERT INTO character_code (layer_id, code, kind, screen_code, notes) VALUES (1, 121, 'UNUSED', 15, 'Printed as ''?''');
@@ -481,7 +481,7 @@ INSERT INTO character_code (layer_id, code, kind, screen_code, notes) VALUES (1,
 INSERT INTO character_code (layer_id, code, kind, screen_code, notes) VALUES (1, 209, 'UNUSED', 15, 'Printed as ''?''');
 INSERT INTO character_code (layer_id, code, kind, screen_code, notes) VALUES (1, 210, 'UNUSED', 15, 'Printed as ''?''');
 INSERT INTO character_code (layer_id, code, kind, screen_code, notes) VALUES (1, 211, 'UNUSED', 15, 'Printed as ''?''');
-INSERT INTO character_code (layer_id, code, kind) VALUES (1, 212, 'TOKEN');
+INSERT INTO character_code (layer_id, code, kind, screen_code, notes) VALUES (1, 212, 'PRINTABLE', 1, 'Printable quote: cannot be typed from the keyboard, but can be put in string variables.');
 INSERT INTO character_code (layer_id, code, kind) VALUES (1, 213, 'TOKEN');
 INSERT INTO character_code (layer_id, code, kind) VALUES (1, 214, 'TOKEN');
 INSERT INTO character_code (layer_id, code, kind) VALUES (1, 215, 'TOKEN');
@@ -526,12 +526,17 @@ INSERT INTO character_code (layer_id, code, kind) VALUES (1, 253, 'TOKEN');
 INSERT INTO character_code (layer_id, code, kind) VALUES (1, 254, 'TOKEN');
 INSERT INTO character_code (layer_id, code, kind, screen_code, notes) VALUES (1, 255, 'UNUSED', 15, 'Printed as ''?''');
 
+INSERT INTO memory_area (layer_id, area, prologue, epilogue, notes) VALUES (1, 'PROGRAM', '', '$00, $00', NULL);
+INSERT INTO memory_area (layer_id, area, prologue, epilogue, notes) VALUES (1, 'VARIABLES', '', '$80', NULL);
+INSERT INTO program_layout_field (layer_id, position, name, offset, size, byte_order, description) VALUES (1, 1, 'Line number', 0, 2, 'BIG', NULL);
+INSERT INTO program_layout_field (layer_id, position, name, offset, size, byte_order, description) VALUES (1, 2, 'Line text', 2, NULL, NULL, 'Tokenized text of the line.');
+INSERT INTO program_layout_field (layer_id, position, name, offset, size, byte_order, description) VALUES (1, 3, 'NEWLINE', NULL, 1, NULL, '$76.');
 INSERT INTO table_status (table_kind_id, layer_id, status, notes) SELECT id, 1, 'COMPLETE', NULL FROM table_kind WHERE code = 'CHARACTER_CODES';
-INSERT INTO table_status (table_kind_id, layer_id, status, notes) SELECT id, 1, 'TO_DO', NULL FROM table_kind WHERE code = 'KEYBOARD_CODES';
-INSERT INTO table_status (table_kind_id, layer_id, status, notes) SELECT id, 1, 'COMPLETE', NULL FROM table_kind WHERE code = 'ERRORS';
+INSERT INTO table_status (table_kind_id, layer_id, status, notes) SELECT id, 1, 'NOT_APPLICABLE', 'The ZX80 BASIC has no keyboard codes.' FROM table_kind WHERE code = 'KEYBOARD_CODES';
+INSERT INTO table_status (table_kind_id, layer_id, status, notes) SELECT id, 1, 'COMPLETE', 'Reports are shown as n/m: n = error code (0 = no error), m = line number.' FROM table_kind WHERE code = 'ERRORS';
 INSERT INTO table_status (table_kind_id, layer_id, status, notes) SELECT id, 1, 'COMPLETE', NULL FROM table_kind WHERE code = 'OPERATOR_PRECEDENCE';
-INSERT INTO table_status (table_kind_id, layer_id, status, notes) SELECT id, 1, 'TO_DO', NULL FROM table_kind WHERE code = 'VARIABLE_LAYOUT';
-INSERT INTO table_status (table_kind_id, layer_id, status, notes) SELECT id, 1, 'TO_DO', NULL FROM table_kind WHERE code = 'PROGRAM_LAYOUT';
+INSERT INTO table_status (table_kind_id, layer_id, status, notes) SELECT id, 1, 'COMPLETE', NULL FROM table_kind WHERE code = 'VARIABLE_LAYOUT';
+INSERT INTO table_status (table_kind_id, layer_id, status, notes) SELECT id, 1, 'COMPLETE', NULL FROM table_kind WHERE code = 'PROGRAM_LAYOUT';
 INSERT INTO table_status (table_kind_id, layer_id, status, notes) SELECT id, 1, 'NOT_APPLICABLE', 'The ZX80 has no sound.' FROM table_kind WHERE code = 'MUSICAL_NOTES';
 INSERT INTO table_status (table_kind_id, machine_id, status, notes) SELECT id, 1, 'COMPLETE', NULL FROM table_kind WHERE code = 'GLYPHS';
 INSERT INTO table_status (table_kind_id, machine_id, status, notes) SELECT id, 1, 'COMPLETE', NULL FROM table_kind WHERE code = 'SCREEN_CODES';
@@ -540,14 +545,31 @@ INSERT INTO table_status (table_kind_id, machine_id, status, notes) SELECT id, 1
 INSERT INTO source (id, title, author, publisher, year, kind, url, notes) VALUES (1, 'Sinclair ZX80 Operating Manual - A Course in BASIC Programming', 'Hugo Davenport', 'Science of Cambridge Ltd', 1980, 'MANUAL', NULL, 'Second edition');
 INSERT INTO source (id, title, author, publisher, year, kind, url, notes) VALUES (2, 'An Assembly Listing of the ROM of the Sinclair ZX80', 'Geoff Wearmouth', NULL, 2002, 'WEB', NULL, 'Commented disassembly of the 4K ROM');
 INSERT INTO source (id, title, author, publisher, year, kind, url, notes) VALUES (3, 'ZX80 character set', 'Wikipedia', NULL, NULL, 'WEB', 'https://en.wikipedia.org/wiki/ZX80_character_set', NULL);
+INSERT INTO source (id, title, author, publisher, year, kind, url, notes) VALUES (4, 'ZX80 keyboard layout', 'Grant Searle', NULL, NULL, 'IMAGE', NULL, 'Drawing of the original keyboard legends: data/sources/zx80_keyboard.png');
 
 INSERT INTO data_type (id, layer_id, code, name, suffix, type_class_id, minimum, maximum, bytes, notes) VALUES (1, 1, 'INT16', 'Integer', NULL, 2, -32768, 32767, 2, 'The only numeric type. Out of range: error 6.');
 INSERT INTO data_type (id, layer_id, code, name, suffix, type_class_id, minimum, maximum, bytes, notes) VALUES (2, 1, 'STRING', 'String', '$', 4, NULL, NULL, NULL, 'Any length, including empty, limited only by memory. The character with code 1 acts as terminator.');
 
-INSERT INTO variable_kind (id, layer_id, code, name, data_type_id, dimensions, name_rule, name_pattern, examples, notes) VALUES (1, 1, 'NUMERIC', 'Numeric variable', 1, 0, 'letter followed by letters or digits', '^[A-Z][A-Z0-9]*$', 'A, PIPPO24', 'No length limit.');
-INSERT INTO variable_kind (id, layer_id, code, name, data_type_id, dimensions, name_rule, name_pattern, examples, notes) VALUES (2, 1, 'STRING', 'String variable', 2, 0, 'one letter followed by $', '^[A-Z]\$$', 'A$, Z$', 'At most 26 string variables.');
-INSERT INTO variable_kind (id, layer_id, code, name, data_type_id, dimensions, name_rule, name_pattern, examples, notes) VALUES (3, 1, 'NUMERIC_ARRAY', 'Numeric array', 1, 1, 'one letter; an element is written with one integer subscript in parentheses', '^[A-Z]$', 'B(5), F(12)', 'One dimension, subscripts from 0 to n (DIM). An array can have the same name as a variable (not recommended). The manual describes integer arrays only.');
-INSERT INTO variable_kind (id, layer_id, code, name, data_type_id, dimensions, name_rule, name_pattern, examples, notes) VALUES (4, 1, 'LOOP_CONTROL', 'Loop control variable', 1, 0, 'one letter', '^[A-Z]$', 'I', NULL);
+INSERT INTO variable_kind (id, layer_id, code, name, data_type_id, dimensions, name_rule, name_pattern, max_name_length, significant_chars, examples, notes) VALUES (1, 1, 'NUMERIC', 'Numeric variable', 1, 0, 'letter followed by letters or digits', '^[A-Z][A-Z0-9]*$', 0, 0, 'A, AB3', 'No length limit.');
+INSERT INTO variable_kind (id, layer_id, code, name, data_type_id, dimensions, name_rule, name_pattern, max_name_length, significant_chars, examples, notes) VALUES (2, 1, 'STRING', 'String variable', 2, 0, 'one letter followed by $', '^[A-Z]\$$', 1, 0, 'A$, Z$', 'At most 26 string variables.');
+INSERT INTO variable_kind (id, layer_id, code, name, data_type_id, dimensions, name_rule, name_pattern, max_name_length, significant_chars, examples, notes) VALUES (3, 1, 'NUMERIC_ARRAY', 'Numeric array', 1, 1, 'one letter; an element is written with one integer subscript in parentheses', '^[A-Z]$', 1, 0, 'B(5), F(12)', 'One dimension, subscripts start from 0. An array can have the same name as a variable (not recommended). The manual describes integer arrays only.');
+INSERT INTO variable_kind (id, layer_id, code, name, data_type_id, dimensions, name_rule, name_pattern, max_name_length, significant_chars, examples, notes) VALUES (4, 1, 'LOOP_CONTROL', 'Loop control variable', 1, 0, 'one letter', '^[A-Z]$', 1, 0, 'I', NULL);
+INSERT INTO variable_layout_field (variable_kind_id, layout, layout_name, position, name, offset, size, byte_order, description) VALUES (1, 1, 'Name of one character', 1, 'Name', 0, 1, NULL, 'Character code of the letter OR $60.');
+INSERT INTO variable_layout_field (variable_kind_id, layout, layout_name, position, name, offset, size, byte_order, description) VALUES (1, 1, 'Name of one character', 2, 'Value', 1, 2, 'LITTLE', NULL);
+INSERT INTO variable_layout_field (variable_kind_id, layout, layout_name, position, name, offset, size, byte_order, description) VALUES (1, 2, 'Name of more than one character', 1, 'First letter', 0, 1, NULL, 'Character code of the first letter AND $1F OR $40.');
+INSERT INTO variable_layout_field (variable_kind_id, layout, layout_name, position, name, offset, size, byte_order, description) VALUES (1, 2, 'Name of more than one character', 2, 'Following letters', 1, NULL, NULL, 'Character codes of the letters from the second to the last but one.');
+INSERT INTO variable_layout_field (variable_kind_id, layout, layout_name, position, name, offset, size, byte_order, description) VALUES (1, 2, 'Name of more than one character', 3, 'Last letter', NULL, 1, NULL, 'Character code of the last letter AND $1F OR $80.');
+INSERT INTO variable_layout_field (variable_kind_id, layout, layout_name, position, name, offset, size, byte_order, description) VALUES (1, 2, 'Name of more than one character', 4, 'Value', NULL, 2, 'LITTLE', NULL);
+INSERT INTO variable_layout_field (variable_kind_id, layout, layout_name, position, name, offset, size, byte_order, description) VALUES (2, 1, NULL, 1, 'Name', 0, 1, NULL, 'Character code of the letter AND $1F OR $80.');
+INSERT INTO variable_layout_field (variable_kind_id, layout, layout_name, position, name, offset, size, byte_order, description) VALUES (2, 1, NULL, 2, 'Characters', 1, NULL, NULL, 'Character codes of the string, from the first to the last.');
+INSERT INTO variable_layout_field (variable_kind_id, layout, layout_name, position, name, offset, size, byte_order, description) VALUES (2, 1, NULL, 3, 'Terminator', NULL, 1, NULL, '$01.');
+INSERT INTO variable_layout_field (variable_kind_id, layout, layout_name, position, name, offset, size, byte_order, description) VALUES (3, 1, NULL, 1, 'Name', 0, 1, NULL, 'Character code of the letter AND $1F OR $90.');
+INSERT INTO variable_layout_field (variable_kind_id, layout, layout_name, position, name, offset, size, byte_order, description) VALUES (3, 1, NULL, 2, 'Size', 1, 1, NULL, 'Size of the array, n.');
+INSERT INTO variable_layout_field (variable_kind_id, layout, layout_name, position, name, offset, size, byte_order, description) VALUES (3, 1, NULL, 3, 'Elements', 2, NULL, 'LITTLE', 'Elements from 0 to n, 2 bytes each: element k at offset 2*(k+1).');
+INSERT INTO variable_layout_field (variable_kind_id, layout, layout_name, position, name, offset, size, byte_order, description) VALUES (4, 1, NULL, 1, 'Name', 0, 1, NULL, 'Character code of the letter AND $1F OR $E0.');
+INSERT INTO variable_layout_field (variable_kind_id, layout, layout_name, position, name, offset, size, byte_order, description) VALUES (4, 1, NULL, 2, 'Value', 1, 2, 'LITTLE', NULL);
+INSERT INTO variable_layout_field (variable_kind_id, layout, layout_name, position, name, offset, size, byte_order, description) VALUES (4, 1, NULL, 3, 'Upper limit', 3, 2, 'LITTLE', 'End value of the FOR loop.');
+INSERT INTO variable_layout_field (variable_kind_id, layout, layout_name, position, name, offset, size, byte_order, description) VALUES (4, 1, NULL, 4, 'FOR line', 5, 2, 'BIG', 'Number of the line where the FOR loop is defined, plus 1.');
 
 INSERT INTO parameter_kind (id, layer_id, code, name, nature, type_class_id, variable_kind_id, notes) VALUES (1, 1, 'NUM_LITERAL', 'Numeric literal', 'LITERAL', 1, NULL, NULL);
 INSERT INTO parameter_kind (id, layer_id, code, name, nature, type_class_id, variable_kind_id, notes) VALUES (2, 1, 'STR_LITERAL', 'String literal', 'LITERAL', 4, NULL, 'Enclosed in quotes.');
@@ -562,18 +584,19 @@ INSERT INTO parameter_kind (id, layer_id, code, name, nature, type_class_id, var
 INSERT INTO parameter_kind (id, layer_id, code, name, nature, type_class_id, variable_kind_id, notes) VALUES (11, 1, 'STATEMENT', 'Statement', 'STATEMENT', NULL, NULL, NULL);
 INSERT INTO parameter_kind (id, layer_id, code, name, nature, type_class_id, variable_kind_id, notes) VALUES (12, 1, 'CONDITION', 'Condition', 'CONDITION', 1, NULL, 'Usually a relational expression, whose terms can also be strings (A$="Y"); its numeric value is read with the truth test: 0 = false, otherwise true.');
 
-INSERT INTO feature (layer_id, code, value, description) VALUES (1, 'LINE_NUMBERS', '1-9999', 'Range of line numbers.');
-INSERT INTO feature (layer_id, code, value, description) VALUES (1, 'STATEMENTS_PER_LINE', '1', 'One statement per line: there is no '':'' separator.');
-INSERT INTO feature (layer_id, code, value, description) VALUES (1, 'ARITHMETIC', '16-bit integer', 'Values from -32768 to 32767; out of range: error 6.');
-INSERT INTO feature (layer_id, code, value, description) VALUES (1, 'DIVISION', 'truncates towards zero', NULL);
-INSERT INTO feature (layer_id, code, value, description) VALUES (1, 'TRUE_VALUE', '-1', 'Value produced by a true comparison.');
-INSERT INTO feature (layer_id, code, value, description) VALUES (1, 'FALSE_VALUE', '0', 'Value produced by a false comparison.');
-INSERT INTO feature (layer_id, code, value, description) VALUES (1, 'TRUTH_TEST', 'NONZERO', 'A number used as a condition is true if it is not 0. AND, OR and NOT work bit by bit: NOT 1 = -2, which is true.');
-INSERT INTO feature (layer_id, code, value, description) VALUES (1, 'FOR_STEP', 'fixed at 1', 'There is no STEP.');
-INSERT INTO feature (layer_id, code, value, description) VALUES (1, 'LET', 'mandatory', 'Every statement starts with a keyword.');
-INSERT INTO feature (layer_id, code, value, description) VALUES (1, 'KEYWORD_ENTRY', 'one key for statements and commands', 'With the K cursor the key enters the whole keyword; functions are typed letter by letter.');
-INSERT INTO feature (layer_id, code, value, description) VALUES (1, 'ERROR_FORMAT', 'n/m', 'n = code (0 = no error), m = line number.');
-INSERT INTO feature (layer_id, code, value, description) VALUES (1, 'SCREEN', '32 columns', 'A comma in PRINT moves to the next zone (4 zones of 8 columns).');
+INSERT INTO feature (layer_id, feature_kind_id, value, verified, notes) SELECT 1, id, '1-9999', 1, 'Entering line 0 gives an error.' FROM feature_kind WHERE code = 'LINE_NUMBERS';
+INSERT INTO feature (layer_id, feature_kind_id, value, verified, notes) SELECT 1, id, 'No', 1, NULL FROM feature_kind WHERE code = 'MULTIPLE_STATEMENTS';
+INSERT INTO feature (layer_id, feature_kind_id, value, verified, notes) SELECT 1, id, 'None', 1, NULL FROM feature_kind WHERE code = 'STATEMENT_SEPARATOR';
+INSERT INTO feature (layer_id, feature_kind_id, value, verified, notes) SELECT 1, id, 'Mandatory', 1, 'Every statement starts with a keyword.' FROM feature_kind WHERE code = 'LET';
+INSERT INTO feature (layer_id, feature_kind_id, value, verified, notes) SELECT 1, id, '-1', 1, NULL FROM feature_kind WHERE code = 'TRUE_VALUE';
+INSERT INTO feature (layer_id, feature_kind_id, value, verified, notes) SELECT 1, id, '0', 1, NULL FROM feature_kind WHERE code = 'FALSE_VALUE';
+INSERT INTO feature (layer_id, feature_kind_id, value, verified, notes) SELECT 1, id, 'NONZERO', 1, 'AND, OR and NOT work bit by bit: NOT 1 = -2, which is true.' FROM feature_kind WHERE code = 'TRUTH_TEST';
+INSERT INTO feature (layer_id, feature_kind_id, value, verified, notes) SELECT 1, id, 'Truncation towards zero', 1, NULL FROM feature_kind WHERE code = 'INTEGER_CONVERSION';
+INSERT INTO feature (layer_id, feature_kind_id, value, verified, notes) SELECT 1, id, 'Yes', 1, NULL FROM feature_kind WHERE code = 'FOR_RUNS_ONCE';
+INSERT INTO feature (layer_id, feature_kind_id, value, verified, notes) SELECT 1, id, 'Yes', 1, NULL FROM feature_kind WHERE code = 'FOR_VARIABLE_CHANGEABLE';
+INSERT INTO feature (layer_id, feature_kind_id, value, verified, notes) SELECT 1, id, 'Yes', 1, 'With the K cursor a key enters the whole keyword; functions are typed letter by letter.' FROM feature_kind WHERE code = 'MODAL_KEYBOARD';
+INSERT INTO feature (layer_id, feature_kind_id, value, verified, notes) SELECT 1, id, '8 columns', 1, '4 zones on the 32-column screen.' FROM feature_kind WHERE code = 'TAB_ZONE_WIDTH';
+INSERT INTO feature (layer_id, feature_kind_id, value, verified, notes) SELECT 1, id, 'No', 1, NULL FROM feature_kind WHERE code = 'VARIABLE_TAB_STOPS';
 
 INSERT INTO error (layer_id, code, number, message, description) VALUES (1, 'OK', 0, '0/n', 'No error: command executed, end of program, BREAK pressed, or GO TO a line beyond the end of the program.');
 INSERT INTO error (layer_id, code, number, message, description) VALUES (1, 'NEXT_WITHOUT_FOR', 1, '1/n', 'NEXT with a variable that is not the counter of an active FOR loop.');
@@ -586,94 +609,142 @@ INSERT INTO error (layer_id, code, number, message, description) VALUES (1, 'RET
 INSERT INTO error (layer_id, code, number, message, description) VALUES (1, 'INPUT_AS_COMMAND', 8, '8/n', 'INPUT can only be used in a program.');
 INSERT INTO error (layer_id, code, number, message, description) VALUES (1, 'STOP', 9, '9/n', 'STOP statement executed; CONTINUE resumes from the next line.');
 
-INSERT INTO keyword (id, layer_id, text, notes) VALUES (1, 1, '"', 'String delimiter. Code used in the program; on screen the character has code 1.');
-INSERT INTO token (keyword_id, hex_value) VALUES (1, 'D4');
+INSERT INTO keyword (id, layer_id, text, notes) VALUES (1, 1, '"', 'String delimiter. A typed quote is stored in the program as $01 (checked on an emulator: 10 PRINT "ABC" is stored as 0 10 244 1 38 39 40 1 118), although the token table of the manual lists $D4. $01 is not printable; the printable quote is code 212.');
+INSERT INTO token (keyword_id, hex_value) VALUES (1, '01');
+INSERT INTO abbreviation (keyword_id, text) VALUES (1, 'SHIFT + Y');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (2, 1, 'THEN', NULL);
 INSERT INTO token (keyword_id, hex_value) VALUES (2, 'D5');
+INSERT INTO abbreviation (keyword_id, text) VALUES (2, 'SHIFT + 3');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (3, 1, 'TO', NULL);
 INSERT INTO token (keyword_id, hex_value) VALUES (3, 'D6');
+INSERT INTO abbreviation (keyword_id, text) VALUES (3, 'SHIFT + 4');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (4, 1, ';', 'Symbol: code used in the program.');
 INSERT INTO token (keyword_id, hex_value) VALUES (4, 'D7');
+INSERT INTO abbreviation (keyword_id, text) VALUES (4, 'SHIFT + X');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (5, 1, ',', 'Symbol: code used in the program.');
 INSERT INTO token (keyword_id, hex_value) VALUES (5, 'D8');
+INSERT INTO abbreviation (keyword_id, text) VALUES (5, 'SHIFT + .');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (6, 1, ')', 'Symbol: code used in the program (on screen 17).');
 INSERT INTO token (keyword_id, hex_value) VALUES (6, 'D9');
+INSERT INTO abbreviation (keyword_id, text) VALUES (6, 'SHIFT + O');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (7, 1, '(', 'Symbol: code used in the program (on screen 16).');
 INSERT INTO token (keyword_id, hex_value) VALUES (7, 'DA');
+INSERT INTO abbreviation (keyword_id, text) VALUES (7, 'SHIFT + I');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (8, 1, 'NOT', NULL);
 INSERT INTO token (keyword_id, hex_value) VALUES (8, 'DB');
+INSERT INTO abbreviation (keyword_id, text) VALUES (8, 'SHIFT + 1');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (9, 1, '-', 'Code used in the program (on screen 18).');
 INSERT INTO token (keyword_id, hex_value) VALUES (9, 'DC');
+INSERT INTO abbreviation (keyword_id, text) VALUES (9, 'SHIFT + J');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (10, 1, '+', 'Code used in the program (on screen 19).');
 INSERT INTO token (keyword_id, hex_value) VALUES (10, 'DD');
+INSERT INTO abbreviation (keyword_id, text) VALUES (10, 'SHIFT + K');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (11, 1, '*', 'Code used in the program (on screen 20).');
 INSERT INTO token (keyword_id, hex_value) VALUES (11, 'DE');
+INSERT INTO abbreviation (keyword_id, text) VALUES (11, 'SHIFT + P');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (12, 1, '/', 'Code used in the program (on screen 21).');
 INSERT INTO token (keyword_id, hex_value) VALUES (12, 'DF');
+INSERT INTO abbreviation (keyword_id, text) VALUES (12, 'SHIFT + V');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (13, 1, 'AND', NULL);
 INSERT INTO token (keyword_id, hex_value) VALUES (13, 'E0');
+INSERT INTO abbreviation (keyword_id, text) VALUES (13, 'SHIFT + 2');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (14, 1, 'OR', NULL);
 INSERT INTO token (keyword_id, hex_value) VALUES (14, 'E1');
+INSERT INTO abbreviation (keyword_id, text) VALUES (14, 'SHIFT + B');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (15, 1, '**', 'Multi-character operator reduced to a single code.');
 INSERT INTO token (keyword_id, hex_value) VALUES (15, 'E2');
+INSERT INTO abbreviation (keyword_id, text) VALUES (15, 'SHIFT + H');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (16, 1, '=', 'Code used in the program (on screen 22).');
 INSERT INTO token (keyword_id, hex_value) VALUES (16, 'E3');
+INSERT INTO abbreviation (keyword_id, text) VALUES (16, 'SHIFT + L');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (17, 1, '>', 'Appendix II of the manual swaps > and < (source [3]).');
 INSERT INTO token (keyword_id, hex_value) VALUES (17, 'E4');
+INSERT INTO abbreviation (keyword_id, text) VALUES (17, 'SHIFT + M');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (18, 1, '<', 'Appendix II of the manual swaps > and < (source [3]).');
 INSERT INTO token (keyword_id, hex_value) VALUES (18, 'E5');
+INSERT INTO abbreviation (keyword_id, text) VALUES (18, 'SHIFT + N');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (19, 1, 'LIST', NULL);
 INSERT INTO token (keyword_id, hex_value) VALUES (19, 'E6');
+INSERT INTO abbreviation (keyword_id, text) VALUES (19, 'A');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (20, 1, 'RETURN', NULL);
 INSERT INTO token (keyword_id, hex_value) VALUES (20, 'E7');
+INSERT INTO abbreviation (keyword_id, text) VALUES (20, 'B');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (21, 1, 'CLS', NULL);
 INSERT INTO token (keyword_id, hex_value) VALUES (21, 'E8');
+INSERT INTO abbreviation (keyword_id, text) VALUES (21, 'C');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (22, 1, 'DIM', NULL);
 INSERT INTO token (keyword_id, hex_value) VALUES (22, 'E9');
+INSERT INTO abbreviation (keyword_id, text) VALUES (22, 'D');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (23, 1, 'SAVE', NULL);
 INSERT INTO token (keyword_id, hex_value) VALUES (23, 'EA');
+INSERT INTO abbreviation (keyword_id, text) VALUES (23, 'E');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (24, 1, 'FOR', NULL);
 INSERT INTO token (keyword_id, hex_value) VALUES (24, 'EB');
+INSERT INTO abbreviation (keyword_id, text) VALUES (24, 'F');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (25, 1, 'GO TO', NULL);
 INSERT INTO token (keyword_id, hex_value) VALUES (25, 'EC');
+INSERT INTO abbreviation (keyword_id, text) VALUES (25, 'G');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (26, 1, 'POKE', NULL);
 INSERT INTO token (keyword_id, hex_value) VALUES (26, 'ED');
+INSERT INTO abbreviation (keyword_id, text) VALUES (26, 'H');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (27, 1, 'INPUT', NULL);
 INSERT INTO token (keyword_id, hex_value) VALUES (27, 'EE');
+INSERT INTO abbreviation (keyword_id, text) VALUES (27, 'I');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (28, 1, 'RANDOMISE', NULL);
 INSERT INTO token (keyword_id, hex_value) VALUES (28, 'EF');
+INSERT INTO abbreviation (keyword_id, text) VALUES (28, 'J');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (29, 1, 'LET', NULL);
 INSERT INTO token (keyword_id, hex_value) VALUES (29, 'F0');
+INSERT INTO abbreviation (keyword_id, text) VALUES (29, 'K');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (30, 1, 'NEXT', NULL);
 INSERT INTO token (keyword_id, hex_value) VALUES (30, 'F3');
+INSERT INTO abbreviation (keyword_id, text) VALUES (30, 'N');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (31, 1, 'PRINT', NULL);
 INSERT INTO token (keyword_id, hex_value) VALUES (31, 'F4');
+INSERT INTO abbreviation (keyword_id, text) VALUES (31, 'O');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (32, 1, 'NEW', NULL);
 INSERT INTO token (keyword_id, hex_value) VALUES (32, 'F6');
+INSERT INTO abbreviation (keyword_id, text) VALUES (32, 'Q');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (33, 1, 'RUN', NULL);
 INSERT INTO token (keyword_id, hex_value) VALUES (33, 'F7');
+INSERT INTO abbreviation (keyword_id, text) VALUES (33, 'R');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (34, 1, 'STOP', NULL);
 INSERT INTO token (keyword_id, hex_value) VALUES (34, 'F8');
+INSERT INTO abbreviation (keyword_id, text) VALUES (34, 'S');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (35, 1, 'CONTINUE', NULL);
 INSERT INTO token (keyword_id, hex_value) VALUES (35, 'F9');
+INSERT INTO abbreviation (keyword_id, text) VALUES (35, 'T');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (36, 1, 'IF', NULL);
 INSERT INTO token (keyword_id, hex_value) VALUES (36, 'FA');
+INSERT INTO abbreviation (keyword_id, text) VALUES (36, 'U');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (37, 1, 'GO SUB', NULL);
 INSERT INTO token (keyword_id, hex_value) VALUES (37, 'FB');
+INSERT INTO abbreviation (keyword_id, text) VALUES (37, 'V');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (38, 1, 'LOAD', NULL);
 INSERT INTO token (keyword_id, hex_value) VALUES (38, 'FC');
+INSERT INTO abbreviation (keyword_id, text) VALUES (38, 'W');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (39, 1, 'CLEAR', NULL);
 INSERT INTO token (keyword_id, hex_value) VALUES (39, 'FD');
+INSERT INTO abbreviation (keyword_id, text) VALUES (39, 'X');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (40, 1, 'REM', NULL);
 INSERT INTO token (keyword_id, hex_value) VALUES (40, 'FE');
+INSERT INTO abbreviation (keyword_id, text) VALUES (40, 'Y');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (41, 1, 'ABS', 'Function: typed letter by letter, it has no token.');
+INSERT INTO abbreviation (keyword_id, text) VALUES (41, '');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (42, 1, 'CHR$', 'Function: typed letter by letter, it has no token.');
+INSERT INTO abbreviation (keyword_id, text) VALUES (42, '');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (43, 1, 'CODE', 'Function: typed letter by letter, it has no token.');
+INSERT INTO abbreviation (keyword_id, text) VALUES (43, '');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (44, 1, 'PEEK', 'Function: typed letter by letter, it has no token.');
+INSERT INTO abbreviation (keyword_id, text) VALUES (44, '');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (45, 1, 'RND', 'Function: typed letter by letter, it has no token.');
+INSERT INTO abbreviation (keyword_id, text) VALUES (45, '');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (46, 1, 'STR$', 'Function: typed letter by letter, it has no token.');
+INSERT INTO abbreviation (keyword_id, text) VALUES (46, '');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (47, 1, 'TL$', 'Function: typed letter by letter, it has no token.');
+INSERT INTO abbreviation (keyword_id, text) VALUES (47, '');
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (48, 1, 'USR', 'Function: typed letter by letter, it has no token.');
+INSERT INTO abbreviation (keyword_id, text) VALUES (48, '');
 
 -- LIST
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (1, 1, 'LIST', 2, 'Lists the program from a given line, which becomes the current line.', NULL);
@@ -685,7 +756,7 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (3, 1, 1, 2, 'OPTIONAL', 0, NULL);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (4, 1, 3, 1, 'PARAMETER', 0, NULL, 1, 3);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 1, id, 'FULL', NULL FROM action WHERE code = 'PROG_LIST';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (1, NULL, 1, 'List from a line', 'Line 100 becomes the current line. If it does not exist, the listing starts from the next line.', 'LIST 100', 'The program from line 100 onwards.', 0, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (1, NULL, 1, 'List from a line', 'Line 100 becomes the current line. If it does not exist, the listing starts from the next line.', 'LIST 100', 'The program from line 100 onwards.', 1, NULL);
 
 -- RUN
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (2, 1, 'RUN', 2, 'Runs the program: same as CLEAR followed by GO TO n.', NULL);
@@ -697,8 +768,8 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (7, 2, 5, 2, 'OPTIONAL', 0, NULL);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (8, 2, 7, 1, 'PARAMETER', 0, NULL, 2, 3);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 2, id, 'FULL', 'Also clears the variables' FROM action WHERE code = 'PROG_RUN';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (2, NULL, 1, 'Run the program', 'Clears the variables and runs the program from the first line.', 'RUN', NULL, 0, NULL);
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (2, NULL, 2, 'Run from a line', 'Clears the variables and runs the program from line 100.', 'RUN 100', NULL, 0, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (2, NULL, 1, 'Run the program', 'Clears the variables and runs the program from the first line.', 'RUN', NULL, 1, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (2, NULL, 2, 'Run from a line', 'Clears the variables and runs the program from line 100.', 'RUN 100', NULL, 1, NULL);
 
 -- NEW
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (3, 1, 'NEW', 2, 'Returns the computer to its power-on state: erases program and variables.', NULL);
@@ -707,7 +778,7 @@ INSERT INTO syntax_form (id, entry_id, position, title, description, original_sy
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (9, 3, NULL, 1, 'SEQUENCE', 0, NULL);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (10, 3, 9, 1, 'KEYWORD', 0, NULL, 32);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 3, id, 'FULL', NULL FROM action WHERE code = 'PROG_NEW';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (3, NULL, 1, 'Erase everything', 'Program and variables are erased, as at power-on.', 'NEW', 'An empty screen.', 0, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (3, NULL, 1, 'Erase everything', 'Program and variables are erased, as at power-on.', 'NEW', 'An empty screen.', 1, NULL);
 
 -- CONTINUE
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (4, 1, 'CONTINUE', 2, 'Resumes execution from the line of the last n/m report; after STOP (9/m) from line m+1.', NULL);
@@ -720,7 +791,7 @@ INSERT INTO example (entry_id, form_id, position, title, description, code, expe
 20 PRINT "AGAIN"
 RUN
 CONTINUE', '9/10
-AGAIN', 0, NULL);
+AGAIN', 1, NULL);
 
 -- SAVE
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (5, 1, 'SAVE', 2, 'Saves system variables, program and variables to tape, preceded by 5 seconds of silence.', 'Meant as a command, not as a program statement.');
@@ -729,7 +800,7 @@ INSERT INTO syntax_form (id, entry_id, position, title, description, original_sy
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (13, 5, NULL, 1, 'SEQUENCE', 0, NULL);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (14, 5, 13, 1, 'KEYWORD', 0, NULL, 23);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 5, id, 'FULL', 'No file name: it also saves the variables' FROM action WHERE code = 'TAPE_SAVE';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (5, NULL, 1, 'Save to tape', 'Start the tape recorder in record before pressing NEWLINE: system variables, program and variables are saved.', 'SAVE', NULL, 0, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (5, NULL, 1, 'Save to tape', 'Start the tape recorder in record before pressing NEWLINE: system variables, program and variables are saved.', 'SAVE', NULL, 1, NULL);
 
 -- LOAD
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (6, 1, 'LOAD', 2, 'Loads from tape system variables, program and variables saved with SAVE.', 'BREAK during the leader keeps the program in memory; BREAK after the data has started is the same as NEW.');
@@ -738,10 +809,10 @@ INSERT INTO syntax_form (id, entry_id, position, title, description, original_sy
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (15, 6, NULL, 1, 'SEQUENCE', 0, NULL);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (16, 6, 15, 1, 'KEYWORD', 0, NULL, 38);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 6, id, 'FULL', 'No file name: it loads the first program found' FROM action WHERE code = 'TAPE_LOAD';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (6, NULL, 1, 'Load from tape', 'Start the tape recorder in play: the first program found is loaded with its variables.', 'LOAD', NULL, 0, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (6, NULL, 1, 'Load from tape', 'Start the tape recorder in play: the first program found is loaded with its variables.', 'LOAD', NULL, 1, NULL);
 
 -- LET
-INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (7, 1, 'LET', 1, 'Assigns a value to a variable. LET is mandatory.', NULL);
+INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (7, 1, 'LET', 1, 'Assigns a value to a variable. LET is mandatory.', 'An empty string is made only of the name byte and the terminator $01.');
 INSERT INTO entry_source (entry_id, source_id, page) VALUES (7, 1, 'Appendix II');
 INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, precedence, associativity, operator_class_id) VALUES (7, 7, 1, NULL, NULL, NULL, 1, 'Appendix II', NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description) VALUES (3, 7, 'variable', 'NONE', NULL, NULL, 'Numeric variable, string variable or array element.');
@@ -761,12 +832,12 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (29, 7, 26, 3, 'PARAMETER', 0, NULL, 4, 4);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 7, id, 'FULL', NULL FROM action WHERE code = 'VAR_LET';
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (7, 7, 1, 'Numeric variable', NULL, '10 LET A=5
-20 PRINT A*2', '10', 0, NULL);
+20 PRINT A*2', '10', 1, NULL);
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (7, 7, 2, 'String variable', NULL, '10 LET N$="ZX80"
-20 PRINT N$', 'ZX80', 0, NULL);
+20 PRINT N$', 'ZX80', 1, NULL);
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (7, 7, 3, 'Array element', NULL, '10 DIM B(3)
 20 LET B(2)=7
-30 PRINT B(2)', '7', 0, NULL);
+30 PRINT B(2)', '7', 1, NULL);
 
 -- PRINT
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (8, 1, 'PRINT', 1, 'Writes on the upper part of the screen.', NULL);
@@ -789,14 +860,14 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (43, 8, 42, 1, 'PARAMETER', 0, NULL, 5, 3);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (44, 8, 42, 2, 'PARAMETER', 0, NULL, 5, 4);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 8, id, 'FULL', NULL FROM action WHERE code = 'IO_PRINT';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (8, NULL, 1, 'String and number together', 'Prints a string followed by the value of A, without spaces.', 'PRINT "A=";A', NULL, 0, NULL);
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (8, NULL, 2, 'Print zones', 'The comma moves to the next zone (columns 9, 17, 25).', 'PRINT 1,2,3,4', 'Four numbers in the four 8-column zones of the line.', 0, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (8, NULL, 1, 'String and number together', 'Prints a string followed by the value of A, without spaces.', 'PRINT "A=";A', NULL, 1, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (8, NULL, 2, 'Print zones', 'The comma moves to the next zone (columns 9, 17, 25).', 'PRINT 1,2,3,4', 'Four numbers in the four 8-column zones of the line.', 1, NULL);
 
 -- INPUT
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (9, 1, 'INPUT', 1, 'Reads a value from the keyboard and assigns it to a variable.', 'Only inside a program: as a command it gives error 8. For a string the quotes appear, and they can be deleted.');
 INSERT INTO entry_source (entry_id, source_id, page) VALUES (9, 1, 'Appendix II');
 INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, precedence, associativity, operator_class_id) VALUES (9, 9, 1, NULL, NULL, 'INPUT dest', 1, 'Appendix II', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description) VALUES (6, 9, 'destination', 'NONE', 'INPUT_AS_COMMAND', NULL, 'Numeric variable, string variable or array element. An expression can be typed.');
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description) VALUES (6, 9, 'destination', 'NONE', NULL, NULL, 'Numeric variable, string variable or array element. An expression can be typed.');
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (45, 9, NULL, 1, 'SEQUENCE', 0, NULL);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (46, 9, 45, 1, 'KEYWORD', 0, NULL, 27);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (47, 9, 45, 2, 'CHOICE', 0, NULL);
@@ -805,9 +876,9 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (50, 9, 47, 3, 'PARAMETER', 0, NULL, 6, 8);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 9, id, 'PARTIAL', 'One variable only, no prompt' FROM action WHERE code = 'IO_INPUT';
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (9, NULL, 1, 'Read a number', 'Run the program, type 21 and press NEWLINE.', '10 INPUT N
-20 PRINT N*2', '42', 0, NULL);
+20 PRINT N*2', '42', 1, NULL);
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (9, NULL, 2, 'Read a string', 'Run the program, type HELLO and press NEWLINE (the quotes appear by themselves).', '10 INPUT A$
-20 PRINT A$', 'HELLO', 0, NULL);
+20 PRINT A$', 'HELLO', 1, NULL);
 
 -- IF
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (10, 1, 'IF', 1, 'Executes the statement after THEN if the condition is not zero.', NULL);
@@ -821,9 +892,9 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (54, 10, 51, 3, 'KEYWORD', 0, NULL, 2);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (55, 10, 51, 4, 'PARAMETER', 0, NULL, 8, 11);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 10, id, 'FULL', 'No ELSE' FROM action WHERE code = 'FLOW_IF';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (10, NULL, 1, 'Conditional jump', 'Jumps to line 60 if J is 152.', 'IF J = 152 THEN GO TO 60', NULL, 0, 1);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (10, NULL, 1, 'Conditional jump', 'Jumps to line 60 if J is 152.', 'IF J = 152 THEN GO TO 60', NULL, 1, 1);
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (10, NULL, 2, 'Comparing strings', 'Run the program, type Y and press NEWLINE.', '10 INPUT A$
-20 IF A$="Y" THEN PRINT "YES"', 'YES', 0, NULL);
+20 IF A$="Y" THEN PRINT "YES"', 'YES', 1, NULL);
 
 -- GO TO
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (11, 1, 'GO TO', 1, 'Jumps to the given line.', NULL);
@@ -837,7 +908,7 @@ INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 11, id, 'FU
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (11, NULL, 1, 'Endless loop', 'Report 5 means the screen is full.', '10 PRINT "LOOP"
 20 GO TO 10', 'LOOP on every line until the screen is full, then 5/10.', 0, NULL);
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (11, NULL, 2, 'Missing line', 'Line 15 does not exist: execution goes on from the next line, 20.', '10 GO TO 15
-20 PRINT "HERE"', 'HERE', 0, NULL);
+20 PRINT "HERE"', 'HERE', 1, NULL);
 
 -- GO SUB
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (12, 1, 'GO SUB', 1, 'Calls the subroutine that starts at the given line; RETURN goes back to the next line.', 'Subroutines can call themselves.');
@@ -852,7 +923,7 @@ INSERT INTO example (entry_id, form_id, position, title, description, code, expe
 20 STOP
 100 PRINT "SUB"
 110 RETURN', 'SUB
-9/20', 0, NULL);
+9/20', 1, NULL);
 
 -- RETURN
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (13, 1, 'RETURN', 1, 'Goes back to the line after the last GO SUB executed.', 'Without a matching GO SUB: error 7.');
@@ -866,10 +937,10 @@ INSERT INTO example (entry_id, form_id, position, title, description, code, expe
 30 STOP
 100 RETURN', 'BACK
 9/30', 0, NULL);
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (13, NULL, 2, 'RETURN without GO SUB', 'Report 7: RETURN without a matching GO SUB.', '10 RETURN', '7/10', 0, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (13, NULL, 2, 'RETURN without GO SUB', 'Report 7: RETURN without a matching GO SUB.', '10 RETURN', '7/10', 1, NULL);
 
 -- FOR...TO
-INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (14, 1, 'FOR...TO', 1, 'Starts a loop: the counter goes from the start value to the end value in steps of 1.', 'The body is executed at least once. At the end of the loop the counter is end+1. NEXT is matched dynamically.');
+INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (14, 1, 'FOR...TO', 1, 'Starts a loop: the counter goes from the start value to the end value in steps of 1.', 'The body is executed at least once. At the end of the loop the counter is end+1. NEXT is matched dynamically. Since the line to return to is not kept on a stack, FOR loops that are not nested can be written without causing errors.');
 INSERT INTO entry_source (entry_id, source_id, page) VALUES (14, 1, 'Appendix II');
 INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, precedence, associativity, operator_class_id) VALUES (14, 14, 1, NULL, NULL, 'FOR a = n TO n', 1, 'Appendix II', NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description) VALUES (11, 14, 'a', 'NONE', NULL, NULL, 'Control variable: a single letter.');
@@ -888,10 +959,10 @@ INSERT INTO example (entry_id, form_id, position, title, description, code, expe
 20 PRINT I
 30 NEXT I', '1
 2
-3', 0, NULL);
+3', 1, NULL);
 
 -- NEXT
-INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (15, 1, 'NEXT', 1, 'Increments the counter and goes back to the statement after FOR if it has not passed the end value.', NULL);
+INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (15, 1, 'NEXT', 1, 'Increments the counter and goes back to the statement after FOR if it has not passed the end value.', 'Since the line to return to of a FOR loop is not kept on a stack, FOR loops that are not nested can be written without causing errors.');
 INSERT INTO entry_source (entry_id, source_id, page) VALUES (15, 1, 'Appendix II');
 INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, precedence, associativity, operator_class_id) VALUES (15, 15, 1, NULL, NULL, 'NEXT a', 1, 'Appendix II', NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description) VALUES (14, 15, 'a', 'NONE', 'NEXT_WITHOUT_FOR', NULL, 'Control variable of the loop.');
@@ -906,7 +977,7 @@ INSERT INTO example (entry_id, form_id, position, title, description, code, expe
 2
 3
 4', 0, NULL);
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (15, NULL, 2, 'NEXT without FOR', 'Report 1: I is not the counter of an active FOR loop.', '10 NEXT I', '1/10', 0, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (15, NULL, 2, 'NEXT without FOR', 'Report 1: I is not the counter of an active FOR loop.', '10 NEXT I', '1/10', 1, NULL);
 
 -- STOP
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (16, 1, 'STOP', 1, 'Stops the program with code 9; CONTINUE resumes from the next line.', NULL);
@@ -918,7 +989,7 @@ INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 16, id, 'FU
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (16, NULL, 1, 'Stop the program', 'CONTINUE would print B.', '10 PRINT "A"
 20 STOP
 30 PRINT "B"', 'A
-9/20', 0, NULL);
+9/20', 1, NULL);
 
 -- DIM
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (17, 1, 'DIM', 1, 'Creates an array with subscripts from 0 to n.', 'If the array already exists, the new space is reserved but the old array is still used.');
@@ -933,11 +1004,11 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (80, 17, 76, 4, 'PARAMETER', 1, NULL, 16, 3);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (81, 17, 76, 5, 'KEYWORD', 1, NULL, 6);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 17, id, 'PARTIAL', 'One dimension only, integers only' FROM action WHERE code = 'VAR_DIM';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (17, NULL, 1, 'Array with a variable size', 'Creates array A with elements from A(0) to A(B).', 'DIM A(B)', NULL, 0, 1);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (17, NULL, 1, 'Array with a variable size', 'Creates array A with elements from A(0) to A(B).', 'DIM A(B)', NULL, 1, 1);
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (17, NULL, 2, 'Use an array', NULL, '10 DIM A(5)
 20 LET A(0)=1
 30 LET A(5)=6
-40 PRINT A(0)+A(5)', '7', 0, NULL);
+40 PRINT A(0)+A(5)', '7', 1, NULL);
 
 -- CLEAR
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (18, 1, 'CLEAR', 1, 'Clears all variables.', NULL);
@@ -948,7 +1019,7 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 18, id, 'FULL', NULL FROM action WHERE code = 'VAR_CLEAR';
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (18, NULL, 1, 'Variables are lost', 'After CLEAR, A no longer exists: report 2, variable not found.', '10 LET A=5
 20 CLEAR
-30 PRINT A', '2/30', 0, NULL);
+30 PRINT A', '2/30', 1, NULL);
 
 -- CLS
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (19, 1, 'CLS', 1, 'Clears the upper part of the screen.', NULL);
@@ -958,7 +1029,7 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (85, 19, 84, 1, 'KEYWORD', 0, NULL, 21);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 19, id, 'FULL', NULL FROM action WHERE code = 'SCREEN_CLS';
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (19, NULL, 1, 'Clear the screen', 'HELLO is printed and then cleared.', '10 PRINT "HELLO"
-20 CLS', 'An empty screen.', 0, NULL);
+20 CLS', 'An empty screen.', 1, NULL);
 
 -- POKE
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (20, 1, 'POKE', 1, 'Writes a byte to memory.', NULL);
@@ -973,10 +1044,10 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (90, 20, 86, 4, 'PARAMETER', 1, NULL, 18, 3);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 20, id, 'FULL', NULL FROM action WHERE code = 'MEM_POKE';
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (20, NULL, 1, 'Write and read back a byte', 'A must be the address of a free memory location: it depends on the memory fitted and on the program.', '10 POKE A,123
-20 PRINT PEEK(A)', '123', 0, NULL);
+20 PRINT PEEK(A)', '123', 1, NULL);
 
 -- RANDOMISE
-INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (21, 1, 'RANDOMISE', 1, 'Seeds the random number generator.', NULL);
+INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (21, 1, 'RANDOMISE', 1, 'Seeds the random number generator.', 'Sets the seed n of the pseudo-random generator used by RND (the algorithm is in the notes of RND). A negative seed is read as an unsigned 16-bit number: RANDOMISE -5 is the same as a seed of 65531.');
 INSERT INTO entry_source (entry_id, source_id, page) VALUES (21, 1, 'Appendix II');
 INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, precedence, associativity, operator_class_id) VALUES (21, 21, 1, NULL, NULL, 'RANDOMISE n', 1, 'Appendix II', NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description) VALUES (19, 21, 'n', 'NONE', NULL, NULL, 'Seed. Without an argument, or with 0, the video frame counter is used.');
@@ -986,9 +1057,20 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (94, 21, 93, 1, 'PARAMETER', 0, NULL, 19, 3);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 21, id, 'FULL', NULL FROM action WHERE code = 'RND_SEED';
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (21, NULL, 1, 'Same numbers every time', NULL, '10 RANDOMISE 1
-20 PRINT RND(100)', 'The same number every time the program is run.', 0, NULL);
+20 PRINT RND(100)', 'The same number every time the program is run.', 1, NULL);
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (21, NULL, 2, 'Different numbers', 'Without an argument the seed comes from the video frame counter.', '10 RANDOMISE
-20 PRINT RND(100)', 'A different number at each run.', 0, NULL);
+20 PRINT RND(100)', 'A different number at each run.', 1, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (21, NULL, 3, 'Negative seed', '-5 is used as the seed 65531.', '10 RANDOMISE -5
+20 PRINT RND(100)
+30 GO TO 20', '100
+46
+21
+70
+30
+36
+43
+71
+…', 1, NULL);
 
 -- REM
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (22, 1, 'REM', 1, 'Comment: it has no effect.', NULL);
@@ -1000,7 +1082,7 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (97, 22, 95, 2, 'OPTIONAL', 0, NULL);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (98, 22, 97, 1, 'PARAMETER', 0, NULL, 20, 10);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 22, id, 'FULL', NULL FROM action WHERE code = 'PROG_REM';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (22, NULL, 1, 'Comment', 'The line has no effect.', '10 REM GUESS THE NUMBER', NULL, 0, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (22, NULL, 1, 'Comment', 'The line has no effect.', '10 REM GUESS THE NUMBER', NULL, 1, NULL);
 
 -- ABS
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (23, 1, 'ABS', 3, 'Absolute value.', NULL);
@@ -1057,10 +1139,17 @@ INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 26, id, 'FU
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (26, NULL, 1, 'Read a byte', '16384 is the first address of the RAM, where the system variables are.', 'PRINT PEEK(16384)', 'A number from 0 to 255.', 0, NULL);
 
 -- RND
-INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (27, 1, 'RND', 3, 'Random integer.', NULL);
+INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (27, 1, 'RND', 3, 'Random integer.', 'Algorithm (checked on an emulator against the sequences of `RANDOMISE 5` with `RND(100)` and `RND(-10)`, and of `RANDOMISE -5`):
+
+1. Let n be the seed of the pseudo-random generator (a negative seed is read as an unsigned 16-bit number: -5 becomes 65531).
+2. If n = 0, let n = 65536.
+3. Let `m = (n*77) MOD 65537`.
+4. If m = 65536, let m = 0.
+5. `RND(x)` gives `u*m/65536 + 1` (integer division), where u is x read as an unsigned 16-bit number (`x AND 65535`: -10 becomes 65526); the result is read as a signed 16-bit integer.
+6. Let n = m and go back to step 2.');
 INSERT INTO entry_source (entry_id, source_id, page) VALUES (27, 1, 'Appendix II');
 INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, precedence, associativity, operator_class_id) VALUES (27, 27, 1, NULL, NULL, 'RND(n)', 1, 'Appendix II', 1, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description) VALUES (25, 27, 'n', 'NONE', NULL, NULL, 'With n>0 the result goes from 1 to n; with n<0 from -32768 to n-1; with n=0 it is 1.');
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description) VALUES (25, 27, 'n', 'NONE', NULL, NULL, 'With n>0 the result goes from 1 to n; with n<0 it goes from 1 to 32767 or from -32768 to n (see the algorithm in the notes); with n=0 it is 1.');
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (119, 27, NULL, 1, 'SEQUENCE', 0, NULL);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (120, 27, 119, 1, 'KEYWORD', 0, NULL, 45);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (121, 27, 119, 2, 'KEYWORD', 1, NULL, 7);
@@ -1068,6 +1157,58 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (123, 27, 119, 4, 'KEYWORD', 1, NULL, 6);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 27, id, 'FULL', 'Integer from 1 to n' FROM action WHERE code = 'RND_VALUE';
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (27, NULL, 1, 'Throw a die', NULL, 'PRINT RND(6)', 'A number from 1 to 6.', 0, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (27, NULL, 2, 'A known sequence', 'With the same seed the sequence is always the same; it follows the algorithm in the notes.', '10 RANDOMISE 5
+20 PRINT RND(100)
+30 GO TO 20', '1
+46
+84
+93
+10
+4
+82
+59
+69
+86
+16
+90
+54
+27
+69
+97
+94
+97
+62
+45
+92
+54
+52
+…', 1, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (27, NULL, 3, 'Negative argument', '-10 is used as 65526: the results go from 1 to 32767 or from -32768 to -10.', '10 RANDOMISE 5
+20 PRINT RND(-10)
+30 GO TO 20', '385
+29641
+-11137
+-5037
+5989
+2394
+-12280
+-27507
+-20552
+-9238
+10119
+-7211
+-30416
+17606
+-20466
+-2617
+-4290
+-2037
+-25164
+28863
+-5507
+-30205
+-31686
+…', 1, NULL);
 
 -- STR$
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (28, 1, 'STR$', 3, 'Number converted to a decimal string (1 to 6 characters, including any minus sign).', NULL);
@@ -1250,7 +1391,7 @@ INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 42, id, 'FU
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (38, 41, 1, 'Less than', 'False gives 0.', 'PRINT 3<2', '0', 0, NULL);
 
 -- NOT
-INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (39, 1, 'NOT', 4, 'Bitwise negation: NOT n is -n-1.', 'With truth values (comparisons give -1 if true, 0 if false) it also behaves as a conditional operator: this is a side effect of working bit by bit on signed 16-bit integers, the only numeric type. On the ZX81 and the ZX Spectrum AND, OR and NOT work differently.');
+INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (39, 1, 'NOT', 4, 'Bitwise negation: NOT n is -n-1.', 'With truth values (comparisons give -1 if true, 0 if false) it also behaves as a conditional operator: this is a side effect of working bit by bit on signed 16-bit integers, the only numeric type.');
 INSERT INTO entry_source (entry_id, source_id, page) VALUES (39, 1, 'Appendix II');
 INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, precedence, associativity, operator_class_id) VALUES (43, 39, 1, NULL, NULL, NULL, 1, 'Appendix II', 1, NULL, NULL, 4, NULL, 2);
 INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description) VALUES (52, 43, 'a', 'NONE', NULL, NULL, NULL);
@@ -1262,7 +1403,7 @@ INSERT INTO example (entry_id, form_id, position, title, description, code, expe
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (39, NULL, 2, 'NOT of a number', 'Prints -6: NOT n is -n-1.', 'PRINT NOT 5', '-6', 0, NULL);
 
 -- AND
-INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (40, 1, 'AND', 4, 'Bitwise conjunction.', 'With truth values (comparisons give -1 if true, 0 if false) it also behaves as a conditional operator: this is a side effect of working bit by bit on signed 16-bit integers, the only numeric type. On the ZX81 and the ZX Spectrum AND, OR and NOT work differently.');
+INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (40, 1, 'AND', 4, 'Bitwise conjunction.', 'With truth values (comparisons give -1 if true, 0 if false) it also behaves as a conditional operator: this is a side effect of working bit by bit on signed 16-bit integers, the only numeric type.');
 INSERT INTO entry_source (entry_id, source_id, page) VALUES (40, 1, 'Appendix II');
 INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, precedence, associativity, operator_class_id) VALUES (44, 40, 1, NULL, NULL, NULL, 1, 'Appendix II', 1, NULL, NULL, 3, 'LEFT', 2);
 INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description) VALUES (53, 44, 'a', 'NONE', NULL, NULL, NULL);
@@ -1276,7 +1417,7 @@ INSERT INTO example (entry_id, form_id, position, title, description, code, expe
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (40, NULL, 2, 'As a condition', '-1 AND -1 is -1: true.', 'PRINT (3>2) AND (2>1)', '-1', 0, NULL);
 
 -- OR
-INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (41, 1, 'OR', 4, 'Bitwise disjunction.', 'With truth values (comparisons give -1 if true, 0 if false) it also behaves as a conditional operator: this is a side effect of working bit by bit on signed 16-bit integers, the only numeric type. On the ZX81 and the ZX Spectrum AND, OR and NOT work differently.');
+INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (41, 1, 'OR', 4, 'Bitwise disjunction.', 'With truth values (comparisons give -1 if true, 0 if false) it also behaves as a conditional operator: this is a side effect of working bit by bit on signed 16-bit integers, the only numeric type.');
 INSERT INTO entry_source (entry_id, source_id, page) VALUES (41, 1, 'Appendix II');
 INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, precedence, associativity, operator_class_id) VALUES (45, 41, 1, NULL, NULL, NULL, 1, 'Appendix II', 1, NULL, NULL, 2, 'LEFT', 2);
 INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description) VALUES (55, 45, 'a', 'NONE', NULL, NULL, NULL);

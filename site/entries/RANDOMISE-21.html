@@ -26,7 +26,7 @@
 
 <p class="breadcrumbs"><a href="../dialects/SINCLAIR_ZX80_4K.html#entries">Sinclair ZX80 BASIC 4K ROM</a> ›</p>
 <h1><span class="entry-name">RANDOMISE</span> <span class="category">Statement</span></h1>
-<p class="subtitle">Seeds the random number generator.</p>
+<div class="subtitle md"><p>Seeds the random number generator.</p></div>
 <dl class="facts">
   <dt>Layer</dt><dd><code>ZX80_4K_core</code> — Sinclair ZX80 BASIC (4K ROM)</dd>
   <dt>Dialects</dt><dd><a href="../dialects/SINCLAIR_ZX80_4K.html">Sinclair ZX80 BASIC 4K ROM</a></dd>
@@ -42,7 +42,7 @@
 
 
   <table class="parameters">
-    <thead><tr><th>Parameter</th><th>Type</th><th>Values</th><th>Description</th></tr></thead>
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
     <tbody>
     <tr>
       <td><code class="par">n</code></td>
@@ -60,28 +60,43 @@
   </div>
 </section>
 
+
 <h2>Keywords</h2>
 <table>
   <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
   <tbody>
   <tr><td><a class="kw" href="../keywords/RANDOMISE-28.html">RANDOMISE</a></td>
       <td><code>$EF</code></td>
-      <td></td></tr>
+      <td><code>J</code></td></tr>
   </tbody>
 </table>
 
 <h2>Examples</h2>
 <figure class="example">
-<h3>Same numbers every time <span class="tag warning">to verify</span></h3>  <pre>10 RANDOMISE 1
+<h3>Same numbers every time</h3>  <pre>10 RANDOMISE 1
 20 PRINT RND(100)</pre>
 <pre class="output" title="Expected result">The same number every time the program is run.</pre></figure>
 <figure class="example">
-<h3>Different numbers <span class="tag warning">to verify</span></h3>  <pre>10 RANDOMISE
+<h3>Different numbers</h3>  <pre>10 RANDOMISE
 20 PRINT RND(100)</pre>
 <pre class="output" title="Expected result">A different number at each run.</pre><figcaption>Without an argument the seed comes from the video frame counter.
 </figcaption></figure>
+<figure class="example">
+<h3>Negative seed</h3>  <pre>10 RANDOMISE -5
+20 PRINT RND(100)
+30 GO TO 20</pre>
+<pre class="output" title="Expected result">100
+46
+21
+70
+30
+36
+43
+71
+…</pre><figcaption>-5 is used as the seed 65531.
+</figcaption></figure>
 
-
+<h2>Notes</h2><div class="md"><p>Sets the seed n of the pseudo-random generator used by RND (the algorithm is in the notes of RND). A negative seed is read as an unsigned 16-bit number: RANDOMISE -5 is the same as a seed of 65531.</p></div>
 <h2>Related entries</h2>
 <ul><li>See also: <a href="../entries/RND-27.html">RND</a></li></ul>
 

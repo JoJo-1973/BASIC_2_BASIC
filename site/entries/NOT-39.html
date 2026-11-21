@@ -26,7 +26,7 @@
 
 <p class="breadcrumbs"><a href="../dialects/SINCLAIR_ZX80_4K.html#entries">Sinclair ZX80 BASIC 4K ROM</a> ›</p>
 <h1><span class="entry-name">NOT</span> <span class="category">Operator</span></h1>
-<p class="subtitle">Bitwise negation: NOT n is -n-1.</p>
+<div class="subtitle md"><p>Bitwise negation: NOT n is -n-1.</p></div>
 <dl class="facts">
   <dt>Layer</dt><dd><code>ZX80_4K_core</code> — Sinclair ZX80 BASIC (4K ROM)</dd>
   <dt>Dialects</dt><dd><a href="../dialects/SINCLAIR_ZX80_4K.html">Sinclair ZX80 BASIC 4K ROM</a></dd>
@@ -41,7 +41,7 @@
   <p><strong>Returns:</strong> Integer</p>
 
   <table class="parameters">
-    <thead><tr><th>Parameter</th><th>Type</th><th>Values</th><th>Description</th></tr></thead>
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
     <tbody>
     <tr>
       <td><code class="par">a</code></td>
@@ -59,13 +59,18 @@
   </div>
 </section>
 
+<h2>Tables</h2>
+<ul class="entry-tables">
+  <li><a href="../dialects/SINCLAIR_ZX80_4K.html#operators">Operator precedence</a>      <small>— operator</small></li>
+</ul>
+
 <h2>Keywords</h2>
 <table>
   <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
   <tbody>
   <tr><td><a class="kw" href="../keywords/NOT-8.html">NOT</a></td>
       <td><code>$DB</code></td>
-      <td></td></tr>
+      <td><code>SHIFT + 1</code></td></tr>
   </tbody>
 </table>
 
@@ -79,7 +84,7 @@
 <pre class="output" title="Expected result">-6</pre><figcaption>Prints -6: NOT n is -n-1.
 </figcaption></figure>
 
-<h2>Notes</h2><p>With truth values (comparisons give -1 if true, 0 if false) it also behaves as a conditional operator: this is a side effect of working bit by bit on signed 16-bit integers, the only numeric type. On the ZX81 and the ZX Spectrum AND, OR and NOT work differently.</p>
+<h2>Notes</h2><div class="md"><p>With truth values (comparisons give -1 if true, 0 if false) it also behaves as a conditional operator: this is a side effect of working bit by bit on signed 16-bit integers, the only numeric type.</p></div>
 
 <h2>Sources</h2>
 <ul><li>Sinclair ZX80 Operating Manual - A Course in BASIC Programming, Hugo Davenport (1980), p. Appendix II</li></ul>

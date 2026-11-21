@@ -26,7 +26,7 @@
 
 <p class="breadcrumbs"><a href="../dialects/SINCLAIR_ZX80_4K.html#entries">Sinclair ZX80 BASIC 4K ROM</a> ›</p>
 <h1><span class="entry-name">LET</span> <span class="category">Statement</span></h1>
-<p class="subtitle">Assigns a value to a variable. LET is mandatory.</p>
+<div class="subtitle md"><p>Assigns a value to a variable. LET is mandatory.</p></div>
 <dl class="facts">
   <dt>Layer</dt><dd><code>ZX80_4K_core</code> — Sinclair ZX80 BASIC (4K ROM)</dd>
   <dt>Dialects</dt><dd><a href="../dialects/SINCLAIR_ZX80_4K.html">Sinclair ZX80 BASIC 4K ROM</a></dd>
@@ -39,7 +39,7 @@
 
 
   <table class="parameters">
-    <thead><tr><th>Parameter</th><th>Type</th><th>Values</th><th>Description</th></tr></thead>
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
     <tbody>
     <tr>
       <td><code class="par">variable</code></td>
@@ -63,38 +63,43 @@
   </div>
 </section>
 
+<h2>Tables</h2>
+<ul class="entry-tables">
+  <li><a href="../dialects/SINCLAIR_ZX80_4K.html#variables">Variables in memory</a>      <small>— action VAR_LET</small></li>
+</ul>
+
 <h2>Keywords</h2>
 <table>
   <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
   <tbody>
   <tr><td><a class="kw" href="../keywords/LET-29.html">LET</a></td>
       <td><code>$F0</code></td>
-      <td></td></tr>
+      <td><code>K</code></td></tr>
   <tr><td><a class="kw" href="../keywords/eq-16.html">=</a></td>
       <td><code>$E3</code></td>
-      <td></td></tr>
+      <td><code>SHIFT + L</code></td></tr>
   </tbody>
 </table>
 
 <h2>Examples</h2>
 <figure class="example">
-<h3>Numeric variable <span class="tag warning">to verify</span></h3>  <pre>10 LET A=5
+<h3>Numeric variable</h3>  <pre>10 LET A=5
 20 PRINT A*2</pre>
 <pre class="output" title="Expected result">10</pre><figcaption>
 </figcaption></figure>
 <figure class="example">
-<h3>String variable <span class="tag warning">to verify</span></h3>  <pre>10 LET N$=&#34;ZX80&#34;
+<h3>String variable</h3>  <pre>10 LET N$=&#34;ZX80&#34;
 20 PRINT N$</pre>
 <pre class="output" title="Expected result">ZX80</pre><figcaption>
 </figcaption></figure>
 <figure class="example">
-<h3>Array element <span class="tag warning">to verify</span></h3>  <pre>10 DIM B(3)
+<h3>Array element</h3>  <pre>10 DIM B(3)
 20 LET B(2)=7
 30 PRINT B(2)</pre>
 <pre class="output" title="Expected result">7</pre><figcaption>
 </figcaption></figure>
 
-
+<h2>Notes</h2><div class="md"><p>An empty string is made only of the name byte and the terminator $01.</p></div>
 
 <h2>Sources</h2>
 <ul><li>Sinclair ZX80 Operating Manual - A Course in BASIC Programming, Hugo Davenport (1980), p. Appendix II</li></ul>

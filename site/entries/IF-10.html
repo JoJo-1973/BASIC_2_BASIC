@@ -26,7 +26,7 @@
 
 <p class="breadcrumbs"><a href="../dialects/SINCLAIR_ZX80_4K.html#entries">Sinclair ZX80 BASIC 4K ROM</a> ›</p>
 <h1><span class="entry-name">IF</span> <span class="category">Statement</span></h1>
-<p class="subtitle">Executes the statement after THEN if the condition is not zero.</p>
+<div class="subtitle md"><p>Executes the statement after THEN if the condition is not zero.</p></div>
 <dl class="facts">
   <dt>Layer</dt><dd><code>ZX80_4K_core</code> — Sinclair ZX80 BASIC (4K ROM)</dd>
   <dt>Dialects</dt><dd><a href="../dialects/SINCLAIR_ZX80_4K.html">Sinclair ZX80 BASIC 4K ROM</a></dd>
@@ -42,7 +42,7 @@
 
 
   <table class="parameters">
-    <thead><tr><th>Parameter</th><th>Type</th><th>Values</th><th>Description</th></tr></thead>
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
     <tbody>
     <tr>
       <td><code class="par">condition</code></td>
@@ -66,26 +66,27 @@
   </div>
 </section>
 
+
 <h2>Keywords</h2>
 <table>
   <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
   <tbody>
   <tr><td><a class="kw" href="../keywords/IF-36.html">IF</a></td>
       <td><code>$FA</code></td>
-      <td></td></tr>
+      <td><code>U</code></td></tr>
   <tr><td><a class="kw" href="../keywords/THEN-2.html">THEN</a></td>
       <td><code>$D5</code></td>
-      <td></td></tr>
+      <td><code>SHIFT + 3</code></td></tr>
   </tbody>
 </table>
 
 <h2>Examples</h2>
 <figure class="example">
-<h3>Conditional jump <span class="tag warning">to verify</span></h3>  <pre>IF J = 152 THEN GO TO 60</pre>
+<h3>Conditional jump</h3>  <pre>IF J = 152 THEN GO TO 60</pre>
 <figcaption>Jumps to line 60 if J is 152.
 <small>Source: Sinclair ZX80 Operating Manual - A Course in BASIC Programming.</small></figcaption></figure>
 <figure class="example">
-<h3>Comparing strings <span class="tag warning">to verify</span></h3>  <pre>10 INPUT A$
+<h3>Comparing strings</h3>  <pre>10 INPUT A$
 20 IF A$=&#34;Y&#34; THEN PRINT &#34;YES&#34;</pre>
 <pre class="output" title="Expected result">YES</pre><figcaption>Run the program, type Y and press NEWLINE.
 </figcaption></figure>

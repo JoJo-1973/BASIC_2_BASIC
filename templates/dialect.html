@@ -8,13 +8,18 @@
 </dialog>
 {% endmacro %}
 
+{% macro area_ends(a) %}
+{% if a %}<p><strong>Before:</strong> {% if a.prologue is none %}<em>not entered</em>{% elif a.prologue == '' %}nothing{% else %}<code>{{ a.prologue }}</code>{% endif %}.
+<strong>After:</strong> {% if a.epilogue is none %}<em>not entered</em>{% elif a.epilogue == '' %}nothing{% else %}<code>{{ a.epilogue }}</code>{% endif %}.{% if a.notes %} {{ (a.notes)|mdi }}{% endif %}</p>{% endif %}
+{% endmacro %}
+
 {% macro layout_table(fields) %}
 <table>
   <thead><tr><th class="num">Offset</th><th class="num">Bytes</th><th>Field</th><th>Byte order</th><th>Description</th></tr></thead>
   <tbody>
   {% for f in fields %}
   <tr><td class="num">{{ f.offset if f.offset is not none else '…' }}</td><td class="num">{{ f.size if f.size is not none else 'variable' }}</td>
-      <td>{{ f.name }}</td><td>{{ (f.byte_order or '')|lower }}</td><td>{{ f.description or '' }}</td></tr>
+      <td>{{ f.name }}</td><td>{{ (f.byte_order or '')|lower }}</td><td>{{ (f.description)|mdi }}</td></tr>
   {% endfor %}
   </tbody>
 </table>
@@ -30,7 +35,7 @@
   {% if dia.year %} · {{ dia.year }}{% endif %}
   · {% for x in machines %}<a href="{{ root }}{{ machine_url(x.m) }}">{{ x.m.name }}</a> ({{ x.r.medium|lower }}){% if not loop.last %}, {% endif %}{% endfor %}
 </p>
-{% if dia.notes %}<p>{{ dia.notes }}</p>{% endif %}
+{% if dia.notes %}<div class="md">{{ dia.notes|md }}</div>{% endif %}
 
 <nav class="table-bar" aria-label="Dialect tables">
   <a href="#layers" data-panel>Layers</a>
@@ -74,7 +79,7 @@
     <td class="name"><a href="{{ root }}{{ entry_url(x.e) }}">{{ x.e.name }}</a>
       {% if x.titles %}<small>{{ x.titles|join(', ')|lower }}</small>{% endif %}
       {% if x.e.operation == 'REPLACE' %}<span class="tag">redefined</span>{% endif %}</td>
-    <td>{{ x.e.description or '' }}</td>
+    <td>{{ (x.e.description)|mdi }}</td>
     {% if stack|length > 1 %}<td class="layer"><code>{{ x.layer.code }}</code></td>{% endif %}
   </tr>
   {% endfor %}
@@ -117,7 +122,7 @@
   <tbody>
   {% for k in keywords %}
   <tr><td><a class="kw" href="{{ root }}{{ keyword_url(k.k) }}">{{ k.k.text }}</a></td>
-      <td>{% for a in k.abbr %}<code>{{ a.text }}</code>{% if a.machine %} <small>({{ a.machine.name }})</small>{% endif %}{% if not loop.last %}, {% endif %}{% endfor %}</td>
+      <td>{% for a in k.abbr %}{% if a.text %}<code>{{ a.text }}</code>{% else %}<em>none</em>{% endif %}{% if a.machine %} <small>({{ a.machine.name }})</small>{% endif %}{% if not loop.last %}, {% endif %}{% endfor %}</td>
       {% for t in k.tokens %}<td>{% if t %}<code>${{ t }}</code>{% endif %}</td>{% endfor %}
       {% if stack|length > 1 %}<td class="layer"><code>{{ k.layer.code }}</code></td>{% endif %}</tr>
   {% endfor %}
@@ -151,7 +156,7 @@
   <tr><td>{{ x.t.name }}</td><td>{% if x.t.suffix %}<code>{{ x.t.suffix }}</code>{% endif %}</td>
       <td>{{ x.type_class.code|lower }}</td>
       <td class="nowrap">{{ x.interval or '' }}{% if x.t.max_length %}max {{ x.t.max_length }} characters{% endif %}</td>
-      <td>{{ x.t.precision or '' }}</td><td class="num">{{ x.t.bytes or '' }}</td><td>{{ x.t.notes or '' }}</td></tr>
+      <td>{{ x.t.precision or '' }}</td><td class="num">{{ x.t.bytes or '' }}</td><td>{{ (x.t.notes)|mdi }}</td></tr>
   {% endfor %}
   </tbody>
 </table>
@@ -161,18 +166,28 @@
 {% if variable_kinds %}
 {% call panel("variables", "Variable types") %}
 <table>
-  <thead><tr><th>Variable type</th><th>Data type</th><th class="num">Dimensions</th><th>Name</th><th>Examples</th><th>Notes</th></tr></thead>
+  <thead><tr><th>Variable type</th><th>Data type</th><th class="num">Dimensions</th><th>Name</th><th>Maximum length</th><th>Significant characters</th><th>Examples</th><th>Notes</th></tr></thead>
   <tbody>
   {% for x in variable_kinds %}
   <tr><td>{{ x.v.name }}</td><td>{{ x.type.name }}</td><td class="num">{{ x.v.dimensions }}</td>
-      <td>{{ x.v.name_rule or '' }}</td><td><code>{{ x.v.examples or '' }}</code></td>
-      <td>{{ x.v.notes or '' }}</td></tr>
+      <td>{{ x.v.name_rule or '' }}</td>
+      <td>{% if x.v.max_name_length == 0 %}no limit{% elif x.v.max_name_length is not none %}{{ x.v.max_name_length }}{% endif %}</td>
+      <td>{% if x.v.significant_chars == 0 %}all{% elif x.v.significant_chars is not none %}{{ x.v.significant_chars }}{% endif %}</td>
+      <td><code>{{ x.v.examples or '' }}</code></td>
+      <td>{{ (x.v.notes)|mdi }}</td></tr>
   {% endfor %}
   </tbody>
 </table>
-{% for x in variable_kinds if x.fields %}
+{% if memory_areas.VARIABLES or variable_kinds|selectattr("layouts")|list %}
+<h3>Variables area in memory</h3>
+{{ area_ends(memory_areas.VARIABLES) }}
+{% endif %}
+{% for x in variable_kinds if x.layouts %}
 <h3>{{ x.v.name }} in memory</h3>
-{{ layout_table(x.fields) }}
+{% for l in x.layouts %}
+{% if x.layouts|length > 1 or l.name %}<h4>{{ l.name or ('Layout ' ~ l.layout) }}</h4>{% endif %}
+{{ layout_table(l.fields) }}
+{% endfor %}
 {% endfor %}
 {% endcall %}
 {% endif %}
@@ -185,7 +200,7 @@
   {% for x in parameter_kinds %}
   <tr><td>{{ x.p.name }}</td><td>{{ x.p.nature|lower|replace('_', ' ') }}</td>
       <td>{% if x.type_class %}{{ x.type_class.code|lower }}{% elif x.variable_kind %}{{ x.variable_kind.name|lower }}{% elif x.p.nature in ('VARIABLE', 'ARRAY_NAME', 'ARRAY_ELEMENT') %}any{% endif %}</td>
-      <td>{{ x.p.notes or '' }}</td></tr>
+      <td>{{ (x.p.notes)|mdi }}</td></tr>
   {% endfor %}
   </tbody>
 </table>
@@ -194,12 +209,13 @@
 
 {% if errors %}
 {% call panel("errors", "Error messages") %}
+{% for n in errors_notes %}<div class="md">{{ n|md }}</div>{% endfor %}
 <table>
   <thead><tr><th class="num">No.</th><th>Message</th><th>Description</th></tr></thead>
   <tbody>
   {% for e in errors %}
   <tr id="err-{{ e.code }}"><td class="num">{{ e.number if e.number is not none else '' }}</td>
-      <td class="nowrap"><code>{{ e.message }}</code></td><td>{{ e.description or '' }}</td></tr>
+      <td class="nowrap"><code>{{ e.message }}</code></td><td>{{ (e.description)|mdi }}</td></tr>
   {% endfor %}
   </tbody>
 </table>
@@ -208,12 +224,19 @@
 
 {% if features %}
 {% call panel("features", "Features") %}
-<table>
+{% if features_missing or features_to_verify %}<p>{% if features_missing %}{{ features_missing }} not entered yet. {% endif %}{% if features_to_verify %}{{ features_to_verify }} to verify.{% endif %}</p>{% endif %}
+<table class="features">
+  {% for s in features %}
   <tbody>
-  {% for f in features %}
-  <tr><td>{{ f.description or f.code }}</td><td><code>{{ f.value or '' }}</code></td></tr>
+  <tr><th colspan="{{ 4 if stack|length > 1 else 3 }}">{{ s.section }}</th></tr>
+  {% for f in s["items"] %}
+  <tr id="feature-{{ f.code }}"><td>{{ f.name }}</td>
+      <td>{% if f.feature_id is none %}<em>not entered</em>{% else %}<code>{{ f.value }}</code>{% if not f.verified %} <span class="tag warning">to verify</span>{% endif %}{% endif %}</td>
+      <td>{{ (f.notes)|mdi }}</td>
+      {% if stack|length > 1 %}<td class="layer">{% if f.layer %}<code>{{ f.layer.code }}</code>{% endif %}</td>{% endif %}</tr>
   {% endfor %}
   </tbody>
+  {% endfor %}
 </table>
 {% endcall %}
 {% endif %}
@@ -223,7 +246,7 @@
 {% for x in constructs %}
 <h3 id="construct-{{ x.c.code }}">{{ x.c.name }} <code>{{ x.c.code }}</code></h3>
 <pre class="syntax">{{ x.syntax }}</pre>
-{% if x.c.description %}<p>{{ x.c.description }}</p>{% endif %}
+{% if x.c.description %}<div class="md">{{ x.c.description|md }}</div>{% endif %}
 {% endfor %}
 {% endcall %}
 {% endif %}
@@ -232,7 +255,7 @@
 {% call panel("characters", "Character codes") %}
 {% for g in charsets %}
 <h3>{{ g.s.name }}{% if g.s.language %} ({{ g.s.language }}){% endif %} <small>{{ g.machine.name }} · {{ g.s.width }}×{{ g.s.height }} pixels</small></h3>
-{% if g.s.description %}<p class="note">{{ g.s.description }}</p>{% endif %}
+{% if g.s.description %}<div class="md note">{{ g.s.description|md }}</div>{% endif %}
 <div class="scroll">
 <table class="glyphs" data-width="{{ g.s.width }}" data-height="{{ g.s.height }}">
   <thead><tr><th></th>{% for i in range(16) %}<th>_{{ '%X'|format(i) }}</th>{% endfor %}</tr></thead>
@@ -240,7 +263,7 @@
   {% for row in g.rows %}
   <tr><th>{{ '%X'|format(row[0].code // 16) }}_</th>
     {% for c in row %}
-    <td class="g-{{ c.kind|lower }}" title="{{ c.code }} (${{ '%02X'|format(c.code) }}){% if c.code_name %} — {{ c.code_name }}{% elif c.name %} — {{ c.name }}{% endif %}{% if c.kind in ('PRINTABLE', 'UNUSED') and c.screen_code is not none %} — screen code {{ c.screen_code }}{% endif %}{% if c.unicode %} — {{ c.unicode|codepoint }}{% endif %}{% if c.kind == 'UNUSED' %} — not used{% if c.code_notes %}: {{ c.code_notes }}{% endif %}{% elif c.kind == 'TOKEN' %} — token{% elif c.kind == 'CONTROL' %} — control: {{ c.action or '' }}{% endif %}{% if c.inverse_of is not none %} — inverse of {{ c.inverse_of }}{% endif %}">
+    <td class="g-{{ c.kind|lower }}" title="{{ c.code }} (${{ '%02X'|format(c.code) }}){% if c.code_name %} — {{ c.code_name }}{% elif c.name %} — {{ c.name }}{% endif %}{% if c.kind in ('PRINTABLE', 'UNUSED') and c.screen_code is not none %} — screen code {{ c.screen_code }}{% endif %}{% if c.unicode %} — {{ c.unicode|codepoint }}{% if c.unicode_name %} {{ c.unicode_name }}{% endif %}{% endif %}{% if c.kind == 'UNUSED' %} — not used{% if c.code_notes %}: {{ c.code_notes }}{% endif %}{% elif c.kind == 'TOKEN' %} — token{% elif c.kind == 'CONTROL' %} — control: {{ c.action or '' }}{% endif %}{% if c.inverse_of is not none %} — inverse of {{ c.inverse_of }}{% endif %}">
       {% if c.kind == 'TOKEN' %}<span class="token">{{ c.token_text or '' }}</span>
       {% elif c.kind == 'CONTROL' %}<span class="token">{{ c.code_name or 'ctrl' }}</span>
       {% elif c.bitmap %}<canvas data-b="{{ c.bitmap }}"{% if c.inverse %} data-inverse="1"{% endif %}></canvas>{% endif %}
@@ -266,7 +289,7 @@
   <tbody>
   {% for k in key_codes %}
   <tr><td><kbd>{{ k.key }}</kbd></td><td>{{ k.modifier or '' }}</td><td class="num">{{ k.code if k.code is not none else '' }}</td>
-      <td>{{ k.read_with or '' }}</td><td>{% if k.keyword_text %}<span class="kw">{{ k.keyword_text }}</span>{% endif %}</td><td>{{ k.notes or '' }}</td></tr>
+      <td>{{ k.read_with or '' }}</td><td>{% if k.keyword_text %}<span class="kw">{{ k.keyword_text }}</span>{% endif %}</td><td>{{ (k.notes)|mdi }}</td></tr>
   {% endfor %}
   </tbody>
 </table>
@@ -275,6 +298,8 @@
 
 {% if program_layout %}
 {% call panel("program", "Program in memory") %}
+{{ area_ends(memory_areas.PROGRAM) }}
+<h3>Program line</h3>
 {{ layout_table(program_layout) }}
 {% endcall %}
 {% endif %}
@@ -286,7 +311,7 @@
   <tbody>
   {% for n in musical_notes %}
   <tr><td>{{ n.note }}</td><td class="num">{{ n.octave if n.octave is not none else '' }}</td><td class="num">{{ '%g'|format(n.value) if n.value is not none else '' }}</td>
-      <td class="num">{{ '%g'|format(n.frequency_hz) if n.frequency_hz is not none else '' }}</td><td>{{ n.notes or '' }}</td></tr>
+      <td class="num">{{ '%g'|format(n.frequency_hz) if n.frequency_hz is not none else '' }}</td><td>{{ (n.notes)|mdi }}</td></tr>
   {% endfor %}
   </tbody>
 </table>
@@ -295,7 +320,7 @@
 
 {% for x in custom %}
 {% call panel("custom-" ~ x.t.code, x.t.title) %}
-{% if x.t.description %}<p>{{ x.t.description }}</p>{% endif %}
+{% if x.t.description %}<div class="md">{{ x.t.description|md }}</div>{% endif %}
 <table>
   <thead><tr>{% for h in x.columns %}<th>{{ h }}</th>{% endfor %}</tr></thead>
   <tbody>{% for r in x.rows %}<tr>{% for v in r %}<td>{{ v or '' }}</td>{% endfor %}</tr>{% endfor %}</tbody>
@@ -312,7 +337,7 @@
   <tr>{% if loop.first %}<td rowspan="{{ x.owners|length }}">{{ x.k.name }}</td>{% endif %}
       <td><code>{{ owner.code }}</code></td>
       <td class="st-{{ (st.status if st else 'UNKNOWN')|lower }}">{{ {'NOT_APPLICABLE': 'does not exist', 'TO_DO': 'to be entered', 'PARTIAL': 'partial', 'COMPLETE': 'complete'}.get(st.status, 'state not recorded') if st else 'state not recorded' }}</td>
-      <td>{{ st.notes if st and st.notes else '' }}</td></tr>
+      <td>{{ (st.notes if st else none)|mdi }}</td></tr>
   {% endfor %}
   {% endfor %}
   </tbody>

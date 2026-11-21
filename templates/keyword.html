@@ -7,10 +7,10 @@
 <dl class="facts">
   <dt>Layer</dt><dd><code>{{ layer.code }}</code> — {{ layer.name }}</dd>
   <dt>Dialects</dt><dd>{% for x in dialects %}<a href="{{ root }}{{ dialect_url(x) }}">{{ dialect_name(x) }}</a>{% if not loop.last %}, {% endif %}{% else %}<em>none</em>{% endfor %}</dd>
-  {% if tokens %}<dt>Token</dt><dd>{% for t in tokens %}<code>${{ t.hex }}</code>{% if t.machine %} <small>({{ t.machine.name }})</small>{% endif %}{% if t.notes %} <small>— {{ t.notes }}</small>{% endif %}{% if not loop.last %}, {% endif %}{% endfor %}</dd>{% endif %}
-  {% if abbr %}<dt>Abbreviation</dt><dd>{% for a in abbr %}<code>{{ a.text }}</code>{% if a.machine %} <small>({{ a.machine.name }})</small>{% endif %}{% if not loop.last %}, {% endif %}{% endfor %}</dd>{% endif %}
+  {% if tokens %}<dt>Token</dt><dd>{% for t in tokens %}<code>${{ t.hex }}</code>{% if t.machine %} <small>({{ t.machine.name }})</small>{% endif %}{% if t.notes %} <small>— {{ (t.notes)|mdi }}</small>{% endif %}{% if not loop.last %}, {% endif %}{% endfor %}</dd>{% endif %}
+  {% if abbr %}<dt>Abbreviation</dt><dd>{% for a in abbr %}{% if a.text %}<code>{{ a.text }}</code>{% else %}<em>none</em>{% endif %}{% if a.machine %} <small>({{ a.machine.name }})</small>{% endif %}{% if not loop.last %}, {% endif %}{% endfor %}</dd>{% endif %}
 </dl>
-{% if k.notes %}<p>{{ k.notes }}</p>{% endif %}
+{% if k.notes %}<div class="md">{{ k.notes|md }}</div>{% endif %}
 
 <h2>Entries that use {{ k.text }} <small>{{ entries|length }}</small></h2>
 {% if entries %}

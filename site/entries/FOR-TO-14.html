@@ -26,7 +26,7 @@
 
 <p class="breadcrumbs"><a href="../dialects/SINCLAIR_ZX80_4K.html#entries">Sinclair ZX80 BASIC 4K ROM</a> ›</p>
 <h1><span class="entry-name">FOR...TO</span> <span class="category">Statement</span></h1>
-<p class="subtitle">Starts a loop: the counter goes from the start value to the end value in steps of 1.</p>
+<div class="subtitle md"><p>Starts a loop: the counter goes from the start value to the end value in steps of 1.</p></div>
 <dl class="facts">
   <dt>Layer</dt><dd><code>ZX80_4K_core</code> — Sinclair ZX80 BASIC (4K ROM)</dd>
   <dt>Dialects</dt><dd><a href="../dialects/SINCLAIR_ZX80_4K.html">Sinclair ZX80 BASIC 4K ROM</a></dd>
@@ -42,7 +42,7 @@
 
 
   <table class="parameters">
-    <thead><tr><th>Parameter</th><th>Type</th><th>Values</th><th>Description</th></tr></thead>
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
     <tbody>
     <tr>
       <td><code class="par">a</code></td>
@@ -72,19 +72,24 @@
   </div>
 </section>
 
+<h2>Tables</h2>
+<ul class="entry-tables">
+  <li><a href="../dialects/SINCLAIR_ZX80_4K.html#variables">Variables in memory</a>      <small>— action FLOW_FOR</small></li>
+</ul>
+
 <h2>Keywords</h2>
 <table>
   <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
   <tbody>
   <tr><td><a class="kw" href="../keywords/FOR-24.html">FOR</a></td>
       <td><code>$EB</code></td>
-      <td></td></tr>
+      <td><code>F</code></td></tr>
   <tr><td><a class="kw" href="../keywords/eq-16.html">=</a></td>
       <td><code>$E3</code></td>
-      <td></td></tr>
+      <td><code>SHIFT + L</code></td></tr>
   <tr><td><a class="kw" href="../keywords/TO-3.html">TO</a></td>
       <td><code>$D6</code></td>
-      <td></td></tr>
+      <td><code>SHIFT + 4</code></td></tr>
   </tbody>
 </table>
 
@@ -94,14 +99,14 @@
 <figcaption>Start and end can be expressions.
 <small>Source: Sinclair ZX80 Operating Manual - A Course in BASIC Programming.</small></figcaption></figure>
 <figure class="example">
-<h3>Count from 1 to 3 <span class="tag warning">to verify</span></h3>  <pre>10 FOR I=1 TO 3
+<h3>Count from 1 to 3</h3>  <pre>10 FOR I=1 TO 3
 20 PRINT I
 30 NEXT I</pre>
 <pre class="output" title="Expected result">1
 2
 3</pre></figure>
 
-<h2>Notes</h2><p>The body is executed at least once. At the end of the loop the counter is end+1. NEXT is matched dynamically.</p>
+<h2>Notes</h2><div class="md"><p>The body is executed at least once. At the end of the loop the counter is end+1. NEXT is matched dynamically. Since the line to return to is not kept on a stack, FOR loops that are not nested can be written without causing errors.</p></div>
 <h2>Related entries</h2>
 <ul><li>Closed by: <a href="../entries/NEXT-15.html">NEXT</a></li></ul>
 

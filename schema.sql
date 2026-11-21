@@ -75,16 +75,38 @@ CREATE TABLE dialect_layer (
 
 -- Dialect features that are not keywords
 -- (significant characters in names, line number range, ...).
+-- Features: a fixed catalogue of questions (feature_kind, grouped in
+-- feature_section) that every dialect answers; the answers (feature) follow
+-- the layers. A dialect with no answer for a kind shows it as missing.
+CREATE TABLE feature_section (
+    id        INTEGER PRIMARY KEY,
+    code      TEXT    NOT NULL UNIQUE,            -- 'TRUTH_VALUES'
+    name      TEXT    NOT NULL,
+    position  INTEGER NOT NULL
+) STRICT;
+
+CREATE TABLE feature_kind (
+    id           INTEGER PRIMARY KEY,
+    code         TEXT    NOT NULL UNIQUE,         -- 'TRUE_VALUE'
+    section_id   INTEGER NOT NULL REFERENCES feature_section(id),
+    position     INTEGER NOT NULL,                -- order inside the section
+    name         TEXT    NOT NULL,                -- the question, e.g. 'Multiple statements per line'
+    answers      TEXT,                            -- typical answers, e.g. 'No / Yes'
+    description  TEXT
+) STRICT;
+
 CREATE TABLE feature (
-    id            INTEGER PRIMARY KEY,
-    layer_id      INTEGER NOT NULL REFERENCES layer(id),
-    code          TEXT    NOT NULL,               -- 'LINE_NUMBERS'
-    value         TEXT,
-    operation     TEXT    NOT NULL DEFAULT 'ADD'
-                  CHECK (operation IN ('ADD','REPLACE','REMOVE')),
-    redefines_id  INTEGER REFERENCES feature(id),
-    description   TEXT,
-    UNIQUE (layer_id, code)
+    id               INTEGER PRIMARY KEY,
+    layer_id         INTEGER NOT NULL REFERENCES layer(id),
+    feature_kind_id  INTEGER NOT NULL REFERENCES feature_kind(id),
+    value            TEXT    NOT NULL,
+    -- 0 = not verified (Claude was not sure of the answer), 1 = verified
+    verified         INTEGER NOT NULL DEFAULT 0 CHECK (verified IN (0,1)),
+    operation        TEXT    NOT NULL DEFAULT 'ADD'
+                     CHECK (operation IN ('ADD','REPLACE','REMOVE')),
+    redefines_id     INTEGER REFERENCES feature(id),
+    notes            TEXT,
+    UNIQUE (layer_id, feature_kind_id)
 ) STRICT;
 
 -- ---------------------------------------------------------------------
@@ -145,6 +167,12 @@ CREATE TABLE variable_kind (
     dimensions     INTEGER NOT NULL DEFAULT 0 CHECK (dimensions >= 0),  -- 0 = scalar; arrays: max dimensions
     name_rule      TEXT,                          -- naming rule, in words
     name_pattern   TEXT,                          -- optional regular expression for the name
+    -- Name length, without the type suffix ($, %...). Some dialects accept names
+    -- of any length but only the first characters count (significant_chars);
+    -- others count every character but limit the length (max_name_length).
+    -- 0 = no limit / all characters count; NULL = not entered.
+    max_name_length   INTEGER CHECK (max_name_length >= 0),
+    significant_chars INTEGER CHECK (significant_chars >= 0),
     examples       TEXT,                          -- 'A, PIPPO24'
     notes          TEXT,
     operation      TEXT    NOT NULL DEFAULT 'ADD'
@@ -157,13 +185,32 @@ CREATE TABLE variable_kind (
 CREATE TABLE variable_layout_field (
     id                INTEGER PRIMARY KEY,
     variable_kind_id  INTEGER NOT NULL REFERENCES variable_kind(id) ON DELETE CASCADE,
+    -- a variable type can be stored in more than one way (ZX80 numeric variable:
+    -- one-character name or longer name): one layout per way
+    layout            INTEGER NOT NULL DEFAULT 1,
+    layout_name       TEXT,
     position          INTEGER NOT NULL,
     name              TEXT    NOT NULL,
     offset            INTEGER,                        -- bytes from the start (NULL = variable)
     size              INTEGER,                        -- bytes (NULL = variable)
     byte_order        TEXT    CHECK (byte_order IN ('BIG','LITTLE')),
     description       TEXT,
-    UNIQUE (variable_kind_id, position)
+    UNIQUE (variable_kind_id, layout, position)
+) STRICT;
+
+-- What comes before and after the program and the variables area in memory.
+-- '' = nothing; NULL = not entered.
+CREATE TABLE memory_area (
+    id            INTEGER PRIMARY KEY,
+    layer_id      INTEGER NOT NULL REFERENCES layer(id),
+    area          TEXT    NOT NULL CHECK (area IN ('PROGRAM','VARIABLES')),
+    prologue      TEXT,
+    epilogue      TEXT,
+    notes         TEXT,
+    operation     TEXT    NOT NULL DEFAULT 'ADD'
+                  CHECK (operation IN ('ADD','REPLACE','REMOVE')),
+    redefines_id  INTEGER REFERENCES memory_area(id),
+    UNIQUE (layer_id, area)
 ) STRICT;
 
 -- ---------------------------------------------------------------------
@@ -404,6 +451,7 @@ CREATE TABLE glyph (
     bitmap      TEXT    NOT NULL CHECK (bitmap NOT GLOB '*[^0-9A-F]*'),
     inverse_of  INTEGER,                                -- glyph number of the same shape in normal video
     unicode     TEXT,                                   -- Unicode equivalent of the shape, if any
+    unicode_name TEXT,                                  -- official Unicode name of that code point
     name        TEXT,
     notes       TEXT,
     UNIQUE (charset_id, code)
@@ -676,6 +724,28 @@ CREATE TABLE action (
     description TEXT
 ) STRICT;
 
+-- Tables of the dialect that an entry uses, found automatically (view
+-- v_entry_table_kind) from:
+--   PARAMETER: a parameter that points to a table kind (parameter.table_kind_id),
+--              e.g. a color, a musical note, the code of a redefined character;
+--   ACTION:    an action of the form, through action_table_kind (shared rules
+--              in data/base.sql), e.g. STR_CHR -> character codes;
+--   OPERATOR:  a form with an operator precedence -> operator precedence;
+--   MANUAL:    form_table_kind, for the cases the rules cannot see
+--              (e.g. GW-BASIC INKEY$ also returns keyboard codes).
+CREATE TABLE action_table_kind (
+    action_id      INTEGER NOT NULL REFERENCES action(id),
+    table_kind_id  INTEGER NOT NULL REFERENCES table_kind(id),
+    PRIMARY KEY (action_id, table_kind_id)
+) STRICT;
+
+CREATE TABLE form_table_kind (
+    form_id        INTEGER NOT NULL REFERENCES syntax_form(id) ON DELETE CASCADE,
+    table_kind_id  INTEGER NOT NULL REFERENCES table_kind(id),
+    notes          TEXT,
+    PRIMARY KEY (form_id, table_kind_id)
+) STRICT;
+
 CREATE TABLE form_action (
     form_id     INTEGER NOT NULL REFERENCES syntax_form(id) ON DELETE CASCADE,
     action_id   INTEGER NOT NULL REFERENCES action(id),
@@ -785,15 +855,27 @@ FROM candidates WHERE rn = 1 AND operation <> 'REMOVE';
 
 CREATE VIEW v_dialect_feature AS
 WITH candidates AS (
-    SELECT dl.dialect_id, f.id AS feature_id, f.layer_id, f.code, f.value,
+    SELECT dl.dialect_id, f.id AS feature_id, f.layer_id, f.feature_kind_id, f.value,
            f.operation,
-           ROW_NUMBER() OVER (PARTITION BY dl.dialect_id, f.code
+           ROW_NUMBER() OVER (PARTITION BY dl.dialect_id, f.feature_kind_id
                               ORDER BY dl.position DESC) AS rn
     FROM dialect_layer dl
     JOIN feature f ON f.layer_id = dl.layer_id
 )
-SELECT dialect_id, feature_id, layer_id, code, value
+SELECT dialect_id, feature_id, layer_id, feature_kind_id, value
 FROM candidates WHERE rn = 1 AND operation <> 'REMOVE';
+
+-- Every dialect x every feature kind, with the answer if there is one
+-- (feature_id NULL = not entered yet).
+CREATE VIEW v_dialect_feature_all AS
+SELECT d.id AS dialect_id, s.position AS section_position, s.name AS section,
+       k.id AS feature_kind_id, k.position, k.code, k.name,
+       f.id AS feature_id, f.value, f.verified, f.notes, f.layer_id
+FROM dialect d
+CROSS JOIN feature_kind k
+JOIN feature_section s ON s.id = k.section_id
+LEFT JOIN v_dialect_feature x ON x.dialect_id = d.id AND x.feature_kind_id = k.id
+LEFT JOIN feature f ON f.id = x.feature_id;
 
 CREATE VIEW v_dialect_variable_kind AS
 WITH candidates AS (
@@ -844,12 +926,12 @@ WITH RECURSIVE chain (charset_id, ancestor_id, distance) AS (
 ),
 candidates AS (
     SELECT c.charset_id, g.charset_id AS source_charset_id, g.code, g.bitmap,
-           g.inverse_of, g.unicode, g.name, g.notes,
+           g.inverse_of, g.unicode, g.unicode_name, g.name, g.notes,
            ROW_NUMBER() OVER (PARTITION BY c.charset_id, g.code ORDER BY c.distance) AS rn
     FROM chain c
     JOIN glyph g ON g.charset_id = c.ancestor_id
 )
-SELECT charset_id, source_charset_id, code, bitmap, inverse_of, unicode, name, notes
+SELECT charset_id, source_charset_id, code, bitmap, inverse_of, unicode, unicode_name, name, notes
 FROM candidates WHERE rn = 1;
 
 -- Character codes of a dialect rebuilt from its layers.
@@ -896,13 +978,23 @@ WITH candidates AS (
 )
 SELECT dialect_id, field_id, layer_id, position FROM candidates WHERE rn = 1 AND operation <> 'REMOVE';
 
+CREATE VIEW v_dialect_memory_area AS
+WITH candidates AS (
+    SELECT dl.dialect_id, m.id AS memory_area_id, m.layer_id, m.area, m.operation,
+           ROW_NUMBER() OVER (PARTITION BY dl.dialect_id, m.area
+                              ORDER BY dl.position DESC) AS rn
+    FROM dialect_layer dl
+    JOIN memory_area m ON m.layer_id = dl.layer_id
+)
+SELECT dialect_id, memory_area_id, layer_id, area FROM candidates WHERE rn = 1 AND operation <> 'REMOVE';
+
 -- What each character code shows on each machine that hosts the dialect,
 -- in each of its character sets: character code -> screen code -> glyph.
 CREATE VIEW v_character AS
 SELECT md.machine_id, md.dialect_id, s.id AS charset_id, s.code AS charset_code, s.language,
        c.code, c.mode, c.kind, c.screen_code, c.action, c.name AS code_name, c.notes AS code_notes,
        sc.glyph_code, sc.inverse,
-       g.bitmap, g.unicode, g.name, g.inverse_of, g.source_charset_id,
+       g.bitmap, g.unicode, g.unicode_name, g.name, g.inverse_of, g.source_charset_id,
        CASE WHEN c.kind = 'TOKEN' THEN
             (SELECT t.text FROM v_machine_token t
               WHERE t.machine_id = md.machine_id AND t.dialect_id = md.dialect_id
@@ -914,6 +1006,81 @@ JOIN character_code c            ON c.id = dc.character_code_id
 JOIN charset s                   ON s.machine_id = md.machine_id
 LEFT JOIN screen_code sc         ON sc.machine_id = md.machine_id AND sc.code = c.screen_code
 LEFT JOIN v_effective_glyph g    ON g.charset_id = s.id AND g.code = sc.glyph_code;
+
+-- Notes derived from the dialect features (view v_entry_feature_note): each
+-- rule says which entries show a feature and where:
+--   selector LINE_PARAMETER    parameters with a line number (missing_line set)
+--            PARAMETER_NATURE  parameters whose type has that nature (e.g. CONDITION)
+--            ACTION            forms with that action (e.g. FLOW_FOR)
+--            OPERATOR_CLASS    forms with that operator class (e.g. RELATIONAL)
+--   target   ALLOWED (allowed values of the parameter), RETURN (returned value
+--            of the form), NOTE (notes of the entry).
+CREATE TABLE feature_note_rule (
+    id               INTEGER PRIMARY KEY,
+    feature_kind_id  INTEGER NOT NULL REFERENCES feature_kind(id),
+    selector         TEXT    NOT NULL CHECK (selector IN ('LINE_PARAMETER','PARAMETER_NATURE','ACTION','OPERATOR_CLASS')),
+    selector_value   TEXT,
+    target           TEXT    NOT NULL CHECK (target IN ('ALLOWED','RETURN','NOTE')),
+    CHECK ((selector = 'LINE_PARAMETER') = (selector_value IS NULL)),
+    CHECK (target <> 'ALLOWED' OR selector IN ('LINE_PARAMETER','PARAMETER_NATURE'))
+) STRICT;
+
+-- Tables used by each entry (see action_table_kind); detail = what caused it.
+CREATE VIEW v_entry_table_kind AS
+SELECT f.entry_id, p.table_kind_id, 'PARAMETER' AS rule, p.name AS detail
+FROM parameter p JOIN syntax_form f ON f.id = p.form_id
+WHERE p.table_kind_id IS NOT NULL
+UNION
+SELECT f.entry_id, atk.table_kind_id, 'ACTION', a.code
+FROM syntax_form f
+JOIN form_action fa       ON fa.form_id = f.id
+JOIN action a             ON a.id = fa.action_id
+JOIN action_table_kind atk ON atk.action_id = fa.action_id
+UNION
+SELECT f.entry_id, k.id, 'OPERATOR', NULL
+FROM syntax_form f JOIN table_kind k ON k.code = 'OPERATOR_PRECEDENCE'
+WHERE f.precedence IS NOT NULL
+UNION
+SELECT f.entry_id, ftk.table_kind_id, 'MANUAL', ftk.notes
+FROM form_table_kind ftk JOIN syntax_form f ON f.id = ftk.form_id;
+
+-- Feature notes of each entry in each dialect (see feature_note_rule).
+-- parameter_id is set for ALLOWED, form_id for ALLOWED and RETURN.
+CREATE VIEW v_entry_feature_note AS
+WITH hits AS (
+    SELECT r.id AS rule_id, f.entry_id, f.id AS form_id, p.id AS parameter_id
+    FROM feature_note_rule r
+    JOIN parameter p ON r.selector = 'LINE_PARAMETER' AND p.missing_line IS NOT NULL
+    JOIN syntax_form f ON f.id = p.form_id
+    UNION
+    SELECT r.id, f.entry_id, f.id, p.id
+    FROM feature_note_rule r
+    JOIN parameter_kind pk ON r.selector = 'PARAMETER_NATURE' AND pk.nature = r.selector_value
+    JOIN syntax_node n ON n.parameter_kind_id = pk.id
+    JOIN parameter p ON p.id = n.parameter_id
+    JOIN syntax_form f ON f.id = p.form_id
+    UNION
+    SELECT r.id, f.entry_id, f.id, NULL
+    FROM feature_note_rule r
+    JOIN action a ON r.selector = 'ACTION' AND a.code = r.selector_value
+    JOIN form_action fa ON fa.action_id = a.id
+    JOIN syntax_form f ON f.id = fa.form_id
+    UNION
+    SELECT r.id, f.entry_id, f.id, NULL
+    FROM feature_note_rule r
+    JOIN operator_class oc ON r.selector = 'OPERATOR_CLASS' AND oc.code = r.selector_value
+    JOIN syntax_form f ON f.operator_class_id = oc.id
+)
+SELECT DISTINCT de.dialect_id, h.entry_id,
+       CASE WHEN r.target = 'NOTE' THEN NULL ELSE h.form_id END AS form_id,
+       CASE WHEN r.target = 'ALLOWED' THEN h.parameter_id END AS parameter_id,
+       r.target, fa.feature_kind_id, fa.code, fa.name, fa.value, fa.verified,
+       fa.section_position, fa.position
+FROM hits h
+JOIN feature_note_rule r ON r.id = h.rule_id
+JOIN v_dialect_entry de ON de.entry_id = h.entry_id
+JOIN v_dialect_feature_all fa ON fa.dialect_id = de.dialect_id AND fa.feature_kind_id = r.feature_kind_id
+WHERE fa.feature_id IS NOT NULL;
 
 -- Operator precedence of each dialect, highest first.
 CREATE VIEW v_operator_precedence AS

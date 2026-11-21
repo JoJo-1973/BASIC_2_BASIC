@@ -26,7 +26,7 @@
 
 <p class="breadcrumbs"><a href="../dialects/SINCLAIR_ZX80_4K.html#entries">Sinclair ZX80 BASIC 4K ROM</a> ›</p>
 <h1><span class="entry-name">CONTINUE</span> <span class="category">Direct command</span></h1>
-<p class="subtitle">Resumes execution from the line of the last n/m report; after STOP (9/m) from line m+1.</p>
+<div class="subtitle md"><p>Resumes execution from the line of the last n/m report; after STOP (9/m) from line m+1.</p></div>
 <dl class="facts">
   <dt>Layer</dt><dd><code>ZX80_4K_core</code> — Sinclair ZX80 BASIC (4K ROM)</dd>
   <dt>Dialects</dt><dd><a href="../dialects/SINCLAIR_ZX80_4K.html">Sinclair ZX80 BASIC 4K ROM</a></dd>
@@ -49,19 +49,24 @@
   </div>
 </section>
 
+<h2>Tables</h2>
+<ul class="entry-tables">
+  <li><a href="../dialects/SINCLAIR_ZX80_4K.html#program">Program in memory</a>      <small>— action FLOW_CONTINUE</small></li>
+</ul>
+
 <h2>Keywords</h2>
 <table>
   <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
   <tbody>
   <tr><td><a class="kw" href="../keywords/CONTINUE-35.html">CONTINUE</a></td>
       <td><code>$F9</code></td>
-      <td></td></tr>
+      <td><code>T</code></td></tr>
   </tbody>
 </table>
 
 <h2>Examples</h2>
 <figure class="example">
-<h3>Resume after STOP <span class="tag warning">to verify</span></h3>  <pre>10 STOP
+<h3>Resume after STOP</h3>  <pre>10 STOP
 20 PRINT &#34;AGAIN&#34;
 RUN
 CONTINUE</pre>

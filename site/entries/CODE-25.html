@@ -26,7 +26,7 @@
 
 <p class="breadcrumbs"><a href="../dialects/SINCLAIR_ZX80_4K.html#entries">Sinclair ZX80 BASIC 4K ROM</a> ›</p>
 <h1><span class="entry-name">CODE</span> <span class="category">Function</span></h1>
-<p class="subtitle">Code of the first character of a string.</p>
+<div class="subtitle md"><p>Code of the first character of a string.</p></div>
 <dl class="facts">
   <dt>Layer</dt><dd><code>ZX80_4K_core</code> — Sinclair ZX80 BASIC (4K ROM)</dd>
   <dt>Dialects</dt><dd><a href="../dialects/SINCLAIR_ZX80_4K.html">Sinclair ZX80 BASIC 4K ROM</a></dd>
@@ -43,7 +43,7 @@
   <p><strong>Returns:</strong> Integer, range <code>[0, 255]</code></p>
 
   <table class="parameters">
-    <thead><tr><th>Parameter</th><th>Type</th><th>Values</th><th>Description</th></tr></thead>
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
     <tbody>
     <tr>
       <td><code class="par">s</code></td>
@@ -57,9 +57,14 @@
   <h3>Equivalents in other dialects</h3>
   <div class="action">
     <p><a href="../actions.html#STR_CODE" class="action-code">STR_CODE</a> Code of a character
-<small>— The ZX80&#39;s own character set, not ASCII</small></p>
+<small>— The ZX80's own character set, not ASCII</small></p>
   </div>
 </section>
+
+<h2>Tables</h2>
+<ul class="entry-tables">
+  <li><a href="../dialects/SINCLAIR_ZX80_4K.html#characters">Character codes</a>      <small>— action STR_CODE</small></li>
+</ul>
 
 <h2>Keywords</h2>
 <table>
@@ -67,13 +72,13 @@
   <tbody>
   <tr><td><a class="kw" href="../keywords/CODE-43.html">CODE</a></td>
       <td></td>
-      <td></td></tr>
+      <td><em>none</em></td></tr>
   <tr><td><a class="kw" href="../keywords/lparen-7.html">(</a></td>
       <td><code>$DA</code></td>
-      <td></td></tr>
+      <td><code>SHIFT + I</code></td></tr>
   <tr><td><a class="kw" href="../keywords/rparen-6.html">)</a></td>
       <td><code>$D9</code></td>
-      <td></td></tr>
+      <td><code>SHIFT + O</code></td></tr>
   </tbody>
 </table>
 

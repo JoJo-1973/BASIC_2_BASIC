@@ -58,7 +58,8 @@ INSERT INTO dialect_layer (dialect_id, layer_id, position) VALUES (5, 6, 1);
 INSERT INTO dialect_layer (dialect_id, layer_id, position) VALUES (6, 7, 1);
 
 -- feature
-INSERT INTO feature (id, layer_id, code, value, operation, description) VALUES (1, 1, 'VARIABLE_NAME_SIGNIFICANT_CHARS', '2', 'ADD', 'Only the first two characters of a name count');
+INSERT INTO feature (id, layer_id, feature_kind_id, value, operation, notes) VALUES (1, 1, 2, 'Yes', 'ADD', NULL);
+INSERT INTO feature (id, layer_id, feature_kind_id, value, operation, notes) VALUES (2, 1, 3, ':', 'ADD', NULL);
 
 -- data_type
 INSERT INTO data_type (id, layer_id, code, name, type_class_id, minimum, maximum, bytes, operation) VALUES (1, 1, 'FLOAT5', 'Real', 3, -1.70141183e+38, 1.70141183e+38, 5, 'ADD');

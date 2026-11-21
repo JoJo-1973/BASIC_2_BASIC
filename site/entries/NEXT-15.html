@@ -26,7 +26,7 @@
 
 <p class="breadcrumbs"><a href="../dialects/SINCLAIR_ZX80_4K.html#entries">Sinclair ZX80 BASIC 4K ROM</a> ›</p>
 <h1><span class="entry-name">NEXT</span> <span class="category">Statement</span></h1>
-<p class="subtitle">Increments the counter and goes back to the statement after FOR if it has not passed the end value.</p>
+<div class="subtitle md"><p>Increments the counter and goes back to the statement after FOR if it has not passed the end value.</p></div>
 <dl class="facts">
   <dt>Layer</dt><dd><code>ZX80_4K_core</code> — Sinclair ZX80 BASIC (4K ROM)</dd>
   <dt>Dialects</dt><dd><a href="../dialects/SINCLAIR_ZX80_4K.html">Sinclair ZX80 BASIC 4K ROM</a></dd>
@@ -42,12 +42,12 @@
 
 
   <table class="parameters">
-    <thead><tr><th>Parameter</th><th>Type</th><th>Values</th><th>Description</th></tr></thead>
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
     <tbody>
     <tr>
       <td><code class="par">a</code></td>
       <td>loop control variable name</td>
-      <td><small>otherwise <code>?NEXT WITHOUT FOR</code></small></td>
+      <td><small>otherwise <a href="../dialects/SINCLAIR_ZX80_4K.html#errors">error 1</a> <code>1/n</code></small></td>
       <td>Control variable of the loop.</td>
     </tr>
     </tbody>
@@ -60,13 +60,18 @@
   </div>
 </section>
 
+<h2>Tables</h2>
+<ul class="entry-tables">
+  <li><a href="../dialects/SINCLAIR_ZX80_4K.html#variables">Variables in memory</a>      <small>— action FLOW_NEXT</small></li>
+</ul>
+
 <h2>Keywords</h2>
 <table>
   <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
   <tbody>
   <tr><td><a class="kw" href="../keywords/NEXT-30.html">NEXT</a></td>
       <td><code>$F3</code></td>
-      <td></td></tr>
+      <td><code>N</code></td></tr>
   </tbody>
 </table>
 
@@ -82,11 +87,11 @@
 4</pre><figcaption>After the loop the counter is end+1.
 </figcaption></figure>
 <figure class="example">
-<h3>NEXT without FOR <span class="tag warning">to verify</span></h3>  <pre>10 NEXT I</pre>
+<h3>NEXT without FOR</h3>  <pre>10 NEXT I</pre>
 <pre class="output" title="Expected result">1/10</pre><figcaption>Report 1: I is not the counter of an active FOR loop.
 </figcaption></figure>
 
-
+<h2>Notes</h2><div class="md"><p>Since the line to return to of a FOR loop is not kept on a stack, FOR loops that are not nested can be written without causing errors.</p></div>
 <h2>Related entries</h2>
 <ul><li>Opened by: <a href="../entries/FOR-TO-14.html">FOR...TO</a></li></ul>
 

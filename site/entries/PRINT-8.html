@@ -26,7 +26,7 @@
 
 <p class="breadcrumbs"><a href="../dialects/SINCLAIR_ZX80_4K.html#entries">Sinclair ZX80 BASIC 4K ROM</a> ›</p>
 <h1><span class="entry-name">PRINT</span> <span class="category">Statement</span></h1>
-<p class="subtitle">Writes on the upper part of the screen.</p>
+<div class="subtitle md"><p>Writes on the upper part of the screen.</p></div>
 <dl class="facts">
   <dt>Layer</dt><dd><code>ZX80_4K_core</code> — Sinclair ZX80 BASIC (4K ROM)</dd>
   <dt>Dialects</dt><dd><a href="../dialects/SINCLAIR_ZX80_4K.html">Sinclair ZX80 BASIC 4K ROM</a></dd>
@@ -35,14 +35,14 @@
 
 <section class="form">
   <h2>Syntax</h2>
-<p>&#39;;&#39; joins the items; &#39;,&#39; moves to the next zone (columns 9, 17, 25). A trailing separator suppresses the new line.</p>  <pre class="syntax"><span class="kw">PRINT</span> <span class="meta">[</span><span class="par">item</span><span class="meta">]</span><span class="meta">[</span><span class="meta">&lt;</span><span class="kw">;</span> <span class="meta">|</span> <span class="kw">,</span><span class="meta">&gt;</span><span class="meta">[</span><span class="par">item</span><span class="meta">]</span><span class="meta">]</span><span class="meta">...</span></pre>
+<div class="md"><p>';' joins the items; ',' moves to the next zone (columns 9, 17, 25). A trailing separator suppresses the new line.</p></div>  <pre class="syntax"><span class="kw">PRINT</span> <span class="meta">[</span><span class="par">item</span><span class="meta">]</span><span class="meta">[</span><span class="meta">&lt;</span><span class="kw">;</span> <span class="meta">|</span> <span class="kw">,</span><span class="meta">&gt;</span><span class="meta">[</span><span class="par">item</span><span class="meta">]</span><span class="meta">]</span><span class="meta">...</span></pre>
   <p class="manual">In the manual (Sinclair ZX80 Operating Manual - A Course in BASIC Programming, p. Appendix II):
     <code>PRINT list</code>
 <span class="tag warning">differs from the rebuilt syntax</span></p>
 
 
   <table class="parameters">
-    <thead><tr><th>Parameter</th><th>Type</th><th>Values</th><th>Description</th></tr></thead>
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
     <tbody>
     <tr>
       <td><code class="par">item</code></td>
@@ -60,29 +60,30 @@
   </div>
 </section>
 
+
 <h2>Keywords</h2>
 <table>
   <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
   <tbody>
   <tr><td><a class="kw" href="../keywords/PRINT-31.html">PRINT</a></td>
       <td><code>$F4</code></td>
-      <td></td></tr>
+      <td><code>O</code></td></tr>
   <tr><td><a class="kw" href="../keywords/semicolon-4.html">;</a></td>
       <td><code>$D7</code></td>
-      <td></td></tr>
+      <td><code>SHIFT + X</code></td></tr>
   <tr><td><a class="kw" href="../keywords/comma-5.html">,</a></td>
       <td><code>$D8</code></td>
-      <td></td></tr>
+      <td><code>SHIFT + .</code></td></tr>
   </tbody>
 </table>
 
 <h2>Examples</h2>
 <figure class="example">
-<h3>String and number together <span class="tag warning">to verify</span></h3>  <pre>PRINT &#34;A=&#34;;A</pre>
+<h3>String and number together</h3>  <pre>PRINT &#34;A=&#34;;A</pre>
 <figcaption>Prints a string followed by the value of A, without spaces.
 </figcaption></figure>
 <figure class="example">
-<h3>Print zones <span class="tag warning">to verify</span></h3>  <pre>PRINT 1,2,3,4</pre>
+<h3>Print zones</h3>  <pre>PRINT 1,2,3,4</pre>
 <pre class="output" title="Expected result">Four numbers in the four 8-column zones of the line.</pre><figcaption>The comma moves to the next zone (columns 9, 17, 25).
 </figcaption></figure>
 

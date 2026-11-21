@@ -49,6 +49,8 @@ SOURCES = [
      None, 2002, "WEB", None, "Commented disassembly of the 4K ROM"),
     (3, "ZX80 character set", "Wikipedia", None, None, "WEB",
      "https://en.wikipedia.org/wiki/ZX80_character_set", None),
+    (4, "ZX80 keyboard layout", "Grant Searle", None, None, "IMAGE", None,
+     "Drawing of the original keyboard legends: data/sources/zx80_keyboard.png"),
 ]
 
 DATA_TYPES = [
@@ -59,20 +61,24 @@ DATA_TYPES = [
      "Any length, including empty, limited only by memory. The character with code 1 acts as terminator."),
 ]
 
+# Features: answers to the catalogue in data/base.sql (feature_kind).
+# code, value, verified, notes. verified=False when the answer is not certain.
+# All verified by the editor on 2026-11-21.
 FEATURES = [
-    ("LINE_NUMBERS", "1-9999", "Range of line numbers."),
-    ("STATEMENTS_PER_LINE", "1", "One statement per line: there is no ':' separator."),
-    ("ARITHMETIC", "16-bit integer", "Values from -32768 to 32767; out of range: error 6."),
-    ("DIVISION", "truncates towards zero", None),
-    ("TRUE_VALUE", "-1", "Value produced by a true comparison."),
-    ("FALSE_VALUE", "0", "Value produced by a false comparison."),
-    ("TRUTH_TEST", "NONZERO", "A number used as a condition is true if it is not 0. AND, OR and NOT work bit by bit: NOT 1 = -2, which is true."),
-    ("FOR_STEP", "fixed at 1", "There is no STEP."),
-    ("LET", "mandatory", "Every statement starts with a keyword."),
-    ("KEYWORD_ENTRY", "one key for statements and commands",
-     "With the K cursor the key enters the whole keyword; functions are typed letter by letter."),
-    ("ERROR_FORMAT", "n/m", "n = code (0 = no error), m = line number."),
-    ("SCREEN", "32 columns", "A comma in PRINT moves to the next zone (4 zones of 8 columns)."),
+    ("LINE_NUMBERS", "1-9999", True, "Entering line 0 gives an error."),
+    ("MULTIPLE_STATEMENTS", "No", True, None),
+    ("STATEMENT_SEPARATOR", "None", True, None),
+    ("LET", "Mandatory", True, "Every statement starts with a keyword."),
+    ("TRUE_VALUE", "-1", True, None),
+    ("FALSE_VALUE", "0", True, None),
+    ("TRUTH_TEST", "NONZERO", True, "AND, OR and NOT work bit by bit: NOT 1 = -2, which is true."),
+    ("INTEGER_CONVERSION", "Truncation towards zero", True, None),
+    ("FOR_RUNS_ONCE", "Yes", True, None),
+    ("FOR_VARIABLE_CHANGEABLE", "Yes", True, None),
+    ("MODAL_KEYBOARD", "Yes", True,
+     "With the K cursor a key enters the whole keyword; functions are typed letter by letter."),
+    ("TAB_ZONE_WIDTH", "8 columns", True, "4 zones on the 32-column screen."),
+    ("VARIABLE_TAB_STOPS", "No", True, None),
 ]
 
 ERRORS = [
@@ -91,7 +97,9 @@ ERRORS = [
 
 # Keywords: text, token (hexadecimal code or None), notes
 KEYWORDS = [
-    ('"', "D4", "String delimiter. Code used in the program; on screen the character has code 1."),
+    ('"', "01", "String delimiter. A typed quote is stored in the program as $01 (checked on an emulator: "
+                "10 PRINT \"ABC\" is stored as 0 10 244 1 38 39 40 1 118), although the token table of the manual "
+                "lists $D4. $01 is not printable; the printable quote is code 212."),
     ("THEN", "D5", None), ("TO", "D6", None),
     (";", "D7", "Symbol: code used in the program."), (",", "D8", "Symbol: code used in the program."),
     (")", "D9", "Symbol: code used in the program (on screen 17)."),
@@ -120,6 +128,29 @@ KEYWORDS = [
     ("TL$", None, "Function: typed letter by letter, it has no token."),
     ("USR", None, "Function: typed letter by letter, it has no token."),
 ]
+
+
+# ---------------------------------------------------------------------
+# Abbreviations: the key combination that types each keyword (source [4]).
+# Single key = the main symbol of the key; modified key = "SHIFT + key".
+# Keywords not listed here have no abbreviation (empty string).
+# The keyboard shortens some legends: RET = RETURN, CONT = CONTINUE,
+# GOTO = GO TO, GOSUB = GO SUB, RAND = RANDOMISE.
+# ---------------------------------------------------------------------
+ABBREVIATIONS = {
+    # shifted keys
+    "NOT": "SHIFT + 1", "AND": "SHIFT + 2", "THEN": "SHIFT + 3", "TO": "SHIFT + 4",
+    '"': "SHIFT + Y", "(": "SHIFT + I", ")": "SHIFT + O", "*": "SHIFT + P",
+    "**": "SHIFT + H", "-": "SHIFT + J", "+": "SHIFT + K", "=": "SHIFT + L",
+    ";": "SHIFT + X", "/": "SHIFT + V", "OR": "SHIFT + B", "<": "SHIFT + N",
+    ">": "SHIFT + M", ",": "SHIFT + .",
+    # single keys
+    "NEW": "Q", "LOAD": "W", "SAVE": "E", "RUN": "R", "CONTINUE": "T", "REM": "Y",
+    "IF": "U", "INPUT": "I", "PRINT": "O",
+    "LIST": "A", "STOP": "S", "DIM": "D", "FOR": "F", "GO TO": "G", "POKE": "H",
+    "RANDOMISE": "J", "LET": "K",
+    "CLEAR": "X", "CLS": "C", "GO SUB": "V", "RETURN": "B", "NEXT": "N",
+}
 
 
 # ---------------------------------------------------------------------
@@ -159,7 +190,87 @@ ZX80_UNICODE = {
 ZX80_UNICODE.update({28 + i: str(i) for i in range(10)})
 ZX80_UNICODE.update({38 + i: chr(65 + i) for i in range(26)})
 
-ZX80_NAMES = {0: "space", 1: "quote (string terminator)", 128: "inverse space"}
+# Official Unicode names of the code points above (Unicode Character Database).
+# Written out here so that the result does not depend on the Unicode version of Python.
+UNICODE_NAMES = {
+    ' ': "SPACE",
+    '"': "QUOTATION MARK",
+    '$': "DOLLAR SIGN",
+    '(': "LEFT PARENTHESIS",
+    ')': "RIGHT PARENTHESIS",
+    '*': "ASTERISK",
+    '+': "PLUS SIGN",
+    ',': "COMMA",
+    '-': "HYPHEN-MINUS",
+    '.': "FULL STOP",
+    '/': "SOLIDUS",
+    '0': "DIGIT ZERO",
+    '1': "DIGIT ONE",
+    '2': "DIGIT TWO",
+    '3': "DIGIT THREE",
+    '4': "DIGIT FOUR",
+    '5': "DIGIT FIVE",
+    '6': "DIGIT SIX",
+    '7': "DIGIT SEVEN",
+    '8': "DIGIT EIGHT",
+    '9': "DIGIT NINE",
+    ':': "COLON",
+    ';': "SEMICOLON",
+    '<': "LESS-THAN SIGN",
+    '=': "EQUALS SIGN",
+    '>': "GREATER-THAN SIGN",
+    '?': "QUESTION MARK",
+    'A': "LATIN CAPITAL LETTER A",
+    'B': "LATIN CAPITAL LETTER B",
+    'C': "LATIN CAPITAL LETTER C",
+    'D': "LATIN CAPITAL LETTER D",
+    'E': "LATIN CAPITAL LETTER E",
+    'F': "LATIN CAPITAL LETTER F",
+    'G': "LATIN CAPITAL LETTER G",
+    'H': "LATIN CAPITAL LETTER H",
+    'I': "LATIN CAPITAL LETTER I",
+    'J': "LATIN CAPITAL LETTER J",
+    'K': "LATIN CAPITAL LETTER K",
+    'L': "LATIN CAPITAL LETTER L",
+    'M': "LATIN CAPITAL LETTER M",
+    'N': "LATIN CAPITAL LETTER N",
+    'O': "LATIN CAPITAL LETTER O",
+    'P': "LATIN CAPITAL LETTER P",
+    'Q': "LATIN CAPITAL LETTER Q",
+    'R': "LATIN CAPITAL LETTER R",
+    'S': "LATIN CAPITAL LETTER S",
+    'T': "LATIN CAPITAL LETTER T",
+    'U': "LATIN CAPITAL LETTER U",
+    'V': "LATIN CAPITAL LETTER V",
+    'W': "LATIN CAPITAL LETTER W",
+    'X': "LATIN CAPITAL LETTER X",
+    'Y': "LATIN CAPITAL LETTER Y",
+    'Z': "LATIN CAPITAL LETTER Z",
+    '£': "POUND SIGN",
+    '▀': "UPPER HALF BLOCK",
+    '▄': "LOWER HALF BLOCK",
+    '█': "FULL BLOCK",
+    '▌': "LEFT HALF BLOCK",
+    '▐': "RIGHT HALF BLOCK",
+    '▒': "MEDIUM SHADE",
+    '▖': "QUADRANT LOWER LEFT",
+    '▗': "QUADRANT LOWER RIGHT",
+    '▘': "QUADRANT UPPER LEFT",
+    '▙': "QUADRANT UPPER LEFT AND LOWER LEFT AND LOWER RIGHT",
+    '▚': "QUADRANT UPPER LEFT AND LOWER RIGHT",
+    '▛': "QUADRANT UPPER LEFT AND UPPER RIGHT AND LOWER LEFT",
+    '▜': "QUADRANT UPPER LEFT AND UPPER RIGHT AND LOWER RIGHT",
+    '▝': "QUADRANT UPPER RIGHT",
+    '▞': "QUADRANT UPPER RIGHT AND LOWER LEFT",
+    '▟': "QUADRANT UPPER RIGHT AND LOWER LEFT AND LOWER RIGHT",
+    "\U0001FB8E": "UPPER HALF MEDIUM SHADE",
+    "\U0001FB8F": "LOWER HALF MEDIUM SHADE",
+    "\U0001FB90": "INVERSE MEDIUM SHADE",
+    "\U0001FB91": "UPPER HALF BLOCK AND LOWER HALF INVERSE MEDIUM SHADE",
+    "\U0001FB92": "UPPER HALF INVERSE MEDIUM SHADE AND LOWER HALF BLOCK",
+}
+
+ZX80_NAMES = {0: "space", 1: "quote", 128: "inverse space"}
 ZX80_NAMES.update({i: "graphic" for i in range(2, 12)})
 ZX80_NAMES.update({128 + i: "inverse graphic" for i in range(2, 12)})
 
@@ -174,7 +285,9 @@ def zx80_glyphs():
     for i, code in enumerate(GLYPH_CODES):
         yield dict(charset_id=CHARSET["id"], code=code, bitmap=ZX80_GLYPHS[i],
                    inverse_of=code - 128 if code >= 128 else None,
-                   unicode=ZX80_UNICODE.get(code), name=ZX80_NAMES.get(code))
+                   unicode=ZX80_UNICODE.get(code),
+                   unicode_name=UNICODE_NAMES[ZX80_UNICODE[code]] if code in ZX80_UNICODE else None,
+                   name=ZX80_NAMES.get(code))
 
 
 def zx80_screen_codes():
@@ -188,8 +301,19 @@ def zx80_character_codes():
     """Rows of the character_code table for the 256 codes."""
     for code in range(256):
         r = dict(layer_id=LAYER["id"], code=code)
-        if code < 64 or 128 <= code < 192:
+        if code == 0x01:
+            # glyph 1 is the quote, but code 1 does not print it: it ends the strings
+            r.update(kind="CONTROL", name="String terminator", action="Ends a string",
+                     notes="Not printable (PRINT CHR$(1) prints nothing). It ends the strings in the variables area "
+                           "and is the byte with which typed quotes are stored in the program. "
+                           "The printable quote is code 212.")
+        elif code == 212:
+            r.update(kind="PRINTABLE", screen_code=1,
+                     notes="Printable quote: cannot be typed from the keyboard, but can be put in string variables.")
+        elif code < 64 or 128 <= code < 192:
             r.update(kind="PRINTABLE", screen_code=code)
+        elif code == 0x76:
+            r.update(kind="CONTROL", name="NEWLINE", action="Ends a program line")
         elif code in PRINTED_AS_QUESTION_MARK:
             r.update(kind="UNUSED", screen_code=15, notes="Printed as '?'")
         else:
@@ -197,14 +321,65 @@ def zx80_character_codes():
         yield r
 
 
+# Program and variables in memory (source: the editor, 2026-11-21).
+# memory areas: area, prologue, epilogue ('' = nothing)
+MEMORY_AREAS = [
+    ("PROGRAM", "", "$00, $00", None),
+    ("VARIABLES", "", "$80", None),
+]
+# program line: name, offset, size, byte order, description (None = variable)
+PROGRAM_LAYOUT = [
+    ("Line number", 0, 2, "BIG", None),
+    ("Line text", 2, None, None, "Tokenized text of the line."),
+    ("NEWLINE", None, 1, None, "$76."),
+]
+# variables: variable type code -> layouts: (layout name, [(name, offset, size, byte order, description)])
+VARIABLE_LAYOUTS = {
+    "NUMERIC": [
+        ("Name of one character", [
+            ("Name", 0, 1, None, "Character code of the letter OR $60."),
+            ("Value", 1, 2, "LITTLE", None),
+        ]),
+        ("Name of more than one character", [
+            ("First letter", 0, 1, None, "Character code of the first letter AND $1F OR $40."),
+            ("Following letters", 1, None, None, "Character codes of the letters from the second to the last but one."),
+            ("Last letter", None, 1, None, "Character code of the last letter AND $1F OR $80."),
+            ("Value", None, 2, "LITTLE", None),
+        ]),
+    ],
+    "STRING": [
+        (None, [
+            ("Name", 0, 1, None, "Character code of the letter AND $1F OR $80."),
+            ("Characters", 1, None, None, "Character codes of the string, from the first to the last."),
+            ("Terminator", None, 1, None, "$01."),
+        ]),
+    ],
+    "NUMERIC_ARRAY": [
+        (None, [
+            ("Name", 0, 1, None, "Character code of the letter AND $1F OR $90."),
+            ("Size", 1, 1, None, "Size of the array, n."),
+            ("Elements", 2, None, "LITTLE", "Elements from 0 to n, 2 bytes each: element k at offset 2*(k+1)."),
+        ]),
+    ],
+    "LOOP_CONTROL": [
+        (None, [
+            ("Name", 0, 1, None, "Character code of the letter AND $1F OR $E0."),
+            ("Value", 1, 2, "LITTLE", None),
+            ("Upper limit", 3, 2, "LITTLE", "End value of the FOR loop."),
+            ("FOR line", 5, 2, "BIG", "Number of the line where the FOR loop is defined, plus 1."),
+        ]),
+    ],
+}
+
+
 # State of the tables that always exist: (table kind, status, notes)
 LAYER_TABLES = [
     ("CHARACTER_CODES", "COMPLETE", None),
-    ("KEYBOARD_CODES", "TO_DO", None),
-    ("ERRORS", "COMPLETE", None),
+    ("KEYBOARD_CODES", "NOT_APPLICABLE", "The ZX80 BASIC has no keyboard codes."),
+    ("ERRORS", "COMPLETE", "Reports are shown as n/m: n = error code (0 = no error), m = line number."),
     ("OPERATOR_PRECEDENCE", "COMPLETE", None),
-    ("VARIABLE_LAYOUT", "TO_DO", None),
-    ("PROGRAM_LAYOUT", "TO_DO", None),
+    ("VARIABLE_LAYOUT", "COMPLETE", None),
+    ("PROGRAM_LAYOUT", "COMPLETE", None),
     ("MUSICAL_NOTES", "NOT_APPLICABLE", "The ZX80 has no sound."),
 ]
 MACHINE_TABLES = [
@@ -220,16 +395,16 @@ MACHINE_TABLES = [
 # ---------------------------------------------------------------------
 VARIABLE_KINDS = [
     (1, "NUMERIC", "Numeric variable", "INT16", 0, "letter followed by letters or digits",
-     r"^[A-Z][A-Z0-9]*$", "A, PIPPO24", "No length limit."),
+     r"^[A-Z][A-Z0-9]*$", 0, 0, "A, AB3", "No length limit."),
     (2, "STRING", "String variable", "STRING", 0, "one letter followed by $",
-     r"^[A-Z]\$$", "A$, Z$", "At most 26 string variables."),
+     r"^[A-Z]\$$", 1, 0, "A$, Z$", "At most 26 string variables."),
     (3, "NUMERIC_ARRAY", "Numeric array", "INT16", 1,
      "one letter; an element is written with one integer subscript in parentheses",
-     r"^[A-Z]$", "B(5), F(12)",
-     "One dimension, subscripts from 0 to n (DIM). An array can have the same name as a variable "
+     r"^[A-Z]$", 1, 0, "B(5), F(12)",
+     "One dimension, subscripts start from 0. An array can have the same name as a variable "
      "(not recommended). The manual describes integer arrays only."),
     (4, "LOOP_CONTROL", "Loop control variable", "INT16", 0, "one letter",
-     r"^[A-Z]$", "I", None),
+     r"^[A-Z]$", 1, 0, "I", None),
 ]
 
 # Parameter types: code, name, nature, type class (LITERAL/EXPRESSION),
@@ -318,13 +493,14 @@ ENTRIES = [
         F(S(K("LOAD")), actions=[("TAPE_LOAD", "FULL", "No file name: it loads the first program found")], orig="LOAD")],
       notes="BREAK during the leader keeps the program in memory; BREAK after the data has started is the same as NEW."),
     # ---------------------------------------------------------- statements
-    E("LET", "STATEMENT", "Assigns a value to a variable. LET is mandatory.", [
+    E("LET", "STATEMENT", "Assigns a value to a variable.", [
         F(S(K("LET"),
             C(S(C(P("variable", "NUM_VAR"), P("variable", "ARRAY_ELEMENT")), K("="), P("expression", "NUM_EXPR")),
               S(P("variable", "STR_VAR"), K("="), P("expression", "STR_EXPR")))),
           {"variable": dict(descr="Numeric variable, string variable or array element."),
            "expression": dict(descr="Of the same type as the variable.")},
-          [("VAR_LET", "FULL", None)], orig=None)]),
+          [("VAR_LET", "FULL", None)], orig=None)],
+      notes="An empty string is made only of the name byte and the terminator $01."),
     E("PRINT", "STATEMENT", "Writes on the upper part of the screen.", [
         F(S(K("PRINT"), O(C(P("item", "NUM_EXPR"), P("item", "STR_EXPR"))),
             R(S(C(K(";"), K(",")), O(C(P("item", "NUM_EXPR"), P("item", "STR_EXPR")), att=True)), min=0, att=True)),
@@ -333,8 +509,7 @@ ENTRIES = [
           descr="';' joins the items; ',' moves to the next zone (columns 9, 17, 25). A trailing separator suppresses the new line.")]),
     E("INPUT", "STATEMENT", "Reads a value from the keyboard and assigns it to a variable.", [
         F(S(K("INPUT"), C(P("destination", "NUM_VAR"), P("destination", "STR_VAR"), P("destination", "ARRAY_ELEMENT"))),
-          {"destination": dict(descr="Numeric variable, string variable or array element. An expression can be typed.",
-                               error="INPUT_AS_COMMAND")},
+          {"destination": dict(descr="Numeric variable, string variable or array element. An expression can be typed.")},
           [("IO_INPUT", "PARTIAL", "One variable only, no prompt")], orig="INPUT dest")],
       notes="Only inside a program: as a command it gives error 8. For a string the quotes appear, and they can be deleted."),
     E("IF", "STATEMENT", "Executes the statement after THEN if the condition is not zero.", [
@@ -356,11 +531,15 @@ ENTRIES = [
            "start": dict(descr="Start value."),
            "end": dict(descr="End value.")},
           [("FLOW_FOR", "PARTIAL", "Step fixed at 1: there is no STEP")], orig="FOR a = n TO n")],
-      notes="The body is executed at least once. At the end of the loop the counter is end+1. NEXT is matched dynamically."),
+      notes="At the end of the loop the counter is end+1. NEXT is matched dynamically. "
+            "Since the line to return to is not kept on a stack, FOR loops that are not nested can be written "
+            "without causing errors."),
     E("NEXT", "STATEMENT", "Increments the counter and goes back to the statement after FOR if it has not passed the end value.", [
         F(S(K("NEXT"), P("a", "LOOP_VAR")),
           {"a": dict(descr="Control variable of the loop.", error="NEXT_WITHOUT_FOR")},
-          [("FLOW_NEXT", "FULL", None)], orig="NEXT a")]),
+          [("FLOW_NEXT", "FULL", None)], orig="NEXT a")],
+      notes="Since the line to return to of a FOR loop is not kept on a stack, FOR loops that are not nested "
+            "can be written without causing errors."),
     E("STOP", "STATEMENT", "Stops the program with code 9; CONTINUE resumes from the next line.", [
         F(S(K("STOP")), actions=[("FLOW_STOP", "FULL", None)], orig="STOP")]),
     E("DIM", "STATEMENT", "Creates an array with subscripts from 0 to n.", [
@@ -381,7 +560,9 @@ ENTRIES = [
     E("RANDOMISE", "STATEMENT", "Seeds the random number generator.", [
         F(S(K("RANDOMISE"), O(P("n"))),
           {"n": dict(descr="Seed. Without an argument, or with 0, the video frame counter is used.")},
-          [("RND_SEED", "FULL", None)], orig="RANDOMISE n")]),
+          [("RND_SEED", "FULL", None)], orig="RANDOMISE n")],
+      notes="Sets the seed n of the pseudo-random generator used by RND (the algorithm is in the notes of RND). "
+            "A negative seed is read as an unsigned 16-bit number: RANDOMISE -5 is the same as a seed of 65531."),
     E("REM", "STATEMENT", "Comment: it has no effect.", [
         F(S(K("REM"), O(P("text", "FREE_TEXT"))), {"text": dict(descr="Any text.")},
           [("PROG_REM", "FULL", None)], orig="REM")]),
@@ -399,8 +580,20 @@ ENTRIES = [
         F(function("PEEK", "n"), {"n": dict(descr="Memory address.")},
           [("MEM_PEEK", "FULL", None)], orig="PEEK(n)", ret=("INT16", 0, 255))]),
     E("RND", "FUNCTION", "Random integer.", [
-        F(function("RND", "n"), {"n": dict(descr="With n>0 the result goes from 1 to n; with n<0 from -32768 to n-1; with n=0 it is 1.")},
-          [("RND_VALUE", "FULL", "Integer from 1 to n")], orig="RND(n)", ret=("INT16", None, None))]),
+        F(function("RND", "n"), {"n": dict(descr="With n>0 the result goes from 1 to n; with n<0 it goes from 1 to 32767 or from -32768 to n "
+                           "(see the algorithm in the notes); with n=0 it is 1.")},
+          [("RND_VALUE", "FULL", "Integer from 1 to n")], orig="RND(n)", ret=("INT16", None, None))],
+      notes="Algorithm (checked on an emulator against the sequences of `RANDOMISE 5` with `RND(100)` and "
+            "`RND(-10)`, and of `RANDOMISE -5`):\n"
+            "\n"
+            "1. Let n be the seed of the pseudo-random generator (a negative seed is read as an unsigned "
+            "16-bit number: -5 becomes 65531).\n"
+            "2. If n = 0, let n = 65536.\n"
+            "3. Let `m = (n*77) MOD 65537`.\n"
+            "4. If m = 65536, let m = 0.\n"
+            "5. `RND(x)` gives `u*m/65536 + 1` (integer division), where u is x read as an unsigned 16-bit "
+            "number (`x AND 65535`: -10 becomes 65526); the result is read as a signed 16-bit integer.\n"
+            "6. Let n = m and go back to step 2."),
     E("STR$", "FUNCTION", "Number converted to a decimal string (1 to 6 characters, including any minus sign).", [
         F(function("STR$", "n"), {},
           [("STR_FROM_NUM", "FULL", None)], orig="STR$(n)", ret=("STRING", None, None))]),
@@ -434,8 +627,7 @@ for _op, _action, _name in (("=", "OP_EQ", "Equal"), (">", "OP_GT", "Greater tha
           [(_action, "FULL", None)], orig=f"s{_op}s", assoc=LEFT, prec=5, op="RELATIONAL", title="Between strings", ret=("INT16", -1, 0))]))
 
 BITWISE_NOTE = ("With truth values (comparisons give -1 if true, 0 if false) it also behaves as a conditional "
-                "operator: this is a side effect of working bit by bit on signed 16-bit integers, the only numeric type. "
-                "On the ZX81 and the ZX Spectrum AND, OR and NOT work differently.")
+                "operator: this is a side effect of working bit by bit on signed 16-bit integers, the only numeric type.")
 
 ENTRIES += [
     E("NOT", "OPERATOR", "Bitwise negation: NOT n is -n-1.", [
@@ -465,96 +657,98 @@ EXAMPLES = {
     # ------------------------------------------------------------ commands
     "LIST": [
         X("List from a line", "LIST 100", "The program from line 100 onwards.",
-          "Line 100 becomes the current line. If it does not exist, the listing starts from the next line."),
+          "Line 100 becomes the current line. If it does not exist, the listing starts from the next line.", verified=True),
     ],
     "RUN": [
-        X("Run the program", "RUN", None, "Clears the variables and runs the program from the first line."),
-        X("Run from a line", "RUN 100", None, "Clears the variables and runs the program from line 100."),
+        X("Run the program", "RUN", None, "Clears the variables and runs the program from the first line.", verified=True),
+        X("Run from a line", "RUN 100", None, "Clears the variables and runs the program from line 100.", verified=True),
     ],
     "NEW": [
-        X("Erase everything", "NEW", "An empty screen.", "Program and variables are erased, as at power-on."),
+        X("Erase everything", "NEW", "An empty screen.", "Program and variables are erased, as at power-on.", verified=True),
     ],
     "CONTINUE": [
         X("Resume after STOP", '10 STOP\n20 PRINT "AGAIN"\nRUN\nCONTINUE', "9/10\nAGAIN",
-          "RUN stops at line 10 with report 9/10; CONTINUE resumes from line 20."),
+          "RUN stops at line 10 with report 9/10; CONTINUE resumes from line 20.", verified=True),
     ],
     "SAVE": [
         X("Save to tape", "SAVE", None,
-          "Start the tape recorder in record before pressing NEWLINE: system variables, program and variables are saved."),
+          "Start the tape recorder in record before pressing NEWLINE: system variables, program and variables are saved.", verified=True),
     ],
     "LOAD": [
         X("Load from tape", "LOAD", None,
-          "Start the tape recorder in play: the first program found is loaded with its variables."),
+          "Start the tape recorder in play: the first program found is loaded with its variables.", verified=True),
     ],
     # ---------------------------------------------------------- statements
     "LET": [
-        X("Numeric variable", "10 LET A=5\n20 PRINT A*2", "10", form=1),
-        X("String variable", '10 LET N$="ZX80"\n20 PRINT N$', "ZX80", form=1),
-        X("Array element", "10 DIM B(3)\n20 LET B(2)=7\n30 PRINT B(2)", "7", form=1),
+        X("Numeric variable", "10 LET A=5\n20 PRINT A*2", "10", form=1, verified=True),
+        X("String variable", '10 LET N$="ZX80"\n20 PRINT N$', "ZX80", form=1, verified=True),
+        X("Array element", "10 DIM B(3)\n20 LET B(2)=7\n30 PRINT B(2)", "7", form=1, verified=True),
     ],
     "PRINT": [
         X("String and number together", 'PRINT "A=";A', None,
-          "Prints a string followed by the value of A, without spaces."),
+          "Prints a string followed by the value of A, without spaces.", verified=True),
         X("Print zones", 'PRINT 1,2,3,4', "Four numbers in the four 8-column zones of the line.",
-          "The comma moves to the next zone (columns 9, 17, 25)."),
+          "The comma moves to the next zone (columns 9, 17, 25).", verified=True),
     ],
     "INPUT": [
-        X("Read a number", "10 INPUT N\n20 PRINT N*2", "42", "Run the program, type 21 and press NEWLINE."),
+        X("Read a number", "10 INPUT N\n20 PRINT N*2", "42", "Run the program, type 21 and press NEWLINE.", verified=True),
         X("Read a string", "10 INPUT A$\n20 PRINT A$", "HELLO",
-          "Run the program, type HELLO and press NEWLINE (the quotes appear by themselves)."),
+          "Run the program, type HELLO and press NEWLINE (the quotes appear by themselves).", verified=True),
     ],
     "IF": [
-        X("Conditional jump", "IF J = 152 THEN GO TO 60", None, "Jumps to line 60 if J is 152.", manual=True),
+        X("Conditional jump", "IF J = 152 THEN GO TO 60", None, "Jumps to line 60 if J is 152.", manual=True, verified=True),
         X("Comparing strings", '10 INPUT A$\n20 IF A$="Y" THEN PRINT "YES"', "YES",
-          "Run the program, type Y and press NEWLINE."),
+          "Run the program, type Y and press NEWLINE.", verified=True),
     ],
     "GO TO": [
         X("Endless loop", '10 PRINT "LOOP"\n20 GO TO 10', "LOOP on every line until the screen is full, then 5/10.",
           "Report 5 means the screen is full."),
         X("Missing line", '10 GO TO 15\n20 PRINT "HERE"', "HERE",
-          "Line 15 does not exist: execution goes on from the next line, 20."),
+          "Line 15 does not exist: execution goes on from the next line, 20.", verified=True),
     ],
     "GO SUB": [
-        X("Call a subroutine", '10 GO SUB 100\n20 STOP\n100 PRINT "SUB"\n110 RETURN', "SUB\n9/20"),
+        X("Call a subroutine", '10 GO SUB 100\n20 STOP\n100 PRINT "SUB"\n110 RETURN', "SUB\n9/20", verified=True),
     ],
     "RETURN": [
         X("Return from a subroutine", '10 GO SUB 100\n20 PRINT "BACK"\n30 STOP\n100 RETURN', "BACK\n9/30"),
-        X("RETURN without GO SUB", "10 RETURN", "7/10", "Report 7: RETURN without a matching GO SUB."),
+        X("RETURN without GO SUB", "10 RETURN", "7/10", "Report 7: RETURN without a matching GO SUB.", verified=True),
     ],
     "FOR...TO": [
         X("Expressions as limits", "FOR I = D*10 TO D*200", None, "Start and end can be expressions.", manual=True),
-        X("Count from 1 to 3", "10 FOR I=1 TO 3\n20 PRINT I\n30 NEXT I", "1\n2\n3"),
+        X("Count from 1 to 3", "10 FOR I=1 TO 3\n20 PRINT I\n30 NEXT I", "1\n2\n3", verified=True),
     ],
     "NEXT": [
         X("End of the loop", "10 FOR I=1 TO 3\n20 PRINT I\n30 NEXT I\n40 PRINT I", "1\n2\n3\n4",
           "After the loop the counter is end+1."),
-        X("NEXT without FOR", "10 NEXT I", "1/10", "Report 1: I is not the counter of an active FOR loop."),
+        X("NEXT without FOR", "10 NEXT I", "1/10", "Report 1: I is not the counter of an active FOR loop.", verified=True),
     ],
     "STOP": [
-        X("Stop the program", '10 PRINT "A"\n20 STOP\n30 PRINT "B"', "A\n9/20", "CONTINUE would print B."),
+        X("Stop the program", '10 PRINT "A"\n20 STOP\n30 PRINT "B"', "A\n9/20", "CONTINUE would print B.", verified=True),
     ],
     "DIM": [
-        X("Array with a variable size", "DIM A(B)", None, "Creates array A with elements from A(0) to A(B).", manual=True),
-        X("Use an array", "10 DIM A(5)\n20 LET A(0)=1\n30 LET A(5)=6\n40 PRINT A(0)+A(5)", "7"),
+        X("Array with a variable size", "DIM A(B)", None, "Creates array A with elements from A(0) to A(B).", manual=True, verified=True),
+        X("Use an array", "10 DIM A(5)\n20 LET A(0)=1\n30 LET A(5)=6\n40 PRINT A(0)+A(5)", "7", verified=True),
     ],
     "CLEAR": [
         X("Variables are lost", "10 LET A=5\n20 CLEAR\n30 PRINT A", "2/30",
-          "After CLEAR, A no longer exists: report 2, variable not found."),
+          "After CLEAR, A no longer exists: report 2, variable not found.", verified=True),
     ],
     "CLS": [
-        X("Clear the screen", '10 PRINT "HELLO"\n20 CLS', "An empty screen.", "HELLO is printed and then cleared."),
+        X("Clear the screen", '10 PRINT "HELLO"\n20 CLS', "An empty screen.", "HELLO is printed and then cleared.", verified=True),
     ],
     "POKE": [
         X("Write and read back a byte", "10 POKE A,123\n20 PRINT PEEK(A)", "123",
-          "A must be the address of a free memory location: it depends on the memory fitted and on the program."),
+          "A must be the address of a free memory location: it depends on the memory fitted and on the program.", verified=True),
     ],
     "RANDOMISE": [
-        X("Same numbers every time", "10 RANDOMISE 1\n20 PRINT RND(100)", "The same number every time the program is run."),
+        X("Same numbers every time", "10 RANDOMISE 1\n20 PRINT RND(100)", "The same number every time the program is run.", verified=True),
         X("Different numbers", "10 RANDOMISE\n20 PRINT RND(100)", "A different number at each run.",
-          "Without an argument the seed comes from the video frame counter."),
+          "Without an argument the seed comes from the video frame counter.", verified=True),
+        X("Negative seed", "10 RANDOMISE -5\n20 PRINT RND(100)\n30 GO TO 20", "100\n46\n21\n70\n30\n36\n43\n71\n…",
+          "-5 is used as the seed 65531.", verified=True),
     ],
     "REM": [
-        X("Comment", "10 REM GUESS THE NUMBER", None, "The line has no effect."),
+        X("Comment", "10 REM GUESS THE NUMBER", None, "The line has no effect.", verified=True),
     ],
     # ----------------------------------------------------------- functions
     "ABS": [
@@ -573,6 +767,13 @@ EXAMPLES = {
     ],
     "RND": [
         X("Throw a die", "PRINT RND(6)", "A number from 1 to 6."),
+        X("A known sequence", "10 RANDOMISE 5\n20 PRINT RND(100)\n30 GO TO 20",
+          "1\n46\n84\n93\n10\n4\n82\n59\n69\n86\n16\n90\n54\n27\n69\n97\n94\n97\n62\n45\n92\n54\n52\n…",
+          "With the same seed the sequence is always the same; it follows the algorithm in the notes.", verified=True),
+        X("Negative argument", "10 RANDOMISE 5\n20 PRINT RND(-10)\n30 GO TO 20",
+          "385\n29641\n-11137\n-5037\n5989\n2394\n-12280\n-27507\n-20552\n-9238\n10119\n-7211\n-30416\n17606\n"
+          "-20466\n-2617\n-4290\n-2037\n-25164\n28863\n-5507\n-30205\n-31686\n…",
+          "-10 is used as 65526: the results go from 1 to 32767 or from -32768 to -10.", verified=True),
     ],
     "STR$": [
         X("Number to string", "STR$(1234)", None, 'Gives the string "1234".', manual=True),
@@ -677,6 +878,11 @@ def generate():
     for cc in zx80_character_codes():
         w(row("character_code", cc))
     w("")
+    for area, prologue, epilogue, notes in MEMORY_AREAS:
+        w(row("memory_area", dict(layer_id=layer_id, area=area, prologue=prologue, epilogue=epilogue, notes=notes)))
+    for k, (name, offset, size, order, descr) in enumerate(PROGRAM_LAYOUT, start=1):
+        w(row("program_layout_field", dict(layer_id=layer_id, position=k, name=name, offset=offset, size=size,
+                                           byte_order=order, description=descr)))
     for kind, status, notes in LAYER_TABLES:
         w(f"INSERT INTO table_status (table_kind_id, layer_id, status, notes) "
           f"SELECT id, {layer_id}, {q(status)}, {q(notes)} FROM table_kind WHERE code = {q(kind)};")
@@ -695,11 +901,18 @@ def generate():
                                 type_class_id=TYPE_CLASS[cls], minimum=mn, maximum=mx, bytes=nbytes, notes=notes)))
     w("")
     variable_kind_id = {}
-    for vid, code, name, dtype, dims, rule, pattern, examples, notes in VARIABLE_KINDS:
+    for vid, code, name, dtype, dims, rule, pattern, max_length, significant, examples, notes in VARIABLE_KINDS:
         variable_kind_id[code] = vid
         w(row("variable_kind", dict(id=vid, layer_id=layer_id, code=code, name=name, data_type_id=type_id[dtype],
-                                    dimensions=dims, name_rule=rule, name_pattern=pattern, examples=examples,
+                                    dimensions=dims, name_rule=rule, name_pattern=pattern, max_name_length=max_length, significant_chars=significant, examples=examples,
                                     notes=notes)))
+    for vcode, layouts in VARIABLE_LAYOUTS.items():
+        vid = next(v[0] for v in VARIABLE_KINDS if v[1] == vcode)
+        for n, (lname, fields) in enumerate(layouts, start=1):
+            for k, (name, offset, size, order, descr) in enumerate(fields, start=1):
+                w(row("variable_layout_field", dict(variable_kind_id=vid, layout=n, layout_name=lname, position=k,
+                                                    name=name, offset=offset, size=size, byte_order=order,
+                                                    description=descr)))
     w("")
     parameter_kind_id = {}
     for pid, code, name, nature, cls, vkind, notes in PARAMETER_KINDS:
@@ -708,18 +921,21 @@ def generate():
                                      type_class_id=TYPE_CLASS[cls] if cls else None,
                                      variable_kind_id=variable_kind_id[vkind] if vkind else None, notes=notes)))
     w("")
-    for code, value, descr in FEATURES:
-        w(row("feature", dict(layer_id=layer_id, code=code, value=value, description=descr)))
+    for code, value, verified, notes in FEATURES:
+        w(f"INSERT INTO feature (layer_id, feature_kind_id, value, verified, notes) "
+          f"SELECT {layer_id}, id, {q(value)}, {1 if verified else 0}, {q(notes)} FROM feature_kind WHERE code = {q(code)};")
     w("")
     for code, number, descr in ERRORS:
         w(row("error", dict(layer_id=layer_id, code=code, number=number, message=f"{number}/n", description=descr)))
     w("")
     keyword_id = {}
+    assert set(ABBREVIATIONS) <= {k[0] for k in KEYWORDS}, set(ABBREVIATIONS) - {k[0] for k in KEYWORDS}
     for i, (text, tok, notes) in enumerate(KEYWORDS, start=1):
         keyword_id[text] = i
         w(row("keyword", dict(id=i, layer_id=layer_id, text=text, notes=notes)))
         if tok:
             w(row("token", dict(keyword_id=i, hex_value=tok)))
+        w(row("abbreviation", dict(keyword_id=i, text=ABBREVIATIONS.get(text, ""))))
     w("")
 
     counter = dict(entry=0, form=0, par=0, node=0)

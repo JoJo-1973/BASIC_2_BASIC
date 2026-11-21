@@ -26,8 +26,8 @@
 <dl class="facts">
   <dt>Layer</dt><dd><code>ZX80_4K_core</code> — Sinclair ZX80 BASIC (4K ROM)</dd>
   <dt>Dialects</dt><dd><a href="../dialects/SINCLAIR_ZX80_4K.html">Sinclair ZX80 BASIC 4K ROM</a></dd>
-<dt>Token</dt><dd><code>$D4</code></dd></dl>
-<p>String delimiter. Code used in the program; on screen the character has code 1.</p>
+<dt>Token</dt><dd><code>$01</code></dd><dt>Abbreviation</dt><dd><code>SHIFT + Y</code></dd></dl>
+<div class="md"><p>String delimiter. A typed quote is stored in the program as $01 (checked on an emulator: 10 PRINT "ABC" is stored as 0 10 244 1 38 39 40 1 118), although the token table of the manual lists $D4. $01 is not printable; the printable quote is code 212.</p></div>
 <h2>Entries that use &#34; <small>0</small></h2>
 <p class="note">No entry uses this keyword in its syntax.</p>
 </main>

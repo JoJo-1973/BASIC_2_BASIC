@@ -294,3 +294,19 @@ table.table-status td.st-complete { font-weight: 600; }
 .entry-nav a span { font-family: var(--mono); font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .entry-nav .off { color: var(--muted); opacity: 0.45; }
 .entry-nav .where { color: var(--muted); text-align: center; }
+
+/* Features panel: one tbody per section, headed by its name */
+table.features th[colspan] { text-align: left; padding-top: .9em; }
+
+/* texts written in Markdown */
+.md > :first-child { margin-top: 0; }
+.md > :last-child { margin-bottom: 0; }
+.md { margin: 0.6rem 0; }
+.md p { margin: 0.5rem 0; }
+.md ol, .md ul { margin: 0.4rem 0; padding-left: 1.6rem; }
+.md li { margin: 0.2rem 0; }
+.md table { width: auto; margin: 0.6rem 0; }
+.md code { background: var(--accent-light); padding: 0.05rem 0.3rem; border-radius: 3px; }
+td ol, td ul { margin: 0.2rem 0; padding-left: 1.3rem; }
+td p { margin: 0.2rem 0; }
+div.subtitle.md p { margin: 0; }

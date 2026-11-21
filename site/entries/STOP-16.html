@@ -26,7 +26,7 @@
 
 <p class="breadcrumbs"><a href="../dialects/SINCLAIR_ZX80_4K.html#entries">Sinclair ZX80 BASIC 4K ROM</a> ›</p>
 <h1><span class="entry-name">STOP</span> <span class="category">Statement</span></h1>
-<p class="subtitle">Stops the program with code 9; CONTINUE resumes from the next line.</p>
+<div class="subtitle md"><p>Stops the program with code 9; CONTINUE resumes from the next line.</p></div>
 <dl class="facts">
   <dt>Layer</dt><dd><code>ZX80_4K_core</code> — Sinclair ZX80 BASIC (4K ROM)</dd>
   <dt>Dialects</dt><dd><a href="../dialects/SINCLAIR_ZX80_4K.html">Sinclair ZX80 BASIC 4K ROM</a></dd>
@@ -49,19 +49,20 @@
   </div>
 </section>
 
+
 <h2>Keywords</h2>
 <table>
   <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
   <tbody>
   <tr><td><a class="kw" href="../keywords/STOP-34.html">STOP</a></td>
       <td><code>$F8</code></td>
-      <td></td></tr>
+      <td><code>S</code></td></tr>
   </tbody>
 </table>
 
 <h2>Examples</h2>
 <figure class="example">
-<h3>Stop the program <span class="tag warning">to verify</span></h3>  <pre>10 PRINT &#34;A&#34;
+<h3>Stop the program</h3>  <pre>10 PRINT &#34;A&#34;
 20 STOP
 30 PRINT &#34;B&#34;</pre>
 <pre class="output" title="Expected result">A
