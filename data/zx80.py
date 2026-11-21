@@ -629,13 +629,21 @@ for _op, _action, _name in (("=", "OP_EQ", "Equal"), (">", "OP_GT", "Greater tha
 BITWISE_NOTE = ("With truth values (comparisons give -1 if true, 0 if false) it also behaves as a conditional "
                 "operator: this is a side effect of working bit by bit on signed 16-bit integers, the only numeric type.")
 
+# Truth tables of one bit, in Markdown (each of the 16 bits is computed this way)
+NOT_TABLE = ("Each bit of the result:\n\n"
+             "| a | `NOT a` |\n|---|---|\n| 0 | 1 |\n| 1 | 0 |\n\n")
+AND_TABLE = ("Each bit of the result:\n\n"
+             "| a | b | `a AND b` |\n|---|---|---|\n| 0 | 0 | 0 |\n| 0 | 1 | 0 |\n| 1 | 0 | 0 |\n| 1 | 1 | 1 |\n\n")
+OR_TABLE = ("Each bit of the result:\n\n"
+            "| a | b | `a OR b` |\n|---|---|---|\n| 0 | 0 | 0 |\n| 0 | 1 | 1 |\n| 1 | 0 | 1 |\n| 1 | 1 | 1 |\n\n")
+
 ENTRIES += [
     E("NOT", "OPERATOR", "Bitwise negation: NOT n is -n-1.", [
-        F(S(K("NOT"), P("a")), {}, [("OP_NOT", "FULL", "Bitwise")], orig=None, prec=4, op="BITWISE", ret=("INT16", None, None))], notes=BITWISE_NOTE),
+        F(S(K("NOT"), P("a")), {}, [("OP_NOT", "FULL", "Bitwise")], orig=None, prec=4, op="BITWISE", ret=("INT16", None, None))], notes=NOT_TABLE + BITWISE_NOTE),
     E("AND", "OPERATOR", "Bitwise conjunction.", [
-        F(binary("AND"), {}, [("OP_AND", "FULL", "Bitwise")], orig=None, assoc=LEFT, prec=3, op="BITWISE", ret=("INT16", None, None))], notes=BITWISE_NOTE),
+        F(binary("AND"), {}, [("OP_AND", "FULL", "Bitwise")], orig=None, assoc=LEFT, prec=3, op="BITWISE", ret=("INT16", None, None))], notes=AND_TABLE + BITWISE_NOTE),
     E("OR", "OPERATOR", "Bitwise disjunction.", [
-        F(binary("OR"), {}, [("OP_OR", "FULL", "Bitwise")], orig=None, assoc=LEFT, prec=2, op="BITWISE", ret=("INT16", None, None))], notes=BITWISE_NOTE),
+        F(binary("OR"), {}, [("OP_OR", "FULL", "Bitwise")], orig=None, assoc=LEFT, prec=2, op="BITWISE", ret=("INT16", None, None))], notes=OR_TABLE + BITWISE_NOTE),
     E("( )", "OPERATOR", "Parentheses: the expression inside is evaluated before what surrounds it.", [
         F(S(L("("), C(P("e", "NUM_EXPR", att=True), P("e", "STR_EXPR", att=True), att=True), L(")", att=True)),
           {"e": dict(descr="Numeric or string expression.")},
@@ -752,21 +760,21 @@ EXAMPLES = {
     ],
     # ----------------------------------------------------------- functions
     "ABS": [
-        X("Absolute value", "PRINT ABS(-5)", "5"),
+        X("Absolute value", "PRINT ABS(-5)", "5", verified=True),
     ],
     "CHR$": [
-        X("Character from its code", "PRINT CHR$(38)", "A", "In the ZX80 character set A has code 38."),
+        X("Character from its code", "PRINT CHR$(38)", "A", "In the ZX80 character set A has code 38.", verified=True),
     ],
     "CODE": [
-        X("Code of a character", 'PRINT CODE("A")', "38"),
-        X("Only the first character counts", 'PRINT CODE("ZX80")', "63", "Z has code 63."),
+        X("Code of a character", 'PRINT CODE("A")', "38", verified=True),
+        X("Only the first character counts", 'PRINT CODE("ZX80")', "63", "Z has code 63.", verified=True),
     ],
     "PEEK": [
         X("Read a byte", "PRINT PEEK(16384)", "A number from 0 to 255.",
-          "16384 is the first address of the RAM, where the system variables are."),
+          "16384 is the first address of the RAM, where the system variables are.", verified=True),
     ],
     "RND": [
-        X("Throw a die", "PRINT RND(6)", "A number from 1 to 6."),
+        X("Throw a die", "PRINT RND(6)", "A number from 1 to 6.", verified=True),
         X("A known sequence", "10 RANDOMISE 5\n20 PRINT RND(100)\n30 GO TO 20",
           "1\n46\n84\n93\n10\n4\n82\n59\n69\n86\n16\n90\n54\n27\n69\n97\n94\n97\n62\n45\n92\n54\n52\n…",
           "With the same seed the sequence is always the same; it follows the algorithm in the notes.", verified=True),
@@ -776,59 +784,59 @@ EXAMPLES = {
           "-10 is used as 65526: the results go from 1 to 32767 or from -32768 to -10.", verified=True),
     ],
     "STR$": [
-        X("Number to string", "STR$(1234)", None, 'Gives the string "1234".', manual=True),
-        X("Negative number", "PRINT STR$(-56)", "-56", "The minus sign is part of the string."),
+        X("Number to string", "STR$(1234)", None, 'Gives the string "1234".', manual=True, verified=True),
+        X("Negative number", "PRINT STR$(-56)", "-56", "The minus sign is part of the string.", verified=True),
     ],
     "TL$": [
-        X("Remove the first character", 'PRINT TL$("ZX80")', "X80"),
+        X("Remove the first character", 'PRINT TL$("ZX80")', "X80", verified=True),
     ],
     "USR": [
         X("Call machine code", "PRINT USR(A)", "The value of the HL register when the routine returns.",
-          "A is the address of a machine code routine ending with RET; if the routine does not change HL, the result is A."),
+          "A is the address of a machine code routine ending with RET; if the routine does not change HL, the result is A.", verified=True),
     ],
     # ----------------------------------------------------------- operators
     "**": [
         X("Power", "PRINT 2**10", "1024"),
-        X("Overflow", "10 PRINT 2**15", "6/10", "32768 is out of range: report 6, overflow."),
+        X("Overflow", "10 PRINT 2**15", "6/10", "32768 is out of range: report 6, overflow.", verified=True),
     ],
     "-": [
-        X("Change of sign", "PRINT -5", "-5", form=1),
-        X("Subtraction", "PRINT 10-3", "7", form=2),
+        X("Change of sign", "PRINT -5", "-5", form=1, verified=True),
+        X("Subtraction", "PRINT 10-3", "7", form=2, verified=True),
     ],
     "*": [
-        X("Multiplication", "PRINT 6*7", "42"),
+        X("Multiplication", "PRINT 6*7", "42", verified=True),
     ],
     "/": [
-        X("Integer division", "PRINT 7/2", "3", "The result is truncated."),
-        X("Truncated towards zero", "PRINT -7/2", "-3"),
+        X("Integer division", "PRINT 7/2", "3", "The result is truncated.", verified=True),
+        X("Truncated towards zero", "PRINT -7/2", "-3", verified=True),
     ],
     "+": [
-        X("Addition", "PRINT 2+3", "5"),
+        X("Addition", "PRINT 2+3", "5", verified=True),
     ],
     "=": [
-        X("Equal numbers", "PRINT 2=2", "-1", "True gives -1.", form=1),
-        X("Equal strings", '10 LET A$="YES"\n20 PRINT A$="YES"', "-1", form=2),
+        X("Equal numbers", "PRINT 2=2", "-1", "True gives -1.", form=1, verified=True),
+        X("Equal strings", '10 LET A$="YES"\n20 PRINT A$="YES"', "-1", form=2, verified=True),
     ],
     ">": [
-        X("Greater than", "PRINT 3>2", "-1", form=1),
-        X("Chained comparisons", "PRINT 3>2>1", "0", "(3>2)>1 means -1>1, which is false.", form=1),
+        X("Greater than", "PRINT 3>2", "-1", form=1, verified=True),
+        X("Chained comparisons", "PRINT 3>2>1", "0", "(3>2)>1 means -1>1, which is false.", form=1, verified=True),
     ],
     "<": [
-        X("Less than", "PRINT 3<2", "0", "False gives 0.", form=1),
+        X("Less than", "PRINT 3<2", "0", "False gives 0.", form=1, verified=True),
     ],
     "NOT": [
         X("NOT of zero", "PRINT NOT 0", "-1", "Prints -1."),
-        X("NOT of a number", "PRINT NOT 5", "-6", "Prints -6: NOT n is -n-1."),
+        X("NOT of a number", "PRINT NOT 5", "-6", "Prints -6: NOT n is -n-1.", verified=True),
     ],
     "AND": [
-        X("No bits in common", "PRINT 85 AND 170", "0", "Prints 0: no bits in common."),
-        X("As a condition", "PRINT (3>2) AND (2>1)", "-1", "-1 AND -1 is -1: true."),
+        X("No bits in common", "PRINT 85 AND 170", "0", "Prints 0: no bits in common.", verified=True),
+        X("As a condition", "PRINT (3>2) AND (2>1)", "-1", "-1 AND -1 is -1: true.", verified=True),
     ],
     "OR": [
-        X("All the bits", "PRINT 85 OR 170", "255", "Prints 255."),
+        X("All the bits", "PRINT 85 OR 170", "255", "Prints 255.", verified=True),
     ],
     "( )": [
-        X("Change the order", "PRINT (2+3)*4", "20", "Without parentheses, 2+3*4 gives 14."),
+        X("Change the order", "PRINT (2+3)*4", "20", "Without parentheses, 2+3*4 gives 14.", verified=True),
     ],
 }
 

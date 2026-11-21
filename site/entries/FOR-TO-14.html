@@ -106,7 +106,11 @@
 2
 3</pre></figure>
 
-<h2>Notes</h2><div class="md"><p>The body is executed at least once. At the end of the loop the counter is end+1. NEXT is matched dynamically. Since the line to return to is not kept on a stack, FOR loops that are not nested can be written without causing errors.</p></div>
+<h2>Notes</h2>
+<div class="md"><p>At the end of the loop the counter is end+1. NEXT is matched dynamically. Since the line to return to is not kept on a stack, FOR loops that are not nested can be written without causing errors.</p></div><ul class="feature-notes">
+  <li><a href="../dialects/SINCLAIR_ZX80_4K.html#features">The body of a FOR loop is always executed at least once</a>: <code>Yes</code></li>
+  <li><a href="../dialects/SINCLAIR_ZX80_4K.html#features">The loop variable can be changed inside the loop</a>: <code>Yes</code></li>
+</ul>
 <h2>Related entries</h2>
 <ul><li>Closed by: <a href="../entries/NEXT-15.html">NEXT</a></li></ul>
 

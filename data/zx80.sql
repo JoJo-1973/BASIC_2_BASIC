@@ -812,7 +812,7 @@ INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 6, id, 'FUL
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (6, NULL, 1, 'Load from tape', 'Start the tape recorder in play: the first program found is loaded with its variables.', 'LOAD', NULL, 1, NULL);
 
 -- LET
-INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (7, 1, 'LET', 1, 'Assigns a value to a variable. LET is mandatory.', 'An empty string is made only of the name byte and the terminator $01.');
+INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (7, 1, 'LET', 1, 'Assigns a value to a variable.', 'An empty string is made only of the name byte and the terminator $01.');
 INSERT INTO entry_source (entry_id, source_id, page) VALUES (7, 1, 'Appendix II');
 INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, precedence, associativity, operator_class_id) VALUES (7, 7, 1, NULL, NULL, NULL, 1, 'Appendix II', NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description) VALUES (3, 7, 'variable', 'NONE', NULL, NULL, 'Numeric variable, string variable or array element.');
@@ -940,7 +940,7 @@ INSERT INTO example (entry_id, form_id, position, title, description, code, expe
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (13, NULL, 2, 'RETURN without GO SUB', 'Report 7: RETURN without a matching GO SUB.', '10 RETURN', '7/10', 1, NULL);
 
 -- FOR...TO
-INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (14, 1, 'FOR...TO', 1, 'Starts a loop: the counter goes from the start value to the end value in steps of 1.', 'The body is executed at least once. At the end of the loop the counter is end+1. NEXT is matched dynamically. Since the line to return to is not kept on a stack, FOR loops that are not nested can be written without causing errors.');
+INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (14, 1, 'FOR...TO', 1, 'Starts a loop: the counter goes from the start value to the end value in steps of 1.', 'At the end of the loop the counter is end+1. NEXT is matched dynamically. Since the line to return to is not kept on a stack, FOR loops that are not nested can be written without causing errors.');
 INSERT INTO entry_source (entry_id, source_id, page) VALUES (14, 1, 'Appendix II');
 INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, precedence, associativity, operator_class_id) VALUES (14, 14, 1, NULL, NULL, 'FOR a = n TO n', 1, 'Appendix II', NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description) VALUES (11, 14, 'a', 'NONE', NULL, NULL, 'Control variable: a single letter.');
@@ -1095,7 +1095,7 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (102, 23, 99, 3, 'PARAMETER', 1, NULL, 21, 3);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (103, 23, 99, 4, 'KEYWORD', 1, NULL, 6);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 23, id, 'FULL', NULL FROM action WHERE code = 'MATH_ABS';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (23, NULL, 1, 'Absolute value', NULL, 'PRINT ABS(-5)', '5', 0, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (23, NULL, 1, 'Absolute value', NULL, 'PRINT ABS(-5)', '5', 1, NULL);
 
 -- CHR$
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (24, 1, 'CHR$', 3, 'Character with the given code.', NULL);
@@ -1109,7 +1109,7 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (107, 24, 104, 3, 'PARAMETER', 1, NULL, 22, 3);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (108, 24, 104, 4, 'KEYWORD', 1, NULL, 6);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 24, id, 'FULL', 'The ZX80''s own character set, not ASCII' FROM action WHERE code = 'STR_CHR';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (24, NULL, 1, 'Character from its code', 'In the ZX80 character set A has code 38.', 'PRINT CHR$(38)', 'A', 0, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (24, NULL, 1, 'Character from its code', 'In the ZX80 character set A has code 38.', 'PRINT CHR$(38)', 'A', 1, NULL);
 
 -- CODE
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (25, 1, 'CODE', 3, 'Code of the first character of a string.', NULL);
@@ -1122,8 +1122,8 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (112, 25, 109, 3, 'PARAMETER', 1, NULL, 23, 4);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (113, 25, 109, 4, 'KEYWORD', 1, NULL, 6);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 25, id, 'FULL', 'The ZX80''s own character set, not ASCII' FROM action WHERE code = 'STR_CODE';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (25, NULL, 1, 'Code of a character', NULL, 'PRINT CODE("A")', '38', 0, NULL);
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (25, NULL, 2, 'Only the first character counts', 'Z has code 63.', 'PRINT CODE("ZX80")', '63', 0, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (25, NULL, 1, 'Code of a character', NULL, 'PRINT CODE("A")', '38', 1, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (25, NULL, 2, 'Only the first character counts', 'Z has code 63.', 'PRINT CODE("ZX80")', '63', 1, NULL);
 
 -- PEEK
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (26, 1, 'PEEK', 3, 'Byte stored at the given address.', NULL);
@@ -1136,7 +1136,7 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (117, 26, 114, 3, 'PARAMETER', 1, NULL, 24, 3);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (118, 26, 114, 4, 'KEYWORD', 1, NULL, 6);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 26, id, 'FULL', NULL FROM action WHERE code = 'MEM_PEEK';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (26, NULL, 1, 'Read a byte', '16384 is the first address of the RAM, where the system variables are.', 'PRINT PEEK(16384)', 'A number from 0 to 255.', 0, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (26, NULL, 1, 'Read a byte', '16384 is the first address of the RAM, where the system variables are.', 'PRINT PEEK(16384)', 'A number from 0 to 255.', 1, NULL);
 
 -- RND
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (27, 1, 'RND', 3, 'Random integer.', 'Algorithm (checked on an emulator against the sequences of `RANDOMISE 5` with `RND(100)` and `RND(-10)`, and of `RANDOMISE -5`):
@@ -1156,7 +1156,7 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (122, 27, 119, 3, 'PARAMETER', 1, NULL, 25, 3);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (123, 27, 119, 4, 'KEYWORD', 1, NULL, 6);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 27, id, 'FULL', 'Integer from 1 to n' FROM action WHERE code = 'RND_VALUE';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (27, NULL, 1, 'Throw a die', NULL, 'PRINT RND(6)', 'A number from 1 to 6.', 0, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (27, NULL, 1, 'Throw a die', NULL, 'PRINT RND(6)', 'A number from 1 to 6.', 1, NULL);
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (27, NULL, 2, 'A known sequence', 'With the same seed the sequence is always the same; it follows the algorithm in the notes.', '10 RANDOMISE 5
 20 PRINT RND(100)
 30 GO TO 20', '1
@@ -1221,8 +1221,8 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (127, 28, 124, 3, 'PARAMETER', 1, NULL, 26, 3);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (128, 28, 124, 4, 'KEYWORD', 1, NULL, 6);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 28, id, 'FULL', NULL FROM action WHERE code = 'STR_FROM_NUM';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (28, NULL, 1, 'Number to string', 'Gives the string "1234".', 'STR$(1234)', NULL, 0, 1);
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (28, NULL, 2, 'Negative number', 'The minus sign is part of the string.', 'PRINT STR$(-56)', '-56', 0, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (28, NULL, 1, 'Number to string', 'Gives the string "1234".', 'STR$(1234)', NULL, 1, 1);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (28, NULL, 2, 'Negative number', 'The minus sign is part of the string.', 'PRINT STR$(-56)', '-56', 1, NULL);
 
 -- TL$
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (29, 1, 'TL$', 3, 'The string without its first character.', NULL);
@@ -1235,7 +1235,7 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (132, 29, 129, 3, 'PARAMETER', 1, NULL, 27, 4);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (133, 29, 129, 4, 'KEYWORD', 1, NULL, 6);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 29, id, 'PARTIAL', 'Only removes the first character' FROM action WHERE code = 'STR_SUBSTRING';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (29, NULL, 1, 'Remove the first character', NULL, 'PRINT TL$("ZX80")', 'X80', 0, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (29, NULL, 1, 'Remove the first character', NULL, 'PRINT TL$("ZX80")', 'X80', 1, NULL);
 
 -- USR
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (30, 1, 'USR', 3, 'Calls a machine code routine and returns its value.', NULL);
@@ -1248,7 +1248,7 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (137, 30, 134, 3, 'PARAMETER', 1, NULL, 28, 3);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (138, 30, 134, 4, 'KEYWORD', 1, NULL, 6);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 30, id, 'FULL', 'Returns HL, or n if HL does not change' FROM action WHERE code = 'MEM_CALL';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (30, NULL, 1, 'Call machine code', 'A is the address of a machine code routine ending with RET; if the routine does not change HL, the result is A.', 'PRINT USR(A)', 'The value of the HL register when the routine returns.', 0, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (30, NULL, 1, 'Call machine code', 'A is the address of a machine code routine ending with RET; if the routine does not change HL, the result is A.', 'PRINT USR(A)', 'The value of the HL register when the routine returns.', 1, NULL);
 
 -- **
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (31, 1, '**', 4, 'Raise to a power.', NULL);
@@ -1262,7 +1262,7 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (142, 31, 139, 3, 'PARAMETER', 0, NULL, 30, 3);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 31, id, 'FULL', NULL FROM action WHERE code = 'OP_POWER';
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (31, NULL, 1, 'Power', NULL, 'PRINT 2**10', '1024', 0, NULL);
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (31, NULL, 2, 'Overflow', '32768 is out of range: report 6, overflow.', '10 PRINT 2**15', '6/10', 0, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (31, NULL, 2, 'Overflow', '32768 is out of range: report 6, overflow.', '10 PRINT 2**15', '6/10', 1, NULL);
 
 -- -
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (32, 1, '-', 4, 'Change of sign and subtraction.', NULL);
@@ -1281,8 +1281,8 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (148, 33, 146, 2, 'KEYWORD', 0, NULL, 9);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (149, 33, 146, 3, 'PARAMETER', 0, NULL, 33, 3);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 33, id, 'FULL', NULL FROM action WHERE code = 'OP_SUB';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (32, 32, 1, 'Change of sign', NULL, 'PRINT -5', '-5', 0, NULL);
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (32, 33, 2, 'Subtraction', NULL, 'PRINT 10-3', '7', 0, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (32, 32, 1, 'Change of sign', NULL, 'PRINT -5', '-5', 1, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (32, 33, 2, 'Subtraction', NULL, 'PRINT 10-3', '7', 1, NULL);
 
 -- *
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (33, 1, '*', 4, 'Multiplication.', NULL);
@@ -1295,7 +1295,7 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (152, 34, 150, 2, 'KEYWORD', 0, NULL, 11);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (153, 34, 150, 3, 'PARAMETER', 0, NULL, 35, 3);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 34, id, 'FULL', NULL FROM action WHERE code = 'OP_MUL';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (33, NULL, 1, 'Multiplication', NULL, 'PRINT 6*7', '42', 0, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (33, NULL, 1, 'Multiplication', NULL, 'PRINT 6*7', '42', 1, NULL);
 
 -- /
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (34, 1, '/', 4, 'Integer division, truncated towards zero.', NULL);
@@ -1308,8 +1308,8 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (156, 35, 154, 2, 'KEYWORD', 0, NULL, 12);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (157, 35, 154, 3, 'PARAMETER', 0, NULL, 37, 3);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 35, id, 'PARTIAL', 'Integer division only' FROM action WHERE code = 'OP_DIV';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (34, NULL, 1, 'Integer division', 'The result is truncated.', 'PRINT 7/2', '3', 0, NULL);
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (34, NULL, 2, 'Truncated towards zero', NULL, 'PRINT -7/2', '-3', 0, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (34, NULL, 1, 'Integer division', 'The result is truncated.', 'PRINT 7/2', '3', 1, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (34, NULL, 2, 'Truncated towards zero', NULL, 'PRINT -7/2', '-3', 1, NULL);
 
 -- +
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (35, 1, '+', 4, 'Addition.', NULL);
@@ -1322,7 +1322,7 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (160, 36, 158, 2, 'KEYWORD', 0, NULL, 10);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (161, 36, 158, 3, 'PARAMETER', 0, NULL, 39, 3);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 36, id, 'FULL', NULL FROM action WHERE code = 'OP_ADD';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (35, NULL, 1, 'Addition', NULL, 'PRINT 2+3', '5', 0, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (35, NULL, 1, 'Addition', NULL, 'PRINT 2+3', '5', 1, NULL);
 
 -- =
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (36, 1, '=', 4, 'Equal: -1 if true, 0 if false.', NULL);
@@ -1343,9 +1343,9 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (168, 38, 166, 2, 'KEYWORD', 0, NULL, 16);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (169, 38, 166, 3, 'PARAMETER', 0, NULL, 43, 4);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 38, id, 'FULL', NULL FROM action WHERE code = 'OP_EQ';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (36, 37, 1, 'Equal numbers', 'True gives -1.', 'PRINT 2=2', '-1', 0, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (36, 37, 1, 'Equal numbers', 'True gives -1.', 'PRINT 2=2', '-1', 1, NULL);
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (36, 38, 2, 'Equal strings', NULL, '10 LET A$="YES"
-20 PRINT A$="YES"', '-1', 0, NULL);
+20 PRINT A$="YES"', '-1', 1, NULL);
 
 -- >
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (37, 1, '>', 4, 'Greater than: -1 if true, 0 if false.', NULL);
@@ -1366,8 +1366,8 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (176, 40, 174, 2, 'KEYWORD', 0, NULL, 17);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (177, 40, 174, 3, 'PARAMETER', 0, NULL, 47, 4);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 40, id, 'FULL', NULL FROM action WHERE code = 'OP_GT';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (37, 39, 1, 'Greater than', NULL, 'PRINT 3>2', '-1', 0, NULL);
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (37, 39, 2, 'Chained comparisons', '(3>2)>1 means -1>1, which is false.', 'PRINT 3>2>1', '0', 0, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (37, 39, 1, 'Greater than', NULL, 'PRINT 3>2', '-1', 1, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (37, 39, 2, 'Chained comparisons', '(3>2)>1 means -1>1, which is false.', 'PRINT 3>2>1', '0', 1, NULL);
 
 -- <
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (38, 1, '<', 4, 'Less than: -1 if true, 0 if false.', NULL);
@@ -1388,10 +1388,17 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (184, 42, 182, 2, 'KEYWORD', 0, NULL, 18);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (185, 42, 182, 3, 'PARAMETER', 0, NULL, 51, 4);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 42, id, 'FULL', NULL FROM action WHERE code = 'OP_LT';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (38, 41, 1, 'Less than', 'False gives 0.', 'PRINT 3<2', '0', 0, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (38, 41, 1, 'Less than', 'False gives 0.', 'PRINT 3<2', '0', 1, NULL);
 
 -- NOT
-INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (39, 1, 'NOT', 4, 'Bitwise negation: NOT n is -n-1.', 'With truth values (comparisons give -1 if true, 0 if false) it also behaves as a conditional operator: this is a side effect of working bit by bit on signed 16-bit integers, the only numeric type.');
+INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (39, 1, 'NOT', 4, 'Bitwise negation: NOT n is -n-1.', 'Each bit of the result:
+
+| a | `NOT a` |
+|---|---|
+| 0 | 1 |
+| 1 | 0 |
+
+With truth values (comparisons give -1 if true, 0 if false) it also behaves as a conditional operator: this is a side effect of working bit by bit on signed 16-bit integers, the only numeric type.');
 INSERT INTO entry_source (entry_id, source_id, page) VALUES (39, 1, 'Appendix II');
 INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, precedence, associativity, operator_class_id) VALUES (43, 39, 1, NULL, NULL, NULL, 1, 'Appendix II', 1, NULL, NULL, 4, NULL, 2);
 INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description) VALUES (52, 43, 'a', 'NONE', NULL, NULL, NULL);
@@ -1400,10 +1407,19 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (188, 43, 186, 2, 'PARAMETER', 0, NULL, 52, 3);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 43, id, 'FULL', 'Bitwise' FROM action WHERE code = 'OP_NOT';
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (39, NULL, 1, 'NOT of zero', 'Prints -1.', 'PRINT NOT 0', '-1', 0, NULL);
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (39, NULL, 2, 'NOT of a number', 'Prints -6: NOT n is -n-1.', 'PRINT NOT 5', '-6', 0, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (39, NULL, 2, 'NOT of a number', 'Prints -6: NOT n is -n-1.', 'PRINT NOT 5', '-6', 1, NULL);
 
 -- AND
-INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (40, 1, 'AND', 4, 'Bitwise conjunction.', 'With truth values (comparisons give -1 if true, 0 if false) it also behaves as a conditional operator: this is a side effect of working bit by bit on signed 16-bit integers, the only numeric type.');
+INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (40, 1, 'AND', 4, 'Bitwise conjunction.', 'Each bit of the result:
+
+| a | b | `a AND b` |
+|---|---|---|
+| 0 | 0 | 0 |
+| 0 | 1 | 0 |
+| 1 | 0 | 0 |
+| 1 | 1 | 1 |
+
+With truth values (comparisons give -1 if true, 0 if false) it also behaves as a conditional operator: this is a side effect of working bit by bit on signed 16-bit integers, the only numeric type.');
 INSERT INTO entry_source (entry_id, source_id, page) VALUES (40, 1, 'Appendix II');
 INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, precedence, associativity, operator_class_id) VALUES (44, 40, 1, NULL, NULL, NULL, 1, 'Appendix II', 1, NULL, NULL, 3, 'LEFT', 2);
 INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description) VALUES (53, 44, 'a', 'NONE', NULL, NULL, NULL);
@@ -1413,11 +1429,20 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (191, 44, 189, 2, 'KEYWORD', 0, NULL, 13);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (192, 44, 189, 3, 'PARAMETER', 0, NULL, 54, 3);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 44, id, 'FULL', 'Bitwise' FROM action WHERE code = 'OP_AND';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (40, NULL, 1, 'No bits in common', 'Prints 0: no bits in common.', 'PRINT 85 AND 170', '0', 0, NULL);
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (40, NULL, 2, 'As a condition', '-1 AND -1 is -1: true.', 'PRINT (3>2) AND (2>1)', '-1', 0, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (40, NULL, 1, 'No bits in common', 'Prints 0: no bits in common.', 'PRINT 85 AND 170', '0', 1, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (40, NULL, 2, 'As a condition', '-1 AND -1 is -1: true.', 'PRINT (3>2) AND (2>1)', '-1', 1, NULL);
 
 -- OR
-INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (41, 1, 'OR', 4, 'Bitwise disjunction.', 'With truth values (comparisons give -1 if true, 0 if false) it also behaves as a conditional operator: this is a side effect of working bit by bit on signed 16-bit integers, the only numeric type.');
+INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (41, 1, 'OR', 4, 'Bitwise disjunction.', 'Each bit of the result:
+
+| a | b | `a OR b` |
+|---|---|---|
+| 0 | 0 | 0 |
+| 0 | 1 | 1 |
+| 1 | 0 | 1 |
+| 1 | 1 | 1 |
+
+With truth values (comparisons give -1 if true, 0 if false) it also behaves as a conditional operator: this is a side effect of working bit by bit on signed 16-bit integers, the only numeric type.');
 INSERT INTO entry_source (entry_id, source_id, page) VALUES (41, 1, 'Appendix II');
 INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, precedence, associativity, operator_class_id) VALUES (45, 41, 1, NULL, NULL, NULL, 1, 'Appendix II', 1, NULL, NULL, 2, 'LEFT', 2);
 INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description) VALUES (55, 45, 'a', 'NONE', NULL, NULL, NULL);
@@ -1427,7 +1452,7 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (195, 45, 193, 2, 'KEYWORD', 0, NULL, 14);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (196, 45, 193, 3, 'PARAMETER', 0, NULL, 56, 3);
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 45, id, 'FULL', 'Bitwise' FROM action WHERE code = 'OP_OR';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (41, NULL, 1, 'All the bits', 'Prints 255.', 'PRINT 85 OR 170', '255', 0, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (41, NULL, 1, 'All the bits', 'Prints 255.', 'PRINT 85 OR 170', '255', 1, NULL);
 
 -- ( )
 INSERT INTO entry (id, layer_id, name, category_id, description, notes) VALUES (42, 1, '( )', 4, 'Parentheses: the expression inside is evaluated before what surrounds it.', NULL);
@@ -1440,7 +1465,7 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (200, 46, 199, 1, 'PARAMETER', 1, NULL, 57, 3);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (201, 46, 199, 2, 'PARAMETER', 1, NULL, 57, 4);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (202, 46, 197, 3, 'LITERAL', 1, NULL, ')');
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (42, NULL, 1, 'Change the order', 'Without parentheses, 2+3*4 gives 14.', 'PRINT (2+3)*4', '20', 0, NULL);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (42, NULL, 1, 'Change the order', 'Without parentheses, 2+3*4 gives 14.', 'PRINT (2+3)*4', '20', 1, NULL);
 
 INSERT INTO reference (entry_id, related_entry_id, kind) VALUES (14, 15, 'OPENS_BLOCK');
 INSERT INTO reference (entry_id, related_entry_id, kind) VALUES (12, 13, 'OPENS_BLOCK');

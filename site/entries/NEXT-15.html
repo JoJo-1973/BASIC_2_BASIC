@@ -91,7 +91,11 @@
 <pre class="output" title="Expected result">1/10</pre><figcaption>Report 1: I is not the counter of an active FOR loop.
 </figcaption></figure>
 
-<h2>Notes</h2><div class="md"><p>Since the line to return to of a FOR loop is not kept on a stack, FOR loops that are not nested can be written without causing errors.</p></div>
+<h2>Notes</h2>
+<div class="md"><p>Since the line to return to of a FOR loop is not kept on a stack, FOR loops that are not nested can be written without causing errors.</p></div><ul class="feature-notes">
+  <li><a href="../dialects/SINCLAIR_ZX80_4K.html#features">The body of a FOR loop is always executed at least once</a>: <code>Yes</code></li>
+  <li><a href="../dialects/SINCLAIR_ZX80_4K.html#features">The loop variable can be changed inside the loop</a>: <code>Yes</code></li>
+</ul>
 <h2>Related entries</h2>
 <ul><li>Opened by: <a href="../entries/FOR-TO-14.html">FOR...TO</a></li></ul>
 

@@ -38,6 +38,7 @@
   <pre class="syntax"><span class="par">a</span> <span class="kw">=</span> <span class="par">b</span></pre>
 
   <p><strong>Class:</strong> <span title="Comparisons: =, &lt;, &gt;, &lt;=, &gt;=, &lt;&gt;">relational operators</span> · <strong>Precedence:</strong> 5 <small>(<a href="../dialects/SINCLAIR_ZX80_4K.html#operators">precedence table</a>)</small></p>
+  <p class="features"><a href="../dialects/SINCLAIR_ZX80_4K.html#features">Value produced by a true comparison</a>: <code>-1</code><br><a href="../dialects/SINCLAIR_ZX80_4K.html#features">Value produced by a false comparison</a>: <code>0</code></p>
   <p><strong>Returns:</strong> Integer, range <code>[-1, 0]</code></p>
 
   <table class="parameters">
@@ -72,6 +73,7 @@
 <span class="tag warning">differs from the rebuilt syntax</span></p>
 
   <p><strong>Class:</strong> <span title="Comparisons: =, &lt;, &gt;, &lt;=, &gt;=, &lt;&gt;">relational operators</span> · <strong>Precedence:</strong> 5 <small>(<a href="../dialects/SINCLAIR_ZX80_4K.html#operators">precedence table</a>)</small></p>
+  <p class="features"><a href="../dialects/SINCLAIR_ZX80_4K.html#features">Value produced by a true comparison</a>: <code>-1</code><br><a href="../dialects/SINCLAIR_ZX80_4K.html#features">Value produced by a false comparison</a>: <code>0</code></p>
   <p><strong>Returns:</strong> Integer, range <code>[-1, 0]</code></p>
 
   <table class="parameters">
@@ -116,11 +118,11 @@
 
 <h2>Examples</h2>
 <figure class="example">
-<h3>Equal numbers <span class="tag warning">to verify</span></h3>  <pre>PRINT 2=2</pre>
+<h3>Equal numbers</h3>  <pre>PRINT 2=2</pre>
 <pre class="output" title="Expected result">-1</pre><figcaption>True gives -1.
 <small>Form: Between numbers.</small></figcaption></figure>
 <figure class="example">
-<h3>Equal strings <span class="tag warning">to verify</span></h3>  <pre>10 LET A$=&#34;YES&#34;
+<h3>Equal strings</h3>  <pre>10 LET A$=&#34;YES&#34;
 20 PRINT A$=&#34;YES&#34;</pre>
 <pre class="output" title="Expected result">-1</pre><figcaption>
 <small>Form: Between strings.</small></figcaption></figure>

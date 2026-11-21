@@ -82,11 +82,48 @@
 
 <h2>Examples</h2>
 <figure class="example">
-<h3>All the bits <span class="tag warning">to verify</span></h3>  <pre>PRINT 85 OR 170</pre>
+<h3>All the bits</h3>  <pre>PRINT 85 OR 170</pre>
 <pre class="output" title="Expected result">255</pre><figcaption>Prints 255.
 </figcaption></figure>
 
-<h2>Notes</h2><div class="md"><p>With truth values (comparisons give -1 if true, 0 if false) it also behaves as a conditional operator: this is a side effect of working bit by bit on signed 16-bit integers, the only numeric type.</p></div>
+<h2>Notes</h2>
+<div class="md"><p>Each bit of the result:</p>
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th><code>a OR b</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>With truth values (comparisons give -1 if true, 0 if false) it also behaves as a conditional operator: this is a side effect of working bit by bit on signed 16-bit integers, the only numeric type.</p></div><ul class="feature-notes">
+  <li><a href="../dialects/SINCLAIR_ZX80_4K.html#features">Value produced by a true comparison</a>: <code>-1</code></li>
+  <li><a href="../dialects/SINCLAIR_ZX80_4K.html#features">Value produced by a false comparison</a>: <code>0</code></li>
+  <li><a href="../dialects/SINCLAIR_ZX80_4K.html#features">How a value used as a condition is read</a>: <code>NONZERO</code></li>
+</ul>
 
 <h2>Sources</h2>
 <ul><li>Sinclair ZX80 Operating Manual - A Course in BASIC Programming, Hugo Davenport (1980), p. Appendix II</li></ul>

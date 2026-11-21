@@ -4,6 +4,12 @@ Encyclopedia of the BASIC dialects of the 8-bit computers of the 1980s.
 Database: **SQLite** (3.37 or later, required for `STRICT` tables), managed with **Letos** (formerly SQLiteStudio).
 Working folder: `C:\Users\stefa\Documents\BASIC_2_BASIC`.
 
+## Repository (decision)
+
+- The working folder is a Git repository, published as a **private** repository on GitHub: `https://github.com/JoJo-1973/BASIC_2_BASIC` (branch `main`).
+- Commits and pushes are made by the editor with **GitHub Desktop** (Commit to main, then Push origin). Disconnect the database in Letos before committing.
+- **Everything is versioned**, generated files included (`basic2basic.db`, `site/`, `data/*.sql`). `.gitignore` excludes only `__pycache__/`, `*.pyc` and the SQLite temporary files (`*.db-journal`, `*.db-wal`, `*.db-shm`); `.gitattributes` normalizes the line endings of text files and marks `*.db` and `*.png` as binary.
+
 ## Project language (decision)
 
 - **The project language is English: all texts are produced in English.**
@@ -61,6 +67,7 @@ Working folder: `C:\Users\stefa\Documents\BASIC_2_BASIC`.
 | `basic2basic.db` | Database built from the schema, the base data and the dialects in `data/` |
 | `build_site.py` | Builds the static site in `site/` (templates in `templates/`, CSS and JS in `static/`) |
 | `rebuild_all.py` | Rebuilds everything from scratch: runs every `data/*.py`, then `build_database.py`, then `build_site.py`, stopping at the first error (`--no-site`: data and database only). Disconnect the database in Letos before running it |
+| `.gitignore`, `.gitattributes` | Git settings (see "Repository") |
 
 ```
 python rebuild_all.py            (= the three steps below)
@@ -80,7 +87,7 @@ python build_site.py
 - Entry category `RESERVED_VARIABLE` ("Reserved variable", id 6) in `data/base.sql`, distinct from `SYSTEM_VARIABLE`.
 - `syntax_form.precedence`: precedence of an operator in the dialect, higher number = evaluated first (as in the manuals). It belongs to the form because the same symbol can have different precedences (ZX80: unary `-` 9, binary 6). In `data/zx80.py` it is written `F(..., prec=10)`.
 - `operator_class` (vocabulary in `data/base.sql`) and `syntax_form.operator_class_id`: Arithmetic, Bitwise, Conditional, Logical, Memory, Relational, String, Grouping. The class belongs to the form (+ is arithmetic and string; AND is bitwise, logical or conditional depending on the dialect). **Conditional** (ZX81, ZX Spectrum), with TRUE = -1 and FALSE = 0: TRUE AND e = e, FALSE AND e = FALSE, TRUE OR e = TRUE, FALSE OR e = e, NOT TRUE = FALSE, NOT FALSE = TRUE, in general NOT e = -e-1. In `data/zx80.py` it is written `F(..., op="ARITHMETIC")`.
-- ZX80: entry `( )` (grouping operator). AND, OR and NOT are **bitwise** (85 OR 170 = 255, 85 AND 170 = 0): they behave as conditional operators only because comparisons give -1/0 and the only numeric type is the signed 16-bit integer (explained in the entry notes, with examples).
+- ZX80: entry `( )` (grouping operator). AND, OR and NOT are **bitwise** (85 OR 170 = 255, 85 AND 170 = 0): they behave as conditional operators only because comparisons give -1/0 and the only numeric type is the signed 16-bit integer (explained in the entry notes, with examples); their notes start with the one-bit truth table in Markdown.
 - **Features** (decision): a fixed catalogue of questions that **every dialect answers**, kept in `data/base.sql`: `feature_kind` (code, question, typical answers, description, position) grouped in `feature_section` (subsections, so related features stay together). The answers are in `feature` (follows the layers: value, notes, `verified`). An answer Claude is not sure of is entered with `verified` = 0 ("to verify"), never invented. The view `v_dialect_feature_all` returns every dialect × every kind, with `feature_id` NULL when the answer is missing; the site shows missing answers as "not entered".
   Catalogue: *Program lines and statements* (range of line numbers, multiple statements per line, statement separator, LET mandatory/optional); *Truth values* (TRUE_VALUE, FALSE_VALUE, TRUTH_TEST); *Numbers* (conversion of non-integer values to integers, e.g. truncation towards zero); *FOR loops* (body always executed at least once, loop variable changeable inside the loop); *Keyboard* (modal keyboard for keywords: Yes / No / Both); *Screen output* (width of the fixed tabulation zones, variable tab stops). Facts already in other tables are not repeated (the numeric range is in the data types; the error report format is in the notes of the error table).
 - Notes on tables: every always-present table has notes for the whole table (`table_status.notes`, e.g. the ZX80 error format `n/m`, shown above the error list); each row has its own description or notes column.
