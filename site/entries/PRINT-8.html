@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRINT · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Sinclair ZX80 BASIC 4K ROM">
+<a class="prev" rel="prev" href="../entries/POKE-20.html" title="Previous entry (←)">‹ <span>POKE</span></a>  <a class="where" href="../dialects/SINCLAIR_ZX80_4K.html#entries">12 / 42</a>
+<a class="next" rel="next" href="../entries/RANDOMISE-21.html" title="Next entry (→)"><span>RANDOMISE</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/SINCLAIR_ZX80_4K.html#entries">Sinclair ZX80 BASIC 4K ROM</a> ›</p>
+<h1><span class="entry-name">PRINT</span> <span class="category">Statement</span></h1>
+<p class="subtitle">Writes on the upper part of the screen.</p>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>ZX80_4K_core</code> — Sinclair ZX80 BASIC (4K ROM)</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/SINCLAIR_ZX80_4K.html">Sinclair ZX80 BASIC 4K ROM</a></dd>
+</dl>
+
+
+<section class="form">
+  <h2>Syntax</h2>
+<p>&#39;;&#39; joins the items; &#39;,&#39; moves to the next zone (columns 9, 17, 25). A trailing separator suppresses the new line.</p>  <pre class="syntax"><span class="kw">PRINT</span> <span class="meta">[</span><span class="par">item</span><span class="meta">]</span><span class="meta">[</span><span class="meta">&lt;</span><span class="kw">;</span> <span class="meta">|</span> <span class="kw">,</span><span class="meta">&gt;</span><span class="meta">[</span><span class="par">item</span><span class="meta">]</span><span class="meta">]</span><span class="meta">...</span></pre>
+  <p class="manual">In the manual (Sinclair ZX80 Operating Manual - A Course in BASIC Programming, p. Appendix II):
+    <code>PRINT list</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">item</code></td>
+      <td>numeric expression<br><small>or</small> string expression</td>
+      <td></td>
+      <td>Numeric or string expression. Strings appear without quotes, numbers as with STR$.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#IO_PRINT" class="action-code">IO_PRINT</a> Write to the screen
+</p>
+  </div>
+</section>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/PRINT-31.html">PRINT</a></td>
+      <td><code>$F4</code></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/semicolon-4.html">;</a></td>
+      <td><code>$D7</code></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/comma-5.html">,</a></td>
+      <td><code>$D8</code></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>String and number together <span class="tag warning">to verify</span></h3>  <pre>PRINT &#34;A=&#34;;A</pre>
+<figcaption>Prints a string followed by the value of A, without spaces.
+</figcaption></figure>
+<figure class="example">
+<h3>Print zones <span class="tag warning">to verify</span></h3>  <pre>PRINT 1,2,3,4</pre>
+<pre class="output" title="Expected result">Four numbers in the four 8-column zones of the line.</pre><figcaption>The comma moves to the next zone (columns 9, 17, 25).
+</figcaption></figure>
+
+
+
+<h2>Sources</h2>
+<ul><li>Sinclair ZX80 Operating Manual - A Course in BASIC Programming, Hugo Davenport (1980), p. Appendix II</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Sinclair ZX80 BASIC 4K ROM">
+<a class="prev" rel="prev" href="../entries/POKE-20.html" title="Previous entry (←)">‹ <span>POKE</span></a>  <a class="where" href="../dialects/SINCLAIR_ZX80_4K.html#entries">12 / 42</a>
+<a class="next" rel="next" href="../entries/RANDOMISE-21.html" title="Next entry (→)"><span>RANDOMISE</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js"></script>
+<script src="../static/search.js"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+# Normalize line endings of text files
+* text=auto
+
+# Binary files: never convert or diff as text
+*.db binary
+*.png binary

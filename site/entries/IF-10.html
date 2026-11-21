@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IF · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Sinclair ZX80 BASIC 4K ROM">
+<a class="prev" rel="prev" href="../entries/GO-TO-11.html" title="Previous entry (←)">‹ <span>GO TO</span></a>  <a class="where" href="../dialects/SINCLAIR_ZX80_4K.html#entries">7 / 42</a>
+<a class="next" rel="next" href="../entries/INPUT-9.html" title="Next entry (→)"><span>INPUT</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/SINCLAIR_ZX80_4K.html#entries">Sinclair ZX80 BASIC 4K ROM</a> ›</p>
+<h1><span class="entry-name">IF</span> <span class="category">Statement</span></h1>
+<p class="subtitle">Executes the statement after THEN if the condition is not zero.</p>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>ZX80_4K_core</code> — Sinclair ZX80 BASIC (4K ROM)</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/SINCLAIR_ZX80_4K.html">Sinclair ZX80 BASIC 4K ROM</a></dd>
+</dl>
+
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="kw">IF</span> <span class="par">condition</span> <span class="kw">THEN</span> <span class="par">statement</span></pre>
+  <p class="manual">In the manual (Sinclair ZX80 Operating Manual - A Course in BASIC Programming, p. Appendix II):
+    <code>IF n THEN statement</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">condition</code></td>
+      <td>condition</td>
+      <td></td>
+      <td>False if 0, true otherwise. Comparisons give -1 or 0.</td>
+    </tr>
+    <tr>
+      <td><code class="par">statement</code></td>
+      <td>statement</td>
+      <td></td>
+      <td>Any statement, with its keyword.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#FLOW_IF" class="action-code">FLOW_IF</a> Conditional execution
+<small>— No ELSE</small></p>
+  </div>
+</section>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/IF-36.html">IF</a></td>
+      <td><code>$FA</code></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/THEN-2.html">THEN</a></td>
+      <td><code>$D5</code></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Conditional jump <span class="tag warning">to verify</span></h3>  <pre>IF J = 152 THEN GO TO 60</pre>
+<figcaption>Jumps to line 60 if J is 152.
+<small>Source: Sinclair ZX80 Operating Manual - A Course in BASIC Programming.</small></figcaption></figure>
+<figure class="example">
+<h3>Comparing strings <span class="tag warning">to verify</span></h3>  <pre>10 INPUT A$
+20 IF A$=&#34;Y&#34; THEN PRINT &#34;YES&#34;</pre>
+<pre class="output" title="Expected result">YES</pre><figcaption>Run the program, type Y and press NEWLINE.
+</figcaption></figure>
+
+
+
+<h2>Sources</h2>
+<ul><li>Sinclair ZX80 Operating Manual - A Course in BASIC Programming, Hugo Davenport (1980), p. Appendix II</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Sinclair ZX80 BASIC 4K ROM">
+<a class="prev" rel="prev" href="../entries/GO-TO-11.html" title="Previous entry (←)">‹ <span>GO TO</span></a>  <a class="where" href="../dialects/SINCLAIR_ZX80_4K.html#entries">7 / 42</a>
+<a class="next" rel="next" href="../entries/INPUT-9.html" title="Next entry (→)"><span>INPUT</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js"></script>
+<script src="../static/search.js"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

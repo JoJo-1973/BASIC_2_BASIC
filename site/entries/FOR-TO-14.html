@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FOR...TO · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Sinclair ZX80 BASIC 4K ROM">
+<a class="prev" rel="prev" href="../entries/DIM-17.html" title="Previous entry (←)">‹ <span>DIM</span></a>  <a class="where" href="../dialects/SINCLAIR_ZX80_4K.html#entries">4 / 42</a>
+<a class="next" rel="next" href="../entries/GO-SUB-12.html" title="Next entry (→)"><span>GO SUB</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/SINCLAIR_ZX80_4K.html#entries">Sinclair ZX80 BASIC 4K ROM</a> ›</p>
+<h1><span class="entry-name">FOR...TO</span> <span class="category">Statement</span></h1>
+<p class="subtitle">Starts a loop: the counter goes from the start value to the end value in steps of 1.</p>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>ZX80_4K_core</code> — Sinclair ZX80 BASIC (4K ROM)</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/SINCLAIR_ZX80_4K.html">Sinclair ZX80 BASIC 4K ROM</a></dd>
+</dl>
+
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="kw">FOR</span> <span class="par">a</span> <span class="kw">=</span> <span class="par">start</span> <span class="kw">TO</span> <span class="par">end</span></pre>
+  <p class="manual">In the manual (Sinclair ZX80 Operating Manual - A Course in BASIC Programming, p. Appendix II):
+    <code>FOR a = n TO n</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">a</code></td>
+      <td>loop control variable name</td>
+      <td></td>
+      <td>Control variable: a single letter.</td>
+    </tr>
+    <tr>
+      <td><code class="par">start</code></td>
+      <td>numeric expression</td>
+      <td></td>
+      <td>Start value.</td>
+    </tr>
+    <tr>
+      <td><code class="par">end</code></td>
+      <td>numeric expression</td>
+      <td></td>
+      <td>End value.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#FLOW_FOR" class="action-code">FLOW_FOR</a> Start of a counted loop
+<span class="tag">partial</span><small>— Step fixed at 1: there is no STEP</small></p>
+  </div>
+</section>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/FOR-24.html">FOR</a></td>
+      <td><code>$EB</code></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/eq-16.html">=</a></td>
+      <td><code>$E3</code></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/TO-3.html">TO</a></td>
+      <td><code>$D6</code></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Expressions as limits <span class="tag warning">to verify</span></h3>  <pre>FOR I = D*10 TO D*200</pre>
+<figcaption>Start and end can be expressions.
+<small>Source: Sinclair ZX80 Operating Manual - A Course in BASIC Programming.</small></figcaption></figure>
+<figure class="example">
+<h3>Count from 1 to 3 <span class="tag warning">to verify</span></h3>  <pre>10 FOR I=1 TO 3
+20 PRINT I
+30 NEXT I</pre>
+<pre class="output" title="Expected result">1
+2
+3</pre></figure>
+
+<h2>Notes</h2><p>The body is executed at least once. At the end of the loop the counter is end+1. NEXT is matched dynamically.</p>
+<h2>Related entries</h2>
+<ul><li>Closed by: <a href="../entries/NEXT-15.html">NEXT</a></li></ul>
+
+<h2>Sources</h2>
+<ul><li>Sinclair ZX80 Operating Manual - A Course in BASIC Programming, Hugo Davenport (1980), p. Appendix II</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Sinclair ZX80 BASIC 4K ROM">
+<a class="prev" rel="prev" href="../entries/DIM-17.html" title="Previous entry (←)">‹ <span>DIM</span></a>  <a class="where" href="../dialects/SINCLAIR_ZX80_4K.html#entries">4 / 42</a>
+<a class="next" rel="next" href="../entries/GO-SUB-12.html" title="Next entry (→)"><span>GO SUB</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js"></script>
+<script src="../static/search.js"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

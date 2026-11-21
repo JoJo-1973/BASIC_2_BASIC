@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Actions · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="static/style.css">
+</head>
+<body data-root="">
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="index.html">Machines</a>
+    <a href="actions.html">Actions</a>
+    <a href="translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<h1>Actions</h1>
+<p class="subtitle">What can be done in each dialect, and with which entry.</p>
+<form class="filters" onsubmit="return false">
+  <label>Dialect
+    <select id="filter-dialect">
+      <option value="">All dialects</option>
+<option value="1">Sinclair ZX80 BASIC 4K ROM</option>    </select>
+  </label>
+  <label>Category
+    <select id="filter-group">
+      <option value="">All</option>
+<option value="COMPARE">Comparisons</option><option value="FLOW">Flow control</option><option value="IO">Input/output</option><option value="LOGIC">Logical operators</option><option value="MATH">Mathematics</option><option value="MEMORY">Memory and machine code</option><option value="PROGRAM">Program management</option><option value="RANDOM">Random numbers</option><option value="SCREEN">Screen</option><option value="STRING">Strings</option><option value="TAPE">Tape and disk</option><option value="VARIABLES">Variables and arrays</option>    </select>
+  </label>
+  <span class="count" id="count"></span>
+</form>
+<div class="scroll">
+<table class="matrix" id="matrix">
+  <thead><tr><th>Action</th><th data-dialect="1"><a href="dialects/SINCLAIR_ZX80_4K.html">Sinclair ZX80 BASIC 4K ROM</a></th></tr></thead>
+  <tbody data-group="COMPARE">
+    <tr class="group"><th colspan="2">Comparisons</th></tr>
+    <tr id="OP_EQ" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">OP_EQ</span><br><small>Equal</small></th>
+      <td data-dialect="1"><a href="entries/eq-36.html">=</a> <small>between numbers</small><br><a href="entries/eq-36.html">=</a> <small>between strings</small></td>
+    </tr>
+    <tr id="OP_GT" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">OP_GT</span><br><small>Greater than</small></th>
+      <td data-dialect="1"><a href="entries/gt-37.html">&gt;</a> <small>between numbers</small><br><a href="entries/gt-37.html">&gt;</a> <small>between strings</small></td>
+    </tr>
+    <tr id="OP_LT" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">OP_LT</span><br><small>Less than</small></th>
+      <td data-dialect="1"><a href="entries/lt-38.html">&lt;</a> <small>between numbers</small><br><a href="entries/lt-38.html">&lt;</a> <small>between strings</small></td>
+    </tr>
+  </tbody>
+  <tbody data-group="FLOW">
+    <tr class="group"><th colspan="2">Flow control</th></tr>
+    <tr id="FLOW_CONTINUE" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">FLOW_CONTINUE</span><br><small>Resume after a stop</small></th>
+      <td data-dialect="1"><a href="entries/CONTINUE-4.html">CONTINUE</a></td>
+    </tr>
+    <tr id="FLOW_FOR" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">FLOW_FOR</span><br><small>Start of a counted loop</small></th>
+      <td data-dialect="1"><a href="entries/FOR-TO-14.html">FOR...TO</a> <span class="tag">partial</span></td>
+    </tr>
+    <tr id="FLOW_GOSUB" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">FLOW_GOSUB</span><br><small>Subroutine call</small></th>
+      <td data-dialect="1"><a href="entries/GO-SUB-12.html">GO SUB</a></td>
+    </tr>
+    <tr id="FLOW_GOTO" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">FLOW_GOTO</span><br><small>Jump to a line</small></th>
+      <td data-dialect="1"><a href="entries/GO-TO-11.html">GO TO</a></td>
+    </tr>
+    <tr id="FLOW_IF" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">FLOW_IF</span><br><small>Conditional execution</small></th>
+      <td data-dialect="1"><a href="entries/IF-10.html">IF</a></td>
+    </tr>
+    <tr id="FLOW_NEXT" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">FLOW_NEXT</span><br><small>End of a counted loop</small></th>
+      <td data-dialect="1"><a href="entries/NEXT-15.html">NEXT</a></td>
+    </tr>
+    <tr id="FLOW_RETURN" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">FLOW_RETURN</span><br><small>Return from subroutine</small></th>
+      <td data-dialect="1"><a href="entries/RETURN-13.html">RETURN</a></td>
+    </tr>
+    <tr id="FLOW_STOP" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">FLOW_STOP</span><br><small>Stop the program</small></th>
+      <td data-dialect="1"><a href="entries/STOP-16.html">STOP</a></td>
+    </tr>
+  </tbody>
+  <tbody data-group="IO">
+    <tr class="group"><th colspan="2">Input/output</th></tr>
+    <tr id="IO_INPUT" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">IO_INPUT</span><br><small>Read values from the keyboard</small></th>
+      <td data-dialect="1"><a href="entries/INPUT-9.html">INPUT</a> <span class="tag">partial</span></td>
+    </tr>
+    <tr id="IO_PRINT" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">IO_PRINT</span><br><small>Write to the screen</small></th>
+      <td data-dialect="1"><a href="entries/PRINT-8.html">PRINT</a></td>
+    </tr>
+  </tbody>
+  <tbody data-group="LOGIC">
+    <tr class="group"><th colspan="2">Logical operators</th></tr>
+    <tr id="OP_AND" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">OP_AND</span><br><small>Logical conjunction</small></th>
+      <td data-dialect="1"><a href="entries/AND-40.html">AND</a></td>
+    </tr>
+    <tr id="OP_NOT" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">OP_NOT</span><br><small>Logical negation</small></th>
+      <td data-dialect="1"><a href="entries/NOT-39.html">NOT</a></td>
+    </tr>
+    <tr id="OP_OR" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">OP_OR</span><br><small>Logical disjunction</small></th>
+      <td data-dialect="1"><a href="entries/OR-41.html">OR</a></td>
+    </tr>
+  </tbody>
+  <tbody data-group="MATH">
+    <tr class="group"><th colspan="2">Mathematics</th></tr>
+    <tr id="MATH_ABS" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">MATH_ABS</span><br><small>Absolute value</small></th>
+      <td data-dialect="1"><a href="entries/ABS-23.html">ABS</a></td>
+    </tr>
+    <tr id="OP_ADD" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">OP_ADD</span><br><small>Addition</small></th>
+      <td data-dialect="1"><a href="entries/plus-35.html">+</a></td>
+    </tr>
+    <tr id="OP_DIV" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">OP_DIV</span><br><small>Division</small></th>
+      <td data-dialect="1"><a href="entries/slash-34.html">/</a> <span class="tag">partial</span></td>
+    </tr>
+    <tr id="OP_MUL" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">OP_MUL</span><br><small>Multiplication</small></th>
+      <td data-dialect="1"><a href="entries/star-33.html">*</a></td>
+    </tr>
+    <tr id="OP_NEG" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">OP_NEG</span><br><small>Change of sign</small></th>
+      <td data-dialect="1"><a href="entries/minus-32.html">-</a> <small>change of sign</small></td>
+    </tr>
+    <tr id="OP_POWER" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">OP_POWER</span><br><small>Raise to a power</small></th>
+      <td data-dialect="1"><a href="entries/star-star-31.html">**</a></td>
+    </tr>
+    <tr id="OP_SUB" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">OP_SUB</span><br><small>Subtraction</small></th>
+      <td data-dialect="1"><a href="entries/minus-32.html">-</a> <small>subtraction</small></td>
+    </tr>
+  </tbody>
+  <tbody data-group="MEMORY">
+    <tr class="group"><th colspan="2">Memory and machine code</th></tr>
+    <tr id="MEM_CALL" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">MEM_CALL</span><br><small>Call a machine code routine</small></th>
+      <td data-dialect="1"><a href="entries/USR-30.html">USR</a></td>
+    </tr>
+    <tr id="MEM_PEEK" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">MEM_PEEK</span><br><small>Read a byte from memory</small></th>
+      <td data-dialect="1"><a href="entries/PEEK-26.html">PEEK</a></td>
+    </tr>
+    <tr id="MEM_POKE" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">MEM_POKE</span><br><small>Write a byte to memory</small></th>
+      <td data-dialect="1"><a href="entries/POKE-20.html">POKE</a></td>
+    </tr>
+  </tbody>
+  <tbody data-group="PROGRAM">
+    <tr class="group"><th colspan="2">Program management</th></tr>
+    <tr id="PROG_LIST" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">PROG_LIST</span><br><small>List the program</small></th>
+      <td data-dialect="1"><a href="entries/LIST-1.html">LIST</a></td>
+    </tr>
+    <tr id="PROG_NEW" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">PROG_NEW</span><br><small>Erase the program</small></th>
+      <td data-dialect="1"><a href="entries/NEW-3.html">NEW</a></td>
+    </tr>
+    <tr id="PROG_REM" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">PROG_REM</span><br><small>Comment</small></th>
+      <td data-dialect="1"><a href="entries/REM-22.html">REM</a></td>
+    </tr>
+    <tr id="PROG_RUN" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">PROG_RUN</span><br><small>Run the program</small></th>
+      <td data-dialect="1"><a href="entries/RUN-2.html">RUN</a></td>
+    </tr>
+  </tbody>
+  <tbody data-group="RANDOM">
+    <tr class="group"><th colspan="2">Random numbers</th></tr>
+    <tr id="RND_SEED" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">RND_SEED</span><br><small>Seed the random numbers</small></th>
+      <td data-dialect="1"><a href="entries/RANDOMISE-21.html">RANDOMISE</a></td>
+    </tr>
+    <tr id="RND_VALUE" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">RND_VALUE</span><br><small>Random number</small></th>
+      <td data-dialect="1"><a href="entries/RND-27.html">RND</a></td>
+    </tr>
+  </tbody>
+  <tbody data-group="SCREEN">
+    <tr class="group"><th colspan="2">Screen</th></tr>
+    <tr id="SCREEN_CLS" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">SCREEN_CLS</span><br><small>Clear the screen</small></th>
+      <td data-dialect="1"><a href="entries/CLS-19.html">CLS</a></td>
+    </tr>
+  </tbody>
+  <tbody data-group="STRING">
+    <tr class="group"><th colspan="2">Strings</th></tr>
+    <tr id="STR_CHR" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">STR_CHR</span><br><small>Character from its code</small></th>
+      <td data-dialect="1"><a href="entries/CHRS-24.html">CHR$</a></td>
+    </tr>
+    <tr id="STR_CODE" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">STR_CODE</span><br><small>Code of a character</small></th>
+      <td data-dialect="1"><a href="entries/CODE-25.html">CODE</a></td>
+    </tr>
+    <tr id="STR_FROM_NUM" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">STR_FROM_NUM</span><br><small>Number converted to a string</small></th>
+      <td data-dialect="1"><a href="entries/STRS-28.html">STR$</a></td>
+    </tr>
+    <tr id="STR_SUBSTRING" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">STR_SUBSTRING</span><br><small>Part of a string</small></th>
+      <td data-dialect="1"><a href="entries/TLS-29.html">TL$</a> <span class="tag">partial</span></td>
+    </tr>
+  </tbody>
+  <tbody data-group="TAPE">
+    <tr class="group"><th colspan="2">Tape and disk</th></tr>
+    <tr id="TAPE_LOAD" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">TAPE_LOAD</span><br><small>Load the program</small></th>
+      <td data-dialect="1"><a href="entries/LOAD-6.html">LOAD</a></td>
+    </tr>
+    <tr id="TAPE_SAVE" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">TAPE_SAVE</span><br><small>Save the program</small></th>
+      <td data-dialect="1"><a href="entries/SAVE-5.html">SAVE</a></td>
+    </tr>
+  </tbody>
+  <tbody data-group="VARIABLES">
+    <tr class="group"><th colspan="2">Variables and arrays</th></tr>
+    <tr id="VAR_CLEAR" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">VAR_CLEAR</span><br><small>Clear all variables</small></th>
+      <td data-dialect="1"><a href="entries/CLEAR-18.html">CLEAR</a></td>
+    </tr>
+    <tr id="VAR_DIM" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">VAR_DIM</span><br><small>Declare an array</small></th>
+      <td data-dialect="1"><a href="entries/DIM-17.html">DIM</a> <span class="tag">partial</span></td>
+    </tr>
+    <tr id="VAR_LET" class="action-row" data-dialects=" 1 ">
+      <th><span class="action-code">VAR_LET</span><br><small>Assignment</small></th>
+      <td data-dialect="1"><a href="entries/LET-7.html">LET</a></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p class="note">A hatched cell means the dialect has no equivalent. Actions that no dialect implements are not shown.</p>
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="static/search_index.js"></script>
+<script src="static/search.js"></script>
+<script src="static/actions.js"></script>
+</body>
+</html>

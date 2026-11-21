@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DIM · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Sinclair ZX80 BASIC 4K ROM">
+<a class="prev" rel="prev" href="../entries/CLS-19.html" title="Previous entry (←)">‹ <span>CLS</span></a>  <a class="where" href="../dialects/SINCLAIR_ZX80_4K.html#entries">3 / 42</a>
+<a class="next" rel="next" href="../entries/FOR-TO-14.html" title="Next entry (→)"><span>FOR...TO</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/SINCLAIR_ZX80_4K.html#entries">Sinclair ZX80 BASIC 4K ROM</a> ›</p>
+<h1><span class="entry-name">DIM</span> <span class="category">Statement</span></h1>
+<p class="subtitle">Creates an array with subscripts from 0 to n.</p>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>ZX80_4K_core</code> — Sinclair ZX80 BASIC (4K ROM)</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/SINCLAIR_ZX80_4K.html">Sinclair ZX80 BASIC 4K ROM</a></dd>
+</dl>
+
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="kw">DIM</span> <span class="par">a</span><span class="kw">(</span><span class="par">n</span><span class="kw">)</span></pre>
+  <p class="manual">In the manual (Sinclair ZX80 Operating Manual - A Course in BASIC Programming, p. Appendix II):
+    <code>DIM a(n)</code>
+</p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">a</code></td>
+      <td>numeric array name</td>
+      <td></td>
+      <td>Array name: a single letter.</td>
+    </tr>
+    <tr>
+      <td><code class="par">n</code></td>
+      <td>numeric expression</td>
+      <td></td>
+      <td>Highest subscript: the array has n+1 elements.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#VAR_DIM" class="action-code">VAR_DIM</a> Declare an array
+<span class="tag">partial</span><small>— One dimension only, integers only</small></p>
+  </div>
+</section>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/DIM-22.html">DIM</a></td>
+      <td><code>$E9</code></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/lparen-7.html">(</a></td>
+      <td><code>$DA</code></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/rparen-6.html">)</a></td>
+      <td><code>$D9</code></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Array with a variable size <span class="tag warning">to verify</span></h3>  <pre>DIM A(B)</pre>
+<figcaption>Creates array A with elements from A(0) to A(B).
+<small>Source: Sinclair ZX80 Operating Manual - A Course in BASIC Programming.</small></figcaption></figure>
+<figure class="example">
+<h3>Use an array <span class="tag warning">to verify</span></h3>  <pre>10 DIM A(5)
+20 LET A(0)=1
+30 LET A(5)=6
+40 PRINT A(0)+A(5)</pre>
+<pre class="output" title="Expected result">7</pre></figure>
+
+<h2>Notes</h2><p>If the array already exists, the new space is reserved but the old array is still used.</p>
+
+<h2>Sources</h2>
+<ul><li>Sinclair ZX80 Operating Manual - A Course in BASIC Programming, Hugo Davenport (1980), p. Appendix II</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Sinclair ZX80 BASIC 4K ROM">
+<a class="prev" rel="prev" href="../entries/CLS-19.html" title="Previous entry (←)">‹ <span>CLS</span></a>  <a class="where" href="../dialects/SINCLAIR_ZX80_4K.html#entries">3 / 42</a>
+<a class="next" rel="next" href="../entries/FOR-TO-14.html" title="Next entry (→)"><span>FOR...TO</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js"></script>
+<script src="../static/search.js"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

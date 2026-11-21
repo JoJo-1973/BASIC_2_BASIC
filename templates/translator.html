@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Translator{% endblock %}
+{% block content %}
+<h1>Translator</h1>
+<p class="subtitle">Choose the source dialect, an entry and the target dialect: for each action of the entry the equivalent forms are shown, or a notice that there are none.</p>
+<form class="translator" onsubmit="return false">
+  <label>From <select id="from"></select></label>
+  <label>Entry <select id="entry"></select></label>
+  <label>To <select id="to"></select></label>
+  <button type="button" id="swap" title="Swap the dialects">⇄</button>
+</form>
+<div id="result"></div>
+{% endblock %}
+{% block script %}
+<script src="{{ root }}static/translator_data.js"></script>
+<script src="{{ root }}static/translator.js"></script>
+{% endblock %}

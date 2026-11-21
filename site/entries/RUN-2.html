@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RUN · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Sinclair ZX80 BASIC 4K ROM">
+<a class="prev" rel="prev" href="../entries/NEW-3.html" title="Previous entry (←)">‹ <span>NEW</span></a>  <a class="where" href="../dialects/SINCLAIR_ZX80_4K.html#entries">21 / 42</a>
+<a class="next" rel="next" href="../entries/SAVE-5.html" title="Next entry (→)"><span>SAVE</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/SINCLAIR_ZX80_4K.html#entries">Sinclair ZX80 BASIC 4K ROM</a> ›</p>
+<h1><span class="entry-name">RUN</span> <span class="category">Direct command</span></h1>
+<p class="subtitle">Runs the program: same as CLEAR followed by GO TO n.</p>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>ZX80_4K_core</code> — Sinclair ZX80 BASIC (4K ROM)</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/SINCLAIR_ZX80_4K.html">Sinclair ZX80 BASIC 4K ROM</a></dd>
+</dl>
+
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="kw">RUN</span> <span class="meta">[</span><span class="par">n</span><span class="meta">]</span></pre>
+  <p class="manual">In the manual (Sinclair ZX80 Operating Manual - A Course in BASIC Programming, p. Appendix II):
+    <code>RUN n</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">n</code></td>
+      <td>numeric expression</td>
+      <td><small>missing line: the next existing line is used</small><br></td>
+      <td>Starting line; without an argument it is 1.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#PROG_RUN" class="action-code">PROG_RUN</a> Run the program
+<small>— Also clears the variables</small></p>
+  </div>
+</section>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/RUN-33.html">RUN</a></td>
+      <td><code>$F7</code></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Run the program <span class="tag warning">to verify</span></h3>  <pre>RUN</pre>
+<figcaption>Clears the variables and runs the program from the first line.
+</figcaption></figure>
+<figure class="example">
+<h3>Run from a line <span class="tag warning">to verify</span></h3>  <pre>RUN 100</pre>
+<figcaption>Clears the variables and runs the program from line 100.
+</figcaption></figure>
+
+
+<h2>Related entries</h2>
+<ul><li>See also: <a href="../entries/CLEAR-18.html">CLEAR</a></li></ul>
+
+<h2>Sources</h2>
+<ul><li>Sinclair ZX80 Operating Manual - A Course in BASIC Programming, Hugo Davenport (1980), p. Appendix II</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Sinclair ZX80 BASIC 4K ROM">
+<a class="prev" rel="prev" href="../entries/NEW-3.html" title="Previous entry (←)">‹ <span>NEW</span></a>  <a class="where" href="../dialects/SINCLAIR_ZX80_4K.html#entries">21 / 42</a>
+<a class="next" rel="next" href="../entries/SAVE-5.html" title="Next entry (→)"><span>SAVE</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js"></script>
+<script src="../static/search.js"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

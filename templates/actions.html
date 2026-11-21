@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Actions{% endblock %}
+{% block content %}
+<h1>Actions</h1>
+<p class="subtitle">What can be done in each dialect, and with which entry.</p>
+<form class="filters" onsubmit="return false">
+  <label>Dialect
+    <select id="filter-dialect">
+      <option value="">All dialects</option>
+      {% for x in dialects %}<option value="{{ x.id }}">{{ dialect_name(x) }}</option>{% endfor %}
+    </select>
+  </label>
+  <label>Category
+    <select id="filter-group">
+      <option value="">All</option>
+      {% for g, rows in groups %}<option value="{{ g.code if g else '-' }}">{{ g.name if g else 'No group' }}</option>{% endfor %}
+    </select>
+  </label>
+  <span class="count" id="count"></span>
+</form>
+<div class="scroll">
+<table class="matrix" id="matrix">
+  <thead><tr><th>Action</th>{% for x in dialects %}<th data-dialect="{{ x.id }}"><a href="{{ root }}{{ dialect_url(x) }}">{{ dialect_name(x) }}</a></th>{% endfor %}</tr></thead>
+  {% for g, rows in groups %}
+  <tbody data-group="{{ g.code if g else '-' }}">
+    <tr class="group"><th colspan="{{ dialects|length + 1 }}">{{ g.name if g else 'No group' }}</th></tr>
+    {% for r in rows %}
+    <tr id="{{ r.a.code }}" class="action-row" data-dialects=" {{ r.dialects|join(' ') }} ">
+      <th><span class="action-code">{{ r.a.code }}</span><br><small>{{ r.a.name }}</small></th>
+      {% for cell in r.cells %}
+      <td data-dialect="{{ dialects[loop.index0].id }}"{% if not cell %} class="empty"{% endif %}>{% for c in cell %}<a href="{{ root }}{{ entry_url(c.entry) }}">{{ c.entry.name }}</a>{% if c.form.title %} <small>{{ c.form.title|lower }}</small>{% endif %}{% if c.coverage == 'PARTIAL' %} <span class="tag">partial</span>{% endif %}{% if not loop.last %}<br>{% endif %}{% endfor %}</td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </tbody>
+  {% endfor %}
+</table>
+</div>
+<p class="note">A hatched cell means the dialect has no equivalent. Actions that no dialect implements are not shown.</p>
+{% endblock %}
+{% block script %}
+<script src="{{ root }}static/actions.js"></script>
+{% endblock %}

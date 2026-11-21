@@ -1,0 +1,327 @@
+{% extends "base.html" %}
+{% block title %}{{ dialect_name(dia) }}{% endblock %}
+
+{% macro panel(id, title) %}
+<dialog class="panel" id="{{ id }}" aria-labelledby="{{ id }}-title">
+  <header><h2 id="{{ id }}-title">{{ title }}</h2><button type="button" class="close" aria-label="Close">✕</button></header>
+  <div class="panel-body">{{ caller() }}</div>
+</dialog>
+{% endmacro %}
+
+{% macro layout_table(fields) %}
+<table>
+  <thead><tr><th class="num">Offset</th><th class="num">Bytes</th><th>Field</th><th>Byte order</th><th>Description</th></tr></thead>
+  <tbody>
+  {% for f in fields %}
+  <tr><td class="num">{{ f.offset if f.offset is not none else '…' }}</td><td class="num">{{ f.size if f.size is not none else 'variable' }}</td>
+      <td>{{ f.name }}</td><td>{{ (f.byte_order or '')|lower }}</td><td>{{ f.description or '' }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endmacro %}
+
+{% block content %}
+<p class="breadcrumbs"><a href="{{ root }}index.html">Machines</a> ›
+  {% for x in machines %}<a href="{{ root }}{{ machine_url(x.m) }}">{{ x.m.name }}</a>{% if not loop.last %}, {% endif %}{% endfor %} ›</p>
+<h1>{{ dialect_name(dia) }}</h1>
+<p class="dialect-header">
+  <code>{{ dia.code }}</code>
+  {% if dia.author %} · {{ dia.author }}{% endif %}
+  {% if dia.year %} · {{ dia.year }}{% endif %}
+  · {% for x in machines %}<a href="{{ root }}{{ machine_url(x.m) }}">{{ x.m.name }}</a> ({{ x.r.medium|lower }}){% if not loop.last %}, {% endif %}{% endfor %}
+</p>
+{% if dia.notes %}<p>{{ dia.notes }}</p>{% endif %}
+
+<nav class="table-bar" aria-label="Dialect tables">
+  <a href="#layers" data-panel>Layers</a>
+  <a href="#keywords" data-panel>Keywords <small>{{ keywords|length }}</small></a>
+  {% if operators %}<a href="#operators" data-panel>Operator precedence</a>{% endif %}
+  {% if types %}<a href="#types" data-panel>Data types</a>{% endif %}
+  {% if variable_kinds %}<a href="#variables" data-panel>Variable types</a>{% endif %}
+  {% if parameter_kinds %}<a href="#parameters" data-panel>Parameter types</a>{% endif %}
+  {% if errors %}<a href="#errors" data-panel>Errors</a>{% endif %}
+  {% if features %}<a href="#features" data-panel>Features</a>{% endif %}
+  {% if constructs %}<a href="#constructs" data-panel>Constructs</a>{% endif %}
+  {% if charsets %}<a href="#characters" data-panel>Character codes</a>{% endif %}
+  {% if key_codes %}<a href="#keys" data-panel>Keyboard codes</a>{% endif %}
+  {% if program_layout %}<a href="#program" data-panel>Program in memory</a>{% endif %}
+  {% if musical_notes %}<a href="#notes" data-panel>Musical notes</a>{% endif %}
+  {% for x in custom %}<a href="#custom-{{ x.t.code }}" data-panel>{{ x.t.title }}</a>{% endfor %}
+  <a href="#tables" data-panel>All tables</a>
+</nav>
+
+<h2 id="entries">Entries <small>{{ n_entries }}</small></h2>
+<form class="filters" onsubmit="return false">
+  <label>Category
+    <select id="filter-category">
+      <option value="">All</option>
+      {% for cat, items, subgroups in by_category %}<option value="{{ cat.code }}">{{ plural(cat.name) }} ({{ items|length }})</option>
+      {% for cl, rows in subgroups %}<option value="{{ cat.code }}:{{ cl.code if cl else '-' }}">&nbsp;&nbsp;&nbsp;{{ cl.name if cl else 'Others' }} ({{ rows|length }})</option>{% endfor %}
+      {% endfor %}
+    </select>
+  </label>
+  <label>Search
+    <input id="filter-text" type="search" placeholder="Name or description…">
+  </label>
+  <span class="count" id="count"></span>
+</form>
+<div id="entry-list">
+{% macro entry_table(items, cls='') %}
+<table class="entries"{% if cls %} data-class="{{ cls }}"{% endif %}>
+  <tbody>
+  {% for x in items %}
+  <tr data-text="{{ x.e.name }} {{ x.e.description or '' }}" data-entry="{{ x.e.id }}">
+    <td class="name"><a href="{{ root }}{{ entry_url(x.e) }}">{{ x.e.name }}</a>
+      {% if x.titles %}<small>{{ x.titles|join(', ')|lower }}</small>{% endif %}
+      {% if x.e.operation == 'REPLACE' %}<span class="tag">redefined</span>{% endif %}</td>
+    <td>{{ x.e.description or '' }}</td>
+    {% if stack|length > 1 %}<td class="layer"><code>{{ x.layer.code }}</code></td>{% endif %}
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endmacro %}
+{% for cat, items, subgroups in by_category %}
+<section class="category-entries" data-category="{{ cat.code }}">
+<h3>{{ plural(cat.name) }}</h3>
+{% if subgroups %}
+  {% for cl, rows in subgroups %}
+  <div class="subgroup" data-class="{{ cl.code if cl else '-' }}">
+    <h4 {% if cl and cl.description %}title="{{ cl.description }}"{% endif %}>{{ cl.name if cl else 'Others' }}</h4>
+    {{ entry_table(rows, cl.code if cl else '-') }}
+  </div>
+  {% endfor %}
+{% else %}
+  {{ entry_table(items) }}
+{% endif %}
+</section>
+{% endfor %}
+</div>
+
+{# ------------------------------------------------------------------ panels #}
+{% call panel("layers", "Layers") %}
+<ol class="stack">
+  {% for s in stack|reverse %}
+  <li class="{{ s.layer.kind|lower }}"><span class="pos">{{ s.position }}</span>
+    <strong>{{ s.layer.name }}</strong> <code>{{ s.layer.code }}</code></li>
+  {% endfor %}
+</ol>
+<p class="note">Each layer adds, redefines or removes entries of the layers below it; the topmost layer wins.</p>
+{% endcall %}
+
+{% call panel("keywords", "Keywords") %}
+<table>
+  <thead><tr><th>Keyword</th><th>Abbreviation</th>
+    {% for x in machines %}<th>Token{% if machines|length > 1 %} {{ x.m.name }}{% endif %}</th>{% endfor %}
+    {% if stack|length > 1 %}<th>Layer</th>{% endif %}</tr></thead>
+  <tbody>
+  {% for k in keywords %}
+  <tr><td><a class="kw" href="{{ root }}{{ keyword_url(k.k) }}">{{ k.k.text }}</a></td>
+      <td>{% for a in k.abbr %}<code>{{ a.text }}</code>{% if a.machine %} <small>({{ a.machine.name }})</small>{% endif %}{% if not loop.last %}, {% endif %}{% endfor %}</td>
+      {% for t in k.tokens %}<td>{% if t %}<code>${{ t }}</code>{% endif %}</td>{% endfor %}
+      {% if stack|length > 1 %}<td class="layer"><code>{{ k.layer.code }}</code></td>{% endif %}</tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endcall %}
+
+{% if operators %}
+{% call panel("operators", "Operator precedence") %}
+<table class="operators">
+  <thead><tr><th class="num">Order</th><th>Operators</th><th class="num">Precedence</th><th>Associativity</th></tr></thead>
+  <tbody>
+  {% for p, items in operators %}
+  <tr><td class="num">{{ loop.index }}</td>
+      <td>{% for o in items %}<a class="op" href="{{ root }}{{ entry_url(o.e) }}">{{ o.e.name }}</a>{% if o.titles %} <small>{{ o.titles|join(', ')|lower }}</small>{% endif %}{% if not loop.last %}<span class="sep"> </span>{% endif %}{% endfor %}</td>
+      <td class="num">{{ p }}</td>
+      <td>{% set assocs = items|map(attribute='assoc')|select|unique|list %}{% for a in assocs %}{{ 'left to right' if a == 'LEFT' else 'right to left' }}{% if not loop.last %}, {% endif %}{% endfor %}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+<p class="note">From top to bottom: the operators at the top are evaluated first. The precedence is the number used by the manual.</p>
+{% endcall %}
+{% endif %}
+
+{% if types %}
+{% call panel("types", "Data types") %}
+<table>
+  <thead><tr><th>Type</th><th>Suffix</th><th>Family</th><th>Range</th><th>Precision</th><th class="num">Bytes</th><th>Notes</th></tr></thead>
+  <tbody>
+  {% for x in types %}
+  <tr><td>{{ x.t.name }}</td><td>{% if x.t.suffix %}<code>{{ x.t.suffix }}</code>{% endif %}</td>
+      <td>{{ x.type_class.code|lower }}</td>
+      <td class="nowrap">{{ x.interval or '' }}{% if x.t.max_length %}max {{ x.t.max_length }} characters{% endif %}</td>
+      <td>{{ x.t.precision or '' }}</td><td class="num">{{ x.t.bytes or '' }}</td><td>{{ x.t.notes or '' }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endcall %}
+{% endif %}
+
+{% if variable_kinds %}
+{% call panel("variables", "Variable types") %}
+<table>
+  <thead><tr><th>Variable type</th><th>Data type</th><th class="num">Dimensions</th><th>Name</th><th>Examples</th><th>Notes</th></tr></thead>
+  <tbody>
+  {% for x in variable_kinds %}
+  <tr><td>{{ x.v.name }}</td><td>{{ x.type.name }}</td><td class="num">{{ x.v.dimensions }}</td>
+      <td>{{ x.v.name_rule or '' }}</td><td><code>{{ x.v.examples or '' }}</code></td>
+      <td>{{ x.v.notes or '' }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% for x in variable_kinds if x.fields %}
+<h3>{{ x.v.name }} in memory</h3>
+{{ layout_table(x.fields) }}
+{% endfor %}
+{% endcall %}
+{% endif %}
+
+{% if parameter_kinds %}
+{% call panel("parameters", "Parameter types") %}
+<table>
+  <thead><tr><th>Parameter type</th><th>Nature</th><th>Of</th><th>Notes</th></tr></thead>
+  <tbody>
+  {% for x in parameter_kinds %}
+  <tr><td>{{ x.p.name }}</td><td>{{ x.p.nature|lower|replace('_', ' ') }}</td>
+      <td>{% if x.type_class %}{{ x.type_class.code|lower }}{% elif x.variable_kind %}{{ x.variable_kind.name|lower }}{% elif x.p.nature in ('VARIABLE', 'ARRAY_NAME', 'ARRAY_ELEMENT') %}any{% endif %}</td>
+      <td>{{ x.p.notes or '' }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endcall %}
+{% endif %}
+
+{% if errors %}
+{% call panel("errors", "Error messages") %}
+<table>
+  <thead><tr><th class="num">No.</th><th>Message</th><th>Description</th></tr></thead>
+  <tbody>
+  {% for e in errors %}
+  <tr id="err-{{ e.code }}"><td class="num">{{ e.number if e.number is not none else '' }}</td>
+      <td class="nowrap"><code>{{ e.message }}</code></td><td>{{ e.description or '' }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endcall %}
+{% endif %}
+
+{% if features %}
+{% call panel("features", "Features") %}
+<table>
+  <tbody>
+  {% for f in features %}
+  <tr><td>{{ f.description or f.code }}</td><td><code>{{ f.value or '' }}</code></td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endcall %}
+{% endif %}
+
+{% if constructs %}
+{% call panel("constructs", "Constructs") %}
+{% for x in constructs %}
+<h3 id="construct-{{ x.c.code }}">{{ x.c.name }} <code>{{ x.c.code }}</code></h3>
+<pre class="syntax">{{ x.syntax }}</pre>
+{% if x.c.description %}<p>{{ x.c.description }}</p>{% endif %}
+{% endfor %}
+{% endcall %}
+{% endif %}
+
+{% if charsets %}
+{% call panel("characters", "Character codes") %}
+{% for g in charsets %}
+<h3>{{ g.s.name }}{% if g.s.language %} ({{ g.s.language }}){% endif %} <small>{{ g.machine.name }} · {{ g.s.width }}×{{ g.s.height }} pixels</small></h3>
+{% if g.s.description %}<p class="note">{{ g.s.description }}</p>{% endif %}
+<div class="scroll">
+<table class="glyphs" data-width="{{ g.s.width }}" data-height="{{ g.s.height }}">
+  <thead><tr><th></th>{% for i in range(16) %}<th>_{{ '%X'|format(i) }}</th>{% endfor %}</tr></thead>
+  <tbody>
+  {% for row in g.rows %}
+  <tr><th>{{ '%X'|format(row[0].code // 16) }}_</th>
+    {% for c in row %}
+    <td class="g-{{ c.kind|lower }}" title="{{ c.code }} (${{ '%02X'|format(c.code) }}){% if c.code_name %} — {{ c.code_name }}{% elif c.name %} — {{ c.name }}{% endif %}{% if c.kind in ('PRINTABLE', 'UNUSED') and c.screen_code is not none %} — screen code {{ c.screen_code }}{% endif %}{% if c.unicode %} — {{ c.unicode|codepoint }}{% endif %}{% if c.kind == 'UNUSED' %} — not used{% if c.code_notes %}: {{ c.code_notes }}{% endif %}{% elif c.kind == 'TOKEN' %} — token{% elif c.kind == 'CONTROL' %} — control: {{ c.action or '' }}{% endif %}{% if c.inverse_of is not none %} — inverse of {{ c.inverse_of }}{% endif %}">
+      {% if c.kind == 'TOKEN' %}<span class="token">{{ c.token_text or '' }}</span>
+      {% elif c.kind == 'CONTROL' %}<span class="token">{{ c.code_name or 'ctrl' }}</span>
+      {% elif c.bitmap %}<canvas data-b="{{ c.bitmap }}"{% if c.inverse %} data-inverse="1"{% endif %}></canvas>{% endif %}
+      <span class="code-num">{{ c.code }}</span>
+    </td>
+    {% endfor %}
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+<p class="note legend"><span class="g-unused swatch-g"></span> not used (what it prints, if anything) ·
+  <span class="g-token swatch-g"></span> token: shown as its keyword ·
+  <span class="g-control swatch-g"></span> control code ·
+  hover over a character for the details.</p>
+{% endfor %}
+{% endcall %}
+{% endif %}
+{% if key_codes %}
+{% call panel("keys", "Keyboard codes") %}
+<table>
+  <thead><tr><th>Key</th><th>Modifier</th><th class="num">Code</th><th>Read with</th><th>Keyword</th><th>Notes</th></tr></thead>
+  <tbody>
+  {% for k in key_codes %}
+  <tr><td><kbd>{{ k.key }}</kbd></td><td>{{ k.modifier or '' }}</td><td class="num">{{ k.code if k.code is not none else '' }}</td>
+      <td>{{ k.read_with or '' }}</td><td>{% if k.keyword_text %}<span class="kw">{{ k.keyword_text }}</span>{% endif %}</td><td>{{ k.notes or '' }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endcall %}
+{% endif %}
+
+{% if program_layout %}
+{% call panel("program", "Program in memory") %}
+{{ layout_table(program_layout) }}
+{% endcall %}
+{% endif %}
+
+{% if musical_notes %}
+{% call panel("notes", "Musical notes") %}
+<table>
+  <thead><tr><th>Note</th><th class="num">Octave</th><th class="num">Value</th><th class="num">Frequency (Hz)</th><th>Notes</th></tr></thead>
+  <tbody>
+  {% for n in musical_notes %}
+  <tr><td>{{ n.note }}</td><td class="num">{{ n.octave if n.octave is not none else '' }}</td><td class="num">{{ '%g'|format(n.value) if n.value is not none else '' }}</td>
+      <td class="num">{{ '%g'|format(n.frequency_hz) if n.frequency_hz is not none else '' }}</td><td>{{ n.notes or '' }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endcall %}
+{% endif %}
+
+{% for x in custom %}
+{% call panel("custom-" ~ x.t.code, x.t.title) %}
+{% if x.t.description %}<p>{{ x.t.description }}</p>{% endif %}
+<table>
+  <thead><tr>{% for h in x.columns %}<th>{{ h }}</th>{% endfor %}</tr></thead>
+  <tbody>{% for r in x.rows %}<tr>{% for v in r %}<td>{{ v or '' }}</td>{% endfor %}</tr>{% endfor %}</tbody>
+</table>
+{% endcall %}
+{% endfor %}
+
+{% call panel("tables", "All tables") %}
+<table class="table-status">
+  <thead><tr><th>Table</th><th>Of</th><th>State</th><th>Notes</th></tr></thead>
+  <tbody>
+  {% for x in tables %}
+  {% for owner, st in x.owners %}
+  <tr>{% if loop.first %}<td rowspan="{{ x.owners|length }}">{{ x.k.name }}</td>{% endif %}
+      <td><code>{{ owner.code }}</code></td>
+      <td class="st-{{ (st.status if st else 'UNKNOWN')|lower }}">{{ {'NOT_APPLICABLE': 'does not exist', 'TO_DO': 'to be entered', 'PARTIAL': 'partial', 'COMPLETE': 'complete'}.get(st.status, 'state not recorded') if st else 'state not recorded' }}</td>
+      <td>{{ st.notes if st and st.notes else '' }}</td></tr>
+  {% endfor %}
+  {% endfor %}
+  </tbody>
+</table>
+<p class="note">Tables of the dialect belong to its layers, the others to the machines that host it.</p>
+<p><strong>Examples:</strong> {{ with_examples }} of {{ n_entries }} entries have at least one usage example{% if examples_to_verify %}; {{ examples_to_verify }} examples are still to be verified{% endif %}.</p>
+{% endcall %}
+{% endblock %}
+
+{% block script %}
+<script src="{{ root }}static/dialect.js"></script>
+{% endblock %}

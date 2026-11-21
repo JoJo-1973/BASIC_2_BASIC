@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sinclair ZX80 BASIC 4K ROM · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<p class="breadcrumbs"><a href="../index.html">Machines</a> ›
+<a href="../machines/ZX80.html">Sinclair ZX80</a> ›</p>
+<h1>Sinclair ZX80 BASIC 4K ROM</h1>
+<p class="dialect-header">
+  <code>SINCLAIR_ZX80_4K</code>
+ · John Grant (Nine Tiles) · 1980  · <a href="../machines/ZX80.html">Sinclair ZX80</a> (rom)</p>
+<p>Integer-only BASIC. Statement keywords are entered with a single key.</p>
+<nav class="table-bar" aria-label="Dialect tables">
+  <a href="#layers" data-panel>Layers</a>
+  <a href="#keywords" data-panel>Keywords <small>48</small></a>
+<a href="#operators" data-panel>Operator precedence</a><a href="#types" data-panel>Data types</a><a href="#variables" data-panel>Variable types</a><a href="#parameters" data-panel>Parameter types</a><a href="#errors" data-panel>Errors</a><a href="#features" data-panel>Features</a><a href="#characters" data-panel>Character codes</a>  <a href="#tables" data-panel>All tables</a>
+</nav>
+
+<h2 id="entries">Entries <small>42</small></h2>
+<form class="filters" onsubmit="return false">
+  <label>Category
+    <select id="filter-category">
+      <option value="">All</option>
+<option value="STATEMENT">Statements (16)</option>
+<option value="COMMAND">Direct commands (6)</option>
+<option value="FUNCTION">Functions (8)</option>
+<option value="OPERATOR">Operators (12)</option>
+<option value="OPERATOR:ARITHMETIC">&nbsp;&nbsp;&nbsp;Arithmetic (5)</option><option value="OPERATOR:BITWISE">&nbsp;&nbsp;&nbsp;Bitwise (3)</option><option value="OPERATOR:RELATIONAL">&nbsp;&nbsp;&nbsp;Relational (3)</option><option value="OPERATOR:GROUPING">&nbsp;&nbsp;&nbsp;Grouping (1)</option>    </select>
+  </label>
+  <label>Search
+    <input id="filter-text" type="search" placeholder="Name or description…">
+  </label>
+  <span class="count" id="count"></span>
+</form>
+<div id="entry-list">
+<section class="category-entries" data-category="STATEMENT">
+<h3>Statements</h3>
+  <table class="entries">
+  <tbody>
+  <tr data-text="CLEAR Clears all variables." data-entry="18">
+    <td class="name"><a href="../entries/CLEAR-18.html">CLEAR</a>
+</td>
+    <td>Clears all variables.</td>
+  </tr>
+  <tr data-text="CLS Clears the upper part of the screen." data-entry="19">
+    <td class="name"><a href="../entries/CLS-19.html">CLS</a>
+</td>
+    <td>Clears the upper part of the screen.</td>
+  </tr>
+  <tr data-text="DIM Creates an array with subscripts from 0 to n." data-entry="17">
+    <td class="name"><a href="../entries/DIM-17.html">DIM</a>
+</td>
+    <td>Creates an array with subscripts from 0 to n.</td>
+  </tr>
+  <tr data-text="FOR...TO Starts a loop: the counter goes from the start value to the end value in steps of 1." data-entry="14">
+    <td class="name"><a href="../entries/FOR-TO-14.html">FOR...TO</a>
+</td>
+    <td>Starts a loop: the counter goes from the start value to the end value in steps of 1.</td>
+  </tr>
+  <tr data-text="GO SUB Calls the subroutine that starts at the given line; RETURN goes back to the next line." data-entry="12">
+    <td class="name"><a href="../entries/GO-SUB-12.html">GO SUB</a>
+</td>
+    <td>Calls the subroutine that starts at the given line; RETURN goes back to the next line.</td>
+  </tr>
+  <tr data-text="GO TO Jumps to the given line." data-entry="11">
+    <td class="name"><a href="../entries/GO-TO-11.html">GO TO</a>
+</td>
+    <td>Jumps to the given line.</td>
+  </tr>
+  <tr data-text="IF Executes the statement after THEN if the condition is not zero." data-entry="10">
+    <td class="name"><a href="../entries/IF-10.html">IF</a>
+</td>
+    <td>Executes the statement after THEN if the condition is not zero.</td>
+  </tr>
+  <tr data-text="INPUT Reads a value from the keyboard and assigns it to a variable." data-entry="9">
+    <td class="name"><a href="../entries/INPUT-9.html">INPUT</a>
+</td>
+    <td>Reads a value from the keyboard and assigns it to a variable.</td>
+  </tr>
+  <tr data-text="LET Assigns a value to a variable. LET is mandatory." data-entry="7">
+    <td class="name"><a href="../entries/LET-7.html">LET</a>
+</td>
+    <td>Assigns a value to a variable. LET is mandatory.</td>
+  </tr>
+  <tr data-text="NEXT Increments the counter and goes back to the statement after FOR if it has not passed the end value." data-entry="15">
+    <td class="name"><a href="../entries/NEXT-15.html">NEXT</a>
+</td>
+    <td>Increments the counter and goes back to the statement after FOR if it has not passed the end value.</td>
+  </tr>
+  <tr data-text="POKE Writes a byte to memory." data-entry="20">
+    <td class="name"><a href="../entries/POKE-20.html">POKE</a>
+</td>
+    <td>Writes a byte to memory.</td>
+  </tr>
+  <tr data-text="PRINT Writes on the upper part of the screen." data-entry="8">
+    <td class="name"><a href="../entries/PRINT-8.html">PRINT</a>
+</td>
+    <td>Writes on the upper part of the screen.</td>
+  </tr>
+  <tr data-text="RANDOMISE Seeds the random number generator." data-entry="21">
+    <td class="name"><a href="../entries/RANDOMISE-21.html">RANDOMISE</a>
+</td>
+    <td>Seeds the random number generator.</td>
+  </tr>
+  <tr data-text="REM Comment: it has no effect." data-entry="22">
+    <td class="name"><a href="../entries/REM-22.html">REM</a>
+</td>
+    <td>Comment: it has no effect.</td>
+  </tr>
+  <tr data-text="RETURN Goes back to the line after the last GO SUB executed." data-entry="13">
+    <td class="name"><a href="../entries/RETURN-13.html">RETURN</a>
+</td>
+    <td>Goes back to the line after the last GO SUB executed.</td>
+  </tr>
+  <tr data-text="STOP Stops the program with code 9; CONTINUE resumes from the next line." data-entry="16">
+    <td class="name"><a href="../entries/STOP-16.html">STOP</a>
+</td>
+    <td>Stops the program with code 9; CONTINUE resumes from the next line.</td>
+  </tr>
+  </tbody>
+</table>
+
+</section>
+<section class="category-entries" data-category="COMMAND">
+<h3>Direct commands</h3>
+  <table class="entries">
+  <tbody>
+  <tr data-text="CONTINUE Resumes execution from the line of the last n/m report; after STOP (9/m) from line m+1." data-entry="4">
+    <td class="name"><a href="../entries/CONTINUE-4.html">CONTINUE</a>
+</td>
+    <td>Resumes execution from the line of the last n/m report; after STOP (9/m) from line m+1.</td>
+  </tr>
+  <tr data-text="LIST Lists the program from a given line, which becomes the current line." data-entry="1">
+    <td class="name"><a href="../entries/LIST-1.html">LIST</a>
+</td>
+    <td>Lists the program from a given line, which becomes the current line.</td>
+  </tr>
+  <tr data-text="LOAD Loads from tape system variables, program and variables saved with SAVE." data-entry="6">
+    <td class="name"><a href="../entries/LOAD-6.html">LOAD</a>
+</td>
+    <td>Loads from tape system variables, program and variables saved with SAVE.</td>
+  </tr>
+  <tr data-text="NEW Returns the computer to its power-on state: erases program and variables." data-entry="3">
+    <td class="name"><a href="../entries/NEW-3.html">NEW</a>
+</td>
+    <td>Returns the computer to its power-on state: erases program and variables.</td>
+  </tr>
+  <tr data-text="RUN Runs the program: same as CLEAR followed by GO TO n." data-entry="2">
+    <td class="name"><a href="../entries/RUN-2.html">RUN</a>
+</td>
+    <td>Runs the program: same as CLEAR followed by GO TO n.</td>
+  </tr>
+  <tr data-text="SAVE Saves system variables, program and variables to tape, preceded by 5 seconds of silence." data-entry="5">
+    <td class="name"><a href="../entries/SAVE-5.html">SAVE</a>
+</td>
+    <td>Saves system variables, program and variables to tape, preceded by 5 seconds of silence.</td>
+  </tr>
+  </tbody>
+</table>
+
+</section>
+<section class="category-entries" data-category="FUNCTION">
+<h3>Functions</h3>
+  <table class="entries">
+  <tbody>
+  <tr data-text="ABS Absolute value." data-entry="23">
+    <td class="name"><a href="../entries/ABS-23.html">ABS</a>
+</td>
+    <td>Absolute value.</td>
+  </tr>
+  <tr data-text="CHR$ Character with the given code." data-entry="24">
+    <td class="name"><a href="../entries/CHRS-24.html">CHR$</a>
+</td>
+    <td>Character with the given code.</td>
+  </tr>
+  <tr data-text="CODE Code of the first character of a string." data-entry="25">
+    <td class="name"><a href="../entries/CODE-25.html">CODE</a>
+</td>
+    <td>Code of the first character of a string.</td>
+  </tr>
+  <tr data-text="PEEK Byte stored at the given address." data-entry="26">
+    <td class="name"><a href="../entries/PEEK-26.html">PEEK</a>
+</td>
+    <td>Byte stored at the given address.</td>
+  </tr>
+  <tr data-text="RND Random integer." data-entry="27">
+    <td class="name"><a href="../entries/RND-27.html">RND</a>
+</td>
+    <td>Random integer.</td>
+  </tr>
+  <tr data-text="STR$ Number converted to a decimal string (1 to 6 characters, including any minus sign)." data-entry="28">
+    <td class="name"><a href="../entries/STRS-28.html">STR$</a>
+</td>
+    <td>Number converted to a decimal string (1 to 6 characters, including any minus sign).</td>
+  </tr>
+  <tr data-text="TL$ The string without its first character." data-entry="29">
+    <td class="name"><a href="../entries/TLS-29.html">TL$</a>
+</td>
+    <td>The string without its first character.</td>
+  </tr>
+  <tr data-text="USR Calls a machine code routine and returns its value." data-entry="30">
+    <td class="name"><a href="../entries/USR-30.html">USR</a>
+</td>
+    <td>Calls a machine code routine and returns its value.</td>
+  </tr>
+  </tbody>
+</table>
+
+</section>
+<section class="category-entries" data-category="OPERATOR">
+<h3>Operators</h3>
+  <div class="subgroup" data-class="ARITHMETIC">
+    <h4 title="+, -, *, /, power, change of sign">Arithmetic</h4>
+    <table class="entries" data-class="ARITHMETIC">
+  <tbody>
+  <tr data-text="* Multiplication." data-entry="33">
+    <td class="name"><a href="../entries/star-33.html">*</a>
+</td>
+    <td>Multiplication.</td>
+  </tr>
+  <tr data-text="** Raise to a power." data-entry="31">
+    <td class="name"><a href="../entries/star-star-31.html">**</a>
+</td>
+    <td>Raise to a power.</td>
+  </tr>
+  <tr data-text="+ Addition." data-entry="35">
+    <td class="name"><a href="../entries/plus-35.html">+</a>
+</td>
+    <td>Addition.</td>
+  </tr>
+  <tr data-text="- Change of sign and subtraction." data-entry="32">
+    <td class="name"><a href="../entries/minus-32.html">-</a>
+</td>
+    <td>Change of sign and subtraction.</td>
+  </tr>
+  <tr data-text="/ Integer division, truncated towards zero." data-entry="34">
+    <td class="name"><a href="../entries/slash-34.html">/</a>
+</td>
+    <td>Integer division, truncated towards zero.</td>
+  </tr>
+  </tbody>
+</table>
+
+  </div>
+  <div class="subgroup" data-class="BITWISE">
+    <h4 title="AND, OR, NOT and similar when they work on single bits">Bitwise</h4>
+    <table class="entries" data-class="BITWISE">
+  <tbody>
+  <tr data-text="AND Bitwise conjunction." data-entry="40">
+    <td class="name"><a href="../entries/AND-40.html">AND</a>
+</td>
+    <td>Bitwise conjunction.</td>
+  </tr>
+  <tr data-text="NOT Bitwise negation: NOT n is -n-1." data-entry="39">
+    <td class="name"><a href="../entries/NOT-39.html">NOT</a>
+</td>
+    <td>Bitwise negation: NOT n is -n-1.</td>
+  </tr>
+  <tr data-text="OR Bitwise disjunction." data-entry="41">
+    <td class="name"><a href="../entries/OR-41.html">OR</a>
+</td>
+    <td>Bitwise disjunction.</td>
+  </tr>
+  </tbody>
+</table>
+
+  </div>
+  <div class="subgroup" data-class="RELATIONAL">
+    <h4 title="Comparisons: =, &lt;, &gt;, &lt;=, &gt;=, &lt;&gt;">Relational</h4>
+    <table class="entries" data-class="RELATIONAL">
+  <tbody>
+  <tr data-text="&lt; Less than: -1 if true, 0 if false." data-entry="38">
+    <td class="name"><a href="../entries/lt-38.html">&lt;</a>
+</td>
+    <td>Less than: -1 if true, 0 if false.</td>
+  </tr>
+  <tr data-text="= Equal: -1 if true, 0 if false." data-entry="36">
+    <td class="name"><a href="../entries/eq-36.html">=</a>
+</td>
+    <td>Equal: -1 if true, 0 if false.</td>
+  </tr>
+  <tr data-text="&gt; Greater than: -1 if true, 0 if false." data-entry="37">
+    <td class="name"><a href="../entries/gt-37.html">&gt;</a>
+</td>
+    <td>Greater than: -1 if true, 0 if false.</td>
+  </tr>
+  </tbody>
+</table>
+
+  </div>
+  <div class="subgroup" data-class="GROUPING">
+    <h4 title="Parentheses">Grouping</h4>
+    <table class="entries" data-class="GROUPING">
+  <tbody>
+  <tr data-text="( ) Parentheses: the expression inside is evaluated before what surrounds it." data-entry="42">
+    <td class="name"><a href="../entries/lparen-rparen-42.html">( )</a>
+</td>
+    <td>Parentheses: the expression inside is evaluated before what surrounds it.</td>
+  </tr>
+  </tbody>
+</table>
+
+  </div>
+</section>
+</div>
+
+<dialog class="panel" id="layers" aria-labelledby="layers-title">
+  <header><h2 id="layers-title">Layers</h2><button type="button" class="close" aria-label="Close">✕</button></header>
+  <div class="panel-body"><ol class="stack">
+  <li class="core"><span class="pos">1</span>
+    <strong>Sinclair ZX80 BASIC (4K ROM)</strong> <code>ZX80_4K_core</code></li>
+</ol>
+<p class="note">Each layer adds, redefines or removes entries of the layers below it; the topmost layer wins.</p>
+</div>
+</dialog>
+
+<dialog class="panel" id="keywords" aria-labelledby="keywords-title">
+  <header><h2 id="keywords-title">Keywords</h2><button type="button" class="close" aria-label="Close">✕</button></header>
+  <div class="panel-body"><table>
+  <thead><tr><th>Keyword</th><th>Abbreviation</th>
+<th>Token</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/quote-1.html">&#34;</a></td>
+      <td></td>
+<td><code>$D4</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/lparen-7.html">(</a></td>
+      <td></td>
+<td><code>$DA</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/rparen-6.html">)</a></td>
+      <td></td>
+<td><code>$D9</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/star-11.html">*</a></td>
+      <td></td>
+<td><code>$DE</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/star-star-15.html">**</a></td>
+      <td></td>
+<td><code>$E2</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/plus-10.html">+</a></td>
+      <td></td>
+<td><code>$DD</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/comma-5.html">,</a></td>
+      <td></td>
+<td><code>$D8</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/minus-9.html">-</a></td>
+      <td></td>
+<td><code>$DC</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/slash-12.html">/</a></td>
+      <td></td>
+<td><code>$DF</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/semicolon-4.html">;</a></td>
+      <td></td>
+<td><code>$D7</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/lt-18.html">&lt;</a></td>
+      <td></td>
+<td><code>$E5</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/eq-16.html">=</a></td>
+      <td></td>
+<td><code>$E3</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/gt-17.html">&gt;</a></td>
+      <td></td>
+<td><code>$E4</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/ABS-41.html">ABS</a></td>
+      <td></td>
+<td></td></tr>
+  <tr><td><a class="kw" href="../keywords/AND-13.html">AND</a></td>
+      <td></td>
+<td><code>$E0</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/CHRS-42.html">CHR$</a></td>
+      <td></td>
+<td></td></tr>
+  <tr><td><a class="kw" href="../keywords/CLEAR-39.html">CLEAR</a></td>
+      <td></td>
+<td><code>$FD</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/CLS-21.html">CLS</a></td>
+      <td></td>
+<td><code>$E8</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/CODE-43.html">CODE</a></td>
+      <td></td>
+<td></td></tr>
+  <tr><td><a class="kw" href="../keywords/CONTINUE-35.html">CONTINUE</a></td>
+      <td></td>
+<td><code>$F9</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/DIM-22.html">DIM</a></td>
+      <td></td>
+<td><code>$E9</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/FOR-24.html">FOR</a></td>
+      <td></td>
+<td><code>$EB</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/GO-SUB-37.html">GO SUB</a></td>
+      <td></td>
+<td><code>$FB</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/GO-TO-25.html">GO TO</a></td>
+      <td></td>
+<td><code>$EC</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/IF-36.html">IF</a></td>
+      <td></td>
+<td><code>$FA</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/INPUT-27.html">INPUT</a></td>
+      <td></td>
+<td><code>$EE</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/LET-29.html">LET</a></td>
+      <td></td>
+<td><code>$F0</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/LIST-19.html">LIST</a></td>
+      <td></td>
+<td><code>$E6</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/LOAD-38.html">LOAD</a></td>
+      <td></td>
+<td><code>$FC</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/NEW-32.html">NEW</a></td>
+      <td></td>
+<td><code>$F6</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/NEXT-30.html">NEXT</a></td>
+      <td></td>
+<td><code>$F3</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/NOT-8.html">NOT</a></td>
+      <td></td>
+<td><code>$DB</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/OR-14.html">OR</a></td>
+      <td></td>
+<td><code>$E1</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/PEEK-44.html">PEEK</a></td>
+      <td></td>
+<td></td></tr>
+  <tr><td><a class="kw" href="../keywords/POKE-26.html">POKE</a></td>
+      <td></td>
+<td><code>$ED</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/PRINT-31.html">PRINT</a></td>
+      <td></td>
+<td><code>$F4</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/RANDOMISE-28.html">RANDOMISE</a></td>
+      <td></td>
+<td><code>$EF</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/REM-40.html">REM</a></td>
+      <td></td>
+<td><code>$FE</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/RETURN-20.html">RETURN</a></td>
+      <td></td>
+<td><code>$E7</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/RND-45.html">RND</a></td>
+      <td></td>
+<td></td></tr>
+  <tr><td><a class="kw" href="../keywords/RUN-33.html">RUN</a></td>
+      <td></td>
+<td><code>$F7</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/SAVE-23.html">SAVE</a></td>
+      <td></td>
+<td><code>$EA</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/STOP-34.html">STOP</a></td>
+      <td></td>
+<td><code>$F8</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/STRS-46.html">STR$</a></td>
+      <td></td>
+<td></td></tr>
+  <tr><td><a class="kw" href="../keywords/THEN-2.html">THEN</a></td>
+      <td></td>
+<td><code>$D5</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/TLS-47.html">TL$</a></td>
+      <td></td>
+<td></td></tr>
+  <tr><td><a class="kw" href="../keywords/TO-3.html">TO</a></td>
+      <td></td>
+<td><code>$D6</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/USR-48.html">USR</a></td>
+      <td></td>
+<td></td></tr>
+  </tbody>
+</table>
+</div>
+</dialog>
+
+<dialog class="panel" id="operators" aria-labelledby="operators-title">
+  <header><h2 id="operators-title">Operator precedence</h2><button type="button" class="close" aria-label="Close">✕</button></header>
+  <div class="panel-body"><table class="operators">
+  <thead><tr><th class="num">Order</th><th>Operators</th><th class="num">Precedence</th><th>Associativity</th></tr></thead>
+  <tbody>
+  <tr><td class="num">1</td>
+      <td><a class="op" href="../entries/star-star-31.html">**</a></td>
+      <td class="num">10</td>
+      <td>left to right</td></tr>
+  <tr><td class="num">2</td>
+      <td><a class="op" href="../entries/minus-32.html">-</a> <small>change of sign</small></td>
+      <td class="num">9</td>
+      <td></td></tr>
+  <tr><td class="num">3</td>
+      <td><a class="op" href="../entries/star-33.html">*</a></td>
+      <td class="num">8</td>
+      <td>left to right</td></tr>
+  <tr><td class="num">4</td>
+      <td><a class="op" href="../entries/slash-34.html">/</a></td>
+      <td class="num">7</td>
+      <td>left to right</td></tr>
+  <tr><td class="num">5</td>
+      <td><a class="op" href="../entries/minus-32.html">-</a> <small>subtraction</small><span class="sep"> </span><a class="op" href="../entries/plus-35.html">+</a></td>
+      <td class="num">6</td>
+      <td>left to right</td></tr>
+  <tr><td class="num">6</td>
+      <td><a class="op" href="../entries/eq-36.html">=</a><span class="sep"> </span><a class="op" href="../entries/gt-37.html">&gt;</a><span class="sep"> </span><a class="op" href="../entries/lt-38.html">&lt;</a></td>
+      <td class="num">5</td>
+      <td>left to right</td></tr>
+  <tr><td class="num">7</td>
+      <td><a class="op" href="../entries/NOT-39.html">NOT</a></td>
+      <td class="num">4</td>
+      <td></td></tr>
+  <tr><td class="num">8</td>
+      <td><a class="op" href="../entries/AND-40.html">AND</a></td>
+      <td class="num">3</td>
+      <td>left to right</td></tr>
+  <tr><td class="num">9</td>
+      <td><a class="op" href="../entries/OR-41.html">OR</a></td>
+      <td class="num">2</td>
+      <td>left to right</td></tr>
+  </tbody>
+</table>
+<p class="note">From top to bottom: the operators at the top are evaluated first. The precedence is the number used by the manual.</p>
+</div>
+</dialog>
+
+<dialog class="panel" id="types" aria-labelledby="types-title">
+  <header><h2 id="types-title">Data types</h2><button type="button" class="close" aria-label="Close">✕</button></header>
+  <div class="panel-body"><table>
+  <thead><tr><th>Type</th><th>Suffix</th><th>Family</th><th>Range</th><th>Precision</th><th class="num">Bytes</th><th>Notes</th></tr></thead>
+  <tbody>
+  <tr><td>Integer</td><td></td>
+      <td>integer</td>
+      <td class="nowrap">[-32768, 32767]</td>
+      <td></td><td class="num">2</td><td>The only numeric type. Out of range: error 6.</td></tr>
+  <tr><td>String</td><td><code>$</code></td>
+      <td>string</td>
+      <td class="nowrap"></td>
+      <td></td><td class="num"></td><td>Any length, including empty, limited only by memory. The character with code 1 acts as terminator.</td></tr>
+  </tbody>
+</table>
+</div>
+</dialog>
+
+<dialog class="panel" id="variables" aria-labelledby="variables-title">
+  <header><h2 id="variables-title">Variable types</h2><button type="button" class="close" aria-label="Close">✕</button></header>
+  <div class="panel-body"><table>
+  <thead><tr><th>Variable type</th><th>Data type</th><th class="num">Dimensions</th><th>Name</th><th>Examples</th><th>Notes</th></tr></thead>
+  <tbody>
+  <tr><td>Numeric variable</td><td>Integer</td><td class="num">0</td>
+      <td>letter followed by letters or digits</td><td><code>A, PIPPO24</code></td>
+      <td>No length limit.</td></tr>
+  <tr><td>String variable</td><td>String</td><td class="num">0</td>
+      <td>one letter followed by $</td><td><code>A$, Z$</code></td>
+      <td>At most 26 string variables.</td></tr>
+  <tr><td>Numeric array</td><td>Integer</td><td class="num">1</td>
+      <td>one letter; an element is written with one integer subscript in parentheses</td><td><code>B(5), F(12)</code></td>
+      <td>One dimension, subscripts from 0 to n (DIM). An array can have the same name as a variable (not recommended). The manual describes integer arrays only.</td></tr>
+  <tr><td>Loop control variable</td><td>Integer</td><td class="num">0</td>
+      <td>one letter</td><td><code>I</code></td>
+      <td></td></tr>
+  </tbody>
+</table>
+</div>
+</dialog>
+
+<dialog class="panel" id="parameters" aria-labelledby="parameters-title">
+  <header><h2 id="parameters-title">Parameter types</h2><button type="button" class="close" aria-label="Close">✕</button></header>
+  <div class="panel-body"><table>
+  <thead><tr><th>Parameter type</th><th>Nature</th><th>Of</th><th>Notes</th></tr></thead>
+  <tbody>
+  <tr><td>Numeric literal</td><td>literal</td>
+      <td>numeric</td>
+      <td></td></tr>
+  <tr><td>String literal</td><td>literal</td>
+      <td>string</td>
+      <td>Enclosed in quotes.</td></tr>
+  <tr><td>Numeric expression</td><td>expression</td>
+      <td>numeric</td>
+      <td></td></tr>
+  <tr><td>String expression</td><td>expression</td>
+      <td>string</td>
+      <td></td></tr>
+  <tr><td>Numeric variable name</td><td>variable</td>
+      <td>numeric variable</td>
+      <td></td></tr>
+  <tr><td>String variable name</td><td>variable</td>
+      <td>string variable</td>
+      <td></td></tr>
+  <tr><td>Numeric array name</td><td>array name</td>
+      <td>numeric array</td>
+      <td></td></tr>
+  <tr><td>Numeric array element</td><td>array element</td>
+      <td>numeric array</td>
+      <td>E.g. B(3).</td></tr>
+  <tr><td>Loop control variable name</td><td>variable</td>
+      <td>loop control variable</td>
+      <td></td></tr>
+  <tr><td>Free text</td><td>free text</td>
+      <td></td>
+      <td></td></tr>
+  <tr><td>Statement</td><td>statement</td>
+      <td></td>
+      <td></td></tr>
+  <tr><td>Condition</td><td>condition</td>
+      <td>numeric</td>
+      <td>Usually a relational expression, whose terms can also be strings (A$=&#34;Y&#34;); its numeric value is read with the truth test: 0 = false, otherwise true.</td></tr>
+  </tbody>
+</table>
+</div>
+</dialog>
+
+<dialog class="panel" id="errors" aria-labelledby="errors-title">
+  <header><h2 id="errors-title">Error messages</h2><button type="button" class="close" aria-label="Close">✕</button></header>
+  <div class="panel-body"><table>
+  <thead><tr><th class="num">No.</th><th>Message</th><th>Description</th></tr></thead>
+  <tbody>
+  <tr id="err-OK"><td class="num">0</td>
+      <td class="nowrap"><code>0/n</code></td><td>No error: command executed, end of program, BREAK pressed, or GO TO a line beyond the end of the program.</td></tr>
+  <tr id="err-NEXT_WITHOUT_FOR"><td class="num">1</td>
+      <td class="nowrap"><code>1/n</code></td><td>NEXT with a variable that is not the counter of an active FOR loop.</td></tr>
+  <tr id="err-VARIABLE_NOT_FOUND"><td class="num">2</td>
+      <td class="nowrap"><code>2/n</code></td><td>Undefined variable (also an array that has not been dimensioned).</td></tr>
+  <tr id="err-SUBSCRIPT_OUT_OF_RANGE"><td class="num">3</td>
+      <td class="nowrap"><code>3/n</code></td><td>Array subscript out of range, or error while computing the subscript.</td></tr>
+  <tr id="err-OUT_OF_MEMORY"><td class="num">4</td>
+      <td class="nowrap"><code>4/n</code></td><td>Out of memory for a new variable, a longer string or the screen.</td></tr>
+  <tr id="err-SCREEN_FULL"><td class="num">5</td>
+      <td class="nowrap"><code>5/n</code></td><td>No more room on the screen (PRINT).</td></tr>
+  <tr id="err-OVERFLOW"><td class="num">6</td>
+      <td class="nowrap"><code>6/n</code></td><td>Result outside the range from -32768 to 32767.</td></tr>
+  <tr id="err-RETURN_WITHOUT_GOSUB"><td class="num">7</td>
+      <td class="nowrap"><code>7/n</code></td><td>RETURN without a matching GO SUB.</td></tr>
+  <tr id="err-INPUT_AS_COMMAND"><td class="num">8</td>
+      <td class="nowrap"><code>8/n</code></td><td>INPUT can only be used in a program.</td></tr>
+  <tr id="err-STOP"><td class="num">9</td>
+      <td class="nowrap"><code>9/n</code></td><td>STOP statement executed; CONTINUE resumes from the next line.</td></tr>
+  </tbody>
+</table>
+</div>
+</dialog>
+
+<dialog class="panel" id="features" aria-labelledby="features-title">
+  <header><h2 id="features-title">Features</h2><button type="button" class="close" aria-label="Close">✕</button></header>
+  <div class="panel-body"><table>
+  <tbody>
+  <tr><td>Values from -32768 to 32767; out of range: error 6.</td><td><code>16-bit integer</code></td></tr>
+  <tr><td>DIVISION</td><td><code>truncates towards zero</code></td></tr>
+  <tr><td>n = code (0 = no error), m = line number.</td><td><code>n/m</code></td></tr>
+  <tr><td>Value produced by a false comparison.</td><td><code>0</code></td></tr>
+  <tr><td>There is no STEP.</td><td><code>fixed at 1</code></td></tr>
+  <tr><td>With the K cursor the key enters the whole keyword; functions are typed letter by letter.</td><td><code>one key for statements and commands</code></td></tr>
+  <tr><td>Every statement starts with a keyword.</td><td><code>mandatory</code></td></tr>
+  <tr><td>Range of line numbers.</td><td><code>1-9999</code></td></tr>
+  <tr><td>A comma in PRINT moves to the next zone (4 zones of 8 columns).</td><td><code>32 columns</code></td></tr>
+  <tr><td>One statement per line: there is no &#39;:&#39; separator.</td><td><code>1</code></td></tr>
+  <tr><td>Value produced by a true comparison.</td><td><code>-1</code></td></tr>
+  <tr><td>A number used as a condition is true if it is not 0. AND, OR and NOT work bit by bit: NOT 1 = -2, which is true.</td><td><code>NONZERO</code></td></tr>
+  </tbody>
+</table>
+</div>
+</dialog>
+
+
+<dialog class="panel" id="characters" aria-labelledby="characters-title">
+  <header><h2 id="characters-title">Character codes</h2><button type="button" class="close" aria-label="Close">✕</button></header>
+  <div class="panel-body"><h3>ROM character set <small>Sinclair ZX80 · 8×8 pixels</small></h3>
+<p class="note">64 characters and their inverses; non-printable codes appear as &#39;?&#39; and tokens as their keyword.</p><div class="scroll">
+<table class="glyphs" data-width="8" data-height="8">
+  <thead><tr><th></th><th>_0</th><th>_1</th><th>_2</th><th>_3</th><th>_4</th><th>_5</th><th>_6</th><th>_7</th><th>_8</th><th>_9</th><th>_A</th><th>_B</th><th>_C</th><th>_D</th><th>_E</th><th>_F</th></tr></thead>
+  <tbody>
+  <tr><th>0_</th>
+    <td class="g-printable" title="0 ($00) — space — screen code 0 — U+0020">
+<canvas data-b="0000000000000000"></canvas>      <span class="code-num">0</span>
+    </td>
+    <td class="g-printable" title="1 ($01) — quote (string terminator) — screen code 1 — U+0022">
+<canvas data-b="0014140000000000"></canvas>      <span class="code-num">1</span>
+    </td>
+    <td class="g-printable" title="2 ($02) — graphic — screen code 2 — U+258C">
+<canvas data-b="F0F0F0F0F0F0F0F0"></canvas>      <span class="code-num">2</span>
+    </td>
+    <td class="g-printable" title="3 ($03) — graphic — screen code 3 — U+2584">
+<canvas data-b="00000000FFFFFFFF"></canvas>      <span class="code-num">3</span>
+    </td>
+    <td class="g-printable" title="4 ($04) — graphic — screen code 4 — U+2598">
+<canvas data-b="F0F0F0F000000000"></canvas>      <span class="code-num">4</span>
+    </td>
+    <td class="g-printable" title="5 ($05) — graphic — screen code 5 — U+259D">
+<canvas data-b="0F0F0F0F00000000"></canvas>      <span class="code-num">5</span>
+    </td>
+    <td class="g-printable" title="6 ($06) — graphic — screen code 6 — U+2596">
+<canvas data-b="00000000F0F0F0F0"></canvas>      <span class="code-num">6</span>
+    </td>
+    <td class="g-printable" title="7 ($07) — graphic — screen code 7 — U+2597">
+<canvas data-b="000000000F0F0F0F"></canvas>      <span class="code-num">7</span>
+    </td>
+    <td class="g-printable" title="8 ($08) — graphic — screen code 8 — U+259E">
+<canvas data-b="0F0F0F0FF0F0F0F0"></canvas>      <span class="code-num">8</span>
+    </td>
+    <td class="g-printable" title="9 ($09) — graphic — screen code 9 — U+2592">
+<canvas data-b="AA55AA55AA55AA55"></canvas>      <span class="code-num">9</span>
+    </td>
+    <td class="g-printable" title="10 ($0A) — graphic — screen code 10 — U+1FB8F">
+<canvas data-b="00000000AA55AA55"></canvas>      <span class="code-num">10</span>
+    </td>
+    <td class="g-printable" title="11 ($0B) — graphic — screen code 11 — U+1FB8E">
+<canvas data-b="AA55AA5500000000"></canvas>      <span class="code-num">11</span>
+    </td>
+    <td class="g-printable" title="12 ($0C) — screen code 12 — U+00A3">
+<canvas data-b="001E217820207F00"></canvas>      <span class="code-num">12</span>
+    </td>
+    <td class="g-printable" title="13 ($0D) — screen code 13 — U+0024">
+<canvas data-b="00083E483E093E08"></canvas>      <span class="code-num">13</span>
+    </td>
+    <td class="g-printable" title="14 ($0E) — screen code 14 — U+003A">
+<canvas data-b="0000000800000800"></canvas>      <span class="code-num">14</span>
+    </td>
+    <td class="g-printable" title="15 ($0F) — screen code 15 — U+003F">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">15</span>
+    </td>
+  </tr>
+  <tr><th>1_</th>
+    <td class="g-printable" title="16 ($10) — screen code 16 — U+0028">
+<canvas data-b="0004080808080400"></canvas>      <span class="code-num">16</span>
+    </td>
+    <td class="g-printable" title="17 ($11) — screen code 17 — U+0029">
+<canvas data-b="0010080808081000"></canvas>      <span class="code-num">17</span>
+    </td>
+    <td class="g-printable" title="18 ($12) — screen code 18 — U+002D">
+<canvas data-b="000000003E000000"></canvas>      <span class="code-num">18</span>
+    </td>
+    <td class="g-printable" title="19 ($13) — screen code 19 — U+002B">
+<canvas data-b="000008083E080800"></canvas>      <span class="code-num">19</span>
+    </td>
+    <td class="g-printable" title="20 ($14) — screen code 20 — U+002A">
+<canvas data-b="00002A1C081C2A00"></canvas>      <span class="code-num">20</span>
+    </td>
+    <td class="g-printable" title="21 ($15) — screen code 21 — U+002F">
+<canvas data-b="0000020408102000"></canvas>      <span class="code-num">21</span>
+    </td>
+    <td class="g-printable" title="22 ($16) — screen code 22 — U+003D">
+<canvas data-b="0000003E003E0000"></canvas>      <span class="code-num">22</span>
+    </td>
+    <td class="g-printable" title="23 ($17) — screen code 23 — U+003E">
+<canvas data-b="0000100804081000"></canvas>      <span class="code-num">23</span>
+    </td>
+    <td class="g-printable" title="24 ($18) — screen code 24 — U+003C">
+<canvas data-b="0000040810080400"></canvas>      <span class="code-num">24</span>
+    </td>
+    <td class="g-printable" title="25 ($19) — screen code 25 — U+003B">
+<canvas data-b="0000080000080810"></canvas>      <span class="code-num">25</span>
+    </td>
+    <td class="g-printable" title="26 ($1A) — screen code 26 — U+002C">
+<canvas data-b="0000000000080810"></canvas>      <span class="code-num">26</span>
+    </td>
+    <td class="g-printable" title="27 ($1B) — screen code 27 — U+002E">
+<canvas data-b="00000000000C0C00"></canvas>      <span class="code-num">27</span>
+    </td>
+    <td class="g-printable" title="28 ($1C) — screen code 28 — U+0030">
+<canvas data-b="001C224141221C00"></canvas>      <span class="code-num">28</span>
+    </td>
+    <td class="g-printable" title="29 ($1D) — screen code 29 — U+0031">
+<canvas data-b="000C140404041E00"></canvas>      <span class="code-num">29</span>
+    </td>
+    <td class="g-printable" title="30 ($1E) — screen code 30 — U+0032">
+<canvas data-b="003E41013E407F00"></canvas>      <span class="code-num">30</span>
+    </td>
+    <td class="g-printable" title="31 ($1F) — screen code 31 — U+0033">
+<canvas data-b="003E410601413E00"></canvas>      <span class="code-num">31</span>
+    </td>
+  </tr>
+  <tr><th>2_</th>
+    <td class="g-printable" title="32 ($20) — screen code 32 — U+0034">
+<canvas data-b="000C1424447F0400"></canvas>      <span class="code-num">32</span>
+    </td>
+    <td class="g-printable" title="33 ($21) — screen code 33 — U+0035">
+<canvas data-b="007F407E01413E00"></canvas>      <span class="code-num">33</span>
+    </td>
+    <td class="g-printable" title="34 ($22) — screen code 34 — U+0036">
+<canvas data-b="003E407E41413E00"></canvas>      <span class="code-num">34</span>
+    </td>
+    <td class="g-printable" title="35 ($23) — screen code 35 — U+0037">
+<canvas data-b="007F010204080800"></canvas>      <span class="code-num">35</span>
+    </td>
+    <td class="g-printable" title="36 ($24) — screen code 36 — U+0038">
+<canvas data-b="003E413E41413E00"></canvas>      <span class="code-num">36</span>
+    </td>
+    <td class="g-printable" title="37 ($25) — screen code 37 — U+0039">
+<canvas data-b="003E41413F013E00"></canvas>      <span class="code-num">37</span>
+    </td>
+    <td class="g-printable" title="38 ($26) — screen code 38 — U+0041">
+<canvas data-b="003E41417F414100"></canvas>      <span class="code-num">38</span>
+    </td>
+    <td class="g-printable" title="39 ($27) — screen code 39 — U+0042">
+<canvas data-b="007E417E41417E00"></canvas>      <span class="code-num">39</span>
+    </td>
+    <td class="g-printable" title="40 ($28) — screen code 40 — U+0043">
+<canvas data-b="001E214040211E00"></canvas>      <span class="code-num">40</span>
+    </td>
+    <td class="g-printable" title="41 ($29) — screen code 41 — U+0044">
+<canvas data-b="007C424141427C00"></canvas>      <span class="code-num">41</span>
+    </td>
+    <td class="g-printable" title="42 ($2A) — screen code 42 — U+0045">
+<canvas data-b="007F407C40407F00"></canvas>      <span class="code-num">42</span>
+    </td>
+    <td class="g-printable" title="43 ($2B) — screen code 43 — U+0046">
+<canvas data-b="007F407C40404000"></canvas>      <span class="code-num">43</span>
+    </td>
+    <td class="g-printable" title="44 ($2C) — screen code 44 — U+0047">
+<canvas data-b="001E214047211E00"></canvas>      <span class="code-num">44</span>
+    </td>
+    <td class="g-printable" title="45 ($2D) — screen code 45 — U+0048">
+<canvas data-b="0041417F41414100"></canvas>      <span class="code-num">45</span>
+    </td>
+    <td class="g-printable" title="46 ($2E) — screen code 46 — U+0049">
+<canvas data-b="003E080808083E00"></canvas>      <span class="code-num">46</span>
+    </td>
+    <td class="g-printable" title="47 ($2F) — screen code 47 — U+004A">
+<canvas data-b="0002020242221C00"></canvas>      <span class="code-num">47</span>
+    </td>
+  </tr>
+  <tr><th>3_</th>
+    <td class="g-printable" title="48 ($30) — screen code 48 — U+004B">
+<canvas data-b="0042447844424100"></canvas>      <span class="code-num">48</span>
+    </td>
+    <td class="g-printable" title="49 ($31) — screen code 49 — U+004C">
+<canvas data-b="0040404040407F00"></canvas>      <span class="code-num">49</span>
+    </td>
+    <td class="g-printable" title="50 ($32) — screen code 50 — U+004D">
+<canvas data-b="0041635549414100"></canvas>      <span class="code-num">50</span>
+    </td>
+    <td class="g-printable" title="51 ($33) — screen code 51 — U+004E">
+<canvas data-b="0061514945434100"></canvas>      <span class="code-num">51</span>
+    </td>
+    <td class="g-printable" title="52 ($34) — screen code 52 — U+004F">
+<canvas data-b="003E414141413E00"></canvas>      <span class="code-num">52</span>
+    </td>
+    <td class="g-printable" title="53 ($35) — screen code 53 — U+0050">
+<canvas data-b="007E41417E404000"></canvas>      <span class="code-num">53</span>
+    </td>
+    <td class="g-printable" title="54 ($36) — screen code 54 — U+0051">
+<canvas data-b="003E414149453E00"></canvas>      <span class="code-num">54</span>
+    </td>
+    <td class="g-printable" title="55 ($37) — screen code 55 — U+0052">
+<canvas data-b="007E41417E444200"></canvas>      <span class="code-num">55</span>
+    </td>
+    <td class="g-printable" title="56 ($38) — screen code 56 — U+0053">
+<canvas data-b="003E403E01413E00"></canvas>      <span class="code-num">56</span>
+    </td>
+    <td class="g-printable" title="57 ($39) — screen code 57 — U+0054">
+<canvas data-b="007F080808080800"></canvas>      <span class="code-num">57</span>
+    </td>
+    <td class="g-printable" title="58 ($3A) — screen code 58 — U+0055">
+<canvas data-b="0041414141413E00"></canvas>      <span class="code-num">58</span>
+    </td>
+    <td class="g-printable" title="59 ($3B) — screen code 59 — U+0056">
+<canvas data-b="0041414122140800"></canvas>      <span class="code-num">59</span>
+    </td>
+    <td class="g-printable" title="60 ($3C) — screen code 60 — U+0057">
+<canvas data-b="0041414149552200"></canvas>      <span class="code-num">60</span>
+    </td>
+    <td class="g-printable" title="61 ($3D) — screen code 61 — U+0058">
+<canvas data-b="0021120C0C122100"></canvas>      <span class="code-num">61</span>
+    </td>
+    <td class="g-printable" title="62 ($3E) — screen code 62 — U+0059">
+<canvas data-b="0041221C08080800"></canvas>      <span class="code-num">62</span>
+    </td>
+    <td class="g-printable" title="63 ($3F) — screen code 63 — U+005A">
+<canvas data-b="007F020408107F00"></canvas>      <span class="code-num">63</span>
+    </td>
+  </tr>
+  <tr><th>4_</th>
+    <td class="g-unused" title="64 ($40) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">64</span>
+    </td>
+    <td class="g-unused" title="65 ($41) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">65</span>
+    </td>
+    <td class="g-unused" title="66 ($42) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">66</span>
+    </td>
+    <td class="g-unused" title="67 ($43) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">67</span>
+    </td>
+    <td class="g-unused" title="68 ($44) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">68</span>
+    </td>
+    <td class="g-unused" title="69 ($45) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">69</span>
+    </td>
+    <td class="g-unused" title="70 ($46) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">70</span>
+    </td>
+    <td class="g-unused" title="71 ($47) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">71</span>
+    </td>
+    <td class="g-unused" title="72 ($48) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">72</span>
+    </td>
+    <td class="g-unused" title="73 ($49) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">73</span>
+    </td>
+    <td class="g-unused" title="74 ($4A) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">74</span>
+    </td>
+    <td class="g-unused" title="75 ($4B) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">75</span>
+    </td>
+    <td class="g-unused" title="76 ($4C) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">76</span>
+    </td>
+    <td class="g-unused" title="77 ($4D) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">77</span>
+    </td>
+    <td class="g-unused" title="78 ($4E) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">78</span>
+    </td>
+    <td class="g-unused" title="79 ($4F) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">79</span>
+    </td>
+  </tr>
+  <tr><th>5_</th>
+    <td class="g-unused" title="80 ($50) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">80</span>
+    </td>
+    <td class="g-unused" title="81 ($51) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">81</span>
+    </td>
+    <td class="g-unused" title="82 ($52) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">82</span>
+    </td>
+    <td class="g-unused" title="83 ($53) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">83</span>
+    </td>
+    <td class="g-unused" title="84 ($54) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">84</span>
+    </td>
+    <td class="g-unused" title="85 ($55) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">85</span>
+    </td>
+    <td class="g-unused" title="86 ($56) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">86</span>
+    </td>
+    <td class="g-unused" title="87 ($57) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">87</span>
+    </td>
+    <td class="g-unused" title="88 ($58) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">88</span>
+    </td>
+    <td class="g-unused" title="89 ($59) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">89</span>
+    </td>
+    <td class="g-unused" title="90 ($5A) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">90</span>
+    </td>
+    <td class="g-unused" title="91 ($5B) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">91</span>
+    </td>
+    <td class="g-unused" title="92 ($5C) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">92</span>
+    </td>
+    <td class="g-unused" title="93 ($5D) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">93</span>
+    </td>
+    <td class="g-unused" title="94 ($5E) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">94</span>
+    </td>
+    <td class="g-unused" title="95 ($5F) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">95</span>
+    </td>
+  </tr>
+  <tr><th>6_</th>
+    <td class="g-unused" title="96 ($60) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">96</span>
+    </td>
+    <td class="g-unused" title="97 ($61) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">97</span>
+    </td>
+    <td class="g-unused" title="98 ($62) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">98</span>
+    </td>
+    <td class="g-unused" title="99 ($63) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">99</span>
+    </td>
+    <td class="g-unused" title="100 ($64) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">100</span>
+    </td>
+    <td class="g-unused" title="101 ($65) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">101</span>
+    </td>
+    <td class="g-unused" title="102 ($66) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">102</span>
+    </td>
+    <td class="g-unused" title="103 ($67) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">103</span>
+    </td>
+    <td class="g-unused" title="104 ($68) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">104</span>
+    </td>
+    <td class="g-unused" title="105 ($69) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">105</span>
+    </td>
+    <td class="g-unused" title="106 ($6A) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">106</span>
+    </td>
+    <td class="g-unused" title="107 ($6B) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">107</span>
+    </td>
+    <td class="g-unused" title="108 ($6C) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">108</span>
+    </td>
+    <td class="g-unused" title="109 ($6D) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">109</span>
+    </td>
+    <td class="g-unused" title="110 ($6E) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">110</span>
+    </td>
+    <td class="g-unused" title="111 ($6F) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">111</span>
+    </td>
+  </tr>
+  <tr><th>7_</th>
+    <td class="g-unused" title="112 ($70) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">112</span>
+    </td>
+    <td class="g-unused" title="113 ($71) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">113</span>
+    </td>
+    <td class="g-unused" title="114 ($72) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">114</span>
+    </td>
+    <td class="g-unused" title="115 ($73) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">115</span>
+    </td>
+    <td class="g-unused" title="116 ($74) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">116</span>
+    </td>
+    <td class="g-unused" title="117 ($75) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">117</span>
+    </td>
+    <td class="g-unused" title="118 ($76) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">118</span>
+    </td>
+    <td class="g-unused" title="119 ($77) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">119</span>
+    </td>
+    <td class="g-unused" title="120 ($78) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">120</span>
+    </td>
+    <td class="g-unused" title="121 ($79) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">121</span>
+    </td>
+    <td class="g-unused" title="122 ($7A) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">122</span>
+    </td>
+    <td class="g-unused" title="123 ($7B) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">123</span>
+    </td>
+    <td class="g-unused" title="124 ($7C) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">124</span>
+    </td>
+    <td class="g-unused" title="125 ($7D) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">125</span>
+    </td>
+    <td class="g-unused" title="126 ($7E) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">126</span>
+    </td>
+    <td class="g-unused" title="127 ($7F) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">127</span>
+    </td>
+  </tr>
+  <tr><th>8_</th>
+    <td class="g-printable" title="128 ($80) — inverse space — screen code 128 — U+2588 — inverse of 0">
+<canvas data-b="FFFFFFFFFFFFFFFF"></canvas>      <span class="code-num">128</span>
+    </td>
+    <td class="g-printable" title="129 ($81) — screen code 129 — inverse of 1">
+<canvas data-b="FFEBEBFFFFFFFFFF"></canvas>      <span class="code-num">129</span>
+    </td>
+    <td class="g-printable" title="130 ($82) — inverse graphic — screen code 130 — U+2590 — inverse of 2">
+<canvas data-b="0F0F0F0F0F0F0F0F"></canvas>      <span class="code-num">130</span>
+    </td>
+    <td class="g-printable" title="131 ($83) — inverse graphic — screen code 131 — U+2580 — inverse of 3">
+<canvas data-b="FFFFFFFF00000000"></canvas>      <span class="code-num">131</span>
+    </td>
+    <td class="g-printable" title="132 ($84) — inverse graphic — screen code 132 — U+259F — inverse of 4">
+<canvas data-b="0F0F0F0FFFFFFFFF"></canvas>      <span class="code-num">132</span>
+    </td>
+    <td class="g-printable" title="133 ($85) — inverse graphic — screen code 133 — U+2599 — inverse of 5">
+<canvas data-b="F0F0F0F0FFFFFFFF"></canvas>      <span class="code-num">133</span>
+    </td>
+    <td class="g-printable" title="134 ($86) — inverse graphic — screen code 134 — U+259C — inverse of 6">
+<canvas data-b="FFFFFFFF0F0F0F0F"></canvas>      <span class="code-num">134</span>
+    </td>
+    <td class="g-printable" title="135 ($87) — inverse graphic — screen code 135 — U+259B — inverse of 7">
+<canvas data-b="FFFFFFFFF0F0F0F0"></canvas>      <span class="code-num">135</span>
+    </td>
+    <td class="g-printable" title="136 ($88) — inverse graphic — screen code 136 — U+259A — inverse of 8">
+<canvas data-b="F0F0F0F00F0F0F0F"></canvas>      <span class="code-num">136</span>
+    </td>
+    <td class="g-printable" title="137 ($89) — inverse graphic — screen code 137 — U+1FB90 — inverse of 9">
+<canvas data-b="55AA55AA55AA55AA"></canvas>      <span class="code-num">137</span>
+    </td>
+    <td class="g-printable" title="138 ($8A) — inverse graphic — screen code 138 — U+1FB91 — inverse of 10">
+<canvas data-b="FFFFFFFF55AA55AA"></canvas>      <span class="code-num">138</span>
+    </td>
+    <td class="g-printable" title="139 ($8B) — inverse graphic — screen code 139 — U+1FB92 — inverse of 11">
+<canvas data-b="55AA55AAFFFFFFFF"></canvas>      <span class="code-num">139</span>
+    </td>
+    <td class="g-printable" title="140 ($8C) — screen code 140 — inverse of 12">
+<canvas data-b="FFE1DE87DFDF80FF"></canvas>      <span class="code-num">140</span>
+    </td>
+    <td class="g-printable" title="141 ($8D) — screen code 141 — inverse of 13">
+<canvas data-b="FFF7C1B7C1F6C1F7"></canvas>      <span class="code-num">141</span>
+    </td>
+    <td class="g-printable" title="142 ($8E) — screen code 142 — inverse of 14">
+<canvas data-b="FFFFFFF7FFFFF7FF"></canvas>      <span class="code-num">142</span>
+    </td>
+    <td class="g-printable" title="143 ($8F) — screen code 143 — inverse of 15">
+<canvas data-b="FFC1BEF9F7FFF7FF"></canvas>      <span class="code-num">143</span>
+    </td>
+  </tr>
+  <tr><th>9_</th>
+    <td class="g-printable" title="144 ($90) — screen code 144 — inverse of 16">
+<canvas data-b="FFFBF7F7F7F7FBFF"></canvas>      <span class="code-num">144</span>
+    </td>
+    <td class="g-printable" title="145 ($91) — screen code 145 — inverse of 17">
+<canvas data-b="FFEFF7F7F7F7EFFF"></canvas>      <span class="code-num">145</span>
+    </td>
+    <td class="g-printable" title="146 ($92) — screen code 146 — inverse of 18">
+<canvas data-b="FFFFFFFFC1FFFFFF"></canvas>      <span class="code-num">146</span>
+    </td>
+    <td class="g-printable" title="147 ($93) — screen code 147 — inverse of 19">
+<canvas data-b="FFFFF7F7C1F7F7FF"></canvas>      <span class="code-num">147</span>
+    </td>
+    <td class="g-printable" title="148 ($94) — screen code 148 — inverse of 20">
+<canvas data-b="FFFFD5E3F7E3D5FF"></canvas>      <span class="code-num">148</span>
+    </td>
+    <td class="g-printable" title="149 ($95) — screen code 149 — inverse of 21">
+<canvas data-b="FFFFFDFBF7EFDFFF"></canvas>      <span class="code-num">149</span>
+    </td>
+    <td class="g-printable" title="150 ($96) — screen code 150 — inverse of 22">
+<canvas data-b="FFFFFFC1FFC1FFFF"></canvas>      <span class="code-num">150</span>
+    </td>
+    <td class="g-printable" title="151 ($97) — screen code 151 — inverse of 23">
+<canvas data-b="FFFFEFF7FBF7EFFF"></canvas>      <span class="code-num">151</span>
+    </td>
+    <td class="g-printable" title="152 ($98) — screen code 152 — inverse of 24">
+<canvas data-b="FFFFFBF7EFF7FBFF"></canvas>      <span class="code-num">152</span>
+    </td>
+    <td class="g-printable" title="153 ($99) — screen code 153 — inverse of 25">
+<canvas data-b="FFFFF7FFFFF7F7EF"></canvas>      <span class="code-num">153</span>
+    </td>
+    <td class="g-printable" title="154 ($9A) — screen code 154 — inverse of 26">
+<canvas data-b="FFFFFFFFFFF7F7EF"></canvas>      <span class="code-num">154</span>
+    </td>
+    <td class="g-printable" title="155 ($9B) — screen code 155 — inverse of 27">
+<canvas data-b="FFFFFFFFFFF3F3FF"></canvas>      <span class="code-num">155</span>
+    </td>
+    <td class="g-printable" title="156 ($9C) — screen code 156 — inverse of 28">
+<canvas data-b="FFE3DDBEBEDDE3FF"></canvas>      <span class="code-num">156</span>
+    </td>
+    <td class="g-printable" title="157 ($9D) — screen code 157 — inverse of 29">
+<canvas data-b="FFF3EBFBFBFBE1FF"></canvas>      <span class="code-num">157</span>
+    </td>
+    <td class="g-printable" title="158 ($9E) — screen code 158 — inverse of 30">
+<canvas data-b="FFC1BEFEC1BF80FF"></canvas>      <span class="code-num">158</span>
+    </td>
+    <td class="g-printable" title="159 ($9F) — screen code 159 — inverse of 31">
+<canvas data-b="FFC1BEF9FEBEC1FF"></canvas>      <span class="code-num">159</span>
+    </td>
+  </tr>
+  <tr><th>A_</th>
+    <td class="g-printable" title="160 ($A0) — screen code 160 — inverse of 32">
+<canvas data-b="FFF3EBDBBB80FBFF"></canvas>      <span class="code-num">160</span>
+    </td>
+    <td class="g-printable" title="161 ($A1) — screen code 161 — inverse of 33">
+<canvas data-b="FF80BF81FEBEC1FF"></canvas>      <span class="code-num">161</span>
+    </td>
+    <td class="g-printable" title="162 ($A2) — screen code 162 — inverse of 34">
+<canvas data-b="FFC1BF81BEBEC1FF"></canvas>      <span class="code-num">162</span>
+    </td>
+    <td class="g-printable" title="163 ($A3) — screen code 163 — inverse of 35">
+<canvas data-b="FF80FEFDFBF7F7FF"></canvas>      <span class="code-num">163</span>
+    </td>
+    <td class="g-printable" title="164 ($A4) — screen code 164 — inverse of 36">
+<canvas data-b="FFC1BEC1BEBEC1FF"></canvas>      <span class="code-num">164</span>
+    </td>
+    <td class="g-printable" title="165 ($A5) — screen code 165 — inverse of 37">
+<canvas data-b="FFC1BEBEC0FEC1FF"></canvas>      <span class="code-num">165</span>
+    </td>
+    <td class="g-printable" title="166 ($A6) — screen code 166 — inverse of 38">
+<canvas data-b="FFC1BEBE80BEBEFF"></canvas>      <span class="code-num">166</span>
+    </td>
+    <td class="g-printable" title="167 ($A7) — screen code 167 — inverse of 39">
+<canvas data-b="FF81BE81BEBE81FF"></canvas>      <span class="code-num">167</span>
+    </td>
+    <td class="g-printable" title="168 ($A8) — screen code 168 — inverse of 40">
+<canvas data-b="FFE1DEBFBFDEE1FF"></canvas>      <span class="code-num">168</span>
+    </td>
+    <td class="g-printable" title="169 ($A9) — screen code 169 — inverse of 41">
+<canvas data-b="FF83BDBEBEBD83FF"></canvas>      <span class="code-num">169</span>
+    </td>
+    <td class="g-printable" title="170 ($AA) — screen code 170 — inverse of 42">
+<canvas data-b="FF80BF83BFBF80FF"></canvas>      <span class="code-num">170</span>
+    </td>
+    <td class="g-printable" title="171 ($AB) — screen code 171 — inverse of 43">
+<canvas data-b="FF80BF83BFBFBFFF"></canvas>      <span class="code-num">171</span>
+    </td>
+    <td class="g-printable" title="172 ($AC) — screen code 172 — inverse of 44">
+<canvas data-b="FFE1DEBFB8DEE1FF"></canvas>      <span class="code-num">172</span>
+    </td>
+    <td class="g-printable" title="173 ($AD) — screen code 173 — inverse of 45">
+<canvas data-b="FFBEBE80BEBEBEFF"></canvas>      <span class="code-num">173</span>
+    </td>
+    <td class="g-printable" title="174 ($AE) — screen code 174 — inverse of 46">
+<canvas data-b="FFC1F7F7F7F7C1FF"></canvas>      <span class="code-num">174</span>
+    </td>
+    <td class="g-printable" title="175 ($AF) — screen code 175 — inverse of 47">
+<canvas data-b="FFFDFDFDBDDDE3FF"></canvas>      <span class="code-num">175</span>
+    </td>
+  </tr>
+  <tr><th>B_</th>
+    <td class="g-printable" title="176 ($B0) — screen code 176 — inverse of 48">
+<canvas data-b="FFBDBB87BBBDBEFF"></canvas>      <span class="code-num">176</span>
+    </td>
+    <td class="g-printable" title="177 ($B1) — screen code 177 — inverse of 49">
+<canvas data-b="FFBFBFBFBFBF80FF"></canvas>      <span class="code-num">177</span>
+    </td>
+    <td class="g-printable" title="178 ($B2) — screen code 178 — inverse of 50">
+<canvas data-b="FFBE9CAAB6BEBEFF"></canvas>      <span class="code-num">178</span>
+    </td>
+    <td class="g-printable" title="179 ($B3) — screen code 179 — inverse of 51">
+<canvas data-b="FF9EAEB6BABCBEFF"></canvas>      <span class="code-num">179</span>
+    </td>
+    <td class="g-printable" title="180 ($B4) — screen code 180 — inverse of 52">
+<canvas data-b="FFC1BEBEBEBEC1FF"></canvas>      <span class="code-num">180</span>
+    </td>
+    <td class="g-printable" title="181 ($B5) — screen code 181 — inverse of 53">
+<canvas data-b="FF81BEBE81BFBFFF"></canvas>      <span class="code-num">181</span>
+    </td>
+    <td class="g-printable" title="182 ($B6) — screen code 182 — inverse of 54">
+<canvas data-b="FFC1BEBEB6BAC1FF"></canvas>      <span class="code-num">182</span>
+    </td>
+    <td class="g-printable" title="183 ($B7) — screen code 183 — inverse of 55">
+<canvas data-b="FF81BEBE81BBBDFF"></canvas>      <span class="code-num">183</span>
+    </td>
+    <td class="g-printable" title="184 ($B8) — screen code 184 — inverse of 56">
+<canvas data-b="FFC1BFC1FEBEC1FF"></canvas>      <span class="code-num">184</span>
+    </td>
+    <td class="g-printable" title="185 ($B9) — screen code 185 — inverse of 57">
+<canvas data-b="FF80F7F7F7F7F7FF"></canvas>      <span class="code-num">185</span>
+    </td>
+    <td class="g-printable" title="186 ($BA) — screen code 186 — inverse of 58">
+<canvas data-b="FFBEBEBEBEBEC1FF"></canvas>      <span class="code-num">186</span>
+    </td>
+    <td class="g-printable" title="187 ($BB) — screen code 187 — inverse of 59">
+<canvas data-b="FFBEBEBEDDEBF7FF"></canvas>      <span class="code-num">187</span>
+    </td>
+    <td class="g-printable" title="188 ($BC) — screen code 188 — inverse of 60">
+<canvas data-b="FFBEBEBEB6AADDFF"></canvas>      <span class="code-num">188</span>
+    </td>
+    <td class="g-printable" title="189 ($BD) — screen code 189 — inverse of 61">
+<canvas data-b="FFDEEDF3F3EDDEFF"></canvas>      <span class="code-num">189</span>
+    </td>
+    <td class="g-printable" title="190 ($BE) — screen code 190 — inverse of 62">
+<canvas data-b="FFBEDDE3F7F7F7FF"></canvas>      <span class="code-num">190</span>
+    </td>
+    <td class="g-printable" title="191 ($BF) — screen code 191 — inverse of 63">
+<canvas data-b="FF80FDFBF7EF80FF"></canvas>      <span class="code-num">191</span>
+    </td>
+  </tr>
+  <tr><th>C_</th>
+    <td class="g-unused" title="192 ($C0) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">192</span>
+    </td>
+    <td class="g-unused" title="193 ($C1) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">193</span>
+    </td>
+    <td class="g-unused" title="194 ($C2) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">194</span>
+    </td>
+    <td class="g-unused" title="195 ($C3) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">195</span>
+    </td>
+    <td class="g-unused" title="196 ($C4) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">196</span>
+    </td>
+    <td class="g-unused" title="197 ($C5) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">197</span>
+    </td>
+    <td class="g-unused" title="198 ($C6) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">198</span>
+    </td>
+    <td class="g-unused" title="199 ($C7) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">199</span>
+    </td>
+    <td class="g-unused" title="200 ($C8) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">200</span>
+    </td>
+    <td class="g-unused" title="201 ($C9) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">201</span>
+    </td>
+    <td class="g-unused" title="202 ($CA) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">202</span>
+    </td>
+    <td class="g-unused" title="203 ($CB) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">203</span>
+    </td>
+    <td class="g-unused" title="204 ($CC) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">204</span>
+    </td>
+    <td class="g-unused" title="205 ($CD) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">205</span>
+    </td>
+    <td class="g-unused" title="206 ($CE) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">206</span>
+    </td>
+    <td class="g-unused" title="207 ($CF) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">207</span>
+    </td>
+  </tr>
+  <tr><th>D_</th>
+    <td class="g-unused" title="208 ($D0) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">208</span>
+    </td>
+    <td class="g-unused" title="209 ($D1) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">209</span>
+    </td>
+    <td class="g-unused" title="210 ($D2) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">210</span>
+    </td>
+    <td class="g-unused" title="211 ($D3) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">211</span>
+    </td>
+    <td class="g-token" title="212 ($D4) — token">
+<span class="token">&#34;</span>
+      <span class="code-num">212</span>
+    </td>
+    <td class="g-token" title="213 ($D5) — token">
+<span class="token">THEN</span>
+      <span class="code-num">213</span>
+    </td>
+    <td class="g-token" title="214 ($D6) — token">
+<span class="token">TO</span>
+      <span class="code-num">214</span>
+    </td>
+    <td class="g-token" title="215 ($D7) — token">
+<span class="token">;</span>
+      <span class="code-num">215</span>
+    </td>
+    <td class="g-token" title="216 ($D8) — token">
+<span class="token">,</span>
+      <span class="code-num">216</span>
+    </td>
+    <td class="g-token" title="217 ($D9) — token">
+<span class="token">)</span>
+      <span class="code-num">217</span>
+    </td>
+    <td class="g-token" title="218 ($DA) — token">
+<span class="token">(</span>
+      <span class="code-num">218</span>
+    </td>
+    <td class="g-token" title="219 ($DB) — token">
+<span class="token">NOT</span>
+      <span class="code-num">219</span>
+    </td>
+    <td class="g-token" title="220 ($DC) — token">
+<span class="token">-</span>
+      <span class="code-num">220</span>
+    </td>
+    <td class="g-token" title="221 ($DD) — token">
+<span class="token">+</span>
+      <span class="code-num">221</span>
+    </td>
+    <td class="g-token" title="222 ($DE) — token">
+<span class="token">*</span>
+      <span class="code-num">222</span>
+    </td>
+    <td class="g-token" title="223 ($DF) — token">
+<span class="token">/</span>
+      <span class="code-num">223</span>
+    </td>
+  </tr>
+  <tr><th>E_</th>
+    <td class="g-token" title="224 ($E0) — token">
+<span class="token">AND</span>
+      <span class="code-num">224</span>
+    </td>
+    <td class="g-token" title="225 ($E1) — token">
+<span class="token">OR</span>
+      <span class="code-num">225</span>
+    </td>
+    <td class="g-token" title="226 ($E2) — token">
+<span class="token">**</span>
+      <span class="code-num">226</span>
+    </td>
+    <td class="g-token" title="227 ($E3) — token">
+<span class="token">=</span>
+      <span class="code-num">227</span>
+    </td>
+    <td class="g-token" title="228 ($E4) — token">
+<span class="token">&gt;</span>
+      <span class="code-num">228</span>
+    </td>
+    <td class="g-token" title="229 ($E5) — token">
+<span class="token">&lt;</span>
+      <span class="code-num">229</span>
+    </td>
+    <td class="g-token" title="230 ($E6) — token">
+<span class="token">LIST</span>
+      <span class="code-num">230</span>
+    </td>
+    <td class="g-token" title="231 ($E7) — token">
+<span class="token">RETURN</span>
+      <span class="code-num">231</span>
+    </td>
+    <td class="g-token" title="232 ($E8) — token">
+<span class="token">CLS</span>
+      <span class="code-num">232</span>
+    </td>
+    <td class="g-token" title="233 ($E9) — token">
+<span class="token">DIM</span>
+      <span class="code-num">233</span>
+    </td>
+    <td class="g-token" title="234 ($EA) — token">
+<span class="token">SAVE</span>
+      <span class="code-num">234</span>
+    </td>
+    <td class="g-token" title="235 ($EB) — token">
+<span class="token">FOR</span>
+      <span class="code-num">235</span>
+    </td>
+    <td class="g-token" title="236 ($EC) — token">
+<span class="token">GO TO</span>
+      <span class="code-num">236</span>
+    </td>
+    <td class="g-token" title="237 ($ED) — token">
+<span class="token">POKE</span>
+      <span class="code-num">237</span>
+    </td>
+    <td class="g-token" title="238 ($EE) — token">
+<span class="token">INPUT</span>
+      <span class="code-num">238</span>
+    </td>
+    <td class="g-token" title="239 ($EF) — token">
+<span class="token">RANDOMISE</span>
+      <span class="code-num">239</span>
+    </td>
+  </tr>
+  <tr><th>F_</th>
+    <td class="g-token" title="240 ($F0) — token">
+<span class="token">LET</span>
+      <span class="code-num">240</span>
+    </td>
+    <td class="g-unused" title="241 ($F1) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">241</span>
+    </td>
+    <td class="g-unused" title="242 ($F2) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">242</span>
+    </td>
+    <td class="g-token" title="243 ($F3) — token">
+<span class="token">NEXT</span>
+      <span class="code-num">243</span>
+    </td>
+    <td class="g-token" title="244 ($F4) — token">
+<span class="token">PRINT</span>
+      <span class="code-num">244</span>
+    </td>
+    <td class="g-unused" title="245 ($F5) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">245</span>
+    </td>
+    <td class="g-token" title="246 ($F6) — token">
+<span class="token">NEW</span>
+      <span class="code-num">246</span>
+    </td>
+    <td class="g-token" title="247 ($F7) — token">
+<span class="token">RUN</span>
+      <span class="code-num">247</span>
+    </td>
+    <td class="g-token" title="248 ($F8) — token">
+<span class="token">STOP</span>
+      <span class="code-num">248</span>
+    </td>
+    <td class="g-token" title="249 ($F9) — token">
+<span class="token">CONTINUE</span>
+      <span class="code-num">249</span>
+    </td>
+    <td class="g-token" title="250 ($FA) — token">
+<span class="token">IF</span>
+      <span class="code-num">250</span>
+    </td>
+    <td class="g-token" title="251 ($FB) — token">
+<span class="token">GO SUB</span>
+      <span class="code-num">251</span>
+    </td>
+    <td class="g-token" title="252 ($FC) — token">
+<span class="token">LOAD</span>
+      <span class="code-num">252</span>
+    </td>
+    <td class="g-token" title="253 ($FD) — token">
+<span class="token">CLEAR</span>
+      <span class="code-num">253</span>
+    </td>
+    <td class="g-token" title="254 ($FE) — token">
+<span class="token">REM</span>
+      <span class="code-num">254</span>
+    </td>
+    <td class="g-unused" title="255 ($FF) — screen code 15 — U+003F — not used: Printed as &#39;?&#39;">
+<canvas data-b="003E410608000800"></canvas>      <span class="code-num">255</span>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</div>
+<p class="note legend"><span class="g-unused swatch-g"></span> not used (what it prints, if anything) ·
+  <span class="g-token swatch-g"></span> token: shown as its keyword ·
+  <span class="g-control swatch-g"></span> control code ·
+  hover over a character for the details.</p>
+</div>
+</dialog>
+
+
+
+
+<dialog class="panel" id="tables" aria-labelledby="tables-title">
+  <header><h2 id="tables-title">All tables</h2><button type="button" class="close" aria-label="Close">✕</button></header>
+  <div class="panel-body"><table class="table-status">
+  <thead><tr><th>Table</th><th>Of</th><th>State</th><th>Notes</th></tr></thead>
+  <tbody>
+  <tr><td rowspan="1">Glyphs</td>      <td><code>ZX80</code></td>
+      <td class="st-complete">complete</td>
+      <td></td></tr>
+  <tr><td rowspan="1">Character codes</td>      <td><code>ZX80_4K_core</code></td>
+      <td class="st-complete">complete</td>
+      <td></td></tr>
+  <tr><td rowspan="1">Screen codes</td>      <td><code>ZX80</code></td>
+      <td class="st-complete">complete</td>
+      <td></td></tr>
+  <tr><td rowspan="1">Keyboard codes</td>      <td><code>ZX80_4K_core</code></td>
+      <td class="st-to_do">to be entered</td>
+      <td></td></tr>
+  <tr><td rowspan="1">Error messages</td>      <td><code>ZX80_4K_core</code></td>
+      <td class="st-complete">complete</td>
+      <td></td></tr>
+  <tr><td rowspan="1">Operator precedence</td>      <td><code>ZX80_4K_core</code></td>
+      <td class="st-complete">complete</td>
+      <td></td></tr>
+  <tr><td rowspan="1">Variables in memory</td>      <td><code>ZX80_4K_core</code></td>
+      <td class="st-to_do">to be entered</td>
+      <td></td></tr>
+  <tr><td rowspan="1">Program in memory</td>      <td><code>ZX80_4K_core</code></td>
+      <td class="st-to_do">to be entered</td>
+      <td></td></tr>
+  <tr><td rowspan="1">Color codes and attributes</td>      <td><code>ZX80</code></td>
+      <td class="st-not_applicable">does not exist</td>
+      <td>Black and white display.</td></tr>
+  <tr><td rowspan="1">Musical notes</td>      <td><code>ZX80_4K_core</code></td>
+      <td class="st-not_applicable">does not exist</td>
+      <td>The ZX80 has no sound.</td></tr>
+  </tbody>
+</table>
+<p class="note">Tables of the dialect belong to its layers, the others to the machines that host it.</p>
+<p><strong>Examples:</strong> 42 of 42 entries have at least one usage example; 63 examples are still to be verified.</p>
+</div>
+</dialog>
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js"></script>
+<script src="../static/search.js"></script>
+<script src="../static/dialect.js"></script>
+</body>
+</html>

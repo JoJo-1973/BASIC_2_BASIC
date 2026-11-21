@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>&gt; · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Sinclair ZX80 BASIC 4K ROM">
+<a class="prev" rel="prev" href="../entries/eq-36.html" title="Previous entry (←)">‹ <span>=</span></a>  <a class="where" href="../dialects/SINCLAIR_ZX80_4K.html#entries">41 / 42</a>
+<a class="next" rel="next" href="../entries/lparen-rparen-42.html" title="Next entry (→)"><span>( )</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/SINCLAIR_ZX80_4K.html#entries">Sinclair ZX80 BASIC 4K ROM</a> ›</p>
+<h1><span class="entry-name">&gt;</span> <span class="category">Operator</span></h1>
+<p class="subtitle">Greater than: -1 if true, 0 if false.</p>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>ZX80_4K_core</code> — Sinclair ZX80 BASIC (4K ROM)</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/SINCLAIR_ZX80_4K.html">Sinclair ZX80 BASIC 4K ROM</a></dd>
+</dl>
+
+
+<section class="form">
+  <h2>Between numbers</h2>
+  <pre class="syntax"><span class="par">a</span> <span class="kw">&gt;</span> <span class="par">b</span></pre>
+
+  <p><strong>Class:</strong> <span title="Comparisons: =, &lt;, &gt;, &lt;=, &gt;=, &lt;&gt;">relational operators</span> · <strong>Precedence:</strong> 5 <small>(<a href="../dialects/SINCLAIR_ZX80_4K.html#operators">precedence table</a>)</small></p>
+  <p><strong>Returns:</strong> Integer, range <code>[-1, 0]</code></p>
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">a</code></td>
+      <td>numeric expression</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code class="par">b</code></td>
+      <td>numeric expression</td>
+      <td></td>
+      <td></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#OP_GT" class="action-code">OP_GT</a> Greater than
+</p>
+  </div>
+</section>
+<section class="form">
+  <h2>Between strings</h2>
+  <pre class="syntax"><span class="par">s1</span> <span class="kw">&gt;</span> <span class="par">s2</span></pre>
+  <p class="manual">In the manual (Sinclair ZX80 Operating Manual - A Course in BASIC Programming, p. Appendix II):
+    <code>s&gt;s</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+  <p><strong>Class:</strong> <span title="Comparisons: =, &lt;, &gt;, &lt;=, &gt;=, &lt;&gt;">relational operators</span> · <strong>Precedence:</strong> 5 <small>(<a href="../dialects/SINCLAIR_ZX80_4K.html#operators">precedence table</a>)</small></p>
+  <p><strong>Returns:</strong> Integer, range <code>[-1, 0]</code></p>
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">s1</code></td>
+      <td>string expression</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code class="par">s2</code></td>
+      <td>string expression</td>
+      <td></td>
+      <td></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#OP_GT" class="action-code">OP_GT</a> Greater than
+</p>
+  </div>
+</section>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/gt-17.html">&gt;</a></td>
+      <td><code>$E4</code></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Greater than <span class="tag warning">to verify</span></h3>  <pre>PRINT 3&gt;2</pre>
+<pre class="output" title="Expected result">-1</pre><figcaption>
+<small>Form: Between numbers.</small></figcaption></figure>
+<figure class="example">
+<h3>Chained comparisons <span class="tag warning">to verify</span></h3>  <pre>PRINT 3&gt;2&gt;1</pre>
+<pre class="output" title="Expected result">0</pre><figcaption>(3&gt;2)&gt;1 means -1&gt;1, which is false.
+<small>Form: Between numbers.</small></figcaption></figure>
+
+
+
+<h2>Sources</h2>
+<ul><li>Sinclair ZX80 Operating Manual - A Course in BASIC Programming, Hugo Davenport (1980), p. Appendix II</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Sinclair ZX80 BASIC 4K ROM">
+<a class="prev" rel="prev" href="../entries/eq-36.html" title="Previous entry (←)">‹ <span>=</span></a>  <a class="where" href="../dialects/SINCLAIR_ZX80_4K.html#entries">41 / 42</a>
+<a class="next" rel="next" href="../entries/lparen-rparen-42.html" title="Next entry (→)"><span>( )</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js"></script>
+<script src="../static/search.js"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

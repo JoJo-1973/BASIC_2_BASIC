@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GO TO · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Sinclair ZX80 BASIC 4K ROM">
+<a class="prev" rel="prev" href="../entries/GO-SUB-12.html" title="Previous entry (←)">‹ <span>GO SUB</span></a>  <a class="where" href="../dialects/SINCLAIR_ZX80_4K.html#entries">6 / 42</a>
+<a class="next" rel="next" href="../entries/IF-10.html" title="Next entry (→)"><span>IF</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/SINCLAIR_ZX80_4K.html#entries">Sinclair ZX80 BASIC 4K ROM</a> ›</p>
+<h1><span class="entry-name">GO TO</span> <span class="category">Statement</span></h1>
+<p class="subtitle">Jumps to the given line.</p>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>ZX80_4K_core</code> — Sinclair ZX80 BASIC (4K ROM)</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/SINCLAIR_ZX80_4K.html">Sinclair ZX80 BASIC 4K ROM</a></dd>
+</dl>
+
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="kw">GO TO</span> <span class="par">n</span></pre>
+  <p class="manual">In the manual (Sinclair ZX80 Operating Manual - A Course in BASIC Programming, p. Appendix II):
+    <code>GO TO n</code>
+</p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">n</code></td>
+      <td>numeric expression</td>
+      <td><small>missing line: the next existing line is used</small><br></td>
+      <td>Line number (also an expression). Beyond the end of the program execution stops with 0/n.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#FLOW_GOTO" class="action-code">FLOW_GOTO</a> Jump to a line
+<small>— Accepts an expression</small></p>
+  </div>
+</section>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/GO-TO-25.html">GO TO</a></td>
+      <td><code>$EC</code></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Endless loop <span class="tag warning">to verify</span></h3>  <pre>10 PRINT &#34;LOOP&#34;
+20 GO TO 10</pre>
+<pre class="output" title="Expected result">LOOP on every line until the screen is full, then 5/10.</pre><figcaption>Report 5 means the screen is full.
+</figcaption></figure>
+<figure class="example">
+<h3>Missing line <span class="tag warning">to verify</span></h3>  <pre>10 GO TO 15
+20 PRINT &#34;HERE&#34;</pre>
+<pre class="output" title="Expected result">HERE</pre><figcaption>Line 15 does not exist: execution goes on from the next line, 20.
+</figcaption></figure>
+
+
+
+<h2>Sources</h2>
+<ul><li>Sinclair ZX80 Operating Manual - A Course in BASIC Programming, Hugo Davenport (1980), p. Appendix II</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Sinclair ZX80 BASIC 4K ROM">
+<a class="prev" rel="prev" href="../entries/GO-SUB-12.html" title="Previous entry (←)">‹ <span>GO SUB</span></a>  <a class="where" href="../dialects/SINCLAIR_ZX80_4K.html#entries">6 / 42</a>
+<a class="next" rel="next" href="../entries/IF-10.html" title="Next entry (→)"><span>IF</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js"></script>
+<script src="../static/search.js"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

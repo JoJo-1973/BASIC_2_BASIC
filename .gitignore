@@ -1,0 +1,8 @@
+# Python bytecode cache (rebuilt automatically)
+__pycache__/
+*.pyc
+
+# SQLite temporary files (left while the database is open)
+*.db-journal
+*.db-wal
+*.db-shm

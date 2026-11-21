@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>INPUT · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Sinclair ZX80 BASIC 4K ROM">
+<a class="prev" rel="prev" href="../entries/IF-10.html" title="Previous entry (←)">‹ <span>IF</span></a>  <a class="where" href="../dialects/SINCLAIR_ZX80_4K.html#entries">8 / 42</a>
+<a class="next" rel="next" href="../entries/LET-7.html" title="Next entry (→)"><span>LET</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/SINCLAIR_ZX80_4K.html#entries">Sinclair ZX80 BASIC 4K ROM</a> ›</p>
+<h1><span class="entry-name">INPUT</span> <span class="category">Statement</span></h1>
+<p class="subtitle">Reads a value from the keyboard and assigns it to a variable.</p>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>ZX80_4K_core</code> — Sinclair ZX80 BASIC (4K ROM)</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/SINCLAIR_ZX80_4K.html">Sinclair ZX80 BASIC 4K ROM</a></dd>
+</dl>
+
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="kw">INPUT</span> <span class="par">destination</span></pre>
+  <p class="manual">In the manual (Sinclair ZX80 Operating Manual - A Course in BASIC Programming, p. Appendix II):
+    <code>INPUT dest</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">destination</code></td>
+      <td>numeric variable name<br><small>or</small> string variable name<br><small>or</small> numeric array element</td>
+      <td><small>otherwise <code>?INPUT AS COMMAND</code></small></td>
+      <td>Numeric variable, string variable or array element. An expression can be typed.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#IO_INPUT" class="action-code">IO_INPUT</a> Read values from the keyboard
+<span class="tag">partial</span><small>— One variable only, no prompt</small></p>
+  </div>
+</section>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/INPUT-27.html">INPUT</a></td>
+      <td><code>$EE</code></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Read a number <span class="tag warning">to verify</span></h3>  <pre>10 INPUT N
+20 PRINT N*2</pre>
+<pre class="output" title="Expected result">42</pre><figcaption>Run the program, type 21 and press NEWLINE.
+</figcaption></figure>
+<figure class="example">
+<h3>Read a string <span class="tag warning">to verify</span></h3>  <pre>10 INPUT A$
+20 PRINT A$</pre>
+<pre class="output" title="Expected result">HELLO</pre><figcaption>Run the program, type HELLO and press NEWLINE (the quotes appear by themselves).
+</figcaption></figure>
+
+<h2>Notes</h2><p>Only inside a program: as a command it gives error 8. For a string the quotes appear, and they can be deleted.</p>
+
+<h2>Sources</h2>
+<ul><li>Sinclair ZX80 Operating Manual - A Course in BASIC Programming, Hugo Davenport (1980), p. Appendix II</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Sinclair ZX80 BASIC 4K ROM">
+<a class="prev" rel="prev" href="../entries/IF-10.html" title="Previous entry (←)">‹ <span>IF</span></a>  <a class="where" href="../dialects/SINCLAIR_ZX80_4K.html#entries">8 / 42</a>
+<a class="next" rel="next" href="../entries/LET-7.html" title="Next entry (→)"><span>LET</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js"></script>
+<script src="../static/search.js"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

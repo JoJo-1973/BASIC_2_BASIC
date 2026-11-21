@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}{{ k.text }} (keyword){% endblock %}
+{% block content %}
+<p class="breadcrumbs">{% for x in dialects %}<a href="{{ root }}{{ dialect_url(x) }}#keywords">{{ dialect_name(x) }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% if dialects %} › keywords ›{% endif %}</p>
+<h1><span class="entry-name kw">{{ k.text }}</span> <span class="category">Keyword</span></h1>
+
+<dl class="facts">
+  <dt>Layer</dt><dd><code>{{ layer.code }}</code> — {{ layer.name }}</dd>
+  <dt>Dialects</dt><dd>{% for x in dialects %}<a href="{{ root }}{{ dialect_url(x) }}">{{ dialect_name(x) }}</a>{% if not loop.last %}, {% endif %}{% else %}<em>none</em>{% endfor %}</dd>
+  {% if tokens %}<dt>Token</dt><dd>{% for t in tokens %}<code>${{ t.hex }}</code>{% if t.machine %} <small>({{ t.machine.name }})</small>{% endif %}{% if t.notes %} <small>— {{ t.notes }}</small>{% endif %}{% if not loop.last %}, {% endif %}{% endfor %}</dd>{% endif %}
+  {% if abbr %}<dt>Abbreviation</dt><dd>{% for a in abbr %}<code>{{ a.text }}</code>{% if a.machine %} <small>({{ a.machine.name }})</small>{% endif %}{% if not loop.last %}, {% endif %}{% endfor %}</dd>{% endif %}
+</dl>
+{% if k.notes %}<p>{{ k.notes }}</p>{% endif %}
+
+<h2>Entries that use {{ k.text }} <small>{{ entries|length }}</small></h2>
+{% if entries %}
+<table class="keyword-entries">
+  <thead><tr><th>Entry</th><th>Syntax</th>{% if dialects|length > 1 %}<th>Dialects</th>{% endif %}</tr></thead>
+  <tbody>
+  {% for x in entries %}
+  <tr>
+    <td class="name"><a href="{{ root }}{{ entry_url(x.e) }}">{{ x.e.name }}</a><br><small>{{ x.category.name|lower }}</small></td>
+    <td>{% for f in x.forms %}
+        {% if f.f.title and x.forms|length > 1 %}<small>{{ f.f.title }}</small>{% endif %}
+        <code class="syntax">{% if f.syntax %}{{ f.syntax }}{% else %}{{ f.f.original_syntax or '' }}{% endif %}</code>{% if not loop.last %}<br>{% endif %}
+      {% endfor %}</td>
+    {% if dialects|length > 1 %}<td>{% for d in x.dialects %}{{ dialect_name(d) }}{% if not loop.last %}, {% endif %}{% endfor %}</td>{% endif %}
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p class="note">No entry uses this keyword in its syntax.</p>
+{% endif %}
+{% endblock %}

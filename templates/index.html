@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Machines and dialects{% endblock %}
+{% block content %}
+<h1>BASIC 2 BASIC</h1>
+<p class="subtitle">The BASIC dialects of 8-bit computers: {{ manufacturers|map(attribute=1)|map('length')|sum }} machines,
+{{ dialects|length }} dialects, {{ n_entries }} entries, {{ n_actions }} actions for the translator.</p>
+
+<h2>Choose a machine</h2>
+{% for manufacturer, items in manufacturers %}
+<h3>{{ manufacturer }}</h3>
+<div class="cards">
+  {% for x in items %}
+  <a class="card" href="{{ root }}{{ machine_url(x.m) }}">
+    <strong>{{ x.m.name }}</strong>
+    <span class="card-details">{{ x.m.year or '' }}{% if x.m.cpu %} · {{ x.m.cpu }}{% endif %}</span>
+    <span class="tags">{% for y in x.dialects %}<span class="tag{% if y.r.is_default %} solid{% endif %}">{{ dialect_name(y.d) }}</span>{% endfor %}</span>
+  </a>
+  {% endfor %}
+</div>
+{% endfor %}
+
+<h2>All dialects</h2>
+<table>
+  <thead><tr><th>Dialect</th><th>Code</th><th>Year</th><th class="num">Entries</th></tr></thead>
+  <tbody>
+  {% for x in dialects %}
+  <tr><td><a href="{{ root }}{{ dialect_url(x.d) }}">{{ dialect_name(x.d) }}</a></td>
+      <td><code>{{ x.d.code }}</code></td><td>{{ x.d.year or '' }}</td><td class="num">{{ x.n_entries }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

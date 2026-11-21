@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+{% block title %}{{ e.name }}{% endblock %}
+{% macro entry_nav(where) %}
+{% for n in nav %}
+<nav class="entry-nav entry-nav-{{ where }}" aria-label="Entries of {{ dialect_name(n.dialect) }}">
+  {% if n.prev %}<a class="prev" rel="prev" href="{{ root }}{{ entry_url(n.prev) }}" title="Previous entry (←)">‹ <span>{{ n.prev.name }}</span></a>{% else %}<span class="prev off">‹</span>{% endif %}
+  <a class="where" href="{{ root }}{{ dialect_url(n.dialect) }}#entries">{% if nav|length > 1 %}{{ dialect_name(n.dialect) }} · {% endif %}{{ n.position }} / {{ n.total }}</a>
+  {% if n.next %}<a class="next" rel="next" href="{{ root }}{{ entry_url(n.next) }}" title="Next entry (→)"><span>{{ n.next.name }}</span> ›</a>{% else %}<span class="next off">›</span>{% endif %}
+</nav>
+{% endfor %}
+{% endmacro %}
+{% block content %}
+{{ entry_nav("top") }}
+<p class="breadcrumbs">{% for x in dialects %}<a href="{{ root }}{{ dialect_url(x) }}#entries">{{ dialect_name(x) }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% if dialects %} ›{% endif %}</p>
+<h1><span class="entry-name">{{ e.name }}</span> <span class="category">{{ category.name }}</span></h1>
+{% if e.description %}<p class="subtitle">{{ e.description }}</p>{% endif %}
+
+<dl class="facts">
+  <dt>Layer</dt><dd><code>{{ layer.code }}</code> — {{ layer.name }}</dd>
+  <dt>Dialects</dt><dd>{% for x in dialects %}<a href="{{ root }}{{ dialect_url(x) }}">{{ dialect_name(x) }}</a>{% if not loop.last %}, {% endif %}{% else %}<em>none: the entry is always redefined or removed</em>{% endfor %}</dd>
+  {% for s in replacements %}
+  <dt>In {{ dialect_name(s.dialect) }}</dt>
+  <dd>{% if s.entry.operation == 'REMOVE' %}removed by a higher layer{% else %}replaced by <a href="{{ root }}{{ entry_url(s.entry) }}">{{ s.entry.name }}</a> of <code>{{ s.layer.code }}</code>{% endif %}</dd>
+  {% endfor %}
+</dl>
+
+{% if previous or later %}
+<div class="box">
+  {% if previous %}<p>Redefines <a href="{{ root }}{{ entry_url(previous) }}">{{ previous.name }}</a> of the previous layer.
+    {% if e.difference_notes %}<br><strong>Differences:</strong> {{ e.difference_notes }}{% endif %}</p>{% endif %}
+  {% for x in later %}<p>Redefined in a later layer: <a href="{{ root }}{{ entry_url(x) }}">{{ x.name }}</a>{% if x.difference_notes %} — {{ x.difference_notes }}{% endif %}</p>{% endfor %}
+</div>
+{% endif %}
+
+{% for x in forms %}
+<section class="form">
+  <h2>{% if x.f.title %}{{ x.f.title }}{% elif forms|length > 1 %}Form {{ loop.index }}{% else %}Syntax{% endif %}</h2>
+  {% if x.f.description %}<p>{{ x.f.description }}</p>{% endif %}
+  {% if x.syntax %}
+  <pre class="syntax">{{ x.syntax }}</pre>
+  {% if x.expanded %}<details><summary>With the constructs expanded</summary><pre class="syntax">{{ x.expanded }}</pre></details>{% endif %}
+  {% for c in x.constructs %}<p class="note">{{ c.c.name }} (<code>{{ c.c.code }}</code>): <code class="syntax">{{ c.syntax }}</code></p>{% endfor %}
+  {% endif %}
+  {% if x.f.original_syntax %}
+  <p class="manual">{% if x.syntax %}In the manual{% else %}Syntax in the manual{% endif %}{% if x.source %} ({{ x.source.title }}{% if x.f.page %}, p. {{ x.f.page }}{% endif %}){% endif %}:
+    <code>{{ x.f.original_syntax }}</code>
+    {% if x.matches == false %}<span class="tag warning">differs from the rebuilt syntax</span>{% endif %}</p>
+  {% endif %}
+
+  {% if x.op_class or x.f.precedence %}
+  <p>{% if x.op_class %}<strong>Class:</strong> <span title="{{ x.op_class.description or '' }}">{{ x.op_class.name|lower }} operators</span>{% endif %}
+     {% if x.op_class and x.f.precedence %} · {% endif %}
+     {% if x.f.precedence %}<strong>Precedence:</strong> {{ x.f.precedence }}{% if dialects %} <small>(<a href="{{ root }}{{ dialect_url(dialects[0]) }}#operators">precedence table</a>)</small>{% endif %}{% endif %}</p>
+  {% if x.op_class and x.op_class.code == 'CONDITIONAL' %}<p class="note">{{ x.op_class.description }}</p>{% endif %}
+  {% endif %}
+  {% if x.rtype %}
+  <p><strong>Returns:</strong> {{ x.rtype.name }}{% if x.rtype.suffix %} (<code>{{ x.rtype.suffix }}</code>){% endif %}{% if x.ret %}, range <code>{{ x.ret }}</code>{% endif %}</p>
+  {% endif %}
+
+  {% if x.parameters %}
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Values</th><th>Description</th></tr></thead>
+    <tbody>
+    {% for p in x.parameters %}
+    <tr>
+      <td><code class="par">{{ p.p.name }}</code></td>
+      <td>{% if p.construct %}construct {{ p.construct.name }}{% else %}{% for k in p.kinds %}{{ k.name|lower }}{% if not loop.last %}<br><small>or</small> {% endif %}{% endfor %}{% endif %}
+          {% if p.p.conversion == 'TRUNCATE' %}<br><small>truncated to integer</small>{% elif p.p.conversion == 'ROUND' %}<br><small>rounded</small>{% endif %}</td>
+      <td>{% for l in p.limits %}<code>{{ l.text or '' }}</code>{% if l.machine %} <small>{{ l.machine.name }}</small>{% endif %}{% if l.notes %} <small>{{ l.notes }}</small>{% endif %}<br>{% endfor %}
+          {% for val in p.allowed %}<code>{{ val.value }}</code>{% if val.meaning %} = {{ val.meaning }}{% endif %}{% if val.machine %} <small>({{ val.machine.name }})</small>{% endif %}<br>{% endfor %}
+          {% if p.table %}table: {{ p.table.name|lower }}<br>{% endif %}
+          {% if p.p.missing_line == 'NEXT_LINE' %}<small>missing line: the next existing line is used</small><br>{% elif p.p.missing_line == 'ERROR' %}<small>missing line: error</small><br>{% endif %}
+          {% if p.p.error_code %}<small>otherwise <code>?{{ p.p.error_code|replace('_', ' ') }}</code></small>{% endif %}</td>
+      <td>{{ p.p.description or '' }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+
+  {% if x.actions %}
+  <h3>Equivalents in other dialects</h3>
+  {% for a in x.actions %}
+  <div class="action">
+    <p><a href="{{ root }}actions.html#{{ a.action.code }}" class="action-code">{{ a.action.code }}</a> {{ a.action.name }}
+      {% if a.coverage == 'PARTIAL' %}<span class="tag">partial</span>{% endif %}
+      {% if a.notes %}<small>— {{ a.notes }}</small>{% endif %}</p>
+    {% if a.equivalents %}
+    <ul class="equivalents">
+      {% for dia, items in a.equivalents %}
+      <li><span class="dia">{{ dialect_name(dia) }}</span>
+        {% for q in items %}<a href="{{ root }}{{ entry_url(q.entry) }}">{{ q.entry.name }}</a>{% if q.form.title %} <small>({{ q.form.title }})</small>{% endif %}{% if q.coverage == 'PARTIAL' %} <span class="tag">partial</span>{% endif %}{% if q.notes %} <small>— {{ q.notes }}</small>{% endif %}{% if not loop.last %}; {% endif %}{% endfor %}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% if a.uncovered %}<p class="uncovered">No equivalent in: {% for dia in a.uncovered %}{{ dialect_name(dia) }}{% if not loop.last %}, {% endif %}{% endfor %}</p>{% endif %}
+  </div>
+  {% endfor %}
+  {% endif %}
+</section>
+{% endfor %}
+
+{% if keywords %}
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  {% for k in keywords %}
+  <tr><td><a class="kw" href="{{ root }}{{ keyword_url(k.k) }}">{{ k.k.text }}</a></td>
+      <td>{% for t in k.tokens %}<code>${{ t.hex }}</code>{% if t.machine %} <small>({{ t.machine.name }})</small>{% endif %}{% if not loop.last %}, {% endif %}{% endfor %}</td>
+      <td>{% for a in k.abbr %}<code>{{ a.text }}</code>{% if a.machine %} <small>({{ a.machine.name }})</small>{% endif %}{% if not loop.last %}, {% endif %}{% endfor %}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+{% if examples %}
+<h2>Examples</h2>
+{% for x in examples %}
+<figure class="example">
+  {% if x.x.title or not x.x.verified %}<h3>{{ x.x.title or '' }}{% if not x.x.verified %} <span class="tag warning">to verify</span>{% endif %}</h3>{% endif %}
+  <pre>{{ x.x.code }}</pre>
+  {% if x.x.expected_result %}<pre class="output" title="Expected result">{{ x.x.expected_result }}</pre>{% endif %}
+  {% if x.x.description or x.machine or x.form or x.source %}<figcaption>{{ x.x.description or '' }}
+    {% if x.form and x.form.title %}<small>Form: {{ x.form.title }}.</small>{% endif %}
+    {% if x.machine %}<small>On {{ x.machine.name }}.</small>{% endif %}
+    {% if x.source %}<small>Source: {{ x.source.title }}{% if x.x.page %}, {{ x.x.page }}{% endif %}.</small>{% endif %}</figcaption>{% endif %}
+</figure>
+{% endfor %}
+{% endif %}
+
+{% if e.notes %}<h2>Notes</h2><p>{{ e.notes }}</p>{% endif %}
+
+{% if references %}
+<h2>Related entries</h2>
+<ul>{% for label, x in references %}<li>{{ label }}: <a href="{{ root }}{{ entry_url(x) }}">{{ x.name }}</a></li>{% endfor %}</ul>
+{% endif %}
+
+{% if sources %}
+<h2>Sources</h2>
+<ul>{% for x in sources %}<li>{% if x.source.url %}<a href="{{ x.source.url }}">{{ x.source.title }}</a>{% else %}{{ x.source.title }}{% endif %}{% if x.source.author %}, {{ x.source.author }}{% endif %}{% if x.source.year %} ({{ x.source.year }}){% endif %}{% if x.page %}, p. {{ x.page }}{% endif %}{% if x.notes %} — {{ x.notes }}{% endif %}</li>{% endfor %}</ul>
+{% endif %}
+{{ entry_nav("bottom") }}
+{% endblock %}
+{% block script %}
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+{% endblock %}

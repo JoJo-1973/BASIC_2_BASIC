@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NEXT · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Sinclair ZX80 BASIC 4K ROM">
+<a class="prev" rel="prev" href="../entries/LET-7.html" title="Previous entry (←)">‹ <span>LET</span></a>  <a class="where" href="../dialects/SINCLAIR_ZX80_4K.html#entries">10 / 42</a>
+<a class="next" rel="next" href="../entries/POKE-20.html" title="Next entry (→)"><span>POKE</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/SINCLAIR_ZX80_4K.html#entries">Sinclair ZX80 BASIC 4K ROM</a> ›</p>
+<h1><span class="entry-name">NEXT</span> <span class="category">Statement</span></h1>
+<p class="subtitle">Increments the counter and goes back to the statement after FOR if it has not passed the end value.</p>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>ZX80_4K_core</code> — Sinclair ZX80 BASIC (4K ROM)</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/SINCLAIR_ZX80_4K.html">Sinclair ZX80 BASIC 4K ROM</a></dd>
+</dl>
+
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="kw">NEXT</span> <span class="par">a</span></pre>
+  <p class="manual">In the manual (Sinclair ZX80 Operating Manual - A Course in BASIC Programming, p. Appendix II):
+    <code>NEXT a</code>
+</p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">a</code></td>
+      <td>loop control variable name</td>
+      <td><small>otherwise <code>?NEXT WITHOUT FOR</code></small></td>
+      <td>Control variable of the loop.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#FLOW_NEXT" class="action-code">FLOW_NEXT</a> End of a counted loop
+</p>
+  </div>
+</section>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/NEXT-30.html">NEXT</a></td>
+      <td><code>$F3</code></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>End of the loop <span class="tag warning">to verify</span></h3>  <pre>10 FOR I=1 TO 3
+20 PRINT I
+30 NEXT I
+40 PRINT I</pre>
+<pre class="output" title="Expected result">1
+2
+3
+4</pre><figcaption>After the loop the counter is end+1.
+</figcaption></figure>
+<figure class="example">
+<h3>NEXT without FOR <span class="tag warning">to verify</span></h3>  <pre>10 NEXT I</pre>
+<pre class="output" title="Expected result">1/10</pre><figcaption>Report 1: I is not the counter of an active FOR loop.
+</figcaption></figure>
+
+
+<h2>Related entries</h2>
+<ul><li>Opened by: <a href="../entries/FOR-TO-14.html">FOR...TO</a></li></ul>
+
+<h2>Sources</h2>
+<ul><li>Sinclair ZX80 Operating Manual - A Course in BASIC Programming, Hugo Davenport (1980), p. Appendix II</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Sinclair ZX80 BASIC 4K ROM">
+<a class="prev" rel="prev" href="../entries/LET-7.html" title="Previous entry (←)">‹ <span>LET</span></a>  <a class="where" href="../dialects/SINCLAIR_ZX80_4K.html#entries">10 / 42</a>
+<a class="next" rel="next" href="../entries/POKE-20.html" title="Next entry (→)"><span>POKE</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js"></script>
+<script src="../static/search.js"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>
