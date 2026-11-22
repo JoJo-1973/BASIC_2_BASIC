@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FOR...TO...STEP · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (1st edition)">
+<a class="prev" rel="prev" href="../entries/END-200008.html" title="Previous entry (←)">‹ <span>END</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_1.html#entries">5 / 42</a>
+<a class="next" rel="next" href="../entries/GO-TO-200011.html" title="Next entry (→)"><span>GO TO</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/DARTMOUTH_BASIC_1.html#entries">Dartmouth BASIC (1st edition)</a> ›</p>
+<h1><span class="entry-name">FOR...TO...STEP</span> <span class="category">Statement</span></h1>
+<div class="subtitle md"><p>Starts a loop: the variable goes from the first value to the second in steps of 1 or of the STEP value.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>DARTMOUTH_1ED_core</code> — Dartmouth BASIC, 1st edition</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/DARTMOUTH_BASIC_1.html">Dartmouth BASIC (1st edition)</a></dd>
+  <dt>In Dartmouth BASIC (2nd edition)</dt>
+  <dd>replaced by <a href="../entries/FOR-TO-STEP-200043.html">FOR...TO...STEP</a> of <code>DARTMOUTH_2ED_layer</code></dd>
+  <dt>In Dartmouth BASIC (3rd edition)</dt>
+  <dd>replaced by <a href="../entries/FOR-TO-STEP-200043.html">FOR...TO...STEP</a> of <code>DARTMOUTH_2ED_layer</code></dd>
+  <dt>In Dartmouth BASIC (4th edition)</dt>
+  <dd>replaced by <a href="../entries/FOR-TO-STEP-200043.html">FOR...TO...STEP</a> of <code>DARTMOUTH_2ED_layer</code></dd>
+  <dt>In Dartmouth Card BASIC October 1964</dt>
+  <dd>replaced by <a href="../entries/FOR-TO-STEP-200043.html">FOR...TO...STEP</a> of <code>DARTMOUTH_2ED_layer</code></dd>
+</dl>
+
+<div class="box">
+<p>Redefined in a later layer: <a href="../entries/FOR-TO-STEP-200043.html">FOR...TO...STEP</a> — The loop variable can be any unsubscripted variable (FOR X1).</p></div>
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="kw">FOR</span> <span class="par">v</span> <span class="kw">=</span> <span class="par">f1</span> <span class="kw">TO</span> <span class="par">f2</span> <span class="meta">[</span><span class="kw">STEP</span> <span class="par">f3</span><span class="meta">]</span></pre>
+  <p class="manual">In the manual (BASIC Instruction Manual, May 1964 (First Draft), p. 9-10):
+    <code>FOR V = F1 TO F2</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">v</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>variable</td>
+      <td></td>
+      <td>A single letter (manual p. 10): N, X; not N5.</td>
+    </tr>
+    <tr>
+      <td><code class="par">f1</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>formula</td>
+      <td></td>
+      <td>First value: a number or a formula.</td>
+    </tr>
+    <tr>
+      <td><code class="par">f2</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>formula</td>
+      <td></td>
+      <td>Final value: a number or a formula.</td>
+    </tr>
+    <tr>
+      <td><code class="par">f3</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>formula</td>
+      <td></td>
+      <td>Step; 1 when STEP is omitted.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#FLOW_FOR" class="action-code">FLOW_FOR</a> Start of a counted loop
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Casio FX-700P BASIC</span>
+<a href="../entries/FOR-TO-STEP-100015.html">FOR...TO...STEP</a></li>
+      <li><span class="dia">Dartmouth BASIC (2nd edition)</span>
+<a href="../entries/FOR-TO-STEP-200043.html">FOR...TO...STEP</a></li>
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/FOR-TO-STEP-200043.html">FOR...TO...STEP</a></li>
+      <li><span class="dia">Dartmouth BASIC (4th edition)</span>
+<a href="../entries/FOR-TO-STEP-200043.html">FOR...TO...STEP</a></li>
+      <li><span class="dia">Dartmouth Card BASIC October 1964</span>
+<a href="../entries/FOR-TO-STEP-200043.html">FOR...TO...STEP</a></li>
+      <li><span class="dia">Sinclair ZX80 BASIC 4K ROM</span>
+<a href="../entries/FOR-TO-14.html">FOR...TO</a> <span class="tag">partial</span> <small>— Step fixed at 1: there is no STEP</small></li>
+    </ul>
+  </div>
+</section>
+
+<h2>Tables</h2>
+<ul class="entry-tables">
+  <li><a href="../dialects/DARTMOUTH_BASIC_1.html#variables">Variables in memory</a>      <small>— action FLOW_FOR</small></li>
+</ul>
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_1.html#errors"><code>INCORRECT_FORMAT</code></a></td>
+      <td>The FOR is not written in its form ([1] p. 19, [2]). <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_1.html#errors"><code>TOO_MANY_LOOPS</code></a></td>
+      <td>More than 26 FOR statements (from [2]). <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_1.html#errors"><code>FOR_WITHOUT_NEXT</code></a></td>
+      <td>No NEXT closes the loop (from [2]). <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_1.html#errors"><code>ILLEGAL_FORMULA</code></a></td>
+      <td>The formula is not written correctly. <small>Parameters: <code class="par">f1</code>, <code class="par">f2</code>, <code class="par">f3</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_1.html#errors"><code>UNDEFINED_FUNCTION</code></a></td>
+      <td>The formula uses an FN function that is never defined. <small>Parameters: <code class="par">f1</code>, <code class="par">f2</code>, <code class="par">f3</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/FOR-200009.html">FOR</a></td>
+      <td></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/eq-200039.html">=</a></td>
+      <td></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/TO-200010.html">TO</a></td>
+      <td></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/STEP-200011.html">STEP</a></td>
+      <td></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Sum of 100 fifth powers <span class="tag warning">to verify</span></h3>  <pre>10 PRINT &#34;SUM OF 100 FIFTH POWERS.&#34;
+20 LET S = 0
+30 FOR N = 1 TO 100
+40 LET S = S + N↑5
+50 NEXT N
+60 PRINT S
+99 END</pre>
+<figcaption>
+<small>Source: BASIC Instruction Manual, May 1964 (First Draft), 9.</small></figcaption></figure>
+<figure class="example">
+<h3>Even numbers <span class="tag warning">to verify</span></h3>  <pre>20 LET S = 0
+30 FOR N = 2 TO 100 STEP 2
+40 LET S = S + N↑5
+50 NEXT N
+60 PRINT S
+99 END</pre>
+<figcaption>
+<small>Source: BASIC Instruction Manual, May 1964 (First Draft), 10.</small></figcaption></figure>
+<figure class="example">
+<h3>Simple loop</h3>  <pre>10 FOR I = 1 TO 3
+20 PRINT I
+30 NEXT I
+40 END</pre>
+<pre class="output" title="Expected result"> 1
+ 2
+ 3</pre><figcaption>From the DTSS-Win simulator files (BASFOR). Output checked on DTSS-Win (compiler of February 1965).
+<small>Source: DTSS-Win simulator, BASFOR.</small></figcaption></figure>
+<figure class="example">
+<h3>Approximate pi</h3>  <pre>100 REM PIE
+110 READ D
+120 DATA 10
+130 LET S = 1
+140 LET N = 6
+150 FOR I = 1 TO D
+160 LET X = S/2
+170 LET Y = 1 - SQR(1 - X*X)
+180 LET S = SQR(X*X + Y*Y)
+190 LET N = 2*N
+200 LET P = N*S/2
+210 PRINT I, P
+220 NEXT I
+230 END</pre>
+<pre class="output" title="Expected result"> 1              3.10583
+ 2              3.13263
+ 3              3.13935
+ 4              3.14103
+ 5              3.14145
+ 6              3.14156
+ 7              3.14158
+ 8              3.14159
+ 9              3.14159
+ 10             3.14159</pre><figcaption>From the DTSS-Win simulator files (LIB/PIE). Output checked on DTSS-Win (compiler of February 1965).
+<small>Source: DTSS-Win simulator, LIB/PIE.</small></figcaption></figure>
+
+<h2>Notes</h2>
+<div class="md"><p>The loop is closed by NEXT with the same variable. Steps that are not integers worked because the GE-225 truncated its binary results: .1 was slightly less, so <code>FOR X = 1 TO 10 STEP .1</code> reached 10, while <code>FOR X = 10 TO 1 STEP -.1</code> did not reach 1 [9].</p></div><ul class="feature-notes">
+  <li><a href="../dialects/DARTMOUTH_BASIC_1.html#features">The body of a FOR loop is always executed at least once</a>: <code>No</code> <span class="tag warning">to verify</span></li>
+  <li><a href="../dialects/DARTMOUTH_BASIC_1.html#features">The loop variable can be changed inside the loop</a>: <code>Not stated</code> <span class="tag warning">to verify</span></li>
+</ul>
+<h2>Related entries</h2>
+<ul><li>Closed by: <a href="../entries/NEXT-200010.html">NEXT</a></li></ul>
+
+<h2>Sources</h2>
+<ul><li><a href="https://www.dartmouth.edu/basicfifty/basicmanual_1964.pdf">BASIC Instruction Manual, May 1964 (First Draft)</a>, John G. Kemeny, Thomas E. Kurtz (1964), p. 9-10</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (1st edition)">
+<a class="prev" rel="prev" href="../entries/END-200008.html" title="Previous entry (←)">‹ <span>END</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_1.html#entries">5 / 42</a>
+<a class="next" rel="next" href="../entries/GO-TO-200011.html" title="Next entry (→)"><span>GO TO</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

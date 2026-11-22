@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DEF · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (1st edition)">
+<a class="prev" rel="prev" href="../entries/DATA-200015.html" title="Previous entry (←)">‹ <span>DATA</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_1.html#entries">Dartmouth BASIC (1st edition) · 2 / 42</a>
+<a class="next" rel="next" href="../entries/DIM-200018.html" title="Next entry (→)"><span>DIM</span> ›</a></nav>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (2nd edition)">
+<a class="prev" rel="prev" href="../entries/DATA-200045.html" title="Previous entry (←)">‹ <span>DATA</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_2.html#entries">Dartmouth BASIC (2nd edition) · 2 / 49</a>
+<a class="next" rel="next" href="../entries/DIM-200018.html" title="Next entry (→)"><span>DIM</span> ›</a></nav>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (3rd edition)">
+<a class="prev" rel="prev" href="../entries/DATA-200074.html" title="Previous entry (←)">‹ <span>DATA</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_3.html#entries">Dartmouth BASIC (3rd edition) · 2 / 57</a>
+<a class="next" rel="next" href="../entries/DIM-200018.html" title="Next entry (→)"><span>DIM</span> ›</a></nav>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth Card BASIC October 1964">
+<span class="prev off">‹</span>  <a class="where" href="../dialects/DARTMOUTH_CARD_BASIC.html#entries">Dartmouth Card BASIC October 1964 · 1 / 41</a>
+<a class="next" rel="next" href="../entries/DIM-200018.html" title="Next entry (→)"><span>DIM</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/DARTMOUTH_BASIC_1.html#entries">Dartmouth BASIC (1st edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_2.html#entries">Dartmouth BASIC (2nd edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_3.html#entries">Dartmouth BASIC (3rd edition)</a>, <a href="../dialects/DARTMOUTH_CARD_BASIC.html#entries">Dartmouth Card BASIC October 1964</a> ›</p>
+<h1><span class="entry-name">DEF</span> <span class="category">Statement</span></h1>
+<div class="subtitle md"><p>Defines a function FNA to FNZ with one argument.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>DARTMOUTH_1ED_core</code> — Dartmouth BASIC, 1st edition</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/DARTMOUTH_BASIC_1.html">Dartmouth BASIC (1st edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_2.html">Dartmouth BASIC (2nd edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_3.html">Dartmouth BASIC (3rd edition)</a>, <a href="../dialects/DARTMOUTH_CARD_BASIC.html">Dartmouth Card BASIC October 1964</a></dd>
+  <dt>In Dartmouth BASIC (4th edition)</dt>
+  <dd>replaced by <a href="../entries/DEF-200087.html">DEF</a> of <code>DARTMOUTH_4ED_layer</code></dd>
+</dl>
+
+<div class="box">
+<p>Redefined in a later layer: <a href="../entries/DEF-200087.html">DEF</a> — Functions without argument, and functions of several lines ended by FNEND.</p></div>
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="kw">DEF</span> <span class="kw">FN</span><span class="par">letter</span><span class="lit">(</span><span class="par">argument</span><span class="lit">)</span> <span class="kw">=</span> <span class="par">formula</span></pre>
+  <p class="manual">In the manual (BASIC Instruction Manual, May 1964 (First Draft), p. 13):
+    <code>DEF FNC(Z) = Z↑3 + 2.7*Z</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">letter</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>function letter</td>
+      <td></td>
+      <td>A to Z: up to 26 functions.</td>
+    </tr>
+    <tr>
+      <td><code class="par">argument</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>variable</td>
+      <td></td>
+      <td>Used only for the definition; the manual says not to use it elsewhere in the program.</td>
+    </tr>
+    <tr>
+      <td><code class="par">formula</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>formula</td>
+      <td></td>
+      <td>Any formula containing the argument; on one line.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#FN_DEFINE" class="action-code">FN_DEFINE</a> Define a function
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (4th edition)</span>
+<a href="../entries/DEF-200087.html">DEF</a> <small>(One line)</small>; <a href="../entries/DEF-200087.html">DEF</a> <small>(Several lines)</small> <small>— Several lines, ended by FNEND</small></li>
+    </ul>
+<p class="uncovered">No equivalent in: Casio FX-700P BASIC, Sinclair ZX80 BASIC 4K ROM</p>  </div>
+</section>
+
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_1.html#errors"><code>ILLEGAL_FORMULA</code></a> <small>(Dartmouth BASIC (1st edition))</small></td>
+      <td>The formula is not written correctly. <small>Parameter: <code class="par">formula</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_1.html#errors"><code>UNDEFINED_FUNCTION</code></a> <small>(Dartmouth BASIC (1st edition))</small></td>
+      <td>The formula uses an FN function that is never defined. <small>Parameter: <code class="par">formula</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_2.html#errors"><code>ILLEGAL_FORMULA</code></a> <small>(Dartmouth BASIC (2nd edition))</small></td>
+      <td>The formula is not written correctly. <small>Parameter: <code class="par">formula</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_2.html#errors"><code>UNDEFINED_FUNCTION</code></a> <small>(Dartmouth BASIC (2nd edition))</small></td>
+      <td>The formula uses an FN function that is never defined. <small>Parameter: <code class="par">formula</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_3.html#errors"><code>ILLEGAL_FORMULA</code></a> <small>(Dartmouth BASIC (3rd edition))</small></td>
+      <td>The formula is not written correctly. <small>Parameter: <code class="par">formula</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_3.html#errors"><code>UNDEFINED_FUNCTION</code></a> <small>(Dartmouth BASIC (3rd edition))</small></td>
+      <td>The formula uses an FN function that is never defined. <small>Parameter: <code class="par">formula</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL_FORMULA</code></a> <small>(Dartmouth Card BASIC October 1964)</small></td>
+      <td>The formula is not written correctly. <small>Parameter: <code class="par">formula</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED_FUNCTION</code></a> <small>(Dartmouth Card BASIC October 1964)</small></td>
+      <td>The formula uses an FN function that is never defined. <small>Parameter: <code class="par">formula</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/DEF-200016.html">DEF</a></td>
+      <td></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/FN-200017.html">FN</a></td>
+      <td></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/eq-200039.html">=</a></td>
+      <td></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Sine in degrees and common logarithm <span class="tag warning">to verify</span></h3>  <pre>10 LET P = 3.14159265
+20 DEF FNS(Z) = SIN(Z*P/180)
+30 DEF FNL(Z) = LOG(Z)/LOG(10)
+40 PRINT FNS(30), FNL(100)
+50 END</pre>
+<pre class="output" title="Expected result">.5            2</pre><figcaption>Lines 10-30 are in the manual.
+<small>Source: BASIC Instruction Manual, May 1964 (First Draft), 13.</small></figcaption></figure>
+
+<h2>Notes</h2>
+<div class="md"><p>DEF may be anywhere in the program. <code>DEF FNS(Z) = SIN(Z*P/180)</code> gives a sine in degrees, <code>DEF FNL(Z) = LOG(Z)/LOG(10)</code> a common logarithm [1] p. 13.</p></div>
+<h2>Related entries</h2>
+<ul><li>See also: <a href="../entries/FN-200030.html">FN</a></li></ul>
+
+<h2>Sources</h2>
+<ul><li><a href="https://www.dartmouth.edu/basicfifty/basicmanual_1964.pdf">BASIC Instruction Manual, May 1964 (First Draft)</a>, John G. Kemeny, Thomas E. Kurtz (1964), p. 13</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (1st edition)">
+<a class="prev" rel="prev" href="../entries/DATA-200015.html" title="Previous entry (←)">‹ <span>DATA</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_1.html#entries">Dartmouth BASIC (1st edition) · 2 / 42</a>
+<a class="next" rel="next" href="../entries/DIM-200018.html" title="Next entry (→)"><span>DIM</span> ›</a></nav>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (2nd edition)">
+<a class="prev" rel="prev" href="../entries/DATA-200045.html" title="Previous entry (←)">‹ <span>DATA</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_2.html#entries">Dartmouth BASIC (2nd edition) · 2 / 49</a>
+<a class="next" rel="next" href="../entries/DIM-200018.html" title="Next entry (→)"><span>DIM</span> ›</a></nav>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (3rd edition)">
+<a class="prev" rel="prev" href="../entries/DATA-200074.html" title="Previous entry (←)">‹ <span>DATA</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_3.html#entries">Dartmouth BASIC (3rd edition) · 2 / 57</a>
+<a class="next" rel="next" href="../entries/DIM-200018.html" title="Next entry (→)"><span>DIM</span> ›</a></nav>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth Card BASIC October 1964">
+<span class="prev off">‹</span>  <a class="where" href="../dialects/DARTMOUTH_CARD_BASIC.html#entries">Dartmouth Card BASIC October 1964 · 1 / 41</a>
+<a class="next" rel="next" href="../entries/DIM-200018.html" title="Next entry (→)"><span>DIM</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diagnostics · Casio FX-700P BASIC · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<p class="breadcrumbs"><a href="../index.html">Machines</a> › <a href="../dialects/CASIO_FX700P.html">Casio FX-700P BASIC</a> ›</p>
+<h1>Diagnostics <span class="category">Casio FX-700P BASIC</span></h1>
+<p class="subtitle">What is still incomplete or not proven in this dialect.</p>
+
+<table class="diag-summary">
+  <thead><tr><th>Section</th><th class="num">To do</th></tr></thead>
+  <tbody>
+  <tr class=""><td><a href="#open-questions">Open questions</a></td>
+      <td class="num">6</td></tr>
+  <tr class=""><td><a href="#examples">Examples</a></td>
+      <td class="num">80</td></tr>
+  <tr class=""><td><a href="#errors">Errors</a></td>
+      <td class="num">177</td></tr>
+  <tr class=""><td><a href="#syntax">Syntax</a></td>
+      <td class="num">47</td></tr>
+  <tr class=""><td><a href="#evidence">Evidence</a></td>
+      <td class="num">471</td></tr>
+  <tr class=""><td><a href="#features">Features</a></td>
+      <td class="num">13</td></tr>
+  <tr class=""><td><a href="#tables">Tables</a></td>
+      <td class="num">6</td></tr>
+  <tr class=""><td><a href="#gaps">Gaps</a></td>
+      <td class="num">38</td></tr>
+  </tbody>
+  <tfoot><tr><th>Total</th><th class="num">838</th></tr></tfoot>
+</table>
+
+<h2 id="open-questions">Open questions <small>6</small></h2>
+
+<div class="diag-item">
+  <div class="md"><p>Character codes $3A-$3F, $5A, $5B, $7A-$7F have a blank glyph: are they used? bas2fx70 maps @ to $65 (× in the image, @ is $64) and \ to $7A (blank): which is right?</p></div>
+  <p class="note">Casio FX-700P BASIC</p>
+</div>
+<div class="diag-item">
+  <div class="md"><p>Does each program area end with $E0 in memory, as in the SAVE A files?</p></div>
+  <p class="note">Casio FX-700P BASIC</p>
+</div>
+<div class="diag-item">
+  <div class="md"><p>RND: the manual rounds 56.088 to 10^-2 and shows 56.1; check what RND(x,y) really does.</p></div>
+  <p class="note">Casio FX-700P BASIC</p>
+</div>
+<div class="diag-item">
+  <div class="md"><p>Commands in a program (LIST, CLEAR, DEFM, VER, RUN, LOAD, SAVE): what does the real machine do? The PokecomGO2 simulator skips them (CLEAR works like VAC) and is no evidence.</p></div>
+  <p class="note">Casio FX-700P BASIC</p>
+</div>
+<div class="diag-item">
+  <div class="md"><p>FOR: body executed at least once? loop variable changeable inside? at most 4 nested loops (manual, source [7])? Error of NEXT without FOR and RETURN without GOSUB (7 in the manual, 2 in PokecomGO2)?</p></div>
+  <p class="note">Casio FX-700P BASIC</p>
+</div>
+<div class="diag-item">
+  <div class="md"><p>Order of the change of sign against the power (<code>-2↑2</code>: 4 in PokecomGO2, not tested on the real machine).</p></div>
+  <p class="note">Casio FX-700P BASIC</p>
+</div>
+
+<h2 id="examples">Examples <small>80</small></h2>
+<h3>Examples to verify <small>80</small></h3>
+
+<table>
+  <thead><tr><th>Entry</th><th>Example</th><th>Code</th></tr></thead>
+  <tbody>
+  <tr><td class="name"><a href="../entries/eq-100008.html">=</a></td>
+      <td>Increase a variable</td>
+      <td><code class="diag-code">10 I=0
+20 I=I+1
+30 PRINT I</code></td></tr>
+  <tr><td class="name"><a href="../entries/eq-100008.html">=</a></td>
+      <td>Join strings</td>
+      <td><code class="diag-code">10 A$=&#34;123&#34;:B$=&#34;456&#34;
+20 C$=A$+B$
+30 PRINT C$</code></td></tr>
+  <tr><td class="name"><a href="../entries/eq-100008.html">=</a></td>
+      <td>Character array</td>
+      <td><code class="diag-code">10 K$(0)=&#34;ADA&#34;:K$(1)=&#34;BOB&#34;
+20 PRINT K$(1);L$</code></td></tr>
+  <tr><td class="name"><a href="../entries/END-100018.html">END</a></td>
+      <td>End before the subroutines</td>
+      <td><code class="diag-code">10 GOSUB 100
+20 END
+100 PRINT 1
+110 RETURN</code></td></tr>
+  <tr><td class="name"><a href="../entries/FOR-TO-STEP-100015.html">FOR...TO...STEP</a></td>
+      <td>Sum of squares</td>
+      <td><code class="diag-code">10 B=0
+20 FOR I=1 TO 10
+30 B=B+I↑2
+40 NEXT I
+50 PRINT B</code></td></tr>
+  <tr><td class="name"><a href="../entries/FOR-TO-STEP-100015.html">FOR...TO...STEP</a></td>
+      <td>Count down</td>
+      <td><code class="diag-code">10 FOR I=10 TO 1 STEP -1
+20 PRINT I
+30 NEXT I</code></td></tr>
+  <tr><td class="name"><a href="../entries/FOR-TO-STEP-100015.html">FOR...TO...STEP</a></td>
+      <td>Body executed at least once</td>
+      <td><code class="diag-code">10 FOR I=5 TO 1
+20 PRINT I
+30 NEXT I
+40 PRINT &#34;FINE&#34;</code></td></tr>
+  <tr><td class="name"><a href="../entries/FOR-TO-STEP-100015.html">FOR...TO...STEP</a></td>
+      <td>Changing the loop variable</td>
+      <td><code class="diag-code">10 FOR I=1 TO 10
+20 I=I+4
+30 PRINT I
+40 NEXT I</code></td></tr>
+  <tr><td class="name"><a href="../entries/GET-100023.html">GET</a></td>
+      <td>Load variables</td>
+      <td><code class="diag-code">GET &#34;1-2&#34; A,Z</code></td></tr>
+  <tr><td class="name"><a href="../entries/GOSUB-100013.html">GOSUB</a></td>
+      <td>Call a subroutine <small>(Line)</small></td>
+      <td><code class="diag-code">10 A=2
+20 GOSUB 100
+30 PRINT A
+40 END
+100 A=A*A
+110 RETURN</code></td></tr>
+  <tr><td class="name"><a href="../entries/GOTO-100011.html">GOTO</a></td>
+      <td>Computed jump <small>(Line)</small></td>
+      <td><code class="diag-code">10 INPUT A
+20 GOTO A*100</code></td></tr>
+  <tr><td class="name"><a href="../entries/GOTO-100011.html">GOTO</a></td>
+      <td>Another program area <small>(Program area)</small></td>
+      <td><code class="diag-code">GOTO #5</code></td></tr>
+  <tr><td class="name"><a href="../entries/IF-100012.html">IF</a></td>
+      <td>Conditional jump <small>(Jump)</small></td>
+      <td><code class="diag-code">10 INPUT A
+20 IF A&gt;10 THEN 50
+30 PRINT &#34;SMALL&#34;
+40 END
+50 PRINT &#34;LARGE&#34;</code></td></tr>
+  <tr><td class="name"><a href="../entries/IF-100012.html">IF</a></td>
+      <td>Conditional statement <small>(Statement)</small></td>
+      <td><code class="diag-code">70 IF A&gt;B;B=A</code></td></tr>
+  <tr><td class="name"><a href="../entries/INPUT-100009.html">INPUT</a></td>
+      <td>Input with a message</td>
+      <td><code class="diag-code">10 INPUT &#34;A=&#34;,A
+20 PRINT A*2</code></td></tr>
+  <tr><td class="name"><a href="../entries/MODE-100020.html">MODE</a></td>
+      <td>Degrees <small>(Angle unit)</small></td>
+      <td><code class="diag-code">10 MODE 4
+20 PRINT SIN 30</code></td></tr>
+  <tr><td class="name"><a href="../entries/MODE-100020.html">MODE</a></td>
+      <td>Print a result <small>(Printer)</small></td>
+      <td><code class="diag-code">100 MODE 7
+110 PRINT A
+120 MODE 8</code></td></tr>
+  <tr><td class="name"><a href="../entries/NEXT-100016.html">NEXT</a></td>
+      <td>Steps of 2</td>
+      <td><code class="diag-code">10 FOR I=1 TO 10 STEP 2
+20 PRINT I;
+30 NEXT I</code></td></tr>
+  <tr><td class="name"><a href="../entries/PRINT-100010.html">PRINT</a></td>
+      <td>Text and number</td>
+      <td><code class="diag-code">10 N=15
+20 PRINT &#34;N=&#34;;N</code></td></tr>
+  <tr><td class="name"><a href="../entries/PRINT-100010.html">PRINT</a></td>
+      <td>Position on the display</td>
+      <td><code class="diag-code">10 X=3
+20 PRINT X;CSR 5;X↑2</code></td></tr>
+  <tr><td class="name"><a href="../entries/PUT-100022.html">PUT</a></td>
+      <td>Record variables</td>
+      <td><code class="diag-code">PUT &#34;1-2&#34; A,Z</code></td></tr>
+  <tr><td class="name"><a href="../entries/PUT-100022.html">PUT</a></td>
+      <td>Record $ and an array</td>
+      <td><code class="diag-code">PUT &#34;DT&#34; $,A,Z(10)</code></td></tr>
+  <tr><td class="name"><a href="../entries/RETURN-100014.html">RETURN</a></td>
+      <td>End of a subroutine</td>
+      <td><code class="diag-code">10 GOSUB 100
+20 PRINT &#34;BACK&#34;
+30 END
+100 PRINT &#34;SUB&#34;
+110 RETURN</code></td></tr>
+  <tr><td class="name"><a href="../entries/SET-100021.html">SET</a></td>
+      <td>Significant digits</td>
+      <td><code class="diag-code">SET E4
+100/6</code></td></tr>
+  <tr><td class="name"><a href="../entries/SET-100021.html">SET</a></td>
+      <td>Decimal places</td>
+      <td><code class="diag-code">SET F2
+123/7</code></td></tr>
+  <tr><td class="name"><a href="../entries/SET-100021.html">SET</a></td>
+      <td>Back to normal</td>
+      <td><code class="diag-code">SET N
+1/3</code></td></tr>
+  <tr><td class="name"><a href="../entries/STOP-100017.html">STOP</a></td>
+      <td>Pause</td>
+      <td><code class="diag-code">10 PRINT &#34;A&#34;
+20 STOP
+30 PRINT &#34;B&#34;</code></td></tr>
+  <tr><td class="name"><a href="../entries/VAC-100019.html">VAC</a></td>
+      <td>Clear the variables</td>
+      <td><code class="diag-code">10 A=5
+20 VAC
+30 PRINT A</code></td></tr>
+  <tr><td class="name"><a href="../entries/CLEAR-100003.html">CLEAR</a></td>
+      <td>Erase the current area <small>(Current area)</small></td>
+      <td><code class="diag-code">CLEAR</code></td></tr>
+  <tr><td class="name"><a href="../entries/CLEAR-100003.html">CLEAR</a></td>
+      <td>Erase all programs <small>(All areas)</small></td>
+      <td><code class="diag-code">CLEAR A</code></td></tr>
+  <tr><td class="name"><a href="../entries/DEFM-100004.html">DEFM</a></td>
+      <td>Expand the memories</td>
+      <td><code class="diag-code">DEFM 30</code></td></tr>
+  <tr><td class="name"><a href="../entries/DEFM-100004.html">DEFM</a></td>
+      <td>Show the memories</td>
+      <td><code class="diag-code">DEFM</code></td></tr>
+  <tr><td class="name"><a href="../entries/LIST-100002.html">LIST</a></td>
+      <td>List from a line <small>(Current area)</small></td>
+      <td><code class="diag-code">LIST 20</code></td></tr>
+  <tr><td class="name"><a href="../entries/LIST-100002.html">LIST</a></td>
+      <td>List everything <small>(All areas)</small></td>
+      <td><code class="diag-code">LIST A</code></td></tr>
+  <tr><td class="name"><a href="../entries/LOAD-100006.html">LOAD</a></td>
+      <td>Load a program <small>(Current area)</small></td>
+      <td><code class="diag-code">LOAD &#34;ABC&#34;</code></td></tr>
+  <tr><td class="name"><a href="../entries/LOAD-100006.html">LOAD</a></td>
+      <td>Load all programs <small>(All areas)</small></td>
+      <td><code class="diag-code">LOAD A &#34;FX-700P&#34;</code></td></tr>
+  <tr><td class="name"><a href="../entries/RUN-100001.html">RUN</a></td>
+      <td>Run from a line</td>
+      <td><code class="diag-code">RUN 30</code></td></tr>
+  <tr><td class="name"><a href="../entries/SAVE-100005.html">SAVE</a></td>
+      <td>Record a program <small>(Current area)</small></td>
+      <td><code class="diag-code">SAVE &#34;ABC&#34;</code></td></tr>
+  <tr><td class="name"><a href="../entries/SAVE-100005.html">SAVE</a></td>
+      <td>Record all programs <small>(All areas)</small></td>
+      <td><code class="diag-code">SAVE A &#34;FX-700P&#34;</code></td></tr>
+  <tr><td class="name"><a href="../entries/VER-100007.html">VER</a></td>
+      <td>Check a recording</td>
+      <td><code class="diag-code">VER &#34;ABC&#34;</code></td></tr>
+  <tr><td class="name"><a href="../entries/ABS-100041.html">ABS</a></td>
+      <td>Absolute value</td>
+      <td><code class="diag-code">ABS (-78.9/5.6)</code></td></tr>
+  <tr><td class="name"><a href="../entries/ACS-100033.html">ACS</a></td>
+      <td>Arc cosine</td>
+      <td><code class="diag-code">MODE 4
+ACS 0.5</code></td></tr>
+  <tr><td class="name"><a href="../entries/ASN-100032.html">ASN</a></td>
+      <td>Arc sine</td>
+      <td><code class="diag-code">MODE 4
+ASN 0.5</code></td></tr>
+  <tr><td class="name"><a href="../entries/ATN-100034.html">ATN</a></td>
+      <td>Arc tangent</td>
+      <td><code class="diag-code">MODE 4
+ATN 1</code></td></tr>
+  <tr><td class="name"><a href="../entries/COS-100030.html">COS</a></td>
+      <td>Cosine in degrees</td>
+      <td><code class="diag-code">MODE 4
+COS 60</code></td></tr>
+  <tr><td class="name"><a href="../entries/CSR-100025.html">CSR</a></td>
+      <td>Position</td>
+      <td><code class="diag-code">PRINT CSR 5;&#34;A&#34;</code></td></tr>
+  <tr><td class="name"><a href="../entries/EXP-100036.html">EXP</a></td>
+      <td>Power of e</td>
+      <td><code class="diag-code">10 E=EXP 1
+20 INPUT A,B
+30 C=(A+E↑1.5)/B
+40 PRINT C</code></td></tr>
+  <tr><td class="name"><a href="../entries/FRAC-100040.html">FRAC</a></td>
+      <td>Fractional part</td>
+      <td><code class="diag-code">FRAC (7800/96)</code></td></tr>
+  <tr><td class="name"><a href="../entries/INT-100039.html">INT</a></td>
+      <td>Integer part</td>
+      <td><code class="diag-code">INT (7800/96)</code></td></tr>
+  <tr><td class="name"><a href="../entries/KEY-100024.html">KEY</a></td>
+      <td>Wait for a key</td>
+      <td><code class="diag-code">10 A$=KEY:IF A$=&#34;&#34; THEN 10
+20 PRINT A$</code></td></tr>
+  <tr><td class="name"><a href="../entries/LEN-100026.html">LEN</a></td>
+      <td>Length</td>
+      <td><code class="diag-code">10 C$=&#34;ABCDE&#34;
+20 D=LEN(C$)
+30 PRINT D</code></td></tr>
+  <tr><td class="name"><a href="../entries/LN-100037.html">LN</a></td>
+      <td>Natural logarithm</td>
+      <td><code class="diag-code">LN 90</code></td></tr>
+  <tr><td class="name"><a href="../entries/LOG-100038.html">LOG</a></td>
+      <td>Gain in dB</td>
+      <td><code class="diag-code">10 INPUT X,Y
+20 Z=20*LOG (Y/X)
+30 PRINT Z</code></td></tr>
+  <tr><td class="name"><a href="../entries/MID-100027.html">MID</a></td>
+      <td>Part of $</td>
+      <td><code class="diag-code">10 $=&#34;ABCDEFGHIJ&#34;
+20 PRINT MID(3,4)</code></td></tr>
+  <tr><td class="name"><a href="../entries/MID-100027.html">MID</a></td>
+      <td>To the end</td>
+      <td><code class="diag-code">10 $=&#34;ABCDEFGHIJ&#34;
+20 PRINT MID(5)</code></td></tr>
+  <tr><td class="name"><a href="../entries/RAN-100044.html">RAN#</a></td>
+      <td>Three-digit random number</td>
+      <td><code class="diag-code">10 N=RND(RAN#,-4)*1000
+20 PRINT N
+30 END</code></td></tr>
+  <tr><td class="name"><a href="../entries/RND-100043.html">RND</a></td>
+      <td>Round</td>
+      <td><code class="diag-code">RND (12.3*4.56,-2)</code></td></tr>
+  <tr><td class="name"><a href="../entries/SGN-100042.html">SGN</a></td>
+      <td>Sign</td>
+      <td><code class="diag-code">SGN -2</code></td></tr>
+  <tr><td class="name"><a href="../entries/SIN-100029.html">SIN</a></td>
+      <td>Sine in degrees</td>
+      <td><code class="diag-code">MODE 4
+SIN 30</code></td></tr>
+  <tr><td class="name"><a href="../entries/SIN-100029.html">SIN</a></td>
+      <td>Function before power</td>
+      <td><code class="diag-code">MODE 4
+PRINT SIN 30↑2</code></td></tr>
+  <tr><td class="name"><a href="../entries/SQR-100035.html">SQR</a></td>
+      <td>Sum of roots</td>
+      <td><code class="diag-code">SQR 2+SQR 5</code></td></tr>
+  <tr><td class="name"><a href="../entries/TAN-100031.html">TAN</a></td>
+      <td>Tangent in degrees</td>
+      <td><code class="diag-code">MODE 4
+TAN 45</code></td></tr>
+  <tr><td class="name"><a href="../entries/VAL-100028.html">VAL</a></td>
+      <td>Number from a string</td>
+      <td><code class="diag-code">10 Z$=&#34;78963&#34;
+20 PRINT VAL(Z$)</code></td></tr>
+  <tr><td class="name"><a href="../entries/x-100045.html">π</a></td>
+      <td>Area of a circle</td>
+      <td><code class="diag-code">10 INPUT R
+20 S=π*R↑2
+30 PRINT S</code></td></tr>
+  <tr><td class="name"><a href="../entries/lparen-rparen-100051.html">( )</a></td>
+      <td>Order of calculation</td>
+      <td><code class="diag-code">MODE 4
+2+3*SIN(17+13)↑2</code></td></tr>
+  <tr><td class="name"><a href="../entries/star-100048.html">*</a></td>
+      <td>Multiplication</td>
+      <td><code class="diag-code">838*2</code></td></tr>
+  <tr><td class="name"><a href="../entries/plus-100050.html">+</a></td>
+      <td>Addition <small>(Addition)</small></td>
+      <td><code class="diag-code">741+852</code></td></tr>
+  <tr><td class="name"><a href="../entries/minus-100047.html">-</a></td>
+      <td>Subtraction <small>(Subtraction)</small></td>
+      <td><code class="diag-code">2431-1593</code></td></tr>
+  <tr><td class="name"><a href="../entries/minus-100047.html">-</a></td>
+      <td>Change of sign and power <small>(Change of sign)</small></td>
+      <td><code class="diag-code">-2↑2</code></td></tr>
+  <tr><td class="name"><a href="../entries/minus-100047.html">-</a></td>
+      <td>Minus after minus <small>(Subtraction)</small></td>
+      <td><code class="diag-code">3--2</code></td></tr>
+  <tr><td class="name"><a href="../entries/minus-100047.html">-</a></td>
+      <td>Minus after times <small>(Change of sign)</small></td>
+      <td><code class="diag-code">-2*-3</code></td></tr>
+  <tr><td class="name"><a href="../entries/slash-100049.html">/</a></td>
+      <td>Division</td>
+      <td><code class="diag-code">1E5/7</code></td></tr>
+  <tr><td class="name"><a href="../entries/lt-100056.html">&lt;</a></td>
+      <td>Less <small>(Between numbers)</small></td>
+      <td><code class="diag-code">10 A=3
+20 IF A&lt;10 THEN 40
+30 END
+40 PRINT &#34;YES&#34;</code></td></tr>
+  <tr><td class="name"><a href="../entries/eq-100052.html">=</a></td>
+      <td>Equal strings <small>(Between strings)</small></td>
+      <td><code class="diag-code">10 A$=&#34;XYZ&#34;
+20 IF A$=&#34;XYZ&#34; THEN 40
+30 END
+40 PRINT &#34;SAME&#34;</code></td></tr>
+  <tr><td class="name"><a href="../entries/gt-100054.html">&gt;</a></td>
+      <td>Greater <small>(Between numbers)</small></td>
+      <td><code class="diag-code">10 A=12
+20 IF A&gt;10 THEN 40
+30 END
+40 PRINT &#34;YES&#34;</code></td></tr>
+  <tr><td class="name"><a href="../entries/x-100046.html">↑</a></td>
+      <td>Power</td>
+      <td><code class="diag-code">2↑10</code></td></tr>
+  <tr><td class="name"><a href="../entries/x-100046.html">↑</a></td>
+      <td>Negative exponent</td>
+      <td><code class="diag-code">2↑-2</code></td></tr>
+  <tr><td class="name"><a href="../entries/x-100053.html">≠</a></td>
+      <td>Different strings <small>(Between strings)</small></td>
+      <td><code class="diag-code">10 P$=&#34;A&#34;:Q$=&#34;B&#34;
+20 IF P$≠Q$ THEN 40
+30 END
+40 PRINT &#34;DIFF&#34;</code></td></tr>
+  <tr><td class="name"><a href="../entries/x-100057.html">≤</a></td>
+      <td>Less or equal <small>(Between numbers)</small></td>
+      <td><code class="diag-code">10 A=10
+20 IF A≤10 THEN 40
+30 END
+40 PRINT &#34;YES&#34;</code></td></tr>
+  <tr><td class="name"><a href="../entries/x-100055.html">≥</a></td>
+      <td>Greater or equal <small>(Between numbers)</small></td>
+      <td><code class="diag-code">10 X=5:Y=5
+20 IF X≥Y THEN 40
+30 END
+40 PRINT &#34;YES&#34;</code></td></tr>
+  </tbody>
+</table>
+<h3>Entries without examples <small>0</small></h3>
+<p class="nothing">Nothing left</p>
+
+<h2 id="errors">Errors <small>177</small></h2>
+<h3>Errors of the entries to verify <small>177</small></h3>
+
+<table>
+  <thead><tr><th>Entry</th><th>Error</th><th>Rule</th><th>Detail</th><th>Cause</th></tr></thead>
+  <tbody>
+    <tr><td class="name" rowspan="8"><a href="../entries/eq-100008.html">=</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">2 <code>ERR2</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>The two sides have different types (number and string).</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">expression</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>ARRAY_ELEMENT · <code class="par">variable</code></small></td>
+        <td>The element is beyond the memories in use (expand them with DEFM).</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_VAR · <code class="par">variable</code></small></td>
+        <td>The letter is in use as a character variable.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_ARRAY_ELEMENT · <code class="par">variable</code></small></td>
+        <td>The element is beyond the memories in use (expand them with DEFM), or its memory holds a number.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_VAR · <code class="par">variable</code></small></td>
+        <td>The letter is in use as a numeric variable.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">expression</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">expression</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="8"><a href="../entries/FOR-TO-STEP-100015.html">FOR...TO...STEP</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">7 <code>ERR7</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>More than 4 nested FOR loops (manual; the FOR stack of source [7] has 4 places). The PokecomGO2 simulator has no limit.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">e1</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">e2</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">e3</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_VAR · <code class="par">v</code></small></td>
+        <td>The letter is in use as a character variable.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">e1</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">e2</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">e3</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="1"><a href="../entries/GET-100023.html">GET</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">9 <code>ERR9</code></a></td>
+        <td><small>action</small></td>
+        <td><small>TAPE_LOAD_DATA</small></td>
+        <td>No tape recorder connected.</td></tr>
+    <tr><td class="name" rowspan="6"><a href="../entries/GOSUB-100013.html">GOSUB</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">7 <code>ERR7</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>More than 8 subroutine levels.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">4 <code>ERR4</code></a></td>
+        <td><small>parameter</small></td>
+        <td><small>n · <code class="par">n</code> (Line)</small></td>
+        <td></td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code> (Line)</small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">p</code> (Program area)</small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code> (Line)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">p</code> (Program area)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="6"><a href="../entries/GOTO-100011.html">GOTO</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">5 <code>ERR5</code></a></td>
+        <td><small>manual</small></td>
+        <td><small> (Program area)</small></td>
+        <td>Program area outside 0-9 (inferred).</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">4 <code>ERR4</code></a></td>
+        <td><small>parameter</small></td>
+        <td><small>n · <code class="par">n</code> (Line)</small></td>
+        <td></td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code> (Line)</small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">p</code> (Program area)</small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code> (Line)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">p</code> (Program area)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="9"><a href="../entries/IF-100012.html">IF</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">4 <code>ERR4</code></a></td>
+        <td><small>parameter</small></td>
+        <td><small>n · <code class="par">n</code> (Jump)</small></td>
+        <td></td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>CONDITION · <code class="par">comparison</code> (Jump)</small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code> (Jump)</small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">p</code> (Jump)</small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>CONDITION · <code class="par">comparison</code> (Statement)</small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>CONDITION · <code class="par">comparison</code> (Jump)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code> (Jump)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">p</code> (Jump)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>CONDITION · <code class="par">comparison</code> (Statement)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="5"><a href="../entries/INPUT-100009.html">INPUT</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">2 <code>ERR2</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>Characters typed for a numeric variable (inferred: the manual only says that an error occurs; AC returns to the question mark).</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>ARRAY_ELEMENT · <code class="par">variable</code></small></td>
+        <td>The element is beyond the memories in use (expand them with DEFM).</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_VAR · <code class="par">variable</code></small></td>
+        <td>The letter is in use as a character variable.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_ARRAY_ELEMENT · <code class="par">variable</code></small></td>
+        <td>The element is beyond the memories in use (expand them with DEFM), or its memory holds a number.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_VAR · <code class="par">variable</code></small></td>
+        <td>The letter is in use as a numeric variable.</td></tr>
+    <tr><td class="name" rowspan="1"><a href="../entries/MODE-100020.html">MODE</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">9 <code>ERR9</code></a></td>
+        <td><small>action</small></td>
+        <td><small>IO_PRINTER (Printer)</small></td>
+        <td>No printer connected.</td></tr>
+    <tr><td class="name" rowspan="2"><a href="../entries/NEXT-100016.html">NEXT</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">7 <code>ERR7</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>NEXT outside a FOR loop (manual; the PokecomGO2 simulator gives error 2).</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_VAR · <code class="par">v</code></small></td>
+        <td>The letter is in use as a character variable.</td></tr>
+    <tr><td class="name" rowspan="5"><a href="../entries/PRINT-100010.html">PRINT</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">item</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">item</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">item</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="1"><a href="../entries/PUT-100022.html">PUT</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">9 <code>ERR9</code></a></td>
+        <td><small>action</small></td>
+        <td><small>TAPE_SAVE_DATA</small></td>
+        <td>No tape recorder connected.</td></tr>
+    <tr><td class="name" rowspan="1"><a href="../entries/RETURN-100014.html">RETURN</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">7 <code>ERR7</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>RETURN without GOSUB (manual; the PokecomGO2 simulator gives error 2).</td></tr>
+    <tr><td class="name" rowspan="1"><a href="../entries/SET-100021.html">SET</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">5 <code>ERR5</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>n outside 0-9 (inferred).</td></tr>
+    <tr><td class="name" rowspan="1"><a href="../entries/DEFM-100004.html">DEFM</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">1 <code>ERR1</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>Not enough free program steps for the memories asked for.</td></tr>
+    <tr><td class="name" rowspan="2"><a href="../entries/LOAD-100006.html">LOAD</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">9 <code>ERR9</code></a></td>
+        <td><small>action</small></td>
+        <td><small>TAPE_LOAD (Current area)</small></td>
+        <td>No tape recorder connected.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">9 <code>ERR9</code></a></td>
+        <td><small>action</small></td>
+        <td><small>TAPE_LOAD (All areas)</small></td>
+        <td>No tape recorder connected.</td></tr>
+    <tr><td class="name" rowspan="2"><a href="../entries/SAVE-100005.html">SAVE</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">9 <code>ERR9</code></a></td>
+        <td><small>action</small></td>
+        <td><small>TAPE_SAVE (Current area)</small></td>
+        <td>No tape recorder connected.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">9 <code>ERR9</code></a></td>
+        <td><small>action</small></td>
+        <td><small>TAPE_SAVE (All areas)</small></td>
+        <td>No tape recorder connected.</td></tr>
+    <tr><td class="name" rowspan="1"><a href="../entries/VER-100007.html">VER</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">9 <code>ERR9</code></a></td>
+        <td><small>action</small></td>
+        <td><small>TAPE_VERIFY</small></td>
+        <td>No tape recorder connected.</td></tr>
+    <tr><td class="name" rowspan="2"><a href="../entries/ABS-100041.html">ABS</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="3"><a href="../entries/ACS-100033.html">ACS</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter</small></td>
+        <td><small>x · <code class="par">x</code></small></td>
+        <td></td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="3"><a href="../entries/ASN-100032.html">ASN</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter</small></td>
+        <td><small>x · <code class="par">x</code></small></td>
+        <td></td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="2"><a href="../entries/ATN-100034.html">ATN</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="3"><a href="../entries/COS-100030.html">COS</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter</small></td>
+        <td><small>x · <code class="par">x</code></small></td>
+        <td></td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="3"><a href="../entries/CSR-100025.html">CSR</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">5 <code>ERR5</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>Position outside 0-11 (inferred).</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="2"><a href="../entries/FRAC-100040.html">FRAC</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="2"><a href="../entries/INT-100039.html">INT</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="1"><a href="../entries/LEN-100026.html">LEN</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_VAR · <code class="par">v</code></small></td>
+        <td>The letter is in use as a numeric variable.</td></tr>
+    <tr><td class="name" rowspan="3"><a href="../entries/LN-100037.html">LN</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter</small></td>
+        <td><small>x · <code class="par">x</code></small></td>
+        <td></td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="3"><a href="../entries/LOG-100038.html">LOG</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter</small></td>
+        <td><small>x · <code class="par">x</code></small></td>
+        <td></td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="5"><a href="../entries/MID-100027.html">MID</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">5 <code>ERR5</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>m or n outside 1-30, or m+n greater than the number of characters plus 1 (inferred).</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">m</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">m</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="4"><a href="../entries/RND-100043.html">RND</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">y</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">y</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="2"><a href="../entries/SGN-100042.html">SGN</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="3"><a href="../entries/SIN-100029.html">SIN</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter</small></td>
+        <td><small>x · <code class="par">x</code></small></td>
+        <td></td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="3"><a href="../entries/SQR-100035.html">SQR</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter</small></td>
+        <td><small>x · <code class="par">x</code></small></td>
+        <td></td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="3"><a href="../entries/TAN-100031.html">TAN</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter</small></td>
+        <td><small>x · <code class="par">x</code></small></td>
+        <td></td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="2"><a href="../entries/VAL-100028.html">VAL</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">2 <code>ERR2</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>The string holds no number (e.g. "ABC"); in a program the message is <code>ERR 2</code> without program area and line.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_VAR · <code class="par">v</code></small></td>
+        <td>The letter is in use as a numeric variable.</td></tr>
+    <tr><td class="name" rowspan="2"><a href="../entries/lparen-rparen-100051.html">( )</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">e</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">e</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="5"><a href="../entries/star-100048.html">*</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>operator_class</small></td>
+        <td><small>ARITHMETIC</small></td>
+        <td>The result is 1E100 or more, or it is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="7"><a href="../entries/plus-100050.html">+</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>operator_class</small></td>
+        <td><small>ARITHMETIC (Addition)</small></td>
+        <td>The result is 1E100 or more, or it is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Addition)</small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Addition)</small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Addition)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Addition)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">a</code> (Joining)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">b</code> (Joining)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="8"><a href="../entries/minus-100047.html">-</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>operator_class</small></td>
+        <td><small>ARITHMETIC (Change of sign)</small></td>
+        <td>The result is 1E100 or more, or it is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Change of sign)</small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>operator_class</small></td>
+        <td><small>ARITHMETIC (Subtraction)</small></td>
+        <td>The result is 1E100 or more, or it is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Subtraction)</small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Subtraction)</small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Change of sign)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Subtraction)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Subtraction)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="5"><a href="../entries/slash-100049.html">/</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>operator_class</small></td>
+        <td><small>ARITHMETIC</small></td>
+        <td>The result is 1E100 or more, or it is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="6"><a href="../entries/lt-100056.html">&lt;</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">a</code> (Between strings)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">b</code> (Between strings)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="6"><a href="../entries/eq-100052.html">=</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">a</code> (Between strings)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">b</code> (Between strings)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="6"><a href="../entries/gt-100054.html">&gt;</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">a</code> (Between strings)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">b</code> (Between strings)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="5"><a href="../entries/x-100046.html">↑</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>operator_class</small></td>
+        <td><small>ARITHMETIC</small></td>
+        <td>The result is 1E100 or more, or it is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="6"><a href="../entries/x-100053.html">≠</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">a</code> (Between strings)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">b</code> (Between strings)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="6"><a href="../entries/x-100057.html">≤</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">a</code> (Between strings)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">b</code> (Between strings)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr><td class="name" rowspan="6"><a href="../entries/x-100055.html">≥</a></td>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">3 <code>ERR3</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
+        <td>A calculation in the expression goes out of range, or its result is indefinite or impossible.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">a</code> (Between strings)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/CASIO_FX700P.html#errors">6 <code>ERR6</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">b</code> (Between strings)</small></td>
+        <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter.</td></tr>
+  </tbody>
+</table>
+<h3>Errors of the dialect that no entry uses <small>0</small></h3>
+<p class="nothing">Nothing left</p>
+
+<h2 id="syntax">Syntax <small>47</small></h2>
+<h3>Manual syntax different from the rebuilt one <small>23</small></h3>
+
+<table>
+  <thead><tr><th>Entry</th><th>Rebuilt</th><th>Manual</th></tr></thead>
+  <tbody>
+  <tr><td class="name"><a href="../entries/eq-100008.html">=</a></td>
+      <td><code class="syntax"><span class="par">variable</span> <span class="kw">=</span> <span class="par">expression</span></code></td><td><code>Variable = Numeric Expression</code></td></tr>
+  <tr><td class="name"><a href="../entries/GET-100023.html">GET</a></td>
+      <td><code class="syntax"><span class="kw">GET</span> <span class="meta">[</span><span class="par">filename</span><span class="meta">]</span> <span class="par">first</span> <span class="meta">[</span><span class="lit">,</span> <span class="par">last</span><span class="meta">]</span></code></td><td><code>GET [&#34;filename&#34;] variable</code></td></tr>
+  <tr><td class="name"><a href="../entries/GOSUB-100013.html">GOSUB</a> <small>(Line)</small></td>
+      <td><code class="syntax"><span class="kw">GOSUB</span> <span class="par">n</span></code></td><td><code>GOSUB {line number | variable}</code></td></tr>
+  <tr><td class="name"><a href="../entries/GOTO-100011.html">GOTO</a> <small>(Line)</small></td>
+      <td><code class="syntax"><span class="kw">GOTO</span> <span class="par">n</span></code></td><td><code>GOTO {line number | variable}</code></td></tr>
+  <tr><td class="name"><a href="../entries/IF-100012.html">IF</a> <small>(Jump)</small></td>
+      <td><code class="syntax"><span class="kw">IF</span> <span class="par">comparison</span> <span class="kw">THEN</span> <span class="meta">&lt;</span><span class="par">n</span> <span class="meta">|</span> <span class="lit">#</span><span class="par">p</span><span class="meta">&gt;</span></code></td><td><code>IF comparison THEN line number</code></td></tr>
+  <tr><td class="name"><a href="../entries/IF-100012.html">IF</a> <small>(Statement)</small></td>
+      <td><code class="syntax"><span class="kw">IF</span> <span class="par">comparison</span><span class="lit">;</span> <span class="par">statement</span></code></td><td><code>IF comparison ; command</code></td></tr>
+  <tr><td class="name"><a href="../entries/INPUT-100009.html">INPUT</a></td>
+      <td><code class="syntax"><span class="kw">INPUT</span> <span class="meta">[</span><span class="par">message</span><span class="lit">,</span><span class="meta">]</span> <span class="par">variable</span><span class="meta">[</span>,<span class="meta">[</span><span class="par">message</span><span class="lit">,</span><span class="meta">]</span> <span class="par">variable</span><span class="meta">]</span><span class="meta">...</span></code></td><td><code>INPUT variable string</code></td></tr>
+  <tr><td class="name"><a href="../entries/MODE-100020.html">MODE</a> <small>(Angle unit)</small></td>
+      <td><code class="syntax"><span class="kw">MODE</span> <span class="par">n</span></code></td><td><code>MODE {4|5|6}</code></td></tr>
+  <tr><td class="name"><a href="../entries/PRINT-100010.html">PRINT</a></td>
+      <td><code class="syntax"><span class="kw">PRINT</span> <span class="meta">&lt;</span><span class="kw">CSR</span> <span class="par">n</span> <span class="meta">|</span> <span class="par">item</span><span class="meta">&gt;</span> <span class="meta">[</span><span class="meta">&lt;</span><span class="lit">;</span> <span class="meta">|</span> <span class="lit">,</span><span class="meta">&gt;</span> <span class="meta">&lt;</span><span class="kw">CSR</span> <span class="par">n</span> <span class="meta">|</span> <span class="par">item</span><span class="meta">&gt;</span><span class="meta">]</span><span class="meta">...</span> <span class="meta">[</span><span class="lit">;</span> <span class="meta">|</span> <span class="lit">,</span><span class="meta">]</span></code></td><td><code>PRINT output control function {;|,} output element [{;|,} ...]</code></td></tr>
+  <tr><td class="name"><a href="../entries/PUT-100022.html">PUT</a></td>
+      <td><code class="syntax"><span class="kw">PUT</span> <span class="meta">[</span><span class="par">filename</span><span class="meta">]</span> <span class="par">first</span> <span class="meta">[</span><span class="lit">,</span> <span class="par">last</span><span class="meta">]</span></code></td><td><code>PUT [&#34;filename&#34;] variable</code></td></tr>
+  <tr><td class="name"><a href="../entries/SET-100021.html">SET</a></td>
+      <td><code class="syntax"><span class="kw">SET</span> <span class="meta">&lt;</span><span class="lit">E</span><span class="par">n</span> <span class="meta">|</span> <span class="lit">F</span><span class="par">n</span> <span class="meta">|</span> <span class="lit">N</span><span class="meta">&gt;</span></code></td><td><code>SET {En|Fn|N}</code></td></tr>
+  <tr><td class="name"><a href="../entries/LIST-100002.html">LIST</a> <small>(Current area)</small></td>
+      <td><code class="syntax"><span class="kw">LIST</span> <span class="meta">[</span><span class="par">n</span><span class="meta">]</span></code></td><td><code>LIST [line number]</code></td></tr>
+  <tr><td class="name"><a href="../entries/LOAD-100006.html">LOAD</a> <small>(Current area)</small></td>
+      <td><code class="syntax"><span class="kw">LOAD</span> <span class="meta">[</span><span class="par">filename</span><span class="meta">]</span></code></td><td><code>LOAD [&#34;filename&#34;]</code></td></tr>
+  <tr><td class="name"><a href="../entries/LOAD-100006.html">LOAD</a> <small>(All areas)</small></td>
+      <td><code class="syntax"><span class="kw">LOAD</span> <span class="lit">A</span> <span class="meta">[</span><span class="par">filename</span><span class="meta">]</span></code></td><td><code>LOAD A [&#34;filename&#34;]</code></td></tr>
+  <tr><td class="name"><a href="../entries/RUN-100001.html">RUN</a></td>
+      <td><code class="syntax"><span class="kw">RUN</span> <span class="meta">[</span><span class="par">n</span><span class="meta">]</span></code></td><td><code>RUN [line number]</code></td></tr>
+  <tr><td class="name"><a href="../entries/SAVE-100005.html">SAVE</a> <small>(Current area)</small></td>
+      <td><code class="syntax"><span class="kw">SAVE</span> <span class="meta">[</span><span class="par">filename</span><span class="meta">]</span></code></td><td><code>SAVE [&#34;filename&#34;]</code></td></tr>
+  <tr><td class="name"><a href="../entries/SAVE-100005.html">SAVE</a> <small>(All areas)</small></td>
+      <td><code class="syntax"><span class="kw">SAVE</span> <span class="lit">A</span> <span class="meta">[</span><span class="par">filename</span><span class="meta">]</span></code></td><td><code>SAVE A [&#34;filename&#34;]</code></td></tr>
+  <tr><td class="name"><a href="../entries/VER-100007.html">VER</a></td>
+      <td><code class="syntax"><span class="kw">VER</span> <span class="meta">[</span><span class="par">filename</span><span class="meta">]</span></code></td><td><code>VER [&#34;filename&#34;]</code></td></tr>
+  <tr><td class="name"><a href="../entries/CSR-100025.html">CSR</a></td>
+      <td><code class="syntax"><span class="kw">CSR</span> <span class="par">n</span></code></td><td><code>CSR n {;|,}</code></td></tr>
+  <tr><td class="name"><a href="../entries/KEY-100024.html">KEY</a></td>
+      <td><code class="syntax"><span class="kw">KEY</span></code></td><td><code>Character variable = KEY</code></td></tr>
+  <tr><td class="name"><a href="../entries/LEN-100026.html">LEN</a></td>
+      <td><code class="syntax"><span class="kw">LEN(</span><span class="par">v</span><span class="lit">)</span></code></td><td><code>LEN (character variable)</code></td></tr>
+  <tr><td class="name"><a href="../entries/VAL-100028.html">VAL</a></td>
+      <td><code class="syntax"><span class="kw">VAL(</span><span class="par">v</span><span class="lit">)</span></code></td><td><code>VAL (character variable)</code></td></tr>
+  <tr><td class="name"><a href="../entries/x-100046.html">↑</a></td>
+      <td><code class="syntax"><span class="par">a</span> <span class="kw">↑</span> <span class="par">b</span></code></td><td><code>x↑y</code></td></tr>
+  </tbody>
+</table>
+<h3>Forms without the manual's syntax <small>24</small></h3>
+
+<table>
+  <thead><tr><th>Entry</th><th>Rebuilt</th></tr></thead>
+  <tbody>
+  <tr><td class="name"><a href="../entries/GOSUB-100013.html">GOSUB</a> <small>(Program area)</small></td><td><code class="syntax"><span class="kw">GOSUB</span> <span class="lit">#</span><span class="par">p</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/GOTO-100011.html">GOTO</a> <small>(Program area)</small></td><td><code class="syntax"><span class="kw">GOTO</span> <span class="lit">#</span><span class="par">p</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/MODE-100020.html">MODE</a> <small>(Printer)</small></td><td><code class="syntax"><span class="kw">MODE</span> <span class="par">n</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/DEFM-100004.html">DEFM</a></td><td><code class="syntax"><span class="kw">DEFM</span> <span class="meta">[</span><span class="par">n</span><span class="meta">]</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/x-100045.html">π</a></td><td><code class="syntax"><span class="kw">π</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/lparen-rparen-100051.html">( )</a></td><td><code class="syntax"><span class="lit">(</span><span class="par">e</span><span class="lit">)</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/star-100048.html">*</a></td><td><code class="syntax"><span class="par">a</span> <span class="kw">*</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/plus-100050.html">+</a> <small>(Addition)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">+</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/plus-100050.html">+</a> <small>(Joining)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">+</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/minus-100047.html">-</a> <small>(Change of sign)</small></td><td><code class="syntax"><span class="kw">-</span><span class="par">a</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/minus-100047.html">-</a> <small>(Subtraction)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">-</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/slash-100049.html">/</a></td><td><code class="syntax"><span class="par">a</span> <span class="kw">/</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/lt-100056.html">&lt;</a> <small>(Between numbers)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">&lt;</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/lt-100056.html">&lt;</a> <small>(Between strings)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">&lt;</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/eq-100052.html">=</a> <small>(Between numbers)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">=</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/eq-100052.html">=</a> <small>(Between strings)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">=</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/gt-100054.html">&gt;</a> <small>(Between numbers)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">&gt;</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/gt-100054.html">&gt;</a> <small>(Between strings)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">&gt;</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/x-100053.html">≠</a> <small>(Between numbers)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">≠</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/x-100053.html">≠</a> <small>(Between strings)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">≠</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/x-100057.html">≤</a> <small>(Between numbers)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">≤</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/x-100057.html">≤</a> <small>(Between strings)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">≤</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/x-100055.html">≥</a> <small>(Between numbers)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">≥</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/x-100055.html">≥</a> <small>(Between strings)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">≥</span> <span class="par">b</span></code></td></tr>
+  </tbody>
+</table>
+
+<h2 id="evidence">Evidence <small>471</small></h2>
+<p class="note"><span class="ev ev-inferred">INFERRED</span> deduced, neither stated nor tested · <span class="ev ev-manual">MANUAL</span> stated by a source, not tested · <span class="ev ev-null">NULL</span> not assessed · <span class="ev ev-tested">TESTED</span> checked on the machine or an emulator.</p>
+
+<table class="diag-evidence">
+  <thead><tr><th>Table</th><th class="num"><span class="ev ev-manual">MANUAL</span></th><th class="num"><span class="ev ev-inferred">INFERRED</span></th><th class="num"><span class="ev ev-null">NULL</span></th><th class="num"><span class="ev ev-tested">TESTED</span></th><th class="num">Rows</th></tr></thead>
+  <tbody>
+  <tr><td><a href="#ev-parameter">Parameters</a></td>
+<td class="num">59</td><td class="num"></td><td class="num">36</td><td class="num"></td>      <td class="num">95</td></tr>
+  <tr><td><a href="#ev-parameter_limit">Parameter limits</a></td>
+<td class="num">20</td><td class="num"></td><td class="num"></td><td class="num"></td>      <td class="num">20</td></tr>
+  <tr><td><a href="#ev-allowed_value">Allowed values</a></td>
+<td class="num">5</td><td class="num"></td><td class="num"></td><td class="num"></td>      <td class="num">5</td></tr>
+  <tr><td><a href="#ev-syntax_form">Syntax forms (returned range and description)</a></td>
+<td class="num">7</td><td class="num"></td><td class="num">66</td><td class="num"></td>      <td class="num">73</td></tr>
+  <tr><td><a href="#ev-character_code">Character codes</a></td>
+<td class="num">162</td><td class="num hot">94</td><td class="num"></td><td class="num"></td>      <td class="num">256</td></tr>
+  <tr><td><a href="#ev-variable_layout_field">Variables in memory</a></td>
+<td class="num">17</td><td class="num"></td><td class="num"></td><td class="num"></td>      <td class="num">17</td></tr>
+  <tr><td><a href="#ev-program_layout_field">Program in memory</a></td>
+<td class="num">3</td><td class="num"></td><td class="num"></td><td class="num"></td>      <td class="num">3</td></tr>
+  <tr><td><a href="#ev-memory_area">Memory areas (before and after)</a></td>
+<td class="num"></td><td class="num hot">2</td><td class="num"></td><td class="num"></td>      <td class="num">2</td></tr>
+  </tbody>
+</table>
+<h3 id="ev-parameter">Parameters <small>95 not tested</small></h3>
+
+<ul class="diag-ev-list">
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/eq-100008.html">= · variable</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/eq-100008.html">= · expression</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/FOR-TO-STEP-100015.html">FOR...TO...STEP · v</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/FOR-TO-STEP-100015.html">FOR...TO...STEP · e1</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/FOR-TO-STEP-100015.html">FOR...TO...STEP · e2</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/FOR-TO-STEP-100015.html">FOR...TO...STEP · e3</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/GET-100023.html">GET · filename</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/GET-100023.html">GET · first</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/GET-100023.html">GET · last</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/GOSUB-100013.html">GOSUB (Line) · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/GOSUB-100013.html">GOSUB (Program area) · p</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/GOTO-100011.html">GOTO (Line) · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/GOTO-100011.html">GOTO (Program area) · p</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/IF-100012.html">IF (Jump) · comparison</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/IF-100012.html">IF (Jump) · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/IF-100012.html">IF (Jump) · p</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/IF-100012.html">IF (Statement) · comparison</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/IF-100012.html">IF (Statement) · statement</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/INPUT-100009.html">INPUT · message</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/INPUT-100009.html">INPUT · variable</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MODE-100020.html">MODE (Angle unit) · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MODE-100020.html">MODE (Printer) · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/NEXT-100016.html">NEXT · v</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/PRINT-100010.html">PRINT · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/PRINT-100010.html">PRINT · item</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/PUT-100022.html">PUT · filename</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/PUT-100022.html">PUT · first</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/PUT-100022.html">PUT · last</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/SET-100021.html">SET · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/DEFM-100004.html">DEFM · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/LIST-100002.html">LIST (Current area) · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/LOAD-100006.html">LOAD (Current area) · filename</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/LOAD-100006.html">LOAD (All areas) · filename</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/RUN-100001.html">RUN · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/SAVE-100005.html">SAVE (Current area) · filename</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/SAVE-100005.html">SAVE (All areas) · filename</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/VER-100007.html">VER · filename</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/ABS-100041.html">ABS · x</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/ACS-100033.html">ACS · x</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/ASN-100032.html">ASN · x</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/ATN-100034.html">ATN · x</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/COS-100030.html">COS · x</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/CSR-100025.html">CSR · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/FRAC-100040.html">FRAC · x</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/INT-100039.html">INT · x</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/LEN-100026.html">LEN · v</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/LN-100037.html">LN · x</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/LOG-100038.html">LOG · x</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MID-100027.html">MID · m</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MID-100027.html">MID · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/RND-100043.html">RND · x</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/RND-100043.html">RND · y</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/SGN-100042.html">SGN · x</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/SIN-100029.html">SIN · x</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/SQR-100035.html">SQR · x</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/TAN-100031.html">TAN · x</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/VAL-100028.html">VAL · v</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/lparen-rparen-100051.html">( ) · e</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/x-100046.html">↑ · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/star-100048.html">* · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/star-100048.html">* · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/plus-100050.html">+ (Addition) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/plus-100050.html">+ (Addition) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/plus-100050.html">+ (Joining) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/plus-100050.html">+ (Joining) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/minus-100047.html">- (Change of sign) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/minus-100047.html">- (Subtraction) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/minus-100047.html">- (Subtraction) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/slash-100049.html">/ · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/slash-100049.html">/ · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-100056.html">&lt; (Between numbers) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-100056.html">&lt; (Between numbers) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-100056.html">&lt; (Between strings) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-100056.html">&lt; (Between strings) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/eq-100052.html">= (Between numbers) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/eq-100052.html">= (Between numbers) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/eq-100052.html">= (Between strings) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/eq-100052.html">= (Between strings) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/gt-100054.html">&gt; (Between numbers) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/gt-100054.html">&gt; (Between numbers) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/gt-100054.html">&gt; (Between strings) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/gt-100054.html">&gt; (Between strings) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/x-100046.html">↑ · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/x-100053.html">≠ (Between numbers) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/x-100053.html">≠ (Between numbers) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/x-100053.html">≠ (Between strings) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/x-100053.html">≠ (Between strings) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/x-100057.html">≤ (Between numbers) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/x-100057.html">≤ (Between numbers) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/x-100057.html">≤ (Between strings) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/x-100057.html">≤ (Between strings) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/x-100055.html">≥ (Between numbers) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/x-100055.html">≥ (Between numbers) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/x-100055.html">≥ (Between strings) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/x-100055.html">≥ (Between strings) · b</a></li>
+</ul>
+<h3 id="ev-parameter_limit">Parameter limits <small>20 not tested</small></h3>
+
+<ul class="diag-ev-list">
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/GOSUB-100013.html">GOSUB (Line) · n [1, 9999]</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/GOSUB-100013.html">GOSUB (Program area) · p [0, 9]</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/GOTO-100011.html">GOTO (Line) · n [1, 9999]</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/GOTO-100011.html">GOTO (Program area) · p [0, 9]</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/IF-100012.html">IF (Jump) · n [1, 9999]</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/IF-100012.html">IF (Jump) · p [0, 9]</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/PRINT-100010.html">PRINT · n [0, 11]</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/SET-100021.html">SET · n [0, 9]</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/DEFM-100004.html">DEFM · n [0, 196]</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/ACS-100033.html">ACS · x [-1, 1]</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/ASN-100032.html">ASN · x [-1, 1]</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/COS-100030.html">COS · x (-1440, 1440)</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/CSR-100025.html">CSR · n [0, 11]</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/LN-100037.html">LN · x (0, ∞)</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/LOG-100038.html">LOG · x (0, ∞)</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MID-100027.html">MID · m [1, 30]</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MID-100027.html">MID · n [1, 30]</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/SIN-100029.html">SIN · x (-1440, 1440)</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/SQR-100035.html">SQR · x [0, ∞)</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/TAN-100031.html">TAN · x (-1440, 1440)</a></li>
+</ul>
+<h3 id="ev-allowed_value">Allowed values <small>5 not tested</small></h3>
+
+<ul class="diag-ev-list">
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MODE-100020.html">MODE (Angle unit) · n = 4</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MODE-100020.html">MODE (Angle unit) · n = 5</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MODE-100020.html">MODE (Angle unit) · n = 6</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MODE-100020.html">MODE (Printer) · n = 7</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MODE-100020.html">MODE (Printer) · n = 8</a></li>
+</ul>
+<h3 id="ev-syntax_form">Syntax forms (returned range and description) <small>73 not tested</small></h3>
+
+<ul class="diag-ev-list">
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/ABS-100041.html">ABS → [0, ∞)</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/COS-100030.html">COS → [-1, 1]</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/LEN-100026.html">LEN → [0, 30]</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/RAN-100044.html">RAN# → (0, 1)</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/SGN-100042.html">SGN → [-1, 1]</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/SIN-100029.html">SIN → [-1, 1]</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/SQR-100035.html">SQR → [0, ∞)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/eq-100008.html">=</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/END-100018.html">END</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/FOR-TO-STEP-100015.html">FOR...TO...STEP</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/GET-100023.html">GET</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/GOSUB-100013.html">GOSUB (Line)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/GOSUB-100013.html">GOSUB (Program area)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/GOTO-100011.html">GOTO (Line)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/GOTO-100011.html">GOTO (Program area)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/IF-100012.html">IF (Jump)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/IF-100012.html">IF (Statement)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/INPUT-100009.html">INPUT</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MODE-100020.html">MODE (Angle unit)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MODE-100020.html">MODE (Printer)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/NEXT-100016.html">NEXT</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/PRINT-100010.html">PRINT</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/PUT-100022.html">PUT</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/RETURN-100014.html">RETURN</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/SET-100021.html">SET</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/STOP-100017.html">STOP</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/VAC-100019.html">VAC</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/CLEAR-100003.html">CLEAR (Current area)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/CLEAR-100003.html">CLEAR (All areas)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/DEFM-100004.html">DEFM</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/LIST-100002.html">LIST (Current area)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/LIST-100002.html">LIST (All areas)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/LOAD-100006.html">LOAD (Current area)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/LOAD-100006.html">LOAD (All areas)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/RUN-100001.html">RUN</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/SAVE-100005.html">SAVE (Current area)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/SAVE-100005.html">SAVE (All areas)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/VER-100007.html">VER</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/ACS-100033.html">ACS</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/ASN-100032.html">ASN</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/ATN-100034.html">ATN</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/CSR-100025.html">CSR</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/EXP-100036.html">EXP</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/FRAC-100040.html">FRAC</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/INT-100039.html">INT</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/KEY-100024.html">KEY</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/LN-100037.html">LN</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/LOG-100038.html">LOG</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MID-100027.html">MID</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/RND-100043.html">RND</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/TAN-100031.html">TAN</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/VAL-100028.html">VAL</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/x-100045.html">π</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lparen-rparen-100051.html">( )</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/star-100048.html">*</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/plus-100050.html">+ (Addition)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/plus-100050.html">+ (Joining)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/minus-100047.html">- (Change of sign)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/minus-100047.html">- (Subtraction)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/slash-100049.html">/</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-100056.html">&lt; (Between numbers)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-100056.html">&lt; (Between strings)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/eq-100052.html">= (Between numbers)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/eq-100052.html">= (Between strings)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/gt-100054.html">&gt; (Between numbers)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/gt-100054.html">&gt; (Between strings)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/x-100046.html">↑</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/x-100053.html">≠ (Between numbers)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/x-100053.html">≠ (Between strings)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/x-100057.html">≤ (Between numbers)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/x-100057.html">≤ (Between strings)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/x-100055.html">≥ (Between numbers)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/x-100055.html">≥ (Between strings)</a></li>
+</ul>
+<h3 id="ev-character_code">Character codes <small>256 not tested</small></h3>
+
+<ul class="diag-ev-list">
+  <li class="ev-row-inferred"><span class="ev ev-inferred">INFERRED</span> <a href="../dialects/CASIO_FX700P.html#characters">58-63, 90-91, 122-127, 152-159, 171-175, 180-191, 199-253</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/CASIO_FX700P.html#characters">0-57, 64-89, 92-121, 128-151, 160-170, 176-179, 192-198, 254-255</a></li>
+</ul>
+<h3 id="ev-variable_layout_field">Variables in memory <small>17 not tested</small></h3>
+
+<ul class="diag-ev-list">
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/CASIO_FX700P.html#variables">Numeric variable · Exponent</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/CASIO_FX700P.html#variables">Numeric variable · Sign and first exponent digit</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/CASIO_FX700P.html#variables">Numeric variable · Mantissa</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/CASIO_FX700P.html#variables">Numeric variable · Type</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/CASIO_FX700P.html#variables">Character variable · Characters</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/CASIO_FX700P.html#variables">Character variable · Separator</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/CASIO_FX700P.html#variables">Character variable · Length</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/CASIO_FX700P.html#variables">Exclusive character variable · Length</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/CASIO_FX700P.html#variables">Exclusive character variable · Characters</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/CASIO_FX700P.html#variables">Exclusive character variable · End</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/CASIO_FX700P.html#variables">Numeric array · Exponent</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/CASIO_FX700P.html#variables">Numeric array · Sign and first exponent digit</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/CASIO_FX700P.html#variables">Numeric array · Mantissa</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/CASIO_FX700P.html#variables">Numeric array · Type</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/CASIO_FX700P.html#variables">Character array · Characters</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/CASIO_FX700P.html#variables">Character array · Separator</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/CASIO_FX700P.html#variables">Character array · Length</a></li>
+</ul>
+<h3 id="ev-program_layout_field">Program in memory <small>3 not tested</small></h3>
+
+<ul class="diag-ev-list">
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/CASIO_FX700P.html#program">Line number</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/CASIO_FX700P.html#program">Line text</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/CASIO_FX700P.html#program">End of line</a></li>
+</ul>
+<h3 id="ev-memory_area">Memory areas (before and after) <small>2 not tested</small></h3>
+
+<ul class="diag-ev-list">
+  <li class="ev-row-inferred"><span class="ev ev-inferred">INFERRED</span> <a href="../dialects/CASIO_FX700P.html#program">program</a></li>
+  <li class="ev-row-inferred"><span class="ev ev-inferred">INFERRED</span> <a href="../dialects/CASIO_FX700P.html#variables">variables</a></li>
+</ul>
+
+<h2 id="features">Features <small>13</small></h2>
+<h3>Missing answers <small>0</small></h3>
+<p class="nothing">Nothing left</p>
+<h3>Answers to verify <small>13</small></h3>
+
+<table>
+  <thead><tr><th>Section</th><th>Feature</th><th>Answer</th></tr></thead>
+  <tbody><tr><td><small>Program lines and statements</small></td><td><a href="../dialects/CASIO_FX700P.html#features">Range of line numbers</a></td><td><code>1-9999</code> <small>A line with the same number as an existing one replaces it.</small></td></tr><tr><td><small>Program lines and statements</small></td><td><a href="../dialects/CASIO_FX700P.html#features">Multiple statements per line</a></td><td><code>Yes</code> <small>A line holds up to 62 characters, line number included. VAC and EXP cannot be used in a multistatement.</small></td></tr><tr><td><small>Program lines and statements</small></td><td><a href="../dialects/CASIO_FX700P.html#features">Statement separator</a></td><td><code>:</code></td></tr><tr><td><small>Program lines and statements</small></td><td><a href="../dialects/CASIO_FX700P.html#features">LET keyword</a></td><td><code>Absent</code> <small>There is no LET keyword: an assignment is written <code>variable = expression</code>.</small></td></tr><tr><td><small>Truth values</small></td><td><a href="../dialects/CASIO_FX700P.html#features">Value produced by a true comparison</a></td><td><code>None</code> <small>Comparisons can only be written in IF: they produce no value.</small></td></tr><tr><td><small>Truth values</small></td><td><a href="../dialects/CASIO_FX700P.html#features">Value produced by a false comparison</a></td><td><code>None</code> <small>Comparisons can only be written in IF: they produce no value.</small></td></tr><tr><td><small>Truth values</small></td><td><a href="../dialects/CASIO_FX700P.html#features">How a value used as a condition is read</a></td><td><code>Comparison only</code> <small>IF needs a comparison; a number alone is not a condition.</small></td></tr><tr><td><small>Numbers</small></td><td><a href="../dialects/CASIO_FX700P.html#features">Conversion of non-integer values to integers</a></td><td><code>Truncation (the decimal part is cut off)</code> <small>Stated for the line and area numbers of GOTO and GOSUB, the position of CSR and the arguments of MID.</small></td></tr><tr><td><small>FOR loops</small></td><td><a href="../dialects/CASIO_FX700P.html#features">The body of a FOR loop is always executed at least once</a></td><td><code>Yes</code> <small>From the PokecomGO2 simulator (source [9]): <code>FOR I=5 TO 1</code> executes the body once. Weak evidence: in its code the test that should skip the loop always succeeds, so it never skips. Not tested on the real machine.</small></td></tr><tr><td><small>FOR loops</small></td><td><a href="../dialects/CASIO_FX700P.html#features">The loop variable can be changed inside the loop</a></td><td><code>Yes</code> <small>From the PokecomGO2 simulator (source [9]): <code>I=I+4</code> inside <code>FOR I=1 TO 10</code> gives 5, then 10, then the loop ends. Not tested on the real machine.</small></td></tr><tr><td><small>Keyboard</small></td><td><a href="../dialects/CASIO_FX700P.html#features">Modal keyboard for entering keywords</a></td><td><code>Both</code> <small>With S the alphabet keys give statements (one-key commands), with F functions; everything can also be typed letter by letter.</small></td></tr><tr><td><small>Screen output</small></td><td><a href="../dialects/CASIO_FX700P.html#features">Width of the fixed tabulation zones</a></td><td><code>None</code> <small>No zones: after ',' the next item is shown on a cleared display, after ';' it follows the previous one.</small></td></tr><tr><td><small>Screen output</small></td><td><a href="../dialects/CASIO_FX700P.html#features">Variable tab stops</a></td><td><code>Yes</code> <small>CSR n (0-11) inside PRINT shows the next item from position n.</small></td></tr></tbody>
+</table>
+
+<h2 id="tables">Tables <small>6</small></h2>
+<h3>To do or partial <small>6</small></h3>
+
+<table>
+  <thead><tr><th>Table</th><th>Of</th><th>State</th><th>Notes</th></tr></thead>
+  <tbody><tr><td><a href="../dialects/CASIO_FX700P.html#tables">Character codes</a></td><td>Casio FX-700P BASIC</td>
+      <td><span class="tag warning">partial</span></td><td>From bas2fx70 [5] and the image of the glyphs [6]: the code of a character is the position of its glyph. $00-$7F characters, $80-$C6 tokens, $FE and $FF control codes. Codes with a blank glyph, and the @ and \ of bas2fx70, to be checked.</td></tr><tr><td><a href="../dialects/CASIO_FX700P.html#tables">Screen codes</a></td><td>Casio FX-700P</td>
+      <td><span class="tag warning">partial</span></td><td>Assumed: the display shows for each code 0-127 the glyph with the same number.</td></tr><tr><td><a href="../dialects/CASIO_FX700P.html#tables">Screen codes</a></td><td>Casio PB-100</td>
+      <td><span class="tag warning">partial</span></td><td>Assumed: the display shows for each code 0-127 the glyph with the same number.</td></tr><tr><td><a href="../dialects/CASIO_FX700P.html#tables">Screen codes</a></td><td>Tandy Radio Shack TRS-80 PC-4</td>
+      <td><span class="tag warning">partial</span></td><td>Assumed: the display shows for each code 0-127 the glyph with the same number.</td></tr><tr><td><a href="../dialects/CASIO_FX700P.html#tables">Keyboard codes</a></td><td>Casio FX-700P BASIC</td>
+      <td><span class="tag warning">to do</span></td><td>KEY gives the character of the key pressed; whether keys have codes is not known.</td></tr><tr><td><a href="../dialects/CASIO_FX700P.html#tables">Operator precedence</a></td><td>Casio FX-700P BASIC</td>
+      <td><span class="tag warning">partial</span></td><td>From p. 10: functions, power, multiplication and division, addition and subtraction; left to right at the same level (the manual's example <code>2+3*SIN(17+13)↑2</code> = 2.75 puts the function before the power). The change of sign is placed before the power as in the PokecomGO2 simulator (source [9]: <code>-2↑2</code> = 4); not tested on the real machine.</td></tr></tbody>
+</table>
+<h3>Tables without any state <small>0</small></h3>
+<p class="nothing">Nothing left</p>
+
+<h2 id="gaps">Gaps <small>38</small></h2>
+<h3>Parameters without description <small>36</small></h3>
+
+<p class="diag-list"><a href="../entries/star-100048.html">*</a> <code class="par">a</code> · <a href="../entries/star-100048.html">*</a> <code class="par">b</code> · <a href="../entries/plus-100050.html">+</a> <small>(Addition)</small> <code class="par">a</code> · <a href="../entries/plus-100050.html">+</a> <small>(Addition)</small> <code class="par">b</code> · <a href="../entries/plus-100050.html">+</a> <small>(Joining)</small> <code class="par">a</code> · <a href="../entries/plus-100050.html">+</a> <small>(Joining)</small> <code class="par">b</code> · <a href="../entries/minus-100047.html">-</a> <small>(Change of sign)</small> <code class="par">a</code> · <a href="../entries/minus-100047.html">-</a> <small>(Subtraction)</small> <code class="par">a</code> · <a href="../entries/minus-100047.html">-</a> <small>(Subtraction)</small> <code class="par">b</code> · <a href="../entries/slash-100049.html">/</a> <code class="par">a</code> · <a href="../entries/slash-100049.html">/</a> <code class="par">b</code> · <a href="../entries/lt-100056.html">&lt;</a> <small>(Between numbers)</small> <code class="par">a</code> · <a href="../entries/lt-100056.html">&lt;</a> <small>(Between numbers)</small> <code class="par">b</code> · <a href="../entries/lt-100056.html">&lt;</a> <small>(Between strings)</small> <code class="par">a</code> · <a href="../entries/lt-100056.html">&lt;</a> <small>(Between strings)</small> <code class="par">b</code> · <a href="../entries/eq-100052.html">=</a> <small>(Between numbers)</small> <code class="par">a</code> · <a href="../entries/eq-100052.html">=</a> <small>(Between numbers)</small> <code class="par">b</code> · <a href="../entries/eq-100052.html">=</a> <small>(Between strings)</small> <code class="par">a</code> · <a href="../entries/eq-100052.html">=</a> <small>(Between strings)</small> <code class="par">b</code> · <a href="../entries/gt-100054.html">&gt;</a> <small>(Between numbers)</small> <code class="par">a</code> · <a href="../entries/gt-100054.html">&gt;</a> <small>(Between numbers)</small> <code class="par">b</code> · <a href="../entries/gt-100054.html">&gt;</a> <small>(Between strings)</small> <code class="par">a</code> · <a href="../entries/gt-100054.html">&gt;</a> <small>(Between strings)</small> <code class="par">b</code> · <a href="../entries/x-100046.html">↑</a> <code class="par">b</code> · <a href="../entries/x-100053.html">≠</a> <small>(Between numbers)</small> <code class="par">a</code> · <a href="../entries/x-100053.html">≠</a> <small>(Between numbers)</small> <code class="par">b</code> · <a href="../entries/x-100053.html">≠</a> <small>(Between strings)</small> <code class="par">a</code> · <a href="../entries/x-100053.html">≠</a> <small>(Between strings)</small> <code class="par">b</code> · <a href="../entries/x-100057.html">≤</a> <small>(Between numbers)</small> <code class="par">a</code> · <a href="../entries/x-100057.html">≤</a> <small>(Between numbers)</small> <code class="par">b</code> · <a href="../entries/x-100057.html">≤</a> <small>(Between strings)</small> <code class="par">a</code> · <a href="../entries/x-100057.html">≤</a> <small>(Between strings)</small> <code class="par">b</code> · <a href="../entries/x-100055.html">≥</a> <small>(Between numbers)</small> <code class="par">a</code> · <a href="../entries/x-100055.html">≥</a> <small>(Between numbers)</small> <code class="par">b</code> · <a href="../entries/x-100055.html">≥</a> <small>(Between strings)</small> <code class="par">a</code> · <a href="../entries/x-100055.html">≥</a> <small>(Between strings)</small> <code class="par">b</code></p><h3>Forms without actions <small>1</small></h3>
+
+<p class="diag-list"><a href="../entries/lparen-rparen-100051.html">( )</a></p><h3>Keywords without token <small>0</small></h3>
+<p class="nothing">Nothing left</p>
+<h3>Variable types without name length <small>1</small></h3>
+
+<ul><li><a href="../dialects/CASIO_FX700P.html#variables">Exclusive character variable</a>: <small>max_name_length, significant_chars not entered</small></li></ul><h3>Memory areas without prologue or epilogue <small>0</small></h3>
+<p class="nothing">Nothing left</p>
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+</body>
+</html>

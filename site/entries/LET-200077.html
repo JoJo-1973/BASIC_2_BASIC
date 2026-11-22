@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LET · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (4th edition)">
+<a class="prev" rel="prev" href="../entries/INPUT-200079.html" title="Previous entry (←)">‹ <span>INPUT</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_4.html#entries">13 / 69</a>
+<a class="next" rel="next" href="../entries/MAT-200096.html" title="Next entry (→)"><span>MAT</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/DARTMOUTH_BASIC_4.html#entries">Dartmouth BASIC (4th edition)</a> ›</p>
+<h1><span class="entry-name">LET</span> <span class="category">Statement</span></h1>
+<div class="subtitle md"><p>Computes the value of a formula and gives it to a variable.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>DARTMOUTH_4ED_layer</code> — Dartmouth BASIC, 4th edition</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/DARTMOUTH_BASIC_4.html">Dartmouth BASIC (4th edition)</a></dd>
+</dl>
+
+<div class="box">
+<p>Redefines <a href="../entries/LET-200006.html">LET</a> of the previous layer.
+<br><strong>Differences:</strong> Strings, and several variables in one LET.</p></div>
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="kw">LET</span> <span class="par">variable</span> <span class="kw">=</span><span class="meta">[</span><span class="par">variable</span> <span class="kw">=</span><span class="meta">]</span><span class="meta">...</span> <span class="par">formula</span></pre>
+  <p class="manual">In the manual (BASIC, 4th Edition (January 1968), p. 32-33):
+    <code>LET X = Y = A(3,1) = 1</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">variable</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>variable<br><small>or</small> list element<br><small>or</small> table element<br><small>or</small> string variable<br><small>or</small> string list element</td>
+      <td></td>
+      <td>Numeric or string variables or elements; several can get the same value.</td>
+    </tr>
+    <tr>
+      <td><code class="par">formula</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>formula<br><small>or</small> string value</td>
+      <td></td>
+      <td>A formula, or a string for string variables.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#VAR_LET" class="action-code">VAR_LET</a> Assignment
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Casio FX-700P BASIC</span>
+<a href="../entries/eq-100008.html">=</a></li>
+      <li><span class="dia">Dartmouth BASIC (1st edition)</span>
+<a href="../entries/LET-200006.html">LET</a></li>
+      <li><span class="dia">Dartmouth BASIC (2nd edition)</span>
+<a href="../entries/LET-200006.html">LET</a></li>
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/LET-200006.html">LET</a></li>
+      <li><span class="dia">Dartmouth Card BASIC October 1964</span>
+<a href="../entries/LET-200006.html">LET</a></li>
+      <li><span class="dia">Sinclair ZX80 BASIC 4K ROM</span>
+<a href="../entries/LET-7.html">LET</a></li>
+    </ul>
+  </div>
+</section>
+
+<h2>Tables</h2>
+<ul class="entry-tables">
+  <li><a href="../dialects/DARTMOUTH_BASIC_4.html#variables">Variables in memory</a>      <small>— action VAR_LET</small></li>
+</ul>
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL_VARIABLE</code></a></td>
+      <td>The name on the left is not a variable. <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL_FORMULA</code></a></td>
+      <td>The formula is not written correctly. <small>Parameter: <code class="par">formula</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>SUBSCRIPT_ERROR</code></a></td>
+      <td>The subscript is outside the range of the list. <small>Parameter: <code class="par">variable</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>SUBSCRIPT_ERROR</code></a></td>
+      <td>A subscript is outside the range of the table. <small>Parameter: <code class="par">variable</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>UNDEFINED_FUNCTION</code></a></td>
+      <td>The formula uses an FN function that is never defined. <small>Parameter: <code class="par">formula</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>WRONG_SUBSCRIPTS</code></a></td>
+      <td>Two subscripts for a list. <small>Parameter: <code class="par">variable</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>WRONG_SUBSCRIPTS</code></a></td>
+      <td>One subscript for a table. <small>Parameter: <code class="par">variable</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED_STRING</code></a></td>
+      <td>A string where a number is wanted. <small>Parameter: <code class="par">formula</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED_STRING</code></a></td>
+      <td>A number where a string is wanted. <small>Parameter: <code class="par">formula</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/LET-200006.html">LET</a></td>
+      <td></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/eq-200039.html">=</a></td>
+      <td></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Several at once <span class="tag warning">to verify</span></h3>  <pre>10 LET X = Y = 1
+20 LET A$ = &#34;YES&#34;
+30 PRINT X; Y; A$
+40 END</pre>
+<pre class="output" title="Expected result"> 1  1 YES</pre></figure>
+
+<h2>Notes</h2>
+<div class="md"><p><code>LET X = Y = A(3,1) = 1</code> gives all three the value 1 [4] p. 33.</p></div><ul class="feature-notes">
+  <li><a href="../dialects/DARTMOUTH_BASIC_4.html#features">LET keyword</a>: <code>Mandatory</code> <span class="tag warning">to verify</span></li>
+</ul>
+
+<h2>Sources</h2>
+<ul><li><a href="https://archive.org/stream/bitsavers_dartmouthB_3679804/BASIC_4th_Edition_Jan68_djvu.txt">BASIC, 4th Edition (January 1968)</a>, Dartmouth College (1968), p. 32-33</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (4th edition)">
+<a class="prev" rel="prev" href="../entries/INPUT-200079.html" title="Previous entry (←)">‹ <span>INPUT</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_4.html#entries">13 / 69</a>
+<a class="next" rel="next" href="../entries/MAT-200096.html" title="Next entry (→)"><span>MAT</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

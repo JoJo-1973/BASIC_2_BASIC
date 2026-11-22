@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VAL · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Casio FX-700P BASIC">
+<a class="prev" rel="prev" href="../entries/TAN-100031.html" title="Previous entry (←)">‹ <span>TAN</span></a>  <a class="where" href="../dialects/CASIO_FX700P.html#entries">44 / 58</a>
+<a class="next" rel="next" href="../entries/x-100045.html" title="Next entry (→)"><span>π</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/CASIO_FX700P.html#entries">Casio FX-700P BASIC</a> ›</p>
+<h1><span class="entry-name">VAL</span> <span class="category">Function</span></h1>
+<div class="subtitle md"><p>Number written in a character variable.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>FX700P_core</code> — Casio FX-700P BASIC</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/CASIO_FX700P.html">Casio FX-700P BASIC</a></dd>
+</dl>
+
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="kw">VAL(</span><span class="par">v</span><span class="lit">)</span></pre>
+  <p class="manual">In the manual (FX-700P Instruction Manual, p. 56):
+    <code>VAL (character variable)</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+  <p><strong>Returns:</strong> Real number</p>
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">v</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>character variable</td>
+      <td></td>
+      <td>Only a character variable.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#STR_TO_NUM" class="action-code">STR_TO_NUM</a> String converted to a number
+</p>
+<p class="uncovered">No equivalent in: Dartmouth BASIC (1st edition), Dartmouth BASIC (2nd edition), Dartmouth BASIC (3rd edition), Dartmouth BASIC (4th edition), Dartmouth Card BASIC October 1964, Sinclair ZX80 BASIC 4K ROM</p>  </div>
+</section>
+
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/CASIO_FX700P.html#errors">2 <code>SYNTAX</code></a></td>
+      <td>The string holds no number (e.g. "ABC"); in a program the message is <code>ERR 2</code> without program area and line. <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/CASIO_FX700P.html#errors">6 <code>VARIABLE</code></a></td>
+      <td>The letter is in use as a numeric variable. <small>Parameter: <code class="par">v</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/VAL-100025.html">VAL(</a></td>
+      <td><code>$91</code></td>
+      <td><em>none</em> <small>(Casio FX-700P)</small>, <em>none</em> <small>(Casio PB-100)</small>, <em>none</em> <small>(Tandy Radio Shack TRS-80 PC-4)</small></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Number from a string <span class="tag warning">to verify</span></h3>  <pre>10 Z$=&#34;78963&#34;
+20 PRINT VAL(Z$)</pre>
+<pre class="output" title="Expected result">78963</pre><figcaption>
+<small>Source: FX-700P Instruction Manual, 56.</small></figcaption></figure>
+
+
+
+<h2>Sources</h2>
+<ul><li>FX-700P Instruction Manual, p. 56</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Casio FX-700P BASIC">
+<a class="prev" rel="prev" href="../entries/TAN-100031.html" title="Previous entry (←)">‹ <span>TAN</span></a>  <a class="where" href="../dialects/CASIO_FX700P.html#entries">44 / 58</a>
+<a class="next" rel="next" href="../entries/x-100045.html" title="Next entry (→)"><span>π</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

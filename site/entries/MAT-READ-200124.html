@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT READ · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth Card BASIC October 1964">
+<a class="prev" rel="prev" href="../entries/MAT-PRINT-200125.html" title="Previous entry (←)">‹ <span>MAT PRINT</span></a>  <a class="where" href="../dialects/DARTMOUTH_CARD_BASIC.html#entries">11 / 41</a>
+<a class="next" rel="next" href="../entries/NEXT-200044.html" title="Next entry (→)"><span>NEXT</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#entries">Dartmouth Card BASIC October 1964</a> ›</p>
+<h1><span class="entry-name">MAT READ</span> <span class="category">Statement</span></h1>
+<div class="subtitle md"><p>Reads one matrix of the dimensions shown from the data.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>DARTMOUTH_CARD_layer</code> — Card BASIC</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/DARTMOUTH_CARD_BASIC.html">Dartmouth Card BASIC October 1964</a></dd>
+</dl>
+
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="kw">MAT</span> <span class="kw">READ</span> <span class="par">matrix</span><span class="lit">(</span><span class="par">m</span><span class="meta">[</span><span class="lit">,</span><span class="par">n</span><span class="meta">]</span><span class="lit">)</span></pre>
+  <p class="manual">In the manual (BASIC (1 October 1964), p. 51-52):
+    <code>MAT READ A(M,N)</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">matrix</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>matrix name</td>
+      <td></td>
+      <td>A matrix with a DIM.</td>
+    </tr>
+    <tr>
+      <td><code class="par">m</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>formula</td>
+      <td></td>
+      <td>Rows: a formula, at most the DIM.</td>
+    </tr>
+    <tr>
+      <td><code class="par">n</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>formula</td>
+      <td></td>
+      <td>Columns; without it a column vector.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#MAT_READ" class="action-code">MAT_READ</a> Read a matrix from the data list
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/MAT-READ-200060.html">MAT READ</a></li>
+      <li><span class="dia">Dartmouth BASIC (4th edition)</span>
+<a href="../entries/MAT-READ-200060.html">MAT READ</a></li>
+    </ul>
+<p class="uncovered">No equivalent in: Casio FX-700P BASIC, Dartmouth BASIC (1st edition), Dartmouth BASIC (2nd edition), Sinclair ZX80 BASIC 4K ROM</p>  </div>
+</section>
+
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>DIMENSION_TOO_LARGE</code></a></td>
+      <td>More than the limits of [2] p. 51. <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL_FORMULA</code></a></td>
+      <td>The formula is not written correctly. <small>Parameters: <code class="par">m</code>, <code class="par">n</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED_FUNCTION</code></a></td>
+      <td>The formula uses an FN function that is never defined. <small>Parameters: <code class="par">m</code>, <code class="par">n</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/MAT-200083.html">MAT</a></td>
+      <td></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/READ-200018.html">READ</a></td>
+      <td></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Square matrix of any size <span class="tag warning">to verify</span></h3>  <pre>10 DIM A(20,20)
+20 READ M
+30 MAT READ A(M,M)
+40 MAT PRINT A
+50 END
+2, 1, 2, 3, 4</pre>
+<figcaption>
+<small>Source: BASIC (1 October 1964), 52.</small></figcaption></figure>
+
+<h2>Notes</h2>
+<div class="md"><p>The dimensions can be formulas: <code>DIM A(20,20)</code>, <code>READ M</code>, <code>MAT READ A(M,M)</code> reads a square matrix of any size up to 20 × 20 [2] p. 52. A matrix must be first used in a MAT statement.</p></div>
+<h2>Related entries</h2>
+<ul><li>See also: <a href="../entries/MAT-200126.html">MAT</a></li></ul>
+
+<h2>Sources</h2>
+<ul><li><a href="https://bitsavers.org/pdf/dartmouth/dtss/196410_BASIC.pdf">BASIC (1 October 1964)</a>, John G. Kemeny, Thomas E. Kurtz (1964), p. 51-52</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth Card BASIC October 1964">
+<a class="prev" rel="prev" href="../entries/MAT-PRINT-200125.html" title="Previous entry (←)">‹ <span>MAT PRINT</span></a>  <a class="where" href="../dialects/DARTMOUTH_CARD_BASIC.html#entries">11 / 41</a>
+<a class="next" rel="next" href="../entries/NEXT-200044.html" title="Next entry (→)"><span>NEXT</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

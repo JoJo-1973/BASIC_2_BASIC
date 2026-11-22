@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>INPUT · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (3rd edition)">
+<a class="prev" rel="prev" href="../entries/IF-THEN-200012.html" title="Previous entry (←)">‹ <span>IF...THEN</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_3.html#entries">9 / 57</a>
+<a class="next" rel="next" href="../entries/LET-200006.html" title="Next entry (→)"><span>LET</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/DARTMOUTH_BASIC_3.html#entries">Dartmouth BASIC (3rd edition)</a> ›</p>
+<h1><span class="entry-name">INPUT</span> <span class="category">Statement</span></h1>
+<div class="subtitle md"><p>Types a question mark and waits for values typed at the Teletype.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>DARTMOUTH_3ED_layer</code> — Dartmouth BASIC, 3rd edition</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/DARTMOUTH_BASIC_3.html">Dartmouth BASIC (3rd edition)</a></dd>
+  <dt>In Dartmouth BASIC (4th edition)</dt>
+  <dd>replaced by <a href="../entries/INPUT-200079.html">INPUT</a> of <code>DARTMOUTH_4ED_layer</code></dd>
+</dl>
+
+<div class="box">
+<p>Redefined in a later layer: <a href="../entries/INPUT-200079.html">INPUT</a> — Strings, and messages for wrong input.</p></div>
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="kw">INPUT</span> <span class="par">variable</span><span class="meta">[</span>,<span class="par">variable</span><span class="meta">]</span><span class="meta">...</span></pre>
+  <p class="manual">In the manual (BASIC Language Reference Manual (June 1965, rev. January 1967), p. 29-30):
+    <code>INPUT X, Y</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">variable</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>variable or element</td>
+      <td></td>
+      <td>Variables or elements, separated by commas; the values are typed the same way.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#IO_INPUT" class="action-code">IO_INPUT</a> Read values from the keyboard
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Casio FX-700P BASIC</span>
+<a href="../entries/INPUT-100009.html">INPUT</a></li>
+      <li><span class="dia">Dartmouth BASIC (4th edition)</span>
+<a href="../entries/INPUT-200079.html">INPUT</a></li>
+      <li><span class="dia">Sinclair ZX80 BASIC 4K ROM</span>
+<a href="../entries/INPUT-9.html">INPUT</a> <span class="tag">partial</span> <small>— One variable only, no prompt</small></li>
+    </ul>
+<p class="uncovered">No equivalent in: Dartmouth BASIC (1st edition), Dartmouth BASIC (2nd edition), Dartmouth Card BASIC October 1964</p>  </div>
+</section>
+
+<h2>Tables</h2>
+<ul class="entry-tables">
+  <li><a href="../dialects/DARTMOUTH_BASIC_3.html#variables">Variables in memory</a>      <small>— action IO_INPUT</small></li>
+</ul>
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_3.html#errors"><code>ILLEGAL_VARIABLE</code></a></td>
+      <td>An item of the list is not a variable. <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/INPUT-200052.html">INPUT</a></td>
+      <td></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Ask for two numbers <span class="tag warning">to verify</span></h3>  <pre>10 INPUT A, B
+20 PRINT A+B
+30 END</pre>
+<pre class="output" title="Expected result">?</pre><figcaption>Type 2, 3 and RETURN: 5 is printed.
+</figcaption></figure>
+<figure class="example">
+<h3>Ask for a move</h3>  <pre>10 PRINT &#34;YOUR MOVE&#34;;
+20 INPUT N
+30 PRINT N
+40 END</pre>
+<pre class="output" title="Expected result">YOUR MOVE? 42
+
+ 42</pre><figcaption>From the DTSS-Win simulator files (BASINP). Output checked on DTSS-Win (compiler of February 1965).
+<small>Source: DTSS-Win simulator, BASINP.</small></figcaption></figure>
+<figure class="example">
+<h3>Guess a number</h3>  <pre>100 REM GUESSING GAME
+110
+120 PRINT &#34;GUESS THE NUMBER BETWEEN 1 AND 100.&#34;
+130
+140 LET X = INT(100*RND(0)+1)
+150 LET N = 0
+160 PRINT &#34;YOUR GUESS&#34;;
+170 INPUT G
+180 LET N = N+1
+190 IF G = X THEN 300
+200 IF G &lt; X THEN 250
+210 PRINT &#34;TOO LARGE, GUESS AGAIN&#34;
+220 GOTO 160
+230
+250 PRINT &#34;TOO SMALL, GUESS AGAIN&#34;
+260 GOTO 160
+270
+300 PRINT &#34;YOU GUESSED IT, IN&#34;; N; &#34;TRIES&#34;
+310 PRINT &#34;ANOTHER GAME (YES = 1, NO = 0)&#34;;
+320 INPUT A
+330 IF A = 1 THEN 140
+340 PRINT &#34;THANKS FOR PLAYING&#34;
+350 END</pre>
+<pre class="output" title="Expected result">GUESS THE NUMBER BETWEEN 1 AND 100.
+YOUR GUESS? 50
+
+TOO SMALL, GUESS AGAIN
+YOUR GUESS? 75
+
+YOU GUESSED IT, IN 2    TRIES
+ANOTHER GAME [YES = 1, NO = 0]?</pre><figcaption>From the DTSS-Win simulator files (LIB/GUESS). Output checked on DTSS-Win (compiler of February 1965). One game, with the guesses 50 and 75 typed by the editor; the run was left at the last INPUT. The prompt of line 310 is printed with square brackets, <code>[YES = 1, NO = 0]</code>, although the program has round ones (DTSS-Win prints every round bracket of a label as a square one). The number to guess is 75 at the start of every RUN, and the second game of the same run asks for 20: RND gives the same sequence on every run.
+<small>Source: DTSS-Win simulator, LIB/GUESS.</small></figcaption></figure>
+
+<h2>Notes</h2>
+<div class="md"><p>New in the 3rd edition [5]: for the first time a program can ask for data while it runs. The listings of February 1965 [7] already have it. DTSS-Win (compiler of February 1965) answers a value it cannot read with <code>INPUT DATA NOT IN CORRECT FORMAT. RETYPE IT.</code> and a new question mark (seen in LIB/GUESS).</p></div>
+<h2>Related entries</h2>
+<ul><li>See also: <a href="../entries/READ-200070.html">READ</a></li></ul>
+
+<h2>Sources</h2>
+<ul><li><a href="https://ftp.mirrorservice.org/sites/www.bitsavers.org/pdf/ge/MarkI_Timesharing/202026A_BASIC_Language_Reference_Manual_Jan1967.pdf">BASIC Language Reference Manual (June 1965, rev. January 1967)</a> (1967), p. 29-30</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (3rd edition)">
+<a class="prev" rel="prev" href="../entries/IF-THEN-200012.html" title="Previous entry (←)">‹ <span>IF...THEN</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_3.html#entries">9 / 57</a>
+<a class="next" rel="next" href="../entries/LET-200006.html" title="Next entry (→)"><span>LET</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

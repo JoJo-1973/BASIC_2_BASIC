@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Actions · BASIC 2 BASIC</title>
-<link rel="stylesheet" href="static/style.css">
+<link rel="stylesheet" href="static/style.css?v=1795374828">
 </head>
 <body data-root="">
 <header class="topbar">
@@ -26,220 +26,1131 @@
   <label>Dialect
     <select id="filter-dialect">
       <option value="">All dialects</option>
-<option value="1">Sinclair ZX80 BASIC 4K ROM</option>    </select>
+<option value="2">Casio FX-700P BASIC</option><option value="200001">Dartmouth BASIC (1st edition)</option><option value="200002">Dartmouth BASIC (2nd edition)</option><option value="200003">Dartmouth BASIC (3rd edition)</option><option value="200004">Dartmouth BASIC (4th edition)</option><option value="200005">Dartmouth Card BASIC October 1964</option><option value="1">Sinclair ZX80 BASIC 4K ROM</option>    </select>
   </label>
   <label>Category
     <select id="filter-group">
       <option value="">All</option>
-<option value="COMPARE">Comparisons</option><option value="FLOW">Flow control</option><option value="IO">Input/output</option><option value="LOGIC">Logical operators</option><option value="MATH">Mathematics</option><option value="MEMORY">Memory and machine code</option><option value="PROGRAM">Program management</option><option value="RANDOM">Random numbers</option><option value="SCREEN">Screen</option><option value="STRING">Strings</option><option value="TAPE">Tape and disk</option><option value="VARIABLES">Variables and arrays</option>    </select>
+<option value="COMPARE">Comparisons</option><option value="FLOW">Flow control</option><option value="IO">Input/output</option><option value="LOGIC">Logical operators</option><option value="MATH">Mathematics</option><option value="MATRIX">Matrices</option><option value="MEMORY">Memory and machine code</option><option value="PROGRAM">Program management</option><option value="RANDOM">Random numbers</option><option value="SCREEN">Screen</option><option value="SESSION">Session</option><option value="STRING">Strings</option><option value="TAPE">Tape and disk</option><option value="FUNCTIONS">User functions</option><option value="VARIABLES">Variables and arrays</option>    </select>
   </label>
   <span class="count" id="count"></span>
 </form>
 <div class="scroll">
 <table class="matrix" id="matrix">
-  <thead><tr><th>Action</th><th data-dialect="1"><a href="dialects/SINCLAIR_ZX80_4K.html">Sinclair ZX80 BASIC 4K ROM</a></th></tr></thead>
+  <thead><tr><th>Action</th><th data-dialect="2"><a href="dialects/CASIO_FX700P.html">Casio FX-700P BASIC</a></th><th data-dialect="200001"><a href="dialects/DARTMOUTH_BASIC_1.html">Dartmouth BASIC (1st edition)</a></th><th data-dialect="200002"><a href="dialects/DARTMOUTH_BASIC_2.html">Dartmouth BASIC (2nd edition)</a></th><th data-dialect="200003"><a href="dialects/DARTMOUTH_BASIC_3.html">Dartmouth BASIC (3rd edition)</a></th><th data-dialect="200004"><a href="dialects/DARTMOUTH_BASIC_4.html">Dartmouth BASIC (4th edition)</a></th><th data-dialect="200005"><a href="dialects/DARTMOUTH_CARD_BASIC.html">Dartmouth Card BASIC October 1964</a></th><th data-dialect="1"><a href="dialects/SINCLAIR_ZX80_4K.html">Sinclair ZX80 BASIC 4K ROM</a></th></tr></thead>
   <tbody data-group="COMPARE">
-    <tr class="group"><th colspan="2">Comparisons</th></tr>
-    <tr id="OP_EQ" class="action-row" data-dialects=" 1 ">
+    <tr class="group"><th colspan="8">Comparisons</th></tr>
+    <tr id="OP_EQ" class="action-row" data-dialects=" 1 2 200001 200002 200003 200004 200005 ">
       <th><span class="action-code">OP_EQ</span><br><small>Equal</small></th>
+      <td data-dialect="2"><a href="entries/eq-100052.html">=</a> <small>between numbers</small><br><a href="entries/eq-100052.html">=</a> <small>between strings</small></td>
+      <td data-dialect="200001"><a href="entries/eq-200037.html">=</a></td>
+      <td data-dialect="200002"><a href="entries/eq-200037.html">=</a></td>
+      <td data-dialect="200003"><a href="entries/eq-200037.html">=</a></td>
+      <td data-dialect="200004"><a href="entries/eq-200037.html">=</a></td>
+      <td data-dialect="200005"><a href="entries/EQU-200114.html">EQU</a></td>
       <td data-dialect="1"><a href="entries/eq-36.html">=</a> <small>between numbers</small><br><a href="entries/eq-36.html">=</a> <small>between strings</small></td>
     </tr>
-    <tr id="OP_GT" class="action-row" data-dialects=" 1 ">
+    <tr id="OP_GE" class="action-row" data-dialects=" 2 200001 200002 200003 200004 200005 ">
+      <th><span class="action-code">OP_GE</span><br><small>Greater than or equal</small></th>
+      <td data-dialect="2"><a href="entries/x-100055.html">≥</a> <small>between numbers</small><br><a href="entries/x-100055.html">≥</a> <small>between strings</small></td>
+      <td data-dialect="200001"><a href="entries/gt-eq-200040.html">&gt;=</a></td>
+      <td data-dialect="200002"><a href="entries/gt-eq-200040.html">&gt;=</a></td>
+      <td data-dialect="200003"><a href="entries/gt-eq-200040.html">&gt;=</a></td>
+      <td data-dialect="200004"><a href="entries/gt-eq-200040.html">&gt;=</a></td>
+      <td data-dialect="200005"><a href="entries/GQU-200119.html">GQU</a></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="OP_GT" class="action-row" data-dialects=" 1 2 200001 200002 200003 200004 200005 ">
       <th><span class="action-code">OP_GT</span><br><small>Greater than</small></th>
+      <td data-dialect="2"><a href="entries/gt-100054.html">&gt;</a> <small>between numbers</small><br><a href="entries/gt-100054.html">&gt;</a> <small>between strings</small></td>
+      <td data-dialect="200001"><a href="entries/gt-200039.html">&gt;</a></td>
+      <td data-dialect="200002"><a href="entries/gt-200039.html">&gt;</a></td>
+      <td data-dialect="200003"><a href="entries/gt-200039.html">&gt;</a></td>
+      <td data-dialect="200004"><a href="entries/gt-200039.html">&gt;</a></td>
+      <td data-dialect="200005"><a href="entries/GRT-200118.html">GRT</a></td>
       <td data-dialect="1"><a href="entries/gt-37.html">&gt;</a> <small>between numbers</small><br><a href="entries/gt-37.html">&gt;</a> <small>between strings</small></td>
     </tr>
-    <tr id="OP_LT" class="action-row" data-dialects=" 1 ">
+    <tr id="OP_LE" class="action-row" data-dialects=" 2 200001 200002 200003 200004 200005 ">
+      <th><span class="action-code">OP_LE</span><br><small>Less than or equal</small></th>
+      <td data-dialect="2"><a href="entries/x-100057.html">≤</a> <small>between numbers</small><br><a href="entries/x-100057.html">≤</a> <small>between strings</small></td>
+      <td data-dialect="200001"><a href="entries/lt-eq-200042.html">&lt;=</a></td>
+      <td data-dialect="200002"><a href="entries/lt-eq-200042.html">&lt;=</a></td>
+      <td data-dialect="200003"><a href="entries/lt-eq-200042.html">&lt;=</a></td>
+      <td data-dialect="200004"><a href="entries/lt-eq-200042.html">&lt;=</a></td>
+      <td data-dialect="200005"><a href="entries/LQU-200117.html">LQU</a></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="OP_LT" class="action-row" data-dialects=" 1 2 200001 200002 200003 200004 200005 ">
       <th><span class="action-code">OP_LT</span><br><small>Less than</small></th>
+      <td data-dialect="2"><a href="entries/lt-100056.html">&lt;</a> <small>between numbers</small><br><a href="entries/lt-100056.html">&lt;</a> <small>between strings</small></td>
+      <td data-dialect="200001"><a href="entries/lt-200041.html">&lt;</a></td>
+      <td data-dialect="200002"><a href="entries/lt-200041.html">&lt;</a></td>
+      <td data-dialect="200003"><a href="entries/lt-200041.html">&lt;</a></td>
+      <td data-dialect="200004"><a href="entries/lt-200041.html">&lt;</a></td>
+      <td data-dialect="200005"><a href="entries/LSS-200116.html">LSS</a></td>
       <td data-dialect="1"><a href="entries/lt-38.html">&lt;</a> <small>between numbers</small><br><a href="entries/lt-38.html">&lt;</a> <small>between strings</small></td>
+    </tr>
+    <tr id="OP_NE" class="action-row" data-dialects=" 2 200001 200002 200003 200004 200005 ">
+      <th><span class="action-code">OP_NE</span><br><small>Not equal</small></th>
+      <td data-dialect="2"><a href="entries/x-100053.html">≠</a> <small>between numbers</small><br><a href="entries/x-100053.html">≠</a> <small>between strings</small></td>
+      <td data-dialect="200001"><a href="entries/lt-gt-200038.html">&lt;&gt;</a></td>
+      <td data-dialect="200002"><a href="entries/lt-gt-200038.html">&lt;&gt;</a></td>
+      <td data-dialect="200003"><a href="entries/lt-gt-200038.html">&lt;&gt;</a></td>
+      <td data-dialect="200004"><a href="entries/lt-gt-200038.html">&lt;&gt;</a></td>
+      <td data-dialect="200005"><a href="entries/NQU-200115.html">NQU</a></td>
+      <td data-dialect="1" class="empty"></td>
     </tr>
   </tbody>
   <tbody data-group="FLOW">
-    <tr class="group"><th colspan="2">Flow control</th></tr>
-    <tr id="FLOW_CONTINUE" class="action-row" data-dialects=" 1 ">
+    <tr class="group"><th colspan="8">Flow control</th></tr>
+    <tr id="FLOW_CONTINUE" class="action-row" data-dialects=" 1 2 ">
       <th><span class="action-code">FLOW_CONTINUE</span><br><small>Resume after a stop</small></th>
+      <td data-dialect="2"><a href="entries/STOP-100017.html">STOP</a> <span class="tag">partial</span></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005" class="empty"></td>
       <td data-dialect="1"><a href="entries/CONTINUE-4.html">CONTINUE</a></td>
     </tr>
-    <tr id="FLOW_FOR" class="action-row" data-dialects=" 1 ">
+    <tr id="FLOW_END" class="action-row" data-dialects=" 2 200001 200002 200003 200004 200005 ">
+      <th><span class="action-code">FLOW_END</span><br><small>End the program</small></th>
+      <td data-dialect="2"><a href="entries/END-100018.html">END</a></td>
+      <td data-dialect="200001"><a href="entries/END-200008.html">END</a></td>
+      <td data-dialect="200002"><a href="entries/END-200008.html">END</a></td>
+      <td data-dialect="200003"><a href="entries/END-200008.html">END</a></td>
+      <td data-dialect="200004"><a href="entries/END-200008.html">END</a></td>
+      <td data-dialect="200005"><a href="entries/END-200008.html">END</a></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="FLOW_FOR" class="action-row" data-dialects=" 1 2 200001 200002 200003 200004 200005 ">
       <th><span class="action-code">FLOW_FOR</span><br><small>Start of a counted loop</small></th>
+      <td data-dialect="2"><a href="entries/FOR-TO-STEP-100015.html">FOR...TO...STEP</a></td>
+      <td data-dialect="200001"><a href="entries/FOR-TO-STEP-200009.html">FOR...TO...STEP</a></td>
+      <td data-dialect="200002"><a href="entries/FOR-TO-STEP-200043.html">FOR...TO...STEP</a></td>
+      <td data-dialect="200003"><a href="entries/FOR-TO-STEP-200043.html">FOR...TO...STEP</a></td>
+      <td data-dialect="200004"><a href="entries/FOR-TO-STEP-200043.html">FOR...TO...STEP</a></td>
+      <td data-dialect="200005"><a href="entries/FOR-TO-STEP-200043.html">FOR...TO...STEP</a></td>
       <td data-dialect="1"><a href="entries/FOR-TO-14.html">FOR...TO</a> <span class="tag">partial</span></td>
     </tr>
-    <tr id="FLOW_GOSUB" class="action-row" data-dialects=" 1 ">
+    <tr id="FLOW_GOSUB" class="action-row" data-dialects=" 1 2 200001 200002 200003 200004 200005 ">
       <th><span class="action-code">FLOW_GOSUB</span><br><small>Subroutine call</small></th>
+      <td data-dialect="2"><a href="entries/GOSUB-100013.html">GOSUB</a> <small>line</small><br><a href="entries/GOSUB-100013.html">GOSUB</a> <small>program area</small> <span class="tag">partial</span></td>
+      <td data-dialect="200001"><a href="entries/GOSUB-200016.html">GOSUB</a></td>
+      <td data-dialect="200002"><a href="entries/GOSUB-200016.html">GOSUB</a></td>
+      <td data-dialect="200003"><a href="entries/GOSUB-200071.html">GOSUB</a></td>
+      <td data-dialect="200004"><a href="entries/GOSUB-200071.html">GOSUB</a></td>
+      <td data-dialect="200005"><a href="entries/GOSUB-200016.html">GOSUB</a></td>
       <td data-dialect="1"><a href="entries/GO-SUB-12.html">GO SUB</a></td>
     </tr>
-    <tr id="FLOW_GOTO" class="action-row" data-dialects=" 1 ">
+    <tr id="FLOW_GOTO" class="action-row" data-dialects=" 1 2 200001 200002 200003 200004 200005 ">
       <th><span class="action-code">FLOW_GOTO</span><br><small>Jump to a line</small></th>
+      <td data-dialect="2"><a href="entries/GOTO-100011.html">GOTO</a> <small>line</small><br><a href="entries/GOTO-100011.html">GOTO</a> <small>program area</small> <span class="tag">partial</span></td>
+      <td data-dialect="200001"><a href="entries/GO-TO-200011.html">GO TO</a></td>
+      <td data-dialect="200002"><a href="entries/GO-TO-200011.html">GO TO</a></td>
+      <td data-dialect="200003"><a href="entries/GO-TO-200011.html">GO TO</a></td>
+      <td data-dialect="200004"><a href="entries/GO-TO-200011.html">GO TO</a></td>
+      <td data-dialect="200005"><a href="entries/GO-TO-200011.html">GO TO</a></td>
       <td data-dialect="1"><a href="entries/GO-TO-11.html">GO TO</a></td>
     </tr>
-    <tr id="FLOW_IF" class="action-row" data-dialects=" 1 ">
+    <tr id="FLOW_IF" class="action-row" data-dialects=" 1 2 200001 200002 200003 200004 200005 ">
       <th><span class="action-code">FLOW_IF</span><br><small>Conditional execution</small></th>
+      <td data-dialect="2"><a href="entries/IF-100012.html">IF</a> <small>jump</small><br><a href="entries/IF-100012.html">IF</a> <small>statement</small></td>
+      <td data-dialect="200001"><a href="entries/IF-THEN-200012.html">IF...THEN</a> <span class="tag">partial</span></td>
+      <td data-dialect="200002"><a href="entries/IF-THEN-200012.html">IF...THEN</a> <span class="tag">partial</span></td>
+      <td data-dialect="200003"><a href="entries/IF-THEN-200012.html">IF...THEN</a> <span class="tag">partial</span></td>
+      <td data-dialect="200004"><a href="entries/IF-THEN-200083.html">IF...THEN</a> <span class="tag">partial</span></td>
+      <td data-dialect="200005"><a href="entries/IF-THEN-200012.html">IF...THEN</a> <span class="tag">partial</span></td>
       <td data-dialect="1"><a href="entries/IF-10.html">IF</a></td>
     </tr>
-    <tr id="FLOW_NEXT" class="action-row" data-dialects=" 1 ">
+    <tr id="FLOW_NEXT" class="action-row" data-dialects=" 1 2 200001 200002 200003 200004 200005 ">
       <th><span class="action-code">FLOW_NEXT</span><br><small>End of a counted loop</small></th>
+      <td data-dialect="2"><a href="entries/NEXT-100016.html">NEXT</a></td>
+      <td data-dialect="200001"><a href="entries/NEXT-200010.html">NEXT</a></td>
+      <td data-dialect="200002"><a href="entries/NEXT-200044.html">NEXT</a></td>
+      <td data-dialect="200003"><a href="entries/NEXT-200044.html">NEXT</a></td>
+      <td data-dialect="200004"><a href="entries/NEXT-200044.html">NEXT</a></td>
+      <td data-dialect="200005"><a href="entries/NEXT-200044.html">NEXT</a></td>
       <td data-dialect="1"><a href="entries/NEXT-15.html">NEXT</a></td>
     </tr>
-    <tr id="FLOW_RETURN" class="action-row" data-dialects=" 1 ">
+    <tr id="FLOW_ON_GOTO" class="action-row" data-dialects=" 200004 ">
+      <th><span class="action-code">FLOW_ON_GOTO</span><br><small>Computed jump</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004"><a href="entries/ON-GO-TO-200084.html">ON...GO TO</a></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="FLOW_RETURN" class="action-row" data-dialects=" 1 2 200001 200002 200003 200004 200005 ">
       <th><span class="action-code">FLOW_RETURN</span><br><small>Return from subroutine</small></th>
+      <td data-dialect="2"><a href="entries/RETURN-100014.html">RETURN</a></td>
+      <td data-dialect="200001"><a href="entries/RETURN-200017.html">RETURN</a></td>
+      <td data-dialect="200002"><a href="entries/RETURN-200017.html">RETURN</a></td>
+      <td data-dialect="200003"><a href="entries/RETURN-200072.html">RETURN</a></td>
+      <td data-dialect="200004"><a href="entries/RETURN-200072.html">RETURN</a></td>
+      <td data-dialect="200005"><a href="entries/RETURN-200017.html">RETURN</a></td>
       <td data-dialect="1"><a href="entries/RETURN-13.html">RETURN</a></td>
     </tr>
-    <tr id="FLOW_STOP" class="action-row" data-dialects=" 1 ">
+    <tr id="FLOW_STOP" class="action-row" data-dialects=" 1 2 200002 200003 200004 200005 ">
       <th><span class="action-code">FLOW_STOP</span><br><small>Stop the program</small></th>
+      <td data-dialect="2"><a href="entries/STOP-100017.html">STOP</a></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002"><a href="entries/STOP-200053.html">STOP</a></td>
+      <td data-dialect="200003"><a href="entries/STOP-200053.html">STOP</a></td>
+      <td data-dialect="200004"><a href="entries/STOP-200053.html">STOP</a></td>
+      <td data-dialect="200005"><a href="entries/STOP-200053.html">STOP</a></td>
       <td data-dialect="1"><a href="entries/STOP-16.html">STOP</a></td>
     </tr>
   </tbody>
   <tbody data-group="IO">
-    <tr class="group"><th colspan="2">Input/output</th></tr>
-    <tr id="IO_INPUT" class="action-row" data-dialects=" 1 ">
+    <tr class="group"><th colspan="8">Input/output</th></tr>
+    <tr id="IO_FORMAT" class="action-row" data-dialects=" 2 ">
+      <th><span class="action-code">IO_FORMAT</span><br><small>Format of the displayed numbers</small></th>
+      <td data-dialect="2"><a href="entries/SET-100021.html">SET</a></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="IO_INPUT" class="action-row" data-dialects=" 1 2 200003 200004 ">
       <th><span class="action-code">IO_INPUT</span><br><small>Read values from the keyboard</small></th>
+      <td data-dialect="2"><a href="entries/INPUT-100009.html">INPUT</a></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003"><a href="entries/INPUT-200057.html">INPUT</a></td>
+      <td data-dialect="200004"><a href="entries/INPUT-200079.html">INPUT</a></td>
+      <td data-dialect="200005" class="empty"></td>
       <td data-dialect="1"><a href="entries/INPUT-9.html">INPUT</a> <span class="tag">partial</span></td>
     </tr>
-    <tr id="IO_PRINT" class="action-row" data-dialects=" 1 ">
+    <tr id="IO_KEY" class="action-row" data-dialects=" 2 ">
+      <th><span class="action-code">IO_KEY</span><br><small>Read a key without waiting</small></th>
+      <td data-dialect="2"><a href="entries/KEY-100024.html">KEY</a></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="IO_NEW_PAGE" class="action-row" data-dialects=" 200005 ">
+      <th><span class="action-code">IO_NEW_PAGE</span><br><small>Start a new page</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005"><a href="entries/PAGE-200123.html">PAGE</a></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="IO_POSITION" class="action-row" data-dialects=" 2 200004 ">
+      <th><span class="action-code">IO_POSITION</span><br><small>Output from a given position</small></th>
+      <td data-dialect="2"><a href="entries/PRINT-100010.html">PRINT</a><br><a href="entries/CSR-100025.html">CSR</a></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004"><a href="entries/PRINT-200078.html">PRINT</a><br><a href="entries/TAB-200092.html">TAB</a></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="IO_PRINT" class="action-row" data-dialects=" 1 2 200001 200002 200003 200004 200005 ">
       <th><span class="action-code">IO_PRINT</span><br><small>Write to the screen</small></th>
+      <td data-dialect="2"><a href="entries/PRINT-100010.html">PRINT</a></td>
+      <td data-dialect="200001"><a href="entries/PRINT-200007.html">PRINT</a></td>
+      <td data-dialect="200002"><a href="entries/PRINT-200054.html">PRINT</a></td>
+      <td data-dialect="200003"><a href="entries/PRINT-200073.html">PRINT</a></td>
+      <td data-dialect="200004"><a href="entries/PRINT-200078.html">PRINT</a></td>
+      <td data-dialect="200005"><a href="entries/PRINT-200120.html">PRINT</a></td>
       <td data-dialect="1"><a href="entries/PRINT-8.html">PRINT</a></td>
+    </tr>
+    <tr id="IO_PRINTER" class="action-row" data-dialects=" 2 ">
+      <th><span class="action-code">IO_PRINTER</span><br><small>Send the output to the printer</small></th>
+      <td data-dialect="2"><a href="entries/MODE-100020.html">MODE</a> <small>printer</small></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
     </tr>
   </tbody>
   <tbody data-group="LOGIC">
-    <tr class="group"><th colspan="2">Logical operators</th></tr>
+    <tr class="group"><th colspan="8">Logical operators</th></tr>
     <tr id="OP_AND" class="action-row" data-dialects=" 1 ">
       <th><span class="action-code">OP_AND</span><br><small>Logical conjunction</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005" class="empty"></td>
       <td data-dialect="1"><a href="entries/AND-40.html">AND</a></td>
     </tr>
     <tr id="OP_NOT" class="action-row" data-dialects=" 1 ">
       <th><span class="action-code">OP_NOT</span><br><small>Logical negation</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005" class="empty"></td>
       <td data-dialect="1"><a href="entries/NOT-39.html">NOT</a></td>
     </tr>
     <tr id="OP_OR" class="action-row" data-dialects=" 1 ">
       <th><span class="action-code">OP_OR</span><br><small>Logical disjunction</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005" class="empty"></td>
       <td data-dialect="1"><a href="entries/OR-41.html">OR</a></td>
     </tr>
   </tbody>
   <tbody data-group="MATH">
-    <tr class="group"><th colspan="2">Mathematics</th></tr>
-    <tr id="MATH_ABS" class="action-row" data-dialects=" 1 ">
+    <tr class="group"><th colspan="8">Mathematics</th></tr>
+    <tr id="MATH_ABS" class="action-row" data-dialects=" 1 2 200001 200002 200003 200004 200005 ">
       <th><span class="action-code">MATH_ABS</span><br><small>Absolute value</small></th>
+      <td data-dialect="2"><a href="entries/ABS-100041.html">ABS</a></td>
+      <td data-dialect="200001"><a href="entries/ABS-200027.html">ABS</a></td>
+      <td data-dialect="200002"><a href="entries/ABS-200027.html">ABS</a></td>
+      <td data-dialect="200003"><a href="entries/ABS-200027.html">ABS</a></td>
+      <td data-dialect="200004"><a href="entries/ABS-200027.html">ABS</a></td>
+      <td data-dialect="200005"><a href="entries/ABS-200027.html">ABS</a></td>
       <td data-dialect="1"><a href="entries/ABS-23.html">ABS</a></td>
     </tr>
-    <tr id="OP_ADD" class="action-row" data-dialects=" 1 ">
+    <tr id="MATH_ACS" class="action-row" data-dialects=" 2 ">
+      <th><span class="action-code">MATH_ACS</span><br><small>Arc cosine</small></th>
+      <td data-dialect="2"><a href="entries/ACS-100033.html">ACS</a></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="MATH_ANGLE_UNIT" class="action-row" data-dialects=" 2 ">
+      <th><span class="action-code">MATH_ANGLE_UNIT</span><br><small>Choose the angle unit</small></th>
+      <td data-dialect="2"><a href="entries/MODE-100020.html">MODE</a> <small>angle unit</small></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="MATH_ASN" class="action-row" data-dialects=" 2 ">
+      <th><span class="action-code">MATH_ASN</span><br><small>Arc sine</small></th>
+      <td data-dialect="2"><a href="entries/ASN-100032.html">ASN</a></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="MATH_ATN" class="action-row" data-dialects=" 2 200001 200002 200003 200004 200005 ">
+      <th><span class="action-code">MATH_ATN</span><br><small>Arc tangent</small></th>
+      <td data-dialect="2"><a href="entries/ATN-100034.html">ATN</a></td>
+      <td data-dialect="200001"><a href="entries/ATN-200023.html">ATN</a></td>
+      <td data-dialect="200002"><a href="entries/ATN-200023.html">ATN</a></td>
+      <td data-dialect="200003"><a href="entries/ATN-200023.html">ATN</a></td>
+      <td data-dialect="200004"><a href="entries/ATN-200023.html">ATN</a></td>
+      <td data-dialect="200005"><a href="entries/ATN-200023.html">ATN</a></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="MATH_COS" class="action-row" data-dialects=" 2 200001 200002 200003 200004 200005 ">
+      <th><span class="action-code">MATH_COS</span><br><small>Cosine</small></th>
+      <td data-dialect="2"><a href="entries/COS-100030.html">COS</a></td>
+      <td data-dialect="200001"><a href="entries/COS-200021.html">COS</a></td>
+      <td data-dialect="200002"><a href="entries/COS-200021.html">COS</a></td>
+      <td data-dialect="200003"><a href="entries/COS-200021.html">COS</a></td>
+      <td data-dialect="200004"><a href="entries/COS-200021.html">COS</a></td>
+      <td data-dialect="200005"><a href="entries/COS-200021.html">COS</a></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="MATH_COT" class="action-row" data-dialects=" 200004 ">
+      <th><span class="action-code">MATH_COT</span><br><small>Cotangent</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004"><a href="entries/COT-200091.html">COT</a></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="MATH_EXP" class="action-row" data-dialects=" 2 200001 200002 200003 200004 200005 ">
+      <th><span class="action-code">MATH_EXP</span><br><small>Exponential</small></th>
+      <td data-dialect="2"><a href="entries/EXP-100036.html">EXP</a> <span class="tag">partial</span></td>
+      <td data-dialect="200001"><a href="entries/EXP-200024.html">EXP</a></td>
+      <td data-dialect="200002"><a href="entries/EXP-200024.html">EXP</a></td>
+      <td data-dialect="200003"><a href="entries/EXP-200069.html">EXP</a></td>
+      <td data-dialect="200004"><a href="entries/EXP-200069.html">EXP</a></td>
+      <td data-dialect="200005"><a href="entries/EXP-200024.html">EXP</a></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="MATH_FRAC" class="action-row" data-dialects=" 2 ">
+      <th><span class="action-code">MATH_FRAC</span><br><small>Fractional part</small></th>
+      <td data-dialect="2"><a href="entries/FRAC-100040.html">FRAC</a></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="MATH_INT" class="action-row" data-dialects=" 2 200001 200002 200003 200004 200005 ">
+      <th><span class="action-code">MATH_INT</span><br><small>Integer part</small></th>
+      <td data-dialect="2"><a href="entries/INT-100039.html">INT</a></td>
+      <td data-dialect="200001"><a href="entries/INT-200029.html">INT</a> <span class="tag">partial</span></td>
+      <td data-dialect="200002"><a href="entries/INT-200029.html">INT</a> <span class="tag">partial</span></td>
+      <td data-dialect="200003"><a href="entries/INT-200063.html">INT</a></td>
+      <td data-dialect="200004"><a href="entries/INT-200063.html">INT</a></td>
+      <td data-dialect="200005"><a href="entries/INT-200029.html">INT</a> <span class="tag">partial</span></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="MATH_LN" class="action-row" data-dialects=" 2 200001 200002 200003 200004 200005 ">
+      <th><span class="action-code">MATH_LN</span><br><small>Natural logarithm</small></th>
+      <td data-dialect="2"><a href="entries/LN-100037.html">LN</a></td>
+      <td data-dialect="200001"><a href="entries/LOG-200025.html">LOG</a></td>
+      <td data-dialect="200002"><a href="entries/LOG-200025.html">LOG</a></td>
+      <td data-dialect="200003"><a href="entries/LOG-200068.html">LOG</a></td>
+      <td data-dialect="200004"><a href="entries/LOG-200068.html">LOG</a></td>
+      <td data-dialect="200005"><a href="entries/LOG-200025.html">LOG</a></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="MATH_LOG" class="action-row" data-dialects=" 2 ">
+      <th><span class="action-code">MATH_LOG</span><br><small>Common logarithm</small></th>
+      <td data-dialect="2"><a href="entries/LOG-100038.html">LOG</a></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="MATH_PI" class="action-row" data-dialects=" 2 ">
+      <th><span class="action-code">MATH_PI</span><br><small>The constant pi</small></th>
+      <td data-dialect="2"><a href="entries/x-100045.html">π</a></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="MATH_ROUND" class="action-row" data-dialects=" 2 ">
+      <th><span class="action-code">MATH_ROUND</span><br><small>Round to a given digit</small></th>
+      <td data-dialect="2"><a href="entries/RND-100043.html">RND</a></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="MATH_SGN" class="action-row" data-dialects=" 2 200003 200004 ">
+      <th><span class="action-code">MATH_SGN</span><br><small>Sign</small></th>
+      <td data-dialect="2"><a href="entries/SGN-100042.html">SGN</a></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003"><a href="entries/SGN-200059.html">SGN</a></td>
+      <td data-dialect="200004"><a href="entries/SGN-200059.html">SGN</a></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="MATH_SIN" class="action-row" data-dialects=" 2 200001 200002 200003 200004 200005 ">
+      <th><span class="action-code">MATH_SIN</span><br><small>Sine</small></th>
+      <td data-dialect="2"><a href="entries/SIN-100029.html">SIN</a></td>
+      <td data-dialect="200001"><a href="entries/SIN-200020.html">SIN</a></td>
+      <td data-dialect="200002"><a href="entries/SIN-200020.html">SIN</a></td>
+      <td data-dialect="200003"><a href="entries/SIN-200020.html">SIN</a></td>
+      <td data-dialect="200004"><a href="entries/SIN-200020.html">SIN</a></td>
+      <td data-dialect="200005"><a href="entries/SIN-200020.html">SIN</a></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="MATH_SQR" class="action-row" data-dialects=" 2 200001 200002 200003 200004 200005 ">
+      <th><span class="action-code">MATH_SQR</span><br><small>Square root</small></th>
+      <td data-dialect="2"><a href="entries/SQR-100035.html">SQR</a></td>
+      <td data-dialect="200001"><a href="entries/SQR-200026.html">SQR</a></td>
+      <td data-dialect="200002"><a href="entries/SQR-200026.html">SQR</a></td>
+      <td data-dialect="200003"><a href="entries/SQR-200067.html">SQR</a></td>
+      <td data-dialect="200004"><a href="entries/SQR-200067.html">SQR</a></td>
+      <td data-dialect="200005"><a href="entries/SQR-200026.html">SQR</a></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="MATH_TAN" class="action-row" data-dialects=" 2 200001 200002 200003 200004 200005 ">
+      <th><span class="action-code">MATH_TAN</span><br><small>Tangent</small></th>
+      <td data-dialect="2"><a href="entries/TAN-100031.html">TAN</a></td>
+      <td data-dialect="200001"><a href="entries/TAN-200022.html">TAN</a></td>
+      <td data-dialect="200002"><a href="entries/TAN-200022.html">TAN</a></td>
+      <td data-dialect="200003"><a href="entries/TAN-200022.html">TAN</a></td>
+      <td data-dialect="200004"><a href="entries/TAN-200022.html">TAN</a></td>
+      <td data-dialect="200005"><a href="entries/TAN-200022.html">TAN</a></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="OP_ADD" class="action-row" data-dialects=" 1 2 200001 200002 200003 200004 200005 ">
       <th><span class="action-code">OP_ADD</span><br><small>Addition</small></th>
+      <td data-dialect="2"><a href="entries/plus-100050.html">+</a> <small>addition</small></td>
+      <td data-dialect="200001"><a href="entries/plus-200035.html">+</a></td>
+      <td data-dialect="200002"><a href="entries/plus-200035.html">+</a></td>
+      <td data-dialect="200003"><a href="entries/plus-200035.html">+</a></td>
+      <td data-dialect="200004"><a href="entries/plus-200035.html">+</a></td>
+      <td data-dialect="200005"><a href="entries/plus-200035.html">+</a></td>
       <td data-dialect="1"><a href="entries/plus-35.html">+</a></td>
     </tr>
-    <tr id="OP_DIV" class="action-row" data-dialects=" 1 ">
+    <tr id="OP_DIV" class="action-row" data-dialects=" 1 2 200001 200002 200003 200004 200005 ">
       <th><span class="action-code">OP_DIV</span><br><small>Division</small></th>
+      <td data-dialect="2"><a href="entries/slash-100049.html">/</a></td>
+      <td data-dialect="200001"><a href="entries/slash-200034.html">/</a></td>
+      <td data-dialect="200002"><a href="entries/slash-200034.html">/</a></td>
+      <td data-dialect="200003"><a href="entries/slash-200066.html">/</a></td>
+      <td data-dialect="200004"><a href="entries/slash-200066.html">/</a></td>
+      <td data-dialect="200005"><a href="entries/slash-200034.html">/</a></td>
       <td data-dialect="1"><a href="entries/slash-34.html">/</a> <span class="tag">partial</span></td>
     </tr>
-    <tr id="OP_MUL" class="action-row" data-dialects=" 1 ">
+    <tr id="OP_MUL" class="action-row" data-dialects=" 1 2 200001 200002 200003 200004 200005 ">
       <th><span class="action-code">OP_MUL</span><br><small>Multiplication</small></th>
+      <td data-dialect="2"><a href="entries/star-100048.html">*</a></td>
+      <td data-dialect="200001"><a href="entries/star-200033.html">*</a></td>
+      <td data-dialect="200002"><a href="entries/star-200033.html">*</a></td>
+      <td data-dialect="200003"><a href="entries/star-200033.html">*</a></td>
+      <td data-dialect="200004"><a href="entries/star-200033.html">*</a></td>
+      <td data-dialect="200005"><a href="entries/star-200033.html">*</a></td>
       <td data-dialect="1"><a href="entries/star-33.html">*</a></td>
     </tr>
-    <tr id="OP_NEG" class="action-row" data-dialects=" 1 ">
+    <tr id="OP_NEG" class="action-row" data-dialects=" 1 2 200001 200002 200003 200004 200005 ">
       <th><span class="action-code">OP_NEG</span><br><small>Change of sign</small></th>
+      <td data-dialect="2"><a href="entries/minus-100047.html">-</a> <small>change of sign</small></td>
+      <td data-dialect="200001"><a href="entries/minus-200032.html">-</a> <small>change of sign</small></td>
+      <td data-dialect="200002"><a href="entries/minus-200032.html">-</a> <small>change of sign</small></td>
+      <td data-dialect="200003"><a href="entries/minus-200064.html">-</a> <small>change of sign</small></td>
+      <td data-dialect="200004"><a href="entries/minus-200064.html">-</a> <small>change of sign</small></td>
+      <td data-dialect="200005"><a href="entries/minus-200032.html">-</a> <small>change of sign</small></td>
       <td data-dialect="1"><a href="entries/minus-32.html">-</a> <small>change of sign</small></td>
     </tr>
-    <tr id="OP_POWER" class="action-row" data-dialects=" 1 ">
+    <tr id="OP_POWER" class="action-row" data-dialects=" 1 2 200001 200002 200003 200004 200005 ">
       <th><span class="action-code">OP_POWER</span><br><small>Raise to a power</small></th>
+      <td data-dialect="2"><a href="entries/x-100046.html">↑</a></td>
+      <td data-dialect="200001"><a href="entries/x-200031.html">↑</a> <span class="tag">partial</span></td>
+      <td data-dialect="200002"><a href="entries/x-200031.html">↑</a> <span class="tag">partial</span></td>
+      <td data-dialect="200003"><a href="entries/x-200065.html">↑</a></td>
+      <td data-dialect="200004"><a href="entries/x-200065.html">↑</a></td>
+      <td data-dialect="200005"><a href="entries/x-200031.html">↑</a> <span class="tag">partial</span></td>
       <td data-dialect="1"><a href="entries/star-star-31.html">**</a></td>
     </tr>
-    <tr id="OP_SUB" class="action-row" data-dialects=" 1 ">
+    <tr id="OP_SUB" class="action-row" data-dialects=" 1 2 200001 200002 200003 200004 200005 ">
       <th><span class="action-code">OP_SUB</span><br><small>Subtraction</small></th>
+      <td data-dialect="2"><a href="entries/minus-100047.html">-</a> <small>subtraction</small></td>
+      <td data-dialect="200001"><a href="entries/minus-200032.html">-</a> <small>subtraction</small></td>
+      <td data-dialect="200002"><a href="entries/minus-200032.html">-</a> <small>subtraction</small></td>
+      <td data-dialect="200003"><a href="entries/minus-200064.html">-</a> <small>subtraction</small></td>
+      <td data-dialect="200004"><a href="entries/minus-200064.html">-</a> <small>subtraction</small></td>
+      <td data-dialect="200005"><a href="entries/minus-200032.html">-</a> <small>subtraction</small></td>
       <td data-dialect="1"><a href="entries/minus-32.html">-</a> <small>subtraction</small></td>
     </tr>
   </tbody>
+  <tbody data-group="MATRIX">
+    <tr class="group"><th colspan="8">Matrices</th></tr>
+    <tr id="MAT_ADD" class="action-row" data-dialects=" 200003 200004 200005 ">
+      <th><span class="action-code">MAT_ADD</span><br><small>Matrix addition</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003"><a href="entries/MAT-200062.html">MAT</a> <small>sum</small></td>
+      <td data-dialect="200004"><a href="entries/MAT-200096.html">MAT</a> <small>sum</small></td>
+      <td data-dialect="200005"><a href="entries/MAT-200126.html">MAT</a> <small>sum</small></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="MAT_COPY" class="action-row" data-dialects=" 200004 ">
+      <th><span class="action-code">MAT_COPY</span><br><small>Copy a matrix</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004"><a href="entries/MAT-200096.html">MAT</a> <small>copy</small></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="MAT_DET" class="action-row" data-dialects=" 200004 ">
+      <th><span class="action-code">MAT_DET</span><br><small>Determinant of a matrix</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004"><a href="entries/DET-200094.html">DET</a></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="MAT_IDENTITY" class="action-row" data-dialects=" 200003 200004 200005 ">
+      <th><span class="action-code">MAT_IDENTITY</span><br><small>Identity matrix</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003"><a href="entries/MAT-200062.html">MAT</a> <small>identity</small></td>
+      <td data-dialect="200004"><a href="entries/MAT-200096.html">MAT</a> <small>identity</small></td>
+      <td data-dialect="200005"><a href="entries/MAT-200126.html">MAT</a> <small>identity</small></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="MAT_INPUT" class="action-row" data-dialects=" 200004 ">
+      <th><span class="action-code">MAT_INPUT</span><br><small>Read a matrix from the keyboard</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004"><a href="entries/MAT-INPUT-200095.html">MAT INPUT</a></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="MAT_INPUT_COUNT" class="action-row" data-dialects=" 200004 ">
+      <th><span class="action-code">MAT_INPUT_COUNT</span><br><small>Number of values read by a matrix input</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004"><a href="entries/NUM-200093.html">NUM</a></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="MAT_INVERSE" class="action-row" data-dialects=" 200003 200004 200005 ">
+      <th><span class="action-code">MAT_INVERSE</span><br><small>Inverse of a matrix</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003"><a href="entries/MAT-200062.html">MAT</a> <small>inverse</small></td>
+      <td data-dialect="200004"><a href="entries/MAT-200096.html">MAT</a> <small>inverse</small></td>
+      <td data-dialect="200005"><a href="entries/MAT-200126.html">MAT</a> <small>inverse</small></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="MAT_MUL" class="action-row" data-dialects=" 200003 200004 200005 ">
+      <th><span class="action-code">MAT_MUL</span><br><small>Matrix multiplication</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003"><a href="entries/MAT-200062.html">MAT</a> <small>product</small></td>
+      <td data-dialect="200004"><a href="entries/MAT-200096.html">MAT</a> <small>product</small></td>
+      <td data-dialect="200005"><a href="entries/MAT-200126.html">MAT</a> <small>product</small></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="MAT_ONES" class="action-row" data-dialects=" 200003 200004 200005 ">
+      <th><span class="action-code">MAT_ONES</span><br><small>Matrix of ones</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003"><a href="entries/MAT-200062.html">MAT</a> <small>ones</small></td>
+      <td data-dialect="200004"><a href="entries/MAT-200096.html">MAT</a> <small>ones</small></td>
+      <td data-dialect="200005"><a href="entries/MAT-200126.html">MAT</a> <small>ones</small></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="MAT_PRINT" class="action-row" data-dialects=" 200003 200004 200005 ">
+      <th><span class="action-code">MAT_PRINT</span><br><small>Print a matrix</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003"><a href="entries/MAT-PRINT-200061.html">MAT PRINT</a></td>
+      <td data-dialect="200004"><a href="entries/MAT-PRINT-200061.html">MAT PRINT</a></td>
+      <td data-dialect="200005"><a href="entries/MAT-PRINT-200125.html">MAT PRINT</a></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="MAT_READ" class="action-row" data-dialects=" 200003 200004 200005 ">
+      <th><span class="action-code">MAT_READ</span><br><small>Read a matrix from the data list</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003"><a href="entries/MAT-READ-200060.html">MAT READ</a></td>
+      <td data-dialect="200004"><a href="entries/MAT-READ-200060.html">MAT READ</a></td>
+      <td data-dialect="200005"><a href="entries/MAT-READ-200124.html">MAT READ</a></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="MAT_SCALAR" class="action-row" data-dialects=" 200003 200004 200005 ">
+      <th><span class="action-code">MAT_SCALAR</span><br><small>Multiply a matrix by a number</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003"><a href="entries/MAT-200062.html">MAT</a> <small>multiple</small></td>
+      <td data-dialect="200004"><a href="entries/MAT-200096.html">MAT</a> <small>multiple</small></td>
+      <td data-dialect="200005"><a href="entries/MAT-200126.html">MAT</a> <small>multiple</small></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="MAT_SUB" class="action-row" data-dialects=" 200003 200004 200005 ">
+      <th><span class="action-code">MAT_SUB</span><br><small>Matrix subtraction</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003"><a href="entries/MAT-200062.html">MAT</a> <small>difference</small></td>
+      <td data-dialect="200004"><a href="entries/MAT-200096.html">MAT</a> <small>difference</small></td>
+      <td data-dialect="200005"><a href="entries/MAT-200126.html">MAT</a> <small>difference</small></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="MAT_TRANSPOSE" class="action-row" data-dialects=" 200003 200004 200005 ">
+      <th><span class="action-code">MAT_TRANSPOSE</span><br><small>Transpose of a matrix</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003"><a href="entries/MAT-200062.html">MAT</a> <small>transpose</small></td>
+      <td data-dialect="200004"><a href="entries/MAT-200096.html">MAT</a> <small>transpose</small></td>
+      <td data-dialect="200005"><a href="entries/MAT-200126.html">MAT</a> <small>transpose</small></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="MAT_ZERO" class="action-row" data-dialects=" 200003 200004 200005 ">
+      <th><span class="action-code">MAT_ZERO</span><br><small>Zero matrix</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003"><a href="entries/MAT-200062.html">MAT</a> <small>zero matrix</small></td>
+      <td data-dialect="200004"><a href="entries/MAT-200096.html">MAT</a> <small>zero matrix</small></td>
+      <td data-dialect="200005"><a href="entries/MAT-200126.html">MAT</a> <small>zero matrix</small></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+  </tbody>
   <tbody data-group="MEMORY">
-    <tr class="group"><th colspan="2">Memory and machine code</th></tr>
+    <tr class="group"><th colspan="8">Memory and machine code</th></tr>
     <tr id="MEM_CALL" class="action-row" data-dialects=" 1 ">
       <th><span class="action-code">MEM_CALL</span><br><small>Call a machine code routine</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005" class="empty"></td>
       <td data-dialect="1"><a href="entries/USR-30.html">USR</a></td>
     </tr>
     <tr id="MEM_PEEK" class="action-row" data-dialects=" 1 ">
       <th><span class="action-code">MEM_PEEK</span><br><small>Read a byte from memory</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005" class="empty"></td>
       <td data-dialect="1"><a href="entries/PEEK-26.html">PEEK</a></td>
     </tr>
     <tr id="MEM_POKE" class="action-row" data-dialects=" 1 ">
       <th><span class="action-code">MEM_POKE</span><br><small>Write a byte to memory</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005" class="empty"></td>
       <td data-dialect="1"><a href="entries/POKE-20.html">POKE</a></td>
     </tr>
   </tbody>
   <tbody data-group="PROGRAM">
-    <tr class="group"><th colspan="2">Program management</th></tr>
-    <tr id="PROG_LIST" class="action-row" data-dialects=" 1 ">
+    <tr class="group"><th colspan="8">Program management</th></tr>
+    <tr id="PROG_BREAK" class="action-row" data-dialects=" 200001 200002 200003 200004 ">
+      <th><span class="action-code">PROG_BREAK</span><br><small>Interrupt the running program</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001"><a href="entries/STOP-200005.html">STOP</a></td>
+      <td data-dialect="200002"><a href="entries/STOP-200005.html">STOP</a></td>
+      <td data-dialect="200003"><a href="entries/STOP-200005.html">STOP</a></td>
+      <td data-dialect="200004"><a href="entries/STOP-200005.html">STOP</a></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="PROG_LENGTH" class="action-row" data-dialects=" 200003 200004 ">
+      <th><span class="action-code">PROG_LENGTH</span><br><small>Size of the program</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003"><a href="entries/LENGTH-200055.html">LENGTH</a></td>
+      <td data-dialect="200004"><a href="entries/LENGTH-200055.html">LENGTH</a></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="PROG_LIST" class="action-row" data-dialects=" 1 2 200001 200002 200003 200004 ">
       <th><span class="action-code">PROG_LIST</span><br><small>List the program</small></th>
+      <td data-dialect="2"><a href="entries/LIST-100002.html">LIST</a> <small>current area</small><br><a href="entries/LIST-100002.html">LIST</a> <small>all areas</small></td>
+      <td data-dialect="200001"><a href="entries/LIST-200003.html">LIST</a></td>
+      <td data-dialect="200002"><a href="entries/LIST-200052.html">LIST</a></td>
+      <td data-dialect="200003"><a href="entries/LIST-200052.html">LIST</a></td>
+      <td data-dialect="200004"><a href="entries/LIST-200052.html">LIST</a></td>
+      <td data-dialect="200005" class="empty"></td>
       <td data-dialect="1"><a href="entries/LIST-1.html">LIST</a></td>
     </tr>
-    <tr id="PROG_NEW" class="action-row" data-dialects=" 1 ">
+    <tr id="PROG_NEW" class="action-row" data-dialects=" 1 2 200002 200003 200004 ">
       <th><span class="action-code">PROG_NEW</span><br><small>Erase the program</small></th>
+      <td data-dialect="2"><a href="entries/CLEAR-100003.html">CLEAR</a> <small>current area</small> <span class="tag">partial</span><br><a href="entries/CLEAR-100003.html">CLEAR</a> <small>all areas</small></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002"><a href="entries/NEW-200046.html">NEW</a><br><a href="entries/SCRATCH-200048.html">SCRATCH</a> <span class="tag">partial</span></td>
+      <td data-dialect="200003"><a href="entries/NEW-200046.html">NEW</a><br><a href="entries/SCRATCH-200048.html">SCRATCH</a> <span class="tag">partial</span></td>
+      <td data-dialect="200004"><a href="entries/NEW-200046.html">NEW</a><br><a href="entries/SCRATCH-200048.html">SCRATCH</a> <span class="tag">partial</span></td>
+      <td data-dialect="200005" class="empty"></td>
       <td data-dialect="1"><a href="entries/NEW-3.html">NEW</a></td>
     </tr>
-    <tr id="PROG_REM" class="action-row" data-dialects=" 1 ">
+    <tr id="PROG_REM" class="action-row" data-dialects=" 1 200001 200002 200003 200004 200005 ">
       <th><span class="action-code">PROG_REM</span><br><small>Comment</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001"><a href="entries/REM-200019.html">REM</a></td>
+      <td data-dialect="200002"><a href="entries/REM-200019.html">REM</a></td>
+      <td data-dialect="200003"><a href="entries/REM-200019.html">REM</a></td>
+      <td data-dialect="200004"><a href="entries/REM-200019.html">REM</a><br><a href="entries/apos-200089.html">&#39;</a></td>
+      <td data-dialect="200005"><a href="entries/REM-200019.html">REM</a></td>
       <td data-dialect="1"><a href="entries/REM-22.html">REM</a></td>
     </tr>
-    <tr id="PROG_RUN" class="action-row" data-dialects=" 1 ">
+    <tr id="PROG_RENAME" class="action-row" data-dialects=" 200002 200003 200004 ">
+      <th><span class="action-code">PROG_RENAME</span><br><small>Rename the program</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002"><a href="entries/RENAME-200049.html">RENAME</a></td>
+      <td data-dialect="200003"><a href="entries/RENAME-200049.html">RENAME</a></td>
+      <td data-dialect="200004"><a href="entries/RENAME-200049.html">RENAME</a></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="PROG_RUN" class="action-row" data-dialects=" 1 2 200001 200002 200003 200004 ">
       <th><span class="action-code">PROG_RUN</span><br><small>Run the program</small></th>
+      <td data-dialect="2"><a href="entries/RUN-100001.html">RUN</a></td>
+      <td data-dialect="200001"><a href="entries/RUN-200002.html">RUN</a></td>
+      <td data-dialect="200002"><a href="entries/RUN-200002.html">RUN</a></td>
+      <td data-dialect="200003"><a href="entries/RUN-200002.html">RUN</a></td>
+      <td data-dialect="200004"><a href="entries/RUN-200002.html">RUN</a></td>
+      <td data-dialect="200005" class="empty"></td>
       <td data-dialect="1"><a href="entries/RUN-2.html">RUN</a></td>
     </tr>
   </tbody>
   <tbody data-group="RANDOM">
-    <tr class="group"><th colspan="2">Random numbers</th></tr>
-    <tr id="RND_SEED" class="action-row" data-dialects=" 1 ">
+    <tr class="group"><th colspan="8">Random numbers</th></tr>
+    <tr id="RND_SEED" class="action-row" data-dialects=" 1 200004 ">
       <th><span class="action-code">RND_SEED</span><br><small>Seed the random numbers</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004"><a href="entries/RANDOMIZE-200085.html">RANDOMIZE</a> <span class="tag">partial</span></td>
+      <td data-dialect="200005" class="empty"></td>
       <td data-dialect="1"><a href="entries/RANDOMISE-21.html">RANDOMISE</a></td>
     </tr>
-    <tr id="RND_VALUE" class="action-row" data-dialects=" 1 ">
+    <tr id="RND_VALUE" class="action-row" data-dialects=" 1 2 200001 200002 200003 200004 200005 ">
       <th><span class="action-code">RND_VALUE</span><br><small>Random number</small></th>
+      <td data-dialect="2"><a href="entries/RAN-100044.html">RAN#</a> <span class="tag">partial</span></td>
+      <td data-dialect="200001"><a href="entries/RND-200028.html">RND</a> <span class="tag">partial</span></td>
+      <td data-dialect="200002"><a href="entries/RND-200028.html">RND</a> <span class="tag">partial</span></td>
+      <td data-dialect="200003"><a href="entries/RND-200028.html">RND</a> <span class="tag">partial</span></td>
+      <td data-dialect="200004"><a href="entries/RND-200090.html">RND</a> <span class="tag">partial</span></td>
+      <td data-dialect="200005"><a href="entries/RND-200028.html">RND</a> <span class="tag">partial</span></td>
       <td data-dialect="1"><a href="entries/RND-27.html">RND</a></td>
     </tr>
   </tbody>
   <tbody data-group="SCREEN">
-    <tr class="group"><th colspan="2">Screen</th></tr>
+    <tr class="group"><th colspan="8">Screen</th></tr>
     <tr id="SCREEN_CLS" class="action-row" data-dialects=" 1 ">
       <th><span class="action-code">SCREEN_CLS</span><br><small>Clear the screen</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005" class="empty"></td>
       <td data-dialect="1"><a href="entries/CLS-19.html">CLS</a></td>
     </tr>
   </tbody>
+  <tbody data-group="SESSION">
+    <tr class="group"><th colspan="8">Session</th></tr>
+    <tr id="SESSION_END" class="action-row" data-dialects=" 200004 ">
+      <th><span class="action-code">SESSION_END</span><br><small>End a session</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004"><a href="entries/BYE-200075.html">BYE</a></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="SESSION_START" class="action-row" data-dialects=" 200001 200002 200003 200004 ">
+      <th><span class="action-code">SESSION_START</span><br><small>Start a session</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001"><a href="entries/HELLO-200001.html">HELLO</a></td>
+      <td data-dialect="200002"><a href="entries/HELLO-200001.html">HELLO</a></td>
+      <td data-dialect="200003"><a href="entries/HELLO-200001.html">HELLO</a></td>
+      <td data-dialect="200004"><a href="entries/HELLO-200001.html">HELLO</a></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="SYSTEM_SELECT" class="action-row" data-dialects=" 200003 200004 ">
+      <th><span class="action-code">SYSTEM_SELECT</span><br><small>Choose the language system</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003"><a href="entries/SYSTEM-200056.html">SYSTEM</a></td>
+      <td data-dialect="200004"><a href="entries/SYSTEM-200056.html">SYSTEM</a></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+  </tbody>
   <tbody data-group="STRING">
-    <tr class="group"><th colspan="2">Strings</th></tr>
+    <tr class="group"><th colspan="8">Strings</th></tr>
     <tr id="STR_CHR" class="action-row" data-dialects=" 1 ">
       <th><span class="action-code">STR_CHR</span><br><small>Character from its code</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005" class="empty"></td>
       <td data-dialect="1"><a href="entries/CHRS-24.html">CHR$</a></td>
     </tr>
     <tr id="STR_CODE" class="action-row" data-dialects=" 1 ">
       <th><span class="action-code">STR_CODE</span><br><small>Code of a character</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005" class="empty"></td>
       <td data-dialect="1"><a href="entries/CODE-25.html">CODE</a></td>
+    </tr>
+    <tr id="STR_CONCAT" class="action-row" data-dialects=" 2 ">
+      <th><span class="action-code">STR_CONCAT</span><br><small>Join two strings</small></th>
+      <td data-dialect="2"><a href="entries/plus-100050.html">+</a> <small>joining</small></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="STR_FROM_CODES" class="action-row" data-dialects=" 200004 ">
+      <th><span class="action-code">STR_FROM_CODES</span><br><small>String built from character codes</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004"><a href="entries/CHANGE-200086.html">CHANGE</a> <small>codes to string</small></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
     </tr>
     <tr id="STR_FROM_NUM" class="action-row" data-dialects=" 1 ">
       <th><span class="action-code">STR_FROM_NUM</span><br><small>Number converted to a string</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005" class="empty"></td>
       <td data-dialect="1"><a href="entries/STRS-28.html">STR$</a></td>
     </tr>
-    <tr id="STR_SUBSTRING" class="action-row" data-dialects=" 1 ">
+    <tr id="STR_LEN" class="action-row" data-dialects=" 2 ">
+      <th><span class="action-code">STR_LEN</span><br><small>Length of a string</small></th>
+      <td data-dialect="2"><a href="entries/LEN-100026.html">LEN</a></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="STR_SUBSTRING" class="action-row" data-dialects=" 1 2 ">
       <th><span class="action-code">STR_SUBSTRING</span><br><small>Part of a string</small></th>
+      <td data-dialect="2"><a href="entries/MID-100027.html">MID</a> <span class="tag">partial</span></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005" class="empty"></td>
       <td data-dialect="1"><a href="entries/TLS-29.html">TL$</a> <span class="tag">partial</span></td>
+    </tr>
+    <tr id="STR_TO_CODES" class="action-row" data-dialects=" 200004 ">
+      <th><span class="action-code">STR_TO_CODES</span><br><small>String converted to character codes</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004"><a href="entries/CHANGE-200086.html">CHANGE</a> <small>string to codes</small></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="STR_TO_NUM" class="action-row" data-dialects=" 2 ">
+      <th><span class="action-code">STR_TO_NUM</span><br><small>String converted to a number</small></th>
+      <td data-dialect="2"><a href="entries/VAL-100028.html">VAL</a></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
     </tr>
   </tbody>
   <tbody data-group="TAPE">
-    <tr class="group"><th colspan="2">Tape and disk</th></tr>
-    <tr id="TAPE_LOAD" class="action-row" data-dialects=" 1 ">
+    <tr class="group"><th colspan="8">Tape and disk</th></tr>
+    <tr id="DISK_DELETE" class="action-row" data-dialects=" 200002 200003 200004 ">
+      <th><span class="action-code">DISK_DELETE</span><br><small>Delete a saved program</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002"><a href="entries/UNSAVE-200051.html">UNSAVE</a></td>
+      <td data-dialect="200003"><a href="entries/UNSAVE-200051.html">UNSAVE</a></td>
+      <td data-dialect="200004"><a href="entries/UNSAVE-200051.html">UNSAVE</a></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="DISK_DIRECTORY" class="action-row" data-dialects=" 200002 200003 200004 ">
+      <th><span class="action-code">DISK_DIRECTORY</span><br><small>Show the disk contents</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002"><a href="entries/CATALOG-200050.html">CATALOG</a></td>
+      <td data-dialect="200003"><a href="entries/CATALOG-200050.html">CATALOG</a></td>
+      <td data-dialect="200004"><a href="entries/CATALOG-200050.html">CATALOG</a></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="TAPE_LOAD" class="action-row" data-dialects=" 1 2 200002 200003 200004 ">
       <th><span class="action-code">TAPE_LOAD</span><br><small>Load the program</small></th>
+      <td data-dialect="2"><a href="entries/LOAD-100006.html">LOAD</a> <small>current area</small><br><a href="entries/LOAD-100006.html">LOAD</a> <small>all areas</small></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002"><a href="entries/OLD-200047.html">OLD</a></td>
+      <td data-dialect="200003"><a href="entries/OLD-200047.html">OLD</a></td>
+      <td data-dialect="200004"><a href="entries/OLD-200047.html">OLD</a></td>
+      <td data-dialect="200005" class="empty"></td>
       <td data-dialect="1"><a href="entries/LOAD-6.html">LOAD</a></td>
     </tr>
-    <tr id="TAPE_SAVE" class="action-row" data-dialects=" 1 ">
+    <tr id="TAPE_LOAD_DATA" class="action-row" data-dialects=" 2 ">
+      <th><span class="action-code">TAPE_LOAD_DATA</span><br><small>Load variables</small></th>
+      <td data-dialect="2"><a href="entries/GET-100023.html">GET</a></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="TAPE_SAVE" class="action-row" data-dialects=" 1 2 200001 200002 200003 200004 ">
       <th><span class="action-code">TAPE_SAVE</span><br><small>Save the program</small></th>
+      <td data-dialect="2"><a href="entries/SAVE-100005.html">SAVE</a> <small>current area</small> <span class="tag">partial</span><br><a href="entries/SAVE-100005.html">SAVE</a> <small>all areas</small></td>
+      <td data-dialect="200001"><a href="entries/SAVE-200004.html">SAVE</a></td>
+      <td data-dialect="200002"><a href="entries/SAVE-200004.html">SAVE</a></td>
+      <td data-dialect="200003"><a href="entries/SAVE-200004.html">SAVE</a></td>
+      <td data-dialect="200004"><a href="entries/SAVE-200004.html">SAVE</a><br><a href="entries/REPLACE-200076.html">REPLACE</a> <span class="tag">partial</span></td>
+      <td data-dialect="200005" class="empty"></td>
       <td data-dialect="1"><a href="entries/SAVE-5.html">SAVE</a></td>
+    </tr>
+    <tr id="TAPE_SAVE_DATA" class="action-row" data-dialects=" 2 ">
+      <th><span class="action-code">TAPE_SAVE_DATA</span><br><small>Save variables</small></th>
+      <td data-dialect="2"><a href="entries/PUT-100022.html">PUT</a></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="TAPE_VERIFY" class="action-row" data-dialects=" 2 ">
+      <th><span class="action-code">TAPE_VERIFY</span><br><small>Verify a recording</small></th>
+      <td data-dialect="2"><a href="entries/VER-100007.html">VER</a></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+  </tbody>
+  <tbody data-group="FUNCTIONS">
+    <tr class="group"><th colspan="8">User functions</th></tr>
+    <tr id="FN_CALL" class="action-row" data-dialects=" 200001 200002 200003 200004 200005 ">
+      <th><span class="action-code">FN_CALL</span><br><small>Call a user function</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001"><a href="entries/FN-200030.html">FN</a></td>
+      <td data-dialect="200002"><a href="entries/FN-200030.html">FN</a></td>
+      <td data-dialect="200003"><a href="entries/FN-200030.html">FN</a></td>
+      <td data-dialect="200004"><a href="entries/FN-200030.html">FN</a></td>
+      <td data-dialect="200005"><a href="entries/FN-200030.html">FN</a></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="FN_DEFINE" class="action-row" data-dialects=" 200001 200002 200003 200004 200005 ">
+      <th><span class="action-code">FN_DEFINE</span><br><small>Define a function</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001"><a href="entries/DEF-200013.html">DEF</a></td>
+      <td data-dialect="200002"><a href="entries/DEF-200013.html">DEF</a></td>
+      <td data-dialect="200003"><a href="entries/DEF-200013.html">DEF</a></td>
+      <td data-dialect="200004"><a href="entries/DEF-200087.html">DEF</a> <small>one line</small><br><a href="entries/DEF-200087.html">DEF</a> <small>several lines</small></td>
+      <td data-dialect="200005"><a href="entries/DEF-200013.html">DEF</a></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="FN_END" class="action-row" data-dialects=" 200004 ">
+      <th><span class="action-code">FN_END</span><br><small>End of a multi-line function</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004"><a href="entries/FNEND-200088.html">FNEND</a></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
     </tr>
   </tbody>
   <tbody data-group="VARIABLES">
-    <tr class="group"><th colspan="2">Variables and arrays</th></tr>
-    <tr id="VAR_CLEAR" class="action-row" data-dialects=" 1 ">
+    <tr class="group"><th colspan="8">Variables and arrays</th></tr>
+    <tr id="DATA_DEFINE" class="action-row" data-dialects=" 200001 200002 200003 200004 ">
+      <th><span class="action-code">DATA_DEFINE</span><br><small>Data list in the program</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001"><a href="entries/DATA-200015.html">DATA</a></td>
+      <td data-dialect="200002"><a href="entries/DATA-200045.html">DATA</a></td>
+      <td data-dialect="200003"><a href="entries/DATA-200074.html">DATA</a></td>
+      <td data-dialect="200004"><a href="entries/DATA-200081.html">DATA</a></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="DATA_READ" class="action-row" data-dialects=" 200001 200002 200003 200004 200005 ">
+      <th><span class="action-code">DATA_READ</span><br><small>Read values from the data list</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001"><a href="entries/READ-200014.html">READ</a></td>
+      <td data-dialect="200002"><a href="entries/READ-200014.html">READ</a></td>
+      <td data-dialect="200003"><a href="entries/READ-200070.html">READ</a></td>
+      <td data-dialect="200004"><a href="entries/READ-200080.html">READ</a></td>
+      <td data-dialect="200005"><a href="entries/READ-200122.html">READ</a></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="DATA_RESTORE" class="action-row" data-dialects=" 200003 200004 ">
+      <th><span class="action-code">DATA_RESTORE</span><br><small>Restart the data list</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003"><a href="entries/RESTORE-200058.html">RESTORE</a></td>
+      <td data-dialect="200004"><a href="entries/RESTORE-200082.html">RESTORE</a> <small>both lists</small><br><a href="entries/RESTORE-200082.html">RESTORE</a> <small>numbers</small> <span class="tag">partial</span><br><a href="entries/RESTORE-200082.html">RESTORE</a> <small>strings</small> <span class="tag">partial</span></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
+    </tr>
+    <tr id="VAR_CLEAR" class="action-row" data-dialects=" 1 2 ">
       <th><span class="action-code">VAR_CLEAR</span><br><small>Clear all variables</small></th>
+      <td data-dialect="2"><a href="entries/VAC-100019.html">VAC</a></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005" class="empty"></td>
       <td data-dialect="1"><a href="entries/CLEAR-18.html">CLEAR</a></td>
     </tr>
-    <tr id="VAR_DIM" class="action-row" data-dialects=" 1 ">
+    <tr id="VAR_DIM" class="action-row" data-dialects=" 1 200001 200002 200003 200004 200005 ">
       <th><span class="action-code">VAR_DIM</span><br><small>Declare an array</small></th>
+      <td data-dialect="2" class="empty"></td>
+      <td data-dialect="200001"><a href="entries/DIM-200018.html">DIM</a> <span class="tag">partial</span></td>
+      <td data-dialect="200002"><a href="entries/DIM-200018.html">DIM</a> <span class="tag">partial</span></td>
+      <td data-dialect="200003"><a href="entries/DIM-200018.html">DIM</a> <span class="tag">partial</span></td>
+      <td data-dialect="200004"><a href="entries/DIM-200018.html">DIM</a> <span class="tag">partial</span></td>
+      <td data-dialect="200005"><a href="entries/DIM-200018.html">DIM</a> <span class="tag">partial</span></td>
       <td data-dialect="1"><a href="entries/DIM-17.html">DIM</a> <span class="tag">partial</span></td>
     </tr>
-    <tr id="VAR_LET" class="action-row" data-dialects=" 1 ">
+    <tr id="VAR_LET" class="action-row" data-dialects=" 1 2 200001 200002 200003 200004 200005 ">
       <th><span class="action-code">VAR_LET</span><br><small>Assignment</small></th>
+      <td data-dialect="2"><a href="entries/eq-100008.html">=</a></td>
+      <td data-dialect="200001"><a href="entries/LET-200006.html">LET</a></td>
+      <td data-dialect="200002"><a href="entries/LET-200006.html">LET</a></td>
+      <td data-dialect="200003"><a href="entries/LET-200006.html">LET</a></td>
+      <td data-dialect="200004"><a href="entries/LET-200077.html">LET</a></td>
+      <td data-dialect="200005"><a href="entries/LET-200006.html">LET</a></td>
       <td data-dialect="1"><a href="entries/LET-7.html">LET</a></td>
+    </tr>
+    <tr id="VAR_RESERVE" class="action-row" data-dialects=" 2 ">
+      <th><span class="action-code">VAR_RESERVE</span><br><small>Reserve memory for variables</small></th>
+      <td data-dialect="2"><a href="entries/DEFM-100004.html">DEFM</a></td>
+      <td data-dialect="200001" class="empty"></td>
+      <td data-dialect="200002" class="empty"></td>
+      <td data-dialect="200003" class="empty"></td>
+      <td data-dialect="200004" class="empty"></td>
+      <td data-dialect="200005" class="empty"></td>
+      <td data-dialect="1" class="empty"></td>
     </tr>
   </tbody>
 </table>
@@ -247,8 +1158,8 @@
 <p class="note">A hatched cell means the dialect has no equivalent. Actions that no dialect implements are not shown.</p>
 </main>
 <footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
-<script src="static/search_index.js"></script>
-<script src="static/search.js"></script>
-<script src="static/actions.js"></script>
+<script src="static/search_index.js?v=1795374828"></script>
+<script src="static/search.js?v=1795374828"></script>
+<script src="static/actions.js?v=1795374828"></script>
 </body>
 </html>

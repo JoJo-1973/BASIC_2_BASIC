@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>INPUT · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Casio FX-700P BASIC">
+<a class="prev" rel="prev" href="../entries/IF-100012.html" title="Previous entry (←)">‹ <span>IF</span></a>  <a class="where" href="../dialects/CASIO_FX700P.html#entries">8 / 58</a>
+<a class="next" rel="next" href="../entries/MODE-100020.html" title="Next entry (→)"><span>MODE</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/CASIO_FX700P.html#entries">Casio FX-700P BASIC</a> ›</p>
+<h1><span class="entry-name">INPUT</span> <span class="category">Statement</span></h1>
+<div class="subtitle md"><p>Stops the program and reads values from the keyboard.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>FX700P_core</code> — Casio FX-700P BASIC</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/CASIO_FX700P.html">Casio FX-700P BASIC</a></dd>
+</dl>
+
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="kw">INPUT</span> <span class="meta">[</span><span class="par">message</span><span class="lit">,</span><span class="meta">]</span> <span class="par">variable</span><span class="meta">[</span>,<span class="meta">[</span><span class="par">message</span><span class="lit">,</span><span class="meta">]</span> <span class="par">variable</span><span class="meta">]</span><span class="meta">...</span></pre>
+  <p class="manual">In the manual (FX-700P Instruction Manual, p. 51):
+    <code>INPUT variable string</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">message</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>string literal</td>
+      <td></td>
+      <td>Shown before the question mark: <code>INPUT "A=",A</code> shows <code>A=?</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="par">variable</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>numeric variable<br><small>or</small> character variable<br><small>or</small> array element<br><small>or</small> character array element</td>
+      <td></td>
+      <td>Numeric variable, character variable, $ or array element (numeric or character). For a number an expression or a variable can be typed (<code>14*25</code>, <code>X</code>).</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#IO_INPUT" class="action-code">IO_INPUT</a> Read values from the keyboard
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/INPUT-200057.html">INPUT</a></li>
+      <li><span class="dia">Dartmouth BASIC (4th edition)</span>
+<a href="../entries/INPUT-200079.html">INPUT</a></li>
+      <li><span class="dia">Sinclair ZX80 BASIC 4K ROM</span>
+<a href="../entries/INPUT-9.html">INPUT</a> <span class="tag">partial</span> <small>— One variable only, no prompt</small></li>
+    </ul>
+<p class="uncovered">No equivalent in: Dartmouth BASIC (1st edition), Dartmouth BASIC (2nd edition), Dartmouth Card BASIC October 1964</p>  </div>
+</section>
+
+<h2>Tables</h2>
+<ul class="entry-tables">
+  <li><a href="../dialects/CASIO_FX700P.html#variables">Variables in memory</a>      <small>— action IO_INPUT</small></li>
+</ul>
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/CASIO_FX700P.html#errors">2 <code>SYNTAX</code></a></td>
+      <td>Characters typed for a numeric variable (inferred: the manual only says that an error occurs; AC returns to the question mark). <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/CASIO_FX700P.html#errors">6 <code>VARIABLE</code></a></td>
+      <td>The element is beyond the memories in use (expand them with DEFM). <small>Parameter: <code class="par">variable</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/CASIO_FX700P.html#errors">6 <code>VARIABLE</code></a></td>
+      <td>The letter is in use as a character variable. <small>Parameter: <code class="par">variable</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/CASIO_FX700P.html#errors">6 <code>VARIABLE</code></a></td>
+      <td>The element is beyond the memories in use (expand them with DEFM), or its memory holds a number. <small>Parameter: <code class="par">variable</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/CASIO_FX700P.html#errors">6 <code>VARIABLE</code></a></td>
+      <td>The letter is in use as a numeric variable. <small>Parameter: <code class="par">variable</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/INPUT-100001.html">INPUT</a></td>
+      <td><code>$A7</code></td>
+      <td><code>S + M</code> <small>(Casio FX-700P)</small>, <code>S + M</code> <small>(Casio PB-100)</small>, <code>S + M</code> <small>(Tandy Radio Shack TRS-80 PC-4)</small></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Input with a message <span class="tag warning">to verify</span></h3>  <pre>10 INPUT &#34;A=&#34;,A
+20 PRINT A*2</pre>
+<pre class="output" title="Expected result">A=?</pre><figcaption>Type 21 and EXE: 42 is shown.
+<small>Source: FX-700P Instruction Manual, 51.</small></figcaption></figure>
+
+<h2>Notes</h2>
+<div class="md"><p>AC does not end the wait for input; MODE 0 stops the program.</p></div>
+<h2>Related entries</h2>
+<ul><li>See also: <a href="../entries/KEY-100024.html">KEY</a></li></ul>
+
+<h2>Sources</h2>
+<ul><li>FX-700P Instruction Manual, p. 51</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Casio FX-700P BASIC">
+<a class="prev" rel="prev" href="../entries/IF-100012.html" title="Previous entry (←)">‹ <span>IF</span></a>  <a class="where" href="../dialects/CASIO_FX700P.html#entries">8 / 58</a>
+<a class="next" rel="next" href="../entries/MODE-100020.html" title="Next entry (→)"><span>MODE</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

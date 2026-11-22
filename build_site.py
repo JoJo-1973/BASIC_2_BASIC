@@ -20,6 +20,7 @@ import re
 import shutil
 import sqlite3
 import sys
+import time
 from collections import defaultdict
 from pathlib import Path
 
@@ -1062,6 +1063,8 @@ def main():
     env.globals.update(entry_url=entry_url, dialect_url=dialect_url, machine_url=machine_url,
                        dialect_name=dialect_name, plural=plural, keyword_url=keyword_url,
                        diagnostics_url=diagnostics_url)
+    # added to the addresses of CSS and JS (?v=...), so the browser loads them again after every build
+    env.globals["asset_version"] = str(int(time.time()))
     env.filters["md"] = md_block
     env.filters["mdi"] = md_inline
     if markdown_lib is None:

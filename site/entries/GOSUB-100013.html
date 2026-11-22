@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GOSUB · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Casio FX-700P BASIC">
+<a class="prev" rel="prev" href="../entries/GET-100023.html" title="Previous entry (←)">‹ <span>GET</span></a>  <a class="where" href="../dialects/CASIO_FX700P.html#entries">5 / 58</a>
+<a class="next" rel="next" href="../entries/GOTO-100011.html" title="Next entry (→)"><span>GOTO</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/CASIO_FX700P.html#entries">Casio FX-700P BASIC</a> ›</p>
+<h1><span class="entry-name">GOSUB</span> <span class="category">Statement</span></h1>
+<div class="subtitle md"><p>Calls a subroutine; RETURN goes back to the statement after GOSUB.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>FX700P_core</code> — Casio FX-700P BASIC</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/CASIO_FX700P.html">Casio FX-700P BASIC</a></dd>
+</dl>
+
+
+<section class="form">
+  <h2>Line</h2>
+  <pre class="syntax"><span class="kw">GOSUB</span> <span class="par">n</span></pre>
+  <p class="manual">In the manual (FX-700P Instruction Manual, p. 56):
+    <code>GOSUB {line number | variable}</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">n</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>numeric expression<br><small>truncated to integer</small></td>
+      <td><code>[1, 9999]</code><span class="evm evm-manual" title="Stated by a source, not tested">M</span><br><small>Range of line numbers:</small> <code>1-9999</code> <span class="tag warning">to verify</span><br><small>missing line: error</small><br><small>otherwise <a href="../dialects/CASIO_FX700P.html#errors">error 4</a> <code>ERR4</code></small></td>
+      <td>Line number: numeric expression, decimal part cut off; 1 to 9999.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#FLOW_GOSUB" class="action-code">FLOW_GOSUB</a> Subroutine call
+<small>— Accepts an expression</small></p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (1st edition)</span>
+<a href="../entries/GOSUB-200016.html">GOSUB</a></li>
+      <li><span class="dia">Dartmouth BASIC (2nd edition)</span>
+<a href="../entries/GOSUB-200016.html">GOSUB</a></li>
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/GOSUB-200071.html">GOSUB</a></li>
+      <li><span class="dia">Dartmouth BASIC (4th edition)</span>
+<a href="../entries/GOSUB-200071.html">GOSUB</a></li>
+      <li><span class="dia">Dartmouth Card BASIC October 1964</span>
+<a href="../entries/GOSUB-200016.html">GOSUB</a></li>
+      <li><span class="dia">Sinclair ZX80 BASIC 4K ROM</span>
+<a href="../entries/GO-SUB-12.html">GO SUB</a> <small>— Accepts an expression</small></li>
+    </ul>
+  </div>
+</section>
+<section class="form">
+  <h2>Program area</h2>
+  <pre class="syntax"><span class="kw">GOSUB</span> <span class="lit">#</span><span class="par">p</span></pre>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">p</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>numeric expression<br><small>truncated to integer</small></td>
+      <td><code>[0, 9]</code><span class="evm evm-manual" title="Stated by a source, not tested">M</span><br></td>
+      <td>Program area: numeric expression, decimal part cut off; 0 to 9. Execution goes to the first line of that area.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#FLOW_GOSUB" class="action-code">FLOW_GOSUB</a> Subroutine call
+<span class="tag">partial</span><small>— Subroutine at the start of program area P0-P9</small></p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (1st edition)</span>
+<a href="../entries/GOSUB-200016.html">GOSUB</a></li>
+      <li><span class="dia">Dartmouth BASIC (2nd edition)</span>
+<a href="../entries/GOSUB-200016.html">GOSUB</a></li>
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/GOSUB-200071.html">GOSUB</a></li>
+      <li><span class="dia">Dartmouth BASIC (4th edition)</span>
+<a href="../entries/GOSUB-200071.html">GOSUB</a></li>
+      <li><span class="dia">Dartmouth Card BASIC October 1964</span>
+<a href="../entries/GOSUB-200016.html">GOSUB</a></li>
+      <li><span class="dia">Sinclair ZX80 BASIC 4K ROM</span>
+<a href="../entries/GO-SUB-12.html">GO SUB</a> <small>— Accepts an expression</small></li>
+    </ul>
+  </div>
+</section>
+
+<h2>Tables</h2>
+<ul class="entry-tables">
+  <li><a href="../dialects/CASIO_FX700P.html#program">Program in memory</a>      <small>— action FLOW_GOSUB</small></li>
+</ul>
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/CASIO_FX700P.html#errors">3 <code>MATHEMATICAL</code></a></td>
+      <td>A calculation in the expression goes out of range, or its result is indefinite or impossible. <small>Parameters: <code class="par">n</code>, <code class="par">p</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/CASIO_FX700P.html#errors">4 <code>UNDEFINED_LINE</code></a></td>
+      <td>Undefined line number: the line of a GOTO or GOSUB does not exist. <small>Parameter: <code class="par">n</code>.</small> <small>Form: Line.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/CASIO_FX700P.html#errors">6 <code>VARIABLE</code></a></td>
+      <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter. <small>Parameters: <code class="par">n</code>, <code class="par">p</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/CASIO_FX700P.html#errors">7 <code>NESTING</code></a></td>
+      <td>More than 8 subroutine levels. <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/GOSUB-100007.html">GOSUB</a></td>
+      <td><code>$A3</code></td>
+      <td><code>S + A</code> <small>(Casio FX-700P)</small>, <code>S + A</code> <small>(Casio PB-100)</small>, <code>S + A</code> <small>(Tandy Radio Shack TRS-80 PC-4)</small></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Call a subroutine <span class="tag warning">to verify</span></h3>  <pre>10 A=2
+20 GOSUB 100
+30 PRINT A
+40 END
+100 A=A*A
+110 RETURN</pre>
+<pre class="output" title="Expected result">4</pre><figcaption>
+<small>Form: Line.</small></figcaption></figure>
+
+<h2>Notes</h2>
+<div class="md"><p>Up to 8 levels.</p></div>
+<h2>Related entries</h2>
+<ul><li>Closed by: <a href="../entries/RETURN-100014.html">RETURN</a></li></ul>
+
+<h2>Sources</h2>
+<ul><li>FX-700P Instruction Manual, p. 56</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Casio FX-700P BASIC">
+<a class="prev" rel="prev" href="../entries/GET-100023.html" title="Previous entry (←)">‹ <span>GET</span></a>  <a class="where" href="../dialects/CASIO_FX700P.html#entries">5 / 58</a>
+<a class="next" rel="next" href="../entries/GOTO-100011.html" title="Next entry (→)"><span>GOTO</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CLEAR · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Casio FX-700P BASIC">
+<a class="prev" rel="prev" href="../entries/VAC-100019.html" title="Previous entry (←)">‹ <span>VAC</span></a>  <a class="where" href="../dialects/CASIO_FX700P.html#entries">17 / 58</a>
+<a class="next" rel="next" href="../entries/DEFM-100004.html" title="Next entry (→)"><span>DEFM</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/CASIO_FX700P.html#entries">Casio FX-700P BASIC</a> ›</p>
+<h1><span class="entry-name">CLEAR</span> <span class="category">Direct command</span></h1>
+<div class="subtitle md"><p>Erases the program of the current area, or (CLEAR A) the programs of all areas P0-P9.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>FX700P_core</code> — Casio FX-700P BASIC</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/CASIO_FX700P.html">Casio FX-700P BASIC</a></dd>
+</dl>
+
+
+<section class="form">
+  <h2>Current area</h2>
+  <pre class="syntax"><span class="kw">CLEAR</span></pre>
+  <p class="manual">In the manual (FX-700P Instruction Manual, p. 26):
+    <code>CLEAR</code>
+</p>
+
+
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#PROG_NEW" class="action-code">PROG_NEW</a> Erase the program
+<span class="tag">partial</span><small>— Only the current program area</small></p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (2nd edition)</span>
+<a href="../entries/NEW-200046.html">NEW</a>; <a href="../entries/SCRATCH-200048.html">SCRATCH</a> <span class="tag">partial</span> <small>— Keeps the name</small></li>
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/NEW-200046.html">NEW</a>; <a href="../entries/SCRATCH-200048.html">SCRATCH</a> <span class="tag">partial</span> <small>— Keeps the name</small></li>
+      <li><span class="dia">Dartmouth BASIC (4th edition)</span>
+<a href="../entries/NEW-200046.html">NEW</a>; <a href="../entries/SCRATCH-200048.html">SCRATCH</a> <span class="tag">partial</span> <small>— Keeps the name</small></li>
+      <li><span class="dia">Sinclair ZX80 BASIC 4K ROM</span>
+<a href="../entries/NEW-3.html">NEW</a></li>
+    </ul>
+<p class="uncovered">No equivalent in: Dartmouth BASIC (1st edition), Dartmouth Card BASIC October 1964</p>  </div>
+</section>
+<section class="form">
+  <h2>All areas</h2>
+  <pre class="syntax"><span class="kw">CLEAR</span> <span class="lit">A</span></pre>
+  <p class="manual">In the manual (FX-700P Instruction Manual, p. 26):
+    <code>CLEAR A</code>
+</p>
+
+
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#PROG_NEW" class="action-code">PROG_NEW</a> Erase the program
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (2nd edition)</span>
+<a href="../entries/NEW-200046.html">NEW</a>; <a href="../entries/SCRATCH-200048.html">SCRATCH</a> <span class="tag">partial</span> <small>— Keeps the name</small></li>
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/NEW-200046.html">NEW</a>; <a href="../entries/SCRATCH-200048.html">SCRATCH</a> <span class="tag">partial</span> <small>— Keeps the name</small></li>
+      <li><span class="dia">Dartmouth BASIC (4th edition)</span>
+<a href="../entries/NEW-200046.html">NEW</a>; <a href="../entries/SCRATCH-200048.html">SCRATCH</a> <span class="tag">partial</span> <small>— Keeps the name</small></li>
+      <li><span class="dia">Sinclair ZX80 BASIC 4K ROM</span>
+<a href="../entries/NEW-3.html">NEW</a></li>
+    </ul>
+<p class="uncovered">No equivalent in: Dartmouth BASIC (1st edition), Dartmouth Card BASIC October 1964</p>  </div>
+</section>
+
+
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/CLEAR-100018.html">CLEAR</a></td>
+      <td><code>$C6</code></td>
+      <td><em>none</em> <small>(Casio FX-700P)</small>, <em>none</em> <small>(Casio PB-100)</small>, <em>none</em> <small>(Tandy Radio Shack TRS-80 PC-4)</small></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Erase the current area <span class="tag warning">to verify</span></h3>  <pre>CLEAR</pre>
+<figcaption>Only the program of the current area is erased.
+<small>Form: Current area.</small><small>Source: FX-700P Instruction Manual, 26.</small></figcaption></figure>
+<figure class="example">
+<h3>Erase all programs <span class="tag warning">to verify</span></h3>  <pre>CLEAR A</pre>
+<figcaption>The programs of P0-P9 are erased.
+<small>Form: All areas.</small><small>Source: FX-700P Instruction Manual, 26.</small></figcaption></figure>
+
+<h2>Notes</h2>
+<div class="md"><p>The <code>A</code> of the "all areas" form is the letter A, not a keyword: it has no token of its own (the token tables of source [5] have only LIST, CLEAR, SAVE and LOAD).</p>
+<p>In a program: not known on the real machine. In the PokecomGO2 simulator (source [9]) CLEAR in a program clears the variables like VAC (a comment of its author in the source).</p></div>
+
+<h2>Sources</h2>
+<ul><li>FX-700P Instruction Manual, p. 26</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Casio FX-700P BASIC">
+<a class="prev" rel="prev" href="../entries/VAC-100019.html" title="Previous entry (←)">‹ <span>VAC</span></a>  <a class="where" href="../dialects/CASIO_FX700P.html#entries">17 / 58</a>
+<a class="next" rel="next" href="../entries/DEFM-100004.html" title="Next entry (→)"><span>DEFM</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

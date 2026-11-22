@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DEF · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (4th edition)">
+<a class="prev" rel="prev" href="../entries/DATA-200081.html" title="Previous entry (←)">‹ <span>DATA</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_4.html#entries">4 / 69</a>
+<a class="next" rel="next" href="../entries/DIM-200018.html" title="Next entry (→)"><span>DIM</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/DARTMOUTH_BASIC_4.html#entries">Dartmouth BASIC (4th edition)</a> ›</p>
+<h1><span class="entry-name">DEF</span> <span class="category">Statement</span></h1>
+<div class="subtitle md"><p>Defines a function FNA to FNZ with one argument.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>DARTMOUTH_4ED_layer</code> — Dartmouth BASIC, 4th edition</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/DARTMOUTH_BASIC_4.html">Dartmouth BASIC (4th edition)</a></dd>
+</dl>
+
+<div class="box">
+<p>Redefines <a href="../entries/DEF-200013.html">DEF</a> of the previous layer.
+<br><strong>Differences:</strong> Functions without argument, and functions of several lines ended by FNEND.</p></div>
+
+<section class="form">
+  <h2>One line</h2>
+  <pre class="syntax"><span class="kw">DEF</span> <span class="kw">FN</span><span class="par">letter</span><span class="meta">[</span><span class="lit">(</span><span class="par">argument</span><span class="lit">)</span><span class="meta">]</span> <span class="kw">=</span> <span class="par">formula</span></pre>
+  <p class="manual">In the manual (BASIC, 4th Edition (January 1968), p. 46-48):
+    <code>DEF FNA(X) = formula</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">letter</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>function letter</td>
+      <td></td>
+      <td>A to Z.</td>
+    </tr>
+    <tr>
+      <td><code class="par">argument</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>variable</td>
+      <td></td>
+      <td>Optional: <code>DEF FNA = 3.1416*R↑2</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="par">formula</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>formula</td>
+      <td></td>
+      <td>Any formula; other variables take their values at the time of the call.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#FN_DEFINE" class="action-code">FN_DEFINE</a> Define a function
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (1st edition)</span>
+<a href="../entries/DEF-200013.html">DEF</a></li>
+      <li><span class="dia">Dartmouth BASIC (2nd edition)</span>
+<a href="../entries/DEF-200013.html">DEF</a></li>
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/DEF-200013.html">DEF</a></li>
+      <li><span class="dia">Dartmouth Card BASIC October 1964</span>
+<a href="../entries/DEF-200013.html">DEF</a></li>
+    </ul>
+<p class="uncovered">No equivalent in: Casio FX-700P BASIC, Sinclair ZX80 BASIC 4K ROM</p>  </div>
+</section>
+<section class="form">
+  <h2>Several lines</h2>
+<div class="md"><p>The lines that follow compute the result and give it to FNx (<code>LET FNA = ...</code>); FNEND ends the definition.</p></div>  <pre class="syntax"><span class="kw">DEF</span> <span class="kw">FN</span><span class="par">letter</span><span class="meta">[</span><span class="lit">(</span><span class="par">argument</span><span class="lit">)</span><span class="meta">]</span></pre>
+  <p class="manual">In the manual (BASIC, 4th Edition (January 1968), p. 46-48):
+    <code>DEF FNA(X)</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">letter</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>function letter</td>
+      <td></td>
+      <td>A to Z.</td>
+    </tr>
+    <tr>
+      <td><code class="par">argument</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>variable</td>
+      <td></td>
+      <td>Optional.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#FN_DEFINE" class="action-code">FN_DEFINE</a> Define a function
+<small>— Several lines, ended by FNEND</small></p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (1st edition)</span>
+<a href="../entries/DEF-200013.html">DEF</a></li>
+      <li><span class="dia">Dartmouth BASIC (2nd edition)</span>
+<a href="../entries/DEF-200013.html">DEF</a></li>
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/DEF-200013.html">DEF</a></li>
+      <li><span class="dia">Dartmouth Card BASIC October 1964</span>
+<a href="../entries/DEF-200013.html">DEF</a></li>
+    </ul>
+<p class="uncovered">No equivalent in: Casio FX-700P BASIC, Sinclair ZX80 BASIC 4K ROM</p>  </div>
+</section>
+
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>NESTED_DEF</code></a></td>
+      <td>A DEF inside a function of several lines. <small>Form: Several lines.</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>UNFINISHED_DEF</code></a></td>
+      <td>No FNEND. <small>Form: Several lines.</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL_FORMULA</code></a></td>
+      <td>The formula is not written correctly. <small>Parameter: <code class="par">formula</code>.</small> <small>Form: One line.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>UNDEFINED_FUNCTION</code></a></td>
+      <td>The formula uses an FN function that is never defined. <small>Parameter: <code class="par">formula</code>.</small> <small>Form: One line.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED_STRING</code></a></td>
+      <td>A string where a number is wanted. <small>Parameter: <code class="par">formula</code>.</small> <small>Form: One line.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/DEF-200016.html">DEF</a></td>
+      <td></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/FN-200017.html">FN</a></td>
+      <td></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/eq-200039.html">=</a></td>
+      <td></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Several lines <span class="tag warning">to verify</span></h3>  <pre>10 DEF FNM(X)
+20 LET FNM = X
+30 IF X &gt;= 0 THEN 50
+40 LET FNM = -X
+50 FNEND
+60 PRINT FNM(-4)
+70 END</pre>
+<pre class="output" title="Expected result">4</pre><figcaption>
+<small>Form: Several lines.</small></figcaption></figure>
+<figure class="example">
+<h3>No argument <span class="tag warning">to verify</span></h3>  <pre>10 LET R = 2
+20 DEF FNA = 3.1416*R↑2
+30 PRINT FNA
+40 END</pre>
+<pre class="output" title="Expected result">12.5664</pre><figcaption>
+<small>Form: One line.</small></figcaption></figure>
+
+<h2>Notes</h2>
+<div class="md"><p>Multi-line DEFs cannot be nested, and no jump may enter or leave them [4] p. 48. Whether a function can have more than one argument is to be checked in the manual.</p></div>
+<h2>Related entries</h2>
+<ul><li>Closed by: <a href="../entries/FNEND-200088.html">FNEND</a></li></ul>
+
+<h2>Sources</h2>
+<ul><li><a href="https://archive.org/stream/bitsavers_dartmouthB_3679804/BASIC_4th_Edition_Jan68_djvu.txt">BASIC, 4th Edition (January 1968)</a>, Dartmouth College (1968), p. 46-48</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (4th edition)">
+<a class="prev" rel="prev" href="../entries/DATA-200081.html" title="Previous entry (←)">‹ <span>DATA</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_4.html#entries">4 / 69</a>
+<a class="next" rel="next" href="../entries/DIM-200018.html" title="Next entry (→)"><span>DIM</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

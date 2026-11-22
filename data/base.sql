@@ -63,7 +63,10 @@ INSERT INTO action_group (id, code, name) VALUES
  (10,'RANDOM','Random numbers'),
  (11,'STRING','Strings'),
  (12,'LOGIC','Logical operators'),
- (13,'COMPARE','Comparisons');
+ (13,'COMPARE','Comparisons'),
+ (14,'MATRIX','Matrices'),
+ (15,'FUNCTIONS','User functions'),
+ (16,'SESSION','Session');
 
 INSERT INTO action (id, code, name, group_id, description) VALUES
  (1,'PLOT_LINE','Draw a line',1,NULL),
@@ -77,6 +80,10 @@ INSERT INTO action (id, code, name, group_id, description) VALUES
  (9,'MATH_SIN','Sine',3,NULL),
  -- input/output
  (20,'IO_PRINT','Write to the screen',2,NULL),
+ (21,'IO_KEY','Read a key without waiting',2,'Gives the character of the key pressed, or nothing'),
+ (22,'IO_FORMAT','Format of the displayed numbers',2,'Number of significant digits or decimal places'),
+ (23,'IO_PRINTER','Send the output to the printer',2,NULL),
+ (24,'IO_POSITION','Output from a given position',2,'Position of the next item on the display'),
  -- flow control
  (30,'FLOW_GOTO','Jump to a line',4,NULL),
  (31,'FLOW_GOSUB','Subroutine call',4,NULL),
@@ -86,6 +93,7 @@ INSERT INTO action (id, code, name, group_id, description) VALUES
  (35,'FLOW_NEXT','End of a counted loop',4,NULL),
  (36,'FLOW_STOP','Stop the program',4,NULL),
  (37,'FLOW_CONTINUE','Resume after a stop',4,NULL),
+ (38,'FLOW_END','End the program',4,NULL),
  -- program
  (40,'PROG_LIST','List the program',5,NULL),
  (41,'PROG_RUN','Run the program',5,NULL),
@@ -95,6 +103,7 @@ INSERT INTO action (id, code, name, group_id, description) VALUES
  (50,'VAR_LET','Assignment',6,NULL),
  (51,'VAR_CLEAR','Clear all variables',6,NULL),
  (52,'VAR_DIM','Declare an array',6,'With one or more dimensions, of any type'),
+ (53,'VAR_RESERVE','Reserve memory for variables',6,'Turns program memory into variable memory'),
  -- screen
  (60,'SCREEN_CLS','Clear the screen',7,NULL),
  -- memory
@@ -104,6 +113,9 @@ INSERT INTO action (id, code, name, group_id, description) VALUES
  -- tape
  (80,'TAPE_SAVE','Save the program',9,NULL),
  (81,'TAPE_LOAD','Load the program',9,NULL),
+ (82,'TAPE_VERIFY','Verify a recording',9,NULL),
+ (83,'TAPE_SAVE_DATA','Save variables',9,NULL),
+ (84,'TAPE_LOAD_DATA','Load variables',9,NULL),
  -- random numbers
  (90,'RND_SEED','Seed the random numbers',10,NULL),
  (91,'RND_VALUE','Random number',10,NULL),
@@ -115,18 +127,76 @@ INSERT INTO action (id, code, name, group_id, description) VALUES
  (104,'OP_DIV','Division',3,NULL),
  (105,'OP_ADD','Addition',3,NULL),
  (106,'OP_SUB','Subtraction',3,NULL),
+ (107,'MATH_ANGLE_UNIT','Choose the angle unit',3,'Degrees, radians or gradians'),
  -- strings
  (110,'STR_CHR','Character from its code',11,NULL),
  (111,'STR_CODE','Code of a character',11,NULL),
  (112,'STR_FROM_NUM','Number converted to a string',11,NULL),
  (113,'STR_SUBSTRING','Part of a string',11,'Extracts any substring'),
+ (114,'STR_LEN','Length of a string',11,NULL),
+ (115,'STR_TO_NUM','String converted to a number',11,NULL),
+ (116,'STR_CONCAT','Join two strings',11,NULL),
  -- logic and comparisons
  (120,'OP_NOT','Logical negation',12,NULL),
  (121,'OP_AND','Logical conjunction',12,NULL),
  (122,'OP_OR','Logical disjunction',12,NULL),
  (130,'OP_EQ','Equal',13,NULL),
  (131,'OP_GT','Greater than',13,NULL),
- (132,'OP_LT','Less than',13,NULL);
+ (132,'OP_LT','Less than',13,NULL),
+ (133,'OP_NE','Not equal',13,NULL),
+ (134,'OP_GE','Greater than or equal',13,NULL),
+ (135,'OP_LE','Less than or equal',13,NULL),
+ -- more mathematics
+ (140,'MATH_COS','Cosine',3,NULL),
+ (141,'MATH_TAN','Tangent',3,NULL),
+ (142,'MATH_ASN','Arc sine',3,NULL),
+ (143,'MATH_ACS','Arc cosine',3,NULL),
+ (144,'MATH_ATN','Arc tangent',3,NULL),
+ (145,'MATH_SQR','Square root',3,NULL),
+ (146,'MATH_EXP','Exponential',3,'e raised to a power'),
+ (147,'MATH_LN','Natural logarithm',3,NULL),
+ (148,'MATH_LOG','Common logarithm',3,NULL),
+ (149,'MATH_INT','Integer part',3,'Largest integer not greater than the value'),
+ (150,'MATH_FRAC','Fractional part',3,NULL),
+ (151,'MATH_SGN','Sign',3,NULL),
+ (152,'MATH_ROUND','Round to a given digit',3,NULL),
+ (153,'MATH_PI','The constant pi',3,NULL),
+ -- data in the program, user functions, more flow control (Dartmouth BASIC)
+ (160,'DATA_READ','Read values from the data list',6,'Takes the next values of the DATA statements'),
+ (161,'DATA_DEFINE','Data list in the program',6,'Values written in the program for READ'),
+ (162,'DATA_RESTORE','Restart the data list',6,'The next READ takes the first value again'),
+ (163,'FN_DEFINE','Define a function',15,NULL),
+ (164,'FN_CALL','Call a user function',15,NULL),
+ (165,'FN_END','End of a multi-line function',15,NULL),
+ (166,'FLOW_ON_GOTO','Computed jump',4,'Jump to the n-th line of a list'),
+ (167,'MATH_COT','Cotangent',3,NULL),
+ (168,'STR_TO_CODES','String converted to character codes',11,'All the characters at once, e.g. into an array'),
+ (169,'STR_FROM_CODES','String built from character codes',11,'All the characters at once, e.g. from an array'),
+ -- program, disk and session
+ (170,'PROG_BREAK','Interrupt the running program',5,NULL),
+ (171,'PROG_RENAME','Rename the program',5,NULL),
+ (172,'DISK_DELETE','Delete a saved program',9,NULL),
+ (173,'SESSION_START','Start a session',16,'Sign on to a time-sharing system'),
+ (174,'SESSION_END','End a session',16,NULL),
+ (175,'PROG_LENGTH','Size of the program',5,NULL),
+ (176,'SYSTEM_SELECT','Choose the language system',16,'e.g. BASIC or ALGOL on a time-sharing system'),
+ (177,'IO_NEW_PAGE','Start a new page',2,'On a printer'),
+ -- matrices
+ (180,'MAT_READ','Read a matrix from the data list',14,NULL),
+ (181,'MAT_PRINT','Print a matrix',14,NULL),
+ (182,'MAT_INPUT','Read a matrix from the keyboard',14,NULL),
+ (183,'MAT_ADD','Matrix addition',14,NULL),
+ (184,'MAT_SUB','Matrix subtraction',14,NULL),
+ (185,'MAT_MUL','Matrix multiplication',14,NULL),
+ (186,'MAT_SCALAR','Multiply a matrix by a number',14,NULL),
+ (187,'MAT_ZERO','Zero matrix',14,NULL),
+ (188,'MAT_ONES','Matrix of ones',14,NULL),
+ (189,'MAT_IDENTITY','Identity matrix',14,NULL),
+ (190,'MAT_TRANSPOSE','Transpose of a matrix',14,NULL),
+ (191,'MAT_INVERSE','Inverse of a matrix',14,NULL),
+ (192,'MAT_COPY','Copy a matrix',14,NULL),
+ (193,'MAT_DET','Determinant of a matrix',14,NULL),
+ (194,'MAT_INPUT_COUNT','Number of values read by a matrix input',14,NULL);
 
 COMMIT;
 
@@ -163,9 +233,9 @@ INSERT INTO feature_kind (id, code, section_id, position, name, answers, descrip
 INSERT INTO action_table_kind (action_id, table_kind_id)
 SELECT a.id, k.id FROM action a JOIN table_kind k ON
      (a.code IN ('STR_CHR', 'STR_CODE') AND k.code = 'CHARACTER_CODES')
-  OR (a.code IN ('VAR_LET', 'IO_INPUT', 'FLOW_FOR', 'FLOW_NEXT', 'VAR_DIM', 'VAR_CLEAR')
+  OR (a.code IN ('VAR_LET', 'IO_INPUT', 'FLOW_FOR', 'FLOW_NEXT', 'VAR_DIM', 'VAR_CLEAR', 'DATA_READ')
       AND k.code = 'VARIABLE_LAYOUT')
-  OR (a.code IN ('FLOW_GOTO', 'FLOW_GOSUB', 'PROG_RUN', 'PROG_LIST', 'FLOW_CONTINUE', 'FLOW_RETURN',
+  OR (a.code IN ('FLOW_GOTO', 'FLOW_GOSUB', 'FLOW_ON_GOTO', 'PROG_RUN', 'PROG_LIST', 'FLOW_CONTINUE', 'FLOW_RETURN',
                  'TAPE_SAVE', 'TAPE_LOAD') AND k.code = 'PROGRAM_LAYOUT');
 
 -- Notes derived from the dialect features (view v_entry_feature_note).

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CHANGE · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (4th edition)">
+<a class="prev" rel="prev" href="../entries/apos-200089.html" title="Previous entry (←)">‹ <span>&#39;</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_4.html#entries">2 / 69</a>
+<a class="next" rel="next" href="../entries/DATA-200081.html" title="Next entry (→)"><span>DATA</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/DARTMOUTH_BASIC_4.html#entries">Dartmouth BASIC (4th edition)</a> ›</p>
+<h1><span class="entry-name">CHANGE</span> <span class="category">Statement</span></h1>
+<div class="subtitle md"><p>Turns a string into a list of character codes, or a list of codes into a string.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>DARTMOUTH_4ED_layer</code> — Dartmouth BASIC, 4th edition</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/DARTMOUTH_BASIC_4.html">Dartmouth BASIC (4th edition)</a></dd>
+</dl>
+
+
+<section class="form">
+  <h2>String to codes</h2>
+  <pre class="syntax"><span class="kw">CHANGE</span> <span class="par">s</span> <span class="kw">TO</span> <span class="par">v</span></pre>
+  <p class="manual">In the manual (BASIC, 4th Edition (January 1968), p. 67-69):
+    <code>CHANGE A$ TO A</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">s</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>string variable</td>
+      <td></td>
+      <td>A string variable.</td>
+    </tr>
+    <tr>
+      <td><code class="par">v</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>list or table name</td>
+      <td></td>
+      <td>A numeric list: element 0 gets the length, the others the codes.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#STR_TO_CODES" class="action-code">STR_TO_CODES</a> String converted to character codes
+</p>
+<p class="uncovered">No equivalent in: Casio FX-700P BASIC, Dartmouth BASIC (1st edition), Dartmouth BASIC (2nd edition), Dartmouth BASIC (3rd edition), Dartmouth Card BASIC October 1964, Sinclair ZX80 BASIC 4K ROM</p>  </div>
+</section>
+<section class="form">
+  <h2>Codes to string</h2>
+  <pre class="syntax"><span class="kw">CHANGE</span> <span class="par">v</span> <span class="kw">TO</span> <span class="par">s</span></pre>
+  <p class="manual">In the manual (BASIC, 4th Edition (January 1968), p. 67-69):
+    <code>CHANGE A TO A$</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">v</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>list or table name</td>
+      <td></td>
+      <td>A numeric list: element 0 holds the number of characters.</td>
+    </tr>
+    <tr>
+      <td><code class="par">s</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>string variable</td>
+      <td></td>
+      <td>A string variable.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#STR_FROM_CODES" class="action-code">STR_FROM_CODES</a> String built from character codes
+</p>
+<p class="uncovered">No equivalent in: Casio FX-700P BASIC, Dartmouth BASIC (1st edition), Dartmouth BASIC (2nd edition), Dartmouth BASIC (3rd edition), Dartmouth Card BASIC October 1964, Sinclair ZX80 BASIC 4K ROM</p>  </div>
+</section>
+
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED_STRING</code></a></td>
+      <td>The two sides are not a string and a list. <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/CHANGE-200066.html">CHANGE</a></td>
+      <td></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/TO-200010.html">TO</a></td>
+      <td></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Codes to string <span class="tag warning">to verify</span></h3>  <pre>10 DIM A(5)
+20 FOR I = 0 TO 5
+30 READ A(I)
+40 NEXT I
+50 CHANGE A TO A$
+60 PRINT A$
+70 DATA 5, 65, 66, 67, 68, 69
+80 END</pre>
+<pre class="output" title="Expected result">ABCDE</pre><figcaption>
+<small>Form: Codes to string.</small><small>Source: BASIC, 4th Edition (January 1968), 68-69.</small></figcaption></figure>
+<figure class="example">
+<h3>String to codes <span class="tag warning">to verify</span></h3>  <pre>10 DIM A(10)
+20 LET A$ = &#34;A&#34;
+30 CHANGE A$ TO A
+40 PRINT A(0); A(1)
+50 END</pre>
+<pre class="output" title="Expected result"> 1  65</pre><figcaption>
+<small>Form: String to codes.</small></figcaption></figure>
+
+<h2>Notes</h2>
+<div class="md"><p>The codes are those of the table of [4] pp. 67-68 (ASCII: A = 65).</p></div>
+
+<h2>Sources</h2>
+<ul><li><a href="https://archive.org/stream/bitsavers_dartmouthB_3679804/BASIC_4th_Edition_Jan68_djvu.txt">BASIC, 4th Edition (January 1968)</a>, Dartmouth College (1968), p. 67-69</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (4th edition)">
+<a class="prev" rel="prev" href="../entries/apos-200089.html" title="Previous entry (←)">‹ <span>&#39;</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_4.html#entries">2 / 69</a>
+<a class="next" rel="next" href="../entries/DATA-200081.html" title="Next entry (→)"><span>DATA</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

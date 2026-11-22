@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SAVE · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Casio FX-700P BASIC">
+<a class="prev" rel="prev" href="../entries/RUN-100001.html" title="Previous entry (←)">‹ <span>RUN</span></a>  <a class="where" href="../dialects/CASIO_FX700P.html#entries">22 / 58</a>
+<a class="next" rel="next" href="../entries/VER-100007.html" title="Next entry (→)"><span>VER</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/CASIO_FX700P.html#entries">Casio FX-700P BASIC</a> ›</p>
+<h1><span class="entry-name">SAVE</span> <span class="category">Direct command</span></h1>
+<div class="subtitle md"><p>Records on tape the program of the current area, or (SAVE A) the programs of all areas.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>FX700P_core</code> — Casio FX-700P BASIC</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/CASIO_FX700P.html">Casio FX-700P BASIC</a></dd>
+</dl>
+
+
+<section class="form">
+  <h2>Current area</h2>
+  <pre class="syntax"><span class="kw">SAVE</span> <span class="meta">[</span><span class="par">filename</span><span class="meta">]</span></pre>
+  <p class="manual">In the manual (FX-700P Instruction Manual, p. 63):
+    <code>SAVE [&#34;filename&#34;]</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">filename</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>string literal</td>
+      <td></td>
+      <td>Up to 8 letters, digits or symbols, in quotes. Without it, the first file found.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#TAPE_SAVE" class="action-code">TAPE_SAVE</a> Save the program
+<span class="tag">partial</span><small>— Only the current program area</small></p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (1st edition)</span>
+<a href="../entries/SAVE-200004.html">SAVE</a> <small>— On the disk of the time-sharing system</small></li>
+      <li><span class="dia">Dartmouth BASIC (2nd edition)</span>
+<a href="../entries/SAVE-200004.html">SAVE</a> <small>— On the disk of the time-sharing system</small></li>
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/SAVE-200004.html">SAVE</a> <small>— On the disk of the time-sharing system</small></li>
+      <li><span class="dia">Dartmouth BASIC (4th edition)</span>
+<a href="../entries/SAVE-200004.html">SAVE</a> <small>— On the disk of the time-sharing system</small>; <a href="../entries/REPLACE-200076.html">REPLACE</a> <span class="tag">partial</span> <small>— Replaces the saved copy</small></li>
+      <li><span class="dia">Sinclair ZX80 BASIC 4K ROM</span>
+<a href="../entries/SAVE-5.html">SAVE</a> <small>— No file name: it also saves the variables</small></li>
+    </ul>
+<p class="uncovered">No equivalent in: Dartmouth Card BASIC October 1964</p>  </div>
+</section>
+<section class="form">
+  <h2>All areas</h2>
+  <pre class="syntax"><span class="kw">SAVE</span> <span class="lit">A</span> <span class="meta">[</span><span class="par">filename</span><span class="meta">]</span></pre>
+  <p class="manual">In the manual (FX-700P Instruction Manual, p. 63):
+    <code>SAVE A [&#34;filename&#34;]</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">filename</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>string literal</td>
+      <td></td>
+      <td>Up to 8 letters, digits or symbols, in quotes. Without it, the first file found.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#TAPE_SAVE" class="action-code">TAPE_SAVE</a> Save the program
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (1st edition)</span>
+<a href="../entries/SAVE-200004.html">SAVE</a> <small>— On the disk of the time-sharing system</small></li>
+      <li><span class="dia">Dartmouth BASIC (2nd edition)</span>
+<a href="../entries/SAVE-200004.html">SAVE</a> <small>— On the disk of the time-sharing system</small></li>
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/SAVE-200004.html">SAVE</a> <small>— On the disk of the time-sharing system</small></li>
+      <li><span class="dia">Dartmouth BASIC (4th edition)</span>
+<a href="../entries/SAVE-200004.html">SAVE</a> <small>— On the disk of the time-sharing system</small>; <a href="../entries/REPLACE-200076.html">REPLACE</a> <span class="tag">partial</span> <small>— Replaces the saved copy</small></li>
+      <li><span class="dia">Sinclair ZX80 BASIC 4K ROM</span>
+<a href="../entries/SAVE-5.html">SAVE</a> <small>— No file name: it also saves the variables</small></li>
+    </ul>
+<p class="uncovered">No equivalent in: Dartmouth Card BASIC October 1964</p>  </div>
+</section>
+
+<h2>Tables</h2>
+<ul class="entry-tables">
+  <li><a href="../dialects/CASIO_FX700P.html#program">Program in memory</a>      <small>— action TAPE_SAVE</small></li>
+</ul>
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/CASIO_FX700P.html#errors">9 <code>OPTION</code></a></td>
+      <td>No tape recorder connected. <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/SAVE-100026.html">SAVE</a></td>
+      <td><code>$C1</code></td>
+      <td><em>none</em> <small>(Casio FX-700P)</small>, <em>none</em> <small>(Casio PB-100)</small>, <em>none</em> <small>(Tandy Radio Shack TRS-80 PC-4)</small></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Record a program <span class="tag warning">to verify</span></h3>  <pre>SAVE &#34;ABC&#34;</pre>
+<figcaption>The tape recorder must be recording.
+<small>Form: Current area.</small><small>Source: FX-700P Instruction Manual, 63.</small></figcaption></figure>
+<figure class="example">
+<h3>Record all programs <span class="tag warning">to verify</span></h3>  <pre>SAVE A &#34;FX-700P&#34;</pre>
+<figcaption>
+<small>Form: All areas.</small><small>Source: FX-700P Instruction Manual, 63.</small></figcaption></figure>
+
+<h2>Notes</h2>
+<div class="md"><p>The <code>A</code> of the "all areas" form is the letter A, not a keyword: it has no token of its own (the token tables of source [5] have only LIST, CLEAR, SAVE and LOAD).</p>
+<p>Only manually. On tape a program file is a header ($D0 plus the length of the name, 8 characters of name, number of the first line) and the program lines in segments of up to 63 bytes, each started by $02 and ended by $F1; the last ends with $F0. Each byte is sent with a start bit, an even parity bit and stop bits (source [5]).</p>
+<p>SAVE A: on tape the file starts with $F0 plus the length of the name; the ten programs follow in one segment, each ended by $E0 (an empty program is $E0 alone) (source [7]).</p></div>
+<h2>Related entries</h2>
+<ul><li>See also: <a href="../entries/LOAD-100006.html">LOAD</a></li></ul>
+
+<h2>Sources</h2>
+<ul><li>FX-700P Instruction Manual, p. 63</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Casio FX-700P BASIC">
+<a class="prev" rel="prev" href="../entries/RUN-100001.html" title="Previous entry (←)">‹ <span>RUN</span></a>  <a class="where" href="../dialects/CASIO_FX700P.html#entries">22 / 58</a>
+<a class="next" rel="next" href="../entries/VER-100007.html" title="Next entry (→)"><span>VER</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

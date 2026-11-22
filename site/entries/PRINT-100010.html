@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRINT · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Casio FX-700P BASIC">
+<a class="prev" rel="prev" href="../entries/NEXT-100016.html" title="Previous entry (←)">‹ <span>NEXT</span></a>  <a class="where" href="../dialects/CASIO_FX700P.html#entries">11 / 58</a>
+<a class="next" rel="next" href="../entries/PUT-100022.html" title="Next entry (→)"><span>PUT</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/CASIO_FX700P.html#entries">Casio FX-700P BASIC</a> ›</p>
+<h1><span class="entry-name">PRINT</span> <span class="category">Statement</span></h1>
+<div class="subtitle md"><p>Shows numbers and strings on the display.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>FX700P_core</code> — Casio FX-700P BASIC</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/CASIO_FX700P.html">Casio FX-700P BASIC</a></dd>
+</dl>
+
+
+<section class="form">
+  <h2>Syntax</h2>
+<div class="md"><p>';' shows the next item after the previous one; ',' shows it after the display has been cleared. The program stops with STOP on the display until EXE is pressed.</p></div>  <pre class="syntax"><span class="kw">PRINT</span> <span class="meta">&lt;</span><span class="kw">CSR</span> <span class="par">n</span> <span class="meta">|</span> <span class="par">item</span><span class="meta">&gt;</span> <span class="meta">[</span><span class="meta">&lt;</span><span class="lit">;</span> <span class="meta">|</span> <span class="lit">,</span><span class="meta">&gt;</span> <span class="meta">&lt;</span><span class="kw">CSR</span> <span class="par">n</span> <span class="meta">|</span> <span class="par">item</span><span class="meta">&gt;</span><span class="meta">]</span><span class="meta">...</span> <span class="meta">[</span><span class="lit">;</span> <span class="meta">|</span> <span class="lit">,</span><span class="meta">]</span></pre>
+  <p class="manual">In the manual (FX-700P Instruction Manual, p. 52):
+    <code>PRINT output control function {;|,} output element [{;|,} ...]</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">n</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>numeric expression<br><small>truncated to integer</small></td>
+      <td><code>[0, 11]</code><span class="evm evm-manual" title="Stated by a source, not tested">M</span><br></td>
+      <td>Position of the next item, 0 to 11, decimal part cut off.</td>
+    </tr>
+    <tr>
+      <td><code class="par">item</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>numeric expression<br><small>or</small> character expression</td>
+      <td></td>
+      <td>Numeric or character expression. A number is shown with a sign position, so <code>PRINT "N=";N</code> shows <code>N= 15</code>.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#IO_PRINT" class="action-code">IO_PRINT</a> Write to the screen
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (1st edition)</span>
+<a href="../entries/PRINT-200007.html">PRINT</a></li>
+      <li><span class="dia">Dartmouth BASIC (2nd edition)</span>
+<a href="../entries/PRINT-200054.html">PRINT</a></li>
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/PRINT-200073.html">PRINT</a></li>
+      <li><span class="dia">Dartmouth BASIC (4th edition)</span>
+<a href="../entries/PRINT-200078.html">PRINT</a></li>
+      <li><span class="dia">Dartmouth Card BASIC October 1964</span>
+<a href="../entries/PRINT-200120.html">PRINT</a></li>
+      <li><span class="dia">Sinclair ZX80 BASIC 4K ROM</span>
+<a href="../entries/PRINT-8.html">PRINT</a></li>
+    </ul>
+  </div>
+  <div class="action">
+    <p><a href="../actions.html#IO_POSITION" class="action-code">IO_POSITION</a> Output from a given position
+<small>— CSR n</small></p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (4th edition)</span>
+<a href="../entries/PRINT-200078.html">PRINT</a> <small>— TAB(n)</small>; <a href="../entries/TAB-200092.html">TAB</a></li>
+    </ul>
+<p class="uncovered">No equivalent in: Dartmouth BASIC (1st edition), Dartmouth BASIC (2nd edition), Dartmouth BASIC (3rd edition), Dartmouth Card BASIC October 1964, Sinclair ZX80 BASIC 4K ROM</p>  </div>
+</section>
+
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/CASIO_FX700P.html#errors">3 <code>MATHEMATICAL</code></a></td>
+      <td>A calculation in the expression goes out of range, or its result is indefinite or impossible. <small>Parameters: <code class="par">n</code>, <code class="par">item</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/CASIO_FX700P.html#errors">6 <code>VARIABLE</code></a></td>
+      <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter. <small>Parameters: <code class="par">n</code>, <code class="par">item</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/PRINT-100002.html">PRINT</a></td>
+      <td><code>$A6</code></td>
+      <td><code>S + L</code> <small>(Casio FX-700P)</small>, <code>S + L</code> <small>(Casio PB-100)</small>, <code>S + L</code> <small>(Tandy Radio Shack TRS-80 PC-4)</small></td></tr>
+  <tr><td><a class="kw" href="../keywords/CSR-100003.html">CSR</a></td>
+      <td><code>$94</code></td>
+      <td><code>F + M</code> <small>(Casio FX-700P)</small>, <em>none</em> <small>(Casio PB-100)</small>, <em>none</em> <small>(Tandy Radio Shack TRS-80 PC-4)</small></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Text and number <span class="tag warning">to verify</span></h3>  <pre>10 N=15
+20 PRINT &#34;N=&#34;;N</pre>
+<pre class="output" title="Expected result">N= 15</pre><figcaption>The space is the sign position.
+<small>Source: FX-700P Instruction Manual, 40.</small></figcaption></figure>
+<figure class="example">
+<h3>Position on the display <span class="tag warning">to verify</span></h3>  <pre>10 X=3
+20 PRINT X;CSR 5;X↑2</pre>
+<figcaption>3 is shown, then 9 from position 5.
+<small>Source: FX-700P Instruction Manual, 53.</small></figcaption></figure>
+
+<h2>Notes</h2>
+<div class="md"><p>With the printer on (MODE 7) the output is also printed.</p></div><ul class="feature-notes">
+  <li><a href="../dialects/CASIO_FX700P.html#features">Width of the fixed tabulation zones</a>: <code>None</code> <span class="tag warning">to verify</span></li>
+  <li><a href="../dialects/CASIO_FX700P.html#features">Variable tab stops</a>: <code>Yes</code> <span class="tag warning">to verify</span></li>
+</ul>
+<h2>Related entries</h2>
+<ul><li>See also: <a href="../entries/CSR-100025.html">CSR</a></li></ul>
+
+<h2>Sources</h2>
+<ul><li>FX-700P Instruction Manual, p. 52</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Casio FX-700P BASIC">
+<a class="prev" rel="prev" href="../entries/NEXT-100016.html" title="Previous entry (←)">‹ <span>NEXT</span></a>  <a class="where" href="../dialects/CASIO_FX700P.html#entries">11 / 58</a>
+<a class="next" rel="next" href="../entries/PUT-100022.html" title="Next entry (→)"><span>PUT</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IF...THEN · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (4th edition)">
+<a class="prev" rel="prev" href="../entries/GOSUB-200071.html" title="Previous entry (←)">‹ <span>GOSUB</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_4.html#entries">11 / 69</a>
+<a class="next" rel="next" href="../entries/INPUT-200079.html" title="Next entry (→)"><span>INPUT</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/DARTMOUTH_BASIC_4.html#entries">Dartmouth BASIC (4th edition)</a> ›</p>
+<h1><span class="entry-name">IF...THEN</span> <span class="category">Statement</span></h1>
+<div class="subtitle md"><p>Jumps to a line if a relation between two formulas is true.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>DARTMOUTH_4ED_layer</code> — Dartmouth BASIC, 4th edition</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/DARTMOUTH_BASIC_4.html">Dartmouth BASIC (4th edition)</a></dd>
+</dl>
+
+<div class="box">
+<p>Redefines <a href="../entries/IF-THEN-200012.html">IF...THEN</a> of the previous layer.
+<br><strong>Differences:</strong> Strings can be compared; GO TO can replace THEN.</p></div>
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="kw">IF</span> <span class="par">relation</span> <span class="meta">&lt;</span><span class="kw">THEN</span> <span class="meta">|</span> <span class="kw">GO TO</span><span class="meta">&gt;</span> <span class="par">n</span></pre>
+  <p class="manual">In the manual (BASIC, 4th Edition (January 1968), p. 35-36):
+    <code>IF ... THEN line</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">relation</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>relation</td>
+      <td><small>How a value used as a condition is read:</small> <code>Relation only</code> <span class="tag warning">to verify</span><br></td>
+      <td>Two formulas or two strings joined by a relation.</td>
+    </tr>
+    <tr>
+      <td><code class="par">n</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>line number</td>
+      <td><code>[1, 99999]</code><span class="evm evm-manual" title="Stated by a source, not tested">M</span><br><small>Range of line numbers:</small> <code>1-99999</code> <span class="tag warning">to verify</span><br><small>missing line: error</small><br><small>otherwise <a href="../dialects/DARTMOUTH_BASIC_4.html#errors">error</a> <code>UNDEFINED LINE NUMBER</code></small></td>
+      <td>Line number: an integer of up to five digits, written as a number (not a formula).</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#FLOW_IF" class="action-code">FLOW_IF</a> Conditional execution
+<span class="tag">partial</span><small>— Only a jump, no ELSE</small></p>
+    <ul class="equivalents">
+      <li><span class="dia">Casio FX-700P BASIC</span>
+<a href="../entries/IF-100012.html">IF</a> <small>(Jump)</small> <small>— No ELSE</small>; <a href="../entries/IF-100012.html">IF</a> <small>(Statement)</small> <small>— No ELSE</small></li>
+      <li><span class="dia">Dartmouth BASIC (1st edition)</span>
+<a href="../entries/IF-THEN-200012.html">IF...THEN</a> <span class="tag">partial</span> <small>— Only a jump, no ELSE</small></li>
+      <li><span class="dia">Dartmouth BASIC (2nd edition)</span>
+<a href="../entries/IF-THEN-200012.html">IF...THEN</a> <span class="tag">partial</span> <small>— Only a jump, no ELSE</small></li>
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/IF-THEN-200012.html">IF...THEN</a> <span class="tag">partial</span> <small>— Only a jump, no ELSE</small></li>
+      <li><span class="dia">Dartmouth Card BASIC October 1964</span>
+<a href="../entries/IF-THEN-200012.html">IF...THEN</a> <span class="tag">partial</span> <small>— Only a jump, no ELSE</small></li>
+      <li><span class="dia">Sinclair ZX80 BASIC 4K ROM</span>
+<a href="../entries/IF-10.html">IF</a> <small>— No ELSE</small></li>
+    </ul>
+  </div>
+</section>
+
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>INCORRECT_FORMAT</code></a></td>
+      <td>The IF...THEN is not written in its form ([1] p. 19). <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>UNDEFINED_NUMBER</code></a></td>
+      <td>A jump to a line that does not exist: <code>UNDEFINED LINE NUMBER 50 IN 20</code> [4] p. 31. <small>Parameter: <code class="par">n</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL_RELATION</code></a></td>
+      <td>The relation is not one of = &lt; &lt;= &gt; &gt;= &lt;&gt;. <small>Parameter: <code class="par">relation</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/IF-200014.html">IF</a></td>
+      <td></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/THEN-200015.html">THEN</a></td>
+      <td></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/GO-TO-200013.html">GO TO</a></td>
+      <td></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Strings <span class="tag warning">to verify</span></h3>  <pre>10 INPUT A$
+20 IF A$ = &#34;YES&#34; THEN 50
+30 PRINT &#34;NO&#34;
+40 STOP
+50 PRINT &#34;OK&#34;
+60 END</pre>
+<figcaption>Trailing blanks do not count: "YES " = "YES".
+</figcaption></figure>
+
+<h2>Notes</h2>
+<div class="md"><p>If the relation is false the program goes on with the next statement. GO TO and IF...THEN may jump to a REM or DATA line, which does nothing [2] p. 45.</p></div>
+
+<h2>Sources</h2>
+<ul><li><a href="https://archive.org/stream/bitsavers_dartmouthB_3679804/BASIC_4th_Edition_Jan68_djvu.txt">BASIC, 4th Edition (January 1968)</a>, Dartmouth College (1968), p. 35-36</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (4th edition)">
+<a class="prev" rel="prev" href="../entries/GOSUB-200071.html" title="Previous entry (←)">‹ <span>GOSUB</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_4.html#entries">11 / 69</a>
+<a class="next" rel="next" href="../entries/INPUT-200079.html" title="Next entry (→)"><span>INPUT</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

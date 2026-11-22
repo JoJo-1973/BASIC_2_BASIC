@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>= · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Casio FX-700P BASIC">
+<span class="prev off">‹</span>  <a class="where" href="../dialects/CASIO_FX700P.html#entries">1 / 58</a>
+<a class="next" rel="next" href="../entries/END-100018.html" title="Next entry (→)"><span>END</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/CASIO_FX700P.html#entries">Casio FX-700P BASIC</a> ›</p>
+<h1><span class="entry-name">=</span> <span class="category">Statement</span></h1>
+<div class="subtitle md"><p>Assignment: gives a variable the value of an expression.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>FX700P_core</code> — Casio FX-700P BASIC</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/CASIO_FX700P.html">Casio FX-700P BASIC</a></dd>
+</dl>
+
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="par">variable</span> <span class="kw">=</span> <span class="par">expression</span></pre>
+  <p class="manual">In the manual (FX-700P Instruction Manual, p. 25):
+    <code>Variable = Numeric Expression</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">variable</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>numeric variable<br><small>or</small> array element<br><small>or</small> character variable<br><small>or</small> character array element</td>
+      <td></td>
+      <td>Numeric variable, character variable or array element (numeric or character).</td>
+    </tr>
+    <tr>
+      <td><code class="par">expression</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>numeric expression<br><small>or</small> character expression</td>
+      <td></td>
+      <td>Of the same type as the variable.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#VAR_LET" class="action-code">VAR_LET</a> Assignment
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (1st edition)</span>
+<a href="../entries/LET-200006.html">LET</a></li>
+      <li><span class="dia">Dartmouth BASIC (2nd edition)</span>
+<a href="../entries/LET-200006.html">LET</a></li>
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/LET-200006.html">LET</a></li>
+      <li><span class="dia">Dartmouth BASIC (4th edition)</span>
+<a href="../entries/LET-200077.html">LET</a></li>
+      <li><span class="dia">Dartmouth Card BASIC October 1964</span>
+<a href="../entries/LET-200006.html">LET</a></li>
+      <li><span class="dia">Sinclair ZX80 BASIC 4K ROM</span>
+<a href="../entries/LET-7.html">LET</a></li>
+    </ul>
+  </div>
+</section>
+
+<h2>Tables</h2>
+<ul class="entry-tables">
+  <li><a href="../dialects/CASIO_FX700P.html#variables">Variables in memory</a>      <small>— action VAR_LET</small></li>
+</ul>
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/CASIO_FX700P.html#errors">2 <code>SYNTAX</code></a></td>
+      <td>The two sides have different types (number and string). <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/CASIO_FX700P.html#errors">3 <code>MATHEMATICAL</code></a></td>
+      <td>A calculation in the expression goes out of range, or its result is indefinite or impossible. <small>Parameter: <code class="par">expression</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/CASIO_FX700P.html#errors">6 <code>VARIABLE</code></a></td>
+      <td>The element is beyond the memories in use (expand them with DEFM). <small>Parameter: <code class="par">variable</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/CASIO_FX700P.html#errors">6 <code>VARIABLE</code></a></td>
+      <td>The letter is in use as a character variable. <small>Parameter: <code class="par">variable</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/CASIO_FX700P.html#errors">6 <code>VARIABLE</code></a></td>
+      <td>The element is beyond the memories in use (expand them with DEFM), or its memory holds a number. <small>Parameter: <code class="par">variable</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/CASIO_FX700P.html#errors">6 <code>VARIABLE</code></a></td>
+      <td>The letter is in use as a numeric variable. <small>Parameter: <code class="par">variable</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/CASIO_FX700P.html#errors">6 <code>VARIABLE</code></a></td>
+      <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter. <small>Parameter: <code class="par">expression</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/eq-100053.html">=</a></td>
+      <td><code>$0C</code></td>
+      <td><code>=</code> <small>(Casio FX-700P)</small>, <code>=</code> <small>(Casio PB-100)</small>, <code>=</code> <small>(Tandy Radio Shack TRS-80 PC-4)</small></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Increase a variable <span class="tag warning">to verify</span></h3>  <pre>10 I=0
+20 I=I+1
+30 PRINT I</pre>
+<pre class="output" title="Expected result">1</pre></figure>
+<figure class="example">
+<h3>Join strings <span class="tag warning">to verify</span></h3>  <pre>10 A$=&#34;123&#34;:B$=&#34;456&#34;
+20 C$=A$+B$
+30 PRINT C$</pre>
+<pre class="output" title="Expected result">123456</pre><figcaption>
+<small>Source: FX-700P Instruction Manual, 24.</small></figcaption></figure>
+<figure class="example">
+<h3>Character array <span class="tag warning">to verify</span></h3>  <pre>10 K$(0)=&#34;ADA&#34;:K$(1)=&#34;BOB&#34;
+20 PRINT K$(1);L$</pre>
+<pre class="output" title="Expected result">BOBBOB</pre><figcaption>K$(1) is the memory L, so L$ holds the same string (source [8]).
+</figcaption></figure>
+
+<h2>Notes</h2>
+<div class="md"><p>There is no LET keyword. <code>=</code> means "assign": <code>I=I+1</code> increases I by 1.</p></div><ul class="feature-notes">
+  <li><a href="../dialects/CASIO_FX700P.html#features">LET keyword</a>: <code>Absent</code> <span class="tag warning">to verify</span></li>
+</ul>
+
+<h2>Sources</h2>
+<ul><li>FX-700P Instruction Manual, p. 25</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Casio FX-700P BASIC">
+<span class="prev off">‹</span>  <a class="where" href="../dialects/CASIO_FX700P.html#entries">1 / 58</a>
+<a class="next" rel="next" href="../entries/END-100018.html" title="Next entry (→)"><span>END</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRINT · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (2nd edition)">
+<a class="prev" rel="prev" href="../entries/NEXT-200044.html" title="Previous entry (←)">‹ <span>NEXT</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_2.html#entries">11 / 49</a>
+<a class="next" rel="next" href="../entries/READ-200014.html" title="Next entry (→)"><span>READ</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/DARTMOUTH_BASIC_2.html#entries">Dartmouth BASIC (2nd edition)</a> ›</p>
+<h1><span class="entry-name">PRINT</span> <span class="category">Statement</span></h1>
+<div class="subtitle md"><p>Types the values of formulas and labels on a line.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>DARTMOUTH_2ED_layer</code> — Dartmouth BASIC, 2nd edition</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/DARTMOUTH_BASIC_2.html">Dartmouth BASIC (2nd edition)</a></dd>
+  <dt>In Dartmouth BASIC (3rd edition)</dt>
+  <dd>replaced by <a href="../entries/PRINT-200073.html">PRINT</a> of <code>DARTMOUTH_3ED_layer</code></dd>
+  <dt>In Dartmouth BASIC (4th edition)</dt>
+  <dd>replaced by <a href="../entries/PRINT-200078.html">PRINT</a> of <code>DARTMOUTH_4ED_layer</code></dd>
+  <dt>In Dartmouth Card BASIC October 1964</dt>
+  <dd>replaced by <a href="../entries/PRINT-200120.html">PRINT</a> of <code>DARTMOUTH_CARD_layer</code></dd>
+</dl>
+
+<div class="box">
+<p>Redefines <a href="../entries/PRINT-200007.html">PRINT</a> of the previous layer.
+<br><strong>Differences:</strong> The semicolon packs the output: the next item starts at the next multiple of three characters.</p><p>Redefined in a later layer: <a href="../entries/PRINT-200073.html">PRINT</a> — Packed zones of 6, 9 or 12 characters.</p><p>Redefined in a later layer: <a href="../entries/PRINT-200120.html">PRINT</a> — Labels between single quotes; the semicolon is punched as a multiple punch 5-8; 8 numbers per line on the printer.</p></div>
+
+<section class="form">
+  <h2>Syntax</h2>
+<div class="md"><p>',' moves to the next zone of 15 characters (after the fifth, to the next line); ';' moves to the next multiple of three characters, at least six per number. A PRINT ending with a comma or semicolon does not end the line; PRINT alone skips a line.</p></div>  <pre class="syntax"><span class="kw">PRINT</span> <span class="meta">[</span><span class="meta">&lt;</span><span class="par">label</span> <span class="meta">|</span> <span class="par">formula</span> <span class="meta">|</span> <span class="par">label</span> <span class="par">formula</span><span class="meta">&gt;</span> <span class="meta">[</span><span class="meta">&lt;</span><span class="lit">,</span> <span class="meta">|</span> <span class="lit">;</span><span class="meta">&gt;</span> <span class="meta">&lt;</span><span class="par">label</span> <span class="meta">|</span> <span class="par">formula</span> <span class="meta">|</span> <span class="par">label</span> <span class="par">formula</span><span class="meta">&gt;</span><span class="meta">]</span><span class="meta">...</span> <span class="meta">[</span><span class="lit">,</span> <span class="meta">|</span> <span class="lit">;</span><span class="meta">]</span><span class="meta">]</span></pre>
+  <p class="manual">In the manual (BASIC (1 October 1964), p. 31-35):
+    <code>PRINT</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">label</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>label</td>
+      <td></td>
+      <td>Text in quotes, typed as it is; it fills whole zones.</td>
+    </tr>
+    <tr>
+      <td><code class="par">formula</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>formula</td>
+      <td></td>
+      <td>Any formula: its value is typed.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#IO_PRINT" class="action-code">IO_PRINT</a> Write to the screen
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Casio FX-700P BASIC</span>
+<a href="../entries/PRINT-100010.html">PRINT</a></li>
+      <li><span class="dia">Dartmouth BASIC (1st edition)</span>
+<a href="../entries/PRINT-200007.html">PRINT</a></li>
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/PRINT-200073.html">PRINT</a></li>
+      <li><span class="dia">Dartmouth BASIC (4th edition)</span>
+<a href="../entries/PRINT-200078.html">PRINT</a></li>
+      <li><span class="dia">Dartmouth Card BASIC October 1964</span>
+<a href="../entries/PRINT-200120.html">PRINT</a></li>
+      <li><span class="dia">Sinclair ZX80 BASIC 4K ROM</span>
+<a href="../entries/PRINT-8.html">PRINT</a></li>
+    </ul>
+  </div>
+</section>
+
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_2.html#errors"><code>TOO_MANY_LABELS</code></a></td>
+      <td>The labels of the program are too long altogether (from [2]). <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_2.html#errors"><code>ILLEGAL_FORMULA</code></a></td>
+      <td>The formula is not written correctly. <small>Parameter: <code class="par">formula</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_2.html#errors"><code>UNDEFINED_FUNCTION</code></a></td>
+      <td>The formula uses an FN function that is never defined. <small>Parameter: <code class="par">formula</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/PRINT-200007.html">PRINT</a></td>
+      <td></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Zones and packed output <span class="tag warning">to verify</span></h3>  <pre>10 PRINT 1, 2, 3
+20 PRINT 1; 2; 3
+30 END</pre>
+<pre class="output" title="Expected result"> 1             2             3
+ 1    2    3</pre><figcaption>Comma: zones of 15; semicolon: multiples of 3.
+</figcaption></figure>
+<figure class="example">
+<h3>Element 0 of a list</h3>  <pre>10 DIM A(5)
+20 LET A(0) = 1
+30 PRINT A(0)
+40 END</pre>
+<pre class="output" title="Expected result">1</pre><figcaption>Subscripts start at 0 from the 2nd edition. Checked on DTSS-Win (compiler of February 1965).
+</figcaption></figure>
+<figure class="example">
+<h3>Semicolon</h3>  <pre>10 PRINT 2; 3
+20 END</pre>
+<pre class="output" title="Expected result"> 2     3</pre><figcaption>From the DTSS-Win simulator files (BASSEM). Output checked on DTSS-Win (compiler of February 1965).
+<small>Source: DTSS-Win simulator, BASSEM.</small></figcaption></figure>
+<figure class="example">
+<h3>A list from element 0</h3>  <pre>10 FOR I = 0 TO 10
+20 LET X(I) = I
+30 NEXT I
+40 FOR I = 0 TO 10
+50 PRINT X(I);
+60 NEXT I
+70 END</pre>
+<pre class="output" title="Expected result"> 0     1     2     3     4     5     6     7     8     9     10</pre><figcaption>From the DTSS-Win simulator files (BASLIS). Element 0 and the default size of 10, without DIM. Output checked on DTSS-Win (compiler of February 1965).
+<small>Source: DTSS-Win simulator, BASLIS.</small></figcaption></figure>
+<figure class="example">
+<h3>Plot of the normal curve</h3>  <pre>100 REM PLOT A NORMAL DISTRIBUTION CURVE
+110
+120 DEF FNN(X) = EXP(-(X↑2/2))/SQR(2*3.14159265)
+130
+140 FOR X = -2 TO 2 STEP .1
+150 LET Y = FNN(X)
+160 LET Y = INT(100*Y)
+170 FOR Z = 1 TO Y
+180 PRINT &#34; &#34;;
+190 NEXT Z
+200 PRINT &#34;*&#34;
+210 NEXT X
+220 END</pre>
+<pre class="output" title="Expected result">     *
+      *
+       *
+         *
+           *
+            *
+              *
+                 *
+                   *
+                     *
+                        *
+                          *
+                            *
+                               *
+                                 *
+                                   *
+                                    *
+                                      *
+                                       *
+                                       *
+                                       *
+                                       *
+                                       *
+                                      *
+                                    *
+                                   *
+                                 *
+                               *
+                            *
+                          *
+                        *
+                     *
+                   *
+                 *
+              *
+            *
+           *
+         *
+       *
+      *</pre><figcaption>From the DTSS-Win simulator files (LIB/NORMAL). The file writes the power as ^, the ASCII character with the code of ↑ (94). Lines 110 and 130 are empty. Output checked on DTSS-Win (compiler of February 1965). Only 40 lines for the 41 values from -2 to 2: the sum of the steps of .1 passes 2 by a little, so the last value is lost.
+<small>Source: DTSS-Win simulator, LIB/NORMAL.</small></figcaption></figure>
+
+<h2>Notes</h2>
+<div class="md"><p>Numbers: up to six significant digits, integers in full up to nine digits, no trailing zeros, numbers below 0.1 as <code>X.XXXXXE-Y</code> unless they fit in six decimal places; integers without a decimal point [2] pp. 31-35. On DTSS-Win (compiler of February 1965) the exponent is printed after a space (<code>5.82077 E-9</code>, <code>1.71799 E 8</code>), and a value that rounds to an integer without being one keeps the point (<code>1.</code>, <code>-45.</code>).</p></div><ul class="feature-notes">
+  <li><a href="../dialects/DARTMOUTH_BASIC_2.html#features">Width of the fixed tabulation zones</a>: <code>15 columns</code> <span class="tag warning">to verify</span></li>
+  <li><a href="../dialects/DARTMOUTH_BASIC_2.html#features">Variable tab stops</a>: <code>No</code> <span class="tag warning">to verify</span></li>
+</ul>
+
+<h2>Sources</h2>
+<ul><li><a href="https://bitsavers.org/pdf/dartmouth/dtss/196410_BASIC.pdf">BASIC (1 October 1964)</a>, John G. Kemeny, Thomas E. Kurtz (1964), p. 31-35</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (2nd edition)">
+<a class="prev" rel="prev" href="../entries/NEXT-200044.html" title="Previous entry (←)">‹ <span>NEXT</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_2.html#entries">11 / 49</a>
+<a class="next" rel="next" href="../entries/READ-200014.html" title="Next entry (→)"><span>READ</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

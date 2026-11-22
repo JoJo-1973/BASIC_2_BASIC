@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>STOP · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (2nd edition)">
+<a class="prev" rel="prev" href="../entries/RETURN-200017.html" title="Previous entry (←)">‹ <span>RETURN</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_2.html#entries">Dartmouth BASIC (2nd edition) · 15 / 49</a>
+<a class="next" rel="next" href="../entries/CATALOG-200050.html" title="Next entry (→)"><span>CATALOG</span> ›</a></nav>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (3rd edition)">
+<a class="prev" rel="prev" href="../entries/RETURN-200072.html" title="Previous entry (←)">‹ <span>RETURN</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_3.html#entries">Dartmouth BASIC (3rd edition) · 20 / 57</a>
+<a class="next" rel="next" href="../entries/CATALOG-200050.html" title="Next entry (→)"><span>CATALOG</span> ›</a></nav>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (4th edition)">
+<a class="prev" rel="prev" href="../entries/RETURN-200072.html" title="Previous entry (←)">‹ <span>RETURN</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_4.html#entries">Dartmouth BASIC (4th edition) · 26 / 69</a>
+<a class="next" rel="next" href="../entries/BYE-200075.html" title="Next entry (→)"><span>BYE</span> ›</a></nav>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth Card BASIC October 1964">
+<a class="prev" rel="prev" href="../entries/RETURN-200017.html" title="Previous entry (←)">‹ <span>RETURN</span></a>  <a class="where" href="../dialects/DARTMOUTH_CARD_BASIC.html#entries">Dartmouth Card BASIC October 1964 · 18 / 41</a>
+<a class="next" rel="next" href="../entries/ABS-200027.html" title="Next entry (→)"><span>ABS</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/DARTMOUTH_BASIC_2.html#entries">Dartmouth BASIC (2nd edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_3.html#entries">Dartmouth BASIC (3rd edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_4.html#entries">Dartmouth BASIC (4th edition)</a>, <a href="../dialects/DARTMOUTH_CARD_BASIC.html#entries">Dartmouth Card BASIC October 1964</a> ›</p>
+<h1><span class="entry-name">STOP</span> <span class="category">Statement</span></h1>
+<div class="subtitle md"><p>Stops the program.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>DARTMOUTH_2ED_layer</code> — Dartmouth BASIC, 2nd edition</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/DARTMOUTH_BASIC_2.html">Dartmouth BASIC (2nd edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_3.html">Dartmouth BASIC (3rd edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_4.html">Dartmouth BASIC (4th edition)</a>, <a href="../dialects/DARTMOUTH_CARD_BASIC.html">Dartmouth Card BASIC October 1964</a></dd>
+</dl>
+
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="kw">STOP</span></pre>
+  <p class="manual">In the manual (BASIC (1 October 1964), p. 45):
+    <code>STOP</code>
+</p>
+
+
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#FLOW_STOP" class="action-code">FLOW_STOP</a> Stop the program
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Casio FX-700P BASIC</span>
+<a href="../entries/STOP-100017.html">STOP</a></li>
+      <li><span class="dia">Sinclair ZX80 BASIC 4K ROM</span>
+<a href="../entries/STOP-16.html">STOP</a></li>
+    </ul>
+<p class="uncovered">No equivalent in: Dartmouth BASIC (1st edition)</p>  </div>
+</section>
+
+
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/STOP-200005.html">STOP</a></td>
+      <td></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Two ends <span class="tag warning">to verify</span></h3>  <pre>10 READ X
+20 IF X &lt; 0 THEN 50
+30 PRINT SQR(X)
+40 STOP
+50 PRINT &#34;NEGATIVE&#34;
+60 DATA 16
+99 END</pre>
+<pre class="output" title="Expected result">4</pre></figure>
+<figure class="example">
+<h3>Compiling long expressions</h3>  <pre>005 STOP
+010 LET X = X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X
+020 LET X = X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X
+030 LET X = X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X
+040 LET X = X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X
+999 END</pre>
+<figcaption>From the DTSS-Win simulator files (BASTIM). A test of the compiler: STOP ends the run before the long LETs, which are only compiled. Output checked on DTSS-Win (compiler of February 1965): it prints nothing.
+<small>Source: DTSS-Win simulator, BASTIM.</small></figcaption></figure>
+
+<h2>Notes</h2>
+<div class="md"><p>It can replace a GO TO the END line where a program has several ends [2] p. 45.</p></div>
+<h2>Related entries</h2>
+<ul><li>See also: <a href="../entries/END-200008.html">END</a></li></ul>
+
+<h2>Sources</h2>
+<ul><li><a href="https://bitsavers.org/pdf/dartmouth/dtss/196410_BASIC.pdf">BASIC (1 October 1964)</a>, John G. Kemeny, Thomas E. Kurtz (1964), p. 45</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (2nd edition)">
+<a class="prev" rel="prev" href="../entries/RETURN-200017.html" title="Previous entry (←)">‹ <span>RETURN</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_2.html#entries">Dartmouth BASIC (2nd edition) · 15 / 49</a>
+<a class="next" rel="next" href="../entries/CATALOG-200050.html" title="Next entry (→)"><span>CATALOG</span> ›</a></nav>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (3rd edition)">
+<a class="prev" rel="prev" href="../entries/RETURN-200072.html" title="Previous entry (←)">‹ <span>RETURN</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_3.html#entries">Dartmouth BASIC (3rd edition) · 20 / 57</a>
+<a class="next" rel="next" href="../entries/CATALOG-200050.html" title="Next entry (→)"><span>CATALOG</span> ›</a></nav>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (4th edition)">
+<a class="prev" rel="prev" href="../entries/RETURN-200072.html" title="Previous entry (←)">‹ <span>RETURN</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_4.html#entries">Dartmouth BASIC (4th edition) · 26 / 69</a>
+<a class="next" rel="next" href="../entries/BYE-200075.html" title="Next entry (→)"><span>BYE</span> ›</a></nav>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth Card BASIC October 1964">
+<a class="prev" rel="prev" href="../entries/RETURN-200017.html" title="Previous entry (←)">‹ <span>RETURN</span></a>  <a class="where" href="../dialects/DARTMOUTH_CARD_BASIC.html#entries">Dartmouth Card BASIC October 1964 · 18 / 41</a>
+<a class="next" rel="next" href="../entries/ABS-200027.html" title="Next entry (→)"><span>ABS</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

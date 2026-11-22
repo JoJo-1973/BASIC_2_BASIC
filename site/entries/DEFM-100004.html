@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DEFM · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Casio FX-700P BASIC">
+<a class="prev" rel="prev" href="../entries/CLEAR-100003.html" title="Previous entry (←)">‹ <span>CLEAR</span></a>  <a class="where" href="../dialects/CASIO_FX700P.html#entries">18 / 58</a>
+<a class="next" rel="next" href="../entries/LIST-100002.html" title="Next entry (→)"><span>LIST</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/CASIO_FX700P.html#entries">Casio FX-700P BASIC</a> ›</p>
+<h1><span class="entry-name">DEFM</span> <span class="category">Direct command</span></h1>
+<div class="subtitle md"><p>Turns program steps into memories (variables), or shows how many memories there are.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>FX700P_core</code> — Casio FX-700P BASIC</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/CASIO_FX700P.html">Casio FX-700P BASIC</a></dd>
+</dl>
+
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="kw">DEFM</span> <span class="meta">[</span><span class="par">n</span><span class="meta">]</span></pre>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">n</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>numeric literal</td>
+      <td><code>[0, 196]</code><span class="evm evm-manual" title="Stated by a source, not tested">M</span><br></td>
+      <td>Memories to add to the 26 of A-Z: DEFM 30 gives 56. Each memory takes 8 steps. Without n, the number of memories is shown.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#VAR_RESERVE" class="action-code">VAR_RESERVE</a> Reserve memory for variables
+</p>
+<p class="uncovered">No equivalent in: Dartmouth BASIC (1st edition), Dartmouth BASIC (2nd edition), Dartmouth BASIC (3rd edition), Dartmouth BASIC (4th edition), Dartmouth Card BASIC October 1964, Sinclair ZX80 BASIC 4K ROM</p>  </div>
+</section>
+
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/CASIO_FX700P.html#errors">1 <code>MEMORY_OVERFLOW</code></a></td>
+      <td>Not enough free program steps for the memories asked for. <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/DEFM-100021.html">DEFM</a></td>
+      <td><code>$C0</code></td>
+      <td><code>S + V</code> <small>(Casio FX-700P)</small>, <code>S + V</code> <small>(Casio PB-100)</small>, <code>S + V</code> <small>(Tandy Radio Shack TRS-80 PC-4)</small></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Expand the memories <span class="tag warning">to verify</span></h3>  <pre>DEFM 30</pre>
+<pre class="output" title="Expected result">***VAR:56</pre><figcaption>26 + 30 memories; 240 program steps are used.
+<small>Source: FX-700P Instruction Manual, 8.</small></figcaption></figure>
+<figure class="example">
+<h3>Show the memories <span class="tag warning">to verify</span></h3>  <pre>DEFM</pre>
+<pre class="output" title="Expected result">***VAR:56</pre><figcaption>
+<small>Source: FX-700P Instruction Manual, 8.</small></figcaption></figure>
+
+<h2>Notes</h2>
+<div class="md"><p>The answer is shown as <code>***VAR:56</code>. The exclusive character variable $ is not counted. According to source [2] DEFM can only be used manually on the PB-100 and FX-700P.</p>
+<p>In a program: not known on the real machine (the manual says the tape commands work only manually). The PokecomGO2 simulator (source [9]) accepts the line and skips the command when it is reached, with no error. Tried with <code>10 DEFM 5</code>.</p></div>
+<h2>Related entries</h2>
+<ul><li>See also: <a href="../entries/VAC-100019.html">VAC</a></li></ul>
+
+<h2>Sources</h2>
+<ul><li>FX-700P Instruction Manual, p. 8</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Casio FX-700P BASIC">
+<a class="prev" rel="prev" href="../entries/CLEAR-100003.html" title="Previous entry (←)">‹ <span>CLEAR</span></a>  <a class="where" href="../dialects/CASIO_FX700P.html#entries">18 / 58</a>
+<a class="next" rel="next" href="../entries/LIST-100002.html" title="Next entry (→)"><span>LIST</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

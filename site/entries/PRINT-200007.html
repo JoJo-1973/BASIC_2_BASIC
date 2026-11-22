@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRINT · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (1st edition)">
+<a class="prev" rel="prev" href="../entries/NEXT-200010.html" title="Previous entry (←)">‹ <span>NEXT</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_1.html#entries">11 / 42</a>
+<a class="next" rel="next" href="../entries/READ-200014.html" title="Next entry (→)"><span>READ</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/DARTMOUTH_BASIC_1.html#entries">Dartmouth BASIC (1st edition)</a> ›</p>
+<h1><span class="entry-name">PRINT</span> <span class="category">Statement</span></h1>
+<div class="subtitle md"><p>Types the values of formulas and labels on a line.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>DARTMOUTH_1ED_core</code> — Dartmouth BASIC, 1st edition</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/DARTMOUTH_BASIC_1.html">Dartmouth BASIC (1st edition)</a></dd>
+  <dt>In Dartmouth BASIC (2nd edition)</dt>
+  <dd>replaced by <a href="../entries/PRINT-200054.html">PRINT</a> of <code>DARTMOUTH_2ED_layer</code></dd>
+  <dt>In Dartmouth BASIC (3rd edition)</dt>
+  <dd>replaced by <a href="../entries/PRINT-200073.html">PRINT</a> of <code>DARTMOUTH_3ED_layer</code></dd>
+  <dt>In Dartmouth BASIC (4th edition)</dt>
+  <dd>replaced by <a href="../entries/PRINT-200078.html">PRINT</a> of <code>DARTMOUTH_4ED_layer</code></dd>
+  <dt>In Dartmouth Card BASIC October 1964</dt>
+  <dd>replaced by <a href="../entries/PRINT-200120.html">PRINT</a> of <code>DARTMOUTH_CARD_layer</code></dd>
+</dl>
+
+<div class="box">
+<p>Redefined in a later layer: <a href="../entries/PRINT-200054.html">PRINT</a> — The semicolon packs the output: the next item starts at the next multiple of three characters.</p></div>
+
+<section class="form">
+  <h2>Syntax</h2>
+<div class="md"><p>Commas separate the items. A label can be followed directly by a formula: <code>PRINT "ROOTS =" S+T</code>. PRINT alone skips a line.</p></div>  <pre class="syntax"><span class="kw">PRINT</span> <span class="meta">[</span><span class="meta">&lt;</span><span class="par">label</span> <span class="meta">|</span> <span class="par">formula</span> <span class="meta">|</span> <span class="par">label</span> <span class="par">formula</span><span class="meta">&gt;</span> <span class="meta">[</span><span class="lit">,</span> <span class="meta">&lt;</span><span class="par">label</span> <span class="meta">|</span> <span class="par">formula</span> <span class="meta">|</span> <span class="par">label</span> <span class="par">formula</span><span class="meta">&gt;</span><span class="meta">]</span><span class="meta">...</span> <span class="meta">[</span><span class="lit">,</span><span class="meta">]</span><span class="meta">]</span></pre>
+  <p class="manual">In the manual (BASIC Instruction Manual, May 1964 (First Draft), p. 7-8):
+    <code>PRINT</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">label</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>label</td>
+      <td></td>
+      <td>Text in quotes, typed as it is.</td>
+    </tr>
+    <tr>
+      <td><code class="par">formula</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>formula</td>
+      <td></td>
+      <td>Any formula: its value is typed.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#IO_PRINT" class="action-code">IO_PRINT</a> Write to the screen
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Casio FX-700P BASIC</span>
+<a href="../entries/PRINT-100010.html">PRINT</a></li>
+      <li><span class="dia">Dartmouth BASIC (2nd edition)</span>
+<a href="../entries/PRINT-200054.html">PRINT</a></li>
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/PRINT-200073.html">PRINT</a></li>
+      <li><span class="dia">Dartmouth BASIC (4th edition)</span>
+<a href="../entries/PRINT-200078.html">PRINT</a></li>
+      <li><span class="dia">Dartmouth Card BASIC October 1964</span>
+<a href="../entries/PRINT-200120.html">PRINT</a></li>
+      <li><span class="dia">Sinclair ZX80 BASIC 4K ROM</span>
+<a href="../entries/PRINT-8.html">PRINT</a></li>
+    </ul>
+  </div>
+</section>
+
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_1.html#errors"><code>TOO_MANY_LABELS</code></a></td>
+      <td>The labels of the program are too long altogether (from [2]). <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_1.html#errors"><code>ILLEGAL_FORMULA</code></a></td>
+      <td>The formula is not written correctly. <small>Parameter: <code class="par">formula</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_1.html#errors"><code>UNDEFINED_FUNCTION</code></a></td>
+      <td>The formula uses an FN function that is never defined. <small>Parameter: <code class="par">formula</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/PRINT-200007.html">PRINT</a></td>
+      <td></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Values and a label <span class="tag warning">to verify</span></h3>  <pre>5 PRINT &#34;SINE OF 30, 60, 90 DEGREES.&#34;
+10 LET P = 3.14159265
+20 PRINT SIN(P/6), SIN(P/3), SIN(P/2)
+30 END</pre>
+<pre class="output" title="Expected result">SINE OF 30, 60, 90 DEGREES.
+ .5            .866025       1.</pre><figcaption>
+<small>Source: BASIC Instruction Manual, May 1964 (First Draft), 8.</small></figcaption></figure>
+<figure class="example">
+<h3>Label followed by a value <span class="tag warning">to verify</span></h3>  <pre>10 LET S = 3
+20 PRINT &#34;ROOTS =&#34; S
+30 END</pre>
+<pre class="output" title="Expected result">ROOTS = 3</pre><figcaption>No separator is needed between a label and a formula (as in [1] p. 21).
+</figcaption></figure>
+<figure class="example">
+<h3>Print an integer</h3>  <pre>10 PRINT 3
+20 END</pre>
+<pre class="output" title="Expected result"> 3</pre><figcaption>From the DTSS-Win simulator files (BASPRT). Output checked on DTSS-Win (compiler of February 1965).
+<small>Source: DTSS-Win simulator, BASPRT.</small></figcaption></figure>
+<figure class="example">
+<h3>Quadratic equation</h3>  <pre>5 PRINT &#34;QUADRATIC EQUATION&#34;
+6 PRINT
+10 READ A, B, C
+20 LET D = B * B -4 * A * C
+30 LET S = - B / (2 * A )
+40 LET T = SQR(D) / (2 * A)
+50 IF D = 0 THEN 100
+60 IF D &lt; 0 THEN 200
+70 PRINT A, B, C, &#34;TWO REAL ROOTS&#34;
+80 PRINT &#34;ROOTS = &#34; S + T, S - T
+90 GOTO 300
+100 PRINT A, B, C, &#34;ONE ROOT&#34;
+110 PRINT &#34;ROOT =&#34; S
+120 GOTO 300
+200 PRINT A, B, C, &#34;COMPLEX ROOTS&#34;
+210 PRINT &#34;REAL PART=&#34; S, &#34;IMAGINARY PART=&#34; T
+300 PRINT
+310 GOTO 10
+400 DATA 1, -2, -3, 1, -4, 4, 1, 0, 2
+999 END</pre>
+<pre class="output" title="Expected result">QUADRATIC EQUATION
+
+ 1             -2             -3             TWO REAL ROOTS
+ROOTS =  3     -1
+
+ 1             -4              4             ONE ROOT
+ROOT = 2
+
+
+SQUARE ROOT OF NEGATIVE NUMBER IN  40
+ 1              0              2             COMPLEX ROOTS
+REAL PART= 0                  IMAGINARY PART= 1.41421
+
+
+OUT OF DATA IN  10</pre><figcaption>From the DTSS-Win simulator files (LIB/QUAD). Output checked on DTSS-Win (compiler of February 1965). SQR(D) with D = -8 prints the message and goes on with the root of the absolute value: the imaginary part is 1.41421.
+<small>Source: DTSS-Win simulator, LIB/QUAD.</small></figcaption></figure>
+
+<h2>Notes</h2>
+<div class="md"><p>Five values fit on a line, in zones of 15 characters (from [2]); the May manual shows the rule only by examples. Whether a final comma keeps the next PRINT on the same line is stated only in [2].</p>
+<p>DTSS-Win (compiler of February 1965) prints the round brackets of a label as square ones: <code>PRINT "()"</code> and <code>PRINT "[]"</code> both print <code>[]</code>. The cause (the internal code of the GE-235 or the simulator) is not known.</p></div><ul class="feature-notes">
+  <li><a href="../dialects/DARTMOUTH_BASIC_1.html#features">Width of the fixed tabulation zones</a>: <code>15 columns</code> <span class="tag warning">to verify</span></li>
+  <li><a href="../dialects/DARTMOUTH_BASIC_1.html#features">Variable tab stops</a>: <code>No</code> <span class="tag warning">to verify</span></li>
+</ul>
+
+<h2>Sources</h2>
+<ul><li><a href="https://www.dartmouth.edu/basicfifty/basicmanual_1964.pdf">BASIC Instruction Manual, May 1964 (First Draft)</a>, John G. Kemeny, Thomas E. Kurtz (1964), p. 7-8</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (1st edition)">
+<a class="prev" rel="prev" href="../entries/NEXT-200010.html" title="Previous entry (←)">‹ <span>NEXT</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_1.html#entries">11 / 42</a>
+<a class="next" rel="next" href="../entries/READ-200014.html" title="Next entry (→)"><span>READ</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

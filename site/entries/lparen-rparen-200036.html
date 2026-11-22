@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>( ) · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (1st edition)">
+<a class="prev" rel="prev" href="../entries/gt-eq-200040.html" title="Previous entry (←)">‹ <span>&gt;=</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_1.html#entries">Dartmouth BASIC (1st edition) · 42 / 42</a>
+<span class="next off">›</span></nav>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (2nd edition)">
+<a class="prev" rel="prev" href="../entries/gt-eq-200040.html" title="Previous entry (←)">‹ <span>&gt;=</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_2.html#entries">Dartmouth BASIC (2nd edition) · 49 / 49</a>
+<span class="next off">›</span></nav>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (3rd edition)">
+<a class="prev" rel="prev" href="../entries/gt-eq-200040.html" title="Previous entry (←)">‹ <span>&gt;=</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_3.html#entries">Dartmouth BASIC (3rd edition) · 57 / 57</a>
+<span class="next off">›</span></nav>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (4th edition)">
+<a class="prev" rel="prev" href="../entries/gt-eq-200040.html" title="Previous entry (←)">‹ <span>&gt;=</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_4.html#entries">Dartmouth BASIC (4th edition) · 69 / 69</a>
+<span class="next off">›</span></nav>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth Card BASIC October 1964">
+<a class="prev" rel="prev" href="../entries/NQU-200115.html" title="Previous entry (←)">‹ <span>NQU</span></a>  <a class="where" href="../dialects/DARTMOUTH_CARD_BASIC.html#entries">Dartmouth Card BASIC October 1964 · 41 / 41</a>
+<span class="next off">›</span></nav>
+
+<p class="breadcrumbs"><a href="../dialects/DARTMOUTH_BASIC_1.html#entries">Dartmouth BASIC (1st edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_2.html#entries">Dartmouth BASIC (2nd edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_3.html#entries">Dartmouth BASIC (3rd edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_4.html#entries">Dartmouth BASIC (4th edition)</a>, <a href="../dialects/DARTMOUTH_CARD_BASIC.html#entries">Dartmouth Card BASIC October 1964</a> ›</p>
+<h1><span class="entry-name">( )</span> <span class="category">Operator</span></h1>
+<div class="subtitle md"><p>Parentheses: the formula inside is computed first.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>DARTMOUTH_1ED_core</code> — Dartmouth BASIC, 1st edition</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/DARTMOUTH_BASIC_1.html">Dartmouth BASIC (1st edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_2.html">Dartmouth BASIC (2nd edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_3.html">Dartmouth BASIC (3rd edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_4.html">Dartmouth BASIC (4th edition)</a>, <a href="../dialects/DARTMOUTH_CARD_BASIC.html">Dartmouth Card BASIC October 1964</a></dd>
+</dl>
+
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="lit">(</span><span class="par">f</span><span class="lit">)</span></pre>
+
+  <p><strong>Class:</strong> <span title="Parentheses">grouping operators</span></p>
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">f</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>formula</td>
+      <td></td>
+      <td>Any formula.</td>
+    </tr>
+    </tbody>
+  </table>
+
+</section>
+
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_1.html#errors"><code>ILLEGAL_FORMULA</code></a> <small>(Dartmouth BASIC (1st edition))</small></td>
+      <td>The formula is not written correctly. <small>Parameter: <code class="par">f</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_1.html#errors"><code>UNDEFINED_FUNCTION</code></a> <small>(Dartmouth BASIC (1st edition))</small></td>
+      <td>The formula uses an FN function that is never defined. <small>Parameter: <code class="par">f</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_2.html#errors"><code>ILLEGAL_FORMULA</code></a> <small>(Dartmouth BASIC (2nd edition))</small></td>
+      <td>The formula is not written correctly. <small>Parameter: <code class="par">f</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_2.html#errors"><code>UNDEFINED_FUNCTION</code></a> <small>(Dartmouth BASIC (2nd edition))</small></td>
+      <td>The formula uses an FN function that is never defined. <small>Parameter: <code class="par">f</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_3.html#errors"><code>ILLEGAL_FORMULA</code></a> <small>(Dartmouth BASIC (3rd edition))</small></td>
+      <td>The formula is not written correctly. <small>Parameter: <code class="par">f</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_3.html#errors"><code>UNDEFINED_FUNCTION</code></a> <small>(Dartmouth BASIC (3rd edition))</small></td>
+      <td>The formula uses an FN function that is never defined. <small>Parameter: <code class="par">f</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL_FORMULA</code></a> <small>(Dartmouth BASIC (4th edition))</small></td>
+      <td>The formula is not written correctly. <small>Parameter: <code class="par">f</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>UNDEFINED_FUNCTION</code></a> <small>(Dartmouth BASIC (4th edition))</small></td>
+      <td>The formula uses an FN function that is never defined. <small>Parameter: <code class="par">f</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED_STRING</code></a> <small>(Dartmouth BASIC (4th edition))</small></td>
+      <td>A string where a number is wanted. <small>Parameter: <code class="par">f</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL_FORMULA</code></a> <small>(Dartmouth Card BASIC October 1964)</small></td>
+      <td>The formula is not written correctly. <small>Parameter: <code class="par">f</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED_FUNCTION</code></a> <small>(Dartmouth Card BASIC October 1964)</small></td>
+      <td>The formula uses an FN function that is never defined. <small>Parameter: <code class="par">f</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Parentheses <span class="tag warning">to verify</span></h3>  <pre>10 LET X = (7+8)/3
+20 PRINT X
+30 END</pre>
+<pre class="output" title="Expected result">5</pre><figcaption>
+<small>Source: BASIC Instruction Manual, May 1964 (First Draft), 1.</small></figcaption></figure>
+
+
+
+<h2>Sources</h2>
+<ul><li><a href="https://www.dartmouth.edu/basicfifty/basicmanual_1964.pdf">BASIC Instruction Manual, May 1964 (First Draft)</a>, John G. Kemeny, Thomas E. Kurtz (1964), p. 6</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (1st edition)">
+<a class="prev" rel="prev" href="../entries/gt-eq-200040.html" title="Previous entry (←)">‹ <span>&gt;=</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_1.html#entries">Dartmouth BASIC (1st edition) · 42 / 42</a>
+<span class="next off">›</span></nav>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (2nd edition)">
+<a class="prev" rel="prev" href="../entries/gt-eq-200040.html" title="Previous entry (←)">‹ <span>&gt;=</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_2.html#entries">Dartmouth BASIC (2nd edition) · 49 / 49</a>
+<span class="next off">›</span></nav>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (3rd edition)">
+<a class="prev" rel="prev" href="../entries/gt-eq-200040.html" title="Previous entry (←)">‹ <span>&gt;=</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_3.html#entries">Dartmouth BASIC (3rd edition) · 57 / 57</a>
+<span class="next off">›</span></nav>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (4th edition)">
+<a class="prev" rel="prev" href="../entries/gt-eq-200040.html" title="Previous entry (←)">‹ <span>&gt;=</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_4.html#entries">Dartmouth BASIC (4th edition) · 69 / 69</a>
+<span class="next off">›</span></nav>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth Card BASIC October 1964">
+<a class="prev" rel="prev" href="../entries/NQU-200115.html" title="Previous entry (←)">‹ <span>NQU</span></a>  <a class="where" href="../dialects/DARTMOUTH_CARD_BASIC.html#entries">Dartmouth Card BASIC October 1964 · 41 / 41</a>
+<span class="next off">›</span></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

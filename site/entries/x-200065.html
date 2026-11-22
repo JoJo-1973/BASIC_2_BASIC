@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>↑ · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (3rd edition)">
+<a class="prev" rel="prev" href="../entries/slash-200066.html" title="Previous entry (←)">‹ <span>/</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_3.html#entries">Dartmouth BASIC (3rd edition) · 50 / 57</a>
+<a class="next" rel="next" href="../entries/lt-200041.html" title="Next entry (→)"><span>&lt;</span> ›</a></nav>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (4th edition)">
+<a class="prev" rel="prev" href="../entries/slash-200066.html" title="Previous entry (←)">‹ <span>/</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_4.html#entries">Dartmouth BASIC (4th edition) · 62 / 69</a>
+<a class="next" rel="next" href="../entries/lt-200041.html" title="Next entry (→)"><span>&lt;</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/DARTMOUTH_BASIC_3.html#entries">Dartmouth BASIC (3rd edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_4.html#entries">Dartmouth BASIC (4th edition)</a> ›</p>
+<h1><span class="entry-name">↑</span> <span class="category">Operator</span></h1>
+<div class="subtitle md"><p>Raise to a power.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>DARTMOUTH_3ED_layer</code> — Dartmouth BASIC, 3rd edition</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/DARTMOUTH_BASIC_3.html">Dartmouth BASIC (3rd edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_4.html">Dartmouth BASIC (4th edition)</a></dd>
+</dl>
+
+<div class="box">
+<p>Redefines <a href="../entries/x-200031.html">↑</a> of the previous layer.
+<br><strong>Differences:</strong> A negative base with an integer exponent gives the right result.</p></div>
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="par">a</span> <span class="kw">↑</span> <span class="par">b</span></pre>
+  <p class="manual">In the manual (BASIC Language Reference Manual (June 1965, rev. January 1967), p. 37):
+    <code>X↑2</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+  <p><strong>Class:</strong> <span title="+, -, *, /, power, change of sign">arithmetic operators</span> · <strong>Precedence:</strong> 4 <small>(<a href="../dialects/DARTMOUTH_BASIC_3.html#operators">precedence table</a>)</small></p>
+  <p><strong>Returns:</strong> Number</p>
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">a</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>formula</td>
+      <td></td>
+      <td>Base: negative only with an integer exponent; otherwise its absolute value is used, with a message.</td>
+    </tr>
+    <tr>
+      <td><code class="par">b</code></td>
+      <td>formula</td>
+      <td></td>
+      <td></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#OP_POWER" class="action-code">OP_POWER</a> Raise to a power
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Casio FX-700P BASIC</span>
+<a href="../entries/x-100046.html">↑</a></li>
+      <li><span class="dia">Dartmouth BASIC (1st edition)</span>
+<a href="../entries/x-200031.html">↑</a> <span class="tag">partial</span> <small>— Of the absolute value of the base</small></li>
+      <li><span class="dia">Dartmouth BASIC (2nd edition)</span>
+<a href="../entries/x-200031.html">↑</a> <span class="tag">partial</span> <small>— Of the absolute value of the base</small></li>
+      <li><span class="dia">Dartmouth Card BASIC October 1964</span>
+<a href="../entries/x-200031.html">↑</a> <span class="tag">partial</span> <small>— Of the absolute value of the base</small></li>
+      <li><span class="dia">Sinclair ZX80 BASIC 4K ROM</span>
+<a href="../entries/star-star-31.html">**</a></li>
+    </ul>
+  </div>
+</section>
+
+<h2>Tables</h2>
+<ul class="entry-tables">
+  <li><a href="../dialects/DARTMOUTH_BASIC_3.html#operators">Operator precedence</a> <small>(Dartmouth BASIC (3rd edition))</small>, <a href="../dialects/DARTMOUTH_BASIC_4.html#operators">Operator precedence</a> <small>(Dartmouth BASIC (4th edition))</small>      <small>— operator</small></li>
+</ul>
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_3.html#errors"><code>ZERO_NEGATIVE_POWER</code></a> <small>(Dartmouth BASIC (3rd edition))</small></td>
+      <td>0 raised to a negative power. <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_3.html#errors"><code>ABS_RAISED_TO_POWER</code></a> <small>(Dartmouth BASIC (3rd edition))</small></td>
+      <td>A negative base with a non-integer exponent. <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_3.html#errors"><code>ILLEGAL_FORMULA</code></a> <small>(Dartmouth BASIC (3rd edition))</small></td>
+      <td>The formula is not written correctly. <small>Parameters: <code class="par">a</code>, <code class="par">b</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_3.html#errors"><code>UNDEFINED_FUNCTION</code></a> <small>(Dartmouth BASIC (3rd edition))</small></td>
+      <td>The formula uses an FN function that is never defined. <small>Parameters: <code class="par">a</code>, <code class="par">b</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_3.html#errors"><code>OVERFLOW</code></a> <small>(Dartmouth BASIC (3rd edition))</small></td>
+      <td>The result is too large. <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_3.html#errors"><code>UNDERFLOW</code></a> <small>(Dartmouth BASIC (3rd edition))</small></td>
+      <td>The result is too small: it becomes 0. <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ZERO_NEGATIVE_POWER</code></a> <small>(Dartmouth BASIC (4th edition))</small></td>
+      <td>0 raised to a negative power. <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ABS_RAISED_TO_POWER</code></a> <small>(Dartmouth BASIC (4th edition))</small></td>
+      <td>A negative base with a non-integer exponent. <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL_FORMULA</code></a> <small>(Dartmouth BASIC (4th edition))</small></td>
+      <td>The formula is not written correctly. <small>Parameters: <code class="par">a</code>, <code class="par">b</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>OVERFLOW</code></a> <small>(Dartmouth BASIC (4th edition))</small></td>
+      <td>The result is too large. <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>UNDERFLOW</code></a> <small>(Dartmouth BASIC (4th edition))</small></td>
+      <td>The result is too small: it becomes 0. <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>UNDEFINED_FUNCTION</code></a> <small>(Dartmouth BASIC (4th edition))</small></td>
+      <td>The formula uses an FN function that is never defined. <small>Parameters: <code class="par">a</code>, <code class="par">b</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED_STRING</code></a> <small>(Dartmouth BASIC (4th edition))</small></td>
+      <td>A string where a number is wanted. <small>Parameters: <code class="par">a</code>, <code class="par">b</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/x-200038.html">↑</a></td>
+      <td></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Negative base, integer exponent <span class="tag warning">to verify</span></h3>  <pre>10 PRINT (-3)↑3
+20 END</pre>
+<pre class="output" title="Expected result">-27</pre><figcaption>
+<small>Source: BASIC Language Reference Manual (June 1965, rev. January 1967), 37.</small></figcaption></figure>
+
+<h2>Notes</h2>
+<div class="md"><p><code>(-3)↑3</code> = -27 [3] p. 37. <code>A↑B↑C</code> is <code>(A↑B)↑C</code>.</p></div>
+
+<h2>Sources</h2>
+<ul><li><a href="https://ftp.mirrorservice.org/sites/www.bitsavers.org/pdf/ge/MarkI_Timesharing/202026A_BASIC_Language_Reference_Manual_Jan1967.pdf">BASIC Language Reference Manual (June 1965, rev. January 1967)</a> (1967), p. 37</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (3rd edition)">
+<a class="prev" rel="prev" href="../entries/slash-200066.html" title="Previous entry (←)">‹ <span>/</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_3.html#entries">Dartmouth BASIC (3rd edition) · 50 / 57</a>
+<a class="next" rel="next" href="../entries/lt-200041.html" title="Next entry (→)"><span>&lt;</span> ›</a></nav>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (4th edition)">
+<a class="prev" rel="prev" href="../entries/slash-200066.html" title="Previous entry (←)">‹ <span>/</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_4.html#entries">Dartmouth BASIC (4th edition) · 62 / 69</a>
+<a class="next" rel="next" href="../entries/lt-200041.html" title="Next entry (→)"><span>&lt;</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

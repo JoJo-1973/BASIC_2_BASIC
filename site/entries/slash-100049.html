@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>/ · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Casio FX-700P BASIC">
+<a class="prev" rel="prev" href="../entries/minus-100047.html" title="Previous entry (←)">‹ <span>-</span></a>  <a class="where" href="../dialects/CASIO_FX700P.html#entries">49 / 58</a>
+<a class="next" rel="next" href="../entries/x-100046.html" title="Next entry (→)"><span>↑</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/CASIO_FX700P.html#entries">Casio FX-700P BASIC</a> ›</p>
+<h1><span class="entry-name">/</span> <span class="category">Operator</span></h1>
+<div class="subtitle md"><p>Division.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>FX700P_core</code> — Casio FX-700P BASIC</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/CASIO_FX700P.html">Casio FX-700P BASIC</a></dd>
+</dl>
+
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="par">a</span> <span class="kw">/</span> <span class="par">b</span></pre>
+
+  <p><strong>Class:</strong> <span title="+, -, *, /, power, change of sign">arithmetic operators</span> · <strong>Precedence:</strong> 3 <small>(<a href="../dialects/CASIO_FX700P.html#operators">precedence table</a>)</small></p>
+  <p><strong>Returns:</strong> Real number</p>
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">a</code></td>
+      <td>numeric expression</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code class="par">b</code></td>
+      <td>numeric expression</td>
+      <td></td>
+      <td></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#OP_DIV" class="action-code">OP_DIV</a> Division
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (1st edition)</span>
+<a href="../entries/slash-200034.html">/</a></li>
+      <li><span class="dia">Dartmouth BASIC (2nd edition)</span>
+<a href="../entries/slash-200034.html">/</a></li>
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/slash-200066.html">/</a></li>
+      <li><span class="dia">Dartmouth BASIC (4th edition)</span>
+<a href="../entries/slash-200066.html">/</a></li>
+      <li><span class="dia">Dartmouth Card BASIC October 1964</span>
+<a href="../entries/slash-200034.html">/</a></li>
+      <li><span class="dia">Sinclair ZX80 BASIC 4K ROM</span>
+<a href="../entries/slash-34.html">/</a> <span class="tag">partial</span> <small>— Integer division only</small></li>
+    </ul>
+  </div>
+</section>
+
+<h2>Tables</h2>
+<ul class="entry-tables">
+  <li><a href="../dialects/CASIO_FX700P.html#operators">Operator precedence</a>      <small>— operator</small></li>
+</ul>
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/CASIO_FX700P.html#errors">3 <code>MATHEMATICAL</code></a></td>
+      <td>The result is 1E100 or more, or it is indefinite or impossible. <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/CASIO_FX700P.html#errors">3 <code>MATHEMATICAL</code></a></td>
+      <td>A calculation in the expression goes out of range, or its result is indefinite or impossible. <small>Parameters: <code class="par">a</code>, <code class="par">b</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/CASIO_FX700P.html#errors">6 <code>VARIABLE</code></a></td>
+      <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter. <small>Parameters: <code class="par">a</code>, <code class="par">b</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/slash-100051.html">/</a></td>
+      <td><code>$04</code></td>
+      <td><code>/</code> <small>(Casio FX-700P)</small>, <code>/</code> <small>(Casio PB-100)</small>, <code>/</code> <small>(Tandy Radio Shack TRS-80 PC-4)</small></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Division <span class="tag warning">to verify</span></h3>  <pre>1E5/7</pre>
+<pre class="output" title="Expected result">14285.71429</pre><figcaption>
+<small>Source: FX-700P Instruction Manual, 10.</small></figcaption></figure>
+
+
+
+<h2>Sources</h2>
+<ul><li>FX-700P Instruction Manual, p. 10</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Casio FX-700P BASIC">
+<a class="prev" rel="prev" href="../entries/minus-100047.html" title="Previous entry (←)">‹ <span>-</span></a>  <a class="where" href="../dialects/CASIO_FX700P.html#entries">49 / 58</a>
+<a class="next" rel="next" href="../entries/x-100046.html" title="Next entry (→)"><span>↑</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

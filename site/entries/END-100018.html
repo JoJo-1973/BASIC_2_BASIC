@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>END · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Casio FX-700P BASIC">
+<a class="prev" rel="prev" href="../entries/eq-100008.html" title="Previous entry (←)">‹ <span>=</span></a>  <a class="where" href="../dialects/CASIO_FX700P.html#entries">2 / 58</a>
+<a class="next" rel="next" href="../entries/FOR-TO-STEP-100015.html" title="Next entry (→)"><span>FOR...TO...STEP</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/CASIO_FX700P.html#entries">Casio FX-700P BASIC</a> ›</p>
+<h1><span class="entry-name">END</span> <span class="category">Statement</span></h1>
+<div class="subtitle md"><p>Ends the program; it cannot be continued with EXE.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>FX700P_core</code> — Casio FX-700P BASIC</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/CASIO_FX700P.html">Casio FX-700P BASIC</a></dd>
+</dl>
+
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="kw">END</span></pre>
+  <p class="manual">In the manual (FX-700P Instruction Manual, p. 26):
+    <code>END</code>
+</p>
+
+
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#FLOW_END" class="action-code">FLOW_END</a> End the program
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (1st edition)</span>
+<a href="../entries/END-200008.html">END</a></li>
+      <li><span class="dia">Dartmouth BASIC (2nd edition)</span>
+<a href="../entries/END-200008.html">END</a></li>
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/END-200008.html">END</a></li>
+      <li><span class="dia">Dartmouth BASIC (4th edition)</span>
+<a href="../entries/END-200008.html">END</a></li>
+      <li><span class="dia">Dartmouth Card BASIC October 1964</span>
+<a href="../entries/END-200008.html">END</a></li>
+    </ul>
+<p class="uncovered">No equivalent in: Sinclair ZX80 BASIC 4K ROM</p>  </div>
+</section>
+
+
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/END-100014.html">END</a></td>
+      <td><code>$AA</code></td>
+      <td><code>S + C</code> <small>(Casio FX-700P)</small>, <code>S + C</code> <small>(Casio PB-100)</small>, <code>S + C</code> <small>(Tandy Radio Shack TRS-80 PC-4)</small></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>End before the subroutines <span class="tag warning">to verify</span></h3>  <pre>10 GOSUB 100
+20 END
+100 PRINT 1
+110 RETURN</pre>
+<pre class="output" title="Expected result">1</pre></figure>
+
+<h2>Notes</h2>
+<div class="md"><p>It can be omitted at the end of a program, but it marks where the subroutines begin.</p></div>
+<h2>Related entries</h2>
+<ul><li>See also: <a href="../entries/STOP-100017.html">STOP</a></li></ul>
+
+<h2>Sources</h2>
+<ul><li>FX-700P Instruction Manual, p. 26</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Casio FX-700P BASIC">
+<a class="prev" rel="prev" href="../entries/eq-100008.html" title="Previous entry (←)">‹ <span>=</span></a>  <a class="where" href="../dialects/CASIO_FX700P.html#entries">2 / 58</a>
+<a class="next" rel="next" href="../entries/FOR-TO-STEP-100015.html" title="Next entry (→)"><span>FOR...TO...STEP</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

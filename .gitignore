@@ -6,3 +6,6 @@ __pycache__/
 *.db-journal
 *.db-wal
 *.db-shm
+
+# sources that might be copyrighted
+data/sources/

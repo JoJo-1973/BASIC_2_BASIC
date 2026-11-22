@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FOR...TO...STEP · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Casio FX-700P BASIC">
+<a class="prev" rel="prev" href="../entries/END-100018.html" title="Previous entry (←)">‹ <span>END</span></a>  <a class="where" href="../dialects/CASIO_FX700P.html#entries">3 / 58</a>
+<a class="next" rel="next" href="../entries/GET-100023.html" title="Next entry (→)"><span>GET</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/CASIO_FX700P.html#entries">Casio FX-700P BASIC</a> ›</p>
+<h1><span class="entry-name">FOR...TO...STEP</span> <span class="category">Statement</span></h1>
+<div class="subtitle md"><p>Starts a loop: the variable goes from the start value to the end value in steps of the given increment.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>FX700P_core</code> — Casio FX-700P BASIC</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/CASIO_FX700P.html">Casio FX-700P BASIC</a></dd>
+</dl>
+
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="kw">FOR</span> <span class="par">v</span> <span class="kw">=</span> <span class="par">e1</span> <span class="kw">TO</span> <span class="par">e2</span> <span class="meta">[</span><span class="kw">STEP</span> <span class="par">e3</span><span class="meta">]</span></pre>
+  <p class="manual">In the manual (FX-700P Instruction Manual, p. 45):
+    <code>FOR v=e1 TO e2 [STEP e3]</code>
+</p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">v</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>numeric variable</td>
+      <td></td>
+      <td>Numeric variable.</td>
+    </tr>
+    <tr>
+      <td><code class="par">e1</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>numeric expression</td>
+      <td></td>
+      <td>Start value.</td>
+    </tr>
+    <tr>
+      <td><code class="par">e2</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>numeric expression</td>
+      <td></td>
+      <td>End value.</td>
+    </tr>
+    <tr>
+      <td><code class="par">e3</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>numeric expression</td>
+      <td></td>
+      <td>Increment; 1 if STEP is omitted. To count down it must be negative (STEP -1).</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#FLOW_FOR" class="action-code">FLOW_FOR</a> Start of a counted loop
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (1st edition)</span>
+<a href="../entries/FOR-TO-STEP-200009.html">FOR...TO...STEP</a></li>
+      <li><span class="dia">Dartmouth BASIC (2nd edition)</span>
+<a href="../entries/FOR-TO-STEP-200043.html">FOR...TO...STEP</a></li>
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/FOR-TO-STEP-200043.html">FOR...TO...STEP</a></li>
+      <li><span class="dia">Dartmouth BASIC (4th edition)</span>
+<a href="../entries/FOR-TO-STEP-200043.html">FOR...TO...STEP</a></li>
+      <li><span class="dia">Dartmouth Card BASIC October 1964</span>
+<a href="../entries/FOR-TO-STEP-200043.html">FOR...TO...STEP</a></li>
+      <li><span class="dia">Sinclair ZX80 BASIC 4K ROM</span>
+<a href="../entries/FOR-TO-14.html">FOR...TO</a> <span class="tag">partial</span> <small>— Step fixed at 1: there is no STEP</small></li>
+    </ul>
+  </div>
+</section>
+
+<h2>Tables</h2>
+<ul class="entry-tables">
+  <li><a href="../dialects/CASIO_FX700P.html#variables">Variables in memory</a>      <small>— action FLOW_FOR</small></li>
+</ul>
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/CASIO_FX700P.html#errors">3 <code>MATHEMATICAL</code></a></td>
+      <td>A calculation in the expression goes out of range, or its result is indefinite or impossible. <small>Parameters: <code class="par">e1</code>, <code class="par">e2</code>, <code class="par">e3</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/CASIO_FX700P.html#errors">6 <code>VARIABLE</code></a></td>
+      <td>The letter is in use as a character variable. <small>Parameter: <code class="par">v</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/CASIO_FX700P.html#errors">6 <code>VARIABLE</code></a></td>
+      <td>The expression uses a memory that has not been expanded, or a numeric and a character variable of the same letter. <small>Parameters: <code class="par">e1</code>, <code class="par">e2</code>, <code class="par">e3</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/CASIO_FX700P.html#errors">7 <code>NESTING</code></a></td>
+      <td>More than 4 nested FOR loops (manual; the FOR stack of source [7] has 4 places). The PokecomGO2 simulator has no limit. <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/FOR-100009.html">FOR</a></td>
+      <td><code>$A0</code></td>
+      <td><code>S + S</code> <small>(Casio FX-700P)</small>, <code>S + S</code> <small>(Casio PB-100)</small>, <code>S + S</code> <small>(Tandy Radio Shack TRS-80 PC-4)</small></td></tr>
+  <tr><td><a class="kw" href="../keywords/eq-100053.html">=</a></td>
+      <td><code>$0C</code></td>
+      <td><code>=</code> <small>(Casio FX-700P)</small>, <code>=</code> <small>(Casio PB-100)</small>, <code>=</code> <small>(Tandy Radio Shack TRS-80 PC-4)</small></td></tr>
+  <tr><td><a class="kw" href="../keywords/TO-100010.html">TO</a></td>
+      <td><code>$95</code></td>
+      <td><code>S + D</code> <small>(Casio FX-700P)</small>, <code>S + D</code> <small>(Casio PB-100)</small>, <code>S + D</code> <small>(Tandy Radio Shack TRS-80 PC-4)</small></td></tr>
+  <tr><td><a class="kw" href="../keywords/STEP-100011.html">STEP</a></td>
+      <td><code>$96</code></td>
+      <td><code>S + F</code> <small>(Casio FX-700P)</small>, <code>S + F</code> <small>(Casio PB-100)</small>, <code>S + F</code> <small>(Tandy Radio Shack TRS-80 PC-4)</small></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Sum of squares <span class="tag warning">to verify</span></h3>  <pre>10 B=0
+20 FOR I=1 TO 10
+30 B=B+I↑2
+40 NEXT I
+50 PRINT B</pre>
+<pre class="output" title="Expected result">385</pre></figure>
+<figure class="example">
+<h3>Count down <span class="tag warning">to verify</span></h3>  <pre>10 FOR I=10 TO 1 STEP -1
+20 PRINT I
+30 NEXT I</pre>
+<pre class="output" title="Expected result">10
+9
+...
+1</pre></figure>
+<figure class="example">
+<h3>Body executed at least once <span class="tag warning">to verify</span></h3>  <pre>10 FOR I=5 TO 1
+20 PRINT I
+30 NEXT I
+40 PRINT &#34;FINE&#34;</pre>
+<pre class="output" title="Expected result">5
+FINE</pre><figcaption>The end value is smaller than the start, but the body runs once (so in the PokecomGO2 simulator, source [9]).
+</figcaption></figure>
+<figure class="example">
+<h3>Changing the loop variable <span class="tag warning">to verify</span></h3>  <pre>10 FOR I=1 TO 10
+20 I=I+4
+30 PRINT I
+40 NEXT I</pre>
+<pre class="output" title="Expected result">5
+10</pre><figcaption>NEXT adds 1 to the changed value; after 10 the loop ends (so in PokecomGO2).
+</figcaption></figure>
+
+<h2>Notes</h2>
+<div class="md"><p>The loop is repeated <code>[(e2-e1)/e3]+1</code> times. Up to 4 nested loops; a loop can be left with a jump but not entered. Numbers are decimal inside, so steps like 0.01 add up exactly.</p></div><ul class="feature-notes">
+  <li><a href="../dialects/CASIO_FX700P.html#features">The body of a FOR loop is always executed at least once</a>: <code>Yes</code> <span class="tag warning">to verify</span></li>
+  <li><a href="../dialects/CASIO_FX700P.html#features">The loop variable can be changed inside the loop</a>: <code>Yes</code> <span class="tag warning">to verify</span></li>
+</ul>
+<h2>Related entries</h2>
+<ul><li>Closed by: <a href="../entries/NEXT-100016.html">NEXT</a></li></ul>
+
+<h2>Sources</h2>
+<ul><li>FX-700P Instruction Manual, p. 45</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Casio FX-700P BASIC">
+<a class="prev" rel="prev" href="../entries/END-100018.html" title="Previous entry (←)">‹ <span>END</span></a>  <a class="where" href="../dialects/CASIO_FX700P.html#entries">3 / 58</a>
+<a class="next" rel="next" href="../entries/GET-100023.html" title="Next entry (→)"><span>GET</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAT · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (4th edition)">
+<a class="prev" rel="prev" href="../entries/LET-200077.html" title="Previous entry (←)">‹ <span>LET</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_4.html#entries">14 / 69</a>
+<a class="next" rel="next" href="../entries/MAT-INPUT-200095.html" title="Next entry (→)"><span>MAT INPUT</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/DARTMOUTH_BASIC_4.html#entries">Dartmouth BASIC (4th edition)</a> ›</p>
+<h1><span class="entry-name">MAT</span> <span class="category">Statement</span></h1>
+<div class="subtitle md"><p>Matrix arithmetic: sum, difference, product, multiple, zero, ones, identity, transpose, inverse.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>DARTMOUTH_4ED_layer</code> — Dartmouth BASIC, 4th edition</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/DARTMOUTH_BASIC_4.html">Dartmouth BASIC (4th edition)</a></dd>
+</dl>
+
+<div class="box">
+<p>Redefines <a href="../entries/MAT-200062.html">MAT</a> of the previous layer.
+<br><strong>Differences:</strong> Copy of a matrix (MAT B = A); INV sets DET.</p></div>
+
+<section class="form">
+  <h2>Sum</h2>
+  <pre class="syntax"><span class="kw">MAT</span> <span class="par">c</span> <span class="kw">=</span> <span class="par">a</span> <span class="kw">+</span> <span class="par">b</span></pre>
+  <p class="manual">In the manual (BASIC, 4th Edition (January 1968), p. 53-61):
+    <code>MAT C = A + B</code>
+</p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">c</code></td>
+      <td>matrix name</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code class="par">a</code></td>
+      <td>matrix name</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code class="par">b</code></td>
+      <td>matrix name</td>
+      <td></td>
+      <td></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#MAT_ADD" class="action-code">MAT_ADD</a> Matrix addition
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/MAT-200062.html">MAT</a> <small>(Sum)</small></li>
+      <li><span class="dia">Dartmouth Card BASIC October 1964</span>
+<a href="../entries/MAT-200126.html">MAT</a> <small>(Sum)</small></li>
+    </ul>
+<p class="uncovered">No equivalent in: Casio FX-700P BASIC, Dartmouth BASIC (1st edition), Dartmouth BASIC (2nd edition), Sinclair ZX80 BASIC 4K ROM</p>  </div>
+</section>
+<section class="form">
+  <h2>Difference</h2>
+  <pre class="syntax"><span class="kw">MAT</span> <span class="par">c</span> <span class="kw">=</span> <span class="par">a</span> <span class="kw">-</span> <span class="par">b</span></pre>
+  <p class="manual">In the manual (BASIC, 4th Edition (January 1968), p. 53-61):
+    <code>MAT C = A - B</code>
+</p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">c</code></td>
+      <td>matrix name</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code class="par">a</code></td>
+      <td>matrix name</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code class="par">b</code></td>
+      <td>matrix name</td>
+      <td></td>
+      <td></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#MAT_SUB" class="action-code">MAT_SUB</a> Matrix subtraction
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/MAT-200062.html">MAT</a> <small>(Difference)</small></li>
+      <li><span class="dia">Dartmouth Card BASIC October 1964</span>
+<a href="../entries/MAT-200126.html">MAT</a> <small>(Difference)</small></li>
+    </ul>
+<p class="uncovered">No equivalent in: Casio FX-700P BASIC, Dartmouth BASIC (1st edition), Dartmouth BASIC (2nd edition), Sinclair ZX80 BASIC 4K ROM</p>  </div>
+</section>
+<section class="form">
+  <h2>Product</h2>
+  <pre class="syntax"><span class="kw">MAT</span> <span class="par">c</span> <span class="kw">=</span> <span class="par">a</span> <span class="kw">*</span> <span class="par">b</span></pre>
+  <p class="manual">In the manual (BASIC, 4th Edition (January 1968), p. 53-61):
+    <code>MAT C = A * B</code>
+</p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">c</code></td>
+      <td>matrix name</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code class="par">a</code></td>
+      <td>matrix name</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code class="par">b</code></td>
+      <td>matrix name</td>
+      <td></td>
+      <td></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#MAT_MUL" class="action-code">MAT_MUL</a> Matrix multiplication
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/MAT-200062.html">MAT</a> <small>(Product)</small></li>
+      <li><span class="dia">Dartmouth Card BASIC October 1964</span>
+<a href="../entries/MAT-200126.html">MAT</a> <small>(Product)</small></li>
+    </ul>
+<p class="uncovered">No equivalent in: Casio FX-700P BASIC, Dartmouth BASIC (1st edition), Dartmouth BASIC (2nd edition), Sinclair ZX80 BASIC 4K ROM</p>  </div>
+</section>
+<section class="form">
+  <h2>Multiple</h2>
+  <pre class="syntax"><span class="kw">MAT</span> <span class="par">c</span> <span class="kw">=</span> <span class="lit">(</span><span class="par">k</span><span class="lit">)</span> <span class="kw">*</span> <span class="par">a</span></pre>
+  <p class="manual">In the manual (BASIC, 4th Edition (January 1968), p. 53-61):
+    <code>MAT C = (K) * A</code>
+</p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">c</code></td>
+      <td>matrix name</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code class="par">k</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>formula</td>
+      <td></td>
+      <td>Any formula, in parentheses.</td>
+    </tr>
+    <tr>
+      <td><code class="par">a</code></td>
+      <td>matrix name</td>
+      <td></td>
+      <td></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#MAT_SCALAR" class="action-code">MAT_SCALAR</a> Multiply a matrix by a number
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/MAT-200062.html">MAT</a> <small>(Multiple)</small></li>
+      <li><span class="dia">Dartmouth Card BASIC October 1964</span>
+<a href="../entries/MAT-200126.html">MAT</a> <small>(Multiple)</small></li>
+    </ul>
+<p class="uncovered">No equivalent in: Casio FX-700P BASIC, Dartmouth BASIC (1st edition), Dartmouth BASIC (2nd edition), Sinclair ZX80 BASIC 4K ROM</p>  </div>
+</section>
+<section class="form">
+  <h2>Zero matrix</h2>
+  <pre class="syntax"><span class="kw">MAT</span> <span class="par">c</span> <span class="kw">=</span> <span class="kw">ZER</span><span class="meta">[</span><span class="lit">(</span><span class="par">m</span><span class="meta">[</span><span class="lit">,</span><span class="par">n</span><span class="meta">]</span><span class="lit">)</span><span class="meta">]</span></pre>
+  <p class="manual">In the manual (BASIC, 4th Edition (January 1968), p. 53-61):
+    <code>MAT C = ZER(M,N)</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">c</code></td>
+      <td>matrix name</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code class="par">m</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>formula</td>
+      <td></td>
+      <td>Rows (a formula).</td>
+    </tr>
+    <tr>
+      <td><code class="par">n</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>formula</td>
+      <td></td>
+      <td>Columns (a formula).</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#MAT_ZERO" class="action-code">MAT_ZERO</a> Zero matrix
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/MAT-200062.html">MAT</a> <small>(Zero matrix)</small></li>
+      <li><span class="dia">Dartmouth Card BASIC October 1964</span>
+<a href="../entries/MAT-200126.html">MAT</a> <small>(Zero matrix)</small></li>
+    </ul>
+<p class="uncovered">No equivalent in: Casio FX-700P BASIC, Dartmouth BASIC (1st edition), Dartmouth BASIC (2nd edition), Sinclair ZX80 BASIC 4K ROM</p>  </div>
+</section>
+<section class="form">
+  <h2>Ones</h2>
+  <pre class="syntax"><span class="kw">MAT</span> <span class="par">c</span> <span class="kw">=</span> <span class="kw">CON</span><span class="meta">[</span><span class="lit">(</span><span class="par">m</span><span class="meta">[</span><span class="lit">,</span><span class="par">n</span><span class="meta">]</span><span class="lit">)</span><span class="meta">]</span></pre>
+  <p class="manual">In the manual (BASIC, 4th Edition (January 1968), p. 53-61):
+    <code>MAT C = CON(M,N)</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">c</code></td>
+      <td>matrix name</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code class="par">m</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>formula</td>
+      <td></td>
+      <td>Rows (a formula).</td>
+    </tr>
+    <tr>
+      <td><code class="par">n</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>formula</td>
+      <td></td>
+      <td>Columns (a formula).</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#MAT_ONES" class="action-code">MAT_ONES</a> Matrix of ones
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/MAT-200062.html">MAT</a> <small>(Ones)</small></li>
+      <li><span class="dia">Dartmouth Card BASIC October 1964</span>
+<a href="../entries/MAT-200126.html">MAT</a> <small>(Ones)</small></li>
+    </ul>
+<p class="uncovered">No equivalent in: Casio FX-700P BASIC, Dartmouth BASIC (1st edition), Dartmouth BASIC (2nd edition), Sinclair ZX80 BASIC 4K ROM</p>  </div>
+</section>
+<section class="form">
+  <h2>Identity</h2>
+  <pre class="syntax"><span class="kw">MAT</span> <span class="par">c</span> <span class="kw">=</span> <span class="kw">IDN</span><span class="meta">[</span><span class="lit">(</span><span class="par">n</span><span class="lit">)</span><span class="meta">]</span></pre>
+  <p class="manual">In the manual (BASIC, 4th Edition (January 1968), p. 53-61):
+    <code>MAT C = IDN(N)</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">c</code></td>
+      <td>matrix name</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code class="par">n</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>formula</td>
+      <td></td>
+      <td>Order of the square matrix.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#MAT_IDENTITY" class="action-code">MAT_IDENTITY</a> Identity matrix
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/MAT-200062.html">MAT</a> <small>(Identity)</small></li>
+      <li><span class="dia">Dartmouth Card BASIC October 1964</span>
+<a href="../entries/MAT-200126.html">MAT</a> <small>(Identity)</small></li>
+    </ul>
+<p class="uncovered">No equivalent in: Casio FX-700P BASIC, Dartmouth BASIC (1st edition), Dartmouth BASIC (2nd edition), Sinclair ZX80 BASIC 4K ROM</p>  </div>
+</section>
+<section class="form">
+  <h2>Transpose</h2>
+  <pre class="syntax"><span class="kw">MAT</span> <span class="par">c</span> <span class="kw">=</span> <span class="kw">TRN</span><span class="lit">(</span><span class="par">a</span><span class="lit">)</span></pre>
+  <p class="manual">In the manual (BASIC, 4th Edition (January 1968), p. 53-61):
+    <code>MAT C = TRN(A)</code>
+</p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">c</code></td>
+      <td>matrix name</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code class="par">a</code></td>
+      <td>matrix name</td>
+      <td></td>
+      <td></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#MAT_TRANSPOSE" class="action-code">MAT_TRANSPOSE</a> Transpose of a matrix
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/MAT-200062.html">MAT</a> <small>(Transpose)</small></li>
+      <li><span class="dia">Dartmouth Card BASIC October 1964</span>
+<a href="../entries/MAT-200126.html">MAT</a> <small>(Transpose)</small></li>
+    </ul>
+<p class="uncovered">No equivalent in: Casio FX-700P BASIC, Dartmouth BASIC (1st edition), Dartmouth BASIC (2nd edition), Sinclair ZX80 BASIC 4K ROM</p>  </div>
+</section>
+<section class="form">
+  <h2>Inverse</h2>
+  <pre class="syntax"><span class="kw">MAT</span> <span class="par">c</span> <span class="kw">=</span> <span class="kw">INV</span><span class="lit">(</span><span class="par">a</span><span class="lit">)</span></pre>
+  <p class="manual">In the manual (BASIC, 4th Edition (January 1968), p. 53-61):
+    <code>MAT C = INV(A)</code>
+</p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">c</code></td>
+      <td>matrix name</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code class="par">a</code></td>
+      <td>matrix name</td>
+      <td></td>
+      <td></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#MAT_INVERSE" class="action-code">MAT_INVERSE</a> Inverse of a matrix
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/MAT-200062.html">MAT</a> <small>(Inverse)</small></li>
+      <li><span class="dia">Dartmouth Card BASIC October 1964</span>
+<a href="../entries/MAT-200126.html">MAT</a> <small>(Inverse)</small></li>
+    </ul>
+<p class="uncovered">No equivalent in: Casio FX-700P BASIC, Dartmouth BASIC (1st edition), Dartmouth BASIC (2nd edition), Sinclair ZX80 BASIC 4K ROM</p>  </div>
+</section>
+<section class="form">
+  <h2>Copy</h2>
+  <pre class="syntax"><span class="kw">MAT</span> <span class="par">b</span> <span class="kw">=</span> <span class="par">a</span></pre>
+  <p class="manual">In the manual (BASIC, 4th Edition (January 1968), p. 53-61):
+    <code>MAT B = A</code>
+</p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">b</code></td>
+      <td>matrix name</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code class="par">a</code></td>
+      <td>matrix name</td>
+      <td></td>
+      <td></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#MAT_COPY" class="action-code">MAT_COPY</a> Copy a matrix
+</p>
+<p class="uncovered">No equivalent in: Casio FX-700P BASIC, Dartmouth BASIC (1st edition), Dartmouth BASIC (2nd edition), Dartmouth BASIC (3rd edition), Dartmouth Card BASIC October 1964, Sinclair ZX80 BASIC 4K ROM</p>  </div>
+</section>
+
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>DIMENSION_ERROR</code></a></td>
+      <td>The dimensions of the matrices do not agree. <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL_MAT_MULTIPLE</code></a></td>
+      <td>The result is also a factor: MAT A = A * B. <small>Form: Product.</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL_MAT_TRANSPOSE</code></a></td>
+      <td>MAT A = TRN(A). <small>Form: Transpose.</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL_FORMULA</code></a></td>
+      <td>The formula is not written correctly. <small>Parameters: <code class="par">k</code>, <code class="par">m</code>, <code class="par">n</code>.</small> <small>Form: Multiple, Zero matrix, Ones, Identity.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>UNDEFINED_FUNCTION</code></a></td>
+      <td>The formula uses an FN function that is never defined. <small>Parameters: <code class="par">k</code>, <code class="par">m</code>, <code class="par">n</code>.</small> <small>Form: Multiple, Zero matrix, Ones, Identity.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED_STRING</code></a></td>
+      <td>A string where a number is wanted. <small>Parameters: <code class="par">k</code>, <code class="par">m</code>, <code class="par">n</code>.</small> <small>Form: Multiple, Zero matrix, Ones, Identity.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/MAT-200055.html">MAT</a></td>
+      <td></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/eq-200039.html">=</a></td>
+      <td></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/plus-200034.html">+</a></td>
+      <td></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/minus-200035.html">-</a></td>
+      <td></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/star-200036.html">*</a></td>
+      <td></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/ZER-200056.html">ZER</a></td>
+      <td></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/CON-200057.html">CON</a></td>
+      <td></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/IDN-200058.html">IDN</a></td>
+      <td></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/TRN-200059.html">TRN</a></td>
+      <td></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/INV-200060.html">INV</a></td>
+      <td></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Product <span class="tag warning">to verify</span></h3>  <pre>10 DIM A(2,2), B(2,2), C(2,2)
+20 MAT READ A, B
+30 MAT C = A * B
+40 MAT PRINT C
+50 DATA 1,2,3,4, 1,0,0,1
+60 END</pre>
+<pre class="output" title="Expected result"> 1             2
+
+ 3             4</pre><figcaption>
+<small>Form: Product.</small></figcaption></figure>
+<figure class="example">
+<h3>Inverse <span class="tag warning">to verify</span></h3>  <pre>10 DIM A(2,2), B(2,2)
+20 MAT READ A
+30 MAT B = INV(A)
+40 MAT PRINT B
+50 DATA 2,0,0,4
+60 END</pre>
+<pre class="output" title="Expected result"> .5            0
+
+ 0             .25</pre><figcaption>
+<small>Form: Inverse.</small></figcaption></figure>
+
+<h2>Notes</h2>
+<div class="md"><p>Default dimensions: 10 for a list, 10 × 10 for a table; row and column 0 are ignored by MAT but take room. <code>MAT A = A * B</code> and <code>MAT A = TRN(A)</code> are not allowed. A matrix with no inverse does not stop the program: DET is 0 [4] pp. 53-61.</p></div>
+<h2>Related entries</h2>
+<ul><li>See also: <a href="../entries/DET-200094.html">DET</a></li></ul>
+
+<h2>Sources</h2>
+<ul><li><a href="https://archive.org/stream/bitsavers_dartmouthB_3679804/BASIC_4th_Edition_Jan68_djvu.txt">BASIC, 4th Edition (January 1968)</a>, Dartmouth College (1968), p. 53-61</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (4th edition)">
+<a class="prev" rel="prev" href="../entries/LET-200077.html" title="Previous entry (←)">‹ <span>LET</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_4.html#entries">14 / 69</a>
+<a class="next" rel="next" href="../entries/MAT-INPUT-200095.html" title="Next entry (→)"><span>MAT INPUT</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

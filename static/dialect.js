@@ -75,11 +75,14 @@
 
   // ---------------------------------------------------------------- glyphs
   document.querySelectorAll("table.glyphs").forEach(function (t) {
-    var w = +t.dataset.width, h = +t.dataset.height, scale = 3;
+    // one scale for both axes, so the glyph keeps its shape (8x8 -> 3, 5x7 -> 3, 8x16 -> 2)
+    var w = +t.dataset.width, h = +t.dataset.height;
+    var scale = Math.max(1, Math.round(24 / Math.max(w, h)));
     var rowBytes = Math.ceil(w / 8);
     t.querySelectorAll("canvas[data-b]").forEach(function (cv) {
       var hex = cv.dataset.b, inv = cv.dataset.inverse === "1";   // inverted by the hardware
       cv.width = w * scale; cv.height = h * scale;
+      cv.style.width = cv.width + "px"; cv.style.height = cv.height + "px";
       var ctx = cv.getContext("2d");
       ctx.fillStyle = getComputedStyle(cv).color;
       for (var y = 0; y < h; y++) {

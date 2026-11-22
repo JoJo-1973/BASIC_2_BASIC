@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RETURN · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (3rd edition)">
+<a class="prev" rel="prev" href="../entries/RESTORE-200058.html" title="Previous entry (←)">‹ <span>RESTORE</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_3.html#entries">Dartmouth BASIC (3rd edition) · 19 / 57</a>
+<a class="next" rel="next" href="../entries/STOP-200053.html" title="Next entry (→)"><span>STOP</span> ›</a></nav>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (4th edition)">
+<a class="prev" rel="prev" href="../entries/RESTORE-200082.html" title="Previous entry (←)">‹ <span>RESTORE</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_4.html#entries">Dartmouth BASIC (4th edition) · 25 / 69</a>
+<a class="next" rel="next" href="../entries/STOP-200053.html" title="Next entry (→)"><span>STOP</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/DARTMOUTH_BASIC_3.html#entries">Dartmouth BASIC (3rd edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_4.html#entries">Dartmouth BASIC (4th edition)</a> ›</p>
+<h1><span class="entry-name">RETURN</span> <span class="category">Statement</span></h1>
+<div class="subtitle md"><p>Goes back to the statement after the last GOSUB.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>DARTMOUTH_3ED_layer</code> — Dartmouth BASIC, 3rd edition</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/DARTMOUTH_BASIC_3.html">Dartmouth BASIC (3rd edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_4.html">Dartmouth BASIC (4th edition)</a></dd>
+</dl>
+
+<div class="box">
+<p>Redefines <a href="../entries/RETURN-200017.html">RETURN</a> of the previous layer.
+<br><strong>Differences:</strong> The error is now RETURN BEFORE GOSUB, at run time.</p></div>
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="kw">RETURN</span></pre>
+  <p class="manual">In the manual (BASIC Language Reference Manual (June 1965, rev. January 1967), p. 28):
+    <code>RETURN</code>
+</p>
+
+
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#FLOW_RETURN" class="action-code">FLOW_RETURN</a> Return from subroutine
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Casio FX-700P BASIC</span>
+<a href="../entries/RETURN-100014.html">RETURN</a></li>
+      <li><span class="dia">Dartmouth BASIC (1st edition)</span>
+<a href="../entries/RETURN-200017.html">RETURN</a></li>
+      <li><span class="dia">Dartmouth BASIC (2nd edition)</span>
+<a href="../entries/RETURN-200017.html">RETURN</a></li>
+      <li><span class="dia">Dartmouth Card BASIC October 1964</span>
+<a href="../entries/RETURN-200017.html">RETURN</a></li>
+      <li><span class="dia">Sinclair ZX80 BASIC 4K ROM</span>
+<a href="../entries/RETURN-13.html">RETURN</a></li>
+    </ul>
+  </div>
+</section>
+
+<h2>Tables</h2>
+<ul class="entry-tables">
+  <li><a href="../dialects/DARTMOUTH_BASIC_3.html#program">Program in memory</a> <small>(Dartmouth BASIC (3rd edition))</small>, <a href="../dialects/DARTMOUTH_BASIC_4.html#program">Program in memory</a> <small>(Dartmouth BASIC (4th edition))</small>      <small>— action FLOW_RETURN</small></li>
+</ul>
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_3.html#errors"><code>RETURN_BEFORE_GOSUB</code></a> <small>(Dartmouth BASIC (3rd edition))</small></td>
+      <td>RETURN with no GOSUB to go back to. <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>RETURN_BEFORE_GOSUB</code></a> <small>(Dartmouth BASIC (4th edition))</small></td>
+      <td>RETURN with no GOSUB to go back to. <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/RETURN-200021.html">RETURN</a></td>
+      <td></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Two calls <span class="tag warning">to verify</span></h3>  <pre>10 GOSUB 100
+20 GOSUB 100
+30 GO TO 999
+100 PRINT &#34;HELLO&#34;
+110 RETURN
+999 END</pre>
+<pre class="output" title="Expected result">HELLO
+HELLO</pre></figure>
+<figure class="example">
+<h3>GCD of three numbers</h3>  <pre>10 PRINT &#34;A&#34;, &#34;B&#34;, &#34;C&#34;, &#34;GCD&#34;
+20 READ A, B, C
+30 LET X = A
+40 LET Y = B
+50 GOSUB 200
+60 LET X = G
+70 LET Y = C
+80 GOSUB 200
+90 PRINT A, B, C, G
+100 GOTO 20
+110 DATA 60, 90, 120
+120 DATA 38456, 64872, 98765
+200 LET Q = INT(X/Y)
+210 LET R = X - Q*Y
+220 IF R = 0 THEN 300
+230 LET X = Y
+240 LET Y = R
+250 GOTO 200
+300 LET G = Y
+310 RETURN
+999 END</pre>
+<pre class="output" title="Expected result">A              B              C              GCD
+ 60             90             120            30
+ 38456          64872          98765          1
+
+OUT OF DATA IN  20</pre><figcaption>From the DTSS-Win simulator files (LIB/GCD3NO). The same subroutine called twice: GCD 30, then 1. Output checked on DTSS-Win (compiler of February 1965).
+<small>Source: DTSS-Win simulator, LIB/GCD3NO.</small></figcaption></figure>
+
+
+
+<h2>Sources</h2>
+<ul><li><a href="https://ftp.mirrorservice.org/sites/www.bitsavers.org/pdf/ge/MarkI_Timesharing/202026A_BASIC_Language_Reference_Manual_Jan1967.pdf">BASIC Language Reference Manual (June 1965, rev. January 1967)</a> (1967), p. 28</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (3rd edition)">
+<a class="prev" rel="prev" href="../entries/RESTORE-200058.html" title="Previous entry (←)">‹ <span>RESTORE</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_3.html#entries">Dartmouth BASIC (3rd edition) · 19 / 57</a>
+<a class="next" rel="next" href="../entries/STOP-200053.html" title="Next entry (→)"><span>STOP</span> ›</a></nav>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (4th edition)">
+<a class="prev" rel="prev" href="../entries/RESTORE-200082.html" title="Previous entry (←)">‹ <span>RESTORE</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_4.html#entries">Dartmouth BASIC (4th edition) · 25 / 69</a>
+<a class="next" rel="next" href="../entries/STOP-200053.html" title="Next entry (→)"><span>STOP</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

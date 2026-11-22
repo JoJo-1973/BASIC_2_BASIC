@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DET · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (4th edition)">
+<a class="prev" rel="prev" href="../entries/COT-200091.html" title="Previous entry (←)">‹ <span>COT</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_4.html#entries">46 / 69</a>
+<a class="next" rel="next" href="../entries/EXP-200069.html" title="Next entry (→)"><span>EXP</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/DARTMOUTH_BASIC_4.html#entries">Dartmouth BASIC (4th edition)</a> ›</p>
+<h1><span class="entry-name">DET</span> <span class="category">Function</span></h1>
+<div class="subtitle md"><p>Determinant of the matrix inverted by the last MAT INV.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>DARTMOUTH_4ED_layer</code> — Dartmouth BASIC, 4th edition</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/DARTMOUTH_BASIC_4.html">Dartmouth BASIC (4th edition)</a></dd>
+</dl>
+
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="kw">DET</span></pre>
+  <p class="manual">In the manual (BASIC, 4th Edition (January 1968), p. 59-61):
+    <code>DET</code>
+</p>
+
+  <p><strong>Returns:</strong> Number</p>
+
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#MAT_DET" class="action-code">MAT_DET</a> Determinant of a matrix
+</p>
+<p class="uncovered">No equivalent in: Casio FX-700P BASIC, Dartmouth BASIC (1st edition), Dartmouth BASIC (2nd edition), Dartmouth BASIC (3rd edition), Dartmouth Card BASIC October 1964, Sinclair ZX80 BASIC 4K ROM</p>  </div>
+</section>
+
+
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/DET-200070.html">DET</a></td>
+      <td></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Determinant <span class="tag warning">to verify</span></h3>  <pre>10 DIM A(2,2), B(2,2)
+20 MAT READ A
+30 MAT B = INV(A)
+40 PRINT DET
+50 DATA 1,2,3,4
+60 END</pre>
+<pre class="output" title="Expected result">-2</pre></figure>
+
+<h2>Notes</h2>
+<div class="md"><p>0 if the matrix had no inverse: the program goes on [4] pp. 59-60.</p></div>
+<h2>Related entries</h2>
+<ul><li>See also: <a href="../entries/MAT-200096.html">MAT</a></li></ul>
+
+<h2>Sources</h2>
+<ul><li><a href="https://archive.org/stream/bitsavers_dartmouthB_3679804/BASIC_4th_Edition_Jan68_djvu.txt">BASIC, 4th Edition (January 1968)</a>, Dartmouth College (1968), p. 59-61</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (4th edition)">
+<a class="prev" rel="prev" href="../entries/COT-200091.html" title="Previous entry (←)">‹ <span>COT</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_4.html#entries">46 / 69</a>
+<a class="next" rel="next" href="../entries/EXP-200069.html" title="Next entry (→)"><span>EXP</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

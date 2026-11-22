@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SQR · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (3rd edition)">
+<a class="prev" rel="prev" href="../entries/SIN-200020.html" title="Previous entry (←)">‹ <span>SIN</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_3.html#entries">Dartmouth BASIC (3rd edition) · 44 / 57</a>
+<a class="next" rel="next" href="../entries/TAN-200022.html" title="Next entry (→)"><span>TAN</span> ›</a></nav>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (4th edition)">
+<a class="prev" rel="prev" href="../entries/SIN-200020.html" title="Previous entry (←)">‹ <span>SIN</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_4.html#entries">Dartmouth BASIC (4th edition) · 55 / 69</a>
+<a class="next" rel="next" href="../entries/TAB-200092.html" title="Next entry (→)"><span>TAB</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/DARTMOUTH_BASIC_3.html#entries">Dartmouth BASIC (3rd edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_4.html#entries">Dartmouth BASIC (4th edition)</a> ›</p>
+<h1><span class="entry-name">SQR</span> <span class="category">Function</span></h1>
+<div class="subtitle md"><p>Square root of the absolute value of the argument.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>DARTMOUTH_3ED_layer</code> — Dartmouth BASIC, 3rd edition</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/DARTMOUTH_BASIC_3.html">Dartmouth BASIC (3rd edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_4.html">Dartmouth BASIC (4th edition)</a></dd>
+</dl>
+
+<div class="box">
+<p>Redefines <a href="../entries/SQR-200026.html">SQR</a> of the previous layer.
+<br><strong>Differences:</strong> A negative argument gives a message.</p></div>
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="kw">SQR</span><span class="lit">(</span><span class="par">x</span><span class="lit">)</span></pre>
+  <p class="manual">In the manual (BASIC Language Reference Manual (June 1965, rev. January 1967), p. 25):
+    <code>SQR(A)</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+  <p><strong>Returns:</strong> Number, range <code>[0, ∞)</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></p>
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">x</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>formula</td>
+      <td></td>
+      <td>Any formula.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#MATH_SQR" class="action-code">MATH_SQR</a> Square root
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Casio FX-700P BASIC</span>
+<a href="../entries/SQR-100035.html">SQR</a></li>
+      <li><span class="dia">Dartmouth BASIC (1st edition)</span>
+<a href="../entries/SQR-200026.html">SQR</a></li>
+      <li><span class="dia">Dartmouth BASIC (2nd edition)</span>
+<a href="../entries/SQR-200026.html">SQR</a></li>
+      <li><span class="dia">Dartmouth Card BASIC October 1964</span>
+<a href="../entries/SQR-200026.html">SQR</a></li>
+    </ul>
+<p class="uncovered">No equivalent in: Sinclair ZX80 BASIC 4K ROM</p>  </div>
+</section>
+
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_3.html#errors"><code>SQR_NEGATIVE</code></a> <small>(Dartmouth BASIC (3rd edition))</small></td>
+      <td>The argument is negative: the root of its absolute value is used. <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_3.html#errors"><code>ILLEGAL_FORMULA</code></a> <small>(Dartmouth BASIC (3rd edition))</small></td>
+      <td>The formula is not written correctly. <small>Parameter: <code class="par">x</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_3.html#errors"><code>UNDEFINED_FUNCTION</code></a> <small>(Dartmouth BASIC (3rd edition))</small></td>
+      <td>The formula uses an FN function that is never defined. <small>Parameter: <code class="par">x</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>SQR_NEGATIVE</code></a> <small>(Dartmouth BASIC (4th edition))</small></td>
+      <td>The argument is negative: the root of its absolute value is used. <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL_FORMULA</code></a> <small>(Dartmouth BASIC (4th edition))</small></td>
+      <td>The formula is not written correctly. <small>Parameter: <code class="par">x</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>UNDEFINED_FUNCTION</code></a> <small>(Dartmouth BASIC (4th edition))</small></td>
+      <td>The formula uses an FN function that is never defined. <small>Parameter: <code class="par">x</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED_STRING</code></a> <small>(Dartmouth BASIC (4th edition))</small></td>
+      <td>A string where a number is wanted. <small>Parameter: <code class="par">x</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/SQR-200030.html">SQR</a></td>
+      <td></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Root of a negative number <span class="tag warning">to verify</span></h3>  <pre>10 PRINT SQR(-4)
+20 END</pre>
+<pre class="output" title="Expected result">2</pre><figcaption>The absolute value is used, with no message according to [1]. DTSS-Win (compiler of February 1965) prints <code>SQUARE ROOT OF NEGATIVE NUMBER IN 10</code> and then 2.
+</figcaption></figure>
+<figure class="example">
+<h3>Table of square roots</h3>  <pre>10 FOR X = 0 TO 10
+20 PRINT X, SQR(X)
+30 NEXT X
+40 END</pre>
+<pre class="output" title="Expected result"> 0              0
+ 1              1
+ 2              1.41421
+ 3              1.73205
+ 4              2
+ 5              2.23607
+ 6              2.44949
+ 7              2.64575
+ 8              2.82843
+ 9              3
+ 10             3.16228</pre><figcaption>From the DTSS-Win simulator files (BASSQR). Output checked on DTSS-Win (compiler of February 1965).
+<small>Source: DTSS-Win simulator, BASSQR.</small></figcaption></figure>
+
+<h2>Notes</h2>
+<div class="md"><p>The root of the absolute value is used, with the message SQUARE ROOT OF A NEGATIVE NUMBER [3] p. 37.</p></div>
+
+<h2>Sources</h2>
+<ul><li><a href="https://ftp.mirrorservice.org/sites/www.bitsavers.org/pdf/ge/MarkI_Timesharing/202026A_BASIC_Language_Reference_Manual_Jan1967.pdf">BASIC Language Reference Manual (June 1965, rev. January 1967)</a> (1967), p. 25</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (3rd edition)">
+<a class="prev" rel="prev" href="../entries/SIN-200020.html" title="Previous entry (←)">‹ <span>SIN</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_3.html#entries">Dartmouth BASIC (3rd edition) · 44 / 57</a>
+<a class="next" rel="next" href="../entries/TAN-200022.html" title="Next entry (→)"><span>TAN</span> ›</a></nav>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (4th edition)">
+<a class="prev" rel="prev" href="../entries/SIN-200020.html" title="Previous entry (←)">‹ <span>SIN</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_4.html#entries">Dartmouth BASIC (4th edition) · 55 / 69</a>
+<a class="next" rel="next" href="../entries/TAB-200092.html" title="Next entry (→)"><span>TAB</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

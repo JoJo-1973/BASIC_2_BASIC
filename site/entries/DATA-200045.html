@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DATA · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (2nd edition)">
+<span class="prev off">‹</span>  <a class="where" href="../dialects/DARTMOUTH_BASIC_2.html#entries">1 / 49</a>
+<a class="next" rel="next" href="../entries/DEF-200013.html" title="Next entry (→)"><span>DEF</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/DARTMOUTH_BASIC_2.html#entries">Dartmouth BASIC (2nd edition)</a> ›</p>
+<h1><span class="entry-name">DATA</span> <span class="category">Statement</span></h1>
+<div class="subtitle md"><p>Numbers for READ, taken in the order of the DATA statements.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>DARTMOUTH_2ED_layer</code> — Dartmouth BASIC, 2nd edition</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/DARTMOUTH_BASIC_2.html">Dartmouth BASIC (2nd edition)</a></dd>
+  <dt>In Dartmouth BASIC (3rd edition)</dt>
+  <dd>replaced by <a href="../entries/DATA-200074.html">DATA</a> of <code>DARTMOUTH_3ED_layer</code></dd>
+  <dt>In Dartmouth BASIC (4th edition)</dt>
+  <dd>replaced by <a href="../entries/DATA-200081.html">DATA</a> of <code>DARTMOUTH_4ED_layer</code></dd>
+  <dt>In Dartmouth Card BASIC October 1964</dt>
+  <dd>removed by a higher layer</dd>
+</dl>
+
+<div class="box">
+<p>Redefines <a href="../entries/DATA-200015.html">DATA</a> of the previous layer.
+<br><strong>Differences:</strong> Up to 300 numbers.</p><p>Redefined in a later layer: <a href="../entries/DATA-200074.html">DATA</a> — Up to 1280 numbers.</p><p>Redefined in a later layer: <a href="../entries/DATA-200121.html">DATA</a> — No DATA statement: the numbers are punched on a data deck after the END card [2] p. 50.</p></div>
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="kw">DATA</span> <span class="par">number</span><span class="meta">[</span>,<span class="par">number</span><span class="meta">]</span><span class="meta">...</span></pre>
+  <p class="manual">In the manual (BASIC (1 October 1964), p. 27, 56):
+    <code>DATA 1, 2, 3</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">number</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>number</td>
+      <td></td>
+      <td>Numbers separated by commas, as many as fit on the line.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#DATA_DEFINE" class="action-code">DATA_DEFINE</a> Data list in the program
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (1st edition)</span>
+<a href="../entries/DATA-200015.html">DATA</a></li>
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/DATA-200074.html">DATA</a></li>
+      <li><span class="dia">Dartmouth BASIC (4th edition)</span>
+<a href="../entries/DATA-200081.html">DATA</a></li>
+    </ul>
+<p class="uncovered">No equivalent in: Casio FX-700P BASIC, Dartmouth Card BASIC October 1964, Sinclair ZX80 BASIC 4K ROM</p>  </div>
+</section>
+
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_2.html#errors"><code>TOO_MUCH_DATA</code></a></td>
+      <td>More numbers than the limit (200 in [1] p. 14). <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_2.html#errors"><code>ILLEGAL_CONSTANT</code></a></td>
+      <td>More than nine digits, or a number of the wrong form. <small>Parameter: <code class="par">number</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/DATA-200019.html">DATA</a></td>
+      <td></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Order of the data <span class="tag warning">to verify</span></h3>  <pre>10 READ A, B, C
+20 READ D1, D2, D3, D4
+30 PRINT A, D4
+80 DATA 1, 2, 3, 4, 5, 6
+90 DATA 7, 8, 9, 10
+99 END</pre>
+<pre class="output" title="Expected result">1             7</pre><figcaption>A = 1, B = 2, C = 3, D1 = 4, ..., D4 = 7.
+<small>Source: BASIC Instruction Manual, May 1964 (First Draft), 14.</small></figcaption></figure>
+<figure class="example">
+<h3>Life of a mortgage</h3>  <pre>1 REM MORTGAGE COMOPUTER
+2 REM YEARLY INTEREST RATE
+10 DATA 0.05
+15 REM INITIAL PRINCIPAL
+20 DATA 28500
+25 REM MONTHLY PAYMENT
+30 DATA 170
+35 REM STARTING MONTH AND YEAR
+40 DATA 1, 1964
+50 READ I, P, P1, M, Y
+60 LET R = 1 + I/12
+70 PRINT &#34;YEAR&#34;, &#34;PRINCIPAL&#34;
+80 PRINT Y, P
+90 LET P = P*R - P1
+100 IF P &gt;= 0 THEN 120
+110 LET P = 0
+120 LET M = M + 1
+130 IF M &gt; 12 THEN 160
+140 PRINT &#34;       &#34;,
+150 GO TO 190
+160 LET M = 1
+170 LET Y = Y + 1
+180 PRINT Y,
+190 PRINT INT(P)
+200 IF P &gt; 0 THEN 90
+210 END</pre>
+<pre class="output" title="Expected result">YEAR           PRINCIPAL
+ 1964           28500
+                28448
+                28397
+                28345
+                28293
+                28241
+                28189
+                28136
+                28083
+                28030
+                27977
+                27924
+ 1965           27870
+...
+                736
+                569
+                401
+                233
+ 1988           64
+                0</pre><figcaption>From the DTSS-Win simulator files (LIB/MORT). DATA lines interleaved with REM lines; the typing slip COMOPUTER is in the original. Output checked on DTSS-Win (compiler of February 1965). The run prints 291 lines (to 1988): only the first and last lines are shown, the dots stand for the rest.
+<small>Source: DTSS-Win simulator, LIB/MORT.</small></figcaption></figure>
+
+<h2>Notes</h2>
+<div class="md"><p>Never executed: it can be anywhere. Up to 300 numbers in all [2] p. 55.</p></div>
+
+<h2>Sources</h2>
+<ul><li><a href="https://bitsavers.org/pdf/dartmouth/dtss/196410_BASIC.pdf">BASIC (1 October 1964)</a>, John G. Kemeny, Thomas E. Kurtz (1964), p. 27, 56</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (2nd edition)">
+<span class="prev off">‹</span>  <a class="where" href="../dialects/DARTMOUTH_BASIC_2.html#entries">1 / 49</a>
+<a class="next" rel="next" href="../entries/DEF-200013.html" title="Next entry (→)"><span>DEF</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

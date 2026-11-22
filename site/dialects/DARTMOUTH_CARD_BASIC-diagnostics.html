@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diagnostics · Dartmouth Card BASIC October 1964 · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<p class="breadcrumbs"><a href="../index.html">Machines</a> › <a href="../dialects/DARTMOUTH_CARD_BASIC.html">Dartmouth Card BASIC October 1964</a> ›</p>
+<h1>Diagnostics <span class="category">Dartmouth Card BASIC October 1964</span></h1>
+<p class="subtitle">What is still incomplete or not proven in this dialect.</p>
+
+<table class="diag-summary">
+  <thead><tr><th>Section</th><th class="num">To do</th></tr></thead>
+  <tbody>
+  <tr class=""><td><a href="#open-questions">Open questions</a></td>
+      <td class="num">9</td></tr>
+  <tr class=""><td><a href="#examples">Examples</a></td>
+      <td class="num">37</td></tr>
+  <tr class=""><td><a href="#errors">Errors</a></td>
+      <td class="num">125</td></tr>
+  <tr class=""><td><a href="#syntax">Syntax</a></td>
+      <td class="num">25</td></tr>
+  <tr class=""><td><a href="#evidence">Evidence</a></td>
+      <td class="num">266</td></tr>
+  <tr class=""><td><a href="#features">Features</a></td>
+      <td class="num">12</td></tr>
+  <tr class=""><td><a href="#tables">Tables</a></td>
+      <td class="num">8</td></tr>
+  <tr class=""><td><a href="#gaps">Gaps</a></td>
+      <td class="num">105</td></tr>
+  </tbody>
+  <tfoot><tr><th>Total</th><th class="num">587</th></tr></tfoot>
+</table>
+
+<h2 id="open-questions">Open questions <small>9</small></h2>
+
+<div class="diag-item">
+  <div class="md"><p>Part II of the May 1964 manual is missing: GOSUB, RETURN, DIM, REM, RND, INT and the arrays are taken from the October 1964 manual. Kurtz [9] answers part of it (the four statements are DIM, GOSUB, RETURN, REM; lists from 1 to 10 without DIM; INT truncates), quoting the complete manual of June 1964, which is still to be found.</p></div>
+  <p class="note">Dartmouth BASIC, 1st edition</p>
+</div>
+<div class="diag-item">
+  <div class="md"><p>Card BASIC (chapter IV of the October 1964 manual: PAGE, MAT, relations EQU LSS ...) is not entered: is it worth a dialect of its own?</p></div>
+  <p class="note">Dartmouth BASIC, 2nd edition</p>
+</div>
+<div class="diag-item">
+  <div class="md"><p>The examples of the entries inherited from the 1st and 2nd edition are written for the Teletype (double quotes, relations as symbols): in Card BASIC they need single quotes and EQU, LSS, ...</p></div>
+  <p class="note">Card BASIC</p>
+</div>
+<div class="diag-item">
+  <div class="md"><p>GOSUB in the 1st edition: the October 1964 manual says a GOSUB inside a subroutine does not work, Kurtz [9] that GOSUB used a stack for the return address. Which one is right for 1964?</p></div>
+  <p class="note">Dartmouth BASIC, 1st edition</p>
+</div>
+<div class="diag-item">
+  <div class="md"><p>Card BASIC: are the Teletype commands really absent (removed here by inference)? How is the power written on the cards (↑ or something else)? Are the other limits (constants, GO TO) those of the Teletype version?</p></div>
+  <p class="note">Card BASIC</p>
+</div>
+<div class="diag-item">
+  <div class="md"><p>Errors: the May manual shows only five messages; the others come from the October 1964 manual. The simulator DTSS-Win runs a compiler of February 1965 that already has 3rd edition behaviours (nested GOSUB, OUT OF DATA, LOG OF NEGATIVE NUMBER, SQUARE ROOT OF NEGATIVE NUMBER, the sign of (-2)↑3), so it cannot confirm the 1964 behaviour. Why does it print 1 for 1/0?</p></div>
+  <p class="note">Dartmouth BASIC, 1st edition</p>
+</div>
+<div class="diag-item">
+  <div class="md"><p>FOR: the May manual wants a single letter, the October manual any unsubscripted variable (FOR X1): was the 1st edition really stricter? Does a loop whose start is past the end run zero times, as in the October manual?</p></div>
+  <p class="note">Dartmouth BASIC, 1st edition</p>
+</div>
+<div class="diag-item">
+  <div class="md"><p>Variables and program in memory, internal character code of the GE-235: to be taken from the compiler listings BA-1..BA-3 [7].</p></div>
+  <p class="note">Dartmouth BASIC, 1st edition</p>
+</div>
+<div class="diag-item">
+  <div class="md"><p>DTSS-Win prints the round brackets of a label as square ones (<code>PRINT "()"</code> gives <code>[]</code>): does the GE-235 code of a label have no round brackets, or is it the simulator?</p></div>
+  <p class="note">Dartmouth BASIC, 1st edition</p>
+</div>
+
+<h2 id="examples">Examples <small>37</small></h2>
+<h3>Examples to verify <small>33</small></h3>
+
+<table>
+  <thead><tr><th>Entry</th><th>Example</th><th>Code</th></tr></thead>
+  <tbody>
+  <tr><td class="name"><a href="../entries/DEF-200013.html">DEF</a></td>
+      <td>Sine in degrees and common logarithm</td>
+      <td><code class="diag-code">10 LET P = 3.14159265
+20 DEF FNS(Z) = SIN(Z*P/180)
+30 DEF FNL(Z) = LOG(Z)/LOG(10)
+40 PRINT FNS(30), FNL(100)
+50 END</code></td></tr>
+  <tr><td class="name"><a href="../entries/DIM-200018.html">DIM</a></td>
+      <td>A longer list</td>
+      <td><code class="diag-code">10 DIM A(20)
+20 FOR I = 1 TO 20
+30 LET A(I) = I*I
+40 NEXT I
+50 PRINT A(20)
+60 END</code></td></tr>
+  <tr><td class="name"><a href="../entries/END-200008.html">END</a></td>
+      <td>The shortest program</td>
+      <td><code class="diag-code">LET X = (7+8)/3
+PRINT X
+END</code></td></tr>
+  <tr><td class="name"><a href="../entries/GO-TO-200011.html">GO TO</a></td>
+      <td>Back to an earlier line</td>
+      <td><code class="diag-code">10 READ X
+20 PRINT X, X↑2
+30 GO TO 10
+40 DATA 1, 2, 3
+99 END</code></td></tr>
+  <tr><td class="name"><a href="../entries/GOSUB-200016.html">GOSUB</a></td>
+      <td>Call a subroutine</td>
+      <td><code class="diag-code">10 LET X = 3
+20 GOSUB 100
+30 PRINT Y
+40 STOP
+100 LET Y = X*X
+110 RETURN
+120 END</code></td></tr>
+  <tr><td class="name"><a href="../entries/IF-THEN-200012.html">IF...THEN</a></td>
+      <td>Largest value of the sine</td>
+      <td><code class="diag-code">10 LET X0 = 0
+20 LET M = SIN(0)
+30 FOR N = 1 TO 300
+40 LET X = N/100
+50 IF SIN(X) &lt;= M THEN 100
+60 LET X0 = X
+70 LET M = SIN(X)
+100 NEXT N
+110 PRINT X0, M
+999 END</code></td></tr>
+  <tr><td class="name"><a href="../entries/LET-200006.html">LET</a></td>
+      <td>Increase a variable</td>
+      <td><code class="diag-code">10 LET X = 2
+20 LET X = X + 2
+30 PRINT X
+40 END</code></td></tr>
+  <tr><td class="name"><a href="../entries/MAT-200126.html">MAT</a></td>
+      <td>Inverse <small>(Inverse)</small></td>
+      <td><code class="diag-code">10 DIM A(2,2), B(2,2)
+20 MAT READ A(2,2)
+30 MAT B = INV(A)
+40 MAT PRINT B
+50 END
+2, 0, 0, 4</code></td></tr>
+  <tr><td class="name"><a href="../entries/MAT-PRINT-200125.html">MAT PRINT</a></td>
+      <td>Packed</td>
+      <td><code class="diag-code">10 DIM A(3,3)
+20 MAT A = IDN(3)
+30 MAT PRINT A;
+40 END</code></td></tr>
+  <tr><td class="name"><a href="../entries/MAT-READ-200124.html">MAT READ</a></td>
+      <td>Square matrix of any size</td>
+      <td><code class="diag-code">10 DIM A(20,20)
+20 READ M
+30 MAT READ A(M,M)
+40 MAT PRINT A
+50 END
+2, 1, 2, 3, 4</code></td></tr>
+  <tr><td class="name"><a href="../entries/NEXT-200044.html">NEXT</a></td>
+      <td>Table of exponentials</td>
+      <td><code class="diag-code">10 PRINT &#34;X&#34;, &#34;EXP(X)&#34;
+20 FOR X = 0 TO 20
+30 PRINT X, EXP(X)
+40 NEXT X
+50 END</code></td></tr>
+  <tr><td class="name"><a href="../entries/PAGE-200123.html">PAGE</a></td>
+      <td>Two pages</td>
+      <td><code class="diag-code">10 PRINT &#39;FIRST&#39;
+20 PAGE
+30 PRINT &#39;SECOND&#39;
+40 END</code></td></tr>
+  <tr><td class="name"><a href="../entries/PRINT-200120.html">PRINT</a></td>
+      <td>Label in single quotes</td>
+      <td><code class="diag-code">10 PRINT &#39;SQUARE ROOT OF 2 =&#39; SQR(2)
+20 END</code></td></tr>
+  <tr><td class="name"><a href="../entries/READ-200122.html">READ</a></td>
+      <td>Data deck</td>
+      <td><code class="diag-code">10 READ A, B
+20 PRINT A + B
+30 END
+3, 4</code></td></tr>
+  <tr><td class="name"><a href="../entries/REM-200019.html">REM</a></td>
+      <td>A remark</td>
+      <td><code class="diag-code">10 REM SQUARES
+20 PRINT 3↑2
+30 END</code></td></tr>
+  <tr><td class="name"><a href="../entries/RETURN-200017.html">RETURN</a></td>
+      <td>Two calls</td>
+      <td><code class="diag-code">10 GOSUB 100
+20 GOSUB 100
+30 GO TO 999
+100 PRINT &#34;HELLO&#34;
+110 RETURN
+999 END</code></td></tr>
+  <tr><td class="name"><a href="../entries/STOP-200053.html">STOP</a></td>
+      <td>Two ends</td>
+      <td><code class="diag-code">10 READ X
+20 IF X &lt; 0 THEN 50
+30 PRINT SQR(X)
+40 STOP
+50 PRINT &#34;NEGATIVE&#34;
+60 DATA 16
+99 END</code></td></tr>
+  <tr><td class="name"><a href="../entries/ABS-200027.html">ABS</a></td>
+      <td>Absolute value</td>
+      <td><code class="diag-code">10 PRINT ABS(-3.5)
+20 END</code></td></tr>
+  <tr><td class="name"><a href="../entries/ATN-200023.html">ATN</a></td>
+      <td>Arc tangent</td>
+      <td><code class="diag-code">10 PRINT 4*ATN(1)
+20 END</code></td></tr>
+  <tr><td class="name"><a href="../entries/COS-200021.html">COS</a></td>
+      <td>Cosine of 0</td>
+      <td><code class="diag-code">10 PRINT COS(0)
+20 END</code></td></tr>
+  <tr><td class="name"><a href="../entries/EXP-200024.html">EXP</a></td>
+      <td>The number e</td>
+      <td><code class="diag-code">10 PRINT EXP(1)
+20 END</code></td></tr>
+  <tr><td class="name"><a href="../entries/FN-200030.html">FN</a></td>
+      <td>Root of a function</td>
+      <td><code class="diag-code">10 PRINT &#34;ROOT OF FUNCTION.&#34;
+30 DEF FNF(Z) = Z↑5 + Z↑3 - 1
+40 LET X = 0
+50 LET D = .5
+60 LET Y = FNF(X)
+70 IF Y = 0 THEN 200
+80 IF Y &gt; 0 THEN 150
+90 LET X = X + D
+100 GO TO 160
+150 LET X = X - D
+160 IF D &lt; .0001 THEN 200
+170 LET D = D/2
+180 GO TO 60
+200 PRINT &#34;ROOT =&#34; X
+999 END</code></td></tr>
+  <tr><td class="name"><a href="../entries/RND-200028.html">RND</a></td>
+      <td>Three random numbers</td>
+      <td><code class="diag-code">10 FOR I = 1 TO 3
+20 PRINT RND(0),
+30 NEXT I
+40 END</code></td></tr>
+  <tr><td class="name"><a href="../entries/SIN-200020.html">SIN</a></td>
+      <td>Sine of 30 degrees</td>
+      <td><code class="diag-code">10 PRINT SIN(3.14159265/6)
+20 END</code></td></tr>
+  <tr><td class="name"><a href="../entries/SQR-200026.html">SQR</a></td>
+      <td>Root of a negative number</td>
+      <td><code class="diag-code">10 PRINT SQR(-4)
+20 END</code></td></tr>
+  <tr><td class="name"><a href="../entries/TAN-200022.html">TAN</a></td>
+      <td>Tangent</td>
+      <td><code class="diag-code">10 PRINT TAN(.785398)
+20 END</code></td></tr>
+  <tr><td class="name"><a href="../entries/lparen-rparen-200036.html">( )</a></td>
+      <td>Parentheses</td>
+      <td><code class="diag-code">10 LET X = (7+8)/3
+20 PRINT X
+30 END</code></td></tr>
+  <tr><td class="name"><a href="../entries/star-200033.html">*</a></td>
+      <td>Product</td>
+      <td><code class="diag-code">10 PRINT 6*7
+20 END</code></td></tr>
+  <tr><td class="name"><a href="../entries/plus-200035.html">+</a></td>
+      <td>Sum</td>
+      <td><code class="diag-code">10 PRINT 741+852
+20 END</code></td></tr>
+  <tr><td class="name"><a href="../entries/slash-200034.html">/</a></td>
+      <td>Division from the left</td>
+      <td><code class="diag-code">10 PRINT 24/4/2
+20 END</code></td></tr>
+  <tr><td class="name"><a href="../entries/EQU-200114.html">EQU</a></td>
+      <td>Equal</td>
+      <td><code class="diag-code">10 READ A
+20 IF A EQU 2 THEN 50
+30 PRINT &#39;NO&#39;
+40 STOP
+50 PRINT &#39;YES&#39;
+60 END
+2</code></td></tr>
+  <tr><td class="name"><a href="../entries/LSS-200116.html">LSS</a></td>
+      <td>Less than</td>
+      <td><code class="diag-code">10 IF 1 LSS 2 THEN 40
+20 PRINT &#39;NO&#39;
+30 STOP
+40 PRINT &#39;YES&#39;
+50 END</code></td></tr>
+  <tr><td class="name"><a href="../entries/x-200031.html">↑</a></td>
+      <td>Power of a negative number</td>
+      <td><code class="diag-code">10 PRINT (-2)↑3
+20 END</code></td></tr>
+  </tbody>
+</table>
+<h3>Entries without examples <small>4</small></h3>
+
+<p class="diag-list"><a href="../entries/GQU-200119.html">GQU</a> · <a href="../entries/GRT-200118.html">GRT</a> · <a href="../entries/LQU-200117.html">LQU</a> · <a href="../entries/NQU-200115.html">NQU</a></p>
+<h2 id="errors">Errors <small>125</small></h2>
+<h3>Errors of the entries to verify <small>121</small></h3>
+
+<table>
+  <thead><tr><th>Entry</th><th>Error</th><th>Rule</th><th>Detail</th><th>Cause</th></tr></thead>
+  <tbody>
+    <tr><td class="name" rowspan="2"><a href="../entries/DEF-200013.html">DEF</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">formula</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">formula</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr><td class="name" rowspan="4"><a href="../entries/DIM-200018.html">DIM</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>DIMENSION TOO LARGE</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>From [2].</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>CUT PROGRAM OR DIMS</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>The arrays take too much room (from [2]).</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL CONSTANT</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_LITERAL · <code class="par">n</code></small></td>
+        <td>More than nine digits, or a number of the wrong form.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL CONSTANT</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_LITERAL · <code class="par">m</code></small></td>
+        <td>More than nine digits, or a number of the wrong form.</td></tr>
+    <tr><td class="name" rowspan="2"><a href="../entries/END-200008.html">END</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>END IS NOT LAST</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>A statement has a higher number ([1] p. 19).</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>NO END INSTRUCTION</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>The program has no END (from [2]).</td></tr>
+    <tr><td class="name" rowspan="9"><a href="../entries/FOR-TO-STEP-200043.html">FOR...TO...STEP</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>INCORRECT FORMAT</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>The FOR is not written in its form ([1] p. 19, [2]).</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>TOO MANY LOOPS</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>More than 26 FOR statements (from [2]).</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>FOR WITHOUT NEXT</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>No NEXT closes the loop (from [2]).</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">f1</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">f1</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">f2</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">f2</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">f3</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">f3</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr><td class="name" rowspan="1"><a href="../entries/GO-TO-200011.html">GO TO</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED NUMBER</code></a></td>
+        <td><small>parameter</small></td>
+        <td><small>n · <code class="par">n</code></small></td>
+        <td></td></tr>
+    <tr><td class="name" rowspan="1"><a href="../entries/GOSUB-200016.html">GOSUB</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED NUMBER</code></a></td>
+        <td><small>parameter</small></td>
+        <td><small>n · <code class="par">n</code></small></td>
+        <td></td></tr>
+    <tr><td class="name" rowspan="3"><a href="../entries/IF-THEN-200012.html">IF...THEN</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>INCORRECT FORMAT</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>The IF...THEN is not written in its form ([1] p. 19).</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED NUMBER</code></a></td>
+        <td><small>parameter</small></td>
+        <td><small>n · <code class="par">n</code></small></td>
+        <td></td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL RELATION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>CONDITION · <code class="par">relation</code></small></td>
+        <td>The relation is not one of = &lt; &lt;= &gt; &gt;= &lt;&gt;.</td></tr>
+    <tr><td class="name" rowspan="5"><a href="../entries/LET-200006.html">LET</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL VARIABLE</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>The name on the left is not a variable.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>SUBSCRIPT ERROR</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>LIST_ELEMENT · <code class="par">variable</code></small></td>
+        <td>The subscript is outside the range of the list.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>SUBSCRIPT ERROR</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>TABLE_ELEMENT · <code class="par">variable</code></small></td>
+        <td>A subscript is outside the range of the table.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">formula</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">formula</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr><td class="name" rowspan="12"><a href="../entries/MAT-200126.html">MAT</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">k</code> (Multiple)</small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">k</code> (Multiple)</small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">m</code> (Zero matrix)</small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">m</code> (Zero matrix)</small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code> (Zero matrix)</small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code> (Zero matrix)</small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">m</code> (Ones)</small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">m</code> (Ones)</small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code> (Ones)</small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code> (Ones)</small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code> (Identity)</small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code> (Identity)</small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr><td class="name" rowspan="5"><a href="../entries/MAT-READ-200124.html">MAT READ</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>DIMENSION TOO LARGE</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>More than the limits of [2] p. 51.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">m</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">m</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr><td class="name" rowspan="1"><a href="../entries/NEXT-200044.html">NEXT</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>NOT MATCH WITH FOR</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>Another variable than the FOR's, or loops crossed (from [2]).</td></tr>
+    <tr><td class="name" rowspan="3"><a href="../entries/PRINT-200120.html">PRINT</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>TOO MANY LABELS</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>The labels of the program are too long altogether (from [2]).</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">formula</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">formula</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr><td class="name" rowspan="2"><a href="../entries/READ-200122.html">READ</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>NO DATA</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>No data deck after the END card.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL VARIABLE</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>An item is not a variable.</td></tr>
+    <tr><td class="name" rowspan="1"><a href="../entries/RETURN-200017.html">RETURN</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL RETURN</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>RETURN before any GOSUB (from [2]).</td></tr>
+    <tr><td class="name" rowspan="2"><a href="../entries/ABS-200027.html">ABS</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr><td class="name" rowspan="2"><a href="../entries/ATN-200023.html">ATN</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr><td class="name" rowspan="2"><a href="../entries/COS-200021.html">COS</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr><td class="name" rowspan="2"><a href="../entries/EXP-200024.html">EXP</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr><td class="name" rowspan="2"><a href="../entries/FN-200030.html">FN</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr><td class="name" rowspan="2"><a href="../entries/INT-200029.html">INT</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr><td class="name" rowspan="2"><a href="../entries/LOG-200025.html">LOG</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr><td class="name" rowspan="2"><a href="../entries/RND-200028.html">RND</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr><td class="name" rowspan="2"><a href="../entries/SIN-200020.html">SIN</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr><td class="name" rowspan="2"><a href="../entries/SQR-200026.html">SQR</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr><td class="name" rowspan="2"><a href="../entries/TAN-200022.html">TAN</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">x</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr><td class="name" rowspan="2"><a href="../entries/lparen-rparen-200036.html">( )</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">f</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">f</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr><td class="name" rowspan="4"><a href="../entries/star-200033.html">*</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr><td class="name" rowspan="4"><a href="../entries/plus-200035.html">+</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr><td class="name" rowspan="6"><a href="../entries/minus-200032.html">-</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Change of sign)</small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Change of sign)</small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Subtraction)</small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Subtraction)</small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Subtraction)</small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Subtraction)</small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr><td class="name" rowspan="4"><a href="../entries/slash-200034.html">/</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr><td class="name" rowspan="4"><a href="../entries/EQU-200114.html">EQU</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr><td class="name" rowspan="4"><a href="../entries/GQU-200119.html">GQU</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr><td class="name" rowspan="4"><a href="../entries/GRT-200118.html">GRT</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr><td class="name" rowspan="4"><a href="../entries/LQU-200117.html">LQU</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr><td class="name" rowspan="4"><a href="../entries/LSS-200116.html">LSS</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr><td class="name" rowspan="4"><a href="../entries/NQU-200115.html">NQU</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr><td class="name" rowspan="4"><a href="../entries/x-200031.html">↑</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED FUNCTION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+  </tbody>
+</table>
+<h3>Errors of the dialect that no entry uses <small>4</small></h3>
+
+<table>
+  <thead><tr><th class="num">No.</th><th>Message</th><th>Code</th><th>Description</th></tr></thead>
+  <tbody>
+  <tr><td class="num"></td>
+      <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL INSTRUCTION</code></a></td>
+      <td><small>ILLEGAL_INSTRUCTION</small></td><td>The word after the line number is not a statement. From [2].</td></tr>
+  <tr><td class="num"></td>
+      <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL LINE NUMBER</code></a></td>
+      <td><small>ILLEGAL_LINE_NUMBER</small></td><td>A line number of the wrong form or of more than five digits. From [2].</td></tr>
+  <tr><td class="num"></td>
+      <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>PROGRAM TOO LONG</code></a></td>
+      <td><small>PROGRAM_TOO_LONG</small></td><td>From [2].</td></tr>
+  <tr><td class="num"></td>
+      <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>TOO MUCH DATA</code></a></td>
+      <td><small>TOO_MUCH_DATA</small></td><td>From [2].</td></tr>
+  </tbody>
+</table>
+
+<h2 id="syntax">Syntax <small>25</small></h2>
+<h3>Manual syntax different from the rebuilt one <small>19</small></h3>
+
+<table>
+  <thead><tr><th>Entry</th><th>Rebuilt</th><th>Manual</th></tr></thead>
+  <tbody>
+  <tr><td class="name"><a href="../entries/DEF-200013.html">DEF</a></td>
+      <td><code class="syntax"><span class="kw">DEF</span> <span class="kw">FN</span><span class="par">letter</span><span class="lit">(</span><span class="par">argument</span><span class="lit">)</span> <span class="kw">=</span> <span class="par">formula</span></code></td><td><code>DEF FNC(Z) = Z↑3 + 2.7*Z</code></td></tr>
+  <tr><td class="name"><a href="../entries/DIM-200018.html">DIM</a></td>
+      <td><code class="syntax"><span class="kw">DIM</span> <span class="par">array</span><span class="lit">(</span><span class="par">n</span><span class="meta">[</span><span class="lit">,</span><span class="par">m</span><span class="meta">]</span><span class="lit">)</span><span class="meta">[</span>,<span class="par">array</span><span class="lit">(</span><span class="par">n</span><span class="meta">[</span><span class="lit">,</span><span class="par">m</span><span class="meta">]</span><span class="lit">)</span><span class="meta">]</span><span class="meta">...</span></code></td><td><code>DIM A(17), B(15,20)</code></td></tr>
+  <tr><td class="name"><a href="../entries/FOR-TO-STEP-200043.html">FOR...TO...STEP</a></td>
+      <td><code class="syntax"><span class="kw">FOR</span> <span class="par">v</span> <span class="kw">=</span> <span class="par">f1</span> <span class="kw">TO</span> <span class="par">f2</span> <span class="meta">[</span><span class="kw">STEP</span> <span class="par">f3</span><span class="meta">]</span></code></td><td><code>FOR &lt;unsubscripted variable&gt; = &lt;expression&gt; TO &lt;expression&gt; STEP &lt;expression&gt;</code></td></tr>
+  <tr><td class="name"><a href="../entries/IF-THEN-200012.html">IF...THEN</a></td>
+      <td><code class="syntax"><span class="kw">IF</span> <span class="par">relation</span> <span class="kw">THEN</span> <span class="par">n</span></code></td><td><code>IF F1 α F2 THEN N</code></td></tr>
+  <tr><td class="name"><a href="../entries/LET-200006.html">LET</a></td>
+      <td><code class="syntax"><span class="kw">LET</span> <span class="par">variable</span> <span class="kw">=</span> <span class="par">formula</span></code></td><td><code>LET V = F</code></td></tr>
+  <tr><td class="name"><a href="../entries/MAT-200126.html">MAT</a> <small>(Zero matrix)</small></td>
+      <td><code class="syntax"><span class="kw">MAT</span> <span class="par">c</span> <span class="kw">=</span> <span class="kw">ZER</span><span class="meta">[</span><span class="lit">(</span><span class="par">m</span><span class="meta">[</span><span class="lit">,</span><span class="par">n</span><span class="meta">]</span><span class="lit">)</span><span class="meta">]</span></code></td><td><code>MAT C = ZER(M,N)</code></td></tr>
+  <tr><td class="name"><a href="../entries/MAT-200126.html">MAT</a> <small>(Ones)</small></td>
+      <td><code class="syntax"><span class="kw">MAT</span> <span class="par">c</span> <span class="kw">=</span> <span class="kw">CON</span><span class="meta">[</span><span class="lit">(</span><span class="par">m</span><span class="meta">[</span><span class="lit">,</span><span class="par">n</span><span class="meta">]</span><span class="lit">)</span><span class="meta">]</span></code></td><td><code>MAT C = CON(M,N)</code></td></tr>
+  <tr><td class="name"><a href="../entries/MAT-200126.html">MAT</a> <small>(Identity)</small></td>
+      <td><code class="syntax"><span class="kw">MAT</span> <span class="par">c</span> <span class="kw">=</span> <span class="kw">IDN</span><span class="meta">[</span><span class="lit">(</span><span class="par">n</span><span class="lit">)</span><span class="meta">]</span></code></td><td><code>MAT C = IDN(N)</code></td></tr>
+  <tr><td class="name"><a href="../entries/MAT-PRINT-200125.html">MAT PRINT</a></td>
+      <td><code class="syntax"><span class="kw">MAT</span> <span class="kw">PRINT</span> <span class="par">matrix</span> <span class="meta">[</span><span class="lit">;</span><span class="meta">]</span></code></td><td><code>MAT PRINT A</code></td></tr>
+  <tr><td class="name"><a href="../entries/MAT-READ-200124.html">MAT READ</a></td>
+      <td><code class="syntax"><span class="kw">MAT</span> <span class="kw">READ</span> <span class="par">matrix</span><span class="lit">(</span><span class="par">m</span><span class="meta">[</span><span class="lit">,</span><span class="par">n</span><span class="meta">]</span><span class="lit">)</span></code></td><td><code>MAT READ A(M,N)</code></td></tr>
+  <tr><td class="name"><a href="../entries/NEXT-200044.html">NEXT</a></td>
+      <td><code class="syntax"><span class="kw">NEXT</span> <span class="par">v</span></code></td><td><code>NEXT &lt;unsubscripted variable&gt;</code></td></tr>
+  <tr><td class="name"><a href="../entries/PRINT-200120.html">PRINT</a></td>
+      <td><code class="syntax"><span class="kw">PRINT</span> <span class="meta">[</span><span class="meta">&lt;</span><span class="par">label</span> <span class="meta">|</span> <span class="par">formula</span> <span class="meta">|</span> <span class="par">label</span> <span class="par">formula</span><span class="meta">&gt;</span> <span class="meta">[</span><span class="meta">&lt;</span><span class="lit">,</span> <span class="meta">|</span> <span class="lit">;</span><span class="meta">&gt;</span> <span class="meta">&lt;</span><span class="par">label</span> <span class="meta">|</span> <span class="par">formula</span> <span class="meta">|</span> <span class="par">label</span> <span class="par">formula</span><span class="meta">&gt;</span><span class="meta">]</span><span class="meta">...</span> <span class="meta">[</span><span class="lit">,</span> <span class="meta">|</span> <span class="lit">;</span><span class="meta">]</span><span class="meta">]</span></code></td><td><code>PRINT</code></td></tr>
+  <tr><td class="name"><a href="../entries/READ-200122.html">READ</a></td>
+      <td><code class="syntax"><span class="kw">READ</span> <span class="par">variable</span><span class="meta">[</span>,<span class="par">variable</span><span class="meta">]</span><span class="meta">...</span></code></td><td><code>READ A, B, C</code></td></tr>
+  <tr><td class="name"><a href="../entries/REM-200019.html">REM</a></td>
+      <td><code class="syntax"><span class="kw">REM</span> <span class="meta">[</span><span class="par">text</span><span class="meta">]</span></code></td><td><code>REM</code></td></tr>
+  <tr><td class="name"><a href="../entries/EXP-200024.html">EXP</a></td>
+      <td><code class="syntax"><span class="kw">EXP</span><span class="lit">(</span><span class="par">x</span><span class="lit">)</span></code></td><td><code>EXP(A)</code></td></tr>
+  <tr><td class="name"><a href="../entries/FN-200030.html">FN</a></td>
+      <td><code class="syntax"><span class="kw">FN</span><span class="par">letter</span><span class="lit">(</span><span class="par">x</span><span class="lit">)</span></code></td><td><code>FNC(X)</code></td></tr>
+  <tr><td class="name"><a href="../entries/LOG-200025.html">LOG</a></td>
+      <td><code class="syntax"><span class="kw">LOG</span><span class="lit">(</span><span class="par">x</span><span class="lit">)</span></code></td><td><code>LOG(A)</code></td></tr>
+  <tr><td class="name"><a href="../entries/SQR-200026.html">SQR</a></td>
+      <td><code class="syntax"><span class="kw">SQR</span><span class="lit">(</span><span class="par">x</span><span class="lit">)</span></code></td><td><code>SQR(A)</code></td></tr>
+  <tr><td class="name"><a href="../entries/x-200031.html">↑</a></td>
+      <td><code class="syntax"><span class="par">a</span> <span class="kw">↑</span> <span class="par">b</span></code></td><td><code>X↑2</code></td></tr>
+  </tbody>
+</table>
+<h3>Forms without the manual's syntax <small>6</small></h3>
+
+<table>
+  <thead><tr><th>Entry</th><th>Rebuilt</th></tr></thead>
+  <tbody>
+  <tr><td class="name"><a href="../entries/lparen-rparen-200036.html">( )</a></td><td><code class="syntax"><span class="lit">(</span><span class="par">f</span><span class="lit">)</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/star-200033.html">*</a></td><td><code class="syntax"><span class="par">a</span> <span class="kw">*</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/plus-200035.html">+</a></td><td><code class="syntax"><span class="par">a</span> <span class="kw">+</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/minus-200032.html">-</a> <small>(Change of sign)</small></td><td><code class="syntax"><span class="kw">-</span><span class="par">a</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/minus-200032.html">-</a> <small>(Subtraction)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">-</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/slash-200034.html">/</a></td><td><code class="syntax"><span class="par">a</span> <span class="kw">/</span> <span class="par">b</span></code></td></tr>
+  </tbody>
+</table>
+
+<h2 id="evidence">Evidence <small>266</small></h2>
+<p class="note"><span class="ev ev-inferred">INFERRED</span> deduced, neither stated nor tested · <span class="ev ev-manual">MANUAL</span> stated by a source, not tested · <span class="ev ev-null">NULL</span> not assessed · <span class="ev ev-tested">TESTED</span> checked on the machine or an emulator.</p>
+
+<table class="diag-evidence">
+  <thead><tr><th>Table</th><th class="num"><span class="ev ev-manual">MANUAL</span></th><th class="num"><span class="ev ev-inferred">INFERRED</span></th><th class="num"><span class="ev ev-null">NULL</span></th><th class="num"><span class="ev ev-tested">TESTED</span></th><th class="num">Rows</th></tr></thead>
+  <tbody>
+  <tr><td><a href="#ev-parameter">Parameters</a></td>
+<td class="num">41</td><td class="num hot">4</td><td class="num">40</td><td class="num"></td>      <td class="num">85</td></tr>
+  <tr><td><a href="#ev-parameter_limit">Parameter limits</a></td>
+<td class="num">2</td><td class="num hot">1</td><td class="num"></td><td class="num"></td>      <td class="num">3</td></tr>
+  <tr><td><a href="#ev-allowed_value">Allowed values</a></td>
+<td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td>      <td class="num">0</td></tr>
+  <tr><td><a href="#ev-syntax_form">Syntax forms (returned range and description)</a></td>
+<td class="num">7</td><td class="num hot">4</td><td class="num">39</td><td class="num"></td>      <td class="num">50</td></tr>
+  <tr><td><a href="#ev-character_code">Character codes</a></td>
+<td class="num"></td><td class="num hot">128</td><td class="num"></td><td class="num"></td>      <td class="num">128</td></tr>
+  </tbody>
+</table>
+<h3 id="ev-parameter">Parameters <small>85 not tested</small></h3>
+
+<ul class="diag-ev-list">
+  <li class="ev-row-inferred"><span class="ev ev-inferred">INFERRED</span> <a href="../entries/DIM-200018.html">DIM · array</a></li>
+  <li class="ev-row-inferred"><span class="ev ev-inferred">INFERRED</span> <a href="../entries/DIM-200018.html">DIM · n</a></li>
+  <li class="ev-row-inferred"><span class="ev ev-inferred">INFERRED</span> <a href="../entries/DIM-200018.html">DIM · m</a></li>
+  <li class="ev-row-inferred"><span class="ev ev-inferred">INFERRED</span> <a href="../entries/GOSUB-200016.html">GOSUB · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/DEF-200013.html">DEF · letter</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/DEF-200013.html">DEF · argument</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/DEF-200013.html">DEF · formula</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/FOR-TO-STEP-200043.html">FOR...TO...STEP · v</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/FOR-TO-STEP-200043.html">FOR...TO...STEP · f1</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/FOR-TO-STEP-200043.html">FOR...TO...STEP · f2</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/FOR-TO-STEP-200043.html">FOR...TO...STEP · f3</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/GO-TO-200011.html">GO TO · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/IF-THEN-200012.html">IF...THEN · relation</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/IF-THEN-200012.html">IF...THEN · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/LET-200006.html">LET · variable</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/LET-200006.html">LET · formula</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MAT-200126.html">MAT (Multiple) · k</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MAT-200126.html">MAT (Zero matrix) · m</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MAT-200126.html">MAT (Zero matrix) · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MAT-200126.html">MAT (Ones) · m</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MAT-200126.html">MAT (Ones) · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MAT-200126.html">MAT (Identity) · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MAT-PRINT-200125.html">MAT PRINT · matrix</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MAT-READ-200124.html">MAT READ · matrix</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MAT-READ-200124.html">MAT READ · m</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MAT-READ-200124.html">MAT READ · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/NEXT-200044.html">NEXT · v</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/PRINT-200120.html">PRINT · label</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/PRINT-200120.html">PRINT · formula</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/READ-200122.html">READ · variable</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/REM-200019.html">REM · text</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/ABS-200027.html">ABS · x</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/ATN-200023.html">ATN · x</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/COS-200021.html">COS · x</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/EXP-200024.html">EXP · x</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/FN-200030.html">FN · letter</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/FN-200030.html">FN · x</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/INT-200029.html">INT · x</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/LOG-200025.html">LOG · x</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/RND-200028.html">RND · x</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/SIN-200020.html">SIN · x</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/SQR-200026.html">SQR · x</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/TAN-200022.html">TAN · x</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/lparen-rparen-200036.html">( ) · f</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/x-200031.html">↑ · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Sum) · c</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Sum) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Sum) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Difference) · c</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Difference) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Difference) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Product) · c</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Product) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Product) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Multiple) · c</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Multiple) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Zero matrix) · c</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Ones) · c</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Identity) · c</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Transpose) · c</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Transpose) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Inverse) · c</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Inverse) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/star-200033.html">* · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/star-200033.html">* · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/plus-200035.html">+ · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/plus-200035.html">+ · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/minus-200032.html">- (Change of sign) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/minus-200032.html">- (Subtraction) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/minus-200032.html">- (Subtraction) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/slash-200034.html">/ · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/slash-200034.html">/ · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/EQU-200114.html">EQU · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/EQU-200114.html">EQU · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/GQU-200119.html">GQU · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/GQU-200119.html">GQU · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/GRT-200118.html">GRT · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/GRT-200118.html">GRT · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/LQU-200117.html">LQU · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/LQU-200117.html">LQU · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/LSS-200116.html">LSS · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/LSS-200116.html">LSS · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/NQU-200115.html">NQU · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/NQU-200115.html">NQU · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/x-200031.html">↑ · b</a></li>
+</ul>
+<h3 id="ev-parameter_limit">Parameter limits <small>3 not tested</small></h3>
+
+<ul class="diag-ev-list">
+  <li class="ev-row-inferred"><span class="ev ev-inferred">INFERRED</span> <a href="../entries/GOSUB-200016.html">GOSUB · n [1, 99999]</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/GO-TO-200011.html">GO TO · n [1, 99999]</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/IF-THEN-200012.html">IF...THEN · n [1, 99999]</a></li>
+</ul>
+<h3 id="ev-allowed_value">Allowed values <small>0 not tested</small></h3>
+<p class="nothing">Nothing left</p>
+<h3 id="ev-syntax_form">Syntax forms (returned range and description) <small>50 not tested</small></h3>
+
+<ul class="diag-ev-list">
+  <li class="ev-row-inferred"><span class="ev ev-inferred">INFERRED</span> <a href="../entries/DIM-200018.html">DIM</a></li>
+  <li class="ev-row-inferred"><span class="ev ev-inferred">INFERRED</span> <a href="../entries/GOSUB-200016.html">GOSUB</a></li>
+  <li class="ev-row-inferred"><span class="ev ev-inferred">INFERRED</span> <a href="../entries/REM-200019.html">REM</a></li>
+  <li class="ev-row-inferred"><span class="ev ev-inferred">INFERRED</span> <a href="../entries/RETURN-200017.html">RETURN</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/ABS-200027.html">ABS → [0, ∞)</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/COS-200021.html">COS → [-1, 1]</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/EXP-200024.html">EXP → [0, ∞)</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/RND-200028.html">RND → [0, 1]</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/SIN-200020.html">SIN → [-1, 1]</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/SQR-200026.html">SQR → [0, ∞)</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/x-200031.html">↑ → [0, ∞)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/DEF-200013.html">DEF</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/END-200008.html">END</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/FOR-TO-STEP-200043.html">FOR...TO...STEP</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/GO-TO-200011.html">GO TO</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/IF-THEN-200012.html">IF...THEN</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/LET-200006.html">LET</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Sum)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Difference)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Product)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Multiple)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Zero matrix)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Ones)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Identity)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Transpose)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Inverse)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-PRINT-200125.html">MAT PRINT</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-READ-200124.html">MAT READ</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/NEXT-200044.html">NEXT</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/PAGE-200123.html">PAGE</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/PRINT-200120.html">PRINT</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/READ-200122.html">READ</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/STOP-200053.html">STOP</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/ATN-200023.html">ATN</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/FN-200030.html">FN</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/INT-200029.html">INT</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/LOG-200025.html">LOG</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/TAN-200022.html">TAN</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lparen-rparen-200036.html">( )</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/star-200033.html">*</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/plus-200035.html">+</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/minus-200032.html">- (Change of sign)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/minus-200032.html">- (Subtraction)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/slash-200034.html">/</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/EQU-200114.html">EQU</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/GQU-200119.html">GQU</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/GRT-200118.html">GRT</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/LQU-200117.html">LQU</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/LSS-200116.html">LSS</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/NQU-200115.html">NQU</a></li>
+</ul>
+<h3 id="ev-character_code">Character codes <small>128 not tested</small></h3>
+
+<ul class="diag-ev-list">
+  <li class="ev-row-inferred"><span class="ev ev-inferred">INFERRED</span> <a href="../dialects/DARTMOUTH_CARD_BASIC.html#characters">0-127</a></li>
+</ul>
+
+<h2 id="features">Features <small>12</small></h2>
+<h3>Missing answers <small>0</small></h3>
+<p class="nothing">Nothing left</p>
+<h3>Answers to verify <small>12</small></h3>
+
+<table>
+  <thead><tr><th>Section</th><th>Feature</th><th>Answer</th></tr></thead>
+  <tbody><tr><td><small>Program lines and statements</small></td><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#features">Range of line numbers</a></td><td><code>1-99999</code> <small>Called instruction numbers; statements are run in the order of their numbers, whatever the order they were typed in [1] p. 4. A line with the number of an existing one replaces it; a number alone deletes the line [1] p. 19.</small></td></tr><tr><td><small>Program lines and statements</small></td><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#features">Multiple statements per line</a></td><td><code>No</code> <small>One statement per line.</small></td></tr><tr><td><small>Program lines and statements</small></td><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#features">Statement separator</a></td><td><code>None</code></td></tr><tr><td><small>Program lines and statements</small></td><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#features">LET keyword</a></td><td><code>Mandatory</code> <small>Every assignment starts with LET: <code>10 A=5*5</code> is not a statement (source [5]).</small></td></tr><tr><td><small>Truth values</small></td><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#features">Value produced by a true comparison</a></td><td><code>None</code> <small>Relations can only be written in IF...THEN: they produce no value.</small></td></tr><tr><td><small>Truth values</small></td><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#features">Value produced by a false comparison</a></td><td><code>None</code> <small>Relations can only be written in IF...THEN: they produce no value.</small></td></tr><tr><td><small>Truth values</small></td><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#features">How a value used as a condition is read</a></td><td><code>Relation only</code> <small>IF needs a relation between two formulas; a formula alone is not a condition.</small></td></tr><tr><td><small>Numbers</small></td><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#features">Conversion of non-integer values to integers</a></td><td><code>Not stated</code> <small>The manuals do not say what happens to a subscript that is not an integer. INT truncates towards zero (see INT).</small></td></tr><tr><td><small>FOR loops</small></td><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#features">The loop variable can be changed inside the loop</a></td><td><code>Not stated</code></td></tr><tr><td><small>Keyboard</small></td><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#features">Modal keyboard for entering keywords</a></td><td><code>No</code> <small>Teletype keyboard: everything is typed letter by letter.</small></td></tr><tr><td><small>Screen output</small></td><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#features">Width of the fixed tabulation zones</a></td><td><code>8 zones per line</code> <small>The high-speed printer prints 8 numbers per line, up to 18 in packed format [2] p. 50; the width of a zone is not given.</small></td></tr><tr><td><small>Screen output</small></td><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#features">Variable tab stops</a></td><td><code>No</code></td></tr></tbody>
+</table>
+
+<h2 id="tables">Tables <small>8</small></h2>
+<h3>To do or partial <small>8</small></h3>
+
+<table>
+  <thead><tr><th>Table</th><th>Of</th><th>State</th><th>Notes</th></tr></thead>
+  <tbody><tr><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#tables">Character codes</a></td><td>Card BASIC</td>
+      <td><span class="tag warning">to do</span></td><td>The rows shown are inherited from the Teletype version. On the cards: single quote for the double quote, multiple punch 5-8 for the semicolon [2] p. 50; card and printer codes not entered.</td></tr><tr><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#tables">Error messages</a></td><td>Dartmouth BASIC, 1st edition</td>
+      <td><span class="tag warning">partial</span></td><td>Printed with the line number: <code>ILLEGAL FORMULA IN 30</code> [1] p. 19 (some messages without it, e.g. <code>NO DATA</code>). The May manual shows five messages; the others are from [2].</td></tr><tr><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#tables">Variables in memory</a></td><td>Dartmouth BASIC, 1st edition</td>
+      <td><span class="tag warning">to do</span></td><td>Compiled program: to be taken from the listings [7].</td></tr><tr><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#tables">Variables in memory</a></td><td>Dartmouth BASIC, 2nd edition</td>
+      <td><span class="tag warning">to do</span></td><td>To be taken from the listings [7].</td></tr><tr><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#tables">Variables in memory</a></td><td>Card BASIC</td>
+      <td><span class="tag warning">to do</span></td><td>Not documented.</td></tr><tr><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#tables">Program in memory</a></td><td>Dartmouth BASIC, 1st edition</td>
+      <td><span class="tag warning">to do</span></td><td>The program is kept as text; its format on the disk is to be taken from the listings [7].</td></tr><tr><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#tables">Program in memory</a></td><td>Dartmouth BASIC, 2nd edition</td>
+      <td><span class="tag warning">to do</span></td><td>To be taken from the listings [7].</td></tr><tr><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#tables">Program in memory</a></td><td>Card BASIC</td>
+      <td><span class="tag warning">to do</span></td><td>A deck of cards, one statement per card.</td></tr></tbody>
+</table>
+<h3>Tables without any state <small>0</small></h3>
+<p class="nothing">Nothing left</p>
+
+<h2 id="gaps">Gaps <small>105</small></h2>
+<h3>Parameters without description <small>40</small></h3>
+
+<p class="diag-list"><a href="../entries/MAT-200126.html">MAT</a> <small>(Sum)</small> <code class="par">c</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Sum)</small> <code class="par">a</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Sum)</small> <code class="par">b</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Difference)</small> <code class="par">c</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Difference)</small> <code class="par">a</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Difference)</small> <code class="par">b</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Product)</small> <code class="par">c</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Product)</small> <code class="par">a</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Product)</small> <code class="par">b</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Multiple)</small> <code class="par">c</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Multiple)</small> <code class="par">a</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Zero matrix)</small> <code class="par">c</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Ones)</small> <code class="par">c</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Identity)</small> <code class="par">c</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Transpose)</small> <code class="par">c</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Transpose)</small> <code class="par">a</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Inverse)</small> <code class="par">c</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Inverse)</small> <code class="par">a</code> · <a href="../entries/star-200033.html">*</a> <code class="par">a</code> · <a href="../entries/star-200033.html">*</a> <code class="par">b</code> · <a href="../entries/plus-200035.html">+</a> <code class="par">a</code> · <a href="../entries/plus-200035.html">+</a> <code class="par">b</code> · <a href="../entries/minus-200032.html">-</a> <small>(Change of sign)</small> <code class="par">a</code> · <a href="../entries/minus-200032.html">-</a> <small>(Subtraction)</small> <code class="par">a</code> · <a href="../entries/minus-200032.html">-</a> <small>(Subtraction)</small> <code class="par">b</code> · <a href="../entries/slash-200034.html">/</a> <code class="par">a</code> · <a href="../entries/slash-200034.html">/</a> <code class="par">b</code> · <a href="../entries/EQU-200114.html">EQU</a> <code class="par">a</code> · <a href="../entries/EQU-200114.html">EQU</a> <code class="par">b</code> · <a href="../entries/GQU-200119.html">GQU</a> <code class="par">a</code> · <a href="../entries/GQU-200119.html">GQU</a> <code class="par">b</code> · <a href="../entries/GRT-200118.html">GRT</a> <code class="par">a</code> · <a href="../entries/GRT-200118.html">GRT</a> <code class="par">b</code> · <a href="../entries/LQU-200117.html">LQU</a> <code class="par">a</code> · <a href="../entries/LQU-200117.html">LQU</a> <code class="par">b</code> · <a href="../entries/LSS-200116.html">LSS</a> <code class="par">a</code> · <a href="../entries/LSS-200116.html">LSS</a> <code class="par">b</code> · <a href="../entries/NQU-200115.html">NQU</a> <code class="par">a</code> · <a href="../entries/NQU-200115.html">NQU</a> <code class="par">b</code> · <a href="../entries/x-200031.html">↑</a> <code class="par">b</code></p><h3>Forms without actions <small>1</small></h3>
+
+<p class="diag-list"><a href="../entries/lparen-rparen-200036.html">( )</a></p><h3>Keywords without token <small>64</small></h3>
+
+<p class="diag-list"><a class="kw" href="../keywords/star-200036.html">*</a> · <a class="kw" href="../keywords/plus-200034.html">+</a> · <a class="kw" href="../keywords/minus-200035.html">-</a> · <a class="kw" href="../keywords/slash-200037.html">/</a> · <a class="kw" href="../keywords/semicolon-200051.html">;</a> · <a class="kw" href="../keywords/lt-200040.html">&lt;</a> · <a class="kw" href="../keywords/lt-eq-200041.html">&lt;=</a> · <a class="kw" href="../keywords/lt-gt-200044.html">&lt;&gt;</a> · <a class="kw" href="../keywords/eq-200039.html">=</a> · <a class="kw" href="../keywords/gt-200042.html">&gt;</a> · <a class="kw" href="../keywords/gt-eq-200043.html">&gt;=</a> · <a class="kw" href="../keywords/ABS-200031.html">ABS</a> · <a class="kw" href="../keywords/ATN-200027.html">ATN</a> · <a class="kw" href="../keywords/CATALOG-200049.html">CATALOG</a> · <a class="kw" href="../keywords/CON-200085.html">CON</a> · <a class="kw" href="../keywords/COS-200025.html">COS</a> · <a class="kw" href="../keywords/DATA-200019.html">DATA</a> · <a class="kw" href="../keywords/DEF-200016.html">DEF</a> · <a class="kw" href="../keywords/DIM-200022.html">DIM</a> · <a class="kw" href="../keywords/END-200008.html">END</a> · <a class="kw" href="../keywords/EQU-200076.html">EQU</a> · <a class="kw" href="../keywords/EXP-200028.html">EXP</a> · <a class="kw" href="../keywords/FN-200017.html">FN</a> · <a class="kw" href="../keywords/FOR-200009.html">FOR</a> · <a class="kw" href="../keywords/GO-TO-200013.html">GO TO</a> · <a class="kw" href="../keywords/GOSUB-200020.html">GOSUB</a> · <a class="kw" href="../keywords/GQU-200081.html">GQU</a> · <a class="kw" href="../keywords/GRT-200080.html">GRT</a> · <a class="kw" href="../keywords/HELLO-200001.html">HELLO</a> · <a class="kw" href="../keywords/IDN-200086.html">IDN</a> · <a class="kw" href="../keywords/IF-200014.html">IF</a> · <a class="kw" href="../keywords/INT-200033.html">INT</a> · <a class="kw" href="../keywords/INV-200088.html">INV</a> · <a class="kw" href="../keywords/LET-200006.html">LET</a> · <a class="kw" href="../keywords/LIST-200003.html">LIST</a> · <a class="kw" href="../keywords/LOG-200029.html">LOG</a> · <a class="kw" href="../keywords/LQU-200079.html">LQU</a> · <a class="kw" href="../keywords/LSS-200078.html">LSS</a> · <a class="kw" href="../keywords/MAT-200083.html">MAT</a> · <a class="kw" href="../keywords/NEW-200045.html">NEW</a> · <a class="kw" href="../keywords/NEXT-200012.html">NEXT</a> · <a class="kw" href="../keywords/NQU-200077.html">NQU</a> · <a class="kw" href="../keywords/OLD-200046.html">OLD</a> · <a class="kw" href="../keywords/PAGE-200082.html">PAGE</a> · <a class="kw" href="../keywords/PRINT-200007.html">PRINT</a> · <a class="kw" href="../keywords/READ-200018.html">READ</a> · <a class="kw" href="../keywords/REM-200023.html">REM</a> · <a class="kw" href="../keywords/RENAME-200048.html">RENAME</a> · <a class="kw" href="../keywords/RETURN-200021.html">RETURN</a> · <a class="kw" href="../keywords/RND-200032.html">RND</a> · <a class="kw" href="../keywords/RUN-200002.html">RUN</a> · <a class="kw" href="../keywords/SAVE-200004.html">SAVE</a> · <a class="kw" href="../keywords/SCRATCH-200047.html">SCRATCH</a> · <a class="kw" href="../keywords/SIN-200024.html">SIN</a> · <a class="kw" href="../keywords/SQR-200030.html">SQR</a> · <a class="kw" href="../keywords/STEP-200011.html">STEP</a> · <a class="kw" href="../keywords/STOP-200005.html">STOP</a> · <a class="kw" href="../keywords/TAN-200026.html">TAN</a> · <a class="kw" href="../keywords/THEN-200015.html">THEN</a> · <a class="kw" href="../keywords/TO-200010.html">TO</a> · <a class="kw" href="../keywords/TRN-200087.html">TRN</a> · <a class="kw" href="../keywords/UNSAVE-200050.html">UNSAVE</a> · <a class="kw" href="../keywords/ZER-200084.html">ZER</a> · <a class="kw" href="../keywords/x-200038.html">↑</a></p><h3>Variable types without name length <small>0</small></h3>
+<p class="nothing">Nothing left</p>
+<h3>Memory areas without prologue or epilogue <small>0</small></h3>
+<p class="nothing">Nothing left</p>
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+</body>
+</html>

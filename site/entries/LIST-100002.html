@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LIST · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Casio FX-700P BASIC">
+<a class="prev" rel="prev" href="../entries/DEFM-100004.html" title="Previous entry (←)">‹ <span>DEFM</span></a>  <a class="where" href="../dialects/CASIO_FX700P.html#entries">19 / 58</a>
+<a class="next" rel="next" href="../entries/LOAD-100006.html" title="Next entry (→)"><span>LOAD</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/CASIO_FX700P.html#entries">Casio FX-700P BASIC</a> ›</p>
+<h1><span class="entry-name">LIST</span> <span class="category">Direct command</span></h1>
+<div class="subtitle md"><p>Lists the program of the current area, or (LIST A) the programs of all areas and the data in all memories.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>FX700P_core</code> — Casio FX-700P BASIC</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/CASIO_FX700P.html">Casio FX-700P BASIC</a></dd>
+</dl>
+
+
+<section class="form">
+  <h2>Current area</h2>
+  <pre class="syntax"><span class="kw">LIST</span> <span class="meta">[</span><span class="par">n</span><span class="meta">]</span></pre>
+  <p class="manual">In the manual (FX-700P Instruction Manual, p. 28):
+    <code>LIST [line number]</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">n</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>numeric literal</td>
+      <td></td>
+      <td>Line to start from; without it, the first line.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#PROG_LIST" class="action-code">PROG_LIST</a> List the program
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (1st edition)</span>
+<a href="../entries/LIST-200003.html">LIST</a></li>
+      <li><span class="dia">Dartmouth BASIC (2nd edition)</span>
+<a href="../entries/LIST-200052.html">LIST</a></li>
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/LIST-200052.html">LIST</a></li>
+      <li><span class="dia">Dartmouth BASIC (4th edition)</span>
+<a href="../entries/LIST-200052.html">LIST</a></li>
+      <li><span class="dia">Sinclair ZX80 BASIC 4K ROM</span>
+<a href="../entries/LIST-1.html">LIST</a></li>
+    </ul>
+<p class="uncovered">No equivalent in: Dartmouth Card BASIC October 1964</p>  </div>
+</section>
+<section class="form">
+  <h2>All areas</h2>
+  <pre class="syntax"><span class="kw">LIST</span> <span class="lit">A</span></pre>
+  <p class="manual">In the manual (FX-700P Instruction Manual, p. 64):
+    <code>LIST A</code>
+</p>
+
+
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#PROG_LIST" class="action-code">PROG_LIST</a> List the program
+<small>— All areas, and the variables too</small></p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (1st edition)</span>
+<a href="../entries/LIST-200003.html">LIST</a></li>
+      <li><span class="dia">Dartmouth BASIC (2nd edition)</span>
+<a href="../entries/LIST-200052.html">LIST</a></li>
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/LIST-200052.html">LIST</a></li>
+      <li><span class="dia">Dartmouth BASIC (4th edition)</span>
+<a href="../entries/LIST-200052.html">LIST</a></li>
+      <li><span class="dia">Sinclair ZX80 BASIC 4K ROM</span>
+<a href="../entries/LIST-1.html">LIST</a></li>
+    </ul>
+<p class="uncovered">No equivalent in: Dartmouth Card BASIC October 1964</p>  </div>
+</section>
+
+<h2>Tables</h2>
+<ul class="entry-tables">
+  <li><a href="../dialects/CASIO_FX700P.html#program">Program in memory</a>      <small>— action PROG_LIST</small></li>
+</ul>
+
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/LIST-100016.html">LIST</a></td>
+      <td><code>$C4</code></td>
+      <td><code>S + N</code> <small>(Casio FX-700P)</small>, <code>S + N</code> <small>(Casio PB-100)</small>, <code>S + N</code> <small>(Tandy Radio Shack TRS-80 PC-4)</small></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>List from a line <span class="tag warning">to verify</span></h3>  <pre>LIST 20</pre>
+<pre class="output" title="Expected result">The lines from 20 on, one at a time.</pre><figcaption>
+<small>Form: Current area.</small></figcaption></figure>
+<figure class="example">
+<h3>List everything <span class="tag warning">to verify</span></h3>  <pre>LIST A</pre>
+<pre class="output" title="Expected result">All programs P0-P9 and the contents of the memories.</pre><figcaption>
+<small>Form: All areas.</small></figcaption></figure>
+
+<h2>Notes</h2>
+<div class="md"><p>The <code>A</code> of the "all areas" form is the letter A, not a keyword: it has no token of its own (the token tables of source [5] have only LIST, CLEAR, SAVE and LOAD).</p>
+<p>In a program: not known on the real machine (the manual says the tape commands work only manually). The PokecomGO2 simulator (source [9]) accepts the line and skips the command when it is reached, with no error. Tried with <code>10 LIST</code>.</p></div>
+
+<h2>Sources</h2>
+<ul><li>FX-700P Instruction Manual, p. 28</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Casio FX-700P BASIC">
+<a class="prev" rel="prev" href="../entries/DEFM-100004.html" title="Previous entry (←)">‹ <span>DEFM</span></a>  <a class="where" href="../dialects/CASIO_FX700P.html#entries">19 / 58</a>
+<a class="next" rel="next" href="../entries/LOAD-100006.html" title="Next entry (→)"><span>LOAD</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

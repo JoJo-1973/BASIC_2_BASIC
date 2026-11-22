@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GOSUB · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (1st edition)">
+<a class="prev" rel="prev" href="../entries/GO-TO-200011.html" title="Previous entry (←)">‹ <span>GO TO</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_1.html#entries">Dartmouth BASIC (1st edition) · 7 / 42</a>
+<a class="next" rel="next" href="../entries/IF-THEN-200012.html" title="Next entry (→)"><span>IF...THEN</span> ›</a></nav>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (2nd edition)">
+<a class="prev" rel="prev" href="../entries/GO-TO-200011.html" title="Previous entry (←)">‹ <span>GO TO</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_2.html#entries">Dartmouth BASIC (2nd edition) · 7 / 49</a>
+<a class="next" rel="next" href="../entries/IF-THEN-200012.html" title="Next entry (→)"><span>IF...THEN</span> ›</a></nav>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth Card BASIC October 1964">
+<a class="prev" rel="prev" href="../entries/GO-TO-200011.html" title="Previous entry (←)">‹ <span>GO TO</span></a>  <a class="where" href="../dialects/DARTMOUTH_CARD_BASIC.html#entries">Dartmouth Card BASIC October 1964 · 6 / 41</a>
+<a class="next" rel="next" href="../entries/IF-THEN-200012.html" title="Next entry (→)"><span>IF...THEN</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/DARTMOUTH_BASIC_1.html#entries">Dartmouth BASIC (1st edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_2.html#entries">Dartmouth BASIC (2nd edition)</a>, <a href="../dialects/DARTMOUTH_CARD_BASIC.html#entries">Dartmouth Card BASIC October 1964</a> ›</p>
+<h1><span class="entry-name">GOSUB</span> <span class="category">Statement</span></h1>
+<div class="subtitle md"><p>Calls a subroutine: RETURN goes back to the statement after the GOSUB.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>DARTMOUTH_1ED_core</code> — Dartmouth BASIC, 1st edition</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/DARTMOUTH_BASIC_1.html">Dartmouth BASIC (1st edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_2.html">Dartmouth BASIC (2nd edition)</a>, <a href="../dialects/DARTMOUTH_CARD_BASIC.html">Dartmouth Card BASIC October 1964</a></dd>
+  <dt>In Dartmouth BASIC (3rd edition)</dt>
+  <dd>replaced by <a href="../entries/GOSUB-200071.html">GOSUB</a> of <code>DARTMOUTH_3ED_layer</code></dd>
+  <dt>In Dartmouth BASIC (4th edition)</dt>
+  <dd>replaced by <a href="../entries/GOSUB-200071.html">GOSUB</a> of <code>DARTMOUTH_3ED_layer</code></dd>
+</dl>
+
+<div class="box">
+<p>Redefined in a later layer: <a href="../entries/GOSUB-200071.html">GOSUB</a> — Subroutines can call other subroutines.</p></div>
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="kw">GOSUB</span> <span class="par">n</span></pre>
+  <p class="manual">In the manual (BASIC (1 October 1964), p. 42-43):
+    <code>GOSUB N</code>
+</p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">n</code> <span class="evm evm-inferred" title="Inferred: neither stated by a source nor tested">I</span></td>
+      <td>line number</td>
+      <td><code>[1, 99999]</code><span class="evm evm-inferred" title="Inferred: neither stated by a source nor tested">I</span><br><small>Range of line numbers:</small> <code>1-99999</code> <small>(Dartmouth BASIC (1st edition))</small> <span class="tag warning">to verify</span><br><small>Range of line numbers:</small> <code>1-99999</code> <small>(Dartmouth BASIC (2nd edition))</small> <span class="tag warning">to verify</span><br><small>Range of line numbers:</small> <code>1-99999</code> <small>(Dartmouth Card BASIC October 1964)</small> <span class="tag warning">to verify</span><br><small>missing line: error</small><br><small>otherwise <a href="../dialects/DARTMOUTH_BASIC_1.html#errors">error</a> <code>UNDEFINED NUMBER</code> (Dartmouth BASIC (1st edition))</small><br><small>otherwise <a href="../dialects/DARTMOUTH_BASIC_2.html#errors">error</a> <code>UNDEFINED NUMBER</code> (Dartmouth BASIC (2nd edition))</small><br><small>otherwise <a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors">error</a> <code>UNDEFINED NUMBER</code> (Dartmouth Card BASIC October 1964)</small></td>
+      <td>Line number: an integer of up to five digits, written as a number (not a formula).</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#FLOW_GOSUB" class="action-code">FLOW_GOSUB</a> Subroutine call
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Casio FX-700P BASIC</span>
+<a href="../entries/GOSUB-100013.html">GOSUB</a> <small>(Line)</small> <small>— Accepts an expression</small>; <a href="../entries/GOSUB-100013.html">GOSUB</a> <small>(Program area)</small> <span class="tag">partial</span> <small>— Subroutine at the start of program area P0-P9</small></li>
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/GOSUB-200071.html">GOSUB</a></li>
+      <li><span class="dia">Dartmouth BASIC (4th edition)</span>
+<a href="../entries/GOSUB-200071.html">GOSUB</a></li>
+      <li><span class="dia">Sinclair ZX80 BASIC 4K ROM</span>
+<a href="../entries/GO-SUB-12.html">GO SUB</a> <small>— Accepts an expression</small></li>
+    </ul>
+  </div>
+</section>
+
+<h2>Tables</h2>
+<ul class="entry-tables">
+  <li><a href="../dialects/DARTMOUTH_BASIC_1.html#program">Program in memory</a> <small>(Dartmouth BASIC (1st edition))</small>, <a href="../dialects/DARTMOUTH_BASIC_2.html#program">Program in memory</a> <small>(Dartmouth BASIC (2nd edition))</small>, <a href="../dialects/DARTMOUTH_CARD_BASIC.html#program">Program in memory</a> <small>(Dartmouth Card BASIC October 1964)</small>      <small>— action FLOW_GOSUB</small></li>
+</ul>
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_1.html#errors"><code>UNDEFINED_NUMBER</code></a> <small>(Dartmouth BASIC (1st edition))</small></td>
+      <td>GO TO or IF...THEN names a line number that does not exist. Shown in [1] p. 19. <small>Parameter: <code class="par">n</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_2.html#errors"><code>UNDEFINED_NUMBER</code></a> <small>(Dartmouth BASIC (2nd edition))</small></td>
+      <td>GO TO or IF...THEN names a line number that does not exist. Shown in [1] p. 19. <small>Parameter: <code class="par">n</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED_NUMBER</code></a> <small>(Dartmouth Card BASIC October 1964)</small></td>
+      <td>GO TO or IF...THEN names a line number that does not exist. Shown in [1] p. 19. <small>Parameter: <code class="par">n</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/GOSUB-200020.html">GOSUB</a></td>
+      <td></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Call a subroutine <span class="tag warning">to verify</span></h3>  <pre>10 LET X = 3
+20 GOSUB 100
+30 PRINT Y
+40 STOP
+100 LET Y = X*X
+110 RETURN
+120 END</pre>
+<pre class="output" title="Expected result">9</pre><figcaption>STOP comes with the 2nd edition: in the 1st write <code>40 GO TO 120</code>.
+</figcaption></figure>
+<figure class="example">
+<h3>Greatest common divisor</h3>  <pre>10 PRINT &#34;A&#34;, &#34;B&#34;, &#34;GCD&#34;
+20 READ A, B
+30 LET X = A
+40 LET Y = B
+50 GOSUB 200
+90 PRINT A, B, G
+100 GOTO 20
+110 DATA 60, 90
+120 DATA 38456, 64872
+200 LET Q = INT(X/Y)
+210 LET R = X - Q*Y
+220 IF R = 0 THEN 300
+230 LET X = Y
+240 LET Y = R
+250 GOTO 200
+300 LET G = Y
+310 RETURN
+999 END</pre>
+<pre class="output" title="Expected result">A              B              GCD
+ 60             90             30
+ 38456          64872          8
+
+OUT OF DATA IN  20</pre><figcaption>From the DTSS-Win simulator files (LIB/GCD). GCD 30 for 60 and 90, 8 for 38456 and 64872; it stops when the data run out. Output checked on DTSS-Win (compiler of February 1965).
+<small>Source: DTSS-Win simulator, LIB/GCD.</small></figcaption></figure>
+
+<h2>Notes</h2>
+<div class="md"><p>Part II of the May manual is missing: taken from the 2nd edition manual [2] pp. 42-43, which says that a GOSUB inside a subroutine "just won't work": no nesting. The compiler of February 1965 (DTSS-Win) already runs nested GOSUBs correctly. Kurtz [9] writes that GOSUB "used a stack for the return address", which does not agree with [2].</p></div>
+<h2>Related entries</h2>
+<ul><li>Closed by: <a href="../entries/RETURN-200017.html">RETURN</a></li></ul>
+
+<h2>Sources</h2>
+<ul><li><a href="https://bitsavers.org/pdf/dartmouth/dtss/196410_BASIC.pdf">BASIC (1 October 1964)</a>, John G. Kemeny, Thomas E. Kurtz (1964), p. 42-43</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (1st edition)">
+<a class="prev" rel="prev" href="../entries/GO-TO-200011.html" title="Previous entry (←)">‹ <span>GO TO</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_1.html#entries">Dartmouth BASIC (1st edition) · 7 / 42</a>
+<a class="next" rel="next" href="../entries/IF-THEN-200012.html" title="Next entry (→)"><span>IF...THEN</span> ›</a></nav>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (2nd edition)">
+<a class="prev" rel="prev" href="../entries/GO-TO-200011.html" title="Previous entry (←)">‹ <span>GO TO</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_2.html#entries">Dartmouth BASIC (2nd edition) · 7 / 49</a>
+<a class="next" rel="next" href="../entries/IF-THEN-200012.html" title="Next entry (→)"><span>IF...THEN</span> ›</a></nav>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth Card BASIC October 1964">
+<a class="prev" rel="prev" href="../entries/GO-TO-200011.html" title="Previous entry (←)">‹ <span>GO TO</span></a>  <a class="where" href="../dialects/DARTMOUTH_CARD_BASIC.html#entries">Dartmouth Card BASIC October 1964 · 6 / 41</a>
+<a class="next" rel="next" href="../entries/IF-THEN-200012.html" title="Next entry (→)"><span>IF...THEN</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

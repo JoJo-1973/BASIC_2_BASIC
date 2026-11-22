@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SET · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Casio FX-700P BASIC">
+<a class="prev" rel="prev" href="../entries/RETURN-100014.html" title="Previous entry (←)">‹ <span>RETURN</span></a>  <a class="where" href="../dialects/CASIO_FX700P.html#entries">14 / 58</a>
+<a class="next" rel="next" href="../entries/STOP-100017.html" title="Next entry (→)"><span>STOP</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/CASIO_FX700P.html#entries">Casio FX-700P BASIC</a> ›</p>
+<h1><span class="entry-name">SET</span> <span class="category">Statement</span></h1>
+<div class="subtitle md"><p>Chooses how many significant digits or decimal places the numbers are shown with.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>FX700P_core</code> — Casio FX-700P BASIC</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/CASIO_FX700P.html">Casio FX-700P BASIC</a></dd>
+</dl>
+
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="kw">SET</span> <span class="meta">&lt;</span><span class="lit">E</span><span class="par">n</span> <span class="meta">|</span> <span class="lit">F</span><span class="par">n</span> <span class="meta">|</span> <span class="lit">N</span><span class="meta">&gt;</span></pre>
+  <p class="manual">In the manual (FX-700P Instruction Manual, p. 54):
+    <code>SET {En|Fn|N}</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">n</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>numeric literal</td>
+      <td><code>[0, 9]</code><span class="evm evm-manual" title="Stated by a source, not tested">M</span><br></td>
+      <td>0 to 9.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#IO_FORMAT" class="action-code">IO_FORMAT</a> Format of the displayed numbers
+</p>
+<p class="uncovered">No equivalent in: Dartmouth BASIC (1st edition), Dartmouth BASIC (2nd edition), Dartmouth BASIC (3rd edition), Dartmouth BASIC (4th edition), Dartmouth Card BASIC October 1964, Sinclair ZX80 BASIC 4K ROM</p>  </div>
+</section>
+
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/CASIO_FX700P.html#errors">5 <code>ARGUMENT</code></a></td>
+      <td>n outside 0-9 (inferred). <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/SET-100020.html">SET</a></td>
+      <td><code>$B1</code></td>
+      <td><em>none</em> <small>(Casio FX-700P)</small>, <em>none</em> <small>(Casio PB-100)</small>, <em>none</em> <small>(Tandy Radio Shack TRS-80 PC-4)</small></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Significant digits <span class="tag warning">to verify</span></h3>  <pre>SET E4
+100/6</pre>
+<pre class="output" title="Expected result">1.667E01</pre><figcaption>
+<small>Source: FX-700P Instruction Manual, 20.</small></figcaption></figure>
+<figure class="example">
+<h3>Decimal places <span class="tag warning">to verify</span></h3>  <pre>SET F2
+123/7</pre>
+<pre class="output" title="Expected result">17.57</pre><figcaption>
+<small>Source: FX-700P Instruction Manual, 20.</small></figcaption></figure>
+<figure class="example">
+<h3>Back to normal <span class="tag warning">to verify</span></h3>  <pre>SET N
+1/3</pre>
+<pre class="output" title="Expected result">0.3333333333</pre><figcaption>
+<small>Source: FX-700P Instruction Manual, 20.</small></figcaption></figure>
+
+<h2>Notes</h2>
+<div class="md"><p>SET E n: n significant digits (SET E0 gives 8); SET F n: n decimal places; SET N: back to normal. Only the display is rounded: the value in memory does not change.</p></div>
+
+<h2>Sources</h2>
+<ul><li>FX-700P Instruction Manual, p. 54</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Casio FX-700P BASIC">
+<a class="prev" rel="prev" href="../entries/RETURN-100014.html" title="Previous entry (←)">‹ <span>RETURN</span></a>  <a class="where" href="../dialects/CASIO_FX700P.html#entries">14 / 58</a>
+<a class="next" rel="next" href="../entries/STOP-100017.html" title="Next entry (→)"><span>STOP</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

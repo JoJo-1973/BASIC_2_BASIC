@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GO TO · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (1st edition)">
+<a class="prev" rel="prev" href="../entries/FOR-TO-STEP-200009.html" title="Previous entry (←)">‹ <span>FOR...TO...STEP</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_1.html#entries">Dartmouth BASIC (1st edition) · 6 / 42</a>
+<a class="next" rel="next" href="../entries/GOSUB-200016.html" title="Next entry (→)"><span>GOSUB</span> ›</a></nav>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (2nd edition)">
+<a class="prev" rel="prev" href="../entries/FOR-TO-STEP-200043.html" title="Previous entry (←)">‹ <span>FOR...TO...STEP</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_2.html#entries">Dartmouth BASIC (2nd edition) · 6 / 49</a>
+<a class="next" rel="next" href="../entries/GOSUB-200016.html" title="Next entry (→)"><span>GOSUB</span> ›</a></nav>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (3rd edition)">
+<a class="prev" rel="prev" href="../entries/FOR-TO-STEP-200043.html" title="Previous entry (←)">‹ <span>FOR...TO...STEP</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_3.html#entries">Dartmouth BASIC (3rd edition) · 6 / 57</a>
+<a class="next" rel="next" href="../entries/GOSUB-200071.html" title="Next entry (→)"><span>GOSUB</span> ›</a></nav>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (4th edition)">
+<a class="prev" rel="prev" href="../entries/FOR-TO-STEP-200043.html" title="Previous entry (←)">‹ <span>FOR...TO...STEP</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_4.html#entries">Dartmouth BASIC (4th edition) · 9 / 69</a>
+<a class="next" rel="next" href="../entries/GOSUB-200071.html" title="Next entry (→)"><span>GOSUB</span> ›</a></nav>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth Card BASIC October 1964">
+<a class="prev" rel="prev" href="../entries/FOR-TO-STEP-200043.html" title="Previous entry (←)">‹ <span>FOR...TO...STEP</span></a>  <a class="where" href="../dialects/DARTMOUTH_CARD_BASIC.html#entries">Dartmouth Card BASIC October 1964 · 5 / 41</a>
+<a class="next" rel="next" href="../entries/GOSUB-200016.html" title="Next entry (→)"><span>GOSUB</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/DARTMOUTH_BASIC_1.html#entries">Dartmouth BASIC (1st edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_2.html#entries">Dartmouth BASIC (2nd edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_3.html#entries">Dartmouth BASIC (3rd edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_4.html#entries">Dartmouth BASIC (4th edition)</a>, <a href="../dialects/DARTMOUTH_CARD_BASIC.html#entries">Dartmouth Card BASIC October 1964</a> ›</p>
+<h1><span class="entry-name">GO TO</span> <span class="category">Statement</span></h1>
+<div class="subtitle md"><p>Jumps to a line.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>DARTMOUTH_1ED_core</code> — Dartmouth BASIC, 1st edition</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/DARTMOUTH_BASIC_1.html">Dartmouth BASIC (1st edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_2.html">Dartmouth BASIC (2nd edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_3.html">Dartmouth BASIC (3rd edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_4.html">Dartmouth BASIC (4th edition)</a>, <a href="../dialects/DARTMOUTH_CARD_BASIC.html">Dartmouth Card BASIC October 1964</a></dd>
+</dl>
+
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="kw">GO TO</span> <span class="par">n</span></pre>
+  <p class="manual">In the manual (BASIC Instruction Manual, May 1964 (First Draft), p. 11):
+    <code>GO TO N</code>
+</p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">n</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>line number</td>
+      <td><code>[1, 99999]</code><span class="evm evm-manual" title="Stated by a source, not tested">M</span><br><small>Range of line numbers:</small> <code>1-99999</code> <small>(Dartmouth BASIC (1st edition))</small> <span class="tag warning">to verify</span><br><small>Range of line numbers:</small> <code>1-99999</code> <small>(Dartmouth BASIC (2nd edition))</small> <span class="tag warning">to verify</span><br><small>Range of line numbers:</small> <code>1-99999</code> <small>(Dartmouth BASIC (3rd edition))</small> <span class="tag warning">to verify</span><br><small>Range of line numbers:</small> <code>1-99999</code> <small>(Dartmouth BASIC (4th edition))</small> <span class="tag warning">to verify</span><br><small>Range of line numbers:</small> <code>1-99999</code> <small>(Dartmouth Card BASIC October 1964)</small> <span class="tag warning">to verify</span><br><small>missing line: error</small><br><small>otherwise <a href="../dialects/DARTMOUTH_BASIC_1.html#errors">error</a> <code>UNDEFINED NUMBER</code> (Dartmouth BASIC (1st edition))</small><br><small>otherwise <a href="../dialects/DARTMOUTH_BASIC_2.html#errors">error</a> <code>UNDEFINED NUMBER</code> (Dartmouth BASIC (2nd edition))</small><br><small>otherwise <a href="../dialects/DARTMOUTH_BASIC_3.html#errors">error</a> <code>UNDEFINED NUMBER</code> (Dartmouth BASIC (3rd edition))</small><br><small>otherwise <a href="../dialects/DARTMOUTH_BASIC_4.html#errors">error</a> <code>UNDEFINED LINE NUMBER</code> (Dartmouth BASIC (4th edition))</small><br><small>otherwise <a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors">error</a> <code>UNDEFINED NUMBER</code> (Dartmouth Card BASIC October 1964)</small></td>
+      <td>Line number: an integer of up to five digits, written as a number (not a formula).</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#FLOW_GOTO" class="action-code">FLOW_GOTO</a> Jump to a line
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Casio FX-700P BASIC</span>
+<a href="../entries/GOTO-100011.html">GOTO</a> <small>(Line)</small> <small>— Accepts an expression</small>; <a href="../entries/GOTO-100011.html">GOTO</a> <small>(Program area)</small> <span class="tag">partial</span> <small>— To the first line of program area P0-P9</small></li>
+      <li><span class="dia">Sinclair ZX80 BASIC 4K ROM</span>
+<a href="../entries/GO-TO-11.html">GO TO</a> <small>— Accepts an expression</small></li>
+    </ul>
+  </div>
+</section>
+
+<h2>Tables</h2>
+<ul class="entry-tables">
+  <li><a href="../dialects/DARTMOUTH_BASIC_1.html#program">Program in memory</a> <small>(Dartmouth BASIC (1st edition))</small>, <a href="../dialects/DARTMOUTH_BASIC_2.html#program">Program in memory</a> <small>(Dartmouth BASIC (2nd edition))</small>, <a href="../dialects/DARTMOUTH_BASIC_3.html#program">Program in memory</a> <small>(Dartmouth BASIC (3rd edition))</small>, <a href="../dialects/DARTMOUTH_BASIC_4.html#program">Program in memory</a> <small>(Dartmouth BASIC (4th edition))</small>, <a href="../dialects/DARTMOUTH_CARD_BASIC.html#program">Program in memory</a> <small>(Dartmouth Card BASIC October 1964)</small>      <small>— action FLOW_GOTO</small></li>
+</ul>
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_1.html#errors"><code>UNDEFINED_NUMBER</code></a> <small>(Dartmouth BASIC (1st edition))</small></td>
+      <td>GO TO or IF...THEN names a line number that does not exist. Shown in [1] p. 19. <small>Parameter: <code class="par">n</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_2.html#errors"><code>UNDEFINED_NUMBER</code></a> <small>(Dartmouth BASIC (2nd edition))</small></td>
+      <td>GO TO or IF...THEN names a line number that does not exist. Shown in [1] p. 19. <small>Parameter: <code class="par">n</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_3.html#errors"><code>UNDEFINED_NUMBER</code></a> <small>(Dartmouth BASIC (3rd edition))</small></td>
+      <td>GO TO or IF...THEN names a line number that does not exist. Shown in [1] p. 19. <small>Parameter: <code class="par">n</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>UNDEFINED_NUMBER</code></a> <small>(Dartmouth BASIC (4th edition))</small></td>
+      <td>A jump to a line that does not exist: <code>UNDEFINED LINE NUMBER 50 IN 20</code> [4] p. 31. <small>Parameter: <code class="par">n</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED_NUMBER</code></a> <small>(Dartmouth Card BASIC October 1964)</small></td>
+      <td>GO TO or IF...THEN names a line number that does not exist. Shown in [1] p. 19. <small>Parameter: <code class="par">n</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/GO-TO-200013.html">GO TO</a></td>
+      <td></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Back to an earlier line <span class="tag warning">to verify</span></h3>  <pre>10 READ X
+20 PRINT X, X↑2
+30 GO TO 10
+40 DATA 1, 2, 3
+99 END</pre>
+<pre class="output" title="Expected result">1             1
+2             4
+3             9</pre><figcaption>The program stops when the data are used up.
+</figcaption></figure>
+
+
+<h2>Related entries</h2>
+<ul><li>See also: <a href="../entries/IF-THEN-200012.html">IF...THEN</a></li><li>See also: <a href="../entries/ON-GO-TO-200084.html">ON...GO TO</a></li></ul>
+
+<h2>Sources</h2>
+<ul><li><a href="https://www.dartmouth.edu/basicfifty/basicmanual_1964.pdf">BASIC Instruction Manual, May 1964 (First Draft)</a>, John G. Kemeny, Thomas E. Kurtz (1964), p. 11</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (1st edition)">
+<a class="prev" rel="prev" href="../entries/FOR-TO-STEP-200009.html" title="Previous entry (←)">‹ <span>FOR...TO...STEP</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_1.html#entries">Dartmouth BASIC (1st edition) · 6 / 42</a>
+<a class="next" rel="next" href="../entries/GOSUB-200016.html" title="Next entry (→)"><span>GOSUB</span> ›</a></nav>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (2nd edition)">
+<a class="prev" rel="prev" href="../entries/FOR-TO-STEP-200043.html" title="Previous entry (←)">‹ <span>FOR...TO...STEP</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_2.html#entries">Dartmouth BASIC (2nd edition) · 6 / 49</a>
+<a class="next" rel="next" href="../entries/GOSUB-200016.html" title="Next entry (→)"><span>GOSUB</span> ›</a></nav>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (3rd edition)">
+<a class="prev" rel="prev" href="../entries/FOR-TO-STEP-200043.html" title="Previous entry (←)">‹ <span>FOR...TO...STEP</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_3.html#entries">Dartmouth BASIC (3rd edition) · 6 / 57</a>
+<a class="next" rel="next" href="../entries/GOSUB-200071.html" title="Next entry (→)"><span>GOSUB</span> ›</a></nav>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (4th edition)">
+<a class="prev" rel="prev" href="../entries/FOR-TO-STEP-200043.html" title="Previous entry (←)">‹ <span>FOR...TO...STEP</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_4.html#entries">Dartmouth BASIC (4th edition) · 9 / 69</a>
+<a class="next" rel="next" href="../entries/GOSUB-200071.html" title="Next entry (→)"><span>GOSUB</span> ›</a></nav>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth Card BASIC October 1964">
+<a class="prev" rel="prev" href="../entries/FOR-TO-STEP-200043.html" title="Previous entry (←)">‹ <span>FOR...TO...STEP</span></a>  <a class="where" href="../dialects/DARTMOUTH_CARD_BASIC.html#entries">Dartmouth Card BASIC October 1964 · 5 / 41</a>
+<a class="next" rel="next" href="../entries/GOSUB-200016.html" title="Next entry (→)"><span>GOSUB</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

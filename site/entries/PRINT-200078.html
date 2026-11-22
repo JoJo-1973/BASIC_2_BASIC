@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRINT · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (4th edition)">
+<a class="prev" rel="prev" href="../entries/ON-GO-TO-200084.html" title="Previous entry (←)">‹ <span>ON...GO TO</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_4.html#entries">20 / 69</a>
+<a class="next" rel="next" href="../entries/RANDOMIZE-200085.html" title="Next entry (→)"><span>RANDOMIZE</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/DARTMOUTH_BASIC_4.html#entries">Dartmouth BASIC (4th edition)</a> ›</p>
+<h1><span class="entry-name">PRINT</span> <span class="category">Statement</span></h1>
+<div class="subtitle md"><p>Types the values of formulas and labels on a line.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>DARTMOUTH_4ED_layer</code> — Dartmouth BASIC, 4th edition</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/DARTMOUTH_BASIC_4.html">Dartmouth BASIC (4th edition)</a></dd>
+</dl>
+
+<div class="box">
+<p>Redefines <a href="../entries/PRINT-200073.html">PRINT</a> of the previous layer.
+<br><strong>Differences:</strong> Strings and TAB(n).</p></div>
+
+<section class="form">
+  <h2>Syntax</h2>
+<div class="md"><p>',' moves to the next of five zones of 15 columns; ';' packs: a number is printed as its sign (minus or space), the digits and one space. A final ',' or ';' keeps the line open.</p></div>  <pre class="syntax"><span class="kw">PRINT</span> <span class="meta">[</span><span class="meta">&lt;</span><span class="par">label</span> <span class="meta">|</span> <span class="par">formula</span> <span class="meta">|</span> <span class="par">string</span> <span class="meta">|</span> <span class="kw">TAB</span><span class="lit">(</span><span class="par">n</span><span class="lit">)</span><span class="meta">&gt;</span> <span class="meta">[</span><span class="meta">&lt;</span><span class="lit">,</span> <span class="meta">|</span> <span class="lit">;</span><span class="meta">&gt;</span> <span class="meta">&lt;</span><span class="par">label</span> <span class="meta">|</span> <span class="par">formula</span> <span class="meta">|</span> <span class="par">string</span> <span class="meta">|</span> <span class="kw">TAB</span><span class="lit">(</span><span class="par">n</span><span class="lit">)</span><span class="meta">&gt;</span><span class="meta">]</span><span class="meta">...</span> <span class="meta">[</span><span class="lit">,</span> <span class="meta">|</span> <span class="lit">;</span><span class="meta">]</span><span class="meta">]</span></pre>
+  <p class="manual">In the manual (BASIC, 4th Edition (January 1968), p. 34, 38-42):
+    <code>PRINT</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">label</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>label</td>
+      <td></td>
+      <td>Text in quotes.</td>
+    </tr>
+    <tr>
+      <td><code class="par">formula</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>formula</td>
+      <td></td>
+      <td>Any formula.</td>
+    </tr>
+    <tr>
+      <td><code class="par">string</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>string value</td>
+      <td></td>
+      <td>A string variable or element.</td>
+    </tr>
+    <tr>
+      <td><code class="par">n</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>formula<br><small>truncated to integer</small></td>
+      <td></td>
+      <td>Column 0 to 74: integer part, taken modulo 75.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#IO_PRINT" class="action-code">IO_PRINT</a> Write to the screen
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Casio FX-700P BASIC</span>
+<a href="../entries/PRINT-100010.html">PRINT</a></li>
+      <li><span class="dia">Dartmouth BASIC (1st edition)</span>
+<a href="../entries/PRINT-200007.html">PRINT</a></li>
+      <li><span class="dia">Dartmouth BASIC (2nd edition)</span>
+<a href="../entries/PRINT-200054.html">PRINT</a></li>
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/PRINT-200073.html">PRINT</a></li>
+      <li><span class="dia">Dartmouth Card BASIC October 1964</span>
+<a href="../entries/PRINT-200120.html">PRINT</a></li>
+      <li><span class="dia">Sinclair ZX80 BASIC 4K ROM</span>
+<a href="../entries/PRINT-8.html">PRINT</a></li>
+    </ul>
+  </div>
+  <div class="action">
+    <p><a href="../actions.html#IO_POSITION" class="action-code">IO_POSITION</a> Output from a given position
+<small>— TAB(n)</small></p>
+    <ul class="equivalents">
+      <li><span class="dia">Casio FX-700P BASIC</span>
+<a href="../entries/PRINT-100010.html">PRINT</a> <small>— CSR n</small>; <a href="../entries/CSR-100025.html">CSR</a></li>
+    </ul>
+<p class="uncovered">No equivalent in: Dartmouth BASIC (1st edition), Dartmouth BASIC (2nd edition), Dartmouth BASIC (3rd edition), Dartmouth Card BASIC October 1964, Sinclair ZX80 BASIC 4K ROM</p>  </div>
+</section>
+
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL_FORMULA</code></a></td>
+      <td>The formula is not written correctly. <small>Parameters: <code class="par">formula</code>, <code class="par">n</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>UNDEFINED_FUNCTION</code></a></td>
+      <td>The formula uses an FN function that is never defined. <small>Parameters: <code class="par">formula</code>, <code class="par">n</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED_STRING</code></a></td>
+      <td>A string where a number is wanted. <small>Parameters: <code class="par">formula</code>, <code class="par">n</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED_STRING</code></a></td>
+      <td>A number where a string is wanted. <small>Parameter: <code class="par">string</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/PRINT-200007.html">PRINT</a></td>
+      <td></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/TAB-200064.html">TAB</a></td>
+      <td></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Columns <span class="tag warning">to verify</span></h3>  <pre>10 PRINT &#34;A&#34;; TAB(10); &#34;B&#34;
+20 END</pre>
+<pre class="output" title="Expected result">A         B</pre><figcaption>B in column 10.
+</figcaption></figure>
+
+<h2>Notes</h2>
+<div class="md"><p>Integers of more than eight digits are printed as <code>1.34218 E+8</code>; other numbers with up to six significant digits, below 0.1 in E form unless they fit in six decimal places [4] p. 41.</p></div><ul class="feature-notes">
+  <li><a href="../dialects/DARTMOUTH_BASIC_4.html#features">Width of the fixed tabulation zones</a>: <code>15 columns</code> <span class="tag warning">to verify</span></li>
+  <li><a href="../dialects/DARTMOUTH_BASIC_4.html#features">Variable tab stops</a>: <code>No</code> <span class="tag warning">to verify</span></li>
+</ul>
+<h2>Related entries</h2>
+<ul><li>See also: <a href="../entries/TAB-200092.html">TAB</a></li></ul>
+
+<h2>Sources</h2>
+<ul><li><a href="https://archive.org/stream/bitsavers_dartmouthB_3679804/BASIC_4th_Edition_Jan68_djvu.txt">BASIC, 4th Edition (January 1968)</a>, Dartmouth College (1968), p. 34, 38-42</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (4th edition)">
+<a class="prev" rel="prev" href="../entries/ON-GO-TO-200084.html" title="Previous entry (←)">‹ <span>ON...GO TO</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_4.html#entries">20 / 69</a>
+<a class="next" rel="next" href="../entries/RANDOMIZE-200085.html" title="Next entry (→)"><span>RANDOMIZE</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dartmouth BASIC (2nd edition) · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<p class="breadcrumbs"><a href="../index.html">Machines</a> ›
+<a href="../machines/GE235.html">General Electric GE-235</a> ›</p>
+<h1>Dartmouth BASIC (2nd edition)</h1>
+<p class="dialect-header">
+  <code>DARTMOUTH_BASIC_2</code>
+ · John G. Kemeny, Thomas E. Kurtz · 1964  · <a href="../machines/GE235.html">General Electric GE-235</a> (other)</p>
+<div class="md"><p>The October 1964 version. The same manual describes Card BASIC (batch, with MAT), entered as its own dialect.</p></div>
+<nav class="table-bar" aria-label="Dialect tables">
+  <a href="#layers" data-panel>Layers</a>
+  <a href="#keywords" data-panel>Keywords <small>51</small></a>
+<a href="#operators" data-panel>Operator precedence</a><a href="#types" data-panel>Data types</a><a href="#variables" data-panel>Variable types</a><a href="#parameters" data-panel>Parameter types</a><a href="#errors" data-panel>Errors</a><a href="#features" data-panel>Features</a><a href="#characters" data-panel>Character codes</a>  <a href="#tables" data-panel>All tables</a>
+  <a class="diagnostics" href="../dialects/DARTMOUTH_BASIC_2-diagnostics.html" title="What is incomplete or not proven">Diagnostics <small>521</small></a>
+</nav>
+
+<h2 id="entries">Entries <small>49</small></h2>
+<form class="filters" onsubmit="return false">
+  <label>Category
+    <select id="filter-category">
+      <option value="">All</option>
+<option value="STATEMENT">Statements (15)</option>
+<option value="COMMAND">Direct commands (11)</option>
+<option value="FUNCTION">Functions (11)</option>
+<option value="OPERATOR">Operators (12)</option>
+<option value="OPERATOR:ARITHMETIC">&nbsp;&nbsp;&nbsp;Arithmetic (5)</option><option value="OPERATOR:RELATIONAL">&nbsp;&nbsp;&nbsp;Relational (6)</option><option value="OPERATOR:GROUPING">&nbsp;&nbsp;&nbsp;Grouping (1)</option>    </select>
+  </label>
+  <label>Search
+    <input id="filter-text" type="search" placeholder="Name or description…">
+  </label>
+  <span class="count" id="count"></span>
+</form>
+<div id="entry-list">
+<section class="category-entries" data-category="STATEMENT">
+<h3>Statements</h3>
+  <table class="entries">
+  <tbody>
+  <tr data-text="DATA Numbers for READ, taken in the order of the DATA statements." data-entry="200045">
+    <td class="name"><a href="../entries/DATA-200045.html">DATA</a>
+<span class="tag">redefined</span></td>
+    <td>Numbers for READ, taken in the order of the DATA statements.</td>
+<td class="layer"><code>DARTMOUTH_2ED_layer</code></td>  </tr>
+  <tr data-text="DEF Defines a function FNA to FNZ with one argument." data-entry="200013">
+    <td class="name"><a href="../entries/DEF-200013.html">DEF</a>
+</td>
+    <td>Defines a function FNA to FNZ with one argument.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="DIM Gives lists and tables more elements than the default." data-entry="200018">
+    <td class="name"><a href="../entries/DIM-200018.html">DIM</a>
+</td>
+    <td>Gives lists and tables more elements than the default.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="END Last statement of every program: it must have the highest number." data-entry="200008">
+    <td class="name"><a href="../entries/END-200008.html">END</a>
+</td>
+    <td>Last statement of every program: it must have the highest number.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="FOR...TO...STEP Starts a loop: the variable goes from the first value to the second in steps of 1 or of the STEP value." data-entry="200043">
+    <td class="name"><a href="../entries/FOR-TO-STEP-200043.html">FOR...TO...STEP</a>
+<span class="tag">redefined</span></td>
+    <td>Starts a loop: the variable goes from the first value to the second in steps of 1 or of the STEP value.</td>
+<td class="layer"><code>DARTMOUTH_2ED_layer</code></td>  </tr>
+  <tr data-text="GO TO Jumps to a line." data-entry="200011">
+    <td class="name"><a href="../entries/GO-TO-200011.html">GO TO</a>
+</td>
+    <td>Jumps to a line.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="GOSUB Calls a subroutine: RETURN goes back to the statement after the GOSUB." data-entry="200016">
+    <td class="name"><a href="../entries/GOSUB-200016.html">GOSUB</a>
+</td>
+    <td>Calls a subroutine: RETURN goes back to the statement after the GOSUB.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="IF...THEN Jumps to a line if a relation between two formulas is true." data-entry="200012">
+    <td class="name"><a href="../entries/IF-THEN-200012.html">IF...THEN</a>
+</td>
+    <td>Jumps to a line if a relation between two formulas is true.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="LET Computes the value of a formula and gives it to a variable." data-entry="200006">
+    <td class="name"><a href="../entries/LET-200006.html">LET</a>
+</td>
+    <td>Computes the value of a formula and gives it to a variable.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="NEXT Ends the loop of the FOR with the same variable." data-entry="200044">
+    <td class="name"><a href="../entries/NEXT-200044.html">NEXT</a>
+<span class="tag">redefined</span></td>
+    <td>Ends the loop of the FOR with the same variable.</td>
+<td class="layer"><code>DARTMOUTH_2ED_layer</code></td>  </tr>
+  <tr data-text="PRINT Types the values of formulas and labels on a line." data-entry="200054">
+    <td class="name"><a href="../entries/PRINT-200054.html">PRINT</a>
+<span class="tag">redefined</span></td>
+    <td>Types the values of formulas and labels on a line.</td>
+<td class="layer"><code>DARTMOUTH_2ED_layer</code></td>  </tr>
+  <tr data-text="READ Gives the variables the next numbers of the DATA statements." data-entry="200014">
+    <td class="name"><a href="../entries/READ-200014.html">READ</a>
+</td>
+    <td>Gives the variables the next numbers of the DATA statements.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="REM Remark: does nothing." data-entry="200019">
+    <td class="name"><a href="../entries/REM-200019.html">REM</a>
+</td>
+    <td>Remark: does nothing.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="RETURN Goes back to the statement after the last GOSUB." data-entry="200017">
+    <td class="name"><a href="../entries/RETURN-200017.html">RETURN</a>
+</td>
+    <td>Goes back to the statement after the last GOSUB.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="STOP Stops the program." data-entry="200053">
+    <td class="name"><a href="../entries/STOP-200053.html">STOP</a>
+</td>
+    <td>Stops the program.</td>
+<td class="layer"><code>DARTMOUTH_2ED_layer</code></td>  </tr>
+  </tbody>
+</table>
+
+</section>
+<section class="category-entries" data-category="COMMAND">
+<h3>Direct commands</h3>
+  <table class="entries">
+  <tbody>
+  <tr data-text="CATALOG Lists the saved programs of the user." data-entry="200050">
+    <td class="name"><a href="../entries/CATALOG-200050.html">CATALOG</a>
+</td>
+    <td>Lists the saved programs of the user.</td>
+<td class="layer"><code>DARTMOUTH_2ED_layer</code></td>  </tr>
+  <tr data-text="HELLO Starts a session: the system asks for the user number, the problem name, the system and whether the program is new or old." data-entry="200001">
+    <td class="name"><a href="../entries/HELLO-200001.html">HELLO</a>
+</td>
+    <td>Starts a session: the system asks for the user number, the problem name, the system and whether the program is new or old.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="LIST Types the current version of the program." data-entry="200052">
+    <td class="name"><a href="../entries/LIST-200052.html">LIST</a>
+<span class="tag">redefined</span></td>
+    <td>Types the current version of the program.</td>
+<td class="layer"><code>DARTMOUTH_2ED_layer</code></td>  </tr>
+  <tr data-text="NEW Erases the current program and asks for a new problem name." data-entry="200046">
+    <td class="name"><a href="../entries/NEW-200046.html">NEW</a>
+</td>
+    <td>Erases the current program and asks for a new problem name.</td>
+<td class="layer"><code>DARTMOUTH_2ED_layer</code></td>  </tr>
+  <tr data-text="OLD Brings back a saved program." data-entry="200047">
+    <td class="name"><a href="../entries/OLD-200047.html">OLD</a>
+</td>
+    <td>Brings back a saved program.</td>
+<td class="layer"><code>DARTMOUTH_2ED_layer</code></td>  </tr>
+  <tr data-text="RENAME Gives the current program a new problem name without erasing it." data-entry="200049">
+    <td class="name"><a href="../entries/RENAME-200049.html">RENAME</a>
+</td>
+    <td>Gives the current program a new problem name without erasing it.</td>
+<td class="layer"><code>DARTMOUTH_2ED_layer</code></td>  </tr>
+  <tr data-text="RUN Compiles and runs the program." data-entry="200002">
+    <td class="name"><a href="../entries/RUN-200002.html">RUN</a>
+</td>
+    <td>Compiles and runs the program.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="SAVE Keeps the program on the disk, under its problem name." data-entry="200004">
+    <td class="name"><a href="../entries/SAVE-200004.html">SAVE</a>
+</td>
+    <td>Keeps the program on the disk, under its problem name.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="SCRATCH Erases the current program but keeps its problem name." data-entry="200048">
+    <td class="name"><a href="../entries/SCRATCH-200048.html">SCRATCH</a>
+</td>
+    <td>Erases the current program but keeps its problem name.</td>
+<td class="layer"><code>DARTMOUTH_2ED_layer</code></td>  </tr>
+  <tr data-text="STOP Stops whatever is going on, even while the Teletype is typing at full speed." data-entry="200005">
+    <td class="name"><a href="../entries/STOP-200005.html">STOP</a>
+</td>
+    <td>Stops whatever is going on, even while the Teletype is typing at full speed.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="UNSAVE Deletes the saved program from the disk." data-entry="200051">
+    <td class="name"><a href="../entries/UNSAVE-200051.html">UNSAVE</a>
+</td>
+    <td>Deletes the saved program from the disk.</td>
+<td class="layer"><code>DARTMOUTH_2ED_layer</code></td>  </tr>
+  </tbody>
+</table>
+
+</section>
+<section class="category-entries" data-category="FUNCTION">
+<h3>Functions</h3>
+  <table class="entries">
+  <tbody>
+  <tr data-text="ABS Absolute value." data-entry="200027">
+    <td class="name"><a href="../entries/ABS-200027.html">ABS</a>
+</td>
+    <td>Absolute value.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="ATN Arc tangent, in radians." data-entry="200023">
+    <td class="name"><a href="../entries/ATN-200023.html">ATN</a>
+</td>
+    <td>Arc tangent, in radians.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="COS Cosine; the argument is in radians." data-entry="200021">
+    <td class="name"><a href="../entries/COS-200021.html">COS</a>
+</td>
+    <td>Cosine; the argument is in radians.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="EXP e raised to the argument." data-entry="200024">
+    <td class="name"><a href="../entries/EXP-200024.html">EXP</a>
+</td>
+    <td>e raised to the argument.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="FN Calls a function defined with DEF." data-entry="200030">
+    <td class="name"><a href="../entries/FN-200030.html">FN</a>
+</td>
+    <td>Calls a function defined with DEF.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="INT Integer part, truncated towards zero." data-entry="200029">
+    <td class="name"><a href="../entries/INT-200029.html">INT</a>
+</td>
+    <td>Integer part, truncated towards zero.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="LOG Natural logarithm." data-entry="200025">
+    <td class="name"><a href="../entries/LOG-200025.html">LOG</a>
+</td>
+    <td>Natural logarithm.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="RND Random number between 0 and 1." data-entry="200028">
+    <td class="name"><a href="../entries/RND-200028.html">RND</a>
+</td>
+    <td>Random number between 0 and 1.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="SIN Sine; the argument is in radians." data-entry="200020">
+    <td class="name"><a href="../entries/SIN-200020.html">SIN</a>
+</td>
+    <td>Sine; the argument is in radians.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="SQR Square root of the absolute value of the argument." data-entry="200026">
+    <td class="name"><a href="../entries/SQR-200026.html">SQR</a>
+</td>
+    <td>Square root of the absolute value of the argument.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="TAN Tangent; the argument is in radians." data-entry="200022">
+    <td class="name"><a href="../entries/TAN-200022.html">TAN</a>
+</td>
+    <td>Tangent; the argument is in radians.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  </tbody>
+</table>
+
+</section>
+<section class="category-entries" data-category="OPERATOR">
+<h3>Operators</h3>
+  <div class="subgroup" data-class="ARITHMETIC">
+    <h4 title="+, -, *, /, power, change of sign">Arithmetic</h4>
+    <table class="entries" data-class="ARITHMETIC">
+  <tbody>
+  <tr data-text="* Multiplication; it must always be written." data-entry="200033">
+    <td class="name"><a href="../entries/star-200033.html">*</a>
+</td>
+    <td>Multiplication; it must always be written.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="+ Addition." data-entry="200035">
+    <td class="name"><a href="../entries/plus-200035.html">+</a>
+</td>
+    <td>Addition.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="- Change of sign and subtraction." data-entry="200032">
+    <td class="name"><a href="../entries/minus-200032.html">-</a>
+</td>
+    <td>Change of sign and subtraction.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="/ Division." data-entry="200034">
+    <td class="name"><a href="../entries/slash-200034.html">/</a>
+</td>
+    <td>Division.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="↑ Raise to a power, of the absolute value of the base." data-entry="200031">
+    <td class="name"><a href="../entries/x-200031.html">↑</a>
+</td>
+    <td>Raise to a power, of the absolute value of the base.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  </tbody>
+</table>
+
+  </div>
+  <div class="subgroup" data-class="RELATIONAL">
+    <h4 title="Comparisons: =, &lt;, &gt;, &lt;=, &gt;=, &lt;&gt;">Relational</h4>
+    <table class="entries" data-class="RELATIONAL">
+  <tbody>
+  <tr data-text="&lt; Less than: only in the relation of IF...THEN." data-entry="200041">
+    <td class="name"><a href="../entries/lt-200041.html">&lt;</a>
+</td>
+    <td>Less than: only in the relation of IF...THEN.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="&lt;= Less than or equal: only in the relation of IF...THEN." data-entry="200042">
+    <td class="name"><a href="../entries/lt-eq-200042.html">&lt;=</a>
+</td>
+    <td>Less than or equal: only in the relation of IF...THEN.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="&lt;&gt; Not equal: only in the relation of IF...THEN." data-entry="200038">
+    <td class="name"><a href="../entries/lt-gt-200038.html">&lt;&gt;</a>
+</td>
+    <td>Not equal: only in the relation of IF...THEN.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="= Equal: only in the relation of IF...THEN." data-entry="200037">
+    <td class="name"><a href="../entries/eq-200037.html">=</a>
+</td>
+    <td>Equal: only in the relation of IF...THEN.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="&gt; Greater than: only in the relation of IF...THEN." data-entry="200039">
+    <td class="name"><a href="../entries/gt-200039.html">&gt;</a>
+</td>
+    <td>Greater than: only in the relation of IF...THEN.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  <tr data-text="&gt;= Greater than or equal: only in the relation of IF...THEN." data-entry="200040">
+    <td class="name"><a href="../entries/gt-eq-200040.html">&gt;=</a>
+</td>
+    <td>Greater than or equal: only in the relation of IF...THEN.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  </tbody>
+</table>
+
+  </div>
+  <div class="subgroup" data-class="GROUPING">
+    <h4 title="Parentheses">Grouping</h4>
+    <table class="entries" data-class="GROUPING">
+  <tbody>
+  <tr data-text="( ) Parentheses: the formula inside is computed first." data-entry="200036">
+    <td class="name"><a href="../entries/lparen-rparen-200036.html">( )</a>
+</td>
+    <td>Parentheses: the formula inside is computed first.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td>  </tr>
+  </tbody>
+</table>
+
+  </div>
+</section>
+</div>
+
+<dialog class="panel" id="layers" aria-labelledby="layers-title">
+  <header><h2 id="layers-title">Layers</h2><button type="button" class="close" aria-label="Close">✕</button></header>
+  <div class="panel-body"><ol class="stack">
+  <li class="layer"><span class="pos">2</span>
+    <strong>Dartmouth BASIC, 2nd edition</strong> <code>DARTMOUTH_2ED_layer</code></li>
+  <li class="core"><span class="pos">1</span>
+    <strong>Dartmouth BASIC, 1st edition</strong> <code>DARTMOUTH_1ED_core</code></li>
+</ol>
+<p class="note">Each layer adds, redefines or removes entries of the layers below it; the topmost layer wins.</p>
+</div>
+</dialog>
+
+<dialog class="panel" id="keywords" aria-labelledby="keywords-title">
+  <header><h2 id="keywords-title">Keywords</h2><button type="button" class="close" aria-label="Close">✕</button></header>
+  <div class="panel-body"><table>
+  <thead><tr><th>Keyword</th><th>Abbreviation</th>
+<th>Token</th><th>Layer</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/star-200036.html">*</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/plus-200034.html">+</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/minus-200035.html">-</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/slash-200037.html">/</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/semicolon-200051.html">;</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_2ED_layer</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/lt-200040.html">&lt;</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/lt-eq-200041.html">&lt;=</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/lt-gt-200044.html">&lt;&gt;</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/eq-200039.html">=</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/gt-200042.html">&gt;</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/gt-eq-200043.html">&gt;=</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/ABS-200031.html">ABS</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/ATN-200027.html">ATN</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/CATALOG-200049.html">CATALOG</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_2ED_layer</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/COS-200025.html">COS</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/DATA-200019.html">DATA</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/DEF-200016.html">DEF</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/DIM-200022.html">DIM</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/END-200008.html">END</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/EXP-200028.html">EXP</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/FN-200017.html">FN</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/FOR-200009.html">FOR</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/GO-TO-200013.html">GO TO</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/GOSUB-200020.html">GOSUB</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/HELLO-200001.html">HELLO</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/IF-200014.html">IF</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/INT-200033.html">INT</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/LET-200006.html">LET</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/LIST-200003.html">LIST</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/LOG-200029.html">LOG</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/NEW-200045.html">NEW</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_2ED_layer</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/NEXT-200012.html">NEXT</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/OLD-200046.html">OLD</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_2ED_layer</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/PRINT-200007.html">PRINT</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/READ-200018.html">READ</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/REM-200023.html">REM</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/RENAME-200048.html">RENAME</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_2ED_layer</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/RETURN-200021.html">RETURN</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/RND-200032.html">RND</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/RUN-200002.html">RUN</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/SAVE-200004.html">SAVE</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/SCRATCH-200047.html">SCRATCH</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_2ED_layer</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/SIN-200024.html">SIN</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/SQR-200030.html">SQR</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/STEP-200011.html">STEP</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/STOP-200005.html">STOP</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/TAN-200026.html">TAN</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/THEN-200015.html">THEN</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/TO-200010.html">TO</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/UNSAVE-200050.html">UNSAVE</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_2ED_layer</code></td></tr>
+  <tr><td><a class="kw" href="../keywords/x-200038.html">↑</a></td>
+      <td></td>
+<td></td><td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  </tbody>
+</table>
+</div>
+</dialog>
+
+<dialog class="panel" id="operators" aria-labelledby="operators-title">
+  <header><h2 id="operators-title">Operator precedence</h2><button type="button" class="close" aria-label="Close">✕</button></header>
+  <div class="panel-body"><table class="operators">
+  <thead><tr><th class="num">Order</th><th>Operators</th><th class="num">Precedence</th><th>Associativity</th></tr></thead>
+  <tbody>
+  <tr><td class="num">1</td>
+      <td><a class="op" href="../entries/minus-200032.html">-</a> <small>change of sign</small></td>
+      <td class="num">5</td>
+      <td></td></tr>
+  <tr><td class="num">2</td>
+      <td><a class="op" href="../entries/x-200031.html">↑</a></td>
+      <td class="num">4</td>
+      <td>left to right</td></tr>
+  <tr><td class="num">3</td>
+      <td><a class="op" href="../entries/star-200033.html">*</a><span class="sep"> </span><a class="op" href="../entries/slash-200034.html">/</a></td>
+      <td class="num">3</td>
+      <td>left to right</td></tr>
+  <tr><td class="num">4</td>
+      <td><a class="op" href="../entries/minus-200032.html">-</a> <small>subtraction</small><span class="sep"> </span><a class="op" href="../entries/plus-200035.html">+</a></td>
+      <td class="num">2</td>
+      <td>left to right</td></tr>
+  <tr><td class="num">5</td>
+      <td><a class="op" href="../entries/eq-200037.html">=</a><span class="sep"> </span><a class="op" href="../entries/lt-gt-200038.html">&lt;&gt;</a><span class="sep"> </span><a class="op" href="../entries/gt-200039.html">&gt;</a><span class="sep"> </span><a class="op" href="../entries/gt-eq-200040.html">&gt;=</a><span class="sep"> </span><a class="op" href="../entries/lt-200041.html">&lt;</a><span class="sep"> </span><a class="op" href="../entries/lt-eq-200042.html">&lt;=</a></td>
+      <td class="num">1</td>
+      <td></td></tr>
+  </tbody>
+</table>
+<p class="note">From top to bottom: the operators at the top are evaluated first. The precedence is the number used by the manual.</p>
+</div>
+</dialog>
+
+<dialog class="panel" id="types" aria-labelledby="types-title">
+  <header><h2 id="types-title">Data types</h2><button type="button" class="close" aria-label="Close">✕</button></header>
+  <div class="panel-body"><table>
+  <thead><tr><th>Type</th><th>Suffix</th><th>Family</th><th>Range</th><th>Precision</th><th class="num">Bytes</th><th>Notes</th></tr></thead>
+  <tbody>
+  <tr><td>Number</td><td></td>
+      <td>real</td>
+      <td class="nowrap">[-5.7896e+76, 5.7896e+76]</td>
+      <td>9 digits</td><td class="num"></td><td>Floating point on the GE-225/235: about 30 bits of mantissa (the manual says up to 9 digits, "the limit of accuracy of the computer"), binary exponent from -256 to 255 (source [6]), so magnitudes from about 4.31809E-78 to 5.78960E76 (the limits printed in the GE manual [3], p. 37). A constant has up to 9 digits, a decimal point and a minus sign, and can be followed by E and a power of ten: <code>5E1</code>, <code>2.39E-12</code> [1] p. 5.</td></tr>
+  </tbody>
+</table>
+</div>
+</dialog>
+
+<dialog class="panel" id="variables" aria-labelledby="variables-title">
+  <header><h2 id="variables-title">Variable types</h2><button type="button" class="close" aria-label="Close">✕</button></header>
+  <div class="panel-body"><table>
+  <thead><tr><th>Variable type</th><th>Data type</th><th class="num">Dimensions</th><th>Name</th><th>Maximum length</th><th>Significant characters</th><th>Examples</th><th>Notes</th></tr></thead>
+  <tbody>
+  <tr><td>Variable</td><td>Number</td><td class="num">0</td>
+      <td>one letter, or one letter followed by one digit</td>
+      <td>2</td>
+      <td>all</td>
+      <td><code>A, X, N5, X0, K9</code></td>
+      <td>286 names. Only capital letters exist on the Teletype [1] p. 5. The manual does not say what an unassigned variable holds; Kurtz [9] says that variables were first set to zero in the 4th edition.</td></tr>
+  <tr><td>List</td><td>Number</td><td class="num">1</td>
+      <td>one letter followed by a subscript in parentheses</td>
+      <td>1</td>
+      <td>all</td>
+      <td><code>A(5), B(I+1)</code></td>
+      <td>Subscripts from <strong>0</strong> to 10 without DIM; DIM sets other upper limits. A letter can be a simple variable and a list at the same time, not a list and a table [2] pp. 36-38. Up to 1500 elements in all lists and tables.</td></tr>
+  <tr><td>Table</td><td>Number</td><td class="num">2</td>
+      <td>one letter followed by two subscripts in parentheses</td>
+      <td>1</td>
+      <td>all</td>
+      <td><code>B(0,0), M(I,J)</code></td>
+      <td>Subscripts from 0 to 10 in each dimension without DIM [2] p. 37.</td></tr>
+  </tbody>
+</table>
+</div>
+</dialog>
+
+<dialog class="panel" id="parameters" aria-labelledby="parameters-title">
+  <header><h2 id="parameters-title">Parameter types</h2><button type="button" class="close" aria-label="Close">✕</button></header>
+  <div class="panel-body"><table>
+  <thead><tr><th>Parameter type</th><th>Nature</th><th>Of</th><th>Notes</th></tr></thead>
+  <tbody>
+  <tr><td>Number</td><td>literal</td>
+      <td>numeric</td>
+      <td>Up to 9 digits, decimal point, sign, E and exponent.</td></tr>
+  <tr><td>Line number</td><td>literal</td>
+      <td>integer</td>
+      <td>1 to 99999, written as digits.</td></tr>
+  <tr><td>Label</td><td>literal</td>
+      <td>string</td>
+      <td>Text in quotes, printed as it is.</td></tr>
+  <tr><td>Function letter</td><td>literal</td>
+      <td>string</td>
+      <td>One letter A-Z, written right after FN: FNA to FNZ.</td></tr>
+  <tr><td>Formula</td><td>expression</td>
+      <td>numeric</td>
+      <td>Numbers, variables, list and table elements, functions and the operators + - * / ↑, with parentheses.</td></tr>
+  <tr><td>Variable</td><td>variable</td>
+      <td>variable</td>
+      <td></td></tr>
+  <tr><td>List element</td><td>array element</td>
+      <td>list</td>
+      <td>E.g. A(I).</td></tr>
+  <tr><td>Table element</td><td>array element</td>
+      <td>table</td>
+      <td>E.g. B(I,J).</td></tr>
+  <tr><td>Variable or element</td><td>variable</td>
+      <td>any</td>
+      <td>A variable or an element of a list or table.</td></tr>
+  <tr><td>List or table name</td><td>array name</td>
+      <td>any</td>
+      <td>One letter.</td></tr>
+  <tr><td>Relation</td><td>condition</td>
+      <td>numeric</td>
+      <td>Two formulas joined by one relation: = &lt; &lt;= &gt; &gt;= &lt;&gt;. Only after IF; it produces no value.</td></tr>
+  <tr><td>Remark</td><td>free text</td>
+      <td></td>
+      <td>Any text up to the end of the line.</td></tr>
+  </tbody>
+</table>
+</div>
+</dialog>
+
+<dialog class="panel" id="errors" aria-labelledby="errors-title">
+  <header><h2 id="errors-title">Error messages</h2><button type="button" class="close" aria-label="Close">✕</button></header>
+  <div class="panel-body"><div class="md"><p>Printed with the line number: <code>ILLEGAL FORMULA IN 30</code> [1] p. 19 (some messages without it, e.g. <code>NO DATA</code>). The May manual shows five messages; the others are from [2].</p></div><div class="md"><p>Appendix A of [2] pp. 53-54 (22 messages, found while compiling: the program does not run, checked on DTSS-Win with <code>ILLEGAL FORMULA IN 20</code>); printed with the line number: <code>INCORRECT FORMAT IN 5</code> [2] p. 24. The compiler of February 1965 (DTSS-Win) also has run-time messages that do <strong>not</strong> stop the program: <code>SQUARE ROOT OF NEGATIVE NUMBER IN 20</code> is printed and the run goes on. Limits behind them, appendix B p. 55: about two feet of Teletype paper of program, 175 constants and printed labels, 300 data numbers, printed labels slightly under 600 characters in all, 26 FOR, 80 GO TO and IF-THEN, 1500 list and table elements.</p></div><table>
+  <thead><tr><th class="num">No.</th><th>Message</th><th>Description</th></tr></thead>
+  <tbody>
+  <tr id="err-CUT_PROGRAM_OR_DIMS"><td class="num"></td>
+      <td class="nowrap"><code>CUT PROGRAM OR DIMS</code></td><td>The program and the arrays do not fit together. From [2] (the same message in [3] and [4]).</td></tr>
+  <tr id="err-DIMENSION_TOO_LARGE"><td class="num"></td>
+      <td class="nowrap"><code>DIMENSION TOO LARGE</code></td><td>From [2].</td></tr>
+  <tr id="err-END_NOT_LAST"><td class="num"></td>
+      <td class="nowrap"><code>END IS NOT LAST</code></td><td>A statement has a number greater than END (also two END statements). Shown in [1] p. 19.</td></tr>
+  <tr id="err-FOR_WITHOUT_NEXT"><td class="num"></td>
+      <td class="nowrap"><code>FOR WITHOUT NEXT</code></td><td>From [2].</td></tr>
+  <tr id="err-ILLEGAL_CONSTANT"><td class="num"></td>
+      <td class="nowrap"><code>ILLEGAL CONSTANT</code></td><td>More than nine digits, or a number of the wrong form. From [2].</td></tr>
+  <tr id="err-ILLEGAL_FORMULA"><td class="num"></td>
+      <td class="nowrap"><code>ILLEGAL FORMULA</code></td><td>The commonest error: missing parentheses, illegal variable names, missing multiplication signs, illegal numbers. Shown in [1] p. 19.</td></tr>
+  <tr id="err-ILLEGAL_INSTRUCTION"><td class="num"></td>
+      <td class="nowrap"><code>ILLEGAL INSTRUCTION</code></td><td>The word after the line number is not a statement. From [2].</td></tr>
+  <tr id="err-ILLEGAL_LINE_NUMBER"><td class="num"></td>
+      <td class="nowrap"><code>ILLEGAL LINE NUMBER</code></td><td>A line number of the wrong form or of more than five digits. From [2].</td></tr>
+  <tr id="err-ILLEGAL_RELATION"><td class="num"></td>
+      <td class="nowrap"><code>ILLEGAL RELATION</code></td><td>The relation of an IF...THEN is wrong. From [2].</td></tr>
+  <tr id="err-ILLEGAL_RETURN"><td class="num"></td>
+      <td class="nowrap"><code>ILLEGAL RETURN</code></td><td>RETURN before any GOSUB. From [2].</td></tr>
+  <tr id="err-ILLEGAL_VARIABLE"><td class="num"></td>
+      <td class="nowrap"><code>ILLEGAL VARIABLE</code></td><td>From [2].</td></tr>
+  <tr id="err-INCORRECT_FORMAT"><td class="num"></td>
+      <td class="nowrap"><code>INCORRECT FORMAT</code></td><td>The form of the statement is wrong, especially IF...THEN and FOR. Shown in [1] p. 19.</td></tr>
+  <tr id="err-NOT_MATCH_WITH_FOR"><td class="num"></td>
+      <td class="nowrap"><code>NOT MATCH WITH FOR</code></td><td>NEXT with the wrong variable, or loops not nested properly. From [2].</td></tr>
+  <tr id="err-NO_DATA"><td class="num"></td>
+      <td class="nowrap"><code>NO DATA</code></td><td>The program has READ but no DATA statement. Shown in [1] p. 19.</td></tr>
+  <tr id="err-NO_END"><td class="num"></td>
+      <td class="nowrap"><code>NO END INSTRUCTION</code></td><td>From [2].</td></tr>
+  <tr id="err-PROGRAM_TOO_LONG"><td class="num"></td>
+      <td class="nowrap"><code>PROGRAM TOO LONG</code></td><td>From [2].</td></tr>
+  <tr id="err-SUBSCRIPT_ERROR"><td class="num"></td>
+      <td class="nowrap"><code>SUBSCRIPT ERROR</code></td><td>A subscript outside the range given by DIM, or outside the default range without DIM. From [2].</td></tr>
+  <tr id="err-TOO_MANY_LABELS"><td class="num"></td>
+      <td class="nowrap"><code>TOO MANY LABELS</code></td><td>The labels to print are too long altogether. From [2].</td></tr>
+  <tr id="err-TOO_MANY_LOOPS"><td class="num"></td>
+      <td class="nowrap"><code>TOO MANY LOOPS</code></td><td>More than 26 FOR loops. From [2].</td></tr>
+  <tr id="err-TOO_MUCH_DATA"><td class="num"></td>
+      <td class="nowrap"><code>TOO MUCH DATA</code></td><td>From [2].</td></tr>
+  <tr id="err-UNDEFINED_FUNCTION"><td class="num"></td>
+      <td class="nowrap"><code>UNDEFINED FUNCTION</code></td><td>A function FN is used but never defined with DEF. From [2].</td></tr>
+  <tr id="err-UNDEFINED_NUMBER"><td class="num"></td>
+      <td class="nowrap"><code>UNDEFINED NUMBER</code></td><td>GO TO or IF...THEN names a line number that does not exist. Shown in [1] p. 19.</td></tr>
+  </tbody>
+</table>
+</div>
+</dialog>
+
+<dialog class="panel" id="features" aria-labelledby="features-title">
+  <header><h2 id="features-title">Features</h2><button type="button" class="close" aria-label="Close">✕</button></header>
+  <div class="panel-body"><p>12 to verify.</p><table class="features">
+  <tbody>
+  <tr><th colspan="4">Program lines and statements</th></tr>
+  <tr id="feature-LINE_NUMBERS"><td>Range of line numbers</td>
+      <td><code>1-99999</code> <span class="tag warning">to verify</span></td>
+      <td>Called instruction numbers; statements are run in the order of their numbers, whatever the order they were typed in [1] p. 4. A line with the number of an existing one replaces it; a number alone deletes the line [1] p. 19.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr id="feature-MULTIPLE_STATEMENTS"><td>Multiple statements per line</td>
+      <td><code>No</code> <span class="tag warning">to verify</span></td>
+      <td>One statement per line.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr id="feature-STATEMENT_SEPARATOR"><td>Statement separator</td>
+      <td><code>None</code> <span class="tag warning">to verify</span></td>
+      <td></td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr id="feature-LET"><td>LET keyword</td>
+      <td><code>Mandatory</code> <span class="tag warning">to verify</span></td>
+      <td>Every assignment starts with LET: <code>10 A=5*5</code> is not a statement (source [5]).</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  </tbody>
+  <tbody>
+  <tr><th colspan="4">Truth values</th></tr>
+  <tr id="feature-TRUE_VALUE"><td>Value produced by a true comparison</td>
+      <td><code>None</code> <span class="tag warning">to verify</span></td>
+      <td>Relations can only be written in IF...THEN: they produce no value.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr id="feature-FALSE_VALUE"><td>Value produced by a false comparison</td>
+      <td><code>None</code> <span class="tag warning">to verify</span></td>
+      <td>Relations can only be written in IF...THEN: they produce no value.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  <tr id="feature-TRUTH_TEST"><td>How a value used as a condition is read</td>
+      <td><code>Relation only</code> <span class="tag warning">to verify</span></td>
+      <td>IF needs a relation between two formulas; a formula alone is not a condition.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  </tbody>
+  <tbody>
+  <tr><th colspan="4">Numbers</th></tr>
+  <tr id="feature-INTEGER_CONVERSION"><td>Conversion of non-integer values to integers</td>
+      <td><code>Not stated</code> <span class="tag warning">to verify</span></td>
+      <td>The manuals do not say what happens to a subscript that is not an integer. INT truncates towards zero (see INT).</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  </tbody>
+  <tbody>
+  <tr><th colspan="4">FOR loops</th></tr>
+  <tr id="feature-FOR_RUNS_ONCE"><td>The body of a FOR loop is always executed at least once</td>
+      <td><code>No</code></td>
+      <td>A loop whose start is already past the final value runs zero times; the variable is then left at the first value minus one step: after <code>FOR Z = 2 TO -2</code> Z is 1 [2] p. 30. Checked on DTSS-Win (compiler of February 1965).</td>
+<td class="layer"><code>DARTMOUTH_2ED_layer</code></td></tr>
+  <tr id="feature-FOR_VARIABLE_CHANGEABLE"><td>The loop variable can be changed inside the loop</td>
+      <td><code>Not stated</code> <span class="tag warning">to verify</span></td>
+      <td></td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  </tbody>
+  <tbody>
+  <tr><th colspan="4">Keyboard</th></tr>
+  <tr id="feature-MODAL_KEYBOARD"><td>Modal keyboard for entering keywords</td>
+      <td><code>No</code> <span class="tag warning">to verify</span></td>
+      <td>Teletype keyboard: everything is typed letter by letter.</td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  </tbody>
+  <tbody>
+  <tr><th colspan="4">Screen output</th></tr>
+  <tr id="feature-TAB_ZONE_WIDTH"><td>Width of the fixed tabulation zones</td>
+      <td><code>15 columns</code> <span class="tag warning">to verify</span></td>
+      <td>Five zones of 15 characters on a 75-character line [2] p. 31.</td>
+<td class="layer"><code>DARTMOUTH_2ED_layer</code></td></tr>
+  <tr id="feature-VARIABLE_TAB_STOPS"><td>Variable tab stops</td>
+      <td><code>No</code> <span class="tag warning">to verify</span></td>
+      <td></td>
+<td class="layer"><code>DARTMOUTH_1ED_core</code></td></tr>
+  </tbody>
+</table>
+</div>
+</dialog>
+
+
+<dialog class="panel" id="characters" aria-labelledby="characters-title">
+  <header><h2 id="characters-title">Character codes</h2><button type="button" class="close" aria-label="Close">✕</button></header>
+  <div class="panel-body"><h3>Teletype ASR-33, US print head (reconstruction) (us) <small>General Electric GE-235 · 24×24 pixels</small></h3>
+<div class="md note"><p>Reconstruction: the ASR-33 printed with a type cylinder, so these bitmaps are rasterized from the TrueType font "TeleType ASR 33 UK" (c) 2015 David Bonham, drawn from photographs of Teletype listings. 64 glyphs, codes 32-95 of ASCII-1963, no lower case.</p></div><div class="scroll">
+<table class="glyphs" data-width="24" data-height="24">
+  <thead><tr><th></th><th>_0</th><th>_1</th><th>_2</th><th>_3</th><th>_4</th><th>_5</th><th>_6</th><th>_7</th><th>_8</th><th>_9</th><th>_A</th><th>_B</th><th>_C</th><th>_D</th><th>_E</th><th>_F</th></tr></thead>
+  <tbody>
+  <tr><th>0_</th>
+    <td class="g-unused ev-inferred" title="0 ($00) — not used — inferred, not tested">
+      <span class="code-num">0</span>
+    </td>
+    <td class="g-unused ev-inferred" title="1 ($01) — not used — inferred, not tested">
+      <span class="code-num">1</span>
+    </td>
+    <td class="g-unused ev-inferred" title="2 ($02) — not used — inferred, not tested">
+      <span class="code-num">2</span>
+    </td>
+    <td class="g-unused ev-inferred" title="3 ($03) — not used — inferred, not tested">
+      <span class="code-num">3</span>
+    </td>
+    <td class="g-control ev-inferred" title="4 ($04) — EOT — control: End of transmission — inferred, not tested">
+<span class="token">EOT</span>
+      <span class="code-num">4</span>
+    </td>
+    <td class="g-unused ev-inferred" title="5 ($05) — not used — inferred, not tested">
+      <span class="code-num">5</span>
+    </td>
+    <td class="g-unused ev-inferred" title="6 ($06) — not used — inferred, not tested">
+      <span class="code-num">6</span>
+    </td>
+    <td class="g-control ev-inferred" title="7 ($07) — BELL — control: Rings the bell of the Teletype — inferred, not tested">
+<span class="token">BELL</span>
+      <span class="code-num">7</span>
+    </td>
+    <td class="g-unused ev-inferred" title="8 ($08) — not used — inferred, not tested">
+      <span class="code-num">8</span>
+    </td>
+    <td class="g-unused ev-inferred" title="9 ($09) — not used — inferred, not tested">
+      <span class="code-num">9</span>
+    </td>
+    <td class="g-control ev-inferred" title="10 ($0A) — LF — control: Line feed — inferred, not tested">
+<span class="token">LF</span>
+      <span class="code-num">10</span>
+    </td>
+    <td class="g-unused ev-inferred" title="11 ($0B) — not used — inferred, not tested">
+      <span class="code-num">11</span>
+    </td>
+    <td class="g-unused ev-inferred" title="12 ($0C) — not used — inferred, not tested">
+      <span class="code-num">12</span>
+    </td>
+    <td class="g-control ev-inferred" title="13 ($0D) — CR — control: Carriage return — inferred, not tested">
+<span class="token">CR</span>
+      <span class="code-num">13</span>
+    </td>
+    <td class="g-unused ev-inferred" title="14 ($0E) — not used — inferred, not tested">
+      <span class="code-num">14</span>
+    </td>
+    <td class="g-unused ev-inferred" title="15 ($0F) — not used — inferred, not tested">
+      <span class="code-num">15</span>
+    </td>
+  </tr>
+  <tr><th>1_</th>
+    <td class="g-unused ev-inferred" title="16 ($10) — not used — inferred, not tested">
+      <span class="code-num">16</span>
+    </td>
+    <td class="g-unused ev-inferred" title="17 ($11) — not used — inferred, not tested">
+      <span class="code-num">17</span>
+    </td>
+    <td class="g-unused ev-inferred" title="18 ($12) — not used — inferred, not tested">
+      <span class="code-num">18</span>
+    </td>
+    <td class="g-unused ev-inferred" title="19 ($13) — not used — inferred, not tested">
+      <span class="code-num">19</span>
+    </td>
+    <td class="g-unused ev-inferred" title="20 ($14) — not used — inferred, not tested">
+      <span class="code-num">20</span>
+    </td>
+    <td class="g-unused ev-inferred" title="21 ($15) — not used — inferred, not tested">
+      <span class="code-num">21</span>
+    </td>
+    <td class="g-unused ev-inferred" title="22 ($16) — not used — inferred, not tested">
+      <span class="code-num">22</span>
+    </td>
+    <td class="g-unused ev-inferred" title="23 ($17) — not used — inferred, not tested">
+      <span class="code-num">23</span>
+    </td>
+    <td class="g-unused ev-inferred" title="24 ($18) — not used — inferred, not tested">
+      <span class="code-num">24</span>
+    </td>
+    <td class="g-unused ev-inferred" title="25 ($19) — not used — inferred, not tested">
+      <span class="code-num">25</span>
+    </td>
+    <td class="g-unused ev-inferred" title="26 ($1A) — not used — inferred, not tested">
+      <span class="code-num">26</span>
+    </td>
+    <td class="g-unused ev-inferred" title="27 ($1B) — not used — inferred, not tested">
+      <span class="code-num">27</span>
+    </td>
+    <td class="g-unused ev-inferred" title="28 ($1C) — not used — inferred, not tested">
+      <span class="code-num">28</span>
+    </td>
+    <td class="g-unused ev-inferred" title="29 ($1D) — not used — inferred, not tested">
+      <span class="code-num">29</span>
+    </td>
+    <td class="g-unused ev-inferred" title="30 ($1E) — not used — inferred, not tested">
+      <span class="code-num">30</span>
+    </td>
+    <td class="g-unused ev-inferred" title="31 ($1F) — not used — inferred, not tested">
+      <span class="code-num">31</span>
+    </td>
+  </tr>
+  <tr><th>2_</th>
+    <td class="g-printable ev-inferred" title="32 ($20) — Space — screen code 32 — U+0020 SPACE — inferred, not tested">
+<canvas data-b="000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"></canvas>      <span class="code-num">32</span>
+    </td>
+    <td class="g-printable ev-inferred" title="33 ($21) — screen code 33 — U+0021 EXCLAMATION MARK — inferred, not tested">
+<canvas data-b="000000000000003C00007E00007E00007E00007C00007C00003C00007E00007C00007C00007C00003C00003800001800003C00007E00007E00007E00007C00003C00000000000000"></canvas>      <span class="code-num">33</span>
+    </td>
+    <td class="g-printable ev-inferred" title="34 ($22) — screen code 34 — U+0022 QUOTATION MARK — inferred, not tested">
+<canvas data-b="00000000000001C1C007E7C007C3E007C3C003C7C003C3C003C7C003C180018100000000000000000000000000000000000000000000000000000000000000000000000000000000"></canvas>      <span class="code-num">34</span>
+    </td>
+    <td class="g-printable ev-inferred" title="35 ($23) — screen code 35 — U+0023 NUMBER SIGN — inferred, not tested">
+<canvas data-b="000000000000000000001CC0001DC000198000398000198000338001FFE0007F8000670003FF8007FF8003FF0001CC0003DC00039C0003FC00033800011000000000000000000000"></canvas>      <span class="code-num">35</span>
+    </td>
+    <td class="g-printable ev-inferred" title="36 ($24) — screen code 36 — U+0024 DOLLAR SIGN — inferred, not tested">
+<canvas data-b="000000000000003C0000FF0003FF8007FBC003B8C007380007B80003F80001FC0000FF80003F800039E00038E00038E00038E00639E007FFC007FF8001FE00001C00000000000000"></canvas>      <span class="code-num">36</span>
+    </td>
+    <td class="g-printable ev-inferred" title="37 ($25) — screen code 37 — U+0025 PERCENT SIGN — inferred, not tested">
+<canvas data-b="000000000000027B8003FFC007F7800621800E33000F770007F60003DE00001C00001C000038000070000073C000EFE001EEE001CE7003CEF003CFE0038FE0020280000000000000"></canvas>      <span class="code-num">37</span>
+    </td>
+    <td class="g-printable ev-inferred" title="38 ($26) — screen code 38 — U+0026 AMPERSAND — inferred, not tested">
+<canvas data-b="000000000000001C00003F00007F80007380007380007380007700007F0000FE0001FC0007F86007DCF0071FF00707C00F9F8007DFC007FFF003FDF000F060008000000000000000"></canvas>      <span class="code-num">38</span>
+    </td>
+    <td class="g-printable ev-inferred" title="39 ($27) — screen code 39 — U+0027 APOSTROPHE — inferred, not tested">
+<canvas data-b="000000000000001800007E00007E00007E00007E00003E00003C00003C00001C00000C00000000000000000000000000000000000000000000000000000000000000000000000000"></canvas>      <span class="code-num">39</span>
+    </td>
+    <td class="g-printable ev-inferred" title="40 ($28) — screen code 40 — U+0028 LEFT PARENTHESIS — inferred, not tested">
+<canvas data-b="000000000000000200001F00001F00003E0000380000700000700000E00000E00000E00000E00000F00000F000007800007C00003F00003F00001F00000E00000200000000000000"></canvas>      <span class="code-num">40</span>
+    </td>
+    <td class="g-printable ev-inferred" title="41 ($29) — screen code 41 — U+0029 RIGHT PARENTHESIS — inferred, not tested">
+<canvas data-b="00000000000000E00000F000007800003C00001E00001E00000E00000700000700000700000700000F00000F00000E00001E00003E00007C0000F80001F00000C000000000000000"></canvas>      <span class="code-num">41</span>
+    </td>
+    <td class="g-printable ev-inferred" title="42 ($2A) — screen code 42 — U+002A ASTERISK — inferred, not tested">
+<canvas data-b="0000000000000000000000000018000038000018000718E007D9E003FFE001FF80007F0000FF8007FFE007DBE00718E0003C00003800003800000000000000000000000000000000"></canvas>      <span class="code-num">42</span>
+    </td>
+    <td class="g-printable ev-inferred" title="43 ($2B) — screen code 43 — U+002B PLUS SIGN — inferred, not tested">
+<canvas data-b="000000000000000000000000000000003800003C00003C00007C0001FC0007FFF00FFFF007FFF0007C00003C00003C00007C00003C00003000000000000000000000000000000000"></canvas>      <span class="code-num">43</span>
+    </td>
+    <td class="g-printable ev-inferred" title="44 ($2C) — screen code 44 — U+002C COMMA — inferred, not tested">
+<canvas data-b="000000000000000000000000000000000000000000000000000000000000000000000000000400001F00001F80000F80000F00001F0000FF0000FE0001F80000F000000000000000"></canvas>      <span class="code-num">44</span>
+    </td>
+    <td class="g-printable ev-inferred" title="45 ($2D) — screen code 45 — U+002D HYPHEN-MINUS — inferred, not tested">
+<canvas data-b="00000000000000000000000000000000000000000000000000000003FFE007FFE00FFFF007FFF003FFE0010000000000000000000000000000000000000000000000000000000000"></canvas>      <span class="code-num">45</span>
+    </td>
+    <td class="g-printable ev-inferred" title="46 ($2E) — screen code 46 — U+002E FULL STOP — inferred, not tested">
+<canvas data-b="000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000003C00003E00003E00003C00001C00000000000000000000000000"></canvas>      <span class="code-num">46</span>
+    </td>
+    <td class="g-printable ev-inferred" title="47 ($2F) — screen code 47 — U+002F SOLIDUS — inferred, not tested">
+<canvas data-b="0000000000000000400000E00001E00003E00003C0000780000F80001F00001E00003E00007C0000F80000F00001F00003E00003E00007C000078000070000030000000000000000"></canvas>      <span class="code-num">47</span>
+    </td>
+  </tr>
+  <tr><th>3_</th>
+    <td class="g-printable ev-inferred" title="48 ($30) — screen code 48 — U+0030 DIGIT ZERO — inferred, not tested">
+<canvas data-b="000000000000007E0000FF0001FF8001E78003C78001C78001C38001C38001C38001C38001C38001838001C78001C78001C3C001C3C001FF8001FF00007E00001800000000000000"></canvas>      <span class="code-num">48</span>
+    </td>
+    <td class="g-printable ev-inferred" title="49 ($31) — screen code 49 — U+0031 DIGIT ONE — inferred, not tested">
+<canvas data-b="000000000000001800003C00007E00007C00003C00001C00003C00001C00001C00001C00003C00003C00003C00003C00003C00003C00007E00007F0000FF00007E00000000000000"></canvas>      <span class="code-num">49</span>
+    </td>
+    <td class="g-printable ev-inferred" title="50 ($32) — screen code 50 — U+0032 DIGIT TWO — inferred, not tested">
+<canvas data-b="00000000000000180000FE0001FF8003C7C00781C00701C00601E00701E00001E00003C0003F8000FF0001F00003C0000380000700E007FFE007FFE003FFE0013900000000000000"></canvas>      <span class="code-num">50</span>
+    </td>
+    <td class="g-printable ev-inferred" title="51 ($33) — screen code 51 — U+0033 DIGIT THREE — inferred, not tested">
+<canvas data-b="000000000000007E0000FF8001FFC003C3C00380C00000C00001C00003C00007C00007800007C00001E00001E00300E00780E00781E007FFC003FFC000FF80003C00000000000000"></canvas>      <span class="code-num">51</span>
+    </td>
+    <td class="g-printable ev-inferred" title="52 ($34) — screen code 52 — U+0034 DIGIT FOUR — inferred, not tested">
+<canvas data-b="000000000000001800003C000038000038C00079E000F1E000F0E001E1E003C1E003C1E00780E00F81E00FC1E00FFFF00FFFF80FEBE00003F00007F00003F0000060000000000000"></canvas>      <span class="code-num">52</span>
+    </td>
+    <td class="g-printable ev-inferred" title="53 ($35) — screen code 53 — U+0035 DIGIT FIVE — inferred, not tested">
+<canvas data-b="000000000000007F8001FFC003FFC003800003000003000003880003FF0003FF800397C00003C00001E00001E00000E00601E00703C007FFC003FF8003FF00007E00000000000000"></canvas>      <span class="code-num">53</span>
+    </td>
+    <td class="g-printable ev-inferred" title="54 ($36) — screen code 54 — U+0036 DIGIT SIX — inferred, not tested">
+<canvas data-b="000000000000000E00003E00007E0000F80001E00001C00003800003FF0007FF8007C7C00781C00700E00700E00700E00700E00381C003F7C001FF8000FF00004E00000000000000"></canvas>      <span class="code-num">54</span>
+    </td>
+    <td class="g-printable ev-inferred" title="55 ($37) — screen code 55 — U+0037 DIGIT SEVEN — inferred, not tested">
+<canvas data-b="00000000000003FFC003FFE007FFC00783C00703C0020780000780000F00000F00000E00001E00001C00001C00003C00003800003800003800007800003800003000000000000000"></canvas>      <span class="code-num">55</span>
+    </td>
+    <td class="g-printable ev-inferred" title="56 ($38) — screen code 56 — U+0038 DIGIT EIGHT — inferred, not tested">
+<canvas data-b="00000000000000FC0001FEC003FFC00381C00703C007038007078003CF0003FF0001FF8003B7C00781C00700E00700E00700E00781E003FFC003FFC001FF80007E00000000000000"></canvas>      <span class="code-num">56</span>
+    </td>
+    <td class="g-printable ev-inferred" title="57 ($39) — screen code 57 — U+0039 DIGIT NINE — inferred, not tested">
+<canvas data-b="000000000000007C0001FF0003FF8003D3C00781C00700E00700E00700E00301E00383E001FFC001FFE0007FC0000380000F80001F00003F0000FC0001F80000E000000000000000"></canvas>      <span class="code-num">57</span>
+    </td>
+    <td class="g-printable ev-inferred" title="58 ($3A) — screen code 58 — U+003A COLON — inferred, not tested">
+<canvas data-b="000000000000000000000000000000000000003C00007E00007E00007E00007E00003C00000000000000001800003E00007E00007E00007E00007C00003800000000000000000000"></canvas>      <span class="code-num">58</span>
+    </td>
+    <td class="g-printable ev-inferred" title="59 ($3B) — screen code 59 — U+003B SEMICOLON — inferred, not tested">
+<canvas data-b="000000000000000000001E00001F00003F00003F80003F00001E00000C00000000001E00003F00003F00003F00001F00003E0000FC0001FC0001F000008000000000000000000000"></canvas>      <span class="code-num">59</span>
+    </td>
+    <td class="g-printable ev-inferred" title="60 ($3C) — screen code 60 — U+003C LESS-THAN SIGN — inferred, not tested">
+<canvas data-b="0000000000000000000000000000600000F0000FF0007FE001FF4007FC000FC0000F80000FF00003FE0000FF80001FF00003F00001E0000000000000000000000000000000000000"></canvas>      <span class="code-num">60</span>
+    </td>
+    <td class="g-printable ev-inferred" title="61 ($3D) — screen code 61 — U+003D EQUALS SIGN — inferred, not tested">
+<canvas data-b="00000000000000000000000000000000000000000000000003FFC003FFC00001800000000136C003FFC003FFC0000000000000000000000000000000000000000000000000000000"></canvas>      <span class="code-num">61</span>
+    </td>
+    <td class="g-printable ev-inferred" title="62 ($3E) — screen code 62 — U+003E GREATER-THAN SIGN — inferred, not tested">
+<canvas data-b="00000000000000000000000000000003800003E00003F80001FF00007F80001FC00007E0000FE0001FC000FF0003FC0003F00003E000018000000000000000000000000000000000"></canvas>      <span class="code-num">62</span>
+    </td>
+    <td class="g-printable ev-inferred" title="63 ($3F) — screen code 63 — U+003F QUESTION MARK — inferred, not tested">
+<canvas data-b="00000000000000300000FE0001FF8003FFC003C3C00381C00103C0000780000FC0001F80001F00001C00001C00001800000000001000003E00003E00003E00003C00000000000000"></canvas>      <span class="code-num">63</span>
+    </td>
+  </tr>
+  <tr><th>4_</th>
+    <td class="g-printable ev-inferred" title="64 ($40) — screen code 64 — U+0040 COMMERCIAL AT — inferred, not tested">
+<canvas data-b="000000000000003C0000FF0001FF8003C3C00301C0031CC0073EE007FFE006F7E00667C006C7E007E7E007FFC0077FC0071C0003810003C78001FF8000FF00007C00000000000000"></canvas>      <span class="code-num">64</span>
+    </td>
+    <td class="g-printable ev-inferred" title="65 ($41) — screen code 65 — U+0041 LATIN CAPITAL LETTER A — inferred, not tested">
+<canvas data-b="000000000000001000003800003C00007E0000EE0000E70001C3000183800181800183C00301C00301C007FFC007FFE0071BE00700E00700F00F81F01F83F80F01F0000000000000"></canvas>      <span class="code-num">65</span>
+    </td>
+    <td class="g-printable ev-inferred" title="66 ($42) — screen code 66 — U+0042 LATIN CAPITAL LETTER B — inferred, not tested">
+<canvas data-b="0000000000000300000FFF800FFFE00788E00300700380700380700380F003B1E003FFE003FFE00383F00300700300780380700700700F41F00FFFE00FFFC00FFF80000000000000"></canvas>      <span class="code-num">66</span>
+    </td>
+    <td class="g-printable ev-inferred" title="67 ($43) — screen code 67 — U+0043 LATIN CAPITAL LETTER C — inferred, not tested">
+<canvas data-b="000000000000000C0000FFC001FFC003C3E00381E00300E00700000700000700000700000700000700000700400780E00781E00381E003E7C001FF8000FF80007E00000000000000"></canvas>      <span class="code-num">67</span>
+    </td>
+    <td class="g-printable ev-inferred" title="68 ($44) — screen code 68 — U+0044 LATIN CAPITAL LETTER D — inferred, not tested">
+<canvas data-b="00000000000001DE000FFF800FFF800701E00701E00700600380700700700380700380700380700380700380700380700780E00783E007FFC00FFF800FFF0007E000000000000000"></canvas>      <span class="code-num">68</span>
+    </td>
+    <td class="g-printable ev-inferred" title="69 ($45) — screen code 69 — U+0045 LATIN CAPITAL LETTER E — inferred, not tested">
+<canvas data-b="00000000000007FFC00FFFE00FDFF00300F0038060038000038800039E0003FE0003FE0003DE00038E000384000380200380700380700FFFF00FFFF00FFFE0020080000000000000"></canvas>      <span class="code-num">69</span>
+    </td>
+    <td class="g-printable ev-inferred" title="70 ($46) — screen code 70 — U+0046 LATIN CAPITAL LETTER F — inferred, not tested">
+<canvas data-b="0000000000000FFFC00FFFF00FFFF00F80F0078060038000038C0003BE0003FE0003FE0003FE00039E000784000380000380000780000FC0000FC0000FC000058000000000000000"></canvas>      <span class="code-num">70</span>
+    </td>
+    <td class="g-printable ev-inferred" title="71 ($47) — screen code 71 — U+0047 LATIN CAPITAL LETTER G — inferred, not tested">
+<canvas data-b="000000000000003F8000FFC001FFC001C3C00381C00300C00300000700000701000307C0030FE00707E00700E00780E00781E00381E003E7E001FFE000FFE0007EC0000000000000"></canvas>      <span class="code-num">71</span>
+    </td>
+    <td class="g-printable ev-inferred" title="72 ($48) — screen code 72 — U+0048 LATIN CAPITAL LETTER H — inferred, not tested">
+<canvas data-b="0000000000000F81F01F83F81F83F80781F00700E00781E007C1E0037FE007FFE003FFE007F7E00781E00781E00781E00781E00781F00FC3F01FC3F81F81F00700F0000000000000"></canvas>      <span class="code-num">72</span>
+    </td>
+    <td class="g-printable ev-inferred" title="73 ($49) — screen code 73 — U+0049 LATIN CAPITAL LETTER I — inferred, not tested">
+<canvas data-b="000000000000007F0000FF0001FF0000FE00003C00003800003800003800003C00003800003800003800003C00003C00003C00007C0000FF0001FF8001FF8000FF00000000000000"></canvas>      <span class="code-num">73</span>
+    </td>
+    <td class="g-printable ev-inferred" title="74 ($4A) — screen code 74 — U+004A LATIN CAPITAL LETTER J — inferred, not tested">
+<canvas data-b="0000000000000001000003E00003F00003E00001C00001C00001C00001C00000C00000C00381C00781C007C1C007C1C00741C007C7C007FFC001FF00007C00000800000000000000"></canvas>      <span class="code-num">74</span>
+    </td>
+    <td class="g-printable ev-inferred" title="75 ($4B) — screen code 75 — U+004B LATIN CAPITAL LETTER K — inferred, not tested">
+<canvas data-b="0000000000000681E00F83F00F83F00303C0030780038F80030E00031E0003BE0003FE0003F70003C7000387000387800383C00703E00F83F00FC3F00783F0010060000000000000"></canvas>      <span class="code-num">75</span>
+    </td>
+    <td class="g-printable ev-inferred" title="76 ($4C) — screen code 76 — U+004C LATIN CAPITAL LETTER L — inferred, not tested">
+<canvas data-b="0000000000000FC0000FC00007C00007800003800003800003800003800003800003C00003800003800003800003807003C07807FFF00FFFF01FFFF007FFF0000000000000000000"></canvas>      <span class="code-num">76</span>
+    </td>
+    <td class="g-printable ev-inferred" title="77 ($4D) — screen code 77 — U+004D LATIN CAPITAL LETTER M — inferred, not tested">
+<canvas data-b="0000000000000A00000E00F00F01F00F83E00F83E007C7E00EE7E00EEFE00E7EE00E7CE00E3C600E3C600E1CE00E08E00600E00F00E00F01E01FC3F81F83F80601E0000000000000"></canvas>      <span class="code-num">77</span>
+    </td>
+    <td class="g-printable ev-inferred" title="78 ($4E) — screen code 78 — U+004E LATIN CAPITAL LETTER N — inferred, not tested">
+<canvas data-b="0000000000000F00D00F83F00FC1F007E0F007E0E007F07006F8F00778F00738F0061CF0071CF0061EF0071EF0070FE00707F00787E00FC3E00FC3E00FC1C0000000000000000000"></canvas>      <span class="code-num">78</span>
+    </td>
+    <td class="g-printable ev-inferred" title="79 ($4F) — screen code 79 — U+004F LATIN CAPITAL LETTER O — inferred, not tested">
+<canvas data-b="00000000000001FF8003FFC007AFE00700E00600600200E00700E00700E00600E00780E00700E00700E00780E00700E00700E00700E00799E003FFE003FFC001FF80000000000000"></canvas>      <span class="code-num">79</span>
+    </td>
+  </tr>
+  <tr><th>5_</th>
+    <td class="g-printable ev-inferred" title="80 ($50) — screen code 80 — U+0050 LATIN CAPITAL LETTER P — inferred, not tested">
+<canvas data-b="00000000000007FE000FFFC00FFFE00FFFF00F01F00300F00380700380F80381F003A7F001FFC003FFC003A7000380000780000700000F80000FC0000FC000068000000000000000"></canvas>      <span class="code-num">80</span>
+    </td>
+    <td class="g-printable ev-inferred" title="81 ($51) — screen code 81 — U+0051 LATIN CAPITAL LETTER Q — inferred, not tested">
+<canvas data-b="000000000000007C0000FF0001FF800387C00701C00701C00601C00601C00E01E00600E00600E00E79E00678E0063DE0061FC0078FC003EFC003FFF001FFF0003FE0000000000000"></canvas>      <span class="code-num">81</span>
+    </td>
+    <td class="g-printable ev-inferred" title="82 ($52) — screen code 82 — U+0052 LATIN CAPITAL LETTER R — inferred, not tested">
+<canvas data-b="0000000000000C00000FFF000FFF000FFFC00701C00300E00300E00301E00307C003FF8003FF0003DF000303000303000301800301C00781E00F81F00F81F8020020000000000000"></canvas>      <span class="code-num">82</span>
+    </td>
+    <td class="g-printable ev-inferred" title="83 ($53) — screen code 83 — U+0053 LATIN CAPITAL LETTER S — inferred, not tested">
+<canvas data-b="00000000000000180000FF8001FFC003C7C003818003800003800003C00001FC0000FF00003F800003C00001C00000E00000E00301C007FFC007FF8007FF00023C00000000000000"></canvas>      <span class="code-num">83</span>
+    </td>
+    <td class="g-printable ev-inferred" title="84 ($54) — screen code 84 — U+0054 LATIN CAPITAL LETTER T — inferred, not tested">
+<canvas data-b="00000000000003FAC007FFE00FFFE00FFFF00E3CF0063860003C00001C00001800001800003800003800003800003800003800003800007E0000FE0000FE00003000000000000000"></canvas>      <span class="code-num">84</span>
+    </td>
+    <td class="g-printable ev-inferred" title="85 ($55) — screen code 85 — U+0055 LATIN CAPITAL LETTER U — inferred, not tested">
+<canvas data-b="0000000000000F00F01FC3F80F81F80701F00700E00700E00700E00700E00700E00700E00700E00700E00700E00700E00780E00380C003F7C001FF8001FF00003000000000000000"></canvas>      <span class="code-num">85</span>
+    </td>
+    <td class="g-printable ev-inferred" title="86 ($56) — screen code 86 — U+0056 LATIN CAPITAL LETTER V — inferred, not tested">
+<canvas data-b="0000000000000700E00FC3F81FC3F807C1F80380E00380E00380E00380E00381E003C1C001C3C001E3C001F7C000E78000FF80007F00007F00007E00003C00001800000000000000"></canvas>      <span class="code-num">86</span>
+    </td>
+    <td class="g-printable ev-inferred" title="87 ($57) — screen code 87 — U+0057 LATIN CAPITAL LETTER W — inferred, not tested">
+<canvas data-b="0000000000000000600F81F00FC3F80F81F00700E00700E00701E00710E00711C00339C0033CC003FDC003FFC003FFC001FFC001EF8001FF8001EF8000E700004200000000000000"></canvas>      <span class="code-num">87</span>
+    </td>
+    <td class="g-printable ev-inferred" title="88 ($58) — screen code 88 — U+0058 LATIN CAPITAL LETTER X — inferred, not tested">
+<canvas data-b="0000000000000F81E00F81F80F81F001C1C001E38000E78000F600001E00001C00003C00003E00007E0000E70000C3800183800381C00F00E00F81F01F81F00501F0000000000000"></canvas>      <span class="code-num">88</span>
+    </td>
+    <td class="g-printable ev-inferred" title="89 ($59) — screen code 89 — U+0059 LATIN CAPITAL LETTER Y — inferred, not tested">
+<canvas data-b="0000000000000400C00F81F01F83F80F83F00783E003C3C001E78000FF0000FF00007E00003C00003C00001C00003C00001C00001800003C00007E00007E00003E00000000000000"></canvas>      <span class="code-num">89</span>
+    </td>
+    <td class="g-printable ev-inferred" title="90 ($5A) — screen code 90 — U+005A LATIN CAPITAL LETTER Z — inferred, not tested">
+<canvas data-b="000000000000001F8003FF8007FF8007FF80070780021F00001E00003C0000780000700000E00001C00001C0000380200780E00781E007FFF007FFF007FFE00753C0000000000000"></canvas>      <span class="code-num">90</span>
+    </td>
+    <td class="g-printable ev-inferred" title="91 ($5B) — screen code 91 — U+005B LEFT SQUARE BRACKET — inferred, not tested">
+<canvas data-b="00000000000000380000FF0000FF0001FE0000E00000E00000E00000E00000E00000E00000E00001E00000E00001E00000E00001E00000FF0000FF8000FF00003C00000000000000"></canvas>      <span class="code-num">91</span>
+    </td>
+    <td class="g-printable ev-inferred" title="92 ($5C) — screen code 92 — U+005C REVERSE SOLIDUS — inferred, not tested">
+<canvas data-b="00000000000003000007800007800003C00003C00001E00001F00000F800007800007C00003E00001F00000F000007800007C00007E00003E00001E00000E0000000000000000000"></canvas>      <span class="code-num">92</span>
+    </td>
+    <td class="g-printable ev-inferred" title="93 ($5D) — screen code 93 — U+005D RIGHT SQUARE BRACKET — inferred, not tested">
+<canvas data-b="00000000000000FE0000FF0000FF80006F00000780000700000700000700000780000700000700000700000700000700000700000700007F0001FF0000FF0000EE00000000000000"></canvas>      <span class="code-num">93</span>
+    </td>
+    <td class="g-printable ev-inferred" title="94 ($5E) — Up arrow — screen code 94 — U+2191 UPWARDS ARROW — inferred, not tested">
+<canvas data-b="000000000000000000001000003C00007E0000FF8001FF0000FF00003D00003C00003C00003C00001C00003C00003C00003C00001C00000800000000000000000000000000000000"></canvas>      <span class="code-num">94</span>
+    </td>
+    <td class="g-printable ev-inferred" title="95 ($5F) — Back arrow — screen code 95 — U+2190 LEFTWARDS ARROW — inferred, not tested">
+<canvas data-b="00000000000000000000000000000000000000000000000001C00003E00007FFC007FFE003FFE003E08001C000004000000000000000000000000000000000000000000000000000"></canvas>      <span class="code-num">95</span>
+    </td>
+  </tr>
+  <tr><th>6_</th>
+    <td class="g-unused ev-inferred" title="96 ($60) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">96</span>
+    </td>
+    <td class="g-unused ev-inferred" title="97 ($61) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">97</span>
+    </td>
+    <td class="g-unused ev-inferred" title="98 ($62) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">98</span>
+    </td>
+    <td class="g-unused ev-inferred" title="99 ($63) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">99</span>
+    </td>
+    <td class="g-unused ev-inferred" title="100 ($64) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">100</span>
+    </td>
+    <td class="g-unused ev-inferred" title="101 ($65) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">101</span>
+    </td>
+    <td class="g-unused ev-inferred" title="102 ($66) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">102</span>
+    </td>
+    <td class="g-unused ev-inferred" title="103 ($67) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">103</span>
+    </td>
+    <td class="g-unused ev-inferred" title="104 ($68) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">104</span>
+    </td>
+    <td class="g-unused ev-inferred" title="105 ($69) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">105</span>
+    </td>
+    <td class="g-unused ev-inferred" title="106 ($6A) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">106</span>
+    </td>
+    <td class="g-unused ev-inferred" title="107 ($6B) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">107</span>
+    </td>
+    <td class="g-unused ev-inferred" title="108 ($6C) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">108</span>
+    </td>
+    <td class="g-unused ev-inferred" title="109 ($6D) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">109</span>
+    </td>
+    <td class="g-unused ev-inferred" title="110 ($6E) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">110</span>
+    </td>
+    <td class="g-unused ev-inferred" title="111 ($6F) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">111</span>
+    </td>
+  </tr>
+  <tr><th>7_</th>
+    <td class="g-unused ev-inferred" title="112 ($70) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">112</span>
+    </td>
+    <td class="g-unused ev-inferred" title="113 ($71) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">113</span>
+    </td>
+    <td class="g-unused ev-inferred" title="114 ($72) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">114</span>
+    </td>
+    <td class="g-unused ev-inferred" title="115 ($73) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">115</span>
+    </td>
+    <td class="g-unused ev-inferred" title="116 ($74) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">116</span>
+    </td>
+    <td class="g-unused ev-inferred" title="117 ($75) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">117</span>
+    </td>
+    <td class="g-unused ev-inferred" title="118 ($76) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">118</span>
+    </td>
+    <td class="g-unused ev-inferred" title="119 ($77) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">119</span>
+    </td>
+    <td class="g-unused ev-inferred" title="120 ($78) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">120</span>
+    </td>
+    <td class="g-unused ev-inferred" title="121 ($79) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">121</span>
+    </td>
+    <td class="g-unused ev-inferred" title="122 ($7A) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">122</span>
+    </td>
+    <td class="g-unused ev-inferred" title="123 ($7B) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">123</span>
+    </td>
+    <td class="g-unused ev-inferred" title="124 ($7C) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">124</span>
+    </td>
+    <td class="g-unused ev-inferred" title="125 ($7D) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">125</span>
+    </td>
+    <td class="g-unused ev-inferred" title="126 ($7E) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">126</span>
+    </td>
+    <td class="g-control ev-inferred" title="127 ($7F) — RUB-OUT — control: Tape use only — inferred, not tested">
+<span class="token">RUB-OUT</span>
+      <span class="code-num">127</span>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</div>
+<p class="note legend"><span class="g-unused swatch-g"></span> not used (what it prints, if anything) ·
+  <span class="g-token swatch-g"></span> token: shown as its keyword ·
+  <span class="g-control swatch-g"></span> control code ·
+  <span class="swatch-g corner-manual"></span> from the manual, not tested ·
+  <span class="swatch-g corner-inferred"></span> inferred, not tested ·
+  hover over a character for the details.</p>
+<h3>Teletype ASR-33, UK print head (reconstruction) (uk) <small>General Electric GE-235 · 24×24 pixels</small></h3>
+<div class="md note"><p>Variant of the US set: the pound sign in place of $ (code 36); the other glyphs are inherited. Reconstruction from the same font, made for the ICL 2903 emulator, which imitates an ASR-33 with a UK print head.</p></div><div class="scroll">
+<table class="glyphs" data-width="24" data-height="24">
+  <thead><tr><th></th><th>_0</th><th>_1</th><th>_2</th><th>_3</th><th>_4</th><th>_5</th><th>_6</th><th>_7</th><th>_8</th><th>_9</th><th>_A</th><th>_B</th><th>_C</th><th>_D</th><th>_E</th><th>_F</th></tr></thead>
+  <tbody>
+  <tr><th>0_</th>
+    <td class="g-unused ev-inferred" title="0 ($00) — not used — inferred, not tested">
+      <span class="code-num">0</span>
+    </td>
+    <td class="g-unused ev-inferred" title="1 ($01) — not used — inferred, not tested">
+      <span class="code-num">1</span>
+    </td>
+    <td class="g-unused ev-inferred" title="2 ($02) — not used — inferred, not tested">
+      <span class="code-num">2</span>
+    </td>
+    <td class="g-unused ev-inferred" title="3 ($03) — not used — inferred, not tested">
+      <span class="code-num">3</span>
+    </td>
+    <td class="g-control ev-inferred" title="4 ($04) — EOT — control: End of transmission — inferred, not tested">
+<span class="token">EOT</span>
+      <span class="code-num">4</span>
+    </td>
+    <td class="g-unused ev-inferred" title="5 ($05) — not used — inferred, not tested">
+      <span class="code-num">5</span>
+    </td>
+    <td class="g-unused ev-inferred" title="6 ($06) — not used — inferred, not tested">
+      <span class="code-num">6</span>
+    </td>
+    <td class="g-control ev-inferred" title="7 ($07) — BELL — control: Rings the bell of the Teletype — inferred, not tested">
+<span class="token">BELL</span>
+      <span class="code-num">7</span>
+    </td>
+    <td class="g-unused ev-inferred" title="8 ($08) — not used — inferred, not tested">
+      <span class="code-num">8</span>
+    </td>
+    <td class="g-unused ev-inferred" title="9 ($09) — not used — inferred, not tested">
+      <span class="code-num">9</span>
+    </td>
+    <td class="g-control ev-inferred" title="10 ($0A) — LF — control: Line feed — inferred, not tested">
+<span class="token">LF</span>
+      <span class="code-num">10</span>
+    </td>
+    <td class="g-unused ev-inferred" title="11 ($0B) — not used — inferred, not tested">
+      <span class="code-num">11</span>
+    </td>
+    <td class="g-unused ev-inferred" title="12 ($0C) — not used — inferred, not tested">
+      <span class="code-num">12</span>
+    </td>
+    <td class="g-control ev-inferred" title="13 ($0D) — CR — control: Carriage return — inferred, not tested">
+<span class="token">CR</span>
+      <span class="code-num">13</span>
+    </td>
+    <td class="g-unused ev-inferred" title="14 ($0E) — not used — inferred, not tested">
+      <span class="code-num">14</span>
+    </td>
+    <td class="g-unused ev-inferred" title="15 ($0F) — not used — inferred, not tested">
+      <span class="code-num">15</span>
+    </td>
+  </tr>
+  <tr><th>1_</th>
+    <td class="g-unused ev-inferred" title="16 ($10) — not used — inferred, not tested">
+      <span class="code-num">16</span>
+    </td>
+    <td class="g-unused ev-inferred" title="17 ($11) — not used — inferred, not tested">
+      <span class="code-num">17</span>
+    </td>
+    <td class="g-unused ev-inferred" title="18 ($12) — not used — inferred, not tested">
+      <span class="code-num">18</span>
+    </td>
+    <td class="g-unused ev-inferred" title="19 ($13) — not used — inferred, not tested">
+      <span class="code-num">19</span>
+    </td>
+    <td class="g-unused ev-inferred" title="20 ($14) — not used — inferred, not tested">
+      <span class="code-num">20</span>
+    </td>
+    <td class="g-unused ev-inferred" title="21 ($15) — not used — inferred, not tested">
+      <span class="code-num">21</span>
+    </td>
+    <td class="g-unused ev-inferred" title="22 ($16) — not used — inferred, not tested">
+      <span class="code-num">22</span>
+    </td>
+    <td class="g-unused ev-inferred" title="23 ($17) — not used — inferred, not tested">
+      <span class="code-num">23</span>
+    </td>
+    <td class="g-unused ev-inferred" title="24 ($18) — not used — inferred, not tested">
+      <span class="code-num">24</span>
+    </td>
+    <td class="g-unused ev-inferred" title="25 ($19) — not used — inferred, not tested">
+      <span class="code-num">25</span>
+    </td>
+    <td class="g-unused ev-inferred" title="26 ($1A) — not used — inferred, not tested">
+      <span class="code-num">26</span>
+    </td>
+    <td class="g-unused ev-inferred" title="27 ($1B) — not used — inferred, not tested">
+      <span class="code-num">27</span>
+    </td>
+    <td class="g-unused ev-inferred" title="28 ($1C) — not used — inferred, not tested">
+      <span class="code-num">28</span>
+    </td>
+    <td class="g-unused ev-inferred" title="29 ($1D) — not used — inferred, not tested">
+      <span class="code-num">29</span>
+    </td>
+    <td class="g-unused ev-inferred" title="30 ($1E) — not used — inferred, not tested">
+      <span class="code-num">30</span>
+    </td>
+    <td class="g-unused ev-inferred" title="31 ($1F) — not used — inferred, not tested">
+      <span class="code-num">31</span>
+    </td>
+  </tr>
+  <tr><th>2_</th>
+    <td class="g-printable ev-inferred" title="32 ($20) — Space — screen code 32 — U+0020 SPACE — inferred, not tested">
+<canvas data-b="000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"></canvas>      <span class="code-num">32</span>
+    </td>
+    <td class="g-printable ev-inferred" title="33 ($21) — screen code 33 — U+0021 EXCLAMATION MARK — inferred, not tested">
+<canvas data-b="000000000000003C00007E00007E00007E00007C00007C00003C00007E00007C00007C00007C00003C00003800001800003C00007E00007E00007E00007C00003C00000000000000"></canvas>      <span class="code-num">33</span>
+    </td>
+    <td class="g-printable ev-inferred" title="34 ($22) — screen code 34 — U+0022 QUOTATION MARK — inferred, not tested">
+<canvas data-b="00000000000001C1C007E7C007C3E007C3C003C7C003C3C003C7C003C180018100000000000000000000000000000000000000000000000000000000000000000000000000000000"></canvas>      <span class="code-num">34</span>
+    </td>
+    <td class="g-printable ev-inferred" title="35 ($23) — screen code 35 — U+0023 NUMBER SIGN — inferred, not tested">
+<canvas data-b="000000000000000000001CC0001DC000198000398000198000338001FFE0007F8000670003FF8007FF8003FF0001CC0003DC00039C0003FC00033800011000000000000000000000"></canvas>      <span class="code-num">35</span>
+    </td>
+    <td class="g-printable ev-inferred" title="36 ($24) — Pound sign — screen code 36 — U+00A3 POUND SIGN — inferred, not tested">
+<canvas data-b="00000000000000F80001FE00030F0002030003000003000001800001C00001F00001F80001F80000300000300001F00003F00007780007FBE007FFE001FFC0014F80000000000000"></canvas>      <span class="code-num">36</span>
+    </td>
+    <td class="g-printable ev-inferred" title="37 ($25) — screen code 37 — U+0025 PERCENT SIGN — inferred, not tested">
+<canvas data-b="000000000000027B8003FFC007F7800621800E33000F770007F60003DE00001C00001C000038000070000073C000EFE001EEE001CE7003CEF003CFE0038FE0020280000000000000"></canvas>      <span class="code-num">37</span>
+    </td>
+    <td class="g-printable ev-inferred" title="38 ($26) — screen code 38 — U+0026 AMPERSAND — inferred, not tested">
+<canvas data-b="000000000000001C00003F00007F80007380007380007380007700007F0000FE0001FC0007F86007DCF0071FF00707C00F9F8007DFC007FFF003FDF000F060008000000000000000"></canvas>      <span class="code-num">38</span>
+    </td>
+    <td class="g-printable ev-inferred" title="39 ($27) — screen code 39 — U+0027 APOSTROPHE — inferred, not tested">
+<canvas data-b="000000000000001800007E00007E00007E00007E00003E00003C00003C00001C00000C00000000000000000000000000000000000000000000000000000000000000000000000000"></canvas>      <span class="code-num">39</span>
+    </td>
+    <td class="g-printable ev-inferred" title="40 ($28) — screen code 40 — U+0028 LEFT PARENTHESIS — inferred, not tested">
+<canvas data-b="000000000000000200001F00001F00003E0000380000700000700000E00000E00000E00000E00000F00000F000007800007C00003F00003F00001F00000E00000200000000000000"></canvas>      <span class="code-num">40</span>
+    </td>
+    <td class="g-printable ev-inferred" title="41 ($29) — screen code 41 — U+0029 RIGHT PARENTHESIS — inferred, not tested">
+<canvas data-b="00000000000000E00000F000007800003C00001E00001E00000E00000700000700000700000700000F00000F00000E00001E00003E00007C0000F80001F00000C000000000000000"></canvas>      <span class="code-num">41</span>
+    </td>
+    <td class="g-printable ev-inferred" title="42 ($2A) — screen code 42 — U+002A ASTERISK — inferred, not tested">
+<canvas data-b="0000000000000000000000000018000038000018000718E007D9E003FFE001FF80007F0000FF8007FFE007DBE00718E0003C00003800003800000000000000000000000000000000"></canvas>      <span class="code-num">42</span>
+    </td>
+    <td class="g-printable ev-inferred" title="43 ($2B) — screen code 43 — U+002B PLUS SIGN — inferred, not tested">
+<canvas data-b="000000000000000000000000000000003800003C00003C00007C0001FC0007FFF00FFFF007FFF0007C00003C00003C00007C00003C00003000000000000000000000000000000000"></canvas>      <span class="code-num">43</span>
+    </td>
+    <td class="g-printable ev-inferred" title="44 ($2C) — screen code 44 — U+002C COMMA — inferred, not tested">
+<canvas data-b="000000000000000000000000000000000000000000000000000000000000000000000000000400001F00001F80000F80000F00001F0000FF0000FE0001F80000F000000000000000"></canvas>      <span class="code-num">44</span>
+    </td>
+    <td class="g-printable ev-inferred" title="45 ($2D) — screen code 45 — U+002D HYPHEN-MINUS — inferred, not tested">
+<canvas data-b="00000000000000000000000000000000000000000000000000000003FFE007FFE00FFFF007FFF003FFE0010000000000000000000000000000000000000000000000000000000000"></canvas>      <span class="code-num">45</span>
+    </td>
+    <td class="g-printable ev-inferred" title="46 ($2E) — screen code 46 — U+002E FULL STOP — inferred, not tested">
+<canvas data-b="000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000003C00003E00003E00003C00001C00000000000000000000000000"></canvas>      <span class="code-num">46</span>
+    </td>
+    <td class="g-printable ev-inferred" title="47 ($2F) — screen code 47 — U+002F SOLIDUS — inferred, not tested">
+<canvas data-b="0000000000000000400000E00001E00003E00003C0000780000F80001F00001E00003E00007C0000F80000F00001F00003E00003E00007C000078000070000030000000000000000"></canvas>      <span class="code-num">47</span>
+    </td>
+  </tr>
+  <tr><th>3_</th>
+    <td class="g-printable ev-inferred" title="48 ($30) — screen code 48 — U+0030 DIGIT ZERO — inferred, not tested">
+<canvas data-b="000000000000007E0000FF0001FF8001E78003C78001C78001C38001C38001C38001C38001C38001838001C78001C78001C3C001C3C001FF8001FF00007E00001800000000000000"></canvas>      <span class="code-num">48</span>
+    </td>
+    <td class="g-printable ev-inferred" title="49 ($31) — screen code 49 — U+0031 DIGIT ONE — inferred, not tested">
+<canvas data-b="000000000000001800003C00007E00007C00003C00001C00003C00001C00001C00001C00003C00003C00003C00003C00003C00003C00007E00007F0000FF00007E00000000000000"></canvas>      <span class="code-num">49</span>
+    </td>
+    <td class="g-printable ev-inferred" title="50 ($32) — screen code 50 — U+0032 DIGIT TWO — inferred, not tested">
+<canvas data-b="00000000000000180000FE0001FF8003C7C00781C00701C00601E00701E00001E00003C0003F8000FF0001F00003C0000380000700E007FFE007FFE003FFE0013900000000000000"></canvas>      <span class="code-num">50</span>
+    </td>
+    <td class="g-printable ev-inferred" title="51 ($33) — screen code 51 — U+0033 DIGIT THREE — inferred, not tested">
+<canvas data-b="000000000000007E0000FF8001FFC003C3C00380C00000C00001C00003C00007C00007800007C00001E00001E00300E00780E00781E007FFC003FFC000FF80003C00000000000000"></canvas>      <span class="code-num">51</span>
+    </td>
+    <td class="g-printable ev-inferred" title="52 ($34) — screen code 52 — U+0034 DIGIT FOUR — inferred, not tested">
+<canvas data-b="000000000000001800003C000038000038C00079E000F1E000F0E001E1E003C1E003C1E00780E00F81E00FC1E00FFFF00FFFF80FEBE00003F00007F00003F0000060000000000000"></canvas>      <span class="code-num">52</span>
+    </td>
+    <td class="g-printable ev-inferred" title="53 ($35) — screen code 53 — U+0035 DIGIT FIVE — inferred, not tested">
+<canvas data-b="000000000000007F8001FFC003FFC003800003000003000003880003FF0003FF800397C00003C00001E00001E00000E00601E00703C007FFC003FF8003FF00007E00000000000000"></canvas>      <span class="code-num">53</span>
+    </td>
+    <td class="g-printable ev-inferred" title="54 ($36) — screen code 54 — U+0036 DIGIT SIX — inferred, not tested">
+<canvas data-b="000000000000000E00003E00007E0000F80001E00001C00003800003FF0007FF8007C7C00781C00700E00700E00700E00700E00381C003F7C001FF8000FF00004E00000000000000"></canvas>      <span class="code-num">54</span>
+    </td>
+    <td class="g-printable ev-inferred" title="55 ($37) — screen code 55 — U+0037 DIGIT SEVEN — inferred, not tested">
+<canvas data-b="00000000000003FFC003FFE007FFC00783C00703C0020780000780000F00000F00000E00001E00001C00001C00003C00003800003800003800007800003800003000000000000000"></canvas>      <span class="code-num">55</span>
+    </td>
+    <td class="g-printable ev-inferred" title="56 ($38) — screen code 56 — U+0038 DIGIT EIGHT — inferred, not tested">
+<canvas data-b="00000000000000FC0001FEC003FFC00381C00703C007038007078003CF0003FF0001FF8003B7C00781C00700E00700E00700E00781E003FFC003FFC001FF80007E00000000000000"></canvas>      <span class="code-num">56</span>
+    </td>
+    <td class="g-printable ev-inferred" title="57 ($39) — screen code 57 — U+0039 DIGIT NINE — inferred, not tested">
+<canvas data-b="000000000000007C0001FF0003FF8003D3C00781C00700E00700E00700E00301E00383E001FFC001FFE0007FC0000380000F80001F00003F0000FC0001F80000E000000000000000"></canvas>      <span class="code-num">57</span>
+    </td>
+    <td class="g-printable ev-inferred" title="58 ($3A) — screen code 58 — U+003A COLON — inferred, not tested">
+<canvas data-b="000000000000000000000000000000000000003C00007E00007E00007E00007E00003C00000000000000001800003E00007E00007E00007E00007C00003800000000000000000000"></canvas>      <span class="code-num">58</span>
+    </td>
+    <td class="g-printable ev-inferred" title="59 ($3B) — screen code 59 — U+003B SEMICOLON — inferred, not tested">
+<canvas data-b="000000000000000000001E00001F00003F00003F80003F00001E00000C00000000001E00003F00003F00003F00001F00003E0000FC0001FC0001F000008000000000000000000000"></canvas>      <span class="code-num">59</span>
+    </td>
+    <td class="g-printable ev-inferred" title="60 ($3C) — screen code 60 — U+003C LESS-THAN SIGN — inferred, not tested">
+<canvas data-b="0000000000000000000000000000600000F0000FF0007FE001FF4007FC000FC0000F80000FF00003FE0000FF80001FF00003F00001E0000000000000000000000000000000000000"></canvas>      <span class="code-num">60</span>
+    </td>
+    <td class="g-printable ev-inferred" title="61 ($3D) — screen code 61 — U+003D EQUALS SIGN — inferred, not tested">
+<canvas data-b="00000000000000000000000000000000000000000000000003FFC003FFC00001800000000136C003FFC003FFC0000000000000000000000000000000000000000000000000000000"></canvas>      <span class="code-num">61</span>
+    </td>
+    <td class="g-printable ev-inferred" title="62 ($3E) — screen code 62 — U+003E GREATER-THAN SIGN — inferred, not tested">
+<canvas data-b="00000000000000000000000000000003800003E00003F80001FF00007F80001FC00007E0000FE0001FC000FF0003FC0003F00003E000018000000000000000000000000000000000"></canvas>      <span class="code-num">62</span>
+    </td>
+    <td class="g-printable ev-inferred" title="63 ($3F) — screen code 63 — U+003F QUESTION MARK — inferred, not tested">
+<canvas data-b="00000000000000300000FE0001FF8003FFC003C3C00381C00103C0000780000FC0001F80001F00001C00001C00001800000000001000003E00003E00003E00003C00000000000000"></canvas>      <span class="code-num">63</span>
+    </td>
+  </tr>
+  <tr><th>4_</th>
+    <td class="g-printable ev-inferred" title="64 ($40) — screen code 64 — U+0040 COMMERCIAL AT — inferred, not tested">
+<canvas data-b="000000000000003C0000FF0001FF8003C3C00301C0031CC0073EE007FFE006F7E00667C006C7E007E7E007FFC0077FC0071C0003810003C78001FF8000FF00007C00000000000000"></canvas>      <span class="code-num">64</span>
+    </td>
+    <td class="g-printable ev-inferred" title="65 ($41) — screen code 65 — U+0041 LATIN CAPITAL LETTER A — inferred, not tested">
+<canvas data-b="000000000000001000003800003C00007E0000EE0000E70001C3000183800181800183C00301C00301C007FFC007FFE0071BE00700E00700F00F81F01F83F80F01F0000000000000"></canvas>      <span class="code-num">65</span>
+    </td>
+    <td class="g-printable ev-inferred" title="66 ($42) — screen code 66 — U+0042 LATIN CAPITAL LETTER B — inferred, not tested">
+<canvas data-b="0000000000000300000FFF800FFFE00788E00300700380700380700380F003B1E003FFE003FFE00383F00300700300780380700700700F41F00FFFE00FFFC00FFF80000000000000"></canvas>      <span class="code-num">66</span>
+    </td>
+    <td class="g-printable ev-inferred" title="67 ($43) — screen code 67 — U+0043 LATIN CAPITAL LETTER C — inferred, not tested">
+<canvas data-b="000000000000000C0000FFC001FFC003C3E00381E00300E00700000700000700000700000700000700000700400780E00781E00381E003E7C001FF8000FF80007E00000000000000"></canvas>      <span class="code-num">67</span>
+    </td>
+    <td class="g-printable ev-inferred" title="68 ($44) — screen code 68 — U+0044 LATIN CAPITAL LETTER D — inferred, not tested">
+<canvas data-b="00000000000001DE000FFF800FFF800701E00701E00700600380700700700380700380700380700380700380700380700780E00783E007FFC00FFF800FFF0007E000000000000000"></canvas>      <span class="code-num">68</span>
+    </td>
+    <td class="g-printable ev-inferred" title="69 ($45) — screen code 69 — U+0045 LATIN CAPITAL LETTER E — inferred, not tested">
+<canvas data-b="00000000000007FFC00FFFE00FDFF00300F0038060038000038800039E0003FE0003FE0003DE00038E000384000380200380700380700FFFF00FFFF00FFFE0020080000000000000"></canvas>      <span class="code-num">69</span>
+    </td>
+    <td class="g-printable ev-inferred" title="70 ($46) — screen code 70 — U+0046 LATIN CAPITAL LETTER F — inferred, not tested">
+<canvas data-b="0000000000000FFFC00FFFF00FFFF00F80F0078060038000038C0003BE0003FE0003FE0003FE00039E000784000380000380000780000FC0000FC0000FC000058000000000000000"></canvas>      <span class="code-num">70</span>
+    </td>
+    <td class="g-printable ev-inferred" title="71 ($47) — screen code 71 — U+0047 LATIN CAPITAL LETTER G — inferred, not tested">
+<canvas data-b="000000000000003F8000FFC001FFC001C3C00381C00300C00300000700000701000307C0030FE00707E00700E00780E00781E00381E003E7E001FFE000FFE0007EC0000000000000"></canvas>      <span class="code-num">71</span>
+    </td>
+    <td class="g-printable ev-inferred" title="72 ($48) — screen code 72 — U+0048 LATIN CAPITAL LETTER H — inferred, not tested">
+<canvas data-b="0000000000000F81F01F83F81F83F80781F00700E00781E007C1E0037FE007FFE003FFE007F7E00781E00781E00781E00781E00781F00FC3F01FC3F81F81F00700F0000000000000"></canvas>      <span class="code-num">72</span>
+    </td>
+    <td class="g-printable ev-inferred" title="73 ($49) — screen code 73 — U+0049 LATIN CAPITAL LETTER I — inferred, not tested">
+<canvas data-b="000000000000007F0000FF0001FF0000FE00003C00003800003800003800003C00003800003800003800003C00003C00003C00007C0000FF0001FF8001FF8000FF00000000000000"></canvas>      <span class="code-num">73</span>
+    </td>
+    <td class="g-printable ev-inferred" title="74 ($4A) — screen code 74 — U+004A LATIN CAPITAL LETTER J — inferred, not tested">
+<canvas data-b="0000000000000001000003E00003F00003E00001C00001C00001C00001C00000C00000C00381C00781C007C1C007C1C00741C007C7C007FFC001FF00007C00000800000000000000"></canvas>      <span class="code-num">74</span>
+    </td>
+    <td class="g-printable ev-inferred" title="75 ($4B) — screen code 75 — U+004B LATIN CAPITAL LETTER K — inferred, not tested">
+<canvas data-b="0000000000000681E00F83F00F83F00303C0030780038F80030E00031E0003BE0003FE0003F70003C7000387000387800383C00703E00F83F00FC3F00783F0010060000000000000"></canvas>      <span class="code-num">75</span>
+    </td>
+    <td class="g-printable ev-inferred" title="76 ($4C) — screen code 76 — U+004C LATIN CAPITAL LETTER L — inferred, not tested">
+<canvas data-b="0000000000000FC0000FC00007C00007800003800003800003800003800003800003C00003800003800003800003807003C07807FFF00FFFF01FFFF007FFF0000000000000000000"></canvas>      <span class="code-num">76</span>
+    </td>
+    <td class="g-printable ev-inferred" title="77 ($4D) — screen code 77 — U+004D LATIN CAPITAL LETTER M — inferred, not tested">
+<canvas data-b="0000000000000A00000E00F00F01F00F83E00F83E007C7E00EE7E00EEFE00E7EE00E7CE00E3C600E3C600E1CE00E08E00600E00F00E00F01E01FC3F81F83F80601E0000000000000"></canvas>      <span class="code-num">77</span>
+    </td>
+    <td class="g-printable ev-inferred" title="78 ($4E) — screen code 78 — U+004E LATIN CAPITAL LETTER N — inferred, not tested">
+<canvas data-b="0000000000000F00D00F83F00FC1F007E0F007E0E007F07006F8F00778F00738F0061CF0071CF0061EF0071EF0070FE00707F00787E00FC3E00FC3E00FC1C0000000000000000000"></canvas>      <span class="code-num">78</span>
+    </td>
+    <td class="g-printable ev-inferred" title="79 ($4F) — screen code 79 — U+004F LATIN CAPITAL LETTER O — inferred, not tested">
+<canvas data-b="00000000000001FF8003FFC007AFE00700E00600600200E00700E00700E00600E00780E00700E00700E00780E00700E00700E00700E00799E003FFE003FFC001FF80000000000000"></canvas>      <span class="code-num">79</span>
+    </td>
+  </tr>
+  <tr><th>5_</th>
+    <td class="g-printable ev-inferred" title="80 ($50) — screen code 80 — U+0050 LATIN CAPITAL LETTER P — inferred, not tested">
+<canvas data-b="00000000000007FE000FFFC00FFFE00FFFF00F01F00300F00380700380F80381F003A7F001FFC003FFC003A7000380000780000700000F80000FC0000FC000068000000000000000"></canvas>      <span class="code-num">80</span>
+    </td>
+    <td class="g-printable ev-inferred" title="81 ($51) — screen code 81 — U+0051 LATIN CAPITAL LETTER Q — inferred, not tested">
+<canvas data-b="000000000000007C0000FF0001FF800387C00701C00701C00601C00601C00E01E00600E00600E00E79E00678E0063DE0061FC0078FC003EFC003FFF001FFF0003FE0000000000000"></canvas>      <span class="code-num">81</span>
+    </td>
+    <td class="g-printable ev-inferred" title="82 ($52) — screen code 82 — U+0052 LATIN CAPITAL LETTER R — inferred, not tested">
+<canvas data-b="0000000000000C00000FFF000FFF000FFFC00701C00300E00300E00301E00307C003FF8003FF0003DF000303000303000301800301C00781E00F81F00F81F8020020000000000000"></canvas>      <span class="code-num">82</span>
+    </td>
+    <td class="g-printable ev-inferred" title="83 ($53) — screen code 83 — U+0053 LATIN CAPITAL LETTER S — inferred, not tested">
+<canvas data-b="00000000000000180000FF8001FFC003C7C003818003800003800003C00001FC0000FF00003F800003C00001C00000E00000E00301C007FFC007FF8007FF00023C00000000000000"></canvas>      <span class="code-num">83</span>
+    </td>
+    <td class="g-printable ev-inferred" title="84 ($54) — screen code 84 — U+0054 LATIN CAPITAL LETTER T — inferred, not tested">
+<canvas data-b="00000000000003FAC007FFE00FFFE00FFFF00E3CF0063860003C00001C00001800001800003800003800003800003800003800003800007E0000FE0000FE00003000000000000000"></canvas>      <span class="code-num">84</span>
+    </td>
+    <td class="g-printable ev-inferred" title="85 ($55) — screen code 85 — U+0055 LATIN CAPITAL LETTER U — inferred, not tested">
+<canvas data-b="0000000000000F00F01FC3F80F81F80701F00700E00700E00700E00700E00700E00700E00700E00700E00700E00700E00780E00380C003F7C001FF8001FF00003000000000000000"></canvas>      <span class="code-num">85</span>
+    </td>
+    <td class="g-printable ev-inferred" title="86 ($56) — screen code 86 — U+0056 LATIN CAPITAL LETTER V — inferred, not tested">
+<canvas data-b="0000000000000700E00FC3F81FC3F807C1F80380E00380E00380E00380E00381E003C1C001C3C001E3C001F7C000E78000FF80007F00007F00007E00003C00001800000000000000"></canvas>      <span class="code-num">86</span>
+    </td>
+    <td class="g-printable ev-inferred" title="87 ($57) — screen code 87 — U+0057 LATIN CAPITAL LETTER W — inferred, not tested">
+<canvas data-b="0000000000000000600F81F00FC3F80F81F00700E00700E00701E00710E00711C00339C0033CC003FDC003FFC003FFC001FFC001EF8001FF8001EF8000E700004200000000000000"></canvas>      <span class="code-num">87</span>
+    </td>
+    <td class="g-printable ev-inferred" title="88 ($58) — screen code 88 — U+0058 LATIN CAPITAL LETTER X — inferred, not tested">
+<canvas data-b="0000000000000F81E00F81F80F81F001C1C001E38000E78000F600001E00001C00003C00003E00007E0000E70000C3800183800381C00F00E00F81F01F81F00501F0000000000000"></canvas>      <span class="code-num">88</span>
+    </td>
+    <td class="g-printable ev-inferred" title="89 ($59) — screen code 89 — U+0059 LATIN CAPITAL LETTER Y — inferred, not tested">
+<canvas data-b="0000000000000400C00F81F01F83F80F83F00783E003C3C001E78000FF0000FF00007E00003C00003C00001C00003C00001C00001800003C00007E00007E00003E00000000000000"></canvas>      <span class="code-num">89</span>
+    </td>
+    <td class="g-printable ev-inferred" title="90 ($5A) — screen code 90 — U+005A LATIN CAPITAL LETTER Z — inferred, not tested">
+<canvas data-b="000000000000001F8003FF8007FF8007FF80070780021F00001E00003C0000780000700000E00001C00001C0000380200780E00781E007FFF007FFF007FFE00753C0000000000000"></canvas>      <span class="code-num">90</span>
+    </td>
+    <td class="g-printable ev-inferred" title="91 ($5B) — screen code 91 — U+005B LEFT SQUARE BRACKET — inferred, not tested">
+<canvas data-b="00000000000000380000FF0000FF0001FE0000E00000E00000E00000E00000E00000E00000E00001E00000E00001E00000E00001E00000FF0000FF8000FF00003C00000000000000"></canvas>      <span class="code-num">91</span>
+    </td>
+    <td class="g-printable ev-inferred" title="92 ($5C) — screen code 92 — U+005C REVERSE SOLIDUS — inferred, not tested">
+<canvas data-b="00000000000003000007800007800003C00003C00001E00001F00000F800007800007C00003E00001F00000F000007800007C00007E00003E00001E00000E0000000000000000000"></canvas>      <span class="code-num">92</span>
+    </td>
+    <td class="g-printable ev-inferred" title="93 ($5D) — screen code 93 — U+005D RIGHT SQUARE BRACKET — inferred, not tested">
+<canvas data-b="00000000000000FE0000FF0000FF80006F00000780000700000700000700000780000700000700000700000700000700000700000700007F0001FF0000FF0000EE00000000000000"></canvas>      <span class="code-num">93</span>
+    </td>
+    <td class="g-printable ev-inferred" title="94 ($5E) — Up arrow — screen code 94 — U+2191 UPWARDS ARROW — inferred, not tested">
+<canvas data-b="000000000000000000001000003C00007E0000FF8001FF0000FF00003D00003C00003C00003C00001C00003C00003C00003C00001C00000800000000000000000000000000000000"></canvas>      <span class="code-num">94</span>
+    </td>
+    <td class="g-printable ev-inferred" title="95 ($5F) — Back arrow — screen code 95 — U+2190 LEFTWARDS ARROW — inferred, not tested">
+<canvas data-b="00000000000000000000000000000000000000000000000001C00003E00007FFC007FFE003FFE003E08001C000004000000000000000000000000000000000000000000000000000"></canvas>      <span class="code-num">95</span>
+    </td>
+  </tr>
+  <tr><th>6_</th>
+    <td class="g-unused ev-inferred" title="96 ($60) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">96</span>
+    </td>
+    <td class="g-unused ev-inferred" title="97 ($61) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">97</span>
+    </td>
+    <td class="g-unused ev-inferred" title="98 ($62) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">98</span>
+    </td>
+    <td class="g-unused ev-inferred" title="99 ($63) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">99</span>
+    </td>
+    <td class="g-unused ev-inferred" title="100 ($64) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">100</span>
+    </td>
+    <td class="g-unused ev-inferred" title="101 ($65) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">101</span>
+    </td>
+    <td class="g-unused ev-inferred" title="102 ($66) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">102</span>
+    </td>
+    <td class="g-unused ev-inferred" title="103 ($67) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">103</span>
+    </td>
+    <td class="g-unused ev-inferred" title="104 ($68) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">104</span>
+    </td>
+    <td class="g-unused ev-inferred" title="105 ($69) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">105</span>
+    </td>
+    <td class="g-unused ev-inferred" title="106 ($6A) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">106</span>
+    </td>
+    <td class="g-unused ev-inferred" title="107 ($6B) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">107</span>
+    </td>
+    <td class="g-unused ev-inferred" title="108 ($6C) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">108</span>
+    </td>
+    <td class="g-unused ev-inferred" title="109 ($6D) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">109</span>
+    </td>
+    <td class="g-unused ev-inferred" title="110 ($6E) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">110</span>
+    </td>
+    <td class="g-unused ev-inferred" title="111 ($6F) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">111</span>
+    </td>
+  </tr>
+  <tr><th>7_</th>
+    <td class="g-unused ev-inferred" title="112 ($70) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">112</span>
+    </td>
+    <td class="g-unused ev-inferred" title="113 ($71) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">113</span>
+    </td>
+    <td class="g-unused ev-inferred" title="114 ($72) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">114</span>
+    </td>
+    <td class="g-unused ev-inferred" title="115 ($73) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">115</span>
+    </td>
+    <td class="g-unused ev-inferred" title="116 ($74) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">116</span>
+    </td>
+    <td class="g-unused ev-inferred" title="117 ($75) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">117</span>
+    </td>
+    <td class="g-unused ev-inferred" title="118 ($76) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">118</span>
+    </td>
+    <td class="g-unused ev-inferred" title="119 ($77) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">119</span>
+    </td>
+    <td class="g-unused ev-inferred" title="120 ($78) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">120</span>
+    </td>
+    <td class="g-unused ev-inferred" title="121 ($79) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">121</span>
+    </td>
+    <td class="g-unused ev-inferred" title="122 ($7A) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">122</span>
+    </td>
+    <td class="g-unused ev-inferred" title="123 ($7B) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">123</span>
+    </td>
+    <td class="g-unused ev-inferred" title="124 ($7C) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">124</span>
+    </td>
+    <td class="g-unused ev-inferred" title="125 ($7D) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">125</span>
+    </td>
+    <td class="g-unused ev-inferred" title="126 ($7E) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+      <span class="code-num">126</span>
+    </td>
+    <td class="g-control ev-inferred" title="127 ($7F) — RUB-OUT — control: Tape use only — inferred, not tested">
+<span class="token">RUB-OUT</span>
+      <span class="code-num">127</span>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</div>
+<p class="note legend"><span class="g-unused swatch-g"></span> not used (what it prints, if anything) ·
+  <span class="g-token swatch-g"></span> token: shown as its keyword ·
+  <span class="g-control swatch-g"></span> control code ·
+  <span class="swatch-g corner-manual"></span> from the manual, not tested ·
+  <span class="swatch-g corner-inferred"></span> inferred, not tested ·
+  hover over a character for the details.</p>
+</div>
+</dialog>
+
+
+
+
+<dialog class="panel" id="tables" aria-labelledby="tables-title">
+  <header><h2 id="tables-title">All tables</h2><button type="button" class="close" aria-label="Close">✕</button></header>
+  <div class="panel-body"><table class="table-status">
+  <thead><tr><th>Table</th><th>Of</th><th>State</th><th>Notes</th></tr></thead>
+  <tbody>
+  <tr><td rowspan="1">Glyphs</td>      <td><code>GE235</code></td>
+      <td class="st-complete">complete</td>
+      <td><strong>Reconstruction</strong>: the Teletype ASR-33 printed with a type cylinder, so there are no original bitmaps. The 64 glyphs (US print head, with the UK variant that has the pound sign in place of $) are rasterized from the TrueType font "TeleType ASR 33 UK" (© 2015 David Bonham), drawn from photographs of Teletype listings.</td></tr>
+  <tr><td rowspan="2">Character codes</td>      <td><code>DARTMOUTH_1ED_core</code></td>
+      <td class="st-complete">complete</td>
+      <td>The codes of the Teletype ASR-33 (ASCII-1963, 64 printable characters, upper case only), INFERRED: no statement shows them before CHANGE in the 4th edition, whose table [4] p. 68 gives the same codes. The internal code of the GE-235 is not entered. DTSS-Win keeps statements typed in lower case in the listing but rejects them at RUN (<code>ILLEGAL INSTRUCTION IN 10</code>); it prints ( and [ of a label alike, as [.</td></tr>
+  <tr>      <td><code>DARTMOUTH_2ED_layer</code></td>
+      <td class="st-complete">complete</td>
+      <td>As in the 1st edition.</td></tr>
+  <tr><td rowspan="1">Screen codes</td>      <td><code>GE235</code></td>
+      <td class="st-complete">complete</td>
+      <td>No screen: output on paper. These rows only link each printed code (32-95) to the glyph with the same number.</td></tr>
+  <tr><td rowspan="2">Keyboard codes</td>      <td><code>DARTMOUTH_1ED_core</code></td>
+      <td class="st-not_applicable">does not exist</td>
+      <td>No statement reads the keyboard.</td></tr>
+  <tr>      <td><code>DARTMOUTH_2ED_layer</code></td>
+      <td class="st-not_applicable">does not exist</td>
+      <td>No statement reads the keyboard.</td></tr>
+  <tr><td rowspan="2">Error messages</td>      <td><code>DARTMOUTH_1ED_core</code></td>
+      <td class="st-partial">partial</td>
+      <td>Printed with the line number: <code>ILLEGAL FORMULA IN 30</code> [1] p. 19 (some messages without it, e.g. <code>NO DATA</code>). The May manual shows five messages; the others are from [2].</td></tr>
+  <tr>      <td><code>DARTMOUTH_2ED_layer</code></td>
+      <td class="st-complete">complete</td>
+      <td>Appendix A of [2] pp. 53-54 (22 messages, found while compiling: the program does not run, checked on DTSS-Win with <code>ILLEGAL FORMULA IN 20</code>); printed with the line number: <code>INCORRECT FORMAT IN 5</code> [2] p. 24. The compiler of February 1965 (DTSS-Win) also has run-time messages that do <strong>not</strong> stop the program: <code>SQUARE ROOT OF NEGATIVE NUMBER IN 20</code> is printed and the run goes on. Limits behind them, appendix B p. 55: about two feet of Teletype paper of program, 175 constants and printed labels, 300 data numbers, printed labels slightly under 600 characters in all, 26 FOR, 80 GO TO and IF-THEN, 1500 list and table elements.</td></tr>
+  <tr><td rowspan="2">Operator precedence</td>      <td><code>DARTMOUTH_1ED_core</code></td>
+      <td class="st-complete">complete</td>
+      <td>Parentheses, then the change of sign (before the power, source [6]), the power, * and /, + and -, left to right at the same level [2] p. 10.</td></tr>
+  <tr>      <td><code>DARTMOUTH_2ED_layer</code></td>
+      <td class="st-complete">complete</td>
+      <td>As in the 1st edition [2] p. 10.</td></tr>
+  <tr><td rowspan="2">Variables in memory</td>      <td><code>DARTMOUTH_1ED_core</code></td>
+      <td class="st-to_do">to be entered</td>
+      <td>Compiled program: to be taken from the listings [7].</td></tr>
+  <tr>      <td><code>DARTMOUTH_2ED_layer</code></td>
+      <td class="st-to_do">to be entered</td>
+      <td>To be taken from the listings [7].</td></tr>
+  <tr><td rowspan="2">Program in memory</td>      <td><code>DARTMOUTH_1ED_core</code></td>
+      <td class="st-to_do">to be entered</td>
+      <td>The program is kept as text; its format on the disk is to be taken from the listings [7].</td></tr>
+  <tr>      <td><code>DARTMOUTH_2ED_layer</code></td>
+      <td class="st-to_do">to be entered</td>
+      <td>To be taken from the listings [7].</td></tr>
+  <tr><td rowspan="1">Color codes and attributes</td>      <td><code>GE235</code></td>
+      <td class="st-not_applicable">does not exist</td>
+      <td>Output on paper.</td></tr>
+  <tr><td rowspan="2">Musical notes</td>      <td><code>DARTMOUTH_1ED_core</code></td>
+      <td class="st-not_applicable">does not exist</td>
+      <td>No sound.</td></tr>
+  <tr>      <td><code>DARTMOUTH_2ED_layer</code></td>
+      <td class="st-not_applicable">does not exist</td>
+      <td>No sound.</td></tr>
+  </tbody>
+</table>
+<p class="note">Tables of the dialect belong to its layers, the others to the machines that host it.</p>
+<p><strong>Examples:</strong> 37 of 49 entries have at least one usage example; 33 examples are still to be verified.</p>
+</div>
+</dialog>
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script src="../static/dialect.js?v=1795374828"></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RESTORE · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (4th edition)">
+<a class="prev" rel="prev" href="../entries/REM-200019.html" title="Previous entry (←)">‹ <span>REM</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_4.html#entries">24 / 69</a>
+<a class="next" rel="next" href="../entries/RETURN-200072.html" title="Next entry (→)"><span>RETURN</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/DARTMOUTH_BASIC_4.html#entries">Dartmouth BASIC (4th edition)</a> ›</p>
+<h1><span class="entry-name">RESTORE</span> <span class="category">Statement</span></h1>
+<div class="subtitle md"><p>Starts the data list again: the next READ takes the first number.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>DARTMOUTH_4ED_layer</code> — Dartmouth BASIC, 4th edition</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/DARTMOUTH_BASIC_4.html">Dartmouth BASIC (4th edition)</a></dd>
+</dl>
+
+<div class="box">
+<p>Redefines <a href="../entries/RESTORE-200058.html">RESTORE</a> of the previous layer.
+<br><strong>Differences:</strong> RESTORE* and RESTORE$ restart only one of the two data lists.</p></div>
+
+<section class="form">
+  <h2>Both lists</h2>
+  <pre class="syntax"><span class="kw">RESTORE</span></pre>
+  <p class="manual">In the manual (BASIC, 4th Edition (January 1968), p. 52, 66):
+    <code>RESTORE</code>
+</p>
+
+
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#DATA_RESTORE" class="action-code">DATA_RESTORE</a> Restart the data list
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/RESTORE-200058.html">RESTORE</a></li>
+    </ul>
+<p class="uncovered">No equivalent in: Casio FX-700P BASIC, Dartmouth BASIC (1st edition), Dartmouth BASIC (2nd edition), Dartmouth Card BASIC October 1964, Sinclair ZX80 BASIC 4K ROM</p>  </div>
+</section>
+<section class="form">
+  <h2>Numbers</h2>
+  <pre class="syntax"><span class="kw">RESTORE*</span></pre>
+  <p class="manual">In the manual (BASIC, 4th Edition (January 1968), p. 52, 66):
+    <code>RESTORE*</code>
+</p>
+
+
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#DATA_RESTORE" class="action-code">DATA_RESTORE</a> Restart the data list
+<span class="tag">partial</span><small>— Only the numbers</small></p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/RESTORE-200058.html">RESTORE</a></li>
+    </ul>
+<p class="uncovered">No equivalent in: Casio FX-700P BASIC, Dartmouth BASIC (1st edition), Dartmouth BASIC (2nd edition), Dartmouth Card BASIC October 1964, Sinclair ZX80 BASIC 4K ROM</p>  </div>
+</section>
+<section class="form">
+  <h2>Strings</h2>
+  <pre class="syntax"><span class="kw">RESTORE$</span></pre>
+  <p class="manual">In the manual (BASIC, 4th Edition (January 1968), p. 52, 66):
+    <code>RESTORE$</code>
+</p>
+
+
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#DATA_RESTORE" class="action-code">DATA_RESTORE</a> Restart the data list
+<span class="tag">partial</span><small>— Only the strings</small></p>
+    <ul class="equivalents">
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/RESTORE-200058.html">RESTORE</a></li>
+    </ul>
+<p class="uncovered">No equivalent in: Casio FX-700P BASIC, Dartmouth BASIC (1st edition), Dartmouth BASIC (2nd edition), Dartmouth Card BASIC October 1964, Sinclair ZX80 BASIC 4K ROM</p>  </div>
+</section>
+
+
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/RESTORE-200053.html">RESTORE</a></td>
+      <td></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/RESTORE-200071.html">RESTORE*</a></td>
+      <td></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/RESTORES-200072.html">RESTORE$</a></td>
+      <td></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Only the strings <span class="tag warning">to verify</span></h3>  <pre>10 READ A$, B$, N
+20 RESTORE$
+30 READ C$
+40 PRINT C$; N
+50 DATA &#34;X&#34;, &#34;Y&#34;, 5
+60 END</pre>
+<pre class="output" title="Expected result">X 5</pre><figcaption>
+<small>Form: Strings.</small></figcaption></figure>
+
+
+
+<h2>Sources</h2>
+<ul><li><a href="https://archive.org/stream/bitsavers_dartmouthB_3679804/BASIC_4th_Edition_Jan68_djvu.txt">BASIC, 4th Edition (January 1968)</a>, Dartmouth College (1968), p. 52, 66</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (4th edition)">
+<a class="prev" rel="prev" href="../entries/REM-200019.html" title="Previous entry (←)">‹ <span>REM</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_4.html#entries">24 / 69</a>
+<a class="next" rel="next" href="../entries/RETURN-200072.html" title="Next entry (→)"><span>RETURN</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

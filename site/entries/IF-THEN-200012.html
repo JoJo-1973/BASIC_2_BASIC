@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IF...THEN · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795374828">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (1st edition)">
+<a class="prev" rel="prev" href="../entries/GOSUB-200016.html" title="Previous entry (←)">‹ <span>GOSUB</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_1.html#entries">Dartmouth BASIC (1st edition) · 8 / 42</a>
+<a class="next" rel="next" href="../entries/LET-200006.html" title="Next entry (→)"><span>LET</span> ›</a></nav>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (2nd edition)">
+<a class="prev" rel="prev" href="../entries/GOSUB-200016.html" title="Previous entry (←)">‹ <span>GOSUB</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_2.html#entries">Dartmouth BASIC (2nd edition) · 8 / 49</a>
+<a class="next" rel="next" href="../entries/LET-200006.html" title="Next entry (→)"><span>LET</span> ›</a></nav>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (3rd edition)">
+<a class="prev" rel="prev" href="../entries/GOSUB-200071.html" title="Previous entry (←)">‹ <span>GOSUB</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_3.html#entries">Dartmouth BASIC (3rd edition) · 8 / 57</a>
+<a class="next" rel="next" href="../entries/INPUT-200057.html" title="Next entry (→)"><span>INPUT</span> ›</a></nav>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth Card BASIC October 1964">
+<a class="prev" rel="prev" href="../entries/GOSUB-200016.html" title="Previous entry (←)">‹ <span>GOSUB</span></a>  <a class="where" href="../dialects/DARTMOUTH_CARD_BASIC.html#entries">Dartmouth Card BASIC October 1964 · 7 / 41</a>
+<a class="next" rel="next" href="../entries/LET-200006.html" title="Next entry (→)"><span>LET</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/DARTMOUTH_BASIC_1.html#entries">Dartmouth BASIC (1st edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_2.html#entries">Dartmouth BASIC (2nd edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_3.html#entries">Dartmouth BASIC (3rd edition)</a>, <a href="../dialects/DARTMOUTH_CARD_BASIC.html#entries">Dartmouth Card BASIC October 1964</a> ›</p>
+<h1><span class="entry-name">IF...THEN</span> <span class="category">Statement</span></h1>
+<div class="subtitle md"><p>Jumps to a line if a relation between two formulas is true.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>DARTMOUTH_1ED_core</code> — Dartmouth BASIC, 1st edition</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/DARTMOUTH_BASIC_1.html">Dartmouth BASIC (1st edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_2.html">Dartmouth BASIC (2nd edition)</a>, <a href="../dialects/DARTMOUTH_BASIC_3.html">Dartmouth BASIC (3rd edition)</a>, <a href="../dialects/DARTMOUTH_CARD_BASIC.html">Dartmouth Card BASIC October 1964</a></dd>
+  <dt>In Dartmouth BASIC (4th edition)</dt>
+  <dd>replaced by <a href="../entries/IF-THEN-200083.html">IF...THEN</a> of <code>DARTMOUTH_4ED_layer</code></dd>
+</dl>
+
+<div class="box">
+<p>Redefined in a later layer: <a href="../entries/IF-THEN-200083.html">IF...THEN</a> — Strings can be compared; GO TO can replace THEN.</p></div>
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="kw">IF</span> <span class="par">relation</span> <span class="kw">THEN</span> <span class="par">n</span></pre>
+  <p class="manual">In the manual (BASIC Instruction Manual, May 1964 (First Draft), p. 11-12):
+    <code>IF F1 α F2 THEN N</code>
+<span class="tag warning">differs from the rebuilt syntax</span></p>
+
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">relation</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>relation</td>
+      <td><small>How a value used as a condition is read:</small> <code>Relation only</code> <small>(Dartmouth BASIC (1st edition))</small> <span class="tag warning">to verify</span><br><small>How a value used as a condition is read:</small> <code>Relation only</code> <small>(Dartmouth BASIC (2nd edition))</small> <span class="tag warning">to verify</span><br><small>How a value used as a condition is read:</small> <code>Relation only</code> <small>(Dartmouth BASIC (3rd edition))</small> <span class="tag warning">to verify</span><br><small>How a value used as a condition is read:</small> <code>Relation only</code> <small>(Dartmouth Card BASIC October 1964)</small> <span class="tag warning">to verify</span><br></td>
+      <td>F1 relation F2, with one of = &gt; &lt; &gt;= &lt;= &lt;&gt;.</td>
+    </tr>
+    <tr>
+      <td><code class="par">n</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
+      <td>line number</td>
+      <td><code>[1, 99999]</code><span class="evm evm-manual" title="Stated by a source, not tested">M</span><br><small>Range of line numbers:</small> <code>1-99999</code> <small>(Dartmouth BASIC (1st edition))</small> <span class="tag warning">to verify</span><br><small>Range of line numbers:</small> <code>1-99999</code> <small>(Dartmouth BASIC (2nd edition))</small> <span class="tag warning">to verify</span><br><small>Range of line numbers:</small> <code>1-99999</code> <small>(Dartmouth BASIC (3rd edition))</small> <span class="tag warning">to verify</span><br><small>Range of line numbers:</small> <code>1-99999</code> <small>(Dartmouth Card BASIC October 1964)</small> <span class="tag warning">to verify</span><br><small>missing line: error</small><br><small>otherwise <a href="../dialects/DARTMOUTH_BASIC_1.html#errors">error</a> <code>UNDEFINED NUMBER</code> (Dartmouth BASIC (1st edition))</small><br><small>otherwise <a href="../dialects/DARTMOUTH_BASIC_2.html#errors">error</a> <code>UNDEFINED NUMBER</code> (Dartmouth BASIC (2nd edition))</small><br><small>otherwise <a href="../dialects/DARTMOUTH_BASIC_3.html#errors">error</a> <code>UNDEFINED NUMBER</code> (Dartmouth BASIC (3rd edition))</small><br><small>otherwise <a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors">error</a> <code>UNDEFINED NUMBER</code> (Dartmouth Card BASIC October 1964)</small></td>
+      <td>Line number: an integer of up to five digits, written as a number (not a formula).</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#FLOW_IF" class="action-code">FLOW_IF</a> Conditional execution
+<span class="tag">partial</span><small>— Only a jump, no ELSE</small></p>
+    <ul class="equivalents">
+      <li><span class="dia">Casio FX-700P BASIC</span>
+<a href="../entries/IF-100012.html">IF</a> <small>(Jump)</small> <small>— No ELSE</small>; <a href="../entries/IF-100012.html">IF</a> <small>(Statement)</small> <small>— No ELSE</small></li>
+      <li><span class="dia">Dartmouth BASIC (4th edition)</span>
+<a href="../entries/IF-THEN-200083.html">IF...THEN</a> <span class="tag">partial</span> <small>— Only a jump, no ELSE</small></li>
+      <li><span class="dia">Sinclair ZX80 BASIC 4K ROM</span>
+<a href="../entries/IF-10.html">IF</a> <small>— No ELSE</small></li>
+    </ul>
+  </div>
+</section>
+
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_1.html#errors"><code>INCORRECT_FORMAT</code></a> <small>(Dartmouth BASIC (1st edition))</small></td>
+      <td>The IF...THEN is not written in its form ([1] p. 19). <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_1.html#errors"><code>UNDEFINED_NUMBER</code></a> <small>(Dartmouth BASIC (1st edition))</small></td>
+      <td>GO TO or IF...THEN names a line number that does not exist. Shown in [1] p. 19. <small>Parameter: <code class="par">n</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_1.html#errors"><code>ILLEGAL_RELATION</code></a> <small>(Dartmouth BASIC (1st edition))</small></td>
+      <td>The relation is not one of = &lt; &lt;= &gt; &gt;= &lt;&gt;. <small>Parameter: <code class="par">relation</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_2.html#errors"><code>INCORRECT_FORMAT</code></a> <small>(Dartmouth BASIC (2nd edition))</small></td>
+      <td>The IF...THEN is not written in its form ([1] p. 19). <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_2.html#errors"><code>UNDEFINED_NUMBER</code></a> <small>(Dartmouth BASIC (2nd edition))</small></td>
+      <td>GO TO or IF...THEN names a line number that does not exist. Shown in [1] p. 19. <small>Parameter: <code class="par">n</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_2.html#errors"><code>ILLEGAL_RELATION</code></a> <small>(Dartmouth BASIC (2nd edition))</small></td>
+      <td>The relation is not one of = &lt; &lt;= &gt; &gt;= &lt;&gt;. <small>Parameter: <code class="par">relation</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_3.html#errors"><code>INCORRECT_FORMAT</code></a> <small>(Dartmouth BASIC (3rd edition))</small></td>
+      <td>The IF...THEN is not written in its form ([1] p. 19). <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_3.html#errors"><code>UNDEFINED_NUMBER</code></a> <small>(Dartmouth BASIC (3rd edition))</small></td>
+      <td>GO TO or IF...THEN names a line number that does not exist. Shown in [1] p. 19. <small>Parameter: <code class="par">n</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_3.html#errors"><code>ILLEGAL_RELATION</code></a> <small>(Dartmouth BASIC (3rd edition))</small></td>
+      <td>The relation is not one of = &lt; &lt;= &gt; &gt;= &lt;&gt;. <small>Parameter: <code class="par">relation</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>INCORRECT_FORMAT</code></a> <small>(Dartmouth Card BASIC October 1964)</small></td>
+      <td>The IF...THEN is not written in its form ([1] p. 19). <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>UNDEFINED_NUMBER</code></a> <small>(Dartmouth Card BASIC October 1964)</small></td>
+      <td>GO TO or IF...THEN names a line number that does not exist. Shown in [1] p. 19. <small>Parameter: <code class="par">n</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL_RELATION</code></a> <small>(Dartmouth Card BASIC October 1964)</small></td>
+      <td>The relation is not one of = &lt; &lt;= &gt; &gt;= &lt;&gt;. <small>Parameter: <code class="par">relation</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/IF-200014.html">IF</a></td>
+      <td></td>
+      <td></td></tr>
+  <tr><td><a class="kw" href="../keywords/THEN-200015.html">THEN</a></td>
+      <td></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Largest value of the sine <span class="tag warning">to verify</span></h3>  <pre>10 LET X0 = 0
+20 LET M = SIN(0)
+30 FOR N = 1 TO 300
+40 LET X = N/100
+50 IF SIN(X) &lt;= M THEN 100
+60 LET X0 = X
+70 LET M = SIN(X)
+100 NEXT N
+110 PRINT X0, M
+999 END</pre>
+<figcaption>
+<small>Source: BASIC Instruction Manual, May 1964 (First Draft), 12.</small></figcaption></figure>
+<figure class="example">
+<h3>Jumps in a loop</h3>  <pre>10 FOR I = 1 TO 2
+20 IF I = 1 THEN 50
+30 PRINT &#34;TWO&#34;
+40 GOTO 60
+50 PRINT &#34;ONE&#34;
+60 NEXT I
+70 END</pre>
+<pre class="output" title="Expected result">ONE
+TWO</pre><figcaption>From the DTSS-Win simulator files (BASNFO). Output checked on DTSS-Win (compiler of February 1965).
+<small>Source: DTSS-Win simulator, BASNFO.</small></figcaption></figure>
+
+<h2>Notes</h2>
+<div class="md"><p>If the relation is false the program goes on with the next statement. GO TO and IF...THEN may jump to a REM or DATA line, which does nothing [2] p. 45.</p></div>
+<h2>Related entries</h2>
+<ul><li>See also: <a href="../entries/GO-TO-200011.html">GO TO</a></li></ul>
+
+<h2>Sources</h2>
+<ul><li><a href="https://www.dartmouth.edu/basicfifty/basicmanual_1964.pdf">BASIC Instruction Manual, May 1964 (First Draft)</a>, John G. Kemeny, Thomas E. Kurtz (1964), p. 11-12</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (1st edition)">
+<a class="prev" rel="prev" href="../entries/GOSUB-200016.html" title="Previous entry (←)">‹ <span>GOSUB</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_1.html#entries">Dartmouth BASIC (1st edition) · 8 / 42</a>
+<a class="next" rel="next" href="../entries/LET-200006.html" title="Next entry (→)"><span>LET</span> ›</a></nav>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (2nd edition)">
+<a class="prev" rel="prev" href="../entries/GOSUB-200016.html" title="Previous entry (←)">‹ <span>GOSUB</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_2.html#entries">Dartmouth BASIC (2nd edition) · 8 / 49</a>
+<a class="next" rel="next" href="../entries/LET-200006.html" title="Next entry (→)"><span>LET</span> ›</a></nav>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (3rd edition)">
+<a class="prev" rel="prev" href="../entries/GOSUB-200071.html" title="Previous entry (←)">‹ <span>GOSUB</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_3.html#entries">Dartmouth BASIC (3rd edition) · 8 / 57</a>
+<a class="next" rel="next" href="../entries/INPUT-200057.html" title="Next entry (→)"><span>INPUT</span> ›</a></nav>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth Card BASIC October 1964">
+<a class="prev" rel="prev" href="../entries/GOSUB-200016.html" title="Previous entry (←)">‹ <span>GOSUB</span></a>  <a class="where" href="../dialects/DARTMOUTH_CARD_BASIC.html#entries">Dartmouth Card BASIC October 1964 · 7 / 41</a>
+<a class="next" rel="next" href="../entries/LET-200006.html" title="Next entry (→)"><span>LET</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795374828"></script>
+<script src="../static/search.js?v=1795374828"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>
