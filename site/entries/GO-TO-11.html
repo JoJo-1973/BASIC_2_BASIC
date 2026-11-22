@@ -45,7 +45,7 @@
     <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
     <tbody>
     <tr>
-      <td><code class="par">n</code></td>
+      <td><code class="par">n</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
       <td>numeric expression</td>
       <td><small>Range of line numbers:</small> <code>1-9999</code><br><small>missing line: the next existing line is used</small><br></td>
       <td>Line number (also an expression). Beyond the end of the program execution stops with 0/n.</td>
@@ -65,6 +65,19 @@
   <li><a href="../dialects/SINCLAIR_ZX80_4K.html#program">Program in memory</a>      <small>— action FLOW_GOTO</small></li>
 </ul>
 
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>VARIABLE_NOT_FOUND</code></a></td>
+      <td>A variable in the expression is not defined. <small>Parameter: <code class="par">n</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>SUBSCRIPT_OUT_OF_RANGE</code></a></td>
+      <td>An array element in the expression has a subscript out of range. <small>Parameter: <code class="par">n</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>OVERFLOW</code></a></td>
+      <td>A calculation in the expression goes outside the range from -32768 to 32767. <small>Parameter: <code class="par">n</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
 <h2>Keywords</h2>
 <table>
   <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
@@ -77,7 +90,7 @@
 
 <h2>Examples</h2>
 <figure class="example">
-<h3>Endless loop <span class="tag warning">to verify</span></h3>  <pre>10 PRINT &#34;LOOP&#34;
+<h3>Endless loop</h3>  <pre>10 PRINT &#34;LOOP&#34;
 20 GO TO 10</pre>
 <pre class="output" title="Expected result">LOOP on every line until the screen is full, then 5/10.</pre><figcaption>Report 5 means the screen is full.
 </figcaption></figure>

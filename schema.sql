@@ -14,6 +14,12 @@
 --  * Booleans are INTEGER 0/1.
 --  * All tables are STRICT: SQLite rejects values of the wrong type
 --    (e.g. text in an INTEGER column) instead of silently converting them.
+--  * "evidence" (tables whose facts can be wrong: parameters, limits,
+--    allowed values, returned ranges, character codes, memory layouts):
+--    MANUAL = stated by a source but not tested; TESTED = checked on the
+--    machine or an emulator; INFERRED = deduced (e.g. proposed by Claude),
+--    neither stated nor tested; NULL = not assessed yet. Examples, features
+--    and errors use "verified" instead.
 --
 --  Run with:  python build_database.py   (or: sqlite3 basic2basic.db < schema.sql)
 -- =====================================================================
@@ -195,6 +201,7 @@ CREATE TABLE variable_layout_field (
     size              INTEGER,                        -- bytes (NULL = variable)
     byte_order        TEXT    CHECK (byte_order IN ('BIG','LITTLE')),
     description       TEXT,
+    evidence          TEXT    CHECK (evidence IN ('MANUAL','TESTED','INFERRED')),
     UNIQUE (variable_kind_id, layout, position)
 ) STRICT;
 
@@ -207,6 +214,7 @@ CREATE TABLE memory_area (
     prologue      TEXT,
     epilogue      TEXT,
     notes         TEXT,
+    evidence      TEXT    CHECK (evidence IN ('MANUAL','TESTED','INFERRED')),
     operation     TEXT    NOT NULL DEFAULT 'ADD'
                   CHECK (operation IN ('ADD','REPLACE','REMOVE')),
     redefines_id  INTEGER REFERENCES memory_area(id),
@@ -350,6 +358,7 @@ CREATE TABLE character_code (
     action        TEXT,                               -- for CONTROL
     name          TEXT,
     notes         TEXT,
+    evidence      TEXT    CHECK (evidence IN ('MANUAL','TESTED','INFERRED')),
     operation     TEXT    NOT NULL DEFAULT 'ADD'
                   CHECK (operation IN ('ADD','REPLACE','REMOVE')),
     redefines_id  INTEGER REFERENCES character_code(id),
@@ -405,6 +414,7 @@ CREATE TABLE program_layout_field (
     size          INTEGER,                            -- bytes (NULL = variable)
     byte_order    TEXT    CHECK (byte_order IN ('BIG','LITTLE')),
     description   TEXT,
+    evidence      TEXT    CHECK (evidence IN ('MANUAL','TESTED','INFERRED')),
     operation     TEXT    NOT NULL DEFAULT 'ADD'
                   CHECK (operation IN ('ADD','REPLACE','REMOVE')),
     redefines_id  INTEGER REFERENCES program_layout_field(id),
@@ -556,6 +566,7 @@ CREATE TABLE syntax_form (
     precedence            INTEGER CHECK (precedence IS NULL OR precedence >= 1),
     associativity         TEXT    CHECK (associativity IN ('LEFT','RIGHT')),  -- at equal precedence
     operator_class_id     INTEGER REFERENCES operator_class(id),
+    evidence              TEXT    CHECK (evidence IN ('MANUAL','TESTED','INFERRED')),
     UNIQUE (entry_id, position)
 ) STRICT;
 
@@ -633,6 +644,7 @@ CREATE TABLE parameter (
     --   ERROR      an error is reported
     missing_line       TEXT    CHECK (missing_line IN ('NEXT_LINE','ERROR')),
     description        TEXT,
+    evidence           TEXT    CHECK (evidence IN ('MANUAL','TESTED','INFERRED')),
     CHECK ((form_id IS NULL) <> (construct_id IS NULL))
 ) STRICT;
 
@@ -644,7 +656,8 @@ CREATE TABLE parameter_limit (
     maximum        REAL,
     min_inclusive  INTEGER NOT NULL DEFAULT 1 CHECK (min_inclusive IN (0,1)),
     max_inclusive  INTEGER NOT NULL DEFAULT 1 CHECK (max_inclusive IN (0,1)),
-    notes          TEXT                           -- limits that depend on the context
+    notes          TEXT,                           -- limits that depend on the context
+    evidence       TEXT    CHECK (evidence IN ('MANUAL','TESTED','INFERRED'))
 ) STRICT;
 
 -- Discrete, non-contiguous values (e.g. SCREEN 0,1,2).
@@ -653,7 +666,8 @@ CREATE TABLE allowed_value (
     parameter_id  INTEGER NOT NULL REFERENCES parameter(id) ON DELETE CASCADE,
     machine_id    INTEGER REFERENCES machine(id),
     value         TEXT    NOT NULL,
-    meaning       TEXT
+    meaning       TEXT,
+    evidence      TEXT    CHECK (evidence IN ('MANUAL','TESTED','INFERRED'))
 ) STRICT;
 
 -- ---------------------------------------------------------------------
@@ -1081,6 +1095,101 @@ JOIN feature_note_rule r ON r.id = h.rule_id
 JOIN v_dialect_entry de ON de.entry_id = h.entry_id
 JOIN v_dialect_feature_all fa ON fa.dialect_id = de.dialect_id AND fa.feature_kind_id = r.feature_kind_id
 WHERE fa.feature_id IS NOT NULL;
+
+-- Things still to do or check for a layer or a machine that are not tied to
+-- one row (e.g. "compare original_syntax with the printed manual").
+-- DIALECT scope through layer_id, or MACHINE scope through machine_id.
+CREATE TABLE open_question (
+    id          INTEGER PRIMARY KEY,
+    layer_id    INTEGER REFERENCES layer(id),
+    machine_id  INTEGER REFERENCES machine(id),
+    position    INTEGER NOT NULL DEFAULT 1,
+    question    TEXT    NOT NULL,                 -- Markdown
+    resolved    INTEGER NOT NULL DEFAULT 0 CHECK (resolved IN (0,1)),
+    notes       TEXT,
+    CHECK ((layer_id IS NULL) <> (machine_id IS NULL))
+) STRICT;
+
+-- Errors each entry can give (view v_entry_error). The error is named by its
+-- code (error.code) and found in each dialect with v_dialect_error. Sources:
+--   MANUAL          entry_error, written for the entry (form and parameter optional)
+--   PARAMETER       parameter.error_code (value not allowed)
+--   PARAMETER_KIND  error_rule: parameters of that kind (e.g. NUM_EXPR -> OVERFLOW)
+--   ACTION          error_rule: forms with that action
+--   OPERATOR_CLASS  error_rule: forms with that operator class (e.g. ARITHMETIC)
+-- entry_error with operation REMOVE takes away an error that the other sources
+-- would give (e.g. ZX80 LIST n: an error while computing n is not reported);
+-- form_id / parameter_id NULL = in every form / for every parameter.
+CREATE TABLE entry_error (
+    id            INTEGER PRIMARY KEY,
+    entry_id      INTEGER NOT NULL REFERENCES entry(id) ON DELETE CASCADE,
+    form_id       INTEGER REFERENCES syntax_form(id) ON DELETE CASCADE,
+    parameter_id  INTEGER REFERENCES parameter(id) ON DELETE CASCADE,
+    error_code    TEXT    NOT NULL,
+    operation     TEXT    NOT NULL DEFAULT 'ADD' CHECK (operation IN ('ADD','REMOVE')),
+    cause         TEXT,                           -- when it happens (Markdown)
+    verified      INTEGER NOT NULL DEFAULT 0 CHECK (verified IN (0,1)),
+    position      INTEGER NOT NULL DEFAULT 1
+) STRICT;
+
+-- DIALECT scope: a rule applies in the dialects that contain its layer.
+CREATE TABLE error_rule (
+    id              INTEGER PRIMARY KEY,
+    layer_id        INTEGER NOT NULL REFERENCES layer(id),
+    selector        TEXT    NOT NULL CHECK (selector IN ('PARAMETER_KIND','ACTION','OPERATOR_CLASS')),
+    selector_value  TEXT    NOT NULL,             -- parameter_kind.code, action.code, operator_class.code
+    error_code      TEXT    NOT NULL,
+    cause           TEXT,
+    verified        INTEGER NOT NULL DEFAULT 0 CHECK (verified IN (0,1)),
+    UNIQUE (layer_id, selector, selector_value, error_code)
+) STRICT;
+
+-- Errors of each entry in each dialect (see entry_error and error_rule).
+-- detail = what caused it (parameter kind, action, operator class, parameter name).
+CREATE VIEW v_entry_error AS
+WITH hits AS (
+    SELECT ee.entry_id, ee.form_id, ee.parameter_id, ee.error_code AS code, 'MANUAL' AS rule,
+           NULL AS detail, ee.cause, ee.verified, NULL AS rule_layer_id, ee.position
+    FROM entry_error ee WHERE ee.operation = 'ADD'
+    UNION ALL
+    SELECT f.entry_id, f.id, p.id, p.error_code, 'PARAMETER', p.name, NULL,
+           CASE WHEN p.evidence = 'TESTED' THEN 1 ELSE 0 END, NULL, 100
+    FROM parameter p JOIN syntax_form f ON f.id = p.form_id
+    WHERE p.error_code IS NOT NULL
+    UNION ALL
+    SELECT f.entry_id, f.id, p.id, r.error_code, 'PARAMETER_KIND', pk.code, r.cause, r.verified, r.layer_id, 200
+    FROM error_rule r
+    JOIN parameter_kind pk ON r.selector = 'PARAMETER_KIND' AND pk.code = r.selector_value
+    JOIN syntax_node n ON n.parameter_kind_id = pk.id
+    JOIN parameter p ON p.id = n.parameter_id
+    JOIN syntax_form f ON f.id = p.form_id
+    UNION ALL
+    SELECT f.entry_id, f.id, NULL, r.error_code, 'ACTION', a.code, r.cause, r.verified, r.layer_id, 200
+    FROM error_rule r
+    JOIN action a ON r.selector = 'ACTION' AND a.code = r.selector_value
+    JOIN form_action fa ON fa.action_id = a.id
+    JOIN syntax_form f ON f.id = fa.form_id
+    UNION ALL
+    SELECT f.entry_id, f.id, NULL, r.error_code, 'OPERATOR_CLASS', oc.code, r.cause, r.verified, r.layer_id, 200
+    FROM error_rule r
+    JOIN operator_class oc ON r.selector = 'OPERATOR_CLASS' AND oc.code = r.selector_value
+    JOIN syntax_form f ON f.operator_class_id = oc.id
+)
+SELECT DISTINCT de.dialect_id, h.entry_id, h.form_id, h.parameter_id, x.error_id,
+       e.number, e.code, e.message, h.rule, h.detail, h.cause, h.verified, h.position
+FROM hits h
+JOIN v_dialect_entry de ON de.entry_id = h.entry_id
+JOIN v_dialect_error x  ON x.dialect_id = de.dialect_id AND x.code = h.code
+JOIN error e            ON e.id = x.error_id
+WHERE (h.rule_layer_id IS NULL
+       OR EXISTS (SELECT 1 FROM dialect_layer dl
+                  WHERE dl.dialect_id = de.dialect_id AND dl.layer_id = h.rule_layer_id))
+  AND (h.rule = 'MANUAL'
+       OR NOT EXISTS (SELECT 1 FROM entry_error rm
+                      WHERE rm.operation = 'REMOVE' AND rm.entry_id = h.entry_id
+                        AND rm.error_code = h.code
+                        AND (rm.form_id IS NULL OR rm.form_id = h.form_id)
+                        AND (rm.parameter_id IS NULL OR rm.parameter_id = h.parameter_id)));
 
 -- Operator precedence of each dialect, highest first.
 CREATE VIEW v_operator_precedence AS

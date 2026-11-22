@@ -40,7 +40,7 @@
     <code>CODE(s)</code>
 </p>
 
-  <p><strong>Returns:</strong> Integer, range <code>[0, 255]</code></p>
+  <p><strong>Returns:</strong> Integer, range <code>[0, 255]</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></p>
 
   <table class="parameters">
     <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
@@ -66,6 +66,19 @@
   <li><a href="../dialects/SINCLAIR_ZX80_4K.html#characters">Character codes</a>      <small>— action STR_CODE</small></li>
 </ul>
 
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>VARIABLE_NOT_FOUND</code></a></td>
+      <td>A variable in the expression is not defined. <small>Parameter: <code class="par">s</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>SUBSCRIPT_OUT_OF_RANGE</code></a></td>
+      <td>An array element in the expression has a subscript out of range. <small>Parameter: <code class="par">s</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>OVERFLOW</code></a></td>
+      <td>A calculation in the expression goes outside the range from -32768 to 32767. <small>Parameter: <code class="par">s</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
 <h2>Keywords</h2>
 <table>
   <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
@@ -90,8 +103,13 @@
 <h3>Only the first character counts</h3>  <pre>PRINT CODE(&#34;ZX80&#34;)</pre>
 <pre class="output" title="Expected result">63</pre><figcaption>Z has code 63.
 </figcaption></figure>
+<figure class="example">
+<h3>Empty string</h3>  <pre>PRINT CODE(&#34;&#34;)</pre>
+<pre class="output" title="Expected result">1</pre><figcaption>The code of the string terminator.
+</figcaption></figure>
 
-
+<h2>Notes</h2>
+<div class="md"><p><code>CODE("")</code> gives 1, the code of the string terminator.</p></div>
 <h2>Related entries</h2>
 <ul><li>See also: <a href="../entries/CHRS-24.html">CHR$</a></li></ul>
 

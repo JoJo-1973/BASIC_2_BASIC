@@ -95,6 +95,53 @@ ERRORS = [
     ("STOP", 9, "STOP statement executed; CONTINUE resumes from the next line."),
 ]
 
+# Errors given by every entry with a parameter of a kind, an action or an
+# operator class: selector, value, error code, cause, verified.
+# All TO BE VERIFIED (proposed by Claude).
+EXPR_VARIABLE = "A variable in the expression is not defined."
+EXPR_SUBSCRIPT = "An array element in the expression has a subscript out of range."
+EXPR_OVERFLOW = "A calculation in the expression goes outside the range from -32768 to 32767."
+ERROR_RULES = [
+    ("PARAMETER_KIND", "NUM_EXPR", "VARIABLE_NOT_FOUND", EXPR_VARIABLE, False),
+    ("PARAMETER_KIND", "NUM_EXPR", "SUBSCRIPT_OUT_OF_RANGE", EXPR_SUBSCRIPT, False),
+    ("PARAMETER_KIND", "NUM_EXPR", "OVERFLOW", EXPR_OVERFLOW, False),
+    ("PARAMETER_KIND", "STR_EXPR", "VARIABLE_NOT_FOUND", EXPR_VARIABLE, False),
+    ("PARAMETER_KIND", "STR_EXPR", "SUBSCRIPT_OUT_OF_RANGE", EXPR_SUBSCRIPT, False),
+    ("PARAMETER_KIND", "STR_EXPR", "OVERFLOW", EXPR_OVERFLOW, False),
+    ("PARAMETER_KIND", "CONDITION", "VARIABLE_NOT_FOUND", EXPR_VARIABLE, False),
+    ("PARAMETER_KIND", "CONDITION", "SUBSCRIPT_OUT_OF_RANGE", EXPR_SUBSCRIPT, False),
+    ("PARAMETER_KIND", "CONDITION", "OVERFLOW", EXPR_OVERFLOW, False),
+    ("PARAMETER_KIND", "ARRAY_ELEMENT", "VARIABLE_NOT_FOUND", "The array has not been dimensioned.", False),
+    ("PARAMETER_KIND", "ARRAY_ELEMENT", "SUBSCRIPT_OUT_OF_RANGE",
+     "Subscript out of range, or an error while computing it.", False),
+    ("OPERATOR_CLASS", "ARITHMETIC", "OVERFLOW", "The result is outside the range from -32768 to 32767.", False),
+]
+
+
+def EE(code, cause=None, verified=False, form=None, par=None, remove=False):
+    """Error of an entry. form = position of the form (None = every form); par = parameter name
+    (in that form, or in every form); remove=True: an error that a rule would give does not happen here."""
+    return dict(code=code, cause=cause, verified=verified, form=form, par=par, remove=remove)
+
+
+# Errors of each entry, besides those of the rules above and of the parameters
+# (error= in the parameters). verified=True only where the data already said so.
+ENTRY_ERRORS = {
+    "LIST": [EE(c, "An error while computing n is not reported.", True, par="n", remove=True)
+             for c in ("VARIABLE_NOT_FOUND", "SUBSCRIPT_OUT_OF_RANGE", "OVERFLOW")],
+    "LET": [EE("OUT_OF_MEMORY", "No room for a new variable or for a longer string.")],
+    "PRINT": [EE("SCREEN_FULL", "No more room on the upper part of the screen.", True)],
+    "INPUT": [EE("INPUT_AS_COMMAND", "Used as a command, outside a program.", True),
+              EE("OUT_OF_MEMORY", "No room for a new variable or for a longer string.")],
+    "GO SUB": [EE("OUT_OF_MEMORY", "No room for the return address.")],
+    "RETURN": [EE("RETURN_WITHOUT_GOSUB", "No GO SUB to go back to.", True)],
+    "FOR...TO": [EE("OUT_OF_MEMORY", "No room for a new control variable.")],
+    "STOP": [EE("STOP", "Always: it is the report STOP gives.", True)],
+    "DIM": [EE("OUT_OF_MEMORY", "No room for the array."),
+            EE("SUBSCRIPT_OUT_OF_RANGE", "Negative size.", True)],
+    "/": [EE("OVERFLOW", "Division by zero.", True)],
+}
+
 # Keywords: text, token (hexadecimal code or None), notes
 KEYWORDS = [
     ('"', "01", "String delimiter. A typed quote is stored in the program as $01 (checked on an emulator: "
@@ -300,7 +347,8 @@ def zx80_screen_codes():
 def zx80_character_codes():
     """Rows of the character_code table for the 256 codes."""
     for code in range(256):
-        r = dict(layer_id=LAYER["id"], code=code)
+        # tested on an emulator: 1, 212 and 118; the others come from the manual and the character set image
+        r = dict(layer_id=LAYER["id"], code=code, evidence="TESTED" if code in (0x01, 212, 0x76) else "MANUAL")
         if code == 0x01:
             # glyph 1 is the quote, but code 1 does not print it: it ends the strings
             r.update(kind="CONTROL", name="String terminator", action="Ends a string",
@@ -321,7 +369,10 @@ def zx80_character_codes():
         yield r
 
 
-# Program and variables in memory (source: the editor, 2026-11-21).
+# Program and variables in memory (source: the manual, entered by the editor on 2026-11-21;
+# not yet checked on an emulator).
+# Evidence of all the memory rows (MANUAL, TESTED, INFERRED; None = not assessed yet).
+MEMORY_EVIDENCE = "MANUAL"
 # memory areas: area, prologue, epilogue ('' = nothing)
 MEMORY_AREAS = [
     ("PROGRAM", "", "$00, $00", None),
@@ -376,7 +427,7 @@ VARIABLE_LAYOUTS = {
 LAYER_TABLES = [
     ("CHARACTER_CODES", "COMPLETE", None),
     ("KEYBOARD_CODES", "NOT_APPLICABLE", "The ZX80 BASIC has no keyboard codes."),
-    ("ERRORS", "COMPLETE", "Reports are shown as n/m: n = error code (0 = no error), m = line number."),
+    ("ERRORS", "COMPLETE", "Reports are shown as n/m: n = error code (0 = no error), m = line number (-2 for a direct command)."),
     ("OPERATOR_PRECEDENCE", "COMPLETE", None),
     ("VARIABLE_LAYOUT", "COMPLETE", None),
     ("PROGRAM_LAYOUT", "COMPLETE", None),
@@ -462,9 +513,13 @@ def E(name, cat, descr, forms, examples=(), notes=None):
 
 
 # prec = operator precedence; op = operator class (OPERATOR_CLASS); assoc = associativity
-def F(tree, par=None, actions=(), orig=None, title=None, ret=None, descr=None, prec=None, op=None, assoc=None):
+# ev = evidence of the returned range and of the description (MANUAL, TESTED, INFERRED);
+# by default MANUAL when the form has a returned range, otherwise not assessed.
+# In the parameters, ev= gives the evidence of the parameter (default MANUAL when it has
+# a description or other facts, otherwise not assessed); its limits share it.
+def F(tree, par=None, actions=(), orig=None, title=None, ret=None, descr=None, prec=None, op=None, assoc=None, ev=None):
     return dict(tree=tree, par=par or {}, actions=list(actions), orig=orig, title=title, ret=ret, descr=descr,
-                prec=prec, op=op, assoc=assoc)
+                prec=prec, op=op, assoc=assoc, ev=ev)
 
 
 # A line number that does not exist: the next existing line is used.
@@ -569,19 +624,23 @@ ENTRIES = [
     # ----------------------------------------------------------- functions
     E("ABS", "FUNCTION", "Absolute value.", [
         F(function("ABS", "n"), {}, [("MATH_ABS", "FULL", None)],
-          orig="ABS(n)", ret=("INT16", 0, 32767))]),
+          orig="ABS(n)", ret=("INT16", 0, 32767))],
+      notes="`ABS(-32768)` cannot be typed, because the syntax check rejects the number 32768, but an expression "
+            "can reach that value: `ABS(-32767-1)` wrongly gives -32768, without any error (checked on an emulator). "
+            "This is a bug of the ROM: the returned value stays 0 to 32767 for every other argument."),
     E("CHR$", "FUNCTION", "Character with the given code.", [
-        F(function("CHR$", "n"), {"n": dict(descr="Character code. CHR$(1) gives the empty string; CHR$(212) gives the quote.", limit=(0, 255))},
+        F(function("CHR$", "n"), {"n": dict(descr="Character code, taken modulo 256: `CHR$(256+38)` is `CHR$(38)`. CHR$(1) gives the empty string; CHR$(212) gives the quote.", ev="TESTED")},
           [("STR_CHR", "FULL", "The ZX80's own character set, not ASCII")], orig="CHR$(n)", ret=("STRING", None, None))]),
     E("CODE", "FUNCTION", "Code of the first character of a string.", [
         F(function("CODE", "s", "STR_EXPR"), {},
-          [("STR_CODE", "FULL", "The ZX80's own character set, not ASCII")], orig="CODE(s)", ret=("INT16", 0, 255))]),
+          [("STR_CODE", "FULL", "The ZX80's own character set, not ASCII")], orig="CODE(s)", ret=("INT16", 0, 255))],
+      notes='`CODE("")` gives 1, the code of the string terminator.'),
     E("PEEK", "FUNCTION", "Byte stored at the given address.", [
         F(function("PEEK", "n"), {"n": dict(descr="Memory address.")},
           [("MEM_PEEK", "FULL", None)], orig="PEEK(n)", ret=("INT16", 0, 255))]),
     E("RND", "FUNCTION", "Random integer.", [
         F(function("RND", "n"), {"n": dict(descr="With n>0 the result goes from 1 to n; with n<0 it goes from 1 to 32767 or from -32768 to n "
-                           "(see the algorithm in the notes); with n=0 it is 1.")},
+                           "(see the algorithm in the notes); with n=0 it is 1.", ev="TESTED")},
           [("RND_VALUE", "FULL", "Integer from 1 to n")], orig="RND(n)", ret=("INT16", None, None))],
       notes="Algorithm (checked on an emulator against the sequences of `RANDOMISE 5` with `RND(100)` and "
             "`RND(-10)`, and of `RANDOMISE -5`):\n"
@@ -599,7 +658,8 @@ ENTRIES = [
           [("STR_FROM_NUM", "FULL", None)], orig="STR$(n)", ret=("STRING", None, None))]),
     E("TL$", "FUNCTION", "The string without its first character.", [
         F(function("TL$", "s", "STR_EXPR"), {},
-          [("STR_SUBSTRING", "PARTIAL", "Only removes the first character")], orig="TL$(s)", ret=("STRING", None, None))]),
+          [("STR_SUBSTRING", "PARTIAL", "Only removes the first character")], orig="TL$(s)", ret=("STRING", None, None))],
+      notes='`TL$("")` gives the empty string, without any error.'),
     E("USR", "FUNCTION", "Calls a machine code routine and returns its value.", [
         F(function("USR", "n"), {"n": dict(descr="Address of the routine.")},
           [("MEM_CALL", "FULL", "Returns HL, or n if HL does not change")], orig="USR(n)", ret=("INT16", None, None))]),
@@ -622,9 +682,9 @@ ENTRIES = [
 for _op, _action, _name in (("=", "OP_EQ", "Equal"), (">", "OP_GT", "Greater than"), ("<", "OP_LT", "Less than")):
     ENTRIES.append(E(_op, "OPERATOR", f"{_name}: -1 if true, 0 if false.", [
         F(binary(_op), {}, [(_action, "FULL", None)], orig=None, assoc=LEFT, prec=5, op="RELATIONAL",
-          title="Between numbers", ret=("INT16", -1, 0)),
+          title="Between numbers", ret=("INT16", -1, 0), ev="TESTED"),
         F(S(P("s1", "STR_EXPR"), K(_op), P("s2", "STR_EXPR")), {},
-          [(_action, "FULL", None)], orig=f"s{_op}s", assoc=LEFT, prec=5, op="RELATIONAL", title="Between strings", ret=("INT16", -1, 0))]))
+          [(_action, "FULL", None)], orig=f"s{_op}s", assoc=LEFT, prec=5, op="RELATIONAL", title="Between strings", ret=("INT16", -1, 0), ev="TESTED")]))
 
 BITWISE_NOTE = ("With truth values (comparisons give -1 if true, 0 if false) it also behaves as a conditional "
                 "operator: this is a side effect of working bit by bit on signed 16-bit integers, the only numeric type.")
@@ -710,7 +770,7 @@ EXAMPLES = {
     ],
     "GO TO": [
         X("Endless loop", '10 PRINT "LOOP"\n20 GO TO 10', "LOOP on every line until the screen is full, then 5/10.",
-          "Report 5 means the screen is full."),
+          "Report 5 means the screen is full.", verified=True),
         X("Missing line", '10 GO TO 15\n20 PRINT "HERE"', "HERE",
           "Line 15 does not exist: execution goes on from the next line, 20.", verified=True),
     ],
@@ -736,6 +796,7 @@ EXAMPLES = {
     "DIM": [
         X("Array with a variable size", "DIM A(B)", None, "Creates array A with elements from A(0) to A(B).", manual=True, verified=True),
         X("Use an array", "10 DIM A(5)\n20 LET A(0)=1\n30 LET A(5)=6\n40 PRINT A(0)+A(5)", "7", verified=True),
+        X("Negative size", "DIM A(-10)", "3/-2", "Subscript out of range.", verified=True),
     ],
     "CLEAR": [
         X("Variables are lost", "10 LET A=5\n20 CLEAR\n30 PRINT A", "2/30",
@@ -761,13 +822,16 @@ EXAMPLES = {
     # ----------------------------------------------------------- functions
     "ABS": [
         X("Absolute value", "PRINT ABS(-5)", "5", verified=True),
+        X("The value -32768", "PRINT ABS(-32767-1)", "-32768", "Wrong result, without any error.", verified=True),
     ],
     "CHR$": [
         X("Character from its code", "PRINT CHR$(38)", "A", "In the ZX80 character set A has code 38.", verified=True),
+        X("Codes above 255", "PRINT CHR$(256+38)", "A", "The code is taken modulo 256.", verified=True),
     ],
     "CODE": [
         X("Code of a character", 'PRINT CODE("A")', "38", verified=True),
         X("Only the first character counts", 'PRINT CODE("ZX80")', "63", "Z has code 63.", verified=True),
+        X("Empty string", 'PRINT CODE("")', "1", "The code of the string terminator.", verified=True),
     ],
     "PEEK": [
         X("Read a byte", "PRINT PEEK(16384)", "A number from 0 to 255.",
@@ -789,6 +853,7 @@ EXAMPLES = {
     ],
     "TL$": [
         X("Remove the first character", 'PRINT TL$("ZX80")', "X80", verified=True),
+        X("Empty string", 'PRINT TL$("")', "An empty line.", "The result is the empty string.", verified=True),
     ],
     "USR": [
         X("Call machine code", "PRINT USR(A)", "The value of the HL register when the routine returns.",
@@ -809,6 +874,7 @@ EXAMPLES = {
     "/": [
         X("Integer division", "PRINT 7/2", "3", "The result is truncated.", verified=True),
         X("Truncated towards zero", "PRINT -7/2", "-3", verified=True),
+        X("Division by zero", "PRINT 1/0", "6/-2", "Overflow.", verified=True),
     ],
     "+": [
         X("Addition", "PRINT 2+3", "5", verified=True),
@@ -839,6 +905,11 @@ EXAMPLES = {
         X("Change the order", "PRINT (2+3)*4", "20", "Without parentheses, 2+3*4 gives 14.", verified=True),
     ],
 }
+
+# Things still to do that are not tied to one row (table open_question).
+OPEN_QUESTIONS = [
+    "Compare the `original_syntax` headings with the printed manual: they come from an OCR transcription.",
+]
 
 REFERENCES = [("FOR...TO", "NEXT", "OPENS_BLOCK"), ("GO SUB", "RETURN", "OPENS_BLOCK"),
               ("STOP", "CONTINUE", "SEE_ALSO"), ("RUN", "CLEAR", "SEE_ALSO"),
@@ -887,10 +958,11 @@ def generate():
         w(row("character_code", cc))
     w("")
     for area, prologue, epilogue, notes in MEMORY_AREAS:
-        w(row("memory_area", dict(layer_id=layer_id, area=area, prologue=prologue, epilogue=epilogue, notes=notes)))
+        w(row("memory_area", dict(layer_id=layer_id, area=area, prologue=prologue, epilogue=epilogue, notes=notes,
+                                  evidence=MEMORY_EVIDENCE)))
     for k, (name, offset, size, order, descr) in enumerate(PROGRAM_LAYOUT, start=1):
         w(row("program_layout_field", dict(layer_id=layer_id, position=k, name=name, offset=offset, size=size,
-                                           byte_order=order, description=descr)))
+                                           byte_order=order, description=descr, evidence=MEMORY_EVIDENCE)))
     for kind, status, notes in LAYER_TABLES:
         w(f"INSERT INTO table_status (table_kind_id, layer_id, status, notes) "
           f"SELECT id, {layer_id}, {q(status)}, {q(notes)} FROM table_kind WHERE code = {q(kind)};")
@@ -920,7 +992,7 @@ def generate():
             for k, (name, offset, size, order, descr) in enumerate(fields, start=1):
                 w(row("variable_layout_field", dict(variable_kind_id=vid, layout=n, layout_name=lname, position=k,
                                                     name=name, offset=offset, size=size, byte_order=order,
-                                                    description=descr)))
+                                                    description=descr, evidence=MEMORY_EVIDENCE)))
     w("")
     parameter_kind_id = {}
     for pid, code, name, nature, cls, vkind, notes in PARAMETER_KINDS:
@@ -935,6 +1007,11 @@ def generate():
     w("")
     for code, number, descr in ERRORS:
         w(row("error", dict(layer_id=layer_id, code=code, number=number, message=f"{number}/n", description=descr)))
+    error_codes = {x[0] for x in ERRORS}
+    for selector, value, code, cause, verified in ERROR_RULES:
+        assert code in error_codes, code
+        w(row("error_rule", dict(layer_id=layer_id, selector=selector, selector_value=value, error_code=code,
+                                 cause=cause, verified=verified)))
     w("")
     keyword_id = {}
     assert set(ABBREVIATIONS) <= {k[0] for k in KEYWORDS}, set(ABBREVIATIONS) - {k[0] for k in KEYWORDS}
@@ -946,6 +1023,7 @@ def generate():
         w(row("abbreviation", dict(keyword_id=i, text=ABBREVIATIONS.get(text, ""))))
     w("")
 
+    assert set(ENTRY_ERRORS) <= {e["name"] for e in ENTRIES}, set(ENTRY_ERRORS) - {e["name"] for e in ENTRIES}
     counter = dict(entry=0, form=0, par=0, node=0)
     entry_id = {}
 
@@ -982,6 +1060,7 @@ def generate():
         w(row("entry", dict(id=eid, layer_id=layer_id, name=e["name"], category_id=CATEGORY[e["cat"]],
                             description=e["descr"], notes=e["notes"])))
         w(row("entry_source", dict(entry_id=eid, source_id=1, page="Appendix II")))
+        entry_par_ids = {}                    # (form position, parameter name) -> parameter id
         for k, f in enumerate(e["forms"], start=1):
             counter["form"] += 1
             fid = counter["form"]
@@ -992,25 +1071,39 @@ def generate():
                 return_type_id=type_id[ret[0]] if ret else None,
                 return_min=ret[1] if ret else None, return_max=ret[2] if ret else None,
                 precedence=f["prec"], associativity=f["assoc"],
-                operator_class_id=OPERATOR_CLASS[f["op"]] if f["op"] else None)))
+                operator_class_id=OPERATOR_CLASS[f["op"]] if f["op"] else None,
+                evidence=f["ev"] or ("MANUAL" if ret and (ret[1] is not None or ret[2] is not None) else None))))
             par_ids = {}
             for name in parameter_names(f["tree"], []):
                 d = f["par"].get(name, {})
+                pev = d.get("ev", "MANUAL" if d else None)
                 counter["par"] += 1
                 par_ids[name] = counter["par"]
                 w(row("parameter", dict(
                     id=counter["par"], form_id=fid, name=name,
                     conversion=d.get("conversion", "NONE"), error_code=d.get("error"),
-                    missing_line=d.get("missing_line"), description=d.get("descr"))))
+                    missing_line=d.get("missing_line"), description=d.get("descr"), evidence=pev)))
                 if "limit" in d:
                     lim = d["limit"]
                     w(row("parameter_limit", dict(parameter_id=counter["par"], minimum=lim[0], maximum=lim[1],
-                                                  notes=lim[2] if len(lim) > 2 else None)))
+                                                  notes=lim[2] if len(lim) > 2 else None, evidence=pev)))
             node(f["tree"], fid, None, 1, par_ids)
+            entry_par_ids.update({(k, name): pid for name, pid in par_ids.items()})
             for code, coverage, note in f["actions"]:
                 w(f"INSERT INTO form_action (form_id, action_id, coverage, notes) "
                   f"SELECT {fid}, id, {q(coverage)}, {q(note)} FROM action WHERE code = {q(code)};")
         form_ids = {k: counter["form"] - len(e["forms"]) + k for k in range(1, len(e["forms"]) + 1)}
+        for k, x in enumerate(ENTRY_ERRORS.get(e["name"], []), start=1):
+            assert x["code"] in error_codes, x["code"]
+            # a parameter without a form: one row for each form that has it
+            targets = ([(x["form"], entry_par_ids[(x["form"], x["par"])])] if x["form"] and x["par"] else
+                       [(x["form"], None)] if not x["par"] else
+                       [(fk, pid) for (fk, name), pid in entry_par_ids.items() if name == x["par"]])
+            assert targets, (e["name"], x)
+            for fk, pid in targets:
+                w(row("entry_error", dict(entry_id=eid, form_id=form_ids[fk] if fk else None, parameter_id=pid,
+                                          error_code=x["code"], operation="REMOVE" if x["remove"] else "ADD",
+                                          cause=x["cause"], verified=x["verified"], position=k)))
         for k, x in enumerate(EXAMPLES.get(e["name"], []), start=1):
             w(row("example", dict(entry_id=eid, form_id=form_ids[x["form"]] if x["form"] else None,
                                   position=k, title=x["title"], description=x["description"],
@@ -1018,6 +1111,8 @@ def generate():
                                   source_id=1 if x["manual"] else None)))
         w("")
 
+    for k, text in enumerate(OPEN_QUESTIONS, start=1):
+        w(row("open_question", dict(layer_id=layer_id, position=k, question=text)))
     for a, b, kind in REFERENCES:
         w(row("reference", dict(entry_id=entry_id[a], related_entry_id=entry_id[b], kind=kind)))
     w("")

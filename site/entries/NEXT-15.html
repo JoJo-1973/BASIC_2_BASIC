@@ -45,7 +45,7 @@
     <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
     <tbody>
     <tr>
-      <td><code class="par">a</code></td>
+      <td><code class="par">a</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
       <td>loop control variable name</td>
       <td><small>otherwise <a href="../dialects/SINCLAIR_ZX80_4K.html#errors">error 1</a> <code>1/n</code></small></td>
       <td>Control variable of the loop.</td>
@@ -64,6 +64,15 @@
 <ul class="entry-tables">
   <li><a href="../dialects/SINCLAIR_ZX80_4K.html#variables">Variables in memory</a>      <small>— action FLOW_NEXT</small></li>
 </ul>
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">1 <code>NEXT_WITHOUT_FOR</code></a></td>
+      <td>NEXT with a variable that is not the counter of an active FOR loop. <small>Parameter: <code class="par">a</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
 
 <h2>Keywords</h2>
 <table>

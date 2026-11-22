@@ -45,13 +45,13 @@
     <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
     <tbody>
     <tr>
-      <td><code class="par">a</code></td>
+      <td><code class="par">a</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
       <td>numeric array name</td>
       <td></td>
       <td>Array name: a single letter.</td>
     </tr>
     <tr>
-      <td><code class="par">n</code></td>
+      <td><code class="par">n</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
       <td>numeric expression</td>
       <td></td>
       <td>Highest subscript: the array has n+1 elements.</td>
@@ -70,6 +70,23 @@
 <ul class="entry-tables">
   <li><a href="../dialects/SINCLAIR_ZX80_4K.html#variables">Variables in memory</a>      <small>— action VAR_DIM</small></li>
 </ul>
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>VARIABLE_NOT_FOUND</code></a></td>
+      <td>A variable in the expression is not defined. <small>Parameter: <code class="par">n</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>SUBSCRIPT_OUT_OF_RANGE</code></a></td>
+      <td>Negative size.</td></tr>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>SUBSCRIPT_OUT_OF_RANGE</code></a></td>
+      <td>An array element in the expression has a subscript out of range. <small>Parameter: <code class="par">n</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">4 <code>OUT_OF_MEMORY</code></a></td>
+      <td>No room for the array. <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>OVERFLOW</code></a></td>
+      <td>A calculation in the expression goes outside the range from -32768 to 32767. <small>Parameter: <code class="par">n</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
 
 <h2>Keywords</h2>
 <table>
@@ -98,6 +115,10 @@
 30 LET A(5)=6
 40 PRINT A(0)+A(5)</pre>
 <pre class="output" title="Expected result">7</pre></figure>
+<figure class="example">
+<h3>Negative size</h3>  <pre>DIM A(-10)</pre>
+<pre class="output" title="Expected result">3/-2</pre><figcaption>Subscript out of range.
+</figcaption></figure>
 
 <h2>Notes</h2>
 <div class="md"><p>If the array already exists, the new space is reserved but the old array is still used.</p></div>

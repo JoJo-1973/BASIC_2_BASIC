@@ -45,19 +45,19 @@
     <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
     <tbody>
     <tr>
-      <td><code class="par">a</code></td>
+      <td><code class="par">a</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
       <td>loop control variable name</td>
       <td></td>
       <td>Control variable: a single letter.</td>
     </tr>
     <tr>
-      <td><code class="par">start</code></td>
+      <td><code class="par">start</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
       <td>numeric expression</td>
       <td></td>
       <td>Start value.</td>
     </tr>
     <tr>
-      <td><code class="par">end</code></td>
+      <td><code class="par">end</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
       <td>numeric expression</td>
       <td></td>
       <td>End value.</td>
@@ -76,6 +76,21 @@
 <ul class="entry-tables">
   <li><a href="../dialects/SINCLAIR_ZX80_4K.html#variables">Variables in memory</a>      <small>— action FLOW_FOR</small></li>
 </ul>
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>VARIABLE_NOT_FOUND</code></a></td>
+      <td>A variable in the expression is not defined. <small>Parameters: <code class="par">start</code>, <code class="par">end</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>SUBSCRIPT_OUT_OF_RANGE</code></a></td>
+      <td>An array element in the expression has a subscript out of range. <small>Parameters: <code class="par">start</code>, <code class="par">end</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">4 <code>OUT_OF_MEMORY</code></a></td>
+      <td>No room for a new control variable. <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>OVERFLOW</code></a></td>
+      <td>A calculation in the expression goes outside the range from -32768 to 32767. <small>Parameters: <code class="par">start</code>, <code class="par">end</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
 
 <h2>Keywords</h2>
 <table>

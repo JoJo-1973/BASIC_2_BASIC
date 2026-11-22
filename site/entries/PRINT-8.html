@@ -45,7 +45,7 @@
     <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
     <tbody>
     <tr>
-      <td><code class="par">item</code></td>
+      <td><code class="par">item</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
       <td>numeric expression<br><small>or</small> string expression</td>
       <td></td>
       <td>Numeric or string expression. Strings appear without quotes, numbers as with STR$.</td>
@@ -60,6 +60,21 @@
   </div>
 </section>
 
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>VARIABLE_NOT_FOUND</code></a></td>
+      <td>A variable in the expression is not defined. <small>Parameter: <code class="par">item</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>SUBSCRIPT_OUT_OF_RANGE</code></a></td>
+      <td>An array element in the expression has a subscript out of range. <small>Parameter: <code class="par">item</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">5 <code>SCREEN_FULL</code></a></td>
+      <td>No more room on the upper part of the screen.</td></tr>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>OVERFLOW</code></a></td>
+      <td>A calculation in the expression goes outside the range from -32768 to 32767. <small>Parameter: <code class="par">item</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
 
 <h2>Keywords</h2>
 <table>

@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diagnostics · Sinclair ZX80 BASIC 4K ROM · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<p class="breadcrumbs"><a href="../index.html">Machines</a> › <a href="../dialects/SINCLAIR_ZX80_4K.html">Sinclair ZX80 BASIC 4K ROM</a> ›</p>
+<h1>Diagnostics <span class="category">Sinclair ZX80 BASIC 4K ROM</span></h1>
+<p class="subtitle">What is still incomplete or not proven in this dialect.</p>
+
+<table class="diag-summary">
+  <thead><tr><th>Section</th><th class="num">To do</th></tr></thead>
+  <tbody>
+  <tr class=""><td><a href="#open-questions">Open questions</a></td>
+      <td class="num">1</td></tr>
+  <tr class=""><td><a href="#examples">Examples</a></td>
+      <td class="num">5</td></tr>
+  <tr class=""><td><a href="#errors">Errors</a></td>
+      <td class="num">173</td></tr>
+  <tr class=""><td><a href="#syntax">Syntax</a></td>
+      <td class="num">26</td></tr>
+  <tr class=""><td><a href="#evidence">Evidence</a></td>
+      <td class="num">369</td></tr>
+  <tr class="done"><td><a href="#features">Features</a></td>
+      <td class="num"><span class="nothing">Nothing left</span></td></tr>
+  <tr class="done"><td><a href="#tables">Tables</a></td>
+      <td class="num"><span class="nothing">Nothing left</span></td></tr>
+  <tr class=""><td><a href="#gaps">Gaps</a></td>
+      <td class="num">41</td></tr>
+  </tbody>
+  <tfoot><tr><th>Total</th><th class="num">615</th></tr></tfoot>
+</table>
+
+<h2 id="open-questions">Open questions <small>1</small></h2>
+
+<div class="diag-item">
+  <div class="md"><p>Compare the <code>original_syntax</code> headings with the printed manual: they come from an OCR transcription.</p></div>
+  <p class="note">Sinclair ZX80 BASIC (4K ROM)</p>
+</div>
+
+<h2 id="examples">Examples <small>5</small></h2>
+<h3>Examples to verify <small>5</small></h3>
+
+<table>
+  <thead><tr><th>Entry</th><th>Example</th><th>Code</th></tr></thead>
+  <tbody>
+  <tr><td class="name"><a href="../entries/FOR-TO-14.html">FOR...TO</a></td>
+      <td>Expressions as limits</td>
+      <td><code class="diag-code">FOR I = D*10 TO D*200</code></td></tr>
+  <tr><td class="name"><a href="../entries/NEXT-15.html">NEXT</a></td>
+      <td>End of the loop</td>
+      <td><code class="diag-code">10 FOR I=1 TO 3
+20 PRINT I
+30 NEXT I
+40 PRINT I</code></td></tr>
+  <tr><td class="name"><a href="../entries/RETURN-13.html">RETURN</a></td>
+      <td>Return from a subroutine</td>
+      <td><code class="diag-code">10 GO SUB 100
+20 PRINT &#34;BACK&#34;
+30 STOP
+100 RETURN</code></td></tr>
+  <tr><td class="name"><a href="../entries/star-star-31.html">**</a></td>
+      <td>Power</td>
+      <td><code class="diag-code">PRINT 2**10</code></td></tr>
+  <tr><td class="name"><a href="../entries/NOT-39.html">NOT</a></td>
+      <td>NOT of zero</td>
+      <td><code class="diag-code">PRINT NOT 0</code></td></tr>
+  </tbody>
+</table>
+<h3>Entries without examples <small>0</small></h3>
+<p class="nothing">Nothing left</p>
+
+<h2 id="errors">Errors <small>173</small></h2>
+<h3>Errors of the entries to verify <small>172</small></h3>
+
+<table>
+  <thead><tr><th>Entry</th><th>Error</th><th>Rule</th><th>Detail</th><th>Cause</th></tr></thead>
+  <tbody>
+    <tr><td class="name" rowspan="4"><a href="../entries/DIM-17.html">DIM</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">4 <code>4/n</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>No room for the array.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr><td class="name" rowspan="7"><a href="../entries/FOR-TO-14.html">FOR...TO</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">4 <code>4/n</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>No room for a new control variable.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">start</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">end</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">start</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">end</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">start</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">end</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr><td class="name" rowspan="4"><a href="../entries/GO-SUB-12.html">GO SUB</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">4 <code>4/n</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>No room for the return address.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr><td class="name" rowspan="3"><a href="../entries/GO-TO-11.html">GO TO</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr><td class="name" rowspan="3"><a href="../entries/IF-10.html">IF</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>CONDITION · <code class="par">condition</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>CONDITION · <code class="par">condition</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>CONDITION · <code class="par">condition</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr><td class="name" rowspan="3"><a href="../entries/INPUT-9.html">INPUT</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">4 <code>4/n</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>No room for a new variable or for a longer string.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>ARRAY_ELEMENT · <code class="par">destination</code></small></td>
+        <td>The array has not been dimensioned.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>ARRAY_ELEMENT · <code class="par">destination</code></small></td>
+        <td>Subscript out of range, or an error while computing it.</td></tr>
+    <tr><td class="name" rowspan="9"><a href="../entries/LET-7.html">LET</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">4 <code>4/n</code></a></td>
+        <td><small>manual</small></td>
+        <td><small></small></td>
+        <td>No room for a new variable or for a longer string.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>ARRAY_ELEMENT · <code class="par">variable</code></small></td>
+        <td>The array has not been dimensioned.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">expression</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">expression</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>ARRAY_ELEMENT · <code class="par">variable</code></small></td>
+        <td>Subscript out of range, or an error while computing it.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">expression</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">expression</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">expression</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">expression</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr><td class="name" rowspan="1"><a href="../entries/NEXT-15.html">NEXT</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">1 <code>1/n</code></a></td>
+        <td><small>parameter</small></td>
+        <td><small>a · <code class="par">a</code></small></td>
+        <td></td></tr>
+    <tr><td class="name" rowspan="6"><a href="../entries/POKE-20.html">POKE</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">address</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">value</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">address</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">value</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">address</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">value</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr><td class="name" rowspan="6"><a href="../entries/PRINT-8.html">PRINT</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">item</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">item</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">item</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">item</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">item</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">item</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr><td class="name" rowspan="3"><a href="../entries/RANDOMISE-21.html">RANDOMISE</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr><td class="name" rowspan="3"><a href="../entries/RUN-2.html">RUN</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr><td class="name" rowspan="3"><a href="../entries/ABS-23.html">ABS</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr><td class="name" rowspan="3"><a href="../entries/CHRS-24.html">CHR$</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr><td class="name" rowspan="3"><a href="../entries/CODE-25.html">CODE</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">s</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">s</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">s</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr><td class="name" rowspan="3"><a href="../entries/PEEK-26.html">PEEK</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr><td class="name" rowspan="3"><a href="../entries/RND-27.html">RND</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr><td class="name" rowspan="3"><a href="../entries/STRS-28.html">STR$</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr><td class="name" rowspan="3"><a href="../entries/TLS-29.html">TL$</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">s</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">s</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">s</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr><td class="name" rowspan="3"><a href="../entries/USR-30.html">USR</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">n</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr><td class="name" rowspan="6"><a href="../entries/lparen-rparen-42.html">( )</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">e</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">e</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">e</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">e</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">e</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">e</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr><td class="name" rowspan="7"><a href="../entries/star-33.html">*</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>operator_class</small></td>
+        <td><small>ARITHMETIC</small></td>
+        <td>The result is outside the range from -32768 to 32767.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr><td class="name" rowspan="7"><a href="../entries/star-star-31.html">**</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>operator_class</small></td>
+        <td><small>ARITHMETIC</small></td>
+        <td>The result is outside the range from -32768 to 32767.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr><td class="name" rowspan="7"><a href="../entries/plus-35.html">+</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>operator_class</small></td>
+        <td><small>ARITHMETIC</small></td>
+        <td>The result is outside the range from -32768 to 32767.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr><td class="name" rowspan="11"><a href="../entries/minus-32.html">-</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Change of sign)</small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Subtraction)</small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Subtraction)</small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Change of sign)</small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Subtraction)</small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Subtraction)</small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>operator_class</small></td>
+        <td><small>ARITHMETIC (Change of sign)</small></td>
+        <td>The result is outside the range from -32768 to 32767.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Change of sign)</small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>operator_class</small></td>
+        <td><small>ARITHMETIC (Subtraction)</small></td>
+        <td>The result is outside the range from -32768 to 32767.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Subtraction)</small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Subtraction)</small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr><td class="name" rowspan="7"><a href="../entries/slash-34.html">/</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>operator_class</small></td>
+        <td><small>ARITHMETIC</small></td>
+        <td>The result is outside the range from -32768 to 32767.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr><td class="name" rowspan="12"><a href="../entries/lt-38.html">&lt;</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">s1</code> (Between strings)</small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">s2</code> (Between strings)</small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">s1</code> (Between strings)</small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">s2</code> (Between strings)</small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">s1</code> (Between strings)</small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">s2</code> (Between strings)</small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr><td class="name" rowspan="12"><a href="../entries/eq-36.html">=</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">s1</code> (Between strings)</small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">s2</code> (Between strings)</small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">s1</code> (Between strings)</small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">s2</code> (Between strings)</small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">s1</code> (Between strings)</small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">s2</code> (Between strings)</small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr><td class="name" rowspan="12"><a href="../entries/gt-37.html">&gt;</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">s1</code> (Between strings)</small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">s2</code> (Between strings)</small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">s1</code> (Between strings)</small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">s2</code> (Between strings)</small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">s1</code> (Between strings)</small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">s2</code> (Between strings)</small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr><td class="name" rowspan="6"><a href="../entries/AND-40.html">AND</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr><td class="name" rowspan="3"><a href="../entries/NOT-39.html">NOT</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr><td class="name" rowspan="6"><a href="../entries/OR-41.html">OR</a></td>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>2/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>A variable in the expression is not defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>3/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>An array element in the expression has a subscript out of range.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>6/n</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td>A calculation in the expression goes outside the range from -32768 to 32767.</td></tr>
+  </tbody>
+</table>
+<h3>Errors of the dialect that no entry uses <small>1</small></h3>
+
+<table>
+  <thead><tr><th class="num">No.</th><th>Message</th><th>Code</th><th>Description</th></tr></thead>
+  <tbody>
+  <tr><td class="num">0</td>
+      <td class="nowrap"><a href="../dialects/SINCLAIR_ZX80_4K.html#errors"><code>0/n</code></a></td>
+      <td><small>OK</small></td><td>No error: command executed, end of program, BREAK pressed, or GO TO a line beyond the end of the program.</td></tr>
+  </tbody>
+</table>
+
+<h2 id="syntax">Syntax <small>26</small></h2>
+<h3>Manual syntax different from the rebuilt one <small>12</small></h3>
+
+<table>
+  <thead><tr><th>Entry</th><th>Rebuilt</th><th>Manual</th></tr></thead>
+  <tbody>
+  <tr><td class="name"><a href="../entries/FOR-TO-14.html">FOR...TO</a></td>
+      <td><code class="syntax"><span class="kw">FOR</span> <span class="par">a</span> <span class="kw">=</span> <span class="par">start</span> <span class="kw">TO</span> <span class="par">end</span></code></td><td><code>FOR a = n TO n</code></td></tr>
+  <tr><td class="name"><a href="../entries/IF-10.html">IF</a></td>
+      <td><code class="syntax"><span class="kw">IF</span> <span class="par">condition</span> <span class="kw">THEN</span> <span class="par">statement</span></code></td><td><code>IF n THEN statement</code></td></tr>
+  <tr><td class="name"><a href="../entries/INPUT-9.html">INPUT</a></td>
+      <td><code class="syntax"><span class="kw">INPUT</span> <span class="par">destination</span></code></td><td><code>INPUT dest</code></td></tr>
+  <tr><td class="name"><a href="../entries/POKE-20.html">POKE</a></td>
+      <td><code class="syntax"><span class="kw">POKE</span> <span class="par">address</span><span class="kw">,</span><span class="par">value</span></code></td><td><code>POKE n,v</code></td></tr>
+  <tr><td class="name"><a href="../entries/PRINT-8.html">PRINT</a></td>
+      <td><code class="syntax"><span class="kw">PRINT</span> <span class="meta">[</span><span class="par">item</span><span class="meta">]</span><span class="meta">[</span><span class="meta">&lt;</span><span class="kw">;</span> <span class="meta">|</span> <span class="kw">,</span><span class="meta">&gt;</span><span class="meta">[</span><span class="par">item</span><span class="meta">]</span><span class="meta">]</span><span class="meta">...</span></code></td><td><code>PRINT list</code></td></tr>
+  <tr><td class="name"><a href="../entries/RANDOMISE-21.html">RANDOMISE</a></td>
+      <td><code class="syntax"><span class="kw">RANDOMISE</span> <span class="meta">[</span><span class="par">n</span><span class="meta">]</span></code></td><td><code>RANDOMISE n</code></td></tr>
+  <tr><td class="name"><a href="../entries/REM-22.html">REM</a></td>
+      <td><code class="syntax"><span class="kw">REM</span> <span class="meta">[</span><span class="par">text</span><span class="meta">]</span></code></td><td><code>REM</code></td></tr>
+  <tr><td class="name"><a href="../entries/LIST-1.html">LIST</a></td>
+      <td><code class="syntax"><span class="kw">LIST</span> <span class="meta">[</span><span class="par">n</span><span class="meta">]</span></code></td><td><code>LIST n</code></td></tr>
+  <tr><td class="name"><a href="../entries/RUN-2.html">RUN</a></td>
+      <td><code class="syntax"><span class="kw">RUN</span> <span class="meta">[</span><span class="par">n</span><span class="meta">]</span></code></td><td><code>RUN n</code></td></tr>
+  <tr><td class="name"><a href="../entries/lt-38.html">&lt;</a> <small>(Between strings)</small></td>
+      <td><code class="syntax"><span class="par">s1</span> <span class="kw">&lt;</span> <span class="par">s2</span></code></td><td><code>s&lt;s</code></td></tr>
+  <tr><td class="name"><a href="../entries/eq-36.html">=</a> <small>(Between strings)</small></td>
+      <td><code class="syntax"><span class="par">s1</span> <span class="kw">=</span> <span class="par">s2</span></code></td><td><code>s=s</code></td></tr>
+  <tr><td class="name"><a href="../entries/gt-37.html">&gt;</a> <small>(Between strings)</small></td>
+      <td><code class="syntax"><span class="par">s1</span> <span class="kw">&gt;</span> <span class="par">s2</span></code></td><td><code>s&gt;s</code></td></tr>
+  </tbody>
+</table>
+<h3>Forms without the manual's syntax <small>14</small></h3>
+
+<table>
+  <thead><tr><th>Entry</th><th>Rebuilt</th></tr></thead>
+  <tbody>
+  <tr><td class="name"><a href="../entries/LET-7.html">LET</a></td><td><code class="syntax"><span class="kw">LET</span> <span class="par">variable</span> <span class="kw">=</span> <span class="par">expression</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/lparen-rparen-42.html">( )</a></td><td><code class="syntax"><span class="lit">(</span><span class="par">e</span><span class="lit">)</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/star-33.html">*</a></td><td><code class="syntax"><span class="par">a</span> <span class="kw">*</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/star-star-31.html">**</a></td><td><code class="syntax"><span class="par">a</span> <span class="kw">**</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/plus-35.html">+</a></td><td><code class="syntax"><span class="par">a</span> <span class="kw">+</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/minus-32.html">-</a> <small>(Change of sign)</small></td><td><code class="syntax"><span class="kw">-</span><span class="par">a</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/minus-32.html">-</a> <small>(Subtraction)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">-</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/slash-34.html">/</a></td><td><code class="syntax"><span class="par">a</span> <span class="kw">/</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/lt-38.html">&lt;</a> <small>(Between numbers)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">&lt;</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/eq-36.html">=</a> <small>(Between numbers)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">=</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/gt-37.html">&gt;</a> <small>(Between numbers)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">&gt;</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/AND-40.html">AND</a></td><td><code class="syntax"><span class="par">a</span> <span class="kw">AND</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/NOT-39.html">NOT</a></td><td><code class="syntax"><span class="kw">NOT</span> <span class="par">a</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/OR-41.html">OR</a></td><td><code class="syntax"><span class="par">a</span> <span class="kw">OR</span> <span class="par">b</span></code></td></tr>
+  </tbody>
+</table>
+
+<h2 id="evidence">Evidence <small>369</small></h2>
+<p class="note"><span class="ev ev-inferred">INFERRED</span> deduced, neither stated nor tested · <span class="ev ev-manual">MANUAL</span> stated by a source, not tested · <span class="ev ev-null">NULL</span> not assessed · <span class="ev ev-tested">TESTED</span> checked on the machine or an emulator.</p>
+
+<table class="diag-evidence">
+  <thead><tr><th>Table</th><th class="num"><span class="ev ev-manual">MANUAL</span></th><th class="num"><span class="ev ev-inferred">INFERRED</span></th><th class="num"><span class="ev ev-null">NULL</span></th><th class="num"><span class="ev ev-tested">TESTED</span></th><th class="num">Rows</th></tr></thead>
+  <tbody>
+  <tr><td><a href="#ev-parameter">Parameters</a></td>
+<td class="num">23</td><td class="num"></td><td class="num">32</td><td class="num">2</td>      <td class="num">57</td></tr>
+  <tr><td><a href="#ev-parameter_limit">Parameter limits</a></td>
+<td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td>      <td class="num">0</td></tr>
+  <tr><td><a href="#ev-allowed_value">Allowed values</a></td>
+<td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td>      <td class="num">0</td></tr>
+  <tr><td><a href="#ev-syntax_form">Syntax forms (returned range and description)</a></td>
+<td class="num">3</td><td class="num"></td><td class="num">37</td><td class="num">6</td>      <td class="num">46</td></tr>
+  <tr><td><a href="#ev-character_code">Character codes</a></td>
+<td class="num">253</td><td class="num"></td><td class="num"></td><td class="num">3</td>      <td class="num">256</td></tr>
+  <tr><td><a href="#ev-variable_layout_field">Variables in memory</a></td>
+<td class="num">16</td><td class="num"></td><td class="num"></td><td class="num"></td>      <td class="num">16</td></tr>
+  <tr><td><a href="#ev-program_layout_field">Program in memory</a></td>
+<td class="num">3</td><td class="num"></td><td class="num"></td><td class="num"></td>      <td class="num">3</td></tr>
+  <tr><td><a href="#ev-memory_area">Memory areas (before and after)</a></td>
+<td class="num">2</td><td class="num"></td><td class="num"></td><td class="num"></td>      <td class="num">2</td></tr>
+  </tbody>
+</table>
+<h3 id="ev-parameter">Parameters <small>55 not tested</small></h3>
+
+<ul class="diag-ev-list">
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/DIM-17.html">DIM · a</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/DIM-17.html">DIM · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/FOR-TO-14.html">FOR...TO · a</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/FOR-TO-14.html">FOR...TO · start</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/FOR-TO-14.html">FOR...TO · end</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/GO-SUB-12.html">GO SUB · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/GO-TO-11.html">GO TO · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/IF-10.html">IF · condition</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/IF-10.html">IF · statement</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/INPUT-9.html">INPUT · destination</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/LET-7.html">LET · variable</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/LET-7.html">LET · expression</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/NEXT-15.html">NEXT · a</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/POKE-20.html">POKE · address</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/POKE-20.html">POKE · value</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/PRINT-8.html">PRINT · item</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/RANDOMISE-21.html">RANDOMISE · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/REM-22.html">REM · text</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/LIST-1.html">LIST · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/RUN-2.html">RUN · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/PEEK-26.html">PEEK · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/USR-30.html">USR · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/lparen-rparen-42.html">( ) · e</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/ABS-23.html">ABS · n</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/CODE-25.html">CODE · s</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/STRS-28.html">STR$ · n</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/TLS-29.html">TL$ · s</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/star-33.html">* · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/star-33.html">* · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/star-star-31.html">** · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/star-star-31.html">** · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/plus-35.html">+ · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/plus-35.html">+ · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/minus-32.html">- (Change of sign) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/minus-32.html">- (Subtraction) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/minus-32.html">- (Subtraction) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/slash-34.html">/ · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/slash-34.html">/ · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-38.html">&lt; (Between numbers) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-38.html">&lt; (Between numbers) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-38.html">&lt; (Between strings) · s1</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-38.html">&lt; (Between strings) · s2</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/eq-36.html">= (Between numbers) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/eq-36.html">= (Between numbers) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/eq-36.html">= (Between strings) · s1</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/eq-36.html">= (Between strings) · s2</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/gt-37.html">&gt; (Between numbers) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/gt-37.html">&gt; (Between numbers) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/gt-37.html">&gt; (Between strings) · s1</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/gt-37.html">&gt; (Between strings) · s2</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/AND-40.html">AND · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/AND-40.html">AND · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/NOT-39.html">NOT · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/OR-41.html">OR · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/OR-41.html">OR · b</a></li>
+</ul>
+<h3 id="ev-parameter_limit">Parameter limits <small>0 not tested</small></h3>
+<p class="nothing">Nothing left</p>
+<h3 id="ev-allowed_value">Allowed values <small>0 not tested</small></h3>
+<p class="nothing">Nothing left</p>
+<h3 id="ev-syntax_form">Syntax forms (returned range and description) <small>40 not tested</small></h3>
+
+<ul class="diag-ev-list">
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/ABS-23.html">ABS → [0, 32767]</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/CODE-25.html">CODE → [0, 255]</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/PEEK-26.html">PEEK → [0, 255]</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/CLEAR-18.html">CLEAR</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/CLS-19.html">CLS</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/DIM-17.html">DIM</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/FOR-TO-14.html">FOR...TO</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/GO-SUB-12.html">GO SUB</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/GO-TO-11.html">GO TO</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/IF-10.html">IF</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/INPUT-9.html">INPUT</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/LET-7.html">LET</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/NEXT-15.html">NEXT</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/POKE-20.html">POKE</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/PRINT-8.html">PRINT</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/RANDOMISE-21.html">RANDOMISE</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/REM-22.html">REM</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/RETURN-13.html">RETURN</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/STOP-16.html">STOP</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/CONTINUE-4.html">CONTINUE</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/LIST-1.html">LIST</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/LOAD-6.html">LOAD</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/NEW-3.html">NEW</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/RUN-2.html">RUN</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/SAVE-5.html">SAVE</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/CHRS-24.html">CHR$</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/RND-27.html">RND</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/STRS-28.html">STR$</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/TLS-29.html">TL$</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/USR-30.html">USR</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lparen-rparen-42.html">( )</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/star-33.html">*</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/star-star-31.html">**</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/plus-35.html">+</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/minus-32.html">- (Change of sign)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/minus-32.html">- (Subtraction)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/slash-34.html">/</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/AND-40.html">AND</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/NOT-39.html">NOT</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/OR-41.html">OR</a></li>
+</ul>
+<h3 id="ev-character_code">Character codes <small>253 not tested</small></h3>
+
+<ul class="diag-ev-list">
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/SINCLAIR_ZX80_4K.html#characters">0, 2-117, 119-211, 213-255</a></li>
+</ul>
+<h3 id="ev-variable_layout_field">Variables in memory <small>16 not tested</small></h3>
+
+<ul class="diag-ev-list">
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/SINCLAIR_ZX80_4K.html#variables">Numeric variable (Name of one character) · Name</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/SINCLAIR_ZX80_4K.html#variables">Numeric variable (Name of one character) · Value</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/SINCLAIR_ZX80_4K.html#variables">Numeric variable (Name of more than one character) · First letter</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/SINCLAIR_ZX80_4K.html#variables">Numeric variable (Name of more than one character) · Following letters</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/SINCLAIR_ZX80_4K.html#variables">Numeric variable (Name of more than one character) · Last letter</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/SINCLAIR_ZX80_4K.html#variables">Numeric variable (Name of more than one character) · Value</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/SINCLAIR_ZX80_4K.html#variables">String variable · Name</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/SINCLAIR_ZX80_4K.html#variables">String variable · Characters</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/SINCLAIR_ZX80_4K.html#variables">String variable · Terminator</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/SINCLAIR_ZX80_4K.html#variables">Numeric array · Name</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/SINCLAIR_ZX80_4K.html#variables">Numeric array · Size</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/SINCLAIR_ZX80_4K.html#variables">Numeric array · Elements</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/SINCLAIR_ZX80_4K.html#variables">Loop control variable · Name</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/SINCLAIR_ZX80_4K.html#variables">Loop control variable · Value</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/SINCLAIR_ZX80_4K.html#variables">Loop control variable · Upper limit</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/SINCLAIR_ZX80_4K.html#variables">Loop control variable · FOR line</a></li>
+</ul>
+<h3 id="ev-program_layout_field">Program in memory <small>3 not tested</small></h3>
+
+<ul class="diag-ev-list">
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/SINCLAIR_ZX80_4K.html#program">Line number</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/SINCLAIR_ZX80_4K.html#program">Line text</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/SINCLAIR_ZX80_4K.html#program">NEWLINE</a></li>
+</ul>
+<h3 id="ev-memory_area">Memory areas (before and after) <small>2 not tested</small></h3>
+
+<ul class="diag-ev-list">
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/SINCLAIR_ZX80_4K.html#program">program</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../dialects/SINCLAIR_ZX80_4K.html#variables">variables</a></li>
+</ul>
+
+<h2 id="features">Features <small>0</small></h2>
+<h3>Missing answers <small>0</small></h3>
+<p class="nothing">Nothing left</p>
+<h3>Answers to verify <small>0</small></h3>
+<p class="nothing">Nothing left</p>
+
+<h2 id="tables">Tables <small>0</small></h2>
+<h3>To do or partial <small>0</small></h3>
+<p class="nothing">Nothing left</p>
+<h3>Tables without any state <small>0</small></h3>
+<p class="nothing">Nothing left</p>
+
+<h2 id="gaps">Gaps <small>41</small></h2>
+<h3>Parameters without description <small>32</small></h3>
+
+<p class="diag-list"><a href="../entries/ABS-23.html">ABS</a> <code class="par">n</code> · <a href="../entries/CODE-25.html">CODE</a> <code class="par">s</code> · <a href="../entries/STRS-28.html">STR$</a> <code class="par">n</code> · <a href="../entries/TLS-29.html">TL$</a> <code class="par">s</code> · <a href="../entries/star-33.html">*</a> <code class="par">a</code> · <a href="../entries/star-33.html">*</a> <code class="par">b</code> · <a href="../entries/star-star-31.html">**</a> <code class="par">a</code> · <a href="../entries/star-star-31.html">**</a> <code class="par">b</code> · <a href="../entries/plus-35.html">+</a> <code class="par">a</code> · <a href="../entries/plus-35.html">+</a> <code class="par">b</code> · <a href="../entries/minus-32.html">-</a> <small>(Change of sign)</small> <code class="par">a</code> · <a href="../entries/minus-32.html">-</a> <small>(Subtraction)</small> <code class="par">a</code> · <a href="../entries/minus-32.html">-</a> <small>(Subtraction)</small> <code class="par">b</code> · <a href="../entries/slash-34.html">/</a> <code class="par">a</code> · <a href="../entries/slash-34.html">/</a> <code class="par">b</code> · <a href="../entries/lt-38.html">&lt;</a> <small>(Between numbers)</small> <code class="par">a</code> · <a href="../entries/lt-38.html">&lt;</a> <small>(Between numbers)</small> <code class="par">b</code> · <a href="../entries/lt-38.html">&lt;</a> <small>(Between strings)</small> <code class="par">s1</code> · <a href="../entries/lt-38.html">&lt;</a> <small>(Between strings)</small> <code class="par">s2</code> · <a href="../entries/eq-36.html">=</a> <small>(Between numbers)</small> <code class="par">a</code> · <a href="../entries/eq-36.html">=</a> <small>(Between numbers)</small> <code class="par">b</code> · <a href="../entries/eq-36.html">=</a> <small>(Between strings)</small> <code class="par">s1</code> · <a href="../entries/eq-36.html">=</a> <small>(Between strings)</small> <code class="par">s2</code> · <a href="../entries/gt-37.html">&gt;</a> <small>(Between numbers)</small> <code class="par">a</code> · <a href="../entries/gt-37.html">&gt;</a> <small>(Between numbers)</small> <code class="par">b</code> · <a href="../entries/gt-37.html">&gt;</a> <small>(Between strings)</small> <code class="par">s1</code> · <a href="../entries/gt-37.html">&gt;</a> <small>(Between strings)</small> <code class="par">s2</code> · <a href="../entries/AND-40.html">AND</a> <code class="par">a</code> · <a href="../entries/AND-40.html">AND</a> <code class="par">b</code> · <a href="../entries/NOT-39.html">NOT</a> <code class="par">a</code> · <a href="../entries/OR-41.html">OR</a> <code class="par">a</code> · <a href="../entries/OR-41.html">OR</a> <code class="par">b</code></p><h3>Forms without actions <small>1</small></h3>
+
+<p class="diag-list"><a href="../entries/lparen-rparen-42.html">( )</a></p><h3>Keywords without token <small>8</small></h3>
+
+<p class="diag-list"><a class="kw" href="../keywords/ABS-41.html">ABS</a> · <a class="kw" href="../keywords/CHRS-42.html">CHR$</a> · <a class="kw" href="../keywords/CODE-43.html">CODE</a> · <a class="kw" href="../keywords/PEEK-44.html">PEEK</a> · <a class="kw" href="../keywords/RND-45.html">RND</a> · <a class="kw" href="../keywords/STRS-46.html">STR$</a> · <a class="kw" href="../keywords/TLS-47.html">TL$</a> · <a class="kw" href="../keywords/USR-48.html">USR</a></p><h3>Variable types without name length <small>0</small></h3>
+<p class="nothing">Nothing left</p>
+<h3>Memory areas without prologue or epilogue <small>0</small></h3>
+<p class="nothing">Nothing left</p>
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js"></script>
+<script src="../static/search.js"></script>
+</body>
+</html>

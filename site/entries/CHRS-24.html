@@ -46,10 +46,10 @@
     <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
     <tbody>
     <tr>
-      <td><code class="par">n</code></td>
+      <td><code class="par">n</code> <span class="evm evm-tested" title="Tested on the machine or an emulator">✓</span></td>
       <td>numeric expression</td>
-      <td><code>[0, 255]</code><br></td>
-      <td>Character code. CHR$(1) gives the empty string; CHR$(212) gives the quote.</td>
+      <td></td>
+      <td>Character code, taken modulo 256: <code>CHR$(256+38)</code> is <code>CHR$(38)</code>. CHR$(1) gives the empty string; CHR$(212) gives the quote.</td>
     </tr>
     </tbody>
   </table>
@@ -65,6 +65,19 @@
 <ul class="entry-tables">
   <li><a href="../dialects/SINCLAIR_ZX80_4K.html#characters">Character codes</a>      <small>— action STR_CHR</small></li>
 </ul>
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>VARIABLE_NOT_FOUND</code></a></td>
+      <td>A variable in the expression is not defined. <small>Parameter: <code class="par">n</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>SUBSCRIPT_OUT_OF_RANGE</code></a></td>
+      <td>An array element in the expression has a subscript out of range. <small>Parameter: <code class="par">n</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>OVERFLOW</code></a></td>
+      <td>A calculation in the expression goes outside the range from -32768 to 32767. <small>Parameter: <code class="par">n</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
 
 <h2>Keywords</h2>
 <table>
@@ -86,6 +99,10 @@
 <figure class="example">
 <h3>Character from its code</h3>  <pre>PRINT CHR$(38)</pre>
 <pre class="output" title="Expected result">A</pre><figcaption>In the ZX80 character set A has code 38.
+</figcaption></figure>
+<figure class="example">
+<h3>Codes above 255</h3>  <pre>PRINT CHR$(256+38)</pre>
+<pre class="output" title="Expected result">A</pre><figcaption>The code is taken modulo 256.
 </figcaption></figure>
 
 

@@ -45,7 +45,7 @@
     <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
     <tbody>
     <tr>
-      <td><code class="par">destination</code></td>
+      <td><code class="par">destination</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
       <td>numeric variable name<br><small>or</small> string variable name<br><small>or</small> numeric array element</td>
       <td></td>
       <td>Numeric variable, string variable or array element. An expression can be typed.</td>
@@ -64,6 +64,21 @@
 <ul class="entry-tables">
   <li><a href="../dialects/SINCLAIR_ZX80_4K.html#variables">Variables in memory</a>      <small>— action IO_INPUT</small></li>
 </ul>
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>VARIABLE_NOT_FOUND</code></a></td>
+      <td>The array has not been dimensioned. <small>Parameter: <code class="par">destination</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>SUBSCRIPT_OUT_OF_RANGE</code></a></td>
+      <td>Subscript out of range, or an error while computing it. <small>Parameter: <code class="par">destination</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">4 <code>OUT_OF_MEMORY</code></a></td>
+      <td>No room for a new variable or for a longer string. <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">8 <code>INPUT_AS_COMMAND</code></a></td>
+      <td>Used as a command, outside a program.</td></tr>
+  </tbody>
+</table>
 
 <h2>Keywords</h2>
 <table>

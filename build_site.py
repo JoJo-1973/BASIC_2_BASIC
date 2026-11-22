@@ -173,6 +173,10 @@ def dialect_url(d):
     return f"dialects/{d['code']}.html"
 
 
+def diagnostics_url(d):
+    return f"dialects/{d['code']}-diagnostics.html"
+
+
 def machine_url(m):
     return f"machines/{m['code']}.html"
 
@@ -405,9 +409,10 @@ def entry_context(d, e):
                 "construct": d.constructs.get(p["construct_type_id"]),
                 "table": d.table_kinds.get(p["table_kind_id"]),
                 "limits": [{"text": interval(l["minimum"], l["maximum"], l["min_inclusive"], l["max_inclusive"]),
-                            "machine": d.machines.get(l["machine_id"]), "notes": l["notes"]}
+                            "machine": d.machines.get(l["machine_id"]), "notes": l["notes"],
+                            "evidence": l.get("evidence")}
                            for l in d.limits[p["id"]]],
-                "allowed": [{"value": x["value"], "meaning": x["meaning"],
+                "allowed": [{"value": x["value"], "meaning": x["meaning"], "evidence": x.get("evidence"),
                             "machine": d.machines.get(x["machine_id"])} for x in d.allowed_values[p["id"]]],
                 # the error given for a value that is not allowed, as each dialect of the entry defines it
                 "errors": [{"dialect": d.dialects[r["dialect_id"]], "error": r}
@@ -499,7 +504,41 @@ def entry_context(d, e):
         "tables": entry_tables(d, e, active_dialects),
         "feature_notes": [n for n in feature_notes if n["target"] == "NOTE"],
         "many_dialects": many,
+        "errors": entry_errors(d, e),
     }
+
+
+def entry_errors(d, e):
+    """Errors the entry can give (view v_entry_error): one line for each dialect, error and cause,
+    with the parameters and forms it comes from."""
+    try:
+        rows = d.q("SELECT * FROM v_entry_error WHERE entry_id = ? ORDER BY dialect_id, number, position", e["id"])
+    except sqlite3.OperationalError:          # database without the view
+        return []
+    all_forms = {f["id"] for f in d.entry_forms[e["id"]]}
+    groups = {}
+    for r in rows:
+        err = d.q("SELECT * FROM error WHERE id = ?", r["error_id"])[0]
+        cause = r["cause"] or err["description"]
+        g = groups.setdefault((r["dialect_id"], r["error_id"], cause), {
+            "dialect": d.dialects[r["dialect_id"]], "error": err, "cause": cause,
+            "parameters": [], "forms": set(), "verified": True, "rules": set()})
+        if r["parameter_id"]:
+            name = d.q("SELECT name FROM parameter WHERE id = ?", r["parameter_id"])[0]["name"]
+            if name not in g["parameters"]:
+                g["parameters"].append(name)
+        g["forms"].add(r["form_id"])
+        g["verified"] = g["verified"] and bool(r["verified"])
+        g["rules"].add(r["rule"])
+    result = []
+    for g in groups.values():
+        forms = g.pop("forms")
+        # the forms are named only when the error does not concern all of them
+        g["forms"] = ([d.forms[f]["title"] or f"Form {d.forms[f]['position']}" for f in sorted(forms)]
+                      if len(all_forms) > 1 and None not in forms and forms != all_forms else [])
+        g["automatic"] = "MANUAL" not in g["rules"]
+        result.append(g)
+    return result
 
 
 # panel of the dialect page that shows each table kind (None: the "All tables" panel)
@@ -631,8 +670,17 @@ def dialect_context(d, dia):
         rows = d.q("SELECT * FROM v_character WHERE dialect_id = ? ORDER BY charset_id, code", did)
     except sqlite3.OperationalError:          # database without the glyph tables
         rows = []
+    # evidence of each character code of the dialect (by code and mode)
+    code_evidence = {}
+    try:
+        for r in d.q("SELECT c.code, c.mode, c.evidence FROM v_dialect_character_code x "
+                     "JOIN character_code c ON c.id = x.character_code_id WHERE x.dialect_id = ?", did):
+            code_evidence[(r["code"], r["mode"])] = r["evidence"]
+    except sqlite3.OperationalError:          # database without the evidence column
+        pass
     by_set = defaultdict(list)
     for r in rows:
+        r["evidence"] = code_evidence.get((r["code"], r.get("mode")))
         by_set[r["charset_id"]].append(r)
     for sid, glyphs in by_set.items():
         cs = d.q("SELECT * FROM charset WHERE id = ?", sid)[0]
@@ -656,6 +704,206 @@ def dialect_context(d, dia):
             "features": features, "features_missing": features_missing,
             "features_to_verify": features_to_verify, "errors_notes": errors_notes, "constructs": constructs, "operators": operators,
             "variable_kinds": variable_kinds, "parameter_kinds": parameter_kinds}
+
+
+# ---------------------------------------------------------------------
+# Diagnostics page: what is incomplete or not proven in a dialect
+# ---------------------------------------------------------------------
+EVIDENCE_ORDER = ["MANUAL", "INFERRED", "NULL", "TESTED"]      # order of the counts
+EVIDENCE_RANK = {"INFERRED": 0, "MANUAL": 1, "NULL": 2}       # order of the rows to check
+
+
+def _ph(ids):
+    """Placeholders for an IN (...) list; 'NULL' when the list is empty."""
+    return ",".join("?" * len(ids)) or "NULL"
+
+
+def _code_ranges(codes):
+    """[1, 2, 3, 7] -> '1-3, 7'"""
+    out = []
+    for c in sorted(set(codes)):
+        if out and c == out[-1][1] + 1:
+            out[-1][1] = c
+        else:
+            out.append([c, c])
+    return ", ".join(str(a) if a == b else f"{a}-{b}" for a, b in out)
+
+
+def _evidence_group(name, label, rows):
+    """rows: dicts with 'ev' (evidence or None), 'text' and 'url'."""
+    counts = {k: 0 for k in EVIDENCE_ORDER}
+    for r in rows:
+        counts[r["ev"] or "NULL"] += 1
+    todo = sorted((r for r in rows if r["ev"] != "TESTED"), key=lambda r: EVIDENCE_RANK.get(r["ev"] or "NULL", 3))
+    return {"name": name, "label": label, "counts": counts, "total": len(rows), "rows": todo}
+
+
+def diagnostics_context(d, dia):
+    did = dia["id"]
+    dia_url = dialect_url(dia)
+    layer_ids = [s["layer_id"] for s in d.stacks[did]]
+    machine_ids = [r["machine_id"] for r in d.dialect_machines(did)]
+    entries = sorted((d.entries[r["entry_id"]] for r in d.dialect_entries[did]),
+                     key=lambda e: (e["category_id"], e["name"].upper()))
+    forms = [f for e in entries for f in d.entry_forms[e["id"]]]
+    params = [p for f in forms for p in d.form_parameters[f["id"]]]
+
+    def at_form(f):
+        e = d.entries[f["entry_id"]]
+        return {"entry": e, "form": f, "titled": len(d.entry_forms[e["id"]]) > 1}
+
+    def form_text(f):
+        e = d.entries[f["entry_id"]]
+        many = len(d.entry_forms[e["id"]]) > 1
+        return e["name"] + (f" ({f['title'] or 'form ' + str(f['position'])})" if many else "")
+
+    def safe(sql, *args):
+        try:
+            return d.q(sql, *args)
+        except sqlite3.OperationalError:      # older database without that table or column
+            return []
+
+    # 1. open questions
+    open_questions = [{"q": r, "owner": d.layers.get(r["layer_id"]) or d.machines.get(r["machine_id"])}
+                      for r in safe(f"SELECT * FROM open_question WHERE resolved = 0 AND (layer_id IN ({_ph(layer_ids)}) "
+                                    f"OR machine_id IN ({_ph(machine_ids)})) ORDER BY position, id",
+                                    *layer_ids, *machine_ids)]
+
+    # 2. examples
+    examples_todo = [{"entry": e, "x": x, "form": d.forms.get(x["form_id"])}
+                     for e in entries for x in d.examples[e["id"]] if not x["verified"]]
+    no_examples = [e for e in entries if not d.examples[e["id"]]]
+
+    # 3. errors
+    errors_todo = []
+    by_entry = {}
+    for r in safe("SELECT * FROM v_entry_error WHERE dialect_id = ? AND verified = 0 ORDER BY position, number", did):
+        r = dict(r, form=d.forms.get(r["form_id"]), parameter=d.parameters.get(r["parameter_id"]))
+        if r["entry_id"] not in by_entry:
+            by_entry[r["entry_id"]] = {"entry": d.entries[r["entry_id"]], "rows": []}
+        by_entry[r["entry_id"]]["rows"].append(r)
+    for e in entries:
+        if e["id"] in by_entry:
+            errors_todo.append(by_entry[e["id"]])
+    unused_errors = safe("SELECT e.* FROM v_dialect_error x JOIN error e ON e.id = x.error_id "
+                         "WHERE x.dialect_id = ? AND x.error_id NOT IN "
+                         "(SELECT error_id FROM v_entry_error WHERE dialect_id = ? AND error_id IS NOT NULL) "
+                         "ORDER BY e.number, e.code", did, did)
+
+    # 4. syntax
+    syntax_differs, no_original = [], []
+    for f in forms:
+        raw, _, _ = d.form_syntax(f["id"])
+        if not f["original_syntax"]:
+            no_original.append(dict(at_form(f), rebuilt=syntax_html(raw)))
+        elif same_syntax(raw, f["original_syntax"]) is False:
+            syntax_differs.append(dict(at_form(f), rebuilt=syntax_html(raw), original=f["original_syntax"]))
+
+    # 5. evidence
+    evidence = []
+    if params and "evidence" in params[0]:
+        evidence.append(_evidence_group("parameter", "Parameters", [
+            {"ev": p["evidence"], "text": f"{form_text(d.forms[p['form_id']])} · {p['name']}",
+             "url": entry_url(d.entries[d.forms[p["form_id"]]["entry_id"]])} for p in params]))
+        evidence.append(_evidence_group("parameter_limit", "Parameter limits", [
+            {"ev": l.get("evidence"), "text": f"{form_text(d.forms[p['form_id']])} · {p['name']} "
+                                              f"{interval(l['minimum'], l['maximum'], l['min_inclusive'], l['max_inclusive']) or ''}"
+                                              + (f" ({d.machines[l['machine_id']]['name']})" if l["machine_id"] else ""),
+             "url": entry_url(d.entries[d.forms[p["form_id"]]["entry_id"]])}
+            for p in params for l in d.limits[p["id"]]]))
+        evidence.append(_evidence_group("allowed_value", "Allowed values", [
+            {"ev": v.get("evidence"), "text": f"{form_text(d.forms[p['form_id']])} · {p['name']} = {v['value']}",
+             "url": entry_url(d.entries[d.forms[p["form_id"]]["entry_id"]])}
+            for p in params for v in d.allowed_values[p["id"]]]))
+    if forms and "evidence" in forms[0]:
+        evidence.append(_evidence_group("syntax_form", "Syntax forms (returned range and description)", [
+            {"ev": f["evidence"], "text": form_text(f) + (f" → {interval(f['return_min'], f['return_max'], f['return_min_inclusive'], f['return_max_inclusive'])}"
+                                                           if f["return_min"] is not None or f["return_max"] is not None else ""),
+             "url": entry_url(d.entries[f["entry_id"]])} for f in forms]))
+    codes = safe("SELECT c.code, c.mode, c.evidence FROM v_dialect_character_code x "
+                 "JOIN character_code c ON c.id = x.character_code_id WHERE x.dialect_id = ? ORDER BY c.mode, c.code", did)
+    if codes:
+        g = _evidence_group("character_code", "Character codes", [{"ev": c["evidence"], "text": "", "url": ""} for c in codes])
+        by_ev = defaultdict(list)
+        for c in codes:
+            if c["evidence"] != "TESTED":
+                by_ev[(c["evidence"] or "NULL", c["mode"])].append(c["code"])
+        g["rows"] = [{"ev": None if ev == "NULL" else ev, "url": dia_url + "#characters",
+                      "text": (f"mode {mode}: " if mode else "") + _code_ranges(cs)}
+                     for (ev, mode), cs in sorted(by_ev.items(), key=lambda kv: (EVIDENCE_RANK.get(kv[0][0], 3), kv[0][1] or ""))]
+        evidence.append(g)
+    kinds = safe("SELECT v.* FROM v_dialect_variable_kind x JOIN variable_kind v ON v.id = x.variable_kind_id "
+                 "WHERE x.dialect_id = ? ORDER BY v.id", did)
+    fields = []
+    for v in kinds:
+        for f in safe("SELECT * FROM variable_layout_field WHERE variable_kind_id = ? ORDER BY layout, position", v["id"]):
+            fields.append({"ev": f.get("evidence"), "url": dia_url + "#variables",
+                           "text": v["name"] + (f" ({f['layout_name']})" if f.get("layout_name") else "") + f" · {f['name']}"})
+    if fields:
+        evidence.append(_evidence_group("variable_layout_field", "Variables in memory", fields))
+    program = safe("SELECT p.* FROM v_dialect_program_layout x JOIN program_layout_field p ON p.id = x.field_id "
+                   "WHERE x.dialect_id = ? ORDER BY p.position", did)
+    if program:
+        evidence.append(_evidence_group("program_layout_field", "Program in memory", [
+            {"ev": f.get("evidence"), "url": dia_url + "#program", "text": f["name"]} for f in program]))
+    areas = safe("SELECT m.* FROM v_dialect_memory_area x JOIN memory_area m ON m.id = x.memory_area_id "
+                 "WHERE x.dialect_id = ? ORDER BY m.area", did)
+    if areas:
+        evidence.append(_evidence_group("memory_area", "Memory areas (before and after)", [
+            {"ev": a.get("evidence"), "url": dia_url + ("#program" if a["area"] == "PROGRAM" else "#variables"),
+             "text": a["area"].lower()} for a in areas]))
+
+    # 6. features
+    feature_rows = safe("SELECT * FROM v_dialect_feature_all WHERE dialect_id = ? ORDER BY section_position, position", did)
+    features_missing = [r for r in feature_rows if r["feature_id"] is None]
+    features_todo = [r for r in feature_rows if r["feature_id"] is not None and not r["verified"]]
+
+    # 7. tables
+    tables_todo, tables_no_status = [], []
+    for t in d.table_states(layer_ids, machine_ids):
+        if not t["owners"]:
+            continue
+        for owner, st in t["owners"]:
+            if st and st["status"] in ("TO_DO", "PARTIAL"):
+                tables_todo.append({"k": t["k"], "owner": owner, "st": st})
+        if all(st is None for _, st in t["owners"]):
+            tables_no_status.append(t["k"])
+
+    # 8. gaps
+    params_no_description = [dict(at_form(d.forms[p["form_id"]]), p=p) for p in params
+                             if not (p["description"] or "").strip()]
+    forms_no_action = [at_form(f) for f in forms if not d.form_actions[f["id"]]]
+    keywords_no_token = sorted((d.keywords[k] for k in d.dialect_keywords[did]
+                                if not any(t["machine_id"] is None or t["machine_id"] in machine_ids
+                                           for t in d.tokens[k])), key=lambda k: k["text"].upper())
+    kinds_no_length = [{"v": v, "missing": [c for c in ("max_name_length", "significant_chars") if v.get(c) is None]}
+                       for v in kinds if v.get("max_name_length") is None or v.get("significant_chars") is None]
+    areas_missing = [{"a": a, "missing": [c for c in ("prologue", "epilogue") if a.get(c) is None]}
+                     for a in areas if a.get("prologue") is None or a.get("epilogue") is None]
+
+    evidence_todo = sum(len(g["rows"]) if g["name"] != "character_code"
+                        else g["total"] - g["counts"]["TESTED"] for g in evidence)
+    sections = [
+        ("open-questions", "Open questions", len(open_questions)),
+        ("examples", "Examples", len(examples_todo) + len(no_examples)),
+        ("errors", "Errors", sum(len(x["rows"]) for x in errors_todo) + len(unused_errors)),
+        ("syntax", "Syntax", len(syntax_differs) + len(no_original)),
+        ("evidence", "Evidence", evidence_todo),
+        ("features", "Features", len(features_missing) + len(features_todo)),
+        ("tables", "Tables", len(tables_todo) + len(tables_no_status)),
+        ("gaps", "Gaps", len(params_no_description) + len(forms_no_action) + len(keywords_no_token)
+                         + len(kinds_no_length) + len(areas_missing)),
+    ]
+    return {"dia": dia, "sections": sections, "total": sum(n for _, _, n in sections),
+            "open_questions": open_questions, "examples_todo": examples_todo, "no_examples": no_examples,
+            "errors_todo": errors_todo, "unused_errors": unused_errors,
+            "syntax_differs": syntax_differs, "no_original": no_original,
+            "evidence": evidence, "evidence_order": EVIDENCE_ORDER,
+            "features_missing": features_missing, "features_todo": features_todo,
+            "tables_todo": tables_todo, "tables_no_status": tables_no_status,
+            "params_no_description": params_no_description, "forms_no_action": forms_no_action,
+            "keywords_no_token": keywords_no_token, "kinds_no_length": kinds_no_length,
+            "areas_missing": areas_missing}
 
 
 def keyword_context(d, k):
@@ -812,7 +1060,8 @@ def main():
     env = Environment(loader=FileSystemLoader(FOLDER / "templates"),
                       autoescape=select_autoescape(["html"]), trim_blocks=True, lstrip_blocks=True)
     env.globals.update(entry_url=entry_url, dialect_url=dialect_url, machine_url=machine_url,
-                       dialect_name=dialect_name, plural=plural, keyword_url=keyword_url)
+                       dialect_name=dialect_name, plural=plural, keyword_url=keyword_url,
+                       diagnostics_url=diagnostics_url)
     env.filters["md"] = md_block
     env.filters["mdi"] = md_inline
     if markdown_lib is None:
@@ -852,7 +1101,9 @@ def main():
     nav = defaultdict(list)
     for x in d.dialects.values():
         ctx = dialect_context(d, x)
-        write_page(dialect_url(x), "dialect.html", **ctx)
+        diag = diagnostics_context(d, x)
+        write_page(dialect_url(x), "dialect.html", diag_total=diag["total"], **ctx)
+        write_page(diagnostics_url(x), "diagnostics.html", **diag)
         order = []
         for c, rows, subgroups in ctx["by_category"]:
             items = [r["e"] for _, sg in subgroups for r in sg] if subgroups else [r["e"] for r in rows]

@@ -1,0 +1,2 @@
+{# Evidence mark: INFERRED (full), MANUAL (outlined), TESTED (tick), NULL (nothing) #}
+{% macro ev_mark(value) %}{% if value == 'INFERRED' %}<span class="evm evm-inferred" title="Inferred: neither stated by a source nor tested">I</span>{% elif value == 'MANUAL' %}<span class="evm evm-manual" title="Stated by a source, not tested">M</span>{% elif value == 'TESTED' %}<span class="evm evm-tested" title="Tested on the machine or an emulator">✓</span>{% endif %}{% endmacro %}

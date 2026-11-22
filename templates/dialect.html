@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "_evidence.html" import ev_mark %}
 {% block title %}{{ dialect_name(dia) }}{% endblock %}
 
 {% macro panel(id, title) %}
@@ -10,16 +11,16 @@
 
 {% macro area_ends(a) %}
 {% if a %}<p><strong>Before:</strong> {% if a.prologue is none %}<em>not entered</em>{% elif a.prologue == '' %}nothing{% else %}<code>{{ a.prologue }}</code>{% endif %}.
-<strong>After:</strong> {% if a.epilogue is none %}<em>not entered</em>{% elif a.epilogue == '' %}nothing{% else %}<code>{{ a.epilogue }}</code>{% endif %}.{% if a.notes %} {{ (a.notes)|mdi }}{% endif %}</p>{% endif %}
+<strong>After:</strong> {% if a.epilogue is none %}<em>not entered</em>{% elif a.epilogue == '' %}nothing{% else %}<code>{{ a.epilogue }}</code>{% endif %}.{% if a.evidence %} {{ ev_mark(a.evidence) }}{% endif %}{% if a.notes %} {{ (a.notes)|mdi }}{% endif %}</p>{% endif %}
 {% endmacro %}
 
 {% macro layout_table(fields) %}
 <table>
-  <thead><tr><th class="num">Offset</th><th class="num">Bytes</th><th>Field</th><th>Byte order</th><th>Description</th></tr></thead>
+  <thead><tr><th class="num">Offset</th><th class="num">Bytes</th><th>Field</th><th>Byte order</th><th>Description</th><th class="ev-col" title="Evidence">Ev.</th></tr></thead>
   <tbody>
   {% for f in fields %}
   <tr><td class="num">{{ f.offset if f.offset is not none else '…' }}</td><td class="num">{{ f.size if f.size is not none else 'variable' }}</td>
-      <td>{{ f.name }}</td><td>{{ (f.byte_order or '')|lower }}</td><td>{{ (f.description)|mdi }}</td></tr>
+      <td>{{ f.name }}</td><td>{{ (f.byte_order or '')|lower }}</td><td>{{ (f.description)|mdi }}</td><td class="ev-col">{{ ev_mark(f.evidence) }}</td></tr>
   {% endfor %}
   </tbody>
 </table>
@@ -53,6 +54,7 @@
   {% if musical_notes %}<a href="#notes" data-panel>Musical notes</a>{% endif %}
   {% for x in custom %}<a href="#custom-{{ x.t.code }}" data-panel>{{ x.t.title }}</a>{% endfor %}
   <a href="#tables" data-panel>All tables</a>
+  <a class="diagnostics" href="{{ root }}{{ diagnostics_url(dia) }}" title="What is incomplete or not proven">Diagnostics{% if diag_total is defined %} <small>{{ diag_total }}</small>{% endif %}</a>
 </nav>
 
 <h2 id="entries">Entries <small>{{ n_entries }}</small></h2>
@@ -263,7 +265,7 @@
   {% for row in g.rows %}
   <tr><th>{{ '%X'|format(row[0].code // 16) }}_</th>
     {% for c in row %}
-    <td class="g-{{ c.kind|lower }}" title="{{ c.code }} (${{ '%02X'|format(c.code) }}){% if c.code_name %} — {{ c.code_name }}{% elif c.name %} — {{ c.name }}{% endif %}{% if c.kind in ('PRINTABLE', 'UNUSED') and c.screen_code is not none %} — screen code {{ c.screen_code }}{% endif %}{% if c.unicode %} — {{ c.unicode|codepoint }}{% if c.unicode_name %} {{ c.unicode_name }}{% endif %}{% endif %}{% if c.kind == 'UNUSED' %} — not used{% if c.code_notes %}: {{ c.code_notes }}{% endif %}{% elif c.kind == 'TOKEN' %} — token{% elif c.kind == 'CONTROL' %} — control: {{ c.action or '' }}{% endif %}{% if c.inverse_of is not none %} — inverse of {{ c.inverse_of }}{% endif %}">
+    <td class="g-{{ c.kind|lower }}{% if c.evidence and c.evidence != 'TESTED' %} ev-{{ c.evidence|lower }}{% endif %}" title="{{ c.code }} (${{ '%02X'|format(c.code) }}){% if c.code_name %} — {{ c.code_name }}{% elif c.name %} — {{ c.name }}{% endif %}{% if c.kind in ('PRINTABLE', 'UNUSED') and c.screen_code is not none %} — screen code {{ c.screen_code }}{% endif %}{% if c.unicode %} — {{ c.unicode|codepoint }}{% if c.unicode_name %} {{ c.unicode_name }}{% endif %}{% endif %}{% if c.kind == 'UNUSED' %} — not used{% if c.code_notes %}: {{ c.code_notes }}{% endif %}{% elif c.kind == 'TOKEN' %} — token{% elif c.kind == 'CONTROL' %} — control: {{ c.action or '' }}{% endif %}{% if c.inverse_of is not none %} — inverse of {{ c.inverse_of }}{% endif %}{% if c.evidence == 'TESTED' %} — tested{% elif c.evidence == 'MANUAL' %} — from the manual, not tested{% elif c.evidence == 'INFERRED' %} — inferred, not tested{% endif %}">
       {% if c.kind == 'TOKEN' %}<span class="token">{{ c.token_text or '' }}</span>
       {% elif c.kind == 'CONTROL' %}<span class="token">{{ c.code_name or 'ctrl' }}</span>
       {% elif c.bitmap %}<canvas data-b="{{ c.bitmap }}"{% if c.inverse %} data-inverse="1"{% endif %}></canvas>{% endif %}
@@ -278,6 +280,8 @@
 <p class="note legend"><span class="g-unused swatch-g"></span> not used (what it prints, if anything) ·
   <span class="g-token swatch-g"></span> token: shown as its keyword ·
   <span class="g-control swatch-g"></span> control code ·
+  <span class="swatch-g corner-manual"></span> from the manual, not tested ·
+  <span class="swatch-g corner-inferred"></span> inferred, not tested ·
   hover over a character for the details.</p>
 {% endfor %}
 {% endcall %}

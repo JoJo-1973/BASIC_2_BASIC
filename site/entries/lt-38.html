@@ -39,7 +39,7 @@
 
   <p><strong>Class:</strong> <span title="Comparisons: =, &lt;, &gt;, &lt;=, &gt;=, &lt;&gt;">relational operators</span> · <strong>Precedence:</strong> 5 <small>(<a href="../dialects/SINCLAIR_ZX80_4K.html#operators">precedence table</a>)</small></p>
   <p class="features"><a href="../dialects/SINCLAIR_ZX80_4K.html#features">Value produced by a true comparison</a>: <code>-1</code><br><a href="../dialects/SINCLAIR_ZX80_4K.html#features">Value produced by a false comparison</a>: <code>0</code></p>
-  <p><strong>Returns:</strong> Integer, range <code>[-1, 0]</code></p>
+  <p><strong>Returns:</strong> Integer, range <code>[-1, 0]</code> <span class="evm evm-tested" title="Tested on the machine or an emulator">✓</span></p>
 
   <table class="parameters">
     <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
@@ -74,7 +74,7 @@
 
   <p><strong>Class:</strong> <span title="Comparisons: =, &lt;, &gt;, &lt;=, &gt;=, &lt;&gt;">relational operators</span> · <strong>Precedence:</strong> 5 <small>(<a href="../dialects/SINCLAIR_ZX80_4K.html#operators">precedence table</a>)</small></p>
   <p class="features"><a href="../dialects/SINCLAIR_ZX80_4K.html#features">Value produced by a true comparison</a>: <code>-1</code><br><a href="../dialects/SINCLAIR_ZX80_4K.html#features">Value produced by a false comparison</a>: <code>0</code></p>
-  <p><strong>Returns:</strong> Integer, range <code>[-1, 0]</code></p>
+  <p><strong>Returns:</strong> Integer, range <code>[-1, 0]</code> <span class="evm evm-tested" title="Tested on the machine or an emulator">✓</span></p>
 
   <table class="parameters">
     <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
@@ -105,6 +105,19 @@
 <ul class="entry-tables">
   <li><a href="../dialects/SINCLAIR_ZX80_4K.html#operators">Operator precedence</a>      <small>— operator</small></li>
 </ul>
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>VARIABLE_NOT_FOUND</code></a></td>
+      <td>A variable in the expression is not defined. <small>Parameters: <code class="par">a</code>, <code class="par">b</code>, <code class="par">s1</code>, <code class="par">s2</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>SUBSCRIPT_OUT_OF_RANGE</code></a></td>
+      <td>An array element in the expression has a subscript out of range. <small>Parameters: <code class="par">a</code>, <code class="par">b</code>, <code class="par">s1</code>, <code class="par">s2</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>OVERFLOW</code></a></td>
+      <td>A calculation in the expression goes outside the range from -32768 to 32767. <small>Parameters: <code class="par">a</code>, <code class="par">b</code>, <code class="par">s1</code>, <code class="par">s2</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
 
 <h2>Keywords</h2>
 <table>

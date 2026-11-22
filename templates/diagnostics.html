@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+{% block title %}Diagnostics · {{ dialect_name(dia) }}{% endblock %}
+
+{% macro ev(value) %}<span class="ev ev-{{ (value or 'NULL')|lower }}">{{ value or 'NULL' }}</span>{% endmacro %}
+{% macro nothing(items) %}{% if not items %}<p class="nothing">Nothing left</p>{% endif %}{% endmacro %}
+{% macro form_link(x) %}<a href="{{ root }}{{ entry_url(x.entry) }}">{{ x.entry.name }}</a>{% if x.titled %} <small>({{ x.form.title or 'form ' ~ x.form.position }})</small>{% endif %}{% endmacro %}
+
+{% block content %}
+<p class="breadcrumbs"><a href="{{ root }}index.html">Machines</a> › <a href="{{ root }}{{ dialect_url(dia) }}">{{ dialect_name(dia) }}</a> ›</p>
+<h1>Diagnostics <span class="category">{{ dialect_name(dia) }}</span></h1>
+<p class="subtitle">What is still incomplete or not proven in this dialect.</p>
+
+<table class="diag-summary">
+  <thead><tr><th>Section</th><th class="num">To do</th></tr></thead>
+  <tbody>
+  {% for anchor, title, n in sections %}
+  <tr class="{{ 'done' if n == 0 else '' }}"><td><a href="#{{ anchor }}">{{ title }}</a></td>
+      <td class="num">{% if n %}{{ n }}{% else %}<span class="nothing">Nothing left</span>{% endif %}</td></tr>
+  {% endfor %}
+  </tbody>
+  <tfoot><tr><th>Total</th><th class="num">{{ total }}</th></tr></tfoot>
+</table>
+
+{# ------------------------------------------------------------ 1 #}
+<h2 id="open-questions">Open questions <small>{{ open_questions|length }}</small></h2>
+{{ nothing(open_questions) }}
+{% for x in open_questions %}
+<div class="diag-item">
+  <div class="md">{{ x.q.question|md }}</div>
+  <p class="note">{{ x.owner.name if x.owner else '' }}{% if x.q.notes %} — {{ x.q.notes|mdi }}{% endif %}</p>
+</div>
+{% endfor %}
+
+{# ------------------------------------------------------------ 2 #}
+<h2 id="examples">Examples <small>{{ examples_todo|length + no_examples|length }}</small></h2>
+<h3>Examples to verify <small>{{ examples_todo|length }}</small></h3>
+{{ nothing(examples_todo) }}
+{% if examples_todo %}
+<table>
+  <thead><tr><th>Entry</th><th>Example</th><th>Code</th></tr></thead>
+  <tbody>
+  {% for x in examples_todo %}
+  <tr><td class="name"><a href="{{ root }}{{ entry_url(x.entry) }}">{{ x.entry.name }}</a></td>
+      <td>{{ x.x.title or '' }}{% if x.form and x.form.title %} <small>({{ x.form.title }})</small>{% endif %}</td>
+      <td><code class="diag-code">{{ x.x.code }}</code></td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+<h3>Entries without examples <small>{{ no_examples|length }}</small></h3>
+{{ nothing(no_examples) }}
+{% if no_examples %}<p class="diag-list">{% for e in no_examples %}<a href="{{ root }}{{ entry_url(e) }}">{{ e.name }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}
+
+{# ------------------------------------------------------------ 3 #}
+<h2 id="errors">Errors <small>{{ sections[2][2] }}</small></h2>
+<h3>Errors of the entries to verify <small>{{ errors_todo|sum(attribute='rows', start=[])|length }}</small></h3>
+{{ nothing(errors_todo) }}
+{% if errors_todo %}
+<table>
+  <thead><tr><th>Entry</th><th>Error</th><th>Rule</th><th>Detail</th><th>Cause</th></tr></thead>
+  <tbody>
+  {% for g in errors_todo %}
+    {% for r in g.rows %}
+    <tr>{% if loop.first %}<td class="name" rowspan="{{ g.rows|length }}"><a href="{{ root }}{{ entry_url(g.entry) }}">{{ g.entry.name }}</a></td>{% endif %}
+        <td class="nowrap"><a href="{{ root }}{{ dialect_url(dia) }}#errors">{% if r.number is not none %}{{ r.number }} {% endif %}<code>{{ r.message or r.code }}</code></a></td>
+        <td><small>{{ (r.rule or '')|lower }}</small></td>
+        <td><small>{{ r.detail or '' }}{% if r.parameter %}{% if r.detail %} · {% endif %}<code class="par">{{ r.parameter.name }}</code>{% endif %}{% if r.form and r.form.title %} ({{ r.form.title }}){% endif %}</small></td>
+        <td>{{ (r.cause)|mdi }}</td></tr>
+    {% endfor %}
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+<h3>Errors of the dialect that no entry uses <small>{{ unused_errors|length }}</small></h3>
+{{ nothing(unused_errors) }}
+{% if unused_errors %}
+<table>
+  <thead><tr><th class="num">No.</th><th>Message</th><th>Code</th><th>Description</th></tr></thead>
+  <tbody>
+  {% for e in unused_errors %}
+  <tr><td class="num">{{ e.number if e.number is not none else '' }}</td>
+      <td class="nowrap"><a href="{{ root }}{{ dialect_url(dia) }}#errors"><code>{{ e.message }}</code></a></td>
+      <td><small>{{ e.code }}</small></td><td>{{ (e.description)|mdi }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+{# ------------------------------------------------------------ 4 #}
+<h2 id="syntax">Syntax <small>{{ syntax_differs|length + no_original|length }}</small></h2>
+<h3>Manual syntax different from the rebuilt one <small>{{ syntax_differs|length }}</small></h3>
+{{ nothing(syntax_differs) }}
+{% if syntax_differs %}
+<table>
+  <thead><tr><th>Entry</th><th>Rebuilt</th><th>Manual</th></tr></thead>
+  <tbody>
+  {% for x in syntax_differs %}
+  <tr><td class="name">{{ form_link(x) }}</td>
+      <td><code class="syntax">{{ x.rebuilt }}</code></td><td><code>{{ x.original }}</code></td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+<h3>Forms without the manual's syntax <small>{{ no_original|length }}</small></h3>
+{{ nothing(no_original) }}
+{% if no_original %}
+<table>
+  <thead><tr><th>Entry</th><th>Rebuilt</th></tr></thead>
+  <tbody>
+  {% for x in no_original %}
+  <tr><td class="name">{{ form_link(x) }}</td><td>{% if x.rebuilt %}<code class="syntax">{{ x.rebuilt }}</code>{% else %}<small>no syntax tree</small>{% endif %}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+{# ------------------------------------------------------------ 5 #}
+<h2 id="evidence">Evidence <small>{{ sections[4][2] }}</small></h2>
+<p class="note">{{ ev('INFERRED') }} deduced, neither stated nor tested · {{ ev('MANUAL') }} stated by a source, not tested · {{ ev(none) }} not assessed · {{ ev('TESTED') }} checked on the machine or an emulator.</p>
+{{ nothing(evidence) }}
+{% if evidence %}
+<table class="diag-evidence">
+  <thead><tr><th>Table</th>{% for k in evidence_order %}<th class="num">{{ ev(k if k != 'NULL' else none) }}</th>{% endfor %}<th class="num">Rows</th></tr></thead>
+  <tbody>
+  {% for g in evidence %}
+  <tr><td><a href="#ev-{{ g.name }}">{{ g.label }}</a></td>
+      {% for k in evidence_order %}<td class="num{% if g.counts[k] and k == 'INFERRED' %} hot{% endif %}">{{ g.counts[k] or '' }}</td>{% endfor %}
+      <td class="num">{{ g.total }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% for g in evidence %}
+<h3 id="ev-{{ g.name }}">{{ g.label }} <small>{{ g.total - g.counts['TESTED'] }} not tested</small></h3>
+{{ nothing(g.rows) }}
+{% if g.rows %}
+<ul class="diag-ev-list">
+  {% for r in g.rows %}
+  <li class="ev-row-{{ (r.ev or 'NULL')|lower }}">{{ ev(r.ev) }} {% if r.url %}<a href="{{ root }}{{ r.url }}">{{ r.text }}</a>{% else %}{{ r.text }}{% endif %}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endfor %}
+{% endif %}
+
+{# ------------------------------------------------------------ 6 #}
+<h2 id="features">Features <small>{{ features_missing|length + features_todo|length }}</small></h2>
+<h3>Missing answers <small>{{ features_missing|length }}</small></h3>
+{{ nothing(features_missing) }}
+{% if features_missing %}
+<table>
+  <thead><tr><th>Section</th><th>Feature</th></tr></thead>
+  <tbody>{% for f in features_missing %}<tr><td><small>{{ f.section }}</small></td><td><a href="{{ root }}{{ dialect_url(dia) }}#features">{{ f.name }}</a></td></tr>{% endfor %}</tbody>
+</table>
+{% endif %}
+<h3>Answers to verify <small>{{ features_todo|length }}</small></h3>
+{{ nothing(features_todo) }}
+{% if features_todo %}
+<table>
+  <thead><tr><th>Section</th><th>Feature</th><th>Answer</th></tr></thead>
+  <tbody>{% for f in features_todo %}<tr><td><small>{{ f.section }}</small></td><td><a href="{{ root }}{{ dialect_url(dia) }}#features">{{ f.name }}</a></td><td><code>{{ f.value }}</code>{% if f.notes %} <small>{{ f.notes|mdi }}</small>{% endif %}</td></tr>{% endfor %}</tbody>
+</table>
+{% endif %}
+
+{# ------------------------------------------------------------ 7 #}
+<h2 id="tables">Tables <small>{{ tables_todo|length + tables_no_status|length }}</small></h2>
+<h3>To do or partial <small>{{ tables_todo|length }}</small></h3>
+{{ nothing(tables_todo) }}
+{% if tables_todo %}
+<table>
+  <thead><tr><th>Table</th><th>Of</th><th>State</th><th>Notes</th></tr></thead>
+  <tbody>{% for t in tables_todo %}<tr><td><a href="{{ root }}{{ dialect_url(dia) }}#tables">{{ t.k.name }}</a></td><td>{{ t.owner.name }}</td>
+      <td><span class="tag warning">{{ t.st.status|replace('_', ' ')|lower }}</span></td><td>{{ (t.st.notes)|mdi }}</td></tr>{% endfor %}</tbody>
+</table>
+{% endif %}
+<h3>Tables without any state <small>{{ tables_no_status|length }}</small></h3>
+{{ nothing(tables_no_status) }}
+{% if tables_no_status %}<p class="diag-list">{% for k in tables_no_status %}<a href="{{ root }}{{ dialect_url(dia) }}#tables">{{ k.name }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}
+
+{# ------------------------------------------------------------ 8 #}
+<h2 id="gaps">Gaps <small>{{ sections[7][2] }}</small></h2>
+<h3>Parameters without description <small>{{ params_no_description|length }}</small></h3>
+{{ nothing(params_no_description) }}
+{% if params_no_description %}<p class="diag-list">{% for x in params_no_description %}{{ form_link(x) }} <code class="par">{{ x.p.name }}</code>{% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}
+<h3>Forms without actions <small>{{ forms_no_action|length }}</small></h3>
+{{ nothing(forms_no_action) }}
+{% if forms_no_action %}<p class="diag-list">{% for x in forms_no_action %}{{ form_link(x) }}{% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}
+<h3>Keywords without token <small>{{ keywords_no_token|length }}</small></h3>
+{{ nothing(keywords_no_token) }}
+{% if keywords_no_token %}<p class="diag-list">{% for k in keywords_no_token %}<a class="kw" href="{{ root }}{{ keyword_url(k) }}">{{ k.text }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}
+<h3>Variable types without name length <small>{{ kinds_no_length|length }}</small></h3>
+{{ nothing(kinds_no_length) }}
+{% if kinds_no_length %}<ul>{% for x in kinds_no_length %}<li><a href="{{ root }}{{ dialect_url(dia) }}#variables">{{ x.v.name }}</a>: <small>{{ x.missing|join(', ') }} not entered</small></li>{% endfor %}</ul>{% endif %}
+<h3>Memory areas without prologue or epilogue <small>{{ areas_missing|length }}</small></h3>
+{{ nothing(areas_missing) }}
+{% if areas_missing %}<ul>{% for x in areas_missing %}<li><a href="{{ root }}{{ dialect_url(dia) }}#{{ 'program' if x.a.area == 'PROGRAM' else 'variables' }}">{{ x.a.area|lower }}</a>: <small>{{ x.missing|join(', ') }} not entered</small></li>{% endfor %}</ul>{% endif %}
+{% endblock %}

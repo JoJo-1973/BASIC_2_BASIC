@@ -40,7 +40,7 @@
     <code>ABS(n)</code>
 </p>
 
-  <p><strong>Returns:</strong> Integer, range <code>[0, 32767]</code></p>
+  <p><strong>Returns:</strong> Integer, range <code>[0, 32767]</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></p>
 
   <table class="parameters">
     <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
@@ -62,6 +62,19 @@
 </section>
 
 
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>VARIABLE_NOT_FOUND</code></a></td>
+      <td>A variable in the expression is not defined. <small>Parameter: <code class="par">n</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>SUBSCRIPT_OUT_OF_RANGE</code></a></td>
+      <td>An array element in the expression has a subscript out of range. <small>Parameter: <code class="par">n</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>OVERFLOW</code></a></td>
+      <td>A calculation in the expression goes outside the range from -32768 to 32767. <small>Parameter: <code class="par">n</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
 <h2>Keywords</h2>
 <table>
   <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
@@ -82,8 +95,13 @@
 <figure class="example">
 <h3>Absolute value</h3>  <pre>PRINT ABS(-5)</pre>
 <pre class="output" title="Expected result">5</pre></figure>
+<figure class="example">
+<h3>The value -32768</h3>  <pre>PRINT ABS(-32767-1)</pre>
+<pre class="output" title="Expected result">-32768</pre><figcaption>Wrong result, without any error.
+</figcaption></figure>
 
-
+<h2>Notes</h2>
+<div class="md"><p><code>ABS(-32768)</code> cannot be typed, because the syntax check rejects the number 32768, but an expression can reach that value: <code>ABS(-32767-1)</code> wrongly gives -32768, without any error (checked on an emulator). This is a bug of the ROM: the returned value stays 0 to 32767 for every other argument.</p></div>
 
 <h2>Sources</h2>
 <ul><li>Sinclair ZX80 Operating Manual - A Course in BASIC Programming, Hugo Davenport (1980), p. Appendix II</li></ul>

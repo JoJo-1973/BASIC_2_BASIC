@@ -31,6 +31,7 @@
   <a href="#layers" data-panel>Layers</a>
   <a href="#keywords" data-panel>Keywords <small>48</small></a>
 <a href="#operators" data-panel>Operator precedence</a><a href="#types" data-panel>Data types</a><a href="#variables" data-panel>Variable types</a><a href="#parameters" data-panel>Parameter types</a><a href="#errors" data-panel>Errors</a><a href="#features" data-panel>Features</a><a href="#characters" data-panel>Character codes</a><a href="#program" data-panel>Program in memory</a>  <a href="#tables" data-panel>All tables</a>
+  <a class="diagnostics" href="../dialects/SINCLAIR_ZX80_4K-diagnostics.html" title="What is incomplete or not proven">Diagnostics <small>615</small></a>
 </nav>
 
 <h2 id="entries">Entries <small>42</small></h2>
@@ -584,70 +585,70 @@
 </table>
 <h3>Variables area in memory</h3>
 <p><strong>Before:</strong> nothing.
-<strong>After:</strong> <code>$80</code>.</p>
+<strong>After:</strong> <code>$80</code>. <span class="evm evm-manual" title="Stated by a source, not tested">M</span></p>
 <h3>Numeric variable in memory</h3>
 <h4>Name of one character</h4><table>
-  <thead><tr><th class="num">Offset</th><th class="num">Bytes</th><th>Field</th><th>Byte order</th><th>Description</th></tr></thead>
+  <thead><tr><th class="num">Offset</th><th class="num">Bytes</th><th>Field</th><th>Byte order</th><th>Description</th><th class="ev-col" title="Evidence">Ev.</th></tr></thead>
   <tbody>
   <tr><td class="num">0</td><td class="num">1</td>
-      <td>Name</td><td></td><td>Character code of the letter OR $60.</td></tr>
+      <td>Name</td><td></td><td>Character code of the letter OR $60.</td><td class="ev-col"><span class="evm evm-manual" title="Stated by a source, not tested">M</span></td></tr>
   <tr><td class="num">1</td><td class="num">2</td>
-      <td>Value</td><td>little</td><td></td></tr>
+      <td>Value</td><td>little</td><td></td><td class="ev-col"><span class="evm evm-manual" title="Stated by a source, not tested">M</span></td></tr>
   </tbody>
 </table>
 
 <h4>Name of more than one character</h4><table>
-  <thead><tr><th class="num">Offset</th><th class="num">Bytes</th><th>Field</th><th>Byte order</th><th>Description</th></tr></thead>
+  <thead><tr><th class="num">Offset</th><th class="num">Bytes</th><th>Field</th><th>Byte order</th><th>Description</th><th class="ev-col" title="Evidence">Ev.</th></tr></thead>
   <tbody>
   <tr><td class="num">0</td><td class="num">1</td>
-      <td>First letter</td><td></td><td>Character code of the first letter AND $1F OR $40.</td></tr>
+      <td>First letter</td><td></td><td>Character code of the first letter AND $1F OR $40.</td><td class="ev-col"><span class="evm evm-manual" title="Stated by a source, not tested">M</span></td></tr>
   <tr><td class="num">1</td><td class="num">variable</td>
-      <td>Following letters</td><td></td><td>Character codes of the letters from the second to the last but one.</td></tr>
+      <td>Following letters</td><td></td><td>Character codes of the letters from the second to the last but one.</td><td class="ev-col"><span class="evm evm-manual" title="Stated by a source, not tested">M</span></td></tr>
   <tr><td class="num">…</td><td class="num">1</td>
-      <td>Last letter</td><td></td><td>Character code of the last letter AND $1F OR $80.</td></tr>
+      <td>Last letter</td><td></td><td>Character code of the last letter AND $1F OR $80.</td><td class="ev-col"><span class="evm evm-manual" title="Stated by a source, not tested">M</span></td></tr>
   <tr><td class="num">…</td><td class="num">2</td>
-      <td>Value</td><td>little</td><td></td></tr>
+      <td>Value</td><td>little</td><td></td><td class="ev-col"><span class="evm evm-manual" title="Stated by a source, not tested">M</span></td></tr>
   </tbody>
 </table>
 
 <h3>String variable in memory</h3>
 <table>
-  <thead><tr><th class="num">Offset</th><th class="num">Bytes</th><th>Field</th><th>Byte order</th><th>Description</th></tr></thead>
+  <thead><tr><th class="num">Offset</th><th class="num">Bytes</th><th>Field</th><th>Byte order</th><th>Description</th><th class="ev-col" title="Evidence">Ev.</th></tr></thead>
   <tbody>
   <tr><td class="num">0</td><td class="num">1</td>
-      <td>Name</td><td></td><td>Character code of the letter AND $1F OR $80.</td></tr>
+      <td>Name</td><td></td><td>Character code of the letter AND $1F OR $80.</td><td class="ev-col"><span class="evm evm-manual" title="Stated by a source, not tested">M</span></td></tr>
   <tr><td class="num">1</td><td class="num">variable</td>
-      <td>Characters</td><td></td><td>Character codes of the string, from the first to the last.</td></tr>
+      <td>Characters</td><td></td><td>Character codes of the string, from the first to the last.</td><td class="ev-col"><span class="evm evm-manual" title="Stated by a source, not tested">M</span></td></tr>
   <tr><td class="num">…</td><td class="num">1</td>
-      <td>Terminator</td><td></td><td>$01.</td></tr>
+      <td>Terminator</td><td></td><td>$01.</td><td class="ev-col"><span class="evm evm-manual" title="Stated by a source, not tested">M</span></td></tr>
   </tbody>
 </table>
 
 <h3>Numeric array in memory</h3>
 <table>
-  <thead><tr><th class="num">Offset</th><th class="num">Bytes</th><th>Field</th><th>Byte order</th><th>Description</th></tr></thead>
+  <thead><tr><th class="num">Offset</th><th class="num">Bytes</th><th>Field</th><th>Byte order</th><th>Description</th><th class="ev-col" title="Evidence">Ev.</th></tr></thead>
   <tbody>
   <tr><td class="num">0</td><td class="num">1</td>
-      <td>Name</td><td></td><td>Character code of the letter AND $1F OR $90.</td></tr>
+      <td>Name</td><td></td><td>Character code of the letter AND $1F OR $90.</td><td class="ev-col"><span class="evm evm-manual" title="Stated by a source, not tested">M</span></td></tr>
   <tr><td class="num">1</td><td class="num">1</td>
-      <td>Size</td><td></td><td>Size of the array, n.</td></tr>
+      <td>Size</td><td></td><td>Size of the array, n.</td><td class="ev-col"><span class="evm evm-manual" title="Stated by a source, not tested">M</span></td></tr>
   <tr><td class="num">2</td><td class="num">variable</td>
-      <td>Elements</td><td>little</td><td>Elements from 0 to n, 2 bytes each: element k at offset 2*(k+1).</td></tr>
+      <td>Elements</td><td>little</td><td>Elements from 0 to n, 2 bytes each: element k at offset 2*(k+1).</td><td class="ev-col"><span class="evm evm-manual" title="Stated by a source, not tested">M</span></td></tr>
   </tbody>
 </table>
 
 <h3>Loop control variable in memory</h3>
 <table>
-  <thead><tr><th class="num">Offset</th><th class="num">Bytes</th><th>Field</th><th>Byte order</th><th>Description</th></tr></thead>
+  <thead><tr><th class="num">Offset</th><th class="num">Bytes</th><th>Field</th><th>Byte order</th><th>Description</th><th class="ev-col" title="Evidence">Ev.</th></tr></thead>
   <tbody>
   <tr><td class="num">0</td><td class="num">1</td>
-      <td>Name</td><td></td><td>Character code of the letter AND $1F OR $E0.</td></tr>
+      <td>Name</td><td></td><td>Character code of the letter AND $1F OR $E0.</td><td class="ev-col"><span class="evm evm-manual" title="Stated by a source, not tested">M</span></td></tr>
   <tr><td class="num">1</td><td class="num">2</td>
-      <td>Value</td><td>little</td><td></td></tr>
+      <td>Value</td><td>little</td><td></td><td class="ev-col"><span class="evm evm-manual" title="Stated by a source, not tested">M</span></td></tr>
   <tr><td class="num">3</td><td class="num">2</td>
-      <td>Upper limit</td><td>little</td><td>End value of the FOR loop.</td></tr>
+      <td>Upper limit</td><td>little</td><td>End value of the FOR loop.</td><td class="ev-col"><span class="evm evm-manual" title="Stated by a source, not tested">M</span></td></tr>
   <tr><td class="num">5</td><td class="num">2</td>
-      <td>FOR line</td><td>big</td><td>Number of the line where the FOR loop is defined, plus 1.</td></tr>
+      <td>FOR line</td><td>big</td><td>Number of the line where the FOR loop is defined, plus 1.</td><td class="ev-col"><span class="evm evm-manual" title="Stated by a source, not tested">M</span></td></tr>
   </tbody>
 </table>
 
@@ -702,7 +703,7 @@
 
 <dialog class="panel" id="errors" aria-labelledby="errors-title">
   <header><h2 id="errors-title">Error messages</h2><button type="button" class="close" aria-label="Close">✕</button></header>
-  <div class="panel-body"><div class="md"><p>Reports are shown as n/m: n = error code (0 = no error), m = line number.</p></div><table>
+  <div class="panel-body"><div class="md"><p>Reports are shown as n/m: n = error code (0 = no error), m = line number (-2 for a direct command).</p></div><table>
   <thead><tr><th class="num">No.</th><th>Message</th><th>Description</th></tr></thead>
   <tbody>
   <tr id="err-OK"><td class="num">0</td>
@@ -816,843 +817,843 @@
   <thead><tr><th></th><th>_0</th><th>_1</th><th>_2</th><th>_3</th><th>_4</th><th>_5</th><th>_6</th><th>_7</th><th>_8</th><th>_9</th><th>_A</th><th>_B</th><th>_C</th><th>_D</th><th>_E</th><th>_F</th></tr></thead>
   <tbody>
   <tr><th>0_</th>
-    <td class="g-printable" title="0 ($00) — space — screen code 0 — U+0020 SPACE">
+    <td class="g-printable ev-manual" title="0 ($00) — space — screen code 0 — U+0020 SPACE — from the manual, not tested">
 <canvas data-b="0000000000000000"></canvas>      <span class="code-num">0</span>
     </td>
-    <td class="g-control" title="1 ($01) — String terminator — control: Ends a string">
+    <td class="g-control" title="1 ($01) — String terminator — control: Ends a string — tested">
 <span class="token">String terminator</span>
       <span class="code-num">1</span>
     </td>
-    <td class="g-printable" title="2 ($02) — graphic — screen code 2 — U+258C LEFT HALF BLOCK">
+    <td class="g-printable ev-manual" title="2 ($02) — graphic — screen code 2 — U+258C LEFT HALF BLOCK — from the manual, not tested">
 <canvas data-b="F0F0F0F0F0F0F0F0"></canvas>      <span class="code-num">2</span>
     </td>
-    <td class="g-printable" title="3 ($03) — graphic — screen code 3 — U+2584 LOWER HALF BLOCK">
+    <td class="g-printable ev-manual" title="3 ($03) — graphic — screen code 3 — U+2584 LOWER HALF BLOCK — from the manual, not tested">
 <canvas data-b="00000000FFFFFFFF"></canvas>      <span class="code-num">3</span>
     </td>
-    <td class="g-printable" title="4 ($04) — graphic — screen code 4 — U+2598 QUADRANT UPPER LEFT">
+    <td class="g-printable ev-manual" title="4 ($04) — graphic — screen code 4 — U+2598 QUADRANT UPPER LEFT — from the manual, not tested">
 <canvas data-b="F0F0F0F000000000"></canvas>      <span class="code-num">4</span>
     </td>
-    <td class="g-printable" title="5 ($05) — graphic — screen code 5 — U+259D QUADRANT UPPER RIGHT">
+    <td class="g-printable ev-manual" title="5 ($05) — graphic — screen code 5 — U+259D QUADRANT UPPER RIGHT — from the manual, not tested">
 <canvas data-b="0F0F0F0F00000000"></canvas>      <span class="code-num">5</span>
     </td>
-    <td class="g-printable" title="6 ($06) — graphic — screen code 6 — U+2596 QUADRANT LOWER LEFT">
+    <td class="g-printable ev-manual" title="6 ($06) — graphic — screen code 6 — U+2596 QUADRANT LOWER LEFT — from the manual, not tested">
 <canvas data-b="00000000F0F0F0F0"></canvas>      <span class="code-num">6</span>
     </td>
-    <td class="g-printable" title="7 ($07) — graphic — screen code 7 — U+2597 QUADRANT LOWER RIGHT">
+    <td class="g-printable ev-manual" title="7 ($07) — graphic — screen code 7 — U+2597 QUADRANT LOWER RIGHT — from the manual, not tested">
 <canvas data-b="000000000F0F0F0F"></canvas>      <span class="code-num">7</span>
     </td>
-    <td class="g-printable" title="8 ($08) — graphic — screen code 8 — U+259E QUADRANT UPPER RIGHT AND LOWER LEFT">
+    <td class="g-printable ev-manual" title="8 ($08) — graphic — screen code 8 — U+259E QUADRANT UPPER RIGHT AND LOWER LEFT — from the manual, not tested">
 <canvas data-b="0F0F0F0FF0F0F0F0"></canvas>      <span class="code-num">8</span>
     </td>
-    <td class="g-printable" title="9 ($09) — graphic — screen code 9 — U+2592 MEDIUM SHADE">
+    <td class="g-printable ev-manual" title="9 ($09) — graphic — screen code 9 — U+2592 MEDIUM SHADE — from the manual, not tested">
 <canvas data-b="AA55AA55AA55AA55"></canvas>      <span class="code-num">9</span>
     </td>
-    <td class="g-printable" title="10 ($0A) — graphic — screen code 10 — U+1FB8F LOWER HALF MEDIUM SHADE">
+    <td class="g-printable ev-manual" title="10 ($0A) — graphic — screen code 10 — U+1FB8F LOWER HALF MEDIUM SHADE — from the manual, not tested">
 <canvas data-b="00000000AA55AA55"></canvas>      <span class="code-num">10</span>
     </td>
-    <td class="g-printable" title="11 ($0B) — graphic — screen code 11 — U+1FB8E UPPER HALF MEDIUM SHADE">
+    <td class="g-printable ev-manual" title="11 ($0B) — graphic — screen code 11 — U+1FB8E UPPER HALF MEDIUM SHADE — from the manual, not tested">
 <canvas data-b="AA55AA5500000000"></canvas>      <span class="code-num">11</span>
     </td>
-    <td class="g-printable" title="12 ($0C) — screen code 12 — U+00A3 POUND SIGN">
+    <td class="g-printable ev-manual" title="12 ($0C) — screen code 12 — U+00A3 POUND SIGN — from the manual, not tested">
 <canvas data-b="001E217820207F00"></canvas>      <span class="code-num">12</span>
     </td>
-    <td class="g-printable" title="13 ($0D) — screen code 13 — U+0024 DOLLAR SIGN">
+    <td class="g-printable ev-manual" title="13 ($0D) — screen code 13 — U+0024 DOLLAR SIGN — from the manual, not tested">
 <canvas data-b="00083E483E093E08"></canvas>      <span class="code-num">13</span>
     </td>
-    <td class="g-printable" title="14 ($0E) — screen code 14 — U+003A COLON">
+    <td class="g-printable ev-manual" title="14 ($0E) — screen code 14 — U+003A COLON — from the manual, not tested">
 <canvas data-b="0000000800000800"></canvas>      <span class="code-num">14</span>
     </td>
-    <td class="g-printable" title="15 ($0F) — screen code 15 — U+003F QUESTION MARK">
+    <td class="g-printable ev-manual" title="15 ($0F) — screen code 15 — U+003F QUESTION MARK — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">15</span>
     </td>
   </tr>
   <tr><th>1_</th>
-    <td class="g-printable" title="16 ($10) — screen code 16 — U+0028 LEFT PARENTHESIS">
+    <td class="g-printable ev-manual" title="16 ($10) — screen code 16 — U+0028 LEFT PARENTHESIS — from the manual, not tested">
 <canvas data-b="0004080808080400"></canvas>      <span class="code-num">16</span>
     </td>
-    <td class="g-printable" title="17 ($11) — screen code 17 — U+0029 RIGHT PARENTHESIS">
+    <td class="g-printable ev-manual" title="17 ($11) — screen code 17 — U+0029 RIGHT PARENTHESIS — from the manual, not tested">
 <canvas data-b="0010080808081000"></canvas>      <span class="code-num">17</span>
     </td>
-    <td class="g-printable" title="18 ($12) — screen code 18 — U+002D HYPHEN-MINUS">
+    <td class="g-printable ev-manual" title="18 ($12) — screen code 18 — U+002D HYPHEN-MINUS — from the manual, not tested">
 <canvas data-b="000000003E000000"></canvas>      <span class="code-num">18</span>
     </td>
-    <td class="g-printable" title="19 ($13) — screen code 19 — U+002B PLUS SIGN">
+    <td class="g-printable ev-manual" title="19 ($13) — screen code 19 — U+002B PLUS SIGN — from the manual, not tested">
 <canvas data-b="000008083E080800"></canvas>      <span class="code-num">19</span>
     </td>
-    <td class="g-printable" title="20 ($14) — screen code 20 — U+002A ASTERISK">
+    <td class="g-printable ev-manual" title="20 ($14) — screen code 20 — U+002A ASTERISK — from the manual, not tested">
 <canvas data-b="00002A1C081C2A00"></canvas>      <span class="code-num">20</span>
     </td>
-    <td class="g-printable" title="21 ($15) — screen code 21 — U+002F SOLIDUS">
+    <td class="g-printable ev-manual" title="21 ($15) — screen code 21 — U+002F SOLIDUS — from the manual, not tested">
 <canvas data-b="0000020408102000"></canvas>      <span class="code-num">21</span>
     </td>
-    <td class="g-printable" title="22 ($16) — screen code 22 — U+003D EQUALS SIGN">
+    <td class="g-printable ev-manual" title="22 ($16) — screen code 22 — U+003D EQUALS SIGN — from the manual, not tested">
 <canvas data-b="0000003E003E0000"></canvas>      <span class="code-num">22</span>
     </td>
-    <td class="g-printable" title="23 ($17) — screen code 23 — U+003E GREATER-THAN SIGN">
+    <td class="g-printable ev-manual" title="23 ($17) — screen code 23 — U+003E GREATER-THAN SIGN — from the manual, not tested">
 <canvas data-b="0000100804081000"></canvas>      <span class="code-num">23</span>
     </td>
-    <td class="g-printable" title="24 ($18) — screen code 24 — U+003C LESS-THAN SIGN">
+    <td class="g-printable ev-manual" title="24 ($18) — screen code 24 — U+003C LESS-THAN SIGN — from the manual, not tested">
 <canvas data-b="0000040810080400"></canvas>      <span class="code-num">24</span>
     </td>
-    <td class="g-printable" title="25 ($19) — screen code 25 — U+003B SEMICOLON">
+    <td class="g-printable ev-manual" title="25 ($19) — screen code 25 — U+003B SEMICOLON — from the manual, not tested">
 <canvas data-b="0000080000080810"></canvas>      <span class="code-num">25</span>
     </td>
-    <td class="g-printable" title="26 ($1A) — screen code 26 — U+002C COMMA">
+    <td class="g-printable ev-manual" title="26 ($1A) — screen code 26 — U+002C COMMA — from the manual, not tested">
 <canvas data-b="0000000000080810"></canvas>      <span class="code-num">26</span>
     </td>
-    <td class="g-printable" title="27 ($1B) — screen code 27 — U+002E FULL STOP">
+    <td class="g-printable ev-manual" title="27 ($1B) — screen code 27 — U+002E FULL STOP — from the manual, not tested">
 <canvas data-b="00000000000C0C00"></canvas>      <span class="code-num">27</span>
     </td>
-    <td class="g-printable" title="28 ($1C) — screen code 28 — U+0030 DIGIT ZERO">
+    <td class="g-printable ev-manual" title="28 ($1C) — screen code 28 — U+0030 DIGIT ZERO — from the manual, not tested">
 <canvas data-b="001C224141221C00"></canvas>      <span class="code-num">28</span>
     </td>
-    <td class="g-printable" title="29 ($1D) — screen code 29 — U+0031 DIGIT ONE">
+    <td class="g-printable ev-manual" title="29 ($1D) — screen code 29 — U+0031 DIGIT ONE — from the manual, not tested">
 <canvas data-b="000C140404041E00"></canvas>      <span class="code-num">29</span>
     </td>
-    <td class="g-printable" title="30 ($1E) — screen code 30 — U+0032 DIGIT TWO">
+    <td class="g-printable ev-manual" title="30 ($1E) — screen code 30 — U+0032 DIGIT TWO — from the manual, not tested">
 <canvas data-b="003E41013E407F00"></canvas>      <span class="code-num">30</span>
     </td>
-    <td class="g-printable" title="31 ($1F) — screen code 31 — U+0033 DIGIT THREE">
+    <td class="g-printable ev-manual" title="31 ($1F) — screen code 31 — U+0033 DIGIT THREE — from the manual, not tested">
 <canvas data-b="003E410601413E00"></canvas>      <span class="code-num">31</span>
     </td>
   </tr>
   <tr><th>2_</th>
-    <td class="g-printable" title="32 ($20) — screen code 32 — U+0034 DIGIT FOUR">
+    <td class="g-printable ev-manual" title="32 ($20) — screen code 32 — U+0034 DIGIT FOUR — from the manual, not tested">
 <canvas data-b="000C1424447F0400"></canvas>      <span class="code-num">32</span>
     </td>
-    <td class="g-printable" title="33 ($21) — screen code 33 — U+0035 DIGIT FIVE">
+    <td class="g-printable ev-manual" title="33 ($21) — screen code 33 — U+0035 DIGIT FIVE — from the manual, not tested">
 <canvas data-b="007F407E01413E00"></canvas>      <span class="code-num">33</span>
     </td>
-    <td class="g-printable" title="34 ($22) — screen code 34 — U+0036 DIGIT SIX">
+    <td class="g-printable ev-manual" title="34 ($22) — screen code 34 — U+0036 DIGIT SIX — from the manual, not tested">
 <canvas data-b="003E407E41413E00"></canvas>      <span class="code-num">34</span>
     </td>
-    <td class="g-printable" title="35 ($23) — screen code 35 — U+0037 DIGIT SEVEN">
+    <td class="g-printable ev-manual" title="35 ($23) — screen code 35 — U+0037 DIGIT SEVEN — from the manual, not tested">
 <canvas data-b="007F010204080800"></canvas>      <span class="code-num">35</span>
     </td>
-    <td class="g-printable" title="36 ($24) — screen code 36 — U+0038 DIGIT EIGHT">
+    <td class="g-printable ev-manual" title="36 ($24) — screen code 36 — U+0038 DIGIT EIGHT — from the manual, not tested">
 <canvas data-b="003E413E41413E00"></canvas>      <span class="code-num">36</span>
     </td>
-    <td class="g-printable" title="37 ($25) — screen code 37 — U+0039 DIGIT NINE">
+    <td class="g-printable ev-manual" title="37 ($25) — screen code 37 — U+0039 DIGIT NINE — from the manual, not tested">
 <canvas data-b="003E41413F013E00"></canvas>      <span class="code-num">37</span>
     </td>
-    <td class="g-printable" title="38 ($26) — screen code 38 — U+0041 LATIN CAPITAL LETTER A">
+    <td class="g-printable ev-manual" title="38 ($26) — screen code 38 — U+0041 LATIN CAPITAL LETTER A — from the manual, not tested">
 <canvas data-b="003E41417F414100"></canvas>      <span class="code-num">38</span>
     </td>
-    <td class="g-printable" title="39 ($27) — screen code 39 — U+0042 LATIN CAPITAL LETTER B">
+    <td class="g-printable ev-manual" title="39 ($27) — screen code 39 — U+0042 LATIN CAPITAL LETTER B — from the manual, not tested">
 <canvas data-b="007E417E41417E00"></canvas>      <span class="code-num">39</span>
     </td>
-    <td class="g-printable" title="40 ($28) — screen code 40 — U+0043 LATIN CAPITAL LETTER C">
+    <td class="g-printable ev-manual" title="40 ($28) — screen code 40 — U+0043 LATIN CAPITAL LETTER C — from the manual, not tested">
 <canvas data-b="001E214040211E00"></canvas>      <span class="code-num">40</span>
     </td>
-    <td class="g-printable" title="41 ($29) — screen code 41 — U+0044 LATIN CAPITAL LETTER D">
+    <td class="g-printable ev-manual" title="41 ($29) — screen code 41 — U+0044 LATIN CAPITAL LETTER D — from the manual, not tested">
 <canvas data-b="007C424141427C00"></canvas>      <span class="code-num">41</span>
     </td>
-    <td class="g-printable" title="42 ($2A) — screen code 42 — U+0045 LATIN CAPITAL LETTER E">
+    <td class="g-printable ev-manual" title="42 ($2A) — screen code 42 — U+0045 LATIN CAPITAL LETTER E — from the manual, not tested">
 <canvas data-b="007F407C40407F00"></canvas>      <span class="code-num">42</span>
     </td>
-    <td class="g-printable" title="43 ($2B) — screen code 43 — U+0046 LATIN CAPITAL LETTER F">
+    <td class="g-printable ev-manual" title="43 ($2B) — screen code 43 — U+0046 LATIN CAPITAL LETTER F — from the manual, not tested">
 <canvas data-b="007F407C40404000"></canvas>      <span class="code-num">43</span>
     </td>
-    <td class="g-printable" title="44 ($2C) — screen code 44 — U+0047 LATIN CAPITAL LETTER G">
+    <td class="g-printable ev-manual" title="44 ($2C) — screen code 44 — U+0047 LATIN CAPITAL LETTER G — from the manual, not tested">
 <canvas data-b="001E214047211E00"></canvas>      <span class="code-num">44</span>
     </td>
-    <td class="g-printable" title="45 ($2D) — screen code 45 — U+0048 LATIN CAPITAL LETTER H">
+    <td class="g-printable ev-manual" title="45 ($2D) — screen code 45 — U+0048 LATIN CAPITAL LETTER H — from the manual, not tested">
 <canvas data-b="0041417F41414100"></canvas>      <span class="code-num">45</span>
     </td>
-    <td class="g-printable" title="46 ($2E) — screen code 46 — U+0049 LATIN CAPITAL LETTER I">
+    <td class="g-printable ev-manual" title="46 ($2E) — screen code 46 — U+0049 LATIN CAPITAL LETTER I — from the manual, not tested">
 <canvas data-b="003E080808083E00"></canvas>      <span class="code-num">46</span>
     </td>
-    <td class="g-printable" title="47 ($2F) — screen code 47 — U+004A LATIN CAPITAL LETTER J">
+    <td class="g-printable ev-manual" title="47 ($2F) — screen code 47 — U+004A LATIN CAPITAL LETTER J — from the manual, not tested">
 <canvas data-b="0002020242221C00"></canvas>      <span class="code-num">47</span>
     </td>
   </tr>
   <tr><th>3_</th>
-    <td class="g-printable" title="48 ($30) — screen code 48 — U+004B LATIN CAPITAL LETTER K">
+    <td class="g-printable ev-manual" title="48 ($30) — screen code 48 — U+004B LATIN CAPITAL LETTER K — from the manual, not tested">
 <canvas data-b="0042447844424100"></canvas>      <span class="code-num">48</span>
     </td>
-    <td class="g-printable" title="49 ($31) — screen code 49 — U+004C LATIN CAPITAL LETTER L">
+    <td class="g-printable ev-manual" title="49 ($31) — screen code 49 — U+004C LATIN CAPITAL LETTER L — from the manual, not tested">
 <canvas data-b="0040404040407F00"></canvas>      <span class="code-num">49</span>
     </td>
-    <td class="g-printable" title="50 ($32) — screen code 50 — U+004D LATIN CAPITAL LETTER M">
+    <td class="g-printable ev-manual" title="50 ($32) — screen code 50 — U+004D LATIN CAPITAL LETTER M — from the manual, not tested">
 <canvas data-b="0041635549414100"></canvas>      <span class="code-num">50</span>
     </td>
-    <td class="g-printable" title="51 ($33) — screen code 51 — U+004E LATIN CAPITAL LETTER N">
+    <td class="g-printable ev-manual" title="51 ($33) — screen code 51 — U+004E LATIN CAPITAL LETTER N — from the manual, not tested">
 <canvas data-b="0061514945434100"></canvas>      <span class="code-num">51</span>
     </td>
-    <td class="g-printable" title="52 ($34) — screen code 52 — U+004F LATIN CAPITAL LETTER O">
+    <td class="g-printable ev-manual" title="52 ($34) — screen code 52 — U+004F LATIN CAPITAL LETTER O — from the manual, not tested">
 <canvas data-b="003E414141413E00"></canvas>      <span class="code-num">52</span>
     </td>
-    <td class="g-printable" title="53 ($35) — screen code 53 — U+0050 LATIN CAPITAL LETTER P">
+    <td class="g-printable ev-manual" title="53 ($35) — screen code 53 — U+0050 LATIN CAPITAL LETTER P — from the manual, not tested">
 <canvas data-b="007E41417E404000"></canvas>      <span class="code-num">53</span>
     </td>
-    <td class="g-printable" title="54 ($36) — screen code 54 — U+0051 LATIN CAPITAL LETTER Q">
+    <td class="g-printable ev-manual" title="54 ($36) — screen code 54 — U+0051 LATIN CAPITAL LETTER Q — from the manual, not tested">
 <canvas data-b="003E414149453E00"></canvas>      <span class="code-num">54</span>
     </td>
-    <td class="g-printable" title="55 ($37) — screen code 55 — U+0052 LATIN CAPITAL LETTER R">
+    <td class="g-printable ev-manual" title="55 ($37) — screen code 55 — U+0052 LATIN CAPITAL LETTER R — from the manual, not tested">
 <canvas data-b="007E41417E444200"></canvas>      <span class="code-num">55</span>
     </td>
-    <td class="g-printable" title="56 ($38) — screen code 56 — U+0053 LATIN CAPITAL LETTER S">
+    <td class="g-printable ev-manual" title="56 ($38) — screen code 56 — U+0053 LATIN CAPITAL LETTER S — from the manual, not tested">
 <canvas data-b="003E403E01413E00"></canvas>      <span class="code-num">56</span>
     </td>
-    <td class="g-printable" title="57 ($39) — screen code 57 — U+0054 LATIN CAPITAL LETTER T">
+    <td class="g-printable ev-manual" title="57 ($39) — screen code 57 — U+0054 LATIN CAPITAL LETTER T — from the manual, not tested">
 <canvas data-b="007F080808080800"></canvas>      <span class="code-num">57</span>
     </td>
-    <td class="g-printable" title="58 ($3A) — screen code 58 — U+0055 LATIN CAPITAL LETTER U">
+    <td class="g-printable ev-manual" title="58 ($3A) — screen code 58 — U+0055 LATIN CAPITAL LETTER U — from the manual, not tested">
 <canvas data-b="0041414141413E00"></canvas>      <span class="code-num">58</span>
     </td>
-    <td class="g-printable" title="59 ($3B) — screen code 59 — U+0056 LATIN CAPITAL LETTER V">
+    <td class="g-printable ev-manual" title="59 ($3B) — screen code 59 — U+0056 LATIN CAPITAL LETTER V — from the manual, not tested">
 <canvas data-b="0041414122140800"></canvas>      <span class="code-num">59</span>
     </td>
-    <td class="g-printable" title="60 ($3C) — screen code 60 — U+0057 LATIN CAPITAL LETTER W">
+    <td class="g-printable ev-manual" title="60 ($3C) — screen code 60 — U+0057 LATIN CAPITAL LETTER W — from the manual, not tested">
 <canvas data-b="0041414149552200"></canvas>      <span class="code-num">60</span>
     </td>
-    <td class="g-printable" title="61 ($3D) — screen code 61 — U+0058 LATIN CAPITAL LETTER X">
+    <td class="g-printable ev-manual" title="61 ($3D) — screen code 61 — U+0058 LATIN CAPITAL LETTER X — from the manual, not tested">
 <canvas data-b="0021120C0C122100"></canvas>      <span class="code-num">61</span>
     </td>
-    <td class="g-printable" title="62 ($3E) — screen code 62 — U+0059 LATIN CAPITAL LETTER Y">
+    <td class="g-printable ev-manual" title="62 ($3E) — screen code 62 — U+0059 LATIN CAPITAL LETTER Y — from the manual, not tested">
 <canvas data-b="0041221C08080800"></canvas>      <span class="code-num">62</span>
     </td>
-    <td class="g-printable" title="63 ($3F) — screen code 63 — U+005A LATIN CAPITAL LETTER Z">
+    <td class="g-printable ev-manual" title="63 ($3F) — screen code 63 — U+005A LATIN CAPITAL LETTER Z — from the manual, not tested">
 <canvas data-b="007F020408107F00"></canvas>      <span class="code-num">63</span>
     </td>
   </tr>
   <tr><th>4_</th>
-    <td class="g-unused" title="64 ($40) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="64 ($40) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">64</span>
     </td>
-    <td class="g-unused" title="65 ($41) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="65 ($41) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">65</span>
     </td>
-    <td class="g-unused" title="66 ($42) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="66 ($42) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">66</span>
     </td>
-    <td class="g-unused" title="67 ($43) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="67 ($43) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">67</span>
     </td>
-    <td class="g-unused" title="68 ($44) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="68 ($44) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">68</span>
     </td>
-    <td class="g-unused" title="69 ($45) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="69 ($45) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">69</span>
     </td>
-    <td class="g-unused" title="70 ($46) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="70 ($46) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">70</span>
     </td>
-    <td class="g-unused" title="71 ($47) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="71 ($47) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">71</span>
     </td>
-    <td class="g-unused" title="72 ($48) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="72 ($48) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">72</span>
     </td>
-    <td class="g-unused" title="73 ($49) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="73 ($49) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">73</span>
     </td>
-    <td class="g-unused" title="74 ($4A) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="74 ($4A) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">74</span>
     </td>
-    <td class="g-unused" title="75 ($4B) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="75 ($4B) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">75</span>
     </td>
-    <td class="g-unused" title="76 ($4C) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="76 ($4C) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">76</span>
     </td>
-    <td class="g-unused" title="77 ($4D) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="77 ($4D) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">77</span>
     </td>
-    <td class="g-unused" title="78 ($4E) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="78 ($4E) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">78</span>
     </td>
-    <td class="g-unused" title="79 ($4F) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="79 ($4F) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">79</span>
     </td>
   </tr>
   <tr><th>5_</th>
-    <td class="g-unused" title="80 ($50) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="80 ($50) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">80</span>
     </td>
-    <td class="g-unused" title="81 ($51) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="81 ($51) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">81</span>
     </td>
-    <td class="g-unused" title="82 ($52) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="82 ($52) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">82</span>
     </td>
-    <td class="g-unused" title="83 ($53) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="83 ($53) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">83</span>
     </td>
-    <td class="g-unused" title="84 ($54) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="84 ($54) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">84</span>
     </td>
-    <td class="g-unused" title="85 ($55) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="85 ($55) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">85</span>
     </td>
-    <td class="g-unused" title="86 ($56) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="86 ($56) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">86</span>
     </td>
-    <td class="g-unused" title="87 ($57) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="87 ($57) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">87</span>
     </td>
-    <td class="g-unused" title="88 ($58) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="88 ($58) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">88</span>
     </td>
-    <td class="g-unused" title="89 ($59) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="89 ($59) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">89</span>
     </td>
-    <td class="g-unused" title="90 ($5A) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="90 ($5A) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">90</span>
     </td>
-    <td class="g-unused" title="91 ($5B) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="91 ($5B) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">91</span>
     </td>
-    <td class="g-unused" title="92 ($5C) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="92 ($5C) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">92</span>
     </td>
-    <td class="g-unused" title="93 ($5D) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="93 ($5D) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">93</span>
     </td>
-    <td class="g-unused" title="94 ($5E) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="94 ($5E) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">94</span>
     </td>
-    <td class="g-unused" title="95 ($5F) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="95 ($5F) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">95</span>
     </td>
   </tr>
   <tr><th>6_</th>
-    <td class="g-unused" title="96 ($60) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="96 ($60) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">96</span>
     </td>
-    <td class="g-unused" title="97 ($61) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="97 ($61) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">97</span>
     </td>
-    <td class="g-unused" title="98 ($62) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="98 ($62) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">98</span>
     </td>
-    <td class="g-unused" title="99 ($63) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="99 ($63) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">99</span>
     </td>
-    <td class="g-unused" title="100 ($64) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="100 ($64) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">100</span>
     </td>
-    <td class="g-unused" title="101 ($65) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="101 ($65) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">101</span>
     </td>
-    <td class="g-unused" title="102 ($66) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="102 ($66) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">102</span>
     </td>
-    <td class="g-unused" title="103 ($67) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="103 ($67) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">103</span>
     </td>
-    <td class="g-unused" title="104 ($68) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="104 ($68) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">104</span>
     </td>
-    <td class="g-unused" title="105 ($69) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="105 ($69) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">105</span>
     </td>
-    <td class="g-unused" title="106 ($6A) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="106 ($6A) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">106</span>
     </td>
-    <td class="g-unused" title="107 ($6B) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="107 ($6B) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">107</span>
     </td>
-    <td class="g-unused" title="108 ($6C) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="108 ($6C) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">108</span>
     </td>
-    <td class="g-unused" title="109 ($6D) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="109 ($6D) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">109</span>
     </td>
-    <td class="g-unused" title="110 ($6E) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="110 ($6E) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">110</span>
     </td>
-    <td class="g-unused" title="111 ($6F) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="111 ($6F) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">111</span>
     </td>
   </tr>
   <tr><th>7_</th>
-    <td class="g-unused" title="112 ($70) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="112 ($70) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">112</span>
     </td>
-    <td class="g-unused" title="113 ($71) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="113 ($71) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">113</span>
     </td>
-    <td class="g-unused" title="114 ($72) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="114 ($72) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">114</span>
     </td>
-    <td class="g-unused" title="115 ($73) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="115 ($73) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">115</span>
     </td>
-    <td class="g-unused" title="116 ($74) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="116 ($74) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">116</span>
     </td>
-    <td class="g-unused" title="117 ($75) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="117 ($75) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">117</span>
     </td>
-    <td class="g-control" title="118 ($76) — NEWLINE — control: Ends a program line">
+    <td class="g-control" title="118 ($76) — NEWLINE — control: Ends a program line — tested">
 <span class="token">NEWLINE</span>
       <span class="code-num">118</span>
     </td>
-    <td class="g-unused" title="119 ($77) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="119 ($77) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">119</span>
     </td>
-    <td class="g-unused" title="120 ($78) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="120 ($78) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">120</span>
     </td>
-    <td class="g-unused" title="121 ($79) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="121 ($79) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">121</span>
     </td>
-    <td class="g-unused" title="122 ($7A) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="122 ($7A) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">122</span>
     </td>
-    <td class="g-unused" title="123 ($7B) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="123 ($7B) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">123</span>
     </td>
-    <td class="g-unused" title="124 ($7C) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="124 ($7C) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">124</span>
     </td>
-    <td class="g-unused" title="125 ($7D) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="125 ($7D) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">125</span>
     </td>
-    <td class="g-unused" title="126 ($7E) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="126 ($7E) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">126</span>
     </td>
-    <td class="g-unused" title="127 ($7F) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="127 ($7F) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">127</span>
     </td>
   </tr>
   <tr><th>8_</th>
-    <td class="g-printable" title="128 ($80) — inverse space — screen code 128 — U+2588 FULL BLOCK — inverse of 0">
+    <td class="g-printable ev-manual" title="128 ($80) — inverse space — screen code 128 — U+2588 FULL BLOCK — inverse of 0 — from the manual, not tested">
 <canvas data-b="FFFFFFFFFFFFFFFF"></canvas>      <span class="code-num">128</span>
     </td>
-    <td class="g-printable" title="129 ($81) — screen code 129 — inverse of 1">
+    <td class="g-printable ev-manual" title="129 ($81) — screen code 129 — inverse of 1 — from the manual, not tested">
 <canvas data-b="FFEBEBFFFFFFFFFF"></canvas>      <span class="code-num">129</span>
     </td>
-    <td class="g-printable" title="130 ($82) — inverse graphic — screen code 130 — U+2590 RIGHT HALF BLOCK — inverse of 2">
+    <td class="g-printable ev-manual" title="130 ($82) — inverse graphic — screen code 130 — U+2590 RIGHT HALF BLOCK — inverse of 2 — from the manual, not tested">
 <canvas data-b="0F0F0F0F0F0F0F0F"></canvas>      <span class="code-num">130</span>
     </td>
-    <td class="g-printable" title="131 ($83) — inverse graphic — screen code 131 — U+2580 UPPER HALF BLOCK — inverse of 3">
+    <td class="g-printable ev-manual" title="131 ($83) — inverse graphic — screen code 131 — U+2580 UPPER HALF BLOCK — inverse of 3 — from the manual, not tested">
 <canvas data-b="FFFFFFFF00000000"></canvas>      <span class="code-num">131</span>
     </td>
-    <td class="g-printable" title="132 ($84) — inverse graphic — screen code 132 — U+259F QUADRANT UPPER RIGHT AND LOWER LEFT AND LOWER RIGHT — inverse of 4">
+    <td class="g-printable ev-manual" title="132 ($84) — inverse graphic — screen code 132 — U+259F QUADRANT UPPER RIGHT AND LOWER LEFT AND LOWER RIGHT — inverse of 4 — from the manual, not tested">
 <canvas data-b="0F0F0F0FFFFFFFFF"></canvas>      <span class="code-num">132</span>
     </td>
-    <td class="g-printable" title="133 ($85) — inverse graphic — screen code 133 — U+2599 QUADRANT UPPER LEFT AND LOWER LEFT AND LOWER RIGHT — inverse of 5">
+    <td class="g-printable ev-manual" title="133 ($85) — inverse graphic — screen code 133 — U+2599 QUADRANT UPPER LEFT AND LOWER LEFT AND LOWER RIGHT — inverse of 5 — from the manual, not tested">
 <canvas data-b="F0F0F0F0FFFFFFFF"></canvas>      <span class="code-num">133</span>
     </td>
-    <td class="g-printable" title="134 ($86) — inverse graphic — screen code 134 — U+259C QUADRANT UPPER LEFT AND UPPER RIGHT AND LOWER RIGHT — inverse of 6">
+    <td class="g-printable ev-manual" title="134 ($86) — inverse graphic — screen code 134 — U+259C QUADRANT UPPER LEFT AND UPPER RIGHT AND LOWER RIGHT — inverse of 6 — from the manual, not tested">
 <canvas data-b="FFFFFFFF0F0F0F0F"></canvas>      <span class="code-num">134</span>
     </td>
-    <td class="g-printable" title="135 ($87) — inverse graphic — screen code 135 — U+259B QUADRANT UPPER LEFT AND UPPER RIGHT AND LOWER LEFT — inverse of 7">
+    <td class="g-printable ev-manual" title="135 ($87) — inverse graphic — screen code 135 — U+259B QUADRANT UPPER LEFT AND UPPER RIGHT AND LOWER LEFT — inverse of 7 — from the manual, not tested">
 <canvas data-b="FFFFFFFFF0F0F0F0"></canvas>      <span class="code-num">135</span>
     </td>
-    <td class="g-printable" title="136 ($88) — inverse graphic — screen code 136 — U+259A QUADRANT UPPER LEFT AND LOWER RIGHT — inverse of 8">
+    <td class="g-printable ev-manual" title="136 ($88) — inverse graphic — screen code 136 — U+259A QUADRANT UPPER LEFT AND LOWER RIGHT — inverse of 8 — from the manual, not tested">
 <canvas data-b="F0F0F0F00F0F0F0F"></canvas>      <span class="code-num">136</span>
     </td>
-    <td class="g-printable" title="137 ($89) — inverse graphic — screen code 137 — U+1FB90 INVERSE MEDIUM SHADE — inverse of 9">
+    <td class="g-printable ev-manual" title="137 ($89) — inverse graphic — screen code 137 — U+1FB90 INVERSE MEDIUM SHADE — inverse of 9 — from the manual, not tested">
 <canvas data-b="55AA55AA55AA55AA"></canvas>      <span class="code-num">137</span>
     </td>
-    <td class="g-printable" title="138 ($8A) — inverse graphic — screen code 138 — U+1FB91 UPPER HALF BLOCK AND LOWER HALF INVERSE MEDIUM SHADE — inverse of 10">
+    <td class="g-printable ev-manual" title="138 ($8A) — inverse graphic — screen code 138 — U+1FB91 UPPER HALF BLOCK AND LOWER HALF INVERSE MEDIUM SHADE — inverse of 10 — from the manual, not tested">
 <canvas data-b="FFFFFFFF55AA55AA"></canvas>      <span class="code-num">138</span>
     </td>
-    <td class="g-printable" title="139 ($8B) — inverse graphic — screen code 139 — U+1FB92 UPPER HALF INVERSE MEDIUM SHADE AND LOWER HALF BLOCK — inverse of 11">
+    <td class="g-printable ev-manual" title="139 ($8B) — inverse graphic — screen code 139 — U+1FB92 UPPER HALF INVERSE MEDIUM SHADE AND LOWER HALF BLOCK — inverse of 11 — from the manual, not tested">
 <canvas data-b="55AA55AAFFFFFFFF"></canvas>      <span class="code-num">139</span>
     </td>
-    <td class="g-printable" title="140 ($8C) — screen code 140 — inverse of 12">
+    <td class="g-printable ev-manual" title="140 ($8C) — screen code 140 — inverse of 12 — from the manual, not tested">
 <canvas data-b="FFE1DE87DFDF80FF"></canvas>      <span class="code-num">140</span>
     </td>
-    <td class="g-printable" title="141 ($8D) — screen code 141 — inverse of 13">
+    <td class="g-printable ev-manual" title="141 ($8D) — screen code 141 — inverse of 13 — from the manual, not tested">
 <canvas data-b="FFF7C1B7C1F6C1F7"></canvas>      <span class="code-num">141</span>
     </td>
-    <td class="g-printable" title="142 ($8E) — screen code 142 — inverse of 14">
+    <td class="g-printable ev-manual" title="142 ($8E) — screen code 142 — inverse of 14 — from the manual, not tested">
 <canvas data-b="FFFFFFF7FFFFF7FF"></canvas>      <span class="code-num">142</span>
     </td>
-    <td class="g-printable" title="143 ($8F) — screen code 143 — inverse of 15">
+    <td class="g-printable ev-manual" title="143 ($8F) — screen code 143 — inverse of 15 — from the manual, not tested">
 <canvas data-b="FFC1BEF9F7FFF7FF"></canvas>      <span class="code-num">143</span>
     </td>
   </tr>
   <tr><th>9_</th>
-    <td class="g-printable" title="144 ($90) — screen code 144 — inverse of 16">
+    <td class="g-printable ev-manual" title="144 ($90) — screen code 144 — inverse of 16 — from the manual, not tested">
 <canvas data-b="FFFBF7F7F7F7FBFF"></canvas>      <span class="code-num">144</span>
     </td>
-    <td class="g-printable" title="145 ($91) — screen code 145 — inverse of 17">
+    <td class="g-printable ev-manual" title="145 ($91) — screen code 145 — inverse of 17 — from the manual, not tested">
 <canvas data-b="FFEFF7F7F7F7EFFF"></canvas>      <span class="code-num">145</span>
     </td>
-    <td class="g-printable" title="146 ($92) — screen code 146 — inverse of 18">
+    <td class="g-printable ev-manual" title="146 ($92) — screen code 146 — inverse of 18 — from the manual, not tested">
 <canvas data-b="FFFFFFFFC1FFFFFF"></canvas>      <span class="code-num">146</span>
     </td>
-    <td class="g-printable" title="147 ($93) — screen code 147 — inverse of 19">
+    <td class="g-printable ev-manual" title="147 ($93) — screen code 147 — inverse of 19 — from the manual, not tested">
 <canvas data-b="FFFFF7F7C1F7F7FF"></canvas>      <span class="code-num">147</span>
     </td>
-    <td class="g-printable" title="148 ($94) — screen code 148 — inverse of 20">
+    <td class="g-printable ev-manual" title="148 ($94) — screen code 148 — inverse of 20 — from the manual, not tested">
 <canvas data-b="FFFFD5E3F7E3D5FF"></canvas>      <span class="code-num">148</span>
     </td>
-    <td class="g-printable" title="149 ($95) — screen code 149 — inverse of 21">
+    <td class="g-printable ev-manual" title="149 ($95) — screen code 149 — inverse of 21 — from the manual, not tested">
 <canvas data-b="FFFFFDFBF7EFDFFF"></canvas>      <span class="code-num">149</span>
     </td>
-    <td class="g-printable" title="150 ($96) — screen code 150 — inverse of 22">
+    <td class="g-printable ev-manual" title="150 ($96) — screen code 150 — inverse of 22 — from the manual, not tested">
 <canvas data-b="FFFFFFC1FFC1FFFF"></canvas>      <span class="code-num">150</span>
     </td>
-    <td class="g-printable" title="151 ($97) — screen code 151 — inverse of 23">
+    <td class="g-printable ev-manual" title="151 ($97) — screen code 151 — inverse of 23 — from the manual, not tested">
 <canvas data-b="FFFFEFF7FBF7EFFF"></canvas>      <span class="code-num">151</span>
     </td>
-    <td class="g-printable" title="152 ($98) — screen code 152 — inverse of 24">
+    <td class="g-printable ev-manual" title="152 ($98) — screen code 152 — inverse of 24 — from the manual, not tested">
 <canvas data-b="FFFFFBF7EFF7FBFF"></canvas>      <span class="code-num">152</span>
     </td>
-    <td class="g-printable" title="153 ($99) — screen code 153 — inverse of 25">
+    <td class="g-printable ev-manual" title="153 ($99) — screen code 153 — inverse of 25 — from the manual, not tested">
 <canvas data-b="FFFFF7FFFFF7F7EF"></canvas>      <span class="code-num">153</span>
     </td>
-    <td class="g-printable" title="154 ($9A) — screen code 154 — inverse of 26">
+    <td class="g-printable ev-manual" title="154 ($9A) — screen code 154 — inverse of 26 — from the manual, not tested">
 <canvas data-b="FFFFFFFFFFF7F7EF"></canvas>      <span class="code-num">154</span>
     </td>
-    <td class="g-printable" title="155 ($9B) — screen code 155 — inverse of 27">
+    <td class="g-printable ev-manual" title="155 ($9B) — screen code 155 — inverse of 27 — from the manual, not tested">
 <canvas data-b="FFFFFFFFFFF3F3FF"></canvas>      <span class="code-num">155</span>
     </td>
-    <td class="g-printable" title="156 ($9C) — screen code 156 — inverse of 28">
+    <td class="g-printable ev-manual" title="156 ($9C) — screen code 156 — inverse of 28 — from the manual, not tested">
 <canvas data-b="FFE3DDBEBEDDE3FF"></canvas>      <span class="code-num">156</span>
     </td>
-    <td class="g-printable" title="157 ($9D) — screen code 157 — inverse of 29">
+    <td class="g-printable ev-manual" title="157 ($9D) — screen code 157 — inverse of 29 — from the manual, not tested">
 <canvas data-b="FFF3EBFBFBFBE1FF"></canvas>      <span class="code-num">157</span>
     </td>
-    <td class="g-printable" title="158 ($9E) — screen code 158 — inverse of 30">
+    <td class="g-printable ev-manual" title="158 ($9E) — screen code 158 — inverse of 30 — from the manual, not tested">
 <canvas data-b="FFC1BEFEC1BF80FF"></canvas>      <span class="code-num">158</span>
     </td>
-    <td class="g-printable" title="159 ($9F) — screen code 159 — inverse of 31">
+    <td class="g-printable ev-manual" title="159 ($9F) — screen code 159 — inverse of 31 — from the manual, not tested">
 <canvas data-b="FFC1BEF9FEBEC1FF"></canvas>      <span class="code-num">159</span>
     </td>
   </tr>
   <tr><th>A_</th>
-    <td class="g-printable" title="160 ($A0) — screen code 160 — inverse of 32">
+    <td class="g-printable ev-manual" title="160 ($A0) — screen code 160 — inverse of 32 — from the manual, not tested">
 <canvas data-b="FFF3EBDBBB80FBFF"></canvas>      <span class="code-num">160</span>
     </td>
-    <td class="g-printable" title="161 ($A1) — screen code 161 — inverse of 33">
+    <td class="g-printable ev-manual" title="161 ($A1) — screen code 161 — inverse of 33 — from the manual, not tested">
 <canvas data-b="FF80BF81FEBEC1FF"></canvas>      <span class="code-num">161</span>
     </td>
-    <td class="g-printable" title="162 ($A2) — screen code 162 — inverse of 34">
+    <td class="g-printable ev-manual" title="162 ($A2) — screen code 162 — inverse of 34 — from the manual, not tested">
 <canvas data-b="FFC1BF81BEBEC1FF"></canvas>      <span class="code-num">162</span>
     </td>
-    <td class="g-printable" title="163 ($A3) — screen code 163 — inverse of 35">
+    <td class="g-printable ev-manual" title="163 ($A3) — screen code 163 — inverse of 35 — from the manual, not tested">
 <canvas data-b="FF80FEFDFBF7F7FF"></canvas>      <span class="code-num">163</span>
     </td>
-    <td class="g-printable" title="164 ($A4) — screen code 164 — inverse of 36">
+    <td class="g-printable ev-manual" title="164 ($A4) — screen code 164 — inverse of 36 — from the manual, not tested">
 <canvas data-b="FFC1BEC1BEBEC1FF"></canvas>      <span class="code-num">164</span>
     </td>
-    <td class="g-printable" title="165 ($A5) — screen code 165 — inverse of 37">
+    <td class="g-printable ev-manual" title="165 ($A5) — screen code 165 — inverse of 37 — from the manual, not tested">
 <canvas data-b="FFC1BEBEC0FEC1FF"></canvas>      <span class="code-num">165</span>
     </td>
-    <td class="g-printable" title="166 ($A6) — screen code 166 — inverse of 38">
+    <td class="g-printable ev-manual" title="166 ($A6) — screen code 166 — inverse of 38 — from the manual, not tested">
 <canvas data-b="FFC1BEBE80BEBEFF"></canvas>      <span class="code-num">166</span>
     </td>
-    <td class="g-printable" title="167 ($A7) — screen code 167 — inverse of 39">
+    <td class="g-printable ev-manual" title="167 ($A7) — screen code 167 — inverse of 39 — from the manual, not tested">
 <canvas data-b="FF81BE81BEBE81FF"></canvas>      <span class="code-num">167</span>
     </td>
-    <td class="g-printable" title="168 ($A8) — screen code 168 — inverse of 40">
+    <td class="g-printable ev-manual" title="168 ($A8) — screen code 168 — inverse of 40 — from the manual, not tested">
 <canvas data-b="FFE1DEBFBFDEE1FF"></canvas>      <span class="code-num">168</span>
     </td>
-    <td class="g-printable" title="169 ($A9) — screen code 169 — inverse of 41">
+    <td class="g-printable ev-manual" title="169 ($A9) — screen code 169 — inverse of 41 — from the manual, not tested">
 <canvas data-b="FF83BDBEBEBD83FF"></canvas>      <span class="code-num">169</span>
     </td>
-    <td class="g-printable" title="170 ($AA) — screen code 170 — inverse of 42">
+    <td class="g-printable ev-manual" title="170 ($AA) — screen code 170 — inverse of 42 — from the manual, not tested">
 <canvas data-b="FF80BF83BFBF80FF"></canvas>      <span class="code-num">170</span>
     </td>
-    <td class="g-printable" title="171 ($AB) — screen code 171 — inverse of 43">
+    <td class="g-printable ev-manual" title="171 ($AB) — screen code 171 — inverse of 43 — from the manual, not tested">
 <canvas data-b="FF80BF83BFBFBFFF"></canvas>      <span class="code-num">171</span>
     </td>
-    <td class="g-printable" title="172 ($AC) — screen code 172 — inverse of 44">
+    <td class="g-printable ev-manual" title="172 ($AC) — screen code 172 — inverse of 44 — from the manual, not tested">
 <canvas data-b="FFE1DEBFB8DEE1FF"></canvas>      <span class="code-num">172</span>
     </td>
-    <td class="g-printable" title="173 ($AD) — screen code 173 — inverse of 45">
+    <td class="g-printable ev-manual" title="173 ($AD) — screen code 173 — inverse of 45 — from the manual, not tested">
 <canvas data-b="FFBEBE80BEBEBEFF"></canvas>      <span class="code-num">173</span>
     </td>
-    <td class="g-printable" title="174 ($AE) — screen code 174 — inverse of 46">
+    <td class="g-printable ev-manual" title="174 ($AE) — screen code 174 — inverse of 46 — from the manual, not tested">
 <canvas data-b="FFC1F7F7F7F7C1FF"></canvas>      <span class="code-num">174</span>
     </td>
-    <td class="g-printable" title="175 ($AF) — screen code 175 — inverse of 47">
+    <td class="g-printable ev-manual" title="175 ($AF) — screen code 175 — inverse of 47 — from the manual, not tested">
 <canvas data-b="FFFDFDFDBDDDE3FF"></canvas>      <span class="code-num">175</span>
     </td>
   </tr>
   <tr><th>B_</th>
-    <td class="g-printable" title="176 ($B0) — screen code 176 — inverse of 48">
+    <td class="g-printable ev-manual" title="176 ($B0) — screen code 176 — inverse of 48 — from the manual, not tested">
 <canvas data-b="FFBDBB87BBBDBEFF"></canvas>      <span class="code-num">176</span>
     </td>
-    <td class="g-printable" title="177 ($B1) — screen code 177 — inverse of 49">
+    <td class="g-printable ev-manual" title="177 ($B1) — screen code 177 — inverse of 49 — from the manual, not tested">
 <canvas data-b="FFBFBFBFBFBF80FF"></canvas>      <span class="code-num">177</span>
     </td>
-    <td class="g-printable" title="178 ($B2) — screen code 178 — inverse of 50">
+    <td class="g-printable ev-manual" title="178 ($B2) — screen code 178 — inverse of 50 — from the manual, not tested">
 <canvas data-b="FFBE9CAAB6BEBEFF"></canvas>      <span class="code-num">178</span>
     </td>
-    <td class="g-printable" title="179 ($B3) — screen code 179 — inverse of 51">
+    <td class="g-printable ev-manual" title="179 ($B3) — screen code 179 — inverse of 51 — from the manual, not tested">
 <canvas data-b="FF9EAEB6BABCBEFF"></canvas>      <span class="code-num">179</span>
     </td>
-    <td class="g-printable" title="180 ($B4) — screen code 180 — inverse of 52">
+    <td class="g-printable ev-manual" title="180 ($B4) — screen code 180 — inverse of 52 — from the manual, not tested">
 <canvas data-b="FFC1BEBEBEBEC1FF"></canvas>      <span class="code-num">180</span>
     </td>
-    <td class="g-printable" title="181 ($B5) — screen code 181 — inverse of 53">
+    <td class="g-printable ev-manual" title="181 ($B5) — screen code 181 — inverse of 53 — from the manual, not tested">
 <canvas data-b="FF81BEBE81BFBFFF"></canvas>      <span class="code-num">181</span>
     </td>
-    <td class="g-printable" title="182 ($B6) — screen code 182 — inverse of 54">
+    <td class="g-printable ev-manual" title="182 ($B6) — screen code 182 — inverse of 54 — from the manual, not tested">
 <canvas data-b="FFC1BEBEB6BAC1FF"></canvas>      <span class="code-num">182</span>
     </td>
-    <td class="g-printable" title="183 ($B7) — screen code 183 — inverse of 55">
+    <td class="g-printable ev-manual" title="183 ($B7) — screen code 183 — inverse of 55 — from the manual, not tested">
 <canvas data-b="FF81BEBE81BBBDFF"></canvas>      <span class="code-num">183</span>
     </td>
-    <td class="g-printable" title="184 ($B8) — screen code 184 — inverse of 56">
+    <td class="g-printable ev-manual" title="184 ($B8) — screen code 184 — inverse of 56 — from the manual, not tested">
 <canvas data-b="FFC1BFC1FEBEC1FF"></canvas>      <span class="code-num">184</span>
     </td>
-    <td class="g-printable" title="185 ($B9) — screen code 185 — inverse of 57">
+    <td class="g-printable ev-manual" title="185 ($B9) — screen code 185 — inverse of 57 — from the manual, not tested">
 <canvas data-b="FF80F7F7F7F7F7FF"></canvas>      <span class="code-num">185</span>
     </td>
-    <td class="g-printable" title="186 ($BA) — screen code 186 — inverse of 58">
+    <td class="g-printable ev-manual" title="186 ($BA) — screen code 186 — inverse of 58 — from the manual, not tested">
 <canvas data-b="FFBEBEBEBEBEC1FF"></canvas>      <span class="code-num">186</span>
     </td>
-    <td class="g-printable" title="187 ($BB) — screen code 187 — inverse of 59">
+    <td class="g-printable ev-manual" title="187 ($BB) — screen code 187 — inverse of 59 — from the manual, not tested">
 <canvas data-b="FFBEBEBEDDEBF7FF"></canvas>      <span class="code-num">187</span>
     </td>
-    <td class="g-printable" title="188 ($BC) — screen code 188 — inverse of 60">
+    <td class="g-printable ev-manual" title="188 ($BC) — screen code 188 — inverse of 60 — from the manual, not tested">
 <canvas data-b="FFBEBEBEB6AADDFF"></canvas>      <span class="code-num">188</span>
     </td>
-    <td class="g-printable" title="189 ($BD) — screen code 189 — inverse of 61">
+    <td class="g-printable ev-manual" title="189 ($BD) — screen code 189 — inverse of 61 — from the manual, not tested">
 <canvas data-b="FFDEEDF3F3EDDEFF"></canvas>      <span class="code-num">189</span>
     </td>
-    <td class="g-printable" title="190 ($BE) — screen code 190 — inverse of 62">
+    <td class="g-printable ev-manual" title="190 ($BE) — screen code 190 — inverse of 62 — from the manual, not tested">
 <canvas data-b="FFBEDDE3F7F7F7FF"></canvas>      <span class="code-num">190</span>
     </td>
-    <td class="g-printable" title="191 ($BF) — screen code 191 — inverse of 63">
+    <td class="g-printable ev-manual" title="191 ($BF) — screen code 191 — inverse of 63 — from the manual, not tested">
 <canvas data-b="FF80FDFBF7EF80FF"></canvas>      <span class="code-num">191</span>
     </td>
   </tr>
   <tr><th>C_</th>
-    <td class="g-unused" title="192 ($C0) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="192 ($C0) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">192</span>
     </td>
-    <td class="g-unused" title="193 ($C1) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="193 ($C1) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">193</span>
     </td>
-    <td class="g-unused" title="194 ($C2) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="194 ($C2) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">194</span>
     </td>
-    <td class="g-unused" title="195 ($C3) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="195 ($C3) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">195</span>
     </td>
-    <td class="g-unused" title="196 ($C4) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="196 ($C4) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">196</span>
     </td>
-    <td class="g-unused" title="197 ($C5) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="197 ($C5) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">197</span>
     </td>
-    <td class="g-unused" title="198 ($C6) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="198 ($C6) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">198</span>
     </td>
-    <td class="g-unused" title="199 ($C7) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="199 ($C7) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">199</span>
     </td>
-    <td class="g-unused" title="200 ($C8) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="200 ($C8) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">200</span>
     </td>
-    <td class="g-unused" title="201 ($C9) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="201 ($C9) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">201</span>
     </td>
-    <td class="g-unused" title="202 ($CA) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="202 ($CA) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">202</span>
     </td>
-    <td class="g-unused" title="203 ($CB) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="203 ($CB) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">203</span>
     </td>
-    <td class="g-unused" title="204 ($CC) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="204 ($CC) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">204</span>
     </td>
-    <td class="g-unused" title="205 ($CD) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="205 ($CD) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">205</span>
     </td>
-    <td class="g-unused" title="206 ($CE) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="206 ($CE) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">206</span>
     </td>
-    <td class="g-unused" title="207 ($CF) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="207 ($CF) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">207</span>
     </td>
   </tr>
   <tr><th>D_</th>
-    <td class="g-unused" title="208 ($D0) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="208 ($D0) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">208</span>
     </td>
-    <td class="g-unused" title="209 ($D1) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="209 ($D1) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">209</span>
     </td>
-    <td class="g-unused" title="210 ($D2) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="210 ($D2) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">210</span>
     </td>
-    <td class="g-unused" title="211 ($D3) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="211 ($D3) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">211</span>
     </td>
-    <td class="g-printable" title="212 ($D4) — quote — screen code 1 — U+0022 QUOTATION MARK">
+    <td class="g-printable" title="212 ($D4) — quote — screen code 1 — U+0022 QUOTATION MARK — tested">
 <canvas data-b="0014140000000000"></canvas>      <span class="code-num">212</span>
     </td>
-    <td class="g-token" title="213 ($D5) — token">
+    <td class="g-token ev-manual" title="213 ($D5) — token — from the manual, not tested">
 <span class="token">THEN</span>
       <span class="code-num">213</span>
     </td>
-    <td class="g-token" title="214 ($D6) — token">
+    <td class="g-token ev-manual" title="214 ($D6) — token — from the manual, not tested">
 <span class="token">TO</span>
       <span class="code-num">214</span>
     </td>
-    <td class="g-token" title="215 ($D7) — token">
+    <td class="g-token ev-manual" title="215 ($D7) — token — from the manual, not tested">
 <span class="token">;</span>
       <span class="code-num">215</span>
     </td>
-    <td class="g-token" title="216 ($D8) — token">
+    <td class="g-token ev-manual" title="216 ($D8) — token — from the manual, not tested">
 <span class="token">,</span>
       <span class="code-num">216</span>
     </td>
-    <td class="g-token" title="217 ($D9) — token">
+    <td class="g-token ev-manual" title="217 ($D9) — token — from the manual, not tested">
 <span class="token">)</span>
       <span class="code-num">217</span>
     </td>
-    <td class="g-token" title="218 ($DA) — token">
+    <td class="g-token ev-manual" title="218 ($DA) — token — from the manual, not tested">
 <span class="token">(</span>
       <span class="code-num">218</span>
     </td>
-    <td class="g-token" title="219 ($DB) — token">
+    <td class="g-token ev-manual" title="219 ($DB) — token — from the manual, not tested">
 <span class="token">NOT</span>
       <span class="code-num">219</span>
     </td>
-    <td class="g-token" title="220 ($DC) — token">
+    <td class="g-token ev-manual" title="220 ($DC) — token — from the manual, not tested">
 <span class="token">-</span>
       <span class="code-num">220</span>
     </td>
-    <td class="g-token" title="221 ($DD) — token">
+    <td class="g-token ev-manual" title="221 ($DD) — token — from the manual, not tested">
 <span class="token">+</span>
       <span class="code-num">221</span>
     </td>
-    <td class="g-token" title="222 ($DE) — token">
+    <td class="g-token ev-manual" title="222 ($DE) — token — from the manual, not tested">
 <span class="token">*</span>
       <span class="code-num">222</span>
     </td>
-    <td class="g-token" title="223 ($DF) — token">
+    <td class="g-token ev-manual" title="223 ($DF) — token — from the manual, not tested">
 <span class="token">/</span>
       <span class="code-num">223</span>
     </td>
   </tr>
   <tr><th>E_</th>
-    <td class="g-token" title="224 ($E0) — token">
+    <td class="g-token ev-manual" title="224 ($E0) — token — from the manual, not tested">
 <span class="token">AND</span>
       <span class="code-num">224</span>
     </td>
-    <td class="g-token" title="225 ($E1) — token">
+    <td class="g-token ev-manual" title="225 ($E1) — token — from the manual, not tested">
 <span class="token">OR</span>
       <span class="code-num">225</span>
     </td>
-    <td class="g-token" title="226 ($E2) — token">
+    <td class="g-token ev-manual" title="226 ($E2) — token — from the manual, not tested">
 <span class="token">**</span>
       <span class="code-num">226</span>
     </td>
-    <td class="g-token" title="227 ($E3) — token">
+    <td class="g-token ev-manual" title="227 ($E3) — token — from the manual, not tested">
 <span class="token">=</span>
       <span class="code-num">227</span>
     </td>
-    <td class="g-token" title="228 ($E4) — token">
+    <td class="g-token ev-manual" title="228 ($E4) — token — from the manual, not tested">
 <span class="token">&gt;</span>
       <span class="code-num">228</span>
     </td>
-    <td class="g-token" title="229 ($E5) — token">
+    <td class="g-token ev-manual" title="229 ($E5) — token — from the manual, not tested">
 <span class="token">&lt;</span>
       <span class="code-num">229</span>
     </td>
-    <td class="g-token" title="230 ($E6) — token">
+    <td class="g-token ev-manual" title="230 ($E6) — token — from the manual, not tested">
 <span class="token">LIST</span>
       <span class="code-num">230</span>
     </td>
-    <td class="g-token" title="231 ($E7) — token">
+    <td class="g-token ev-manual" title="231 ($E7) — token — from the manual, not tested">
 <span class="token">RETURN</span>
       <span class="code-num">231</span>
     </td>
-    <td class="g-token" title="232 ($E8) — token">
+    <td class="g-token ev-manual" title="232 ($E8) — token — from the manual, not tested">
 <span class="token">CLS</span>
       <span class="code-num">232</span>
     </td>
-    <td class="g-token" title="233 ($E9) — token">
+    <td class="g-token ev-manual" title="233 ($E9) — token — from the manual, not tested">
 <span class="token">DIM</span>
       <span class="code-num">233</span>
     </td>
-    <td class="g-token" title="234 ($EA) — token">
+    <td class="g-token ev-manual" title="234 ($EA) — token — from the manual, not tested">
 <span class="token">SAVE</span>
       <span class="code-num">234</span>
     </td>
-    <td class="g-token" title="235 ($EB) — token">
+    <td class="g-token ev-manual" title="235 ($EB) — token — from the manual, not tested">
 <span class="token">FOR</span>
       <span class="code-num">235</span>
     </td>
-    <td class="g-token" title="236 ($EC) — token">
+    <td class="g-token ev-manual" title="236 ($EC) — token — from the manual, not tested">
 <span class="token">GO TO</span>
       <span class="code-num">236</span>
     </td>
-    <td class="g-token" title="237 ($ED) — token">
+    <td class="g-token ev-manual" title="237 ($ED) — token — from the manual, not tested">
 <span class="token">POKE</span>
       <span class="code-num">237</span>
     </td>
-    <td class="g-token" title="238 ($EE) — token">
+    <td class="g-token ev-manual" title="238 ($EE) — token — from the manual, not tested">
 <span class="token">INPUT</span>
       <span class="code-num">238</span>
     </td>
-    <td class="g-token" title="239 ($EF) — token">
+    <td class="g-token ev-manual" title="239 ($EF) — token — from the manual, not tested">
 <span class="token">RANDOMISE</span>
       <span class="code-num">239</span>
     </td>
   </tr>
   <tr><th>F_</th>
-    <td class="g-token" title="240 ($F0) — token">
+    <td class="g-token ev-manual" title="240 ($F0) — token — from the manual, not tested">
 <span class="token">LET</span>
       <span class="code-num">240</span>
     </td>
-    <td class="g-unused" title="241 ($F1) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="241 ($F1) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">241</span>
     </td>
-    <td class="g-unused" title="242 ($F2) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="242 ($F2) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">242</span>
     </td>
-    <td class="g-token" title="243 ($F3) — token">
+    <td class="g-token ev-manual" title="243 ($F3) — token — from the manual, not tested">
 <span class="token">NEXT</span>
       <span class="code-num">243</span>
     </td>
-    <td class="g-token" title="244 ($F4) — token">
+    <td class="g-token ev-manual" title="244 ($F4) — token — from the manual, not tested">
 <span class="token">PRINT</span>
       <span class="code-num">244</span>
     </td>
-    <td class="g-unused" title="245 ($F5) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="245 ($F5) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">245</span>
     </td>
-    <td class="g-token" title="246 ($F6) — token">
+    <td class="g-token ev-manual" title="246 ($F6) — token — from the manual, not tested">
 <span class="token">NEW</span>
       <span class="code-num">246</span>
     </td>
-    <td class="g-token" title="247 ($F7) — token">
+    <td class="g-token ev-manual" title="247 ($F7) — token — from the manual, not tested">
 <span class="token">RUN</span>
       <span class="code-num">247</span>
     </td>
-    <td class="g-token" title="248 ($F8) — token">
+    <td class="g-token ev-manual" title="248 ($F8) — token — from the manual, not tested">
 <span class="token">STOP</span>
       <span class="code-num">248</span>
     </td>
-    <td class="g-token" title="249 ($F9) — token">
+    <td class="g-token ev-manual" title="249 ($F9) — token — from the manual, not tested">
 <span class="token">CONTINUE</span>
       <span class="code-num">249</span>
     </td>
-    <td class="g-token" title="250 ($FA) — token">
+    <td class="g-token ev-manual" title="250 ($FA) — token — from the manual, not tested">
 <span class="token">IF</span>
       <span class="code-num">250</span>
     </td>
-    <td class="g-token" title="251 ($FB) — token">
+    <td class="g-token ev-manual" title="251 ($FB) — token — from the manual, not tested">
 <span class="token">GO SUB</span>
       <span class="code-num">251</span>
     </td>
-    <td class="g-token" title="252 ($FC) — token">
+    <td class="g-token ev-manual" title="252 ($FC) — token — from the manual, not tested">
 <span class="token">LOAD</span>
       <span class="code-num">252</span>
     </td>
-    <td class="g-token" title="253 ($FD) — token">
+    <td class="g-token ev-manual" title="253 ($FD) — token — from the manual, not tested">
 <span class="token">CLEAR</span>
       <span class="code-num">253</span>
     </td>
-    <td class="g-token" title="254 ($FE) — token">
+    <td class="g-token ev-manual" title="254 ($FE) — token — from the manual, not tested">
 <span class="token">REM</span>
       <span class="code-num">254</span>
     </td>
-    <td class="g-unused" title="255 ($FF) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39;">
+    <td class="g-unused ev-manual" title="255 ($FF) — screen code 15 — U+003F QUESTION MARK — not used: Printed as &#39;?&#39; — from the manual, not tested">
 <canvas data-b="003E410608000800"></canvas>      <span class="code-num">255</span>
     </td>
   </tr>
@@ -1662,6 +1663,8 @@
 <p class="note legend"><span class="g-unused swatch-g"></span> not used (what it prints, if anything) ·
   <span class="g-token swatch-g"></span> token: shown as its keyword ·
   <span class="g-control swatch-g"></span> control code ·
+  <span class="swatch-g corner-manual"></span> from the manual, not tested ·
+  <span class="swatch-g corner-inferred"></span> inferred, not tested ·
   hover over a character for the details.</p>
 </div>
 </dialog>
@@ -1669,17 +1672,17 @@
 <dialog class="panel" id="program" aria-labelledby="program-title">
   <header><h2 id="program-title">Program in memory</h2><button type="button" class="close" aria-label="Close">✕</button></header>
   <div class="panel-body"><p><strong>Before:</strong> nothing.
-<strong>After:</strong> <code>$00, $00</code>.</p>
+<strong>After:</strong> <code>$00, $00</code>. <span class="evm evm-manual" title="Stated by a source, not tested">M</span></p>
 <h3>Program line</h3>
 <table>
-  <thead><tr><th class="num">Offset</th><th class="num">Bytes</th><th>Field</th><th>Byte order</th><th>Description</th></tr></thead>
+  <thead><tr><th class="num">Offset</th><th class="num">Bytes</th><th>Field</th><th>Byte order</th><th>Description</th><th class="ev-col" title="Evidence">Ev.</th></tr></thead>
   <tbody>
   <tr><td class="num">0</td><td class="num">2</td>
-      <td>Line number</td><td>big</td><td></td></tr>
+      <td>Line number</td><td>big</td><td></td><td class="ev-col"><span class="evm evm-manual" title="Stated by a source, not tested">M</span></td></tr>
   <tr><td class="num">2</td><td class="num">variable</td>
-      <td>Line text</td><td></td><td>Tokenized text of the line.</td></tr>
+      <td>Line text</td><td></td><td>Tokenized text of the line.</td><td class="ev-col"><span class="evm evm-manual" title="Stated by a source, not tested">M</span></td></tr>
   <tr><td class="num">…</td><td class="num">1</td>
-      <td>NEWLINE</td><td></td><td>$76.</td></tr>
+      <td>NEWLINE</td><td></td><td>$76.</td><td class="ev-col"><span class="evm evm-manual" title="Stated by a source, not tested">M</span></td></tr>
   </tbody>
 </table>
 
@@ -1707,7 +1710,7 @@
       <td>The ZX80 BASIC has no keyboard codes.</td></tr>
   <tr><td rowspan="1">Error messages</td>      <td><code>ZX80_4K_core</code></td>
       <td class="st-complete">complete</td>
-      <td>Reports are shown as n/m: n = error code (0 = no error), m = line number.</td></tr>
+      <td>Reports are shown as n/m: n = error code (0 = no error), m = line number (-2 for a direct command).</td></tr>
   <tr><td rowspan="1">Operator precedence</td>      <td><code>ZX80_4K_core</code></td>
       <td class="st-complete">complete</td>
       <td></td></tr>
@@ -1726,7 +1729,7 @@
   </tbody>
 </table>
 <p class="note">Tables of the dialect belong to its layers, the others to the machines that host it.</p>
-<p><strong>Examples:</strong> 42 of 42 entries have at least one usage example; 6 examples are still to be verified.</p>
+<p><strong>Examples:</strong> 42 of 42 entries have at least one usage example; 5 examples are still to be verified.</p>
 </div>
 </dialog>
 </main>

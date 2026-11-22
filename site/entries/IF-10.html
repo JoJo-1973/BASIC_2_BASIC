@@ -45,13 +45,13 @@
     <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
     <tbody>
     <tr>
-      <td><code class="par">condition</code></td>
+      <td><code class="par">condition</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
       <td>condition</td>
       <td><small>How a value used as a condition is read:</small> <code>NONZERO</code><br></td>
       <td>False if 0, true otherwise. Comparisons give -1 or 0.</td>
     </tr>
     <tr>
-      <td><code class="par">statement</code></td>
+      <td><code class="par">statement</code> <span class="evm evm-manual" title="Stated by a source, not tested">M</span></td>
       <td>statement</td>
       <td></td>
       <td>Any statement, with its keyword.</td>
@@ -66,6 +66,19 @@
   </div>
 </section>
 
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">2 <code>VARIABLE_NOT_FOUND</code></a></td>
+      <td>A variable in the expression is not defined. <small>Parameter: <code class="par">condition</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">3 <code>SUBSCRIPT_OUT_OF_RANGE</code></a></td>
+      <td>An array element in the expression has a subscript out of range. <small>Parameter: <code class="par">condition</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/SINCLAIR_ZX80_4K.html#errors">6 <code>OVERFLOW</code></a></td>
+      <td>A calculation in the expression goes outside the range from -32768 to 32767. <small>Parameter: <code class="par">condition</code>.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
 
 <h2>Keywords</h2>
 <table>
