@@ -48,7 +48,8 @@ OPERATOR_CLASS = {"ARITHMETIC": 1, "BITWISE": 2, "CONDITIONAL": 3, "LOGICAL": 4,
 # ---------------------------------------------------------------------
 # Sources
 # ---------------------------------------------------------------------
-SRC_MAY64, SRC_OCT64, SRC_GE67, SRC_4ED, SRC_WIKI, SRC_KURTZ, SRC_LISTINGS, SRC_DTSSWIN, SRC_HOPL = (ID + k for k in range(1, 10))
+SRC_MAY64, SRC_OCT64, SRC_GE67, SRC_4ED, SRC_WIKI, SRC_KURTZ, SRC_LISTINGS, SRC_DTSSWIN, SRC_HOPL, SRC_TTY33 = (
+    ID + k for k in range(1, 11))
 SOURCES = [
     (SRC_MAY64, "BASIC Instruction Manual, May 1964 (First Draft)", "John G. Kemeny, Thomas E. Kurtz",
      "Dartmouth College Computation Center", 1964, "MANUAL", "https://www.dartmouth.edu/basicfifty/basicmanual_1964.pdf",
@@ -86,6 +87,9 @@ SOURCES = [
      "Kurtz's paper for the ACM HOPL conference of 1978, pp. 515-537: the design of each edition from the 1st to the "
      "6th. It quotes the complete 1st edition manual (June 1964, with Part II: pages 25, 31, 37, 39), the 3rd "
      "edition manual (1966) and its Supplement (1967). Local copy: data/sources/Kurtz.pdf."),
+    (SRC_TTY33, "Teletype Model 33", None, "Wikipedia", None, "WEB", "https://en.wikipedia.org/wiki/Teletype_Model_33",
+     "Typewheel of 64 characters; the keyboard sends 7-bit ASCII but only its upper-case subset: no lower case, no "
+     "` { | } ~."),
 ]
 
 # ---------------------------------------------------------------------
@@ -692,9 +696,11 @@ OPEN_QUESTIONS_1 = [
 TABLES_1 = [
     # table kind, status, notes (DIALECT scope)
     ("CHARACTER_CODES", "COMPLETE", "The codes of the Teletype ASR-33 (ASCII-1963, 64 printable characters, upper case "
-                                    "only), INFERRED: no statement shows them before CHANGE in the 4th edition, whose "
-                                    "table [4] p. 68 gives the same codes. The internal code of the GE-235 is not "
-                                    "entered. DTSS-Win keeps statements typed in lower case in the listing but rejects "
+                                    "only [10]), as the terminal handles them: the printer decodes six control codes "
+                                    "(ENQ, BEL, LF, CR, DC1, DC3) with its function levers and ignores the others; NUL "
+                                    "and RUB-OUT are punched on tape (information supplied by the editor). The table "
+                                    "of CHANGE in the 4th edition [4] p. 68 gives the same codes. The internal code of "
+                                    "the GE-235 is not entered. DTSS-Win keeps statements typed in lower case in the listing but rejects "
                                     "them at RUN (`ILLEGAL INSTRUCTION IN 10`); it prints ( and [ of a label alike, "
                                     "as [."),
     ("KEYBOARD_CODES", "NOT_APPLICABLE", "No statement reads the keyboard."),
@@ -1606,8 +1612,31 @@ ASR33_GLYPHS_24 = {
 ASR33_GLYPHS = ASR33_GLYPHS_16 if GLYPH_SIZE == 16 else ASR33_GLYPHS_24
 GLYPH_NAMES = {32: "Space", 94: "Up arrow", 95: "Back arrow"}
 GLYPH_UNICODE = {94: ("\u2191", "UPWARDS ARROW"), 95: ("\u2190", "LEFTWARDS ARROW")}
+# Codes the 4th edition lists in the table of CHANGE [4] p. 68.
 CONTROL_CODES = {4: ("EOT", "End of transmission"), 7: ("BELL", "Rings the bell of the Teletype"),
                  10: ("LF", "Line feed"), 13: ("CR", "Carriage return"), 127: ("RUB-OUT", "Tape use only")}
+# What the ASR-33 itself does with the codes that print nothing (information supplied by the editor).
+TTY_CONTROL = {
+    4: ("EOT", "Acts only through the optional function contacts", "Ignored by a standard ASR-33; machines with the "
+       "optional function contacts behind the printer can drive an external relay with it."),
+    5: ("ENQ (WRU)", "Starts the answerback drum", "CTRL + E, \"Who Are You\": the answerback drum, if fitted, sends "
+       "up to 20 coded characters; on some machines it also stops the tape reader."),
+    7: ("BEL", "Rings the bell", "CTRL + G."),
+    10: ("LF", "Line feed", "LINE FEED (CTRL + J): moves the paper up one line, the carriage stays where it is."),
+    13: ("CR", "Carriage return", "RETURN (CTRL + M): moves the carriage back to column 1 without moving the paper."),
+    17: ("DC1 (X-ON)", "Starts the tape reader", "CTRL + Q, TAPE ON."),
+    19: ("DC3 (X-OFF)", "Stops the tape reader", "CTRL + S, TAPE OFF."),
+    127: ("RUB-OUT", "Punched with all holes, ignored by the printer", "DEL: punched on tape with all holes, to "
+          "cancel a wrong character; the printer and the carriage ignore it."),
+}
+TTY_IGNORED = {
+    0: "NUL: ignored by the printer and the carriage, punched on tape with no data holes; often sent after CR as "
+       "padding, to give the carriage time to return.",
+    8: "BS: the ASR-33 has no backspace mechanism; ignored.",
+    9: "HT: the ASR-33 has no tabulation mechanism; ignored.",
+    11: "VT: the ASR-33 has no vertical tabulation; ignored, unless the optional function contacts use it.",
+    12: "FF: the ASR-33 has no form feed; ignored.",
+}
 
 
 def glyph_rows(charset_id):
@@ -1619,14 +1648,14 @@ def glyph_rows(charset_id):
 
 
 def character_code_rows(layer_id, base_id, manual, redefines=None):
-    """Codes 0-127. In the core INFERRED (no statement shows the codes before the 4th edition); in the 4th
-    edition the codes of the table of [4] p. 68 are MANUAL (REPLACE of the core rows)."""
+    """Codes 0-127, all MANUAL. In the core: what the Teletype ASR-33 does with each code (TTY_CONTROL,
+    TTY_IGNORED, source [10] for the 64 characters). In the 4th edition (manual=True): only the codes of the
+    table of CHANGE [4] p. 68, as REPLACE of the core rows."""
     for code in range(128):
         listed = 32 <= code <= 95 or code in CONTROL_CODES
         if manual and not listed:
             continue
-        r = dict(id=base_id + code, layer_id=layer_id, code=code,
-                 evidence="MANUAL" if manual else "INFERRED")
+        r = dict(id=base_id + code, layer_id=layer_id, code=code, evidence="MANUAL")
         if redefines:
             r.update(operation="REPLACE", redefines_id=redefines + code)
         if 32 <= code <= 95:
@@ -1635,14 +1664,19 @@ def character_code_rows(layer_id, base_id, manual, redefines=None):
                 r["notes"] = "Back arrow: \"useful on output\" [4] p. 68 (underscore in later ASCII)."
             elif code == 94:
                 r["notes"] = "The power operator (circumflex in later ASCII)."
-        elif code in CONTROL_CODES:
+        elif manual:
             name, action = CONTROL_CODES[code]
             r.update(kind="CONTROL", name=name, action=action)
+        elif code in TTY_CONTROL:
+            name, action, notes = TTY_CONTROL[code]
+            r.update(kind="CONTROL", name=name, action=action, notes=notes)
         elif 96 <= code <= 126:
-            r.update(kind="UNUSED", notes="Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes "
-                                          "duplicate the upper-case ones [4] p. 68.")
+            r.update(kind="UNUSED", notes="Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does "
+                                          "when it receives them is not stated; on some Teletypes these codes duplicate "
+                                          "the upper-case ones [4] p. 68.")
         else:
-            r.update(kind="UNUSED")
+            r.update(kind="UNUSED", notes=TTY_IGNORED.get(code, "Ignored by the ASR-33: no printing, no carriage "
+                                                                 "movement."))
         yield r
 
 

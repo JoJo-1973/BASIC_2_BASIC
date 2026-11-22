@@ -2115,7 +2115,7 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (1000219, 100044, 1000218, 1, 'KEYWORD', 0, NULL, 100038);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (1000220, 100044, 1000218, 2, 'LITERAL', 0, NULL, '1');
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 100044, id, 'PARTIAL', 'Only EXP 1, the constant e' FROM action WHERE code = 'MATH_EXP';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id, page) VALUES (100036, NULL, 1, 'Power of e', 'e is put in E, then e↑1.5 is calculated.', '10 E=EXP 1
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id, page) VALUES (100036, NULL, 1, 'Power of e', 'e is put in E, then (A+e↑1.5)/B is calculated.', '10 E=EXP 1
 20 INPUT A,B
 30 C=(A+E↑1.5)/B
 40 PRINT C', NULL, 0, 100001, '62');

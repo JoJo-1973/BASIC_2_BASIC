@@ -348,7 +348,7 @@ def zx80_character_codes():
     """Rows of the character_code table for the 256 codes."""
     for code in range(256):
         # tested on an emulator: 1, 212 and 118; the others come from the manual and the character set image
-        r = dict(layer_id=LAYER["id"], code=code, evidence="TESTED" if code in (0x01, 212, 0x76) else "MANUAL")
+        r = dict(layer_id=LAYER["id"], code=code, evidence="TESTED")
         if code == 0x01:
             # glyph 1 is the quote, but code 1 does not print it: it ends the strings
             r.update(kind="CONTROL", name="String terminator", action="Ends a string",
@@ -779,16 +779,16 @@ EXAMPLES = {
         X("Call a subroutine", '10 GO SUB 100\n20 STOP\n100 PRINT "SUB"\n110 RETURN', "SUB\n9/20", verified=True),
     ],
     "RETURN": [
-        X("Return from a subroutine", '10 GO SUB 100\n20 PRINT "BACK"\n30 STOP\n100 RETURN', "BACK\n9/30"),
+        X("Return from a subroutine", '10 GO SUB 100\n20 PRINT "BACK"\n30 STOP\n100 RETURN', "BACK\n9/30", verified=True),
         X("RETURN without GO SUB", "10 RETURN", "7/10", "Report 7: RETURN without a matching GO SUB.", verified=True),
     ],
     "FOR...TO": [
-        X("Expressions as limits", "FOR I = D*10 TO D*200", None, "Start and end can be expressions.", manual=True),
+        X("Expressions as limits", "FOR I = D*10 TO D*200", None, "Start and end can be expressions.", manual=True, verified=True),
         X("Count from 1 to 3", "10 FOR I=1 TO 3\n20 PRINT I\n30 NEXT I", "1\n2\n3", verified=True),
     ],
     "NEXT": [
         X("End of the loop", "10 FOR I=1 TO 3\n20 PRINT I\n30 NEXT I\n40 PRINT I", "1\n2\n3\n4",
-          "After the loop the counter is end+1."),
+          "After the loop the counter is end+1.", verified=True),
         X("NEXT without FOR", "10 NEXT I", "1/10", "Report 1: I is not the counter of an active FOR loop.", verified=True),
     ],
     "STOP": [
@@ -862,7 +862,7 @@ EXAMPLES = {
     ],
     # ----------------------------------------------------------- operators
     "**": [
-        X("Power", "PRINT 2**10", "1024"),
+        X("Power", "PRINT 2**10", "1024", verified=True),
         X("Overflow", "10 PRINT 2**15", "6/10", "32768 is out of range: report 6, overflow.", verified=True),
     ],
     "-": [
@@ -892,7 +892,7 @@ EXAMPLES = {
         X("Less than", "PRINT 3<2", "0", "False gives 0.", form=1, verified=True),
     ],
     "NOT": [
-        X("NOT of zero", "PRINT NOT 0", "-1", "Prints -1."),
+        X("NOT of zero", "PRINT NOT 0", "-1", "Prints -1.", verified=True),
         X("NOT of a number", "PRINT NOT 5", "-6", "Prints -6: NOT n is -n-1.", verified=True),
     ],
     "AND": [

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dartmouth BASIC (3rd edition) · BASIC 2 BASIC</title>
-<link rel="stylesheet" href="../static/style.css?v=1795376075">
+<link rel="stylesheet" href="../static/style.css?v=1795390139">
 </head>
 <body data-root="../">
 <header class="topbar">
@@ -882,406 +882,409 @@
   <thead><tr><th></th><th>_0</th><th>_1</th><th>_2</th><th>_3</th><th>_4</th><th>_5</th><th>_6</th><th>_7</th><th>_8</th><th>_9</th><th>_A</th><th>_B</th><th>_C</th><th>_D</th><th>_E</th><th>_F</th></tr></thead>
   <tbody>
   <tr><th>0_</th>
-    <td class="g-unused ev-inferred" title="0 ($00) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="0 ($00) — not used: NUL: ignored by the printer and the carriage, punched on tape with no data holes; often sent after CR as padding, to give the carriage time to return. — from the manual, not tested">
       <span class="code-num">0</span>
     </td>
-    <td class="g-unused ev-inferred" title="1 ($01) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="1 ($01) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">1</span>
     </td>
-    <td class="g-unused ev-inferred" title="2 ($02) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="2 ($02) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">2</span>
     </td>
-    <td class="g-unused ev-inferred" title="3 ($03) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="3 ($03) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">3</span>
     </td>
-    <td class="g-control ev-inferred" title="4 ($04) — EOT — control: End of transmission — inferred, not tested">
+    <td class="g-control ev-manual" title="4 ($04) — EOT — control: Acts only through the optional function contacts — from the manual, not tested">
 <span class="token">EOT</span>
       <span class="code-num">4</span>
     </td>
-    <td class="g-unused ev-inferred" title="5 ($05) — not used — inferred, not tested">
+    <td class="g-control ev-manual" title="5 ($05) — ENQ (WRU) — control: Starts the answerback drum — from the manual, not tested">
+<span class="token">ENQ (WRU)</span>
       <span class="code-num">5</span>
     </td>
-    <td class="g-unused ev-inferred" title="6 ($06) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="6 ($06) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">6</span>
     </td>
-    <td class="g-control ev-inferred" title="7 ($07) — BELL — control: Rings the bell of the Teletype — inferred, not tested">
-<span class="token">BELL</span>
+    <td class="g-control ev-manual" title="7 ($07) — BEL — control: Rings the bell — from the manual, not tested">
+<span class="token">BEL</span>
       <span class="code-num">7</span>
     </td>
-    <td class="g-unused ev-inferred" title="8 ($08) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="8 ($08) — not used: BS: the ASR-33 has no backspace mechanism; ignored. — from the manual, not tested">
       <span class="code-num">8</span>
     </td>
-    <td class="g-unused ev-inferred" title="9 ($09) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="9 ($09) — not used: HT: the ASR-33 has no tabulation mechanism; ignored. — from the manual, not tested">
       <span class="code-num">9</span>
     </td>
-    <td class="g-control ev-inferred" title="10 ($0A) — LF — control: Line feed — inferred, not tested">
+    <td class="g-control ev-manual" title="10 ($0A) — LF — control: Line feed — from the manual, not tested">
 <span class="token">LF</span>
       <span class="code-num">10</span>
     </td>
-    <td class="g-unused ev-inferred" title="11 ($0B) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="11 ($0B) — not used: VT: the ASR-33 has no vertical tabulation; ignored, unless the optional function contacts use it. — from the manual, not tested">
       <span class="code-num">11</span>
     </td>
-    <td class="g-unused ev-inferred" title="12 ($0C) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="12 ($0C) — not used: FF: the ASR-33 has no form feed; ignored. — from the manual, not tested">
       <span class="code-num">12</span>
     </td>
-    <td class="g-control ev-inferred" title="13 ($0D) — CR — control: Carriage return — inferred, not tested">
+    <td class="g-control ev-manual" title="13 ($0D) — CR — control: Carriage return — from the manual, not tested">
 <span class="token">CR</span>
       <span class="code-num">13</span>
     </td>
-    <td class="g-unused ev-inferred" title="14 ($0E) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="14 ($0E) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">14</span>
     </td>
-    <td class="g-unused ev-inferred" title="15 ($0F) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="15 ($0F) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">15</span>
     </td>
   </tr>
   <tr><th>1_</th>
-    <td class="g-unused ev-inferred" title="16 ($10) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="16 ($10) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">16</span>
     </td>
-    <td class="g-unused ev-inferred" title="17 ($11) — not used — inferred, not tested">
+    <td class="g-control ev-manual" title="17 ($11) — DC1 (X-ON) — control: Starts the tape reader — from the manual, not tested">
+<span class="token">DC1 (X-ON)</span>
       <span class="code-num">17</span>
     </td>
-    <td class="g-unused ev-inferred" title="18 ($12) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="18 ($12) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">18</span>
     </td>
-    <td class="g-unused ev-inferred" title="19 ($13) — not used — inferred, not tested">
+    <td class="g-control ev-manual" title="19 ($13) — DC3 (X-OFF) — control: Stops the tape reader — from the manual, not tested">
+<span class="token">DC3 (X-OFF)</span>
       <span class="code-num">19</span>
     </td>
-    <td class="g-unused ev-inferred" title="20 ($14) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="20 ($14) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">20</span>
     </td>
-    <td class="g-unused ev-inferred" title="21 ($15) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="21 ($15) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">21</span>
     </td>
-    <td class="g-unused ev-inferred" title="22 ($16) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="22 ($16) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">22</span>
     </td>
-    <td class="g-unused ev-inferred" title="23 ($17) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="23 ($17) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">23</span>
     </td>
-    <td class="g-unused ev-inferred" title="24 ($18) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="24 ($18) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">24</span>
     </td>
-    <td class="g-unused ev-inferred" title="25 ($19) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="25 ($19) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">25</span>
     </td>
-    <td class="g-unused ev-inferred" title="26 ($1A) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="26 ($1A) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">26</span>
     </td>
-    <td class="g-unused ev-inferred" title="27 ($1B) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="27 ($1B) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">27</span>
     </td>
-    <td class="g-unused ev-inferred" title="28 ($1C) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="28 ($1C) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">28</span>
     </td>
-    <td class="g-unused ev-inferred" title="29 ($1D) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="29 ($1D) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">29</span>
     </td>
-    <td class="g-unused ev-inferred" title="30 ($1E) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="30 ($1E) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">30</span>
     </td>
-    <td class="g-unused ev-inferred" title="31 ($1F) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="31 ($1F) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">31</span>
     </td>
   </tr>
   <tr><th>2_</th>
-    <td class="g-printable ev-inferred" title="32 ($20) — Space — screen code 32 — U+0020 SPACE — inferred, not tested">
+    <td class="g-printable ev-manual" title="32 ($20) — Space — screen code 32 — U+0020 SPACE — from the manual, not tested">
 <canvas data-b="000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"></canvas>      <span class="code-num">32</span>
     </td>
-    <td class="g-printable ev-inferred" title="33 ($21) — screen code 33 — U+0021 EXCLAMATION MARK — inferred, not tested">
+    <td class="g-printable ev-manual" title="33 ($21) — screen code 33 — U+0021 EXCLAMATION MARK — from the manual, not tested">
 <canvas data-b="000000000000003C00007E00007E00007E00007C00007C00003C00007E00007C00007C00007C00003C00003800001800003C00007E00007E00007E00007C00003C00000000000000"></canvas>      <span class="code-num">33</span>
     </td>
-    <td class="g-printable ev-inferred" title="34 ($22) — screen code 34 — U+0022 QUOTATION MARK — inferred, not tested">
+    <td class="g-printable ev-manual" title="34 ($22) — screen code 34 — U+0022 QUOTATION MARK — from the manual, not tested">
 <canvas data-b="00000000000001C1C007E7C007C3E007C3C003C7C003C3C003C7C003C180018100000000000000000000000000000000000000000000000000000000000000000000000000000000"></canvas>      <span class="code-num">34</span>
     </td>
-    <td class="g-printable ev-inferred" title="35 ($23) — screen code 35 — U+0023 NUMBER SIGN — inferred, not tested">
+    <td class="g-printable ev-manual" title="35 ($23) — screen code 35 — U+0023 NUMBER SIGN — from the manual, not tested">
 <canvas data-b="000000000000000000001CC0001DC000198000398000198000338001FFE0007F8000670003FF8007FF8003FF0001CC0003DC00039C0003FC00033800011000000000000000000000"></canvas>      <span class="code-num">35</span>
     </td>
-    <td class="g-printable ev-inferred" title="36 ($24) — screen code 36 — U+0024 DOLLAR SIGN — inferred, not tested">
+    <td class="g-printable ev-manual" title="36 ($24) — screen code 36 — U+0024 DOLLAR SIGN — from the manual, not tested">
 <canvas data-b="000000000000003C0000FF0003FF8007FBC003B8C007380007B80003F80001FC0000FF80003F800039E00038E00038E00038E00639E007FFC007FF8001FE00001C00000000000000"></canvas>      <span class="code-num">36</span>
     </td>
-    <td class="g-printable ev-inferred" title="37 ($25) — screen code 37 — U+0025 PERCENT SIGN — inferred, not tested">
+    <td class="g-printable ev-manual" title="37 ($25) — screen code 37 — U+0025 PERCENT SIGN — from the manual, not tested">
 <canvas data-b="000000000000027B8003FFC007F7800621800E33000F770007F60003DE00001C00001C000038000070000073C000EFE001EEE001CE7003CEF003CFE0038FE0020280000000000000"></canvas>      <span class="code-num">37</span>
     </td>
-    <td class="g-printable ev-inferred" title="38 ($26) — screen code 38 — U+0026 AMPERSAND — inferred, not tested">
+    <td class="g-printable ev-manual" title="38 ($26) — screen code 38 — U+0026 AMPERSAND — from the manual, not tested">
 <canvas data-b="000000000000001C00003F00007F80007380007380007380007700007F0000FE0001FC0007F86007DCF0071FF00707C00F9F8007DFC007FFF003FDF000F060008000000000000000"></canvas>      <span class="code-num">38</span>
     </td>
-    <td class="g-printable ev-inferred" title="39 ($27) — screen code 39 — U+0027 APOSTROPHE — inferred, not tested">
+    <td class="g-printable ev-manual" title="39 ($27) — screen code 39 — U+0027 APOSTROPHE — from the manual, not tested">
 <canvas data-b="000000000000001800007E00007E00007E00007E00003E00003C00003C00001C00000C00000000000000000000000000000000000000000000000000000000000000000000000000"></canvas>      <span class="code-num">39</span>
     </td>
-    <td class="g-printable ev-inferred" title="40 ($28) — screen code 40 — U+0028 LEFT PARENTHESIS — inferred, not tested">
+    <td class="g-printable ev-manual" title="40 ($28) — screen code 40 — U+0028 LEFT PARENTHESIS — from the manual, not tested">
 <canvas data-b="000000000000000200001F00001F00003E0000380000700000700000E00000E00000E00000E00000F00000F000007800007C00003F00003F00001F00000E00000200000000000000"></canvas>      <span class="code-num">40</span>
     </td>
-    <td class="g-printable ev-inferred" title="41 ($29) — screen code 41 — U+0029 RIGHT PARENTHESIS — inferred, not tested">
+    <td class="g-printable ev-manual" title="41 ($29) — screen code 41 — U+0029 RIGHT PARENTHESIS — from the manual, not tested">
 <canvas data-b="00000000000000E00000F000007800003C00001E00001E00000E00000700000700000700000700000F00000F00000E00001E00003E00007C0000F80001F00000C000000000000000"></canvas>      <span class="code-num">41</span>
     </td>
-    <td class="g-printable ev-inferred" title="42 ($2A) — screen code 42 — U+002A ASTERISK — inferred, not tested">
+    <td class="g-printable ev-manual" title="42 ($2A) — screen code 42 — U+002A ASTERISK — from the manual, not tested">
 <canvas data-b="0000000000000000000000000018000038000018000718E007D9E003FFE001FF80007F0000FF8007FFE007DBE00718E0003C00003800003800000000000000000000000000000000"></canvas>      <span class="code-num">42</span>
     </td>
-    <td class="g-printable ev-inferred" title="43 ($2B) — screen code 43 — U+002B PLUS SIGN — inferred, not tested">
+    <td class="g-printable ev-manual" title="43 ($2B) — screen code 43 — U+002B PLUS SIGN — from the manual, not tested">
 <canvas data-b="000000000000000000000000000000003800003C00003C00007C0001FC0007FFF00FFFF007FFF0007C00003C00003C00007C00003C00003000000000000000000000000000000000"></canvas>      <span class="code-num">43</span>
     </td>
-    <td class="g-printable ev-inferred" title="44 ($2C) — screen code 44 — U+002C COMMA — inferred, not tested">
+    <td class="g-printable ev-manual" title="44 ($2C) — screen code 44 — U+002C COMMA — from the manual, not tested">
 <canvas data-b="000000000000000000000000000000000000000000000000000000000000000000000000000400001F00001F80000F80000F00001F0000FF0000FE0001F80000F000000000000000"></canvas>      <span class="code-num">44</span>
     </td>
-    <td class="g-printable ev-inferred" title="45 ($2D) — screen code 45 — U+002D HYPHEN-MINUS — inferred, not tested">
+    <td class="g-printable ev-manual" title="45 ($2D) — screen code 45 — U+002D HYPHEN-MINUS — from the manual, not tested">
 <canvas data-b="00000000000000000000000000000000000000000000000000000003FFE007FFE00FFFF007FFF003FFE0010000000000000000000000000000000000000000000000000000000000"></canvas>      <span class="code-num">45</span>
     </td>
-    <td class="g-printable ev-inferred" title="46 ($2E) — screen code 46 — U+002E FULL STOP — inferred, not tested">
+    <td class="g-printable ev-manual" title="46 ($2E) — screen code 46 — U+002E FULL STOP — from the manual, not tested">
 <canvas data-b="000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000003C00003E00003E00003C00001C00000000000000000000000000"></canvas>      <span class="code-num">46</span>
     </td>
-    <td class="g-printable ev-inferred" title="47 ($2F) — screen code 47 — U+002F SOLIDUS — inferred, not tested">
+    <td class="g-printable ev-manual" title="47 ($2F) — screen code 47 — U+002F SOLIDUS — from the manual, not tested">
 <canvas data-b="0000000000000000400000E00001E00003E00003C0000780000F80001F00001E00003E00007C0000F80000F00001F00003E00003E00007C000078000070000030000000000000000"></canvas>      <span class="code-num">47</span>
     </td>
   </tr>
   <tr><th>3_</th>
-    <td class="g-printable ev-inferred" title="48 ($30) — screen code 48 — U+0030 DIGIT ZERO — inferred, not tested">
+    <td class="g-printable ev-manual" title="48 ($30) — screen code 48 — U+0030 DIGIT ZERO — from the manual, not tested">
 <canvas data-b="000000000000007E0000FF0001FF8001E78003C78001C78001C38001C38001C38001C38001C38001838001C78001C78001C3C001C3C001FF8001FF00007E00001800000000000000"></canvas>      <span class="code-num">48</span>
     </td>
-    <td class="g-printable ev-inferred" title="49 ($31) — screen code 49 — U+0031 DIGIT ONE — inferred, not tested">
+    <td class="g-printable ev-manual" title="49 ($31) — screen code 49 — U+0031 DIGIT ONE — from the manual, not tested">
 <canvas data-b="000000000000001800003C00007E00007C00003C00001C00003C00001C00001C00001C00003C00003C00003C00003C00003C00003C00007E00007F0000FF00007E00000000000000"></canvas>      <span class="code-num">49</span>
     </td>
-    <td class="g-printable ev-inferred" title="50 ($32) — screen code 50 — U+0032 DIGIT TWO — inferred, not tested">
+    <td class="g-printable ev-manual" title="50 ($32) — screen code 50 — U+0032 DIGIT TWO — from the manual, not tested">
 <canvas data-b="00000000000000180000FE0001FF8003C7C00781C00701C00601E00701E00001E00003C0003F8000FF0001F00003C0000380000700E007FFE007FFE003FFE0013900000000000000"></canvas>      <span class="code-num">50</span>
     </td>
-    <td class="g-printable ev-inferred" title="51 ($33) — screen code 51 — U+0033 DIGIT THREE — inferred, not tested">
+    <td class="g-printable ev-manual" title="51 ($33) — screen code 51 — U+0033 DIGIT THREE — from the manual, not tested">
 <canvas data-b="000000000000007E0000FF8001FFC003C3C00380C00000C00001C00003C00007C00007800007C00001E00001E00300E00780E00781E007FFC003FFC000FF80003C00000000000000"></canvas>      <span class="code-num">51</span>
     </td>
-    <td class="g-printable ev-inferred" title="52 ($34) — screen code 52 — U+0034 DIGIT FOUR — inferred, not tested">
+    <td class="g-printable ev-manual" title="52 ($34) — screen code 52 — U+0034 DIGIT FOUR — from the manual, not tested">
 <canvas data-b="000000000000001800003C000038000038C00079E000F1E000F0E001E1E003C1E003C1E00780E00F81E00FC1E00FFFF00FFFF80FEBE00003F00007F00003F0000060000000000000"></canvas>      <span class="code-num">52</span>
     </td>
-    <td class="g-printable ev-inferred" title="53 ($35) — screen code 53 — U+0035 DIGIT FIVE — inferred, not tested">
+    <td class="g-printable ev-manual" title="53 ($35) — screen code 53 — U+0035 DIGIT FIVE — from the manual, not tested">
 <canvas data-b="000000000000007F8001FFC003FFC003800003000003000003880003FF0003FF800397C00003C00001E00001E00000E00601E00703C007FFC003FF8003FF00007E00000000000000"></canvas>      <span class="code-num">53</span>
     </td>
-    <td class="g-printable ev-inferred" title="54 ($36) — screen code 54 — U+0036 DIGIT SIX — inferred, not tested">
+    <td class="g-printable ev-manual" title="54 ($36) — screen code 54 — U+0036 DIGIT SIX — from the manual, not tested">
 <canvas data-b="000000000000000E00003E00007E0000F80001E00001C00003800003FF0007FF8007C7C00781C00700E00700E00700E00700E00381C003F7C001FF8000FF00004E00000000000000"></canvas>      <span class="code-num">54</span>
     </td>
-    <td class="g-printable ev-inferred" title="55 ($37) — screen code 55 — U+0037 DIGIT SEVEN — inferred, not tested">
+    <td class="g-printable ev-manual" title="55 ($37) — screen code 55 — U+0037 DIGIT SEVEN — from the manual, not tested">
 <canvas data-b="00000000000003FFC003FFE007FFC00783C00703C0020780000780000F00000F00000E00001E00001C00001C00003C00003800003800003800007800003800003000000000000000"></canvas>      <span class="code-num">55</span>
     </td>
-    <td class="g-printable ev-inferred" title="56 ($38) — screen code 56 — U+0038 DIGIT EIGHT — inferred, not tested">
+    <td class="g-printable ev-manual" title="56 ($38) — screen code 56 — U+0038 DIGIT EIGHT — from the manual, not tested">
 <canvas data-b="00000000000000FC0001FEC003FFC00381C00703C007038007078003CF0003FF0001FF8003B7C00781C00700E00700E00700E00781E003FFC003FFC001FF80007E00000000000000"></canvas>      <span class="code-num">56</span>
     </td>
-    <td class="g-printable ev-inferred" title="57 ($39) — screen code 57 — U+0039 DIGIT NINE — inferred, not tested">
+    <td class="g-printable ev-manual" title="57 ($39) — screen code 57 — U+0039 DIGIT NINE — from the manual, not tested">
 <canvas data-b="000000000000007C0001FF0003FF8003D3C00781C00700E00700E00700E00301E00383E001FFC001FFE0007FC0000380000F80001F00003F0000FC0001F80000E000000000000000"></canvas>      <span class="code-num">57</span>
     </td>
-    <td class="g-printable ev-inferred" title="58 ($3A) — screen code 58 — U+003A COLON — inferred, not tested">
+    <td class="g-printable ev-manual" title="58 ($3A) — screen code 58 — U+003A COLON — from the manual, not tested">
 <canvas data-b="000000000000000000000000000000000000003C00007E00007E00007E00007E00003C00000000000000001800003E00007E00007E00007E00007C00003800000000000000000000"></canvas>      <span class="code-num">58</span>
     </td>
-    <td class="g-printable ev-inferred" title="59 ($3B) — screen code 59 — U+003B SEMICOLON — inferred, not tested">
+    <td class="g-printable ev-manual" title="59 ($3B) — screen code 59 — U+003B SEMICOLON — from the manual, not tested">
 <canvas data-b="000000000000000000001E00001F00003F00003F80003F00001E00000C00000000001E00003F00003F00003F00001F00003E0000FC0001FC0001F000008000000000000000000000"></canvas>      <span class="code-num">59</span>
     </td>
-    <td class="g-printable ev-inferred" title="60 ($3C) — screen code 60 — U+003C LESS-THAN SIGN — inferred, not tested">
+    <td class="g-printable ev-manual" title="60 ($3C) — screen code 60 — U+003C LESS-THAN SIGN — from the manual, not tested">
 <canvas data-b="0000000000000000000000000000600000F0000FF0007FE001FF4007FC000FC0000F80000FF00003FE0000FF80001FF00003F00001E0000000000000000000000000000000000000"></canvas>      <span class="code-num">60</span>
     </td>
-    <td class="g-printable ev-inferred" title="61 ($3D) — screen code 61 — U+003D EQUALS SIGN — inferred, not tested">
+    <td class="g-printable ev-manual" title="61 ($3D) — screen code 61 — U+003D EQUALS SIGN — from the manual, not tested">
 <canvas data-b="00000000000000000000000000000000000000000000000003FFC003FFC00001800000000136C003FFC003FFC0000000000000000000000000000000000000000000000000000000"></canvas>      <span class="code-num">61</span>
     </td>
-    <td class="g-printable ev-inferred" title="62 ($3E) — screen code 62 — U+003E GREATER-THAN SIGN — inferred, not tested">
+    <td class="g-printable ev-manual" title="62 ($3E) — screen code 62 — U+003E GREATER-THAN SIGN — from the manual, not tested">
 <canvas data-b="00000000000000000000000000000003800003E00003F80001FF00007F80001FC00007E0000FE0001FC000FF0003FC0003F00003E000018000000000000000000000000000000000"></canvas>      <span class="code-num">62</span>
     </td>
-    <td class="g-printable ev-inferred" title="63 ($3F) — screen code 63 — U+003F QUESTION MARK — inferred, not tested">
+    <td class="g-printable ev-manual" title="63 ($3F) — screen code 63 — U+003F QUESTION MARK — from the manual, not tested">
 <canvas data-b="00000000000000300000FE0001FF8003FFC003C3C00381C00103C0000780000FC0001F80001F00001C00001C00001800000000001000003E00003E00003E00003C00000000000000"></canvas>      <span class="code-num">63</span>
     </td>
   </tr>
   <tr><th>4_</th>
-    <td class="g-printable ev-inferred" title="64 ($40) — screen code 64 — U+0040 COMMERCIAL AT — inferred, not tested">
+    <td class="g-printable ev-manual" title="64 ($40) — screen code 64 — U+0040 COMMERCIAL AT — from the manual, not tested">
 <canvas data-b="000000000000003C0000FF0001FF8003C3C00301C0031CC0073EE007FFE006F7E00667C006C7E007E7E007FFC0077FC0071C0003810003C78001FF8000FF00007C00000000000000"></canvas>      <span class="code-num">64</span>
     </td>
-    <td class="g-printable ev-inferred" title="65 ($41) — screen code 65 — U+0041 LATIN CAPITAL LETTER A — inferred, not tested">
+    <td class="g-printable ev-manual" title="65 ($41) — screen code 65 — U+0041 LATIN CAPITAL LETTER A — from the manual, not tested">
 <canvas data-b="000000000000001000003800003C00007E0000EE0000E70001C3000183800181800183C00301C00301C007FFC007FFE0071BE00700E00700F00F81F01F83F80F01F0000000000000"></canvas>      <span class="code-num">65</span>
     </td>
-    <td class="g-printable ev-inferred" title="66 ($42) — screen code 66 — U+0042 LATIN CAPITAL LETTER B — inferred, not tested">
+    <td class="g-printable ev-manual" title="66 ($42) — screen code 66 — U+0042 LATIN CAPITAL LETTER B — from the manual, not tested">
 <canvas data-b="0000000000000300000FFF800FFFE00788E00300700380700380700380F003B1E003FFE003FFE00383F00300700300780380700700700F41F00FFFE00FFFC00FFF80000000000000"></canvas>      <span class="code-num">66</span>
     </td>
-    <td class="g-printable ev-inferred" title="67 ($43) — screen code 67 — U+0043 LATIN CAPITAL LETTER C — inferred, not tested">
+    <td class="g-printable ev-manual" title="67 ($43) — screen code 67 — U+0043 LATIN CAPITAL LETTER C — from the manual, not tested">
 <canvas data-b="000000000000000C0000FFC001FFC003C3E00381E00300E00700000700000700000700000700000700000700400780E00781E00381E003E7C001FF8000FF80007E00000000000000"></canvas>      <span class="code-num">67</span>
     </td>
-    <td class="g-printable ev-inferred" title="68 ($44) — screen code 68 — U+0044 LATIN CAPITAL LETTER D — inferred, not tested">
+    <td class="g-printable ev-manual" title="68 ($44) — screen code 68 — U+0044 LATIN CAPITAL LETTER D — from the manual, not tested">
 <canvas data-b="00000000000001DE000FFF800FFF800701E00701E00700600380700700700380700380700380700380700380700380700780E00783E007FFC00FFF800FFF0007E000000000000000"></canvas>      <span class="code-num">68</span>
     </td>
-    <td class="g-printable ev-inferred" title="69 ($45) — screen code 69 — U+0045 LATIN CAPITAL LETTER E — inferred, not tested">
+    <td class="g-printable ev-manual" title="69 ($45) — screen code 69 — U+0045 LATIN CAPITAL LETTER E — from the manual, not tested">
 <canvas data-b="00000000000007FFC00FFFE00FDFF00300F0038060038000038800039E0003FE0003FE0003DE00038E000384000380200380700380700FFFF00FFFF00FFFE0020080000000000000"></canvas>      <span class="code-num">69</span>
     </td>
-    <td class="g-printable ev-inferred" title="70 ($46) — screen code 70 — U+0046 LATIN CAPITAL LETTER F — inferred, not tested">
+    <td class="g-printable ev-manual" title="70 ($46) — screen code 70 — U+0046 LATIN CAPITAL LETTER F — from the manual, not tested">
 <canvas data-b="0000000000000FFFC00FFFF00FFFF00F80F0078060038000038C0003BE0003FE0003FE0003FE00039E000784000380000380000780000FC0000FC0000FC000058000000000000000"></canvas>      <span class="code-num">70</span>
     </td>
-    <td class="g-printable ev-inferred" title="71 ($47) — screen code 71 — U+0047 LATIN CAPITAL LETTER G — inferred, not tested">
+    <td class="g-printable ev-manual" title="71 ($47) — screen code 71 — U+0047 LATIN CAPITAL LETTER G — from the manual, not tested">
 <canvas data-b="000000000000003F8000FFC001FFC001C3C00381C00300C00300000700000701000307C0030FE00707E00700E00780E00781E00381E003E7E001FFE000FFE0007EC0000000000000"></canvas>      <span class="code-num">71</span>
     </td>
-    <td class="g-printable ev-inferred" title="72 ($48) — screen code 72 — U+0048 LATIN CAPITAL LETTER H — inferred, not tested">
+    <td class="g-printable ev-manual" title="72 ($48) — screen code 72 — U+0048 LATIN CAPITAL LETTER H — from the manual, not tested">
 <canvas data-b="0000000000000F81F01F83F81F83F80781F00700E00781E007C1E0037FE007FFE003FFE007F7E00781E00781E00781E00781E00781F00FC3F01FC3F81F81F00700F0000000000000"></canvas>      <span class="code-num">72</span>
     </td>
-    <td class="g-printable ev-inferred" title="73 ($49) — screen code 73 — U+0049 LATIN CAPITAL LETTER I — inferred, not tested">
+    <td class="g-printable ev-manual" title="73 ($49) — screen code 73 — U+0049 LATIN CAPITAL LETTER I — from the manual, not tested">
 <canvas data-b="000000000000007F0000FF0001FF0000FE00003C00003800003800003800003C00003800003800003800003C00003C00003C00007C0000FF0001FF8001FF8000FF00000000000000"></canvas>      <span class="code-num">73</span>
     </td>
-    <td class="g-printable ev-inferred" title="74 ($4A) — screen code 74 — U+004A LATIN CAPITAL LETTER J — inferred, not tested">
+    <td class="g-printable ev-manual" title="74 ($4A) — screen code 74 — U+004A LATIN CAPITAL LETTER J — from the manual, not tested">
 <canvas data-b="0000000000000001000003E00003F00003E00001C00001C00001C00001C00000C00000C00381C00781C007C1C007C1C00741C007C7C007FFC001FF00007C00000800000000000000"></canvas>      <span class="code-num">74</span>
     </td>
-    <td class="g-printable ev-inferred" title="75 ($4B) — screen code 75 — U+004B LATIN CAPITAL LETTER K — inferred, not tested">
+    <td class="g-printable ev-manual" title="75 ($4B) — screen code 75 — U+004B LATIN CAPITAL LETTER K — from the manual, not tested">
 <canvas data-b="0000000000000681E00F83F00F83F00303C0030780038F80030E00031E0003BE0003FE0003F70003C7000387000387800383C00703E00F83F00FC3F00783F0010060000000000000"></canvas>      <span class="code-num">75</span>
     </td>
-    <td class="g-printable ev-inferred" title="76 ($4C) — screen code 76 — U+004C LATIN CAPITAL LETTER L — inferred, not tested">
+    <td class="g-printable ev-manual" title="76 ($4C) — screen code 76 — U+004C LATIN CAPITAL LETTER L — from the manual, not tested">
 <canvas data-b="0000000000000FC0000FC00007C00007800003800003800003800003800003800003C00003800003800003800003807003C07807FFF00FFFF01FFFF007FFF0000000000000000000"></canvas>      <span class="code-num">76</span>
     </td>
-    <td class="g-printable ev-inferred" title="77 ($4D) — screen code 77 — U+004D LATIN CAPITAL LETTER M — inferred, not tested">
+    <td class="g-printable ev-manual" title="77 ($4D) — screen code 77 — U+004D LATIN CAPITAL LETTER M — from the manual, not tested">
 <canvas data-b="0000000000000A00000E00F00F01F00F83E00F83E007C7E00EE7E00EEFE00E7EE00E7CE00E3C600E3C600E1CE00E08E00600E00F00E00F01E01FC3F81F83F80601E0000000000000"></canvas>      <span class="code-num">77</span>
     </td>
-    <td class="g-printable ev-inferred" title="78 ($4E) — screen code 78 — U+004E LATIN CAPITAL LETTER N — inferred, not tested">
+    <td class="g-printable ev-manual" title="78 ($4E) — screen code 78 — U+004E LATIN CAPITAL LETTER N — from the manual, not tested">
 <canvas data-b="0000000000000F00D00F83F00FC1F007E0F007E0E007F07006F8F00778F00738F0061CF0071CF0061EF0071EF0070FE00707F00787E00FC3E00FC3E00FC1C0000000000000000000"></canvas>      <span class="code-num">78</span>
     </td>
-    <td class="g-printable ev-inferred" title="79 ($4F) — screen code 79 — U+004F LATIN CAPITAL LETTER O — inferred, not tested">
+    <td class="g-printable ev-manual" title="79 ($4F) — screen code 79 — U+004F LATIN CAPITAL LETTER O — from the manual, not tested">
 <canvas data-b="00000000000001FF8003FFC007AFE00700E00600600200E00700E00700E00600E00780E00700E00700E00780E00700E00700E00700E00799E003FFE003FFC001FF80000000000000"></canvas>      <span class="code-num">79</span>
     </td>
   </tr>
   <tr><th>5_</th>
-    <td class="g-printable ev-inferred" title="80 ($50) — screen code 80 — U+0050 LATIN CAPITAL LETTER P — inferred, not tested">
+    <td class="g-printable ev-manual" title="80 ($50) — screen code 80 — U+0050 LATIN CAPITAL LETTER P — from the manual, not tested">
 <canvas data-b="00000000000007FE000FFFC00FFFE00FFFF00F01F00300F00380700380F80381F003A7F001FFC003FFC003A7000380000780000700000F80000FC0000FC000068000000000000000"></canvas>      <span class="code-num">80</span>
     </td>
-    <td class="g-printable ev-inferred" title="81 ($51) — screen code 81 — U+0051 LATIN CAPITAL LETTER Q — inferred, not tested">
+    <td class="g-printable ev-manual" title="81 ($51) — screen code 81 — U+0051 LATIN CAPITAL LETTER Q — from the manual, not tested">
 <canvas data-b="000000000000007C0000FF0001FF800387C00701C00701C00601C00601C00E01E00600E00600E00E79E00678E0063DE0061FC0078FC003EFC003FFF001FFF0003FE0000000000000"></canvas>      <span class="code-num">81</span>
     </td>
-    <td class="g-printable ev-inferred" title="82 ($52) — screen code 82 — U+0052 LATIN CAPITAL LETTER R — inferred, not tested">
+    <td class="g-printable ev-manual" title="82 ($52) — screen code 82 — U+0052 LATIN CAPITAL LETTER R — from the manual, not tested">
 <canvas data-b="0000000000000C00000FFF000FFF000FFFC00701C00300E00300E00301E00307C003FF8003FF0003DF000303000303000301800301C00781E00F81F00F81F8020020000000000000"></canvas>      <span class="code-num">82</span>
     </td>
-    <td class="g-printable ev-inferred" title="83 ($53) — screen code 83 — U+0053 LATIN CAPITAL LETTER S — inferred, not tested">
+    <td class="g-printable ev-manual" title="83 ($53) — screen code 83 — U+0053 LATIN CAPITAL LETTER S — from the manual, not tested">
 <canvas data-b="00000000000000180000FF8001FFC003C7C003818003800003800003C00001FC0000FF00003F800003C00001C00000E00000E00301C007FFC007FF8007FF00023C00000000000000"></canvas>      <span class="code-num">83</span>
     </td>
-    <td class="g-printable ev-inferred" title="84 ($54) — screen code 84 — U+0054 LATIN CAPITAL LETTER T — inferred, not tested">
+    <td class="g-printable ev-manual" title="84 ($54) — screen code 84 — U+0054 LATIN CAPITAL LETTER T — from the manual, not tested">
 <canvas data-b="00000000000003FAC007FFE00FFFE00FFFF00E3CF0063860003C00001C00001800001800003800003800003800003800003800003800007E0000FE0000FE00003000000000000000"></canvas>      <span class="code-num">84</span>
     </td>
-    <td class="g-printable ev-inferred" title="85 ($55) — screen code 85 — U+0055 LATIN CAPITAL LETTER U — inferred, not tested">
+    <td class="g-printable ev-manual" title="85 ($55) — screen code 85 — U+0055 LATIN CAPITAL LETTER U — from the manual, not tested">
 <canvas data-b="0000000000000F00F01FC3F80F81F80701F00700E00700E00700E00700E00700E00700E00700E00700E00700E00700E00780E00380C003F7C001FF8001FF00003000000000000000"></canvas>      <span class="code-num">85</span>
     </td>
-    <td class="g-printable ev-inferred" title="86 ($56) — screen code 86 — U+0056 LATIN CAPITAL LETTER V — inferred, not tested">
+    <td class="g-printable ev-manual" title="86 ($56) — screen code 86 — U+0056 LATIN CAPITAL LETTER V — from the manual, not tested">
 <canvas data-b="0000000000000700E00FC3F81FC3F807C1F80380E00380E00380E00380E00381E003C1C001C3C001E3C001F7C000E78000FF80007F00007F00007E00003C00001800000000000000"></canvas>      <span class="code-num">86</span>
     </td>
-    <td class="g-printable ev-inferred" title="87 ($57) — screen code 87 — U+0057 LATIN CAPITAL LETTER W — inferred, not tested">
+    <td class="g-printable ev-manual" title="87 ($57) — screen code 87 — U+0057 LATIN CAPITAL LETTER W — from the manual, not tested">
 <canvas data-b="0000000000000000600F81F00FC3F80F81F00700E00700E00701E00710E00711C00339C0033CC003FDC003FFC003FFC001FFC001EF8001FF8001EF8000E700004200000000000000"></canvas>      <span class="code-num">87</span>
     </td>
-    <td class="g-printable ev-inferred" title="88 ($58) — screen code 88 — U+0058 LATIN CAPITAL LETTER X — inferred, not tested">
+    <td class="g-printable ev-manual" title="88 ($58) — screen code 88 — U+0058 LATIN CAPITAL LETTER X — from the manual, not tested">
 <canvas data-b="0000000000000F81E00F81F80F81F001C1C001E38000E78000F600001E00001C00003C00003E00007E0000E70000C3800183800381C00F00E00F81F01F81F00501F0000000000000"></canvas>      <span class="code-num">88</span>
     </td>
-    <td class="g-printable ev-inferred" title="89 ($59) — screen code 89 — U+0059 LATIN CAPITAL LETTER Y — inferred, not tested">
+    <td class="g-printable ev-manual" title="89 ($59) — screen code 89 — U+0059 LATIN CAPITAL LETTER Y — from the manual, not tested">
 <canvas data-b="0000000000000400C00F81F01F83F80F83F00783E003C3C001E78000FF0000FF00007E00003C00003C00001C00003C00001C00001800003C00007E00007E00003E00000000000000"></canvas>      <span class="code-num">89</span>
     </td>
-    <td class="g-printable ev-inferred" title="90 ($5A) — screen code 90 — U+005A LATIN CAPITAL LETTER Z — inferred, not tested">
+    <td class="g-printable ev-manual" title="90 ($5A) — screen code 90 — U+005A LATIN CAPITAL LETTER Z — from the manual, not tested">
 <canvas data-b="000000000000001F8003FF8007FF8007FF80070780021F00001E00003C0000780000700000E00001C00001C0000380200780E00781E007FFF007FFF007FFE00753C0000000000000"></canvas>      <span class="code-num">90</span>
     </td>
-    <td class="g-printable ev-inferred" title="91 ($5B) — screen code 91 — U+005B LEFT SQUARE BRACKET — inferred, not tested">
+    <td class="g-printable ev-manual" title="91 ($5B) — screen code 91 — U+005B LEFT SQUARE BRACKET — from the manual, not tested">
 <canvas data-b="00000000000000380000FF0000FF0001FE0000E00000E00000E00000E00000E00000E00000E00001E00000E00001E00000E00001E00000FF0000FF8000FF00003C00000000000000"></canvas>      <span class="code-num">91</span>
     </td>
-    <td class="g-printable ev-inferred" title="92 ($5C) — screen code 92 — U+005C REVERSE SOLIDUS — inferred, not tested">
+    <td class="g-printable ev-manual" title="92 ($5C) — screen code 92 — U+005C REVERSE SOLIDUS — from the manual, not tested">
 <canvas data-b="00000000000003000007800007800003C00003C00001E00001F00000F800007800007C00003E00001F00000F000007800007C00007E00003E00001E00000E0000000000000000000"></canvas>      <span class="code-num">92</span>
     </td>
-    <td class="g-printable ev-inferred" title="93 ($5D) — screen code 93 — U+005D RIGHT SQUARE BRACKET — inferred, not tested">
+    <td class="g-printable ev-manual" title="93 ($5D) — screen code 93 — U+005D RIGHT SQUARE BRACKET — from the manual, not tested">
 <canvas data-b="00000000000000FE0000FF0000FF80006F00000780000700000700000700000780000700000700000700000700000700000700000700007F0001FF0000FF0000EE00000000000000"></canvas>      <span class="code-num">93</span>
     </td>
-    <td class="g-printable ev-inferred" title="94 ($5E) — Up arrow — screen code 94 — U+2191 UPWARDS ARROW — inferred, not tested">
+    <td class="g-printable ev-manual" title="94 ($5E) — Up arrow — screen code 94 — U+2191 UPWARDS ARROW — from the manual, not tested">
 <canvas data-b="000000000000000000001000003C00007E0000FF8001FF0000FF00003D00003C00003C00003C00001C00003C00003C00003C00001C00000800000000000000000000000000000000"></canvas>      <span class="code-num">94</span>
     </td>
-    <td class="g-printable ev-inferred" title="95 ($5F) — Back arrow — screen code 95 — U+2190 LEFTWARDS ARROW — inferred, not tested">
+    <td class="g-printable ev-manual" title="95 ($5F) — Back arrow — screen code 95 — U+2190 LEFTWARDS ARROW — from the manual, not tested">
 <canvas data-b="00000000000000000000000000000000000000000000000001C00003E00007FFC007FFE003FFE003E08001C000004000000000000000000000000000000000000000000000000000"></canvas>      <span class="code-num">95</span>
     </td>
   </tr>
   <tr><th>6_</th>
-    <td class="g-unused ev-inferred" title="96 ($60) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="96 ($60) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">96</span>
     </td>
-    <td class="g-unused ev-inferred" title="97 ($61) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="97 ($61) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">97</span>
     </td>
-    <td class="g-unused ev-inferred" title="98 ($62) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="98 ($62) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">98</span>
     </td>
-    <td class="g-unused ev-inferred" title="99 ($63) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="99 ($63) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">99</span>
     </td>
-    <td class="g-unused ev-inferred" title="100 ($64) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="100 ($64) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">100</span>
     </td>
-    <td class="g-unused ev-inferred" title="101 ($65) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="101 ($65) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">101</span>
     </td>
-    <td class="g-unused ev-inferred" title="102 ($66) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="102 ($66) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">102</span>
     </td>
-    <td class="g-unused ev-inferred" title="103 ($67) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="103 ($67) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">103</span>
     </td>
-    <td class="g-unused ev-inferred" title="104 ($68) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="104 ($68) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">104</span>
     </td>
-    <td class="g-unused ev-inferred" title="105 ($69) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="105 ($69) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">105</span>
     </td>
-    <td class="g-unused ev-inferred" title="106 ($6A) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="106 ($6A) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">106</span>
     </td>
-    <td class="g-unused ev-inferred" title="107 ($6B) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="107 ($6B) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">107</span>
     </td>
-    <td class="g-unused ev-inferred" title="108 ($6C) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="108 ($6C) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">108</span>
     </td>
-    <td class="g-unused ev-inferred" title="109 ($6D) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="109 ($6D) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">109</span>
     </td>
-    <td class="g-unused ev-inferred" title="110 ($6E) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="110 ($6E) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">110</span>
     </td>
-    <td class="g-unused ev-inferred" title="111 ($6F) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="111 ($6F) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">111</span>
     </td>
   </tr>
   <tr><th>7_</th>
-    <td class="g-unused ev-inferred" title="112 ($70) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="112 ($70) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">112</span>
     </td>
-    <td class="g-unused ev-inferred" title="113 ($71) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="113 ($71) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">113</span>
     </td>
-    <td class="g-unused ev-inferred" title="114 ($72) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="114 ($72) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">114</span>
     </td>
-    <td class="g-unused ev-inferred" title="115 ($73) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="115 ($73) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">115</span>
     </td>
-    <td class="g-unused ev-inferred" title="116 ($74) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="116 ($74) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">116</span>
     </td>
-    <td class="g-unused ev-inferred" title="117 ($75) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="117 ($75) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">117</span>
     </td>
-    <td class="g-unused ev-inferred" title="118 ($76) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="118 ($76) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">118</span>
     </td>
-    <td class="g-unused ev-inferred" title="119 ($77) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="119 ($77) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">119</span>
     </td>
-    <td class="g-unused ev-inferred" title="120 ($78) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="120 ($78) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">120</span>
     </td>
-    <td class="g-unused ev-inferred" title="121 ($79) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="121 ($79) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">121</span>
     </td>
-    <td class="g-unused ev-inferred" title="122 ($7A) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="122 ($7A) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">122</span>
     </td>
-    <td class="g-unused ev-inferred" title="123 ($7B) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="123 ($7B) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">123</span>
     </td>
-    <td class="g-unused ev-inferred" title="124 ($7C) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="124 ($7C) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">124</span>
     </td>
-    <td class="g-unused ev-inferred" title="125 ($7D) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="125 ($7D) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">125</span>
     </td>
-    <td class="g-unused ev-inferred" title="126 ($7E) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="126 ($7E) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">126</span>
     </td>
-    <td class="g-control ev-inferred" title="127 ($7F) — RUB-OUT — control: Tape use only — inferred, not tested">
+    <td class="g-control ev-manual" title="127 ($7F) — RUB-OUT — control: Punched with all holes, ignored by the printer — from the manual, not tested">
 <span class="token">RUB-OUT</span>
       <span class="code-num">127</span>
     </td>
@@ -1301,406 +1304,409 @@
   <thead><tr><th></th><th>_0</th><th>_1</th><th>_2</th><th>_3</th><th>_4</th><th>_5</th><th>_6</th><th>_7</th><th>_8</th><th>_9</th><th>_A</th><th>_B</th><th>_C</th><th>_D</th><th>_E</th><th>_F</th></tr></thead>
   <tbody>
   <tr><th>0_</th>
-    <td class="g-unused ev-inferred" title="0 ($00) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="0 ($00) — not used: NUL: ignored by the printer and the carriage, punched on tape with no data holes; often sent after CR as padding, to give the carriage time to return. — from the manual, not tested">
       <span class="code-num">0</span>
     </td>
-    <td class="g-unused ev-inferred" title="1 ($01) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="1 ($01) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">1</span>
     </td>
-    <td class="g-unused ev-inferred" title="2 ($02) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="2 ($02) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">2</span>
     </td>
-    <td class="g-unused ev-inferred" title="3 ($03) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="3 ($03) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">3</span>
     </td>
-    <td class="g-control ev-inferred" title="4 ($04) — EOT — control: End of transmission — inferred, not tested">
+    <td class="g-control ev-manual" title="4 ($04) — EOT — control: Acts only through the optional function contacts — from the manual, not tested">
 <span class="token">EOT</span>
       <span class="code-num">4</span>
     </td>
-    <td class="g-unused ev-inferred" title="5 ($05) — not used — inferred, not tested">
+    <td class="g-control ev-manual" title="5 ($05) — ENQ (WRU) — control: Starts the answerback drum — from the manual, not tested">
+<span class="token">ENQ (WRU)</span>
       <span class="code-num">5</span>
     </td>
-    <td class="g-unused ev-inferred" title="6 ($06) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="6 ($06) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">6</span>
     </td>
-    <td class="g-control ev-inferred" title="7 ($07) — BELL — control: Rings the bell of the Teletype — inferred, not tested">
-<span class="token">BELL</span>
+    <td class="g-control ev-manual" title="7 ($07) — BEL — control: Rings the bell — from the manual, not tested">
+<span class="token">BEL</span>
       <span class="code-num">7</span>
     </td>
-    <td class="g-unused ev-inferred" title="8 ($08) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="8 ($08) — not used: BS: the ASR-33 has no backspace mechanism; ignored. — from the manual, not tested">
       <span class="code-num">8</span>
     </td>
-    <td class="g-unused ev-inferred" title="9 ($09) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="9 ($09) — not used: HT: the ASR-33 has no tabulation mechanism; ignored. — from the manual, not tested">
       <span class="code-num">9</span>
     </td>
-    <td class="g-control ev-inferred" title="10 ($0A) — LF — control: Line feed — inferred, not tested">
+    <td class="g-control ev-manual" title="10 ($0A) — LF — control: Line feed — from the manual, not tested">
 <span class="token">LF</span>
       <span class="code-num">10</span>
     </td>
-    <td class="g-unused ev-inferred" title="11 ($0B) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="11 ($0B) — not used: VT: the ASR-33 has no vertical tabulation; ignored, unless the optional function contacts use it. — from the manual, not tested">
       <span class="code-num">11</span>
     </td>
-    <td class="g-unused ev-inferred" title="12 ($0C) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="12 ($0C) — not used: FF: the ASR-33 has no form feed; ignored. — from the manual, not tested">
       <span class="code-num">12</span>
     </td>
-    <td class="g-control ev-inferred" title="13 ($0D) — CR — control: Carriage return — inferred, not tested">
+    <td class="g-control ev-manual" title="13 ($0D) — CR — control: Carriage return — from the manual, not tested">
 <span class="token">CR</span>
       <span class="code-num">13</span>
     </td>
-    <td class="g-unused ev-inferred" title="14 ($0E) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="14 ($0E) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">14</span>
     </td>
-    <td class="g-unused ev-inferred" title="15 ($0F) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="15 ($0F) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">15</span>
     </td>
   </tr>
   <tr><th>1_</th>
-    <td class="g-unused ev-inferred" title="16 ($10) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="16 ($10) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">16</span>
     </td>
-    <td class="g-unused ev-inferred" title="17 ($11) — not used — inferred, not tested">
+    <td class="g-control ev-manual" title="17 ($11) — DC1 (X-ON) — control: Starts the tape reader — from the manual, not tested">
+<span class="token">DC1 (X-ON)</span>
       <span class="code-num">17</span>
     </td>
-    <td class="g-unused ev-inferred" title="18 ($12) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="18 ($12) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">18</span>
     </td>
-    <td class="g-unused ev-inferred" title="19 ($13) — not used — inferred, not tested">
+    <td class="g-control ev-manual" title="19 ($13) — DC3 (X-OFF) — control: Stops the tape reader — from the manual, not tested">
+<span class="token">DC3 (X-OFF)</span>
       <span class="code-num">19</span>
     </td>
-    <td class="g-unused ev-inferred" title="20 ($14) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="20 ($14) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">20</span>
     </td>
-    <td class="g-unused ev-inferred" title="21 ($15) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="21 ($15) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">21</span>
     </td>
-    <td class="g-unused ev-inferred" title="22 ($16) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="22 ($16) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">22</span>
     </td>
-    <td class="g-unused ev-inferred" title="23 ($17) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="23 ($17) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">23</span>
     </td>
-    <td class="g-unused ev-inferred" title="24 ($18) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="24 ($18) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">24</span>
     </td>
-    <td class="g-unused ev-inferred" title="25 ($19) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="25 ($19) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">25</span>
     </td>
-    <td class="g-unused ev-inferred" title="26 ($1A) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="26 ($1A) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">26</span>
     </td>
-    <td class="g-unused ev-inferred" title="27 ($1B) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="27 ($1B) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">27</span>
     </td>
-    <td class="g-unused ev-inferred" title="28 ($1C) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="28 ($1C) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">28</span>
     </td>
-    <td class="g-unused ev-inferred" title="29 ($1D) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="29 ($1D) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">29</span>
     </td>
-    <td class="g-unused ev-inferred" title="30 ($1E) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="30 ($1E) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">30</span>
     </td>
-    <td class="g-unused ev-inferred" title="31 ($1F) — not used — inferred, not tested">
+    <td class="g-unused ev-manual" title="31 ($1F) — not used: Ignored by the ASR-33: no printing, no carriage movement. — from the manual, not tested">
       <span class="code-num">31</span>
     </td>
   </tr>
   <tr><th>2_</th>
-    <td class="g-printable ev-inferred" title="32 ($20) — Space — screen code 32 — U+0020 SPACE — inferred, not tested">
+    <td class="g-printable ev-manual" title="32 ($20) — Space — screen code 32 — U+0020 SPACE — from the manual, not tested">
 <canvas data-b="000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"></canvas>      <span class="code-num">32</span>
     </td>
-    <td class="g-printable ev-inferred" title="33 ($21) — screen code 33 — U+0021 EXCLAMATION MARK — inferred, not tested">
+    <td class="g-printable ev-manual" title="33 ($21) — screen code 33 — U+0021 EXCLAMATION MARK — from the manual, not tested">
 <canvas data-b="000000000000003C00007E00007E00007E00007C00007C00003C00007E00007C00007C00007C00003C00003800001800003C00007E00007E00007E00007C00003C00000000000000"></canvas>      <span class="code-num">33</span>
     </td>
-    <td class="g-printable ev-inferred" title="34 ($22) — screen code 34 — U+0022 QUOTATION MARK — inferred, not tested">
+    <td class="g-printable ev-manual" title="34 ($22) — screen code 34 — U+0022 QUOTATION MARK — from the manual, not tested">
 <canvas data-b="00000000000001C1C007E7C007C3E007C3C003C7C003C3C003C7C003C180018100000000000000000000000000000000000000000000000000000000000000000000000000000000"></canvas>      <span class="code-num">34</span>
     </td>
-    <td class="g-printable ev-inferred" title="35 ($23) — screen code 35 — U+0023 NUMBER SIGN — inferred, not tested">
+    <td class="g-printable ev-manual" title="35 ($23) — screen code 35 — U+0023 NUMBER SIGN — from the manual, not tested">
 <canvas data-b="000000000000000000001CC0001DC000198000398000198000338001FFE0007F8000670003FF8007FF8003FF0001CC0003DC00039C0003FC00033800011000000000000000000000"></canvas>      <span class="code-num">35</span>
     </td>
-    <td class="g-printable ev-inferred" title="36 ($24) — Pound sign — screen code 36 — U+00A3 POUND SIGN — inferred, not tested">
+    <td class="g-printable ev-manual" title="36 ($24) — Pound sign — screen code 36 — U+00A3 POUND SIGN — from the manual, not tested">
 <canvas data-b="00000000000000F80001FE00030F0002030003000003000001800001C00001F00001F80001F80000300000300001F00003F00007780007FBE007FFE001FFC0014F80000000000000"></canvas>      <span class="code-num">36</span>
     </td>
-    <td class="g-printable ev-inferred" title="37 ($25) — screen code 37 — U+0025 PERCENT SIGN — inferred, not tested">
+    <td class="g-printable ev-manual" title="37 ($25) — screen code 37 — U+0025 PERCENT SIGN — from the manual, not tested">
 <canvas data-b="000000000000027B8003FFC007F7800621800E33000F770007F60003DE00001C00001C000038000070000073C000EFE001EEE001CE7003CEF003CFE0038FE0020280000000000000"></canvas>      <span class="code-num">37</span>
     </td>
-    <td class="g-printable ev-inferred" title="38 ($26) — screen code 38 — U+0026 AMPERSAND — inferred, not tested">
+    <td class="g-printable ev-manual" title="38 ($26) — screen code 38 — U+0026 AMPERSAND — from the manual, not tested">
 <canvas data-b="000000000000001C00003F00007F80007380007380007380007700007F0000FE0001FC0007F86007DCF0071FF00707C00F9F8007DFC007FFF003FDF000F060008000000000000000"></canvas>      <span class="code-num">38</span>
     </td>
-    <td class="g-printable ev-inferred" title="39 ($27) — screen code 39 — U+0027 APOSTROPHE — inferred, not tested">
+    <td class="g-printable ev-manual" title="39 ($27) — screen code 39 — U+0027 APOSTROPHE — from the manual, not tested">
 <canvas data-b="000000000000001800007E00007E00007E00007E00003E00003C00003C00001C00000C00000000000000000000000000000000000000000000000000000000000000000000000000"></canvas>      <span class="code-num">39</span>
     </td>
-    <td class="g-printable ev-inferred" title="40 ($28) — screen code 40 — U+0028 LEFT PARENTHESIS — inferred, not tested">
+    <td class="g-printable ev-manual" title="40 ($28) — screen code 40 — U+0028 LEFT PARENTHESIS — from the manual, not tested">
 <canvas data-b="000000000000000200001F00001F00003E0000380000700000700000E00000E00000E00000E00000F00000F000007800007C00003F00003F00001F00000E00000200000000000000"></canvas>      <span class="code-num">40</span>
     </td>
-    <td class="g-printable ev-inferred" title="41 ($29) — screen code 41 — U+0029 RIGHT PARENTHESIS — inferred, not tested">
+    <td class="g-printable ev-manual" title="41 ($29) — screen code 41 — U+0029 RIGHT PARENTHESIS — from the manual, not tested">
 <canvas data-b="00000000000000E00000F000007800003C00001E00001E00000E00000700000700000700000700000F00000F00000E00001E00003E00007C0000F80001F00000C000000000000000"></canvas>      <span class="code-num">41</span>
     </td>
-    <td class="g-printable ev-inferred" title="42 ($2A) — screen code 42 — U+002A ASTERISK — inferred, not tested">
+    <td class="g-printable ev-manual" title="42 ($2A) — screen code 42 — U+002A ASTERISK — from the manual, not tested">
 <canvas data-b="0000000000000000000000000018000038000018000718E007D9E003FFE001FF80007F0000FF8007FFE007DBE00718E0003C00003800003800000000000000000000000000000000"></canvas>      <span class="code-num">42</span>
     </td>
-    <td class="g-printable ev-inferred" title="43 ($2B) — screen code 43 — U+002B PLUS SIGN — inferred, not tested">
+    <td class="g-printable ev-manual" title="43 ($2B) — screen code 43 — U+002B PLUS SIGN — from the manual, not tested">
 <canvas data-b="000000000000000000000000000000003800003C00003C00007C0001FC0007FFF00FFFF007FFF0007C00003C00003C00007C00003C00003000000000000000000000000000000000"></canvas>      <span class="code-num">43</span>
     </td>
-    <td class="g-printable ev-inferred" title="44 ($2C) — screen code 44 — U+002C COMMA — inferred, not tested">
+    <td class="g-printable ev-manual" title="44 ($2C) — screen code 44 — U+002C COMMA — from the manual, not tested">
 <canvas data-b="000000000000000000000000000000000000000000000000000000000000000000000000000400001F00001F80000F80000F00001F0000FF0000FE0001F80000F000000000000000"></canvas>      <span class="code-num">44</span>
     </td>
-    <td class="g-printable ev-inferred" title="45 ($2D) — screen code 45 — U+002D HYPHEN-MINUS — inferred, not tested">
+    <td class="g-printable ev-manual" title="45 ($2D) — screen code 45 — U+002D HYPHEN-MINUS — from the manual, not tested">
 <canvas data-b="00000000000000000000000000000000000000000000000000000003FFE007FFE00FFFF007FFF003FFE0010000000000000000000000000000000000000000000000000000000000"></canvas>      <span class="code-num">45</span>
     </td>
-    <td class="g-printable ev-inferred" title="46 ($2E) — screen code 46 — U+002E FULL STOP — inferred, not tested">
+    <td class="g-printable ev-manual" title="46 ($2E) — screen code 46 — U+002E FULL STOP — from the manual, not tested">
 <canvas data-b="000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000003C00003E00003E00003C00001C00000000000000000000000000"></canvas>      <span class="code-num">46</span>
     </td>
-    <td class="g-printable ev-inferred" title="47 ($2F) — screen code 47 — U+002F SOLIDUS — inferred, not tested">
+    <td class="g-printable ev-manual" title="47 ($2F) — screen code 47 — U+002F SOLIDUS — from the manual, not tested">
 <canvas data-b="0000000000000000400000E00001E00003E00003C0000780000F80001F00001E00003E00007C0000F80000F00001F00003E00003E00007C000078000070000030000000000000000"></canvas>      <span class="code-num">47</span>
     </td>
   </tr>
   <tr><th>3_</th>
-    <td class="g-printable ev-inferred" title="48 ($30) — screen code 48 — U+0030 DIGIT ZERO — inferred, not tested">
+    <td class="g-printable ev-manual" title="48 ($30) — screen code 48 — U+0030 DIGIT ZERO — from the manual, not tested">
 <canvas data-b="000000000000007E0000FF0001FF8001E78003C78001C78001C38001C38001C38001C38001C38001838001C78001C78001C3C001C3C001FF8001FF00007E00001800000000000000"></canvas>      <span class="code-num">48</span>
     </td>
-    <td class="g-printable ev-inferred" title="49 ($31) — screen code 49 — U+0031 DIGIT ONE — inferred, not tested">
+    <td class="g-printable ev-manual" title="49 ($31) — screen code 49 — U+0031 DIGIT ONE — from the manual, not tested">
 <canvas data-b="000000000000001800003C00007E00007C00003C00001C00003C00001C00001C00001C00003C00003C00003C00003C00003C00003C00007E00007F0000FF00007E00000000000000"></canvas>      <span class="code-num">49</span>
     </td>
-    <td class="g-printable ev-inferred" title="50 ($32) — screen code 50 — U+0032 DIGIT TWO — inferred, not tested">
+    <td class="g-printable ev-manual" title="50 ($32) — screen code 50 — U+0032 DIGIT TWO — from the manual, not tested">
 <canvas data-b="00000000000000180000FE0001FF8003C7C00781C00701C00601E00701E00001E00003C0003F8000FF0001F00003C0000380000700E007FFE007FFE003FFE0013900000000000000"></canvas>      <span class="code-num">50</span>
     </td>
-    <td class="g-printable ev-inferred" title="51 ($33) — screen code 51 — U+0033 DIGIT THREE — inferred, not tested">
+    <td class="g-printable ev-manual" title="51 ($33) — screen code 51 — U+0033 DIGIT THREE — from the manual, not tested">
 <canvas data-b="000000000000007E0000FF8001FFC003C3C00380C00000C00001C00003C00007C00007800007C00001E00001E00300E00780E00781E007FFC003FFC000FF80003C00000000000000"></canvas>      <span class="code-num">51</span>
     </td>
-    <td class="g-printable ev-inferred" title="52 ($34) — screen code 52 — U+0034 DIGIT FOUR — inferred, not tested">
+    <td class="g-printable ev-manual" title="52 ($34) — screen code 52 — U+0034 DIGIT FOUR — from the manual, not tested">
 <canvas data-b="000000000000001800003C000038000038C00079E000F1E000F0E001E1E003C1E003C1E00780E00F81E00FC1E00FFFF00FFFF80FEBE00003F00007F00003F0000060000000000000"></canvas>      <span class="code-num">52</span>
     </td>
-    <td class="g-printable ev-inferred" title="53 ($35) — screen code 53 — U+0035 DIGIT FIVE — inferred, not tested">
+    <td class="g-printable ev-manual" title="53 ($35) — screen code 53 — U+0035 DIGIT FIVE — from the manual, not tested">
 <canvas data-b="000000000000007F8001FFC003FFC003800003000003000003880003FF0003FF800397C00003C00001E00001E00000E00601E00703C007FFC003FF8003FF00007E00000000000000"></canvas>      <span class="code-num">53</span>
     </td>
-    <td class="g-printable ev-inferred" title="54 ($36) — screen code 54 — U+0036 DIGIT SIX — inferred, not tested">
+    <td class="g-printable ev-manual" title="54 ($36) — screen code 54 — U+0036 DIGIT SIX — from the manual, not tested">
 <canvas data-b="000000000000000E00003E00007E0000F80001E00001C00003800003FF0007FF8007C7C00781C00700E00700E00700E00700E00381C003F7C001FF8000FF00004E00000000000000"></canvas>      <span class="code-num">54</span>
     </td>
-    <td class="g-printable ev-inferred" title="55 ($37) — screen code 55 — U+0037 DIGIT SEVEN — inferred, not tested">
+    <td class="g-printable ev-manual" title="55 ($37) — screen code 55 — U+0037 DIGIT SEVEN — from the manual, not tested">
 <canvas data-b="00000000000003FFC003FFE007FFC00783C00703C0020780000780000F00000F00000E00001E00001C00001C00003C00003800003800003800007800003800003000000000000000"></canvas>      <span class="code-num">55</span>
     </td>
-    <td class="g-printable ev-inferred" title="56 ($38) — screen code 56 — U+0038 DIGIT EIGHT — inferred, not tested">
+    <td class="g-printable ev-manual" title="56 ($38) — screen code 56 — U+0038 DIGIT EIGHT — from the manual, not tested">
 <canvas data-b="00000000000000FC0001FEC003FFC00381C00703C007038007078003CF0003FF0001FF8003B7C00781C00700E00700E00700E00781E003FFC003FFC001FF80007E00000000000000"></canvas>      <span class="code-num">56</span>
     </td>
-    <td class="g-printable ev-inferred" title="57 ($39) — screen code 57 — U+0039 DIGIT NINE — inferred, not tested">
+    <td class="g-printable ev-manual" title="57 ($39) — screen code 57 — U+0039 DIGIT NINE — from the manual, not tested">
 <canvas data-b="000000000000007C0001FF0003FF8003D3C00781C00700E00700E00700E00301E00383E001FFC001FFE0007FC0000380000F80001F00003F0000FC0001F80000E000000000000000"></canvas>      <span class="code-num">57</span>
     </td>
-    <td class="g-printable ev-inferred" title="58 ($3A) — screen code 58 — U+003A COLON — inferred, not tested">
+    <td class="g-printable ev-manual" title="58 ($3A) — screen code 58 — U+003A COLON — from the manual, not tested">
 <canvas data-b="000000000000000000000000000000000000003C00007E00007E00007E00007E00003C00000000000000001800003E00007E00007E00007E00007C00003800000000000000000000"></canvas>      <span class="code-num">58</span>
     </td>
-    <td class="g-printable ev-inferred" title="59 ($3B) — screen code 59 — U+003B SEMICOLON — inferred, not tested">
+    <td class="g-printable ev-manual" title="59 ($3B) — screen code 59 — U+003B SEMICOLON — from the manual, not tested">
 <canvas data-b="000000000000000000001E00001F00003F00003F80003F00001E00000C00000000001E00003F00003F00003F00001F00003E0000FC0001FC0001F000008000000000000000000000"></canvas>      <span class="code-num">59</span>
     </td>
-    <td class="g-printable ev-inferred" title="60 ($3C) — screen code 60 — U+003C LESS-THAN SIGN — inferred, not tested">
+    <td class="g-printable ev-manual" title="60 ($3C) — screen code 60 — U+003C LESS-THAN SIGN — from the manual, not tested">
 <canvas data-b="0000000000000000000000000000600000F0000FF0007FE001FF4007FC000FC0000F80000FF00003FE0000FF80001FF00003F00001E0000000000000000000000000000000000000"></canvas>      <span class="code-num">60</span>
     </td>
-    <td class="g-printable ev-inferred" title="61 ($3D) — screen code 61 — U+003D EQUALS SIGN — inferred, not tested">
+    <td class="g-printable ev-manual" title="61 ($3D) — screen code 61 — U+003D EQUALS SIGN — from the manual, not tested">
 <canvas data-b="00000000000000000000000000000000000000000000000003FFC003FFC00001800000000136C003FFC003FFC0000000000000000000000000000000000000000000000000000000"></canvas>      <span class="code-num">61</span>
     </td>
-    <td class="g-printable ev-inferred" title="62 ($3E) — screen code 62 — U+003E GREATER-THAN SIGN — inferred, not tested">
+    <td class="g-printable ev-manual" title="62 ($3E) — screen code 62 — U+003E GREATER-THAN SIGN — from the manual, not tested">
 <canvas data-b="00000000000000000000000000000003800003E00003F80001FF00007F80001FC00007E0000FE0001FC000FF0003FC0003F00003E000018000000000000000000000000000000000"></canvas>      <span class="code-num">62</span>
     </td>
-    <td class="g-printable ev-inferred" title="63 ($3F) — screen code 63 — U+003F QUESTION MARK — inferred, not tested">
+    <td class="g-printable ev-manual" title="63 ($3F) — screen code 63 — U+003F QUESTION MARK — from the manual, not tested">
 <canvas data-b="00000000000000300000FE0001FF8003FFC003C3C00381C00103C0000780000FC0001F80001F00001C00001C00001800000000001000003E00003E00003E00003C00000000000000"></canvas>      <span class="code-num">63</span>
     </td>
   </tr>
   <tr><th>4_</th>
-    <td class="g-printable ev-inferred" title="64 ($40) — screen code 64 — U+0040 COMMERCIAL AT — inferred, not tested">
+    <td class="g-printable ev-manual" title="64 ($40) — screen code 64 — U+0040 COMMERCIAL AT — from the manual, not tested">
 <canvas data-b="000000000000003C0000FF0001FF8003C3C00301C0031CC0073EE007FFE006F7E00667C006C7E007E7E007FFC0077FC0071C0003810003C78001FF8000FF00007C00000000000000"></canvas>      <span class="code-num">64</span>
     </td>
-    <td class="g-printable ev-inferred" title="65 ($41) — screen code 65 — U+0041 LATIN CAPITAL LETTER A — inferred, not tested">
+    <td class="g-printable ev-manual" title="65 ($41) — screen code 65 — U+0041 LATIN CAPITAL LETTER A — from the manual, not tested">
 <canvas data-b="000000000000001000003800003C00007E0000EE0000E70001C3000183800181800183C00301C00301C007FFC007FFE0071BE00700E00700F00F81F01F83F80F01F0000000000000"></canvas>      <span class="code-num">65</span>
     </td>
-    <td class="g-printable ev-inferred" title="66 ($42) — screen code 66 — U+0042 LATIN CAPITAL LETTER B — inferred, not tested">
+    <td class="g-printable ev-manual" title="66 ($42) — screen code 66 — U+0042 LATIN CAPITAL LETTER B — from the manual, not tested">
 <canvas data-b="0000000000000300000FFF800FFFE00788E00300700380700380700380F003B1E003FFE003FFE00383F00300700300780380700700700F41F00FFFE00FFFC00FFF80000000000000"></canvas>      <span class="code-num">66</span>
     </td>
-    <td class="g-printable ev-inferred" title="67 ($43) — screen code 67 — U+0043 LATIN CAPITAL LETTER C — inferred, not tested">
+    <td class="g-printable ev-manual" title="67 ($43) — screen code 67 — U+0043 LATIN CAPITAL LETTER C — from the manual, not tested">
 <canvas data-b="000000000000000C0000FFC001FFC003C3E00381E00300E00700000700000700000700000700000700000700400780E00781E00381E003E7C001FF8000FF80007E00000000000000"></canvas>      <span class="code-num">67</span>
     </td>
-    <td class="g-printable ev-inferred" title="68 ($44) — screen code 68 — U+0044 LATIN CAPITAL LETTER D — inferred, not tested">
+    <td class="g-printable ev-manual" title="68 ($44) — screen code 68 — U+0044 LATIN CAPITAL LETTER D — from the manual, not tested">
 <canvas data-b="00000000000001DE000FFF800FFF800701E00701E00700600380700700700380700380700380700380700380700380700780E00783E007FFC00FFF800FFF0007E000000000000000"></canvas>      <span class="code-num">68</span>
     </td>
-    <td class="g-printable ev-inferred" title="69 ($45) — screen code 69 — U+0045 LATIN CAPITAL LETTER E — inferred, not tested">
+    <td class="g-printable ev-manual" title="69 ($45) — screen code 69 — U+0045 LATIN CAPITAL LETTER E — from the manual, not tested">
 <canvas data-b="00000000000007FFC00FFFE00FDFF00300F0038060038000038800039E0003FE0003FE0003DE00038E000384000380200380700380700FFFF00FFFF00FFFE0020080000000000000"></canvas>      <span class="code-num">69</span>
     </td>
-    <td class="g-printable ev-inferred" title="70 ($46) — screen code 70 — U+0046 LATIN CAPITAL LETTER F — inferred, not tested">
+    <td class="g-printable ev-manual" title="70 ($46) — screen code 70 — U+0046 LATIN CAPITAL LETTER F — from the manual, not tested">
 <canvas data-b="0000000000000FFFC00FFFF00FFFF00F80F0078060038000038C0003BE0003FE0003FE0003FE00039E000784000380000380000780000FC0000FC0000FC000058000000000000000"></canvas>      <span class="code-num">70</span>
     </td>
-    <td class="g-printable ev-inferred" title="71 ($47) — screen code 71 — U+0047 LATIN CAPITAL LETTER G — inferred, not tested">
+    <td class="g-printable ev-manual" title="71 ($47) — screen code 71 — U+0047 LATIN CAPITAL LETTER G — from the manual, not tested">
 <canvas data-b="000000000000003F8000FFC001FFC001C3C00381C00300C00300000700000701000307C0030FE00707E00700E00780E00781E00381E003E7E001FFE000FFE0007EC0000000000000"></canvas>      <span class="code-num">71</span>
     </td>
-    <td class="g-printable ev-inferred" title="72 ($48) — screen code 72 — U+0048 LATIN CAPITAL LETTER H — inferred, not tested">
+    <td class="g-printable ev-manual" title="72 ($48) — screen code 72 — U+0048 LATIN CAPITAL LETTER H — from the manual, not tested">
 <canvas data-b="0000000000000F81F01F83F81F83F80781F00700E00781E007C1E0037FE007FFE003FFE007F7E00781E00781E00781E00781E00781F00FC3F01FC3F81F81F00700F0000000000000"></canvas>      <span class="code-num">72</span>
     </td>
-    <td class="g-printable ev-inferred" title="73 ($49) — screen code 73 — U+0049 LATIN CAPITAL LETTER I — inferred, not tested">
+    <td class="g-printable ev-manual" title="73 ($49) — screen code 73 — U+0049 LATIN CAPITAL LETTER I — from the manual, not tested">
 <canvas data-b="000000000000007F0000FF0001FF0000FE00003C00003800003800003800003C00003800003800003800003C00003C00003C00007C0000FF0001FF8001FF8000FF00000000000000"></canvas>      <span class="code-num">73</span>
     </td>
-    <td class="g-printable ev-inferred" title="74 ($4A) — screen code 74 — U+004A LATIN CAPITAL LETTER J — inferred, not tested">
+    <td class="g-printable ev-manual" title="74 ($4A) — screen code 74 — U+004A LATIN CAPITAL LETTER J — from the manual, not tested">
 <canvas data-b="0000000000000001000003E00003F00003E00001C00001C00001C00001C00000C00000C00381C00781C007C1C007C1C00741C007C7C007FFC001FF00007C00000800000000000000"></canvas>      <span class="code-num">74</span>
     </td>
-    <td class="g-printable ev-inferred" title="75 ($4B) — screen code 75 — U+004B LATIN CAPITAL LETTER K — inferred, not tested">
+    <td class="g-printable ev-manual" title="75 ($4B) — screen code 75 — U+004B LATIN CAPITAL LETTER K — from the manual, not tested">
 <canvas data-b="0000000000000681E00F83F00F83F00303C0030780038F80030E00031E0003BE0003FE0003F70003C7000387000387800383C00703E00F83F00FC3F00783F0010060000000000000"></canvas>      <span class="code-num">75</span>
     </td>
-    <td class="g-printable ev-inferred" title="76 ($4C) — screen code 76 — U+004C LATIN CAPITAL LETTER L — inferred, not tested">
+    <td class="g-printable ev-manual" title="76 ($4C) — screen code 76 — U+004C LATIN CAPITAL LETTER L — from the manual, not tested">
 <canvas data-b="0000000000000FC0000FC00007C00007800003800003800003800003800003800003C00003800003800003800003807003C07807FFF00FFFF01FFFF007FFF0000000000000000000"></canvas>      <span class="code-num">76</span>
     </td>
-    <td class="g-printable ev-inferred" title="77 ($4D) — screen code 77 — U+004D LATIN CAPITAL LETTER M — inferred, not tested">
+    <td class="g-printable ev-manual" title="77 ($4D) — screen code 77 — U+004D LATIN CAPITAL LETTER M — from the manual, not tested">
 <canvas data-b="0000000000000A00000E00F00F01F00F83E00F83E007C7E00EE7E00EEFE00E7EE00E7CE00E3C600E3C600E1CE00E08E00600E00F00E00F01E01FC3F81F83F80601E0000000000000"></canvas>      <span class="code-num">77</span>
     </td>
-    <td class="g-printable ev-inferred" title="78 ($4E) — screen code 78 — U+004E LATIN CAPITAL LETTER N — inferred, not tested">
+    <td class="g-printable ev-manual" title="78 ($4E) — screen code 78 — U+004E LATIN CAPITAL LETTER N — from the manual, not tested">
 <canvas data-b="0000000000000F00D00F83F00FC1F007E0F007E0E007F07006F8F00778F00738F0061CF0071CF0061EF0071EF0070FE00707F00787E00FC3E00FC3E00FC1C0000000000000000000"></canvas>      <span class="code-num">78</span>
     </td>
-    <td class="g-printable ev-inferred" title="79 ($4F) — screen code 79 — U+004F LATIN CAPITAL LETTER O — inferred, not tested">
+    <td class="g-printable ev-manual" title="79 ($4F) — screen code 79 — U+004F LATIN CAPITAL LETTER O — from the manual, not tested">
 <canvas data-b="00000000000001FF8003FFC007AFE00700E00600600200E00700E00700E00600E00780E00700E00700E00780E00700E00700E00700E00799E003FFE003FFC001FF80000000000000"></canvas>      <span class="code-num">79</span>
     </td>
   </tr>
   <tr><th>5_</th>
-    <td class="g-printable ev-inferred" title="80 ($50) — screen code 80 — U+0050 LATIN CAPITAL LETTER P — inferred, not tested">
+    <td class="g-printable ev-manual" title="80 ($50) — screen code 80 — U+0050 LATIN CAPITAL LETTER P — from the manual, not tested">
 <canvas data-b="00000000000007FE000FFFC00FFFE00FFFF00F01F00300F00380700380F80381F003A7F001FFC003FFC003A7000380000780000700000F80000FC0000FC000068000000000000000"></canvas>      <span class="code-num">80</span>
     </td>
-    <td class="g-printable ev-inferred" title="81 ($51) — screen code 81 — U+0051 LATIN CAPITAL LETTER Q — inferred, not tested">
+    <td class="g-printable ev-manual" title="81 ($51) — screen code 81 — U+0051 LATIN CAPITAL LETTER Q — from the manual, not tested">
 <canvas data-b="000000000000007C0000FF0001FF800387C00701C00701C00601C00601C00E01E00600E00600E00E79E00678E0063DE0061FC0078FC003EFC003FFF001FFF0003FE0000000000000"></canvas>      <span class="code-num">81</span>
     </td>
-    <td class="g-printable ev-inferred" title="82 ($52) — screen code 82 — U+0052 LATIN CAPITAL LETTER R — inferred, not tested">
+    <td class="g-printable ev-manual" title="82 ($52) — screen code 82 — U+0052 LATIN CAPITAL LETTER R — from the manual, not tested">
 <canvas data-b="0000000000000C00000FFF000FFF000FFFC00701C00300E00300E00301E00307C003FF8003FF0003DF000303000303000301800301C00781E00F81F00F81F8020020000000000000"></canvas>      <span class="code-num">82</span>
     </td>
-    <td class="g-printable ev-inferred" title="83 ($53) — screen code 83 — U+0053 LATIN CAPITAL LETTER S — inferred, not tested">
+    <td class="g-printable ev-manual" title="83 ($53) — screen code 83 — U+0053 LATIN CAPITAL LETTER S — from the manual, not tested">
 <canvas data-b="00000000000000180000FF8001FFC003C7C003818003800003800003C00001FC0000FF00003F800003C00001C00000E00000E00301C007FFC007FF8007FF00023C00000000000000"></canvas>      <span class="code-num">83</span>
     </td>
-    <td class="g-printable ev-inferred" title="84 ($54) — screen code 84 — U+0054 LATIN CAPITAL LETTER T — inferred, not tested">
+    <td class="g-printable ev-manual" title="84 ($54) — screen code 84 — U+0054 LATIN CAPITAL LETTER T — from the manual, not tested">
 <canvas data-b="00000000000003FAC007FFE00FFFE00FFFF00E3CF0063860003C00001C00001800001800003800003800003800003800003800003800007E0000FE0000FE00003000000000000000"></canvas>      <span class="code-num">84</span>
     </td>
-    <td class="g-printable ev-inferred" title="85 ($55) — screen code 85 — U+0055 LATIN CAPITAL LETTER U — inferred, not tested">
+    <td class="g-printable ev-manual" title="85 ($55) — screen code 85 — U+0055 LATIN CAPITAL LETTER U — from the manual, not tested">
 <canvas data-b="0000000000000F00F01FC3F80F81F80701F00700E00700E00700E00700E00700E00700E00700E00700E00700E00700E00780E00380C003F7C001FF8001FF00003000000000000000"></canvas>      <span class="code-num">85</span>
     </td>
-    <td class="g-printable ev-inferred" title="86 ($56) — screen code 86 — U+0056 LATIN CAPITAL LETTER V — inferred, not tested">
+    <td class="g-printable ev-manual" title="86 ($56) — screen code 86 — U+0056 LATIN CAPITAL LETTER V — from the manual, not tested">
 <canvas data-b="0000000000000700E00FC3F81FC3F807C1F80380E00380E00380E00380E00381E003C1C001C3C001E3C001F7C000E78000FF80007F00007F00007E00003C00001800000000000000"></canvas>      <span class="code-num">86</span>
     </td>
-    <td class="g-printable ev-inferred" title="87 ($57) — screen code 87 — U+0057 LATIN CAPITAL LETTER W — inferred, not tested">
+    <td class="g-printable ev-manual" title="87 ($57) — screen code 87 — U+0057 LATIN CAPITAL LETTER W — from the manual, not tested">
 <canvas data-b="0000000000000000600F81F00FC3F80F81F00700E00700E00701E00710E00711C00339C0033CC003FDC003FFC003FFC001FFC001EF8001FF8001EF8000E700004200000000000000"></canvas>      <span class="code-num">87</span>
     </td>
-    <td class="g-printable ev-inferred" title="88 ($58) — screen code 88 — U+0058 LATIN CAPITAL LETTER X — inferred, not tested">
+    <td class="g-printable ev-manual" title="88 ($58) — screen code 88 — U+0058 LATIN CAPITAL LETTER X — from the manual, not tested">
 <canvas data-b="0000000000000F81E00F81F80F81F001C1C001E38000E78000F600001E00001C00003C00003E00007E0000E70000C3800183800381C00F00E00F81F01F81F00501F0000000000000"></canvas>      <span class="code-num">88</span>
     </td>
-    <td class="g-printable ev-inferred" title="89 ($59) — screen code 89 — U+0059 LATIN CAPITAL LETTER Y — inferred, not tested">
+    <td class="g-printable ev-manual" title="89 ($59) — screen code 89 — U+0059 LATIN CAPITAL LETTER Y — from the manual, not tested">
 <canvas data-b="0000000000000400C00F81F01F83F80F83F00783E003C3C001E78000FF0000FF00007E00003C00003C00001C00003C00001C00001800003C00007E00007E00003E00000000000000"></canvas>      <span class="code-num">89</span>
     </td>
-    <td class="g-printable ev-inferred" title="90 ($5A) — screen code 90 — U+005A LATIN CAPITAL LETTER Z — inferred, not tested">
+    <td class="g-printable ev-manual" title="90 ($5A) — screen code 90 — U+005A LATIN CAPITAL LETTER Z — from the manual, not tested">
 <canvas data-b="000000000000001F8003FF8007FF8007FF80070780021F00001E00003C0000780000700000E00001C00001C0000380200780E00781E007FFF007FFF007FFE00753C0000000000000"></canvas>      <span class="code-num">90</span>
     </td>
-    <td class="g-printable ev-inferred" title="91 ($5B) — screen code 91 — U+005B LEFT SQUARE BRACKET — inferred, not tested">
+    <td class="g-printable ev-manual" title="91 ($5B) — screen code 91 — U+005B LEFT SQUARE BRACKET — from the manual, not tested">
 <canvas data-b="00000000000000380000FF0000FF0001FE0000E00000E00000E00000E00000E00000E00000E00001E00000E00001E00000E00001E00000FF0000FF8000FF00003C00000000000000"></canvas>      <span class="code-num">91</span>
     </td>
-    <td class="g-printable ev-inferred" title="92 ($5C) — screen code 92 — U+005C REVERSE SOLIDUS — inferred, not tested">
+    <td class="g-printable ev-manual" title="92 ($5C) — screen code 92 — U+005C REVERSE SOLIDUS — from the manual, not tested">
 <canvas data-b="00000000000003000007800007800003C00003C00001E00001F00000F800007800007C00003E00001F00000F000007800007C00007E00003E00001E00000E0000000000000000000"></canvas>      <span class="code-num">92</span>
     </td>
-    <td class="g-printable ev-inferred" title="93 ($5D) — screen code 93 — U+005D RIGHT SQUARE BRACKET — inferred, not tested">
+    <td class="g-printable ev-manual" title="93 ($5D) — screen code 93 — U+005D RIGHT SQUARE BRACKET — from the manual, not tested">
 <canvas data-b="00000000000000FE0000FF0000FF80006F00000780000700000700000700000780000700000700000700000700000700000700000700007F0001FF0000FF0000EE00000000000000"></canvas>      <span class="code-num">93</span>
     </td>
-    <td class="g-printable ev-inferred" title="94 ($5E) — Up arrow — screen code 94 — U+2191 UPWARDS ARROW — inferred, not tested">
+    <td class="g-printable ev-manual" title="94 ($5E) — Up arrow — screen code 94 — U+2191 UPWARDS ARROW — from the manual, not tested">
 <canvas data-b="000000000000000000001000003C00007E0000FF8001FF0000FF00003D00003C00003C00003C00001C00003C00003C00003C00001C00000800000000000000000000000000000000"></canvas>      <span class="code-num">94</span>
     </td>
-    <td class="g-printable ev-inferred" title="95 ($5F) — Back arrow — screen code 95 — U+2190 LEFTWARDS ARROW — inferred, not tested">
+    <td class="g-printable ev-manual" title="95 ($5F) — Back arrow — screen code 95 — U+2190 LEFTWARDS ARROW — from the manual, not tested">
 <canvas data-b="00000000000000000000000000000000000000000000000001C00003E00007FFC007FFE003FFE003E08001C000004000000000000000000000000000000000000000000000000000"></canvas>      <span class="code-num">95</span>
     </td>
   </tr>
   <tr><th>6_</th>
-    <td class="g-unused ev-inferred" title="96 ($60) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="96 ($60) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">96</span>
     </td>
-    <td class="g-unused ev-inferred" title="97 ($61) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="97 ($61) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">97</span>
     </td>
-    <td class="g-unused ev-inferred" title="98 ($62) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="98 ($62) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">98</span>
     </td>
-    <td class="g-unused ev-inferred" title="99 ($63) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="99 ($63) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">99</span>
     </td>
-    <td class="g-unused ev-inferred" title="100 ($64) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="100 ($64) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">100</span>
     </td>
-    <td class="g-unused ev-inferred" title="101 ($65) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="101 ($65) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">101</span>
     </td>
-    <td class="g-unused ev-inferred" title="102 ($66) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="102 ($66) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">102</span>
     </td>
-    <td class="g-unused ev-inferred" title="103 ($67) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="103 ($67) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">103</span>
     </td>
-    <td class="g-unused ev-inferred" title="104 ($68) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="104 ($68) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">104</span>
     </td>
-    <td class="g-unused ev-inferred" title="105 ($69) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="105 ($69) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">105</span>
     </td>
-    <td class="g-unused ev-inferred" title="106 ($6A) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="106 ($6A) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">106</span>
     </td>
-    <td class="g-unused ev-inferred" title="107 ($6B) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="107 ($6B) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">107</span>
     </td>
-    <td class="g-unused ev-inferred" title="108 ($6C) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="108 ($6C) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">108</span>
     </td>
-    <td class="g-unused ev-inferred" title="109 ($6D) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="109 ($6D) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">109</span>
     </td>
-    <td class="g-unused ev-inferred" title="110 ($6E) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="110 ($6E) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">110</span>
     </td>
-    <td class="g-unused ev-inferred" title="111 ($6F) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="111 ($6F) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">111</span>
     </td>
   </tr>
   <tr><th>7_</th>
-    <td class="g-unused ev-inferred" title="112 ($70) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="112 ($70) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">112</span>
     </td>
-    <td class="g-unused ev-inferred" title="113 ($71) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="113 ($71) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">113</span>
     </td>
-    <td class="g-unused ev-inferred" title="114 ($72) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="114 ($72) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">114</span>
     </td>
-    <td class="g-unused ev-inferred" title="115 ($73) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="115 ($73) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">115</span>
     </td>
-    <td class="g-unused ev-inferred" title="116 ($74) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="116 ($74) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">116</span>
     </td>
-    <td class="g-unused ev-inferred" title="117 ($75) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="117 ($75) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">117</span>
     </td>
-    <td class="g-unused ev-inferred" title="118 ($76) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="118 ($76) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">118</span>
     </td>
-    <td class="g-unused ev-inferred" title="119 ($77) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="119 ($77) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">119</span>
     </td>
-    <td class="g-unused ev-inferred" title="120 ($78) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="120 ($78) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">120</span>
     </td>
-    <td class="g-unused ev-inferred" title="121 ($79) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="121 ($79) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">121</span>
     </td>
-    <td class="g-unused ev-inferred" title="122 ($7A) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="122 ($7A) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">122</span>
     </td>
-    <td class="g-unused ev-inferred" title="123 ($7B) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="123 ($7B) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">123</span>
     </td>
-    <td class="g-unused ev-inferred" title="124 ($7C) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="124 ($7C) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">124</span>
     </td>
-    <td class="g-unused ev-inferred" title="125 ($7D) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="125 ($7D) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">125</span>
     </td>
-    <td class="g-unused ev-inferred" title="126 ($7E) — not used: Lower case: not on the ASR-33 (64 characters); on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — inferred, not tested">
+    <td class="g-unused ev-manual" title="126 ($7E) — not used: Not on the ASR-33: no lower case, no ` { | } ~ [10]. What the printer does when it receives them is not stated; on some Teletypes these codes duplicate the upper-case ones [4] p. 68. — from the manual, not tested">
       <span class="code-num">126</span>
     </td>
-    <td class="g-control ev-inferred" title="127 ($7F) — RUB-OUT — control: Tape use only — inferred, not tested">
+    <td class="g-control ev-manual" title="127 ($7F) — RUB-OUT — control: Punched with all holes, ignored by the printer — from the manual, not tested">
 <span class="token">RUB-OUT</span>
       <span class="code-num">127</span>
     </td>
@@ -1730,7 +1736,7 @@
       <td><strong>Reconstruction</strong>: the Teletype ASR-33 printed with a type cylinder, so there are no original bitmaps. The 64 glyphs (US print head, with the UK variant that has the pound sign in place of $) are rasterized from the TrueType font "TeleType ASR 33 UK" (© 2015 David Bonham), drawn from photographs of Teletype listings.</td></tr>
   <tr><td rowspan="3">Character codes</td>      <td><code>DARTMOUTH_1ED_core</code></td>
       <td class="st-complete">complete</td>
-      <td>The codes of the Teletype ASR-33 (ASCII-1963, 64 printable characters, upper case only), INFERRED: no statement shows them before CHANGE in the 4th edition, whose table [4] p. 68 gives the same codes. The internal code of the GE-235 is not entered. DTSS-Win keeps statements typed in lower case in the listing but rejects them at RUN (<code>ILLEGAL INSTRUCTION IN 10</code>); it prints ( and [ of a label alike, as [.</td></tr>
+      <td>The codes of the Teletype ASR-33 (ASCII-1963, 64 printable characters, upper case only [10]), as the terminal handles them: the printer decodes six control codes (ENQ, BEL, LF, CR, DC1, DC3) with its function levers and ignores the others; NUL and RUB-OUT are punched on tape (information supplied by the editor). The table of CHANGE in the 4th edition [4] p. 68 gives the same codes. The internal code of the GE-235 is not entered. DTSS-Win keeps statements typed in lower case in the listing but rejects them at RUN (<code>ILLEGAL INSTRUCTION IN 10</code>); it prints ( and [ of a label alike, as [.</td></tr>
   <tr>      <td><code>DARTMOUTH_2ED_layer</code></td>
       <td class="st-complete">complete</td>
       <td>As in the 1st edition.</td></tr>
@@ -1805,8 +1811,8 @@
 </dialog>
 </main>
 <footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
-<script src="../static/search_index.js?v=1795376075"></script>
-<script src="../static/search.js?v=1795376075"></script>
-<script src="../static/dialect.js?v=1795376075"></script>
+<script src="../static/search_index.js?v=1795390139"></script>
+<script src="../static/search.js?v=1795390139"></script>
+<script src="../static/dialect.js?v=1795390139"></script>
 </body>
 </html>

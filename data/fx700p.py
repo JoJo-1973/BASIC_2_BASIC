@@ -1037,7 +1037,7 @@ EXAMPLES = {
     "ATN": [X("Arc tangent", "MODE 4\nATN 1", "45")],
     "SQR": [X("Sum of roots", "SQR 2+SQR 5", "3.65028154", manual=True, page="20")],
     "EXP": [X("Power of e", "10 E=EXP 1\n20 INPUT A,B\n30 C=(A+E↑1.5)/B\n40 PRINT C", None,
-              "e is put in E, then e↑1.5 is calculated.", manual=True, page="62")],
+              "e is put in E, then (A+e↑1.5)/B is calculated.", manual=True, page="62")],
     "LN": [X("Natural logarithm", "LN 90", "4.49980967", manual=True, page="19")],
     "LOG": [X("Gain in dB", "10 INPUT X,Y\n20 Z=20*LOG (Y/X)\n30 PRINT Z", None, manual=True, page="62")],
     "INT": [X("Integer part", "INT (7800/96)", "81", manual=True, page="20")],
