@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>&gt;= · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795376075">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+
+<p class="breadcrumbs"></p>
+<h1><span class="entry-name">&gt;=</span> <span class="category">Operator</span></h1>
+
+<dl class="facts">
+  <dt>Layer</dt><dd><code>DARTMOUTH_CARD_layer</code> — Card BASIC</dd>
+  <dt>Dialects</dt><dd><em>none: the entry is always redefined or removed</em></dd>
+  <dt>In Dartmouth Card BASIC October 1964</dt>
+  <dd>removed by a higher layer</dd>
+</dl>
+
+<div class="box">
+<p>Redefines <a href="../entries/gt-eq-200040.html">&gt;=</a> of the previous layer.
+<br><strong>Differences:</strong> Relations are written as three-letter words on the cards [2] p. 50.</p></div>
+
+
+
+
+
+
+
+
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795376075"></script>
+<script src="../static/search.js?v=1795376075"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

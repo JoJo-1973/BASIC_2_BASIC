@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>= · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795376075">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth BASIC (4th edition)">
+<a class="prev" rel="prev" href="../entries/lt-gt-200098.html" title="Previous entry (←)">‹ <span>&lt;&gt;</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_4.html#entries">66 / 69</a>
+<a class="next" rel="next" href="../entries/gt-200099.html" title="Next entry (→)"><span>&gt;</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/DARTMOUTH_BASIC_4.html#entries">Dartmouth BASIC (4th edition)</a> ›</p>
+<h1><span class="entry-name">=</span> <span class="category">Operator</span></h1>
+<div class="subtitle md"><p>Equal: only in the relation of IF...THEN.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>DARTMOUTH_4ED_layer</code> — Dartmouth BASIC, 4th edition</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/DARTMOUTH_BASIC_4.html">Dartmouth BASIC (4th edition)</a></dd>
+</dl>
+
+<div class="box">
+<p>Redefines <a href="../entries/eq-200037.html">=</a> of the previous layer.
+<br><strong>Differences:</strong> Also between two strings.</p></div>
+
+<section class="form">
+  <h2>Between numbers</h2>
+  <pre class="syntax"><span class="par">a</span> <span class="kw">=</span> <span class="par">b</span></pre>
+
+  <p><strong>Class:</strong> <span title="Comparisons: =, &lt;, &gt;, &lt;=, &gt;=, &lt;&gt;">relational operators</span> · <strong>Precedence:</strong> 1 <small>(<a href="../dialects/DARTMOUTH_BASIC_4.html#operators">precedence table</a>)</small></p>
+  <p class="features"><a href="../dialects/DARTMOUTH_BASIC_4.html#features">Value produced by a true comparison</a>: <code>None</code> <span class="tag warning">to verify</span><br><a href="../dialects/DARTMOUTH_BASIC_4.html#features">Value produced by a false comparison</a>: <code>None</code> <span class="tag warning">to verify</span></p>
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">a</code></td>
+      <td>formula</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code class="par">b</code></td>
+      <td>formula</td>
+      <td></td>
+      <td></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#OP_EQ" class="action-code">OP_EQ</a> Equal (numbers)
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Casio FX-700P BASIC</span>
+<a href="../entries/eq-100052.html">=</a> <small>(Between numbers)</small></li>
+      <li><span class="dia">Dartmouth BASIC (1st edition)</span>
+<a href="../entries/eq-200037.html">=</a></li>
+      <li><span class="dia">Dartmouth BASIC (2nd edition)</span>
+<a href="../entries/eq-200037.html">=</a></li>
+      <li><span class="dia">Dartmouth BASIC (3rd edition)</span>
+<a href="../entries/eq-200037.html">=</a></li>
+      <li><span class="dia">Dartmouth Card BASIC October 1964</span>
+<a href="../entries/EQU-200120.html">EQU</a></li>
+      <li><span class="dia">Sinclair ZX80 BASIC 4K ROM</span>
+<a href="../entries/eq-36.html">=</a> <small>(Between numbers)</small></li>
+    </ul>
+  </div>
+</section>
+<section class="form">
+  <h2>Between strings</h2>
+  <pre class="syntax"><span class="par">a</span> <span class="kw">=</span> <span class="par">b</span></pre>
+
+  <p><strong>Class:</strong> <span title="Comparisons: =, &lt;, &gt;, &lt;=, &gt;=, &lt;&gt;">relational operators</span> · <strong>Precedence:</strong> 1 <small>(<a href="../dialects/DARTMOUTH_BASIC_4.html#operators">precedence table</a>)</small></p>
+  <p class="features"><a href="../dialects/DARTMOUTH_BASIC_4.html#features">Value produced by a true comparison</a>: <code>None</code> <span class="tag warning">to verify</span><br><a href="../dialects/DARTMOUTH_BASIC_4.html#features">Value produced by a false comparison</a>: <code>None</code> <span class="tag warning">to verify</span></p>
+
+  <table class="parameters">
+    <thead><tr><th>Parameter</th><th>Type</th><th>Allowed values</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr>
+      <td><code class="par">a</code></td>
+      <td>string value</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code class="par">b</code></td>
+      <td>string value</td>
+      <td></td>
+      <td></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#OP_STR_EQ" class="action-code">OP_STR_EQ</a> Equal (strings)
+</p>
+    <ul class="equivalents">
+      <li><span class="dia">Casio FX-700P BASIC</span>
+<a href="../entries/eq-100052.html">=</a> <small>(Between strings)</small></li>
+      <li><span class="dia">Sinclair ZX80 BASIC 4K ROM</span>
+<a href="../entries/eq-36.html">=</a> <small>(Between strings)</small></li>
+    </ul>
+<p class="uncovered">No equivalent in: Dartmouth BASIC (1st edition), Dartmouth BASIC (2nd edition), Dartmouth BASIC (3rd edition), Dartmouth Card BASIC October 1964</p>  </div>
+</section>
+
+<h2>Tables</h2>
+<ul class="entry-tables">
+  <li><a href="../dialects/DARTMOUTH_BASIC_4.html#operators">Operator precedence</a>      <small>— operator</small></li>
+</ul>
+
+<h2>Errors</h2>
+<table class="entry-errors">
+  <thead><tr><th>Error</th><th>When</th></tr></thead>
+  <tbody>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL_FORMULA</code></a></td>
+      <td>The formula is not written correctly. <small>Parameters: <code class="par">a</code>, <code class="par">b</code>.</small> <small>Form: Between numbers.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>UNDEFINED_FUNCTION</code></a></td>
+      <td>The formula uses an FN function that is never defined. <small>Parameters: <code class="par">a</code>, <code class="par">b</code>.</small> <small>Form: Between numbers.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED_STRING</code></a></td>
+      <td>A string where a number is wanted. <small>Parameters: <code class="par">a</code>, <code class="par">b</code>.</small> <small>Form: Between numbers.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  <tr><td><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED_STRING</code></a></td>
+      <td>A number where a string is wanted. <small>Parameters: <code class="par">a</code>, <code class="par">b</code>.</small> <small>Form: Between strings.</small> <small class="rule" title="Derived from the parameter types, actions or operator class">automatic</small> <span class="tag warning">to verify</span></td></tr>
+  </tbody>
+</table>
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/eq-200039.html">=</a></td>
+      <td></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Equal <span class="tag warning">to verify</span></h3>  <pre>10 LET A = 2
+20 IF A = 2 THEN 50
+30 PRINT &#34;NO&#34;
+40 GO TO 99
+50 PRINT &#34;YES&#34;
+99 END</pre>
+<pre class="output" title="Expected result">YES</pre></figure>
+
+<h2>Notes</h2>
+<div class="md"><p>Strings are compared in alphabetical order, trailing blanks ignored [4] p. 65.</p></div>
+
+<h2>Sources</h2>
+<ul><li><a href="https://archive.org/stream/bitsavers_dartmouthB_3679804/BASIC_4th_Edition_Jan68_djvu.txt">BASIC, 4th Edition (January 1968)</a>, Dartmouth College (1968), p. 12, 65</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth BASIC (4th edition)">
+<a class="prev" rel="prev" href="../entries/lt-gt-200098.html" title="Previous entry (←)">‹ <span>&lt;&gt;</span></a>  <a class="where" href="../dialects/DARTMOUTH_BASIC_4.html#entries">66 / 69</a>
+<a class="next" rel="next" href="../entries/gt-200099.html" title="Next entry (→)"><span>&gt;</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795376075"></script>
+<script src="../static/search.js?v=1795376075"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>

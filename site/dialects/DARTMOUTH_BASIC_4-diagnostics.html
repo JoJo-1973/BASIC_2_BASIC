@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Diagnostics · Dartmouth BASIC (4th edition) · BASIC 2 BASIC</title>
-<link rel="stylesheet" href="../static/style.css?v=1795374828">
+<link rel="stylesheet" href="../static/style.css?v=1795376075">
 </head>
 <body data-root="../">
 <header class="topbar">
@@ -32,19 +32,19 @@
   <tr class=""><td><a href="#examples">Examples</a></td>
       <td class="num">70</td></tr>
   <tr class=""><td><a href="#errors">Errors</a></td>
-      <td class="num">225</td></tr>
+      <td class="num">237</td></tr>
   <tr class=""><td><a href="#syntax">Syntax</a></td>
-      <td class="num">39</td></tr>
+      <td class="num">45</td></tr>
   <tr class=""><td><a href="#evidence">Evidence</a></td>
-      <td class="num">317</td></tr>
+      <td class="num">335</td></tr>
   <tr class=""><td><a href="#features">Features</a></td>
       <td class="num">12</td></tr>
   <tr class=""><td><a href="#tables">Tables</a></td>
       <td class="num">9</td></tr>
   <tr class=""><td><a href="#gaps">Gaps</a></td>
-      <td class="num">118</td></tr>
+      <td class="num">129</td></tr>
   </tbody>
-  <tfoot><tr><th>Total</th><th class="num">799</th></tr></tfoot>
+  <tfoot><tr><th>Total</th><th class="num">846</th></tr></tfoot>
 </table>
 
 <h2 id="open-questions">Open questions <small>9</small></h2>
@@ -407,14 +407,14 @@ END</code></td></tr>
       <td>Division by zero</td>
       <td><code class="diag-code">10 PRINT 1/0
 20 END</code></td></tr>
-  <tr><td class="name"><a href="../entries/lt-200041.html">&lt;</a></td>
+  <tr><td class="name"><a href="../entries/lt-200101.html">&lt;</a></td>
       <td>Less than</td>
       <td><code class="diag-code">10 IF 1 &lt; 2 THEN 40
 20 PRINT &#34;NO&#34;
 30 GO TO 99
 40 PRINT &#34;YES&#34;
 99 END</code></td></tr>
-  <tr><td class="name"><a href="../entries/eq-200037.html">=</a></td>
+  <tr><td class="name"><a href="../entries/eq-200097.html">=</a></td>
       <td>Equal</td>
       <td><code class="diag-code">10 LET A = 2
 20 IF A = 2 THEN 50
@@ -430,9 +430,9 @@ END</code></td></tr>
 </table>
 <h3>Entries without examples <small>15</small></h3>
 
-<p class="diag-list"><a href="../entries/LENGTH-200055.html">LENGTH</a> · <a href="../entries/NEW-200046.html">NEW</a> · <a href="../entries/OLD-200047.html">OLD</a> · <a href="../entries/RENAME-200049.html">RENAME</a> · <a href="../entries/REPLACE-200076.html">REPLACE</a> · <a href="../entries/RUN-200002.html">RUN</a> · <a href="../entries/SAVE-200004.html">SAVE</a> · <a href="../entries/SCRATCH-200048.html">SCRATCH</a> · <a href="../entries/STOP-200005.html">STOP</a> · <a href="../entries/SYSTEM-200056.html">SYSTEM</a> · <a href="../entries/UNSAVE-200051.html">UNSAVE</a> · <a href="../entries/lt-eq-200042.html">&lt;=</a> · <a href="../entries/lt-gt-200038.html">&lt;&gt;</a> · <a href="../entries/gt-200039.html">&gt;</a> · <a href="../entries/gt-eq-200040.html">&gt;=</a></p>
-<h2 id="errors">Errors <small>225</small></h2>
-<h3>Errors of the entries to verify <small>212</small></h3>
+<p class="diag-list"><a href="../entries/LENGTH-200055.html">LENGTH</a> · <a href="../entries/NEW-200046.html">NEW</a> · <a href="../entries/OLD-200047.html">OLD</a> · <a href="../entries/RENAME-200049.html">RENAME</a> · <a href="../entries/REPLACE-200076.html">REPLACE</a> · <a href="../entries/RUN-200002.html">RUN</a> · <a href="../entries/SAVE-200004.html">SAVE</a> · <a href="../entries/SCRATCH-200048.html">SCRATCH</a> · <a href="../entries/STOP-200005.html">STOP</a> · <a href="../entries/SYSTEM-200056.html">SYSTEM</a> · <a href="../entries/UNSAVE-200051.html">UNSAVE</a> · <a href="../entries/lt-eq-200102.html">&lt;=</a> · <a href="../entries/lt-gt-200098.html">&lt;&gt;</a> · <a href="../entries/gt-200099.html">&gt;</a> · <a href="../entries/gt-eq-200100.html">&gt;=</a></p>
+<h2 id="errors">Errors <small>237</small></h2>
+<h3>Errors of the entries to verify <small>224</small></h3>
 
 <table>
   <thead><tr><th>Entry</th><th>Error</th><th>Rule</th><th>Detail</th><th>Cause</th></tr></thead>
@@ -1101,150 +1101,198 @@ END</code></td></tr>
         <td><small>parameter_kind</small></td>
         <td><small>NUM_EXPR · <code class="par">b</code></small></td>
         <td>The formula uses an FN function that is never defined.</td></tr>
-    <tr><td class="name" rowspan="6"><a href="../entries/lt-200041.html">&lt;</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+    <tr><td class="name" rowspan="8"><a href="../entries/lt-200101.html">&lt;</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL FORMULA</code></a></td>
         <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
         <td>The formula is not written correctly.</td></tr>
     <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED STRING OPERATION</code></a></td>
         <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
         <td>A string where a number is wanted.</td></tr>
     <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>UNDEFINED FUNCTION FN</code></a></td>
         <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
         <td>The formula uses an FN function that is never defined.</td></tr>
     <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL FORMULA</code></a></td>
         <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
         <td>The formula is not written correctly.</td></tr>
     <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED STRING OPERATION</code></a></td>
         <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
         <td>A string where a number is wanted.</td></tr>
     <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>UNDEFINED FUNCTION FN</code></a></td>
         <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
         <td>The formula uses an FN function that is never defined.</td></tr>
-    <tr><td class="name" rowspan="6"><a href="../entries/lt-eq-200042.html">&lt;=</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED STRING OPERATION</code></a></td>
         <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td><small>STR_EXPR · <code class="par">a</code> (Between strings)</small></td>
+        <td>A number where a string is wanted.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED STRING OPERATION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">b</code> (Between strings)</small></td>
+        <td>A number where a string is wanted.</td></tr>
+    <tr><td class="name" rowspan="8"><a href="../entries/lt-eq-200102.html">&lt;=</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
         <td>The formula is not written correctly.</td></tr>
     <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED STRING OPERATION</code></a></td>
         <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
         <td>A string where a number is wanted.</td></tr>
     <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>UNDEFINED FUNCTION FN</code></a></td>
         <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
-        <td>The formula uses an FN function that is never defined.</td></tr>
-    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL FORMULA</code></a></td>
-        <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
-        <td>The formula is not written correctly.</td></tr>
-    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED STRING OPERATION</code></a></td>
-        <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
-        <td>A string where a number is wanted.</td></tr>
-    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>UNDEFINED FUNCTION FN</code></a></td>
-        <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
-        <td>The formula uses an FN function that is never defined.</td></tr>
-    <tr><td class="name" rowspan="6"><a href="../entries/lt-gt-200038.html">&lt;&gt;</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL FORMULA</code></a></td>
-        <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
-        <td>The formula is not written correctly.</td></tr>
-    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED STRING OPERATION</code></a></td>
-        <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
-        <td>A string where a number is wanted.</td></tr>
-    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>UNDEFINED FUNCTION FN</code></a></td>
-        <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
         <td>The formula uses an FN function that is never defined.</td></tr>
     <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL FORMULA</code></a></td>
         <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
         <td>The formula is not written correctly.</td></tr>
     <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED STRING OPERATION</code></a></td>
         <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
         <td>A string where a number is wanted.</td></tr>
     <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>UNDEFINED FUNCTION FN</code></a></td>
         <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
         <td>The formula uses an FN function that is never defined.</td></tr>
-    <tr><td class="name" rowspan="6"><a href="../entries/eq-200037.html">=</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED STRING OPERATION</code></a></td>
         <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td><small>STR_EXPR · <code class="par">a</code> (Between strings)</small></td>
+        <td>A number where a string is wanted.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED STRING OPERATION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">b</code> (Between strings)</small></td>
+        <td>A number where a string is wanted.</td></tr>
+    <tr><td class="name" rowspan="8"><a href="../entries/lt-gt-200098.html">&lt;&gt;</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
         <td>The formula is not written correctly.</td></tr>
     <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED STRING OPERATION</code></a></td>
         <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
         <td>A string where a number is wanted.</td></tr>
     <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>UNDEFINED FUNCTION FN</code></a></td>
         <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
-        <td>The formula uses an FN function that is never defined.</td></tr>
-    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL FORMULA</code></a></td>
-        <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
-        <td>The formula is not written correctly.</td></tr>
-    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED STRING OPERATION</code></a></td>
-        <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
-        <td>A string where a number is wanted.</td></tr>
-    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>UNDEFINED FUNCTION FN</code></a></td>
-        <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
-        <td>The formula uses an FN function that is never defined.</td></tr>
-    <tr><td class="name" rowspan="6"><a href="../entries/gt-200039.html">&gt;</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL FORMULA</code></a></td>
-        <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
-        <td>The formula is not written correctly.</td></tr>
-    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED STRING OPERATION</code></a></td>
-        <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
-        <td>A string where a number is wanted.</td></tr>
-    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>UNDEFINED FUNCTION FN</code></a></td>
-        <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
         <td>The formula uses an FN function that is never defined.</td></tr>
     <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL FORMULA</code></a></td>
         <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
         <td>The formula is not written correctly.</td></tr>
     <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED STRING OPERATION</code></a></td>
         <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
         <td>A string where a number is wanted.</td></tr>
     <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>UNDEFINED FUNCTION FN</code></a></td>
         <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
         <td>The formula uses an FN function that is never defined.</td></tr>
-    <tr><td class="name" rowspan="6"><a href="../entries/gt-eq-200040.html">&gt;=</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED STRING OPERATION</code></a></td>
         <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td><small>STR_EXPR · <code class="par">a</code> (Between strings)</small></td>
+        <td>A number where a string is wanted.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED STRING OPERATION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">b</code> (Between strings)</small></td>
+        <td>A number where a string is wanted.</td></tr>
+    <tr><td class="name" rowspan="8"><a href="../entries/eq-200097.html">=</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
         <td>The formula is not written correctly.</td></tr>
     <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED STRING OPERATION</code></a></td>
         <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
         <td>A string where a number is wanted.</td></tr>
     <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>UNDEFINED FUNCTION FN</code></a></td>
         <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">a</code></small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
         <td>The formula uses an FN function that is never defined.</td></tr>
     <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL FORMULA</code></a></td>
         <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
         <td>The formula is not written correctly.</td></tr>
     <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED STRING OPERATION</code></a></td>
         <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
         <td>A string where a number is wanted.</td></tr>
     <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>UNDEFINED FUNCTION FN</code></a></td>
         <td><small>parameter_kind</small></td>
-        <td><small>NUM_EXPR · <code class="par">b</code></small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
         <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED STRING OPERATION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">a</code> (Between strings)</small></td>
+        <td>A number where a string is wanted.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED STRING OPERATION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">b</code> (Between strings)</small></td>
+        <td>A number where a string is wanted.</td></tr>
+    <tr><td class="name" rowspan="8"><a href="../entries/gt-200099.html">&gt;</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED STRING OPERATION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
+        <td>A string where a number is wanted.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>UNDEFINED FUNCTION FN</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED STRING OPERATION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
+        <td>A string where a number is wanted.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>UNDEFINED FUNCTION FN</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED STRING OPERATION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">a</code> (Between strings)</small></td>
+        <td>A number where a string is wanted.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED STRING OPERATION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">b</code> (Between strings)</small></td>
+        <td>A number where a string is wanted.</td></tr>
+    <tr><td class="name" rowspan="8"><a href="../entries/gt-eq-200100.html">&gt;=</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED STRING OPERATION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
+        <td>A string where a number is wanted.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>UNDEFINED FUNCTION FN</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">a</code> (Between numbers)</small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
+        <td>The formula is not written correctly.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED STRING OPERATION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
+        <td>A string where a number is wanted.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>UNDEFINED FUNCTION FN</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>NUM_EXPR · <code class="par">b</code> (Between numbers)</small></td>
+        <td>The formula uses an FN function that is never defined.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED STRING OPERATION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">a</code> (Between strings)</small></td>
+        <td>A number where a string is wanted.</td></tr>
+    <tr>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>MISMATCHED STRING OPERATION</code></a></td>
+        <td><small>parameter_kind</small></td>
+        <td><small>STR_EXPR · <code class="par">b</code> (Between strings)</small></td>
+        <td>A number where a string is wanted.</td></tr>
     <tr><td class="name" rowspan="10"><a href="../entries/x-200065.html">↑</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_BASIC_4.html#errors"><code>ZERO TO A NEGATIVE POWER</code></a></td>
         <td><small>manual</small></td>
         <td><small></small></td>
@@ -1334,7 +1382,7 @@ END</code></td></tr>
   </tbody>
 </table>
 
-<h2 id="syntax">Syntax <small>39</small></h2>
+<h2 id="syntax">Syntax <small>45</small></h2>
 <h3>Manual syntax different from the rebuilt one <small>27</small></h3>
 
 <table>
@@ -1396,7 +1444,7 @@ END</code></td></tr>
       <td><code class="syntax"><span class="par">a</span> <span class="kw">↑</span> <span class="par">b</span></code></td><td><code>X↑2</code></td></tr>
   </tbody>
 </table>
-<h3>Forms without the manual's syntax <small>12</small></h3>
+<h3>Forms without the manual's syntax <small>18</small></h3>
 
 <table>
   <thead><tr><th>Entry</th><th>Rebuilt</th></tr></thead>
@@ -1407,34 +1455,40 @@ END</code></td></tr>
   <tr><td class="name"><a href="../entries/minus-200064.html">-</a> <small>(Change of sign)</small></td><td><code class="syntax"><span class="kw">-</span><span class="par">a</span></code></td></tr>
   <tr><td class="name"><a href="../entries/minus-200064.html">-</a> <small>(Subtraction)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">-</span> <span class="par">b</span></code></td></tr>
   <tr><td class="name"><a href="../entries/slash-200066.html">/</a></td><td><code class="syntax"><span class="par">a</span> <span class="kw">/</span> <span class="par">b</span></code></td></tr>
-  <tr><td class="name"><a href="../entries/lt-200041.html">&lt;</a></td><td><code class="syntax"><span class="par">a</span> <span class="kw">&lt;</span> <span class="par">b</span></code></td></tr>
-  <tr><td class="name"><a href="../entries/lt-eq-200042.html">&lt;=</a></td><td><code class="syntax"><span class="par">a</span> <span class="kw">&lt;=</span> <span class="par">b</span></code></td></tr>
-  <tr><td class="name"><a href="../entries/lt-gt-200038.html">&lt;&gt;</a></td><td><code class="syntax"><span class="par">a</span> <span class="kw">&lt;&gt;</span> <span class="par">b</span></code></td></tr>
-  <tr><td class="name"><a href="../entries/eq-200037.html">=</a></td><td><code class="syntax"><span class="par">a</span> <span class="kw">=</span> <span class="par">b</span></code></td></tr>
-  <tr><td class="name"><a href="../entries/gt-200039.html">&gt;</a></td><td><code class="syntax"><span class="par">a</span> <span class="kw">&gt;</span> <span class="par">b</span></code></td></tr>
-  <tr><td class="name"><a href="../entries/gt-eq-200040.html">&gt;=</a></td><td><code class="syntax"><span class="par">a</span> <span class="kw">&gt;=</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/lt-200101.html">&lt;</a> <small>(Between numbers)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">&lt;</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/lt-200101.html">&lt;</a> <small>(Between strings)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">&lt;</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/lt-eq-200102.html">&lt;=</a> <small>(Between numbers)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">&lt;=</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/lt-eq-200102.html">&lt;=</a> <small>(Between strings)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">&lt;=</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/lt-gt-200098.html">&lt;&gt;</a> <small>(Between numbers)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">&lt;&gt;</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/lt-gt-200098.html">&lt;&gt;</a> <small>(Between strings)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">&lt;&gt;</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/eq-200097.html">=</a> <small>(Between numbers)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">=</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/eq-200097.html">=</a> <small>(Between strings)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">=</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/gt-200099.html">&gt;</a> <small>(Between numbers)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">&gt;</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/gt-200099.html">&gt;</a> <small>(Between strings)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">&gt;</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/gt-eq-200100.html">&gt;=</a> <small>(Between numbers)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">&gt;=</span> <span class="par">b</span></code></td></tr>
+  <tr><td class="name"><a href="../entries/gt-eq-200100.html">&gt;=</a> <small>(Between strings)</small></td><td><code class="syntax"><span class="par">a</span> <span class="kw">&gt;=</span> <span class="par">b</span></code></td></tr>
   </tbody>
 </table>
 
-<h2 id="evidence">Evidence <small>317</small></h2>
+<h2 id="evidence">Evidence <small>335</small></h2>
 <p class="note"><span class="ev ev-inferred">INFERRED</span> deduced, neither stated nor tested · <span class="ev ev-manual">MANUAL</span> stated by a source, not tested · <span class="ev ev-null">NULL</span> not assessed · <span class="ev ev-tested">TESTED</span> checked on the machine or an emulator.</p>
 
 <table class="diag-evidence">
   <thead><tr><th>Table</th><th class="num"><span class="ev ev-manual">MANUAL</span></th><th class="num"><span class="ev ev-inferred">INFERRED</span></th><th class="num"><span class="ev ev-null">NULL</span></th><th class="num"><span class="ev ev-tested">TESTED</span></th><th class="num">Rows</th></tr></thead>
   <tbody>
   <tr><td><a href="#ev-parameter">Parameters</a></td>
-<td class="num">57</td><td class="num hot">3</td><td class="num">42</td><td class="num"></td>      <td class="num">102</td></tr>
+<td class="num">57</td><td class="num hot">3</td><td class="num">54</td><td class="num"></td>      <td class="num">114</td></tr>
   <tr><td><a href="#ev-parameter_limit">Parameter limits</a></td>
 <td class="num">4</td><td class="num"></td><td class="num"></td><td class="num"></td>      <td class="num">4</td></tr>
   <tr><td><a href="#ev-allowed_value">Allowed values</a></td>
 <td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td>      <td class="num">0</td></tr>
   <tr><td><a href="#ev-syntax_form">Syntax forms (returned range and description)</a></td>
-<td class="num">8</td><td class="num hot">2</td><td class="num">73</td><td class="num"></td>      <td class="num">83</td></tr>
+<td class="num">8</td><td class="num hot">2</td><td class="num">79</td><td class="num"></td>      <td class="num">89</td></tr>
   <tr><td><a href="#ev-character_code">Character codes</a></td>
 <td class="num">69</td><td class="num hot">59</td><td class="num"></td><td class="num"></td>      <td class="num">128</td></tr>
   </tbody>
 </table>
-<h3 id="ev-parameter">Parameters <small>102 not tested</small></h3>
+<h3 id="ev-parameter">Parameters <small>114 not tested</small></h3>
 
 <ul class="diag-ev-list">
   <li class="ev-row-inferred"><span class="ev ev-inferred">INFERRED</span> <a href="../entries/DIM-200018.html">DIM · array</a></li>
@@ -1526,18 +1580,30 @@ END</code></td></tr>
   <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/minus-200064.html">- (Subtraction) · b</a></li>
   <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/slash-200066.html">/ · a</a></li>
   <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/slash-200066.html">/ · b</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-200041.html">&lt; · a</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-200041.html">&lt; · b</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-eq-200042.html">&lt;= · a</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-eq-200042.html">&lt;= · b</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-gt-200038.html">&lt;&gt; · a</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-gt-200038.html">&lt;&gt; · b</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/eq-200037.html">= · a</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/eq-200037.html">= · b</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/gt-200039.html">&gt; · a</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/gt-200039.html">&gt; · b</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/gt-eq-200040.html">&gt;= · a</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/gt-eq-200040.html">&gt;= · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-200101.html">&lt; (Between numbers) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-200101.html">&lt; (Between numbers) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-200101.html">&lt; (Between strings) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-200101.html">&lt; (Between strings) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-eq-200102.html">&lt;= (Between numbers) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-eq-200102.html">&lt;= (Between numbers) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-eq-200102.html">&lt;= (Between strings) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-eq-200102.html">&lt;= (Between strings) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-gt-200098.html">&lt;&gt; (Between numbers) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-gt-200098.html">&lt;&gt; (Between numbers) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-gt-200098.html">&lt;&gt; (Between strings) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-gt-200098.html">&lt;&gt; (Between strings) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/eq-200097.html">= (Between numbers) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/eq-200097.html">= (Between numbers) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/eq-200097.html">= (Between strings) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/eq-200097.html">= (Between strings) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/gt-200099.html">&gt; (Between numbers) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/gt-200099.html">&gt; (Between numbers) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/gt-200099.html">&gt; (Between strings) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/gt-200099.html">&gt; (Between strings) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/gt-eq-200100.html">&gt;= (Between numbers) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/gt-eq-200100.html">&gt;= (Between numbers) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/gt-eq-200100.html">&gt;= (Between strings) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/gt-eq-200100.html">&gt;= (Between strings) · b</a></li>
   <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/x-200065.html">↑ · b</a></li>
 </ul>
 <h3 id="ev-parameter_limit">Parameter limits <small>4 not tested</small></h3>
@@ -1550,7 +1616,7 @@ END</code></td></tr>
 </ul>
 <h3 id="ev-allowed_value">Allowed values <small>0 not tested</small></h3>
 <p class="nothing">Nothing left</p>
-<h3 id="ev-syntax_form">Syntax forms (returned range and description) <small>83 not tested</small></h3>
+<h3 id="ev-syntax_form">Syntax forms (returned range and description) <small>89 not tested</small></h3>
 
 <ul class="diag-ev-list">
   <li class="ev-row-inferred"><span class="ev ev-inferred">INFERRED</span> <a href="../entries/DIM-200018.html">DIM</a></li>
@@ -1629,12 +1695,18 @@ END</code></td></tr>
   <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/minus-200064.html">- (Change of sign)</a></li>
   <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/minus-200064.html">- (Subtraction)</a></li>
   <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/slash-200066.html">/</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-200041.html">&lt;</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-eq-200042.html">&lt;=</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-gt-200038.html">&lt;&gt;</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/eq-200037.html">=</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/gt-200039.html">&gt;</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/gt-eq-200040.html">&gt;=</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-200101.html">&lt; (Between numbers)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-200101.html">&lt; (Between strings)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-eq-200102.html">&lt;= (Between numbers)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-eq-200102.html">&lt;= (Between strings)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-gt-200098.html">&lt;&gt; (Between numbers)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/lt-gt-200098.html">&lt;&gt; (Between strings)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/eq-200097.html">= (Between numbers)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/eq-200097.html">= (Between strings)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/gt-200099.html">&gt; (Between numbers)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/gt-200099.html">&gt; (Between strings)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/gt-eq-200100.html">&gt;= (Between numbers)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/gt-eq-200100.html">&gt;= (Between strings)</a></li>
   <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/x-200065.html">↑</a></li>
 </ul>
 <h3 id="ev-character_code">Character codes <small>128 not tested</small></h3>
@@ -1673,12 +1745,12 @@ END</code></td></tr>
 <h3>Tables without any state <small>0</small></h3>
 <p class="nothing">Nothing left</p>
 
-<h2 id="gaps">Gaps <small>118</small></h2>
-<h3>Parameters without description <small>42</small></h3>
+<h2 id="gaps">Gaps <small>129</small></h2>
+<h3>Parameters without description <small>54</small></h3>
 
-<p class="diag-list"><a href="../entries/MAT-200096.html">MAT</a> <small>(Sum)</small> <code class="par">c</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Sum)</small> <code class="par">a</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Sum)</small> <code class="par">b</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Difference)</small> <code class="par">c</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Difference)</small> <code class="par">a</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Difference)</small> <code class="par">b</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Product)</small> <code class="par">c</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Product)</small> <code class="par">a</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Product)</small> <code class="par">b</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Multiple)</small> <code class="par">c</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Multiple)</small> <code class="par">a</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Zero matrix)</small> <code class="par">c</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Ones)</small> <code class="par">c</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Identity)</small> <code class="par">c</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Transpose)</small> <code class="par">c</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Transpose)</small> <code class="par">a</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Inverse)</small> <code class="par">c</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Inverse)</small> <code class="par">a</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Copy)</small> <code class="par">b</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Copy)</small> <code class="par">a</code> · <a href="../entries/star-200033.html">*</a> <code class="par">a</code> · <a href="../entries/star-200033.html">*</a> <code class="par">b</code> · <a href="../entries/plus-200035.html">+</a> <code class="par">a</code> · <a href="../entries/plus-200035.html">+</a> <code class="par">b</code> · <a href="../entries/minus-200064.html">-</a> <small>(Change of sign)</small> <code class="par">a</code> · <a href="../entries/minus-200064.html">-</a> <small>(Subtraction)</small> <code class="par">a</code> · <a href="../entries/minus-200064.html">-</a> <small>(Subtraction)</small> <code class="par">b</code> · <a href="../entries/slash-200066.html">/</a> <code class="par">a</code> · <a href="../entries/slash-200066.html">/</a> <code class="par">b</code> · <a href="../entries/lt-200041.html">&lt;</a> <code class="par">a</code> · <a href="../entries/lt-200041.html">&lt;</a> <code class="par">b</code> · <a href="../entries/lt-eq-200042.html">&lt;=</a> <code class="par">a</code> · <a href="../entries/lt-eq-200042.html">&lt;=</a> <code class="par">b</code> · <a href="../entries/lt-gt-200038.html">&lt;&gt;</a> <code class="par">a</code> · <a href="../entries/lt-gt-200038.html">&lt;&gt;</a> <code class="par">b</code> · <a href="../entries/eq-200037.html">=</a> <code class="par">a</code> · <a href="../entries/eq-200037.html">=</a> <code class="par">b</code> · <a href="../entries/gt-200039.html">&gt;</a> <code class="par">a</code> · <a href="../entries/gt-200039.html">&gt;</a> <code class="par">b</code> · <a href="../entries/gt-eq-200040.html">&gt;=</a> <code class="par">a</code> · <a href="../entries/gt-eq-200040.html">&gt;=</a> <code class="par">b</code> · <a href="../entries/x-200065.html">↑</a> <code class="par">b</code></p><h3>Forms without actions <small>1</small></h3>
-
-<p class="diag-list"><a href="../entries/lparen-rparen-200036.html">( )</a></p><h3>Keywords without token <small>75</small></h3>
+<p class="diag-list"><a href="../entries/MAT-200096.html">MAT</a> <small>(Sum)</small> <code class="par">c</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Sum)</small> <code class="par">a</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Sum)</small> <code class="par">b</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Difference)</small> <code class="par">c</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Difference)</small> <code class="par">a</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Difference)</small> <code class="par">b</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Product)</small> <code class="par">c</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Product)</small> <code class="par">a</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Product)</small> <code class="par">b</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Multiple)</small> <code class="par">c</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Multiple)</small> <code class="par">a</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Zero matrix)</small> <code class="par">c</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Ones)</small> <code class="par">c</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Identity)</small> <code class="par">c</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Transpose)</small> <code class="par">c</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Transpose)</small> <code class="par">a</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Inverse)</small> <code class="par">c</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Inverse)</small> <code class="par">a</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Copy)</small> <code class="par">b</code> · <a href="../entries/MAT-200096.html">MAT</a> <small>(Copy)</small> <code class="par">a</code> · <a href="../entries/star-200033.html">*</a> <code class="par">a</code> · <a href="../entries/star-200033.html">*</a> <code class="par">b</code> · <a href="../entries/plus-200035.html">+</a> <code class="par">a</code> · <a href="../entries/plus-200035.html">+</a> <code class="par">b</code> · <a href="../entries/minus-200064.html">-</a> <small>(Change of sign)</small> <code class="par">a</code> · <a href="../entries/minus-200064.html">-</a> <small>(Subtraction)</small> <code class="par">a</code> · <a href="../entries/minus-200064.html">-</a> <small>(Subtraction)</small> <code class="par">b</code> · <a href="../entries/slash-200066.html">/</a> <code class="par">a</code> · <a href="../entries/slash-200066.html">/</a> <code class="par">b</code> · <a href="../entries/lt-200101.html">&lt;</a> <small>(Between numbers)</small> <code class="par">a</code> · <a href="../entries/lt-200101.html">&lt;</a> <small>(Between numbers)</small> <code class="par">b</code> · <a href="../entries/lt-200101.html">&lt;</a> <small>(Between strings)</small> <code class="par">a</code> · <a href="../entries/lt-200101.html">&lt;</a> <small>(Between strings)</small> <code class="par">b</code> · <a href="../entries/lt-eq-200102.html">&lt;=</a> <small>(Between numbers)</small> <code class="par">a</code> · <a href="../entries/lt-eq-200102.html">&lt;=</a> <small>(Between numbers)</small> <code class="par">b</code> · <a href="../entries/lt-eq-200102.html">&lt;=</a> <small>(Between strings)</small> <code class="par">a</code> · <a href="../entries/lt-eq-200102.html">&lt;=</a> <small>(Between strings)</small> <code class="par">b</code> · <a href="../entries/lt-gt-200098.html">&lt;&gt;</a> <small>(Between numbers)</small> <code class="par">a</code> · <a href="../entries/lt-gt-200098.html">&lt;&gt;</a> <small>(Between numbers)</small> <code class="par">b</code> · <a href="../entries/lt-gt-200098.html">&lt;&gt;</a> <small>(Between strings)</small> <code class="par">a</code> · <a href="../entries/lt-gt-200098.html">&lt;&gt;</a> <small>(Between strings)</small> <code class="par">b</code> · <a href="../entries/eq-200097.html">=</a> <small>(Between numbers)</small> <code class="par">a</code> · <a href="../entries/eq-200097.html">=</a> <small>(Between numbers)</small> <code class="par">b</code> · <a href="../entries/eq-200097.html">=</a> <small>(Between strings)</small> <code class="par">a</code> · <a href="../entries/eq-200097.html">=</a> <small>(Between strings)</small> <code class="par">b</code> · <a href="../entries/gt-200099.html">&gt;</a> <small>(Between numbers)</small> <code class="par">a</code> · <a href="../entries/gt-200099.html">&gt;</a> <small>(Between numbers)</small> <code class="par">b</code> · <a href="../entries/gt-200099.html">&gt;</a> <small>(Between strings)</small> <code class="par">a</code> · <a href="../entries/gt-200099.html">&gt;</a> <small>(Between strings)</small> <code class="par">b</code> · <a href="../entries/gt-eq-200100.html">&gt;=</a> <small>(Between numbers)</small> <code class="par">a</code> · <a href="../entries/gt-eq-200100.html">&gt;=</a> <small>(Between numbers)</small> <code class="par">b</code> · <a href="../entries/gt-eq-200100.html">&gt;=</a> <small>(Between strings)</small> <code class="par">a</code> · <a href="../entries/gt-eq-200100.html">&gt;=</a> <small>(Between strings)</small> <code class="par">b</code> · <a href="../entries/x-200065.html">↑</a> <code class="par">b</code></p><h3>Forms without actions <small>0</small></h3>
+<p class="nothing">Nothing left</p>
+<h3>Keywords without token <small>75</small></h3>
 
 <p class="diag-list"><a class="kw" href="../keywords/apos-200073.html">&#39;</a> · <a class="kw" href="../keywords/star-200036.html">*</a> · <a class="kw" href="../keywords/plus-200034.html">+</a> · <a class="kw" href="../keywords/minus-200035.html">-</a> · <a class="kw" href="../keywords/slash-200037.html">/</a> · <a class="kw" href="../keywords/semicolon-200051.html">;</a> · <a class="kw" href="../keywords/lt-200040.html">&lt;</a> · <a class="kw" href="../keywords/lt-eq-200041.html">&lt;=</a> · <a class="kw" href="../keywords/lt-gt-200044.html">&lt;&gt;</a> · <a class="kw" href="../keywords/eq-200039.html">=</a> · <a class="kw" href="../keywords/gt-200042.html">&gt;</a> · <a class="kw" href="../keywords/gt-eq-200043.html">&gt;=</a> · <a class="kw" href="../keywords/ABS-200031.html">ABS</a> · <a class="kw" href="../keywords/ATN-200027.html">ATN</a> · <a class="kw" href="../keywords/BYE-200074.html">BYE</a> · <a class="kw" href="../keywords/CATALOG-200049.html">CATALOG</a> · <a class="kw" href="../keywords/CHANGE-200066.html">CHANGE</a> · <a class="kw" href="../keywords/CON-200057.html">CON</a> · <a class="kw" href="../keywords/COS-200025.html">COS</a> · <a class="kw" href="../keywords/COT-200068.html">COT</a> · <a class="kw" href="../keywords/DATA-200019.html">DATA</a> · <a class="kw" href="../keywords/DEF-200016.html">DEF</a> · <a class="kw" href="../keywords/DET-200070.html">DET</a> · <a class="kw" href="../keywords/DIM-200022.html">DIM</a> · <a class="kw" href="../keywords/END-200008.html">END</a> · <a class="kw" href="../keywords/EXP-200028.html">EXP</a> · <a class="kw" href="../keywords/FN-200017.html">FN</a> · <a class="kw" href="../keywords/FNEND-200067.html">FNEND</a> · <a class="kw" href="../keywords/FOR-200009.html">FOR</a> · <a class="kw" href="../keywords/GO-TO-200013.html">GO TO</a> · <a class="kw" href="../keywords/GOSUB-200020.html">GOSUB</a> · <a class="kw" href="../keywords/HELLO-200001.html">HELLO</a> · <a class="kw" href="../keywords/IDN-200058.html">IDN</a> · <a class="kw" href="../keywords/IF-200014.html">IF</a> · <a class="kw" href="../keywords/INPUT-200052.html">INPUT</a> · <a class="kw" href="../keywords/INT-200033.html">INT</a> · <a class="kw" href="../keywords/INV-200060.html">INV</a> · <a class="kw" href="../keywords/LENGTH-200061.html">LENGTH</a> · <a class="kw" href="../keywords/LET-200006.html">LET</a> · <a class="kw" href="../keywords/LIST-200003.html">LIST</a> · <a class="kw" href="../keywords/LOG-200029.html">LOG</a> · <a class="kw" href="../keywords/MAT-200055.html">MAT</a> · <a class="kw" href="../keywords/NEW-200045.html">NEW</a> · <a class="kw" href="../keywords/NEXT-200012.html">NEXT</a> · <a class="kw" href="../keywords/NUM-200069.html">NUM</a> · <a class="kw" href="../keywords/OLD-200046.html">OLD</a> · <a class="kw" href="../keywords/ON-200063.html">ON</a> · <a class="kw" href="../keywords/PRINT-200007.html">PRINT</a> · <a class="kw" href="../keywords/RANDOMIZE-200065.html">RANDOMIZE</a> · <a class="kw" href="../keywords/READ-200018.html">READ</a> · <a class="kw" href="../keywords/REM-200023.html">REM</a> · <a class="kw" href="../keywords/RENAME-200048.html">RENAME</a> · <a class="kw" href="../keywords/REPLACE-200075.html">REPLACE</a> · <a class="kw" href="../keywords/RESTORE-200053.html">RESTORE</a> · <a class="kw" href="../keywords/RESTORES-200072.html">RESTORE$</a> · <a class="kw" href="../keywords/RESTORE-200071.html">RESTORE*</a> · <a class="kw" href="../keywords/RETURN-200021.html">RETURN</a> · <a class="kw" href="../keywords/RND-200032.html">RND</a> · <a class="kw" href="../keywords/RUN-200002.html">RUN</a> · <a class="kw" href="../keywords/SAVE-200004.html">SAVE</a> · <a class="kw" href="../keywords/SCRATCH-200047.html">SCRATCH</a> · <a class="kw" href="../keywords/SGN-200054.html">SGN</a> · <a class="kw" href="../keywords/SIN-200024.html">SIN</a> · <a class="kw" href="../keywords/SQR-200030.html">SQR</a> · <a class="kw" href="../keywords/STEP-200011.html">STEP</a> · <a class="kw" href="../keywords/STOP-200005.html">STOP</a> · <a class="kw" href="../keywords/SYSTEM-200062.html">SYSTEM</a> · <a class="kw" href="../keywords/TAB-200064.html">TAB</a> · <a class="kw" href="../keywords/TAN-200026.html">TAN</a> · <a class="kw" href="../keywords/THEN-200015.html">THEN</a> · <a class="kw" href="../keywords/TO-200010.html">TO</a> · <a class="kw" href="../keywords/TRN-200059.html">TRN</a> · <a class="kw" href="../keywords/UNSAVE-200050.html">UNSAVE</a> · <a class="kw" href="../keywords/ZER-200056.html">ZER</a> · <a class="kw" href="../keywords/x-200038.html">↑</a></p><h3>Variable types without name length <small>0</small></h3>
 <p class="nothing">Nothing left</p>
@@ -1686,7 +1758,7 @@ END</code></td></tr>
 <p class="nothing">Nothing left</p>
 </main>
 <footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
-<script src="../static/search_index.js?v=1795374828"></script>
-<script src="../static/search.js?v=1795374828"></script>
+<script src="../static/search_index.js?v=1795376075"></script>
+<script src="../static/search.js?v=1795376075"></script>
 </body>
 </html>

@@ -563,7 +563,8 @@ ENTRIES_1 = [
         F(binary("+"), {}, [("OP_ADD", "FULL", None)], prec=2, assoc=LEFT, op="ARITHMETIC", ret=("REAL", None, None))],
       page="5"),
     E("( )", "OPERATOR", "Parentheses: the formula inside is computed first.", [
-        F(S(L("("), P("f", att=True), L(")", att=True)), {"f": dict(descr="Any formula.")}, [], op="GROUPING")],
+        F(S(L("("), P("f", att=True), L(")", att=True)), {"f": dict(descr="Any formula.")}, [("OP_GROUP", "FULL", None)],
+          op="GROUPING")],
       page="6"),
 ]
 
@@ -571,7 +572,8 @@ for _op, _action, _name in (("=", "OP_EQ", "Equal"), ("<>", "OP_NE", "Not equal"
                             (">=", "OP_GE", "Greater than or equal"), ("<", "OP_LT", "Less than"),
                             ("<=", "OP_LE", "Less than or equal")):
     ENTRIES_1.append(E(_op, "OPERATOR", f"{_name}: only in the relation of IF...THEN.", [
-        F(binary(_op), {}, [(_action, "FULL", None)], prec=1, op="RELATIONAL")], page="12"))
+        F(binary(_op), {}, [(_action, "FULL", None)], prec=1, op="RELATIONAL")],
+        notes="Numbers only: strings came with the 4th edition.", page="12"))
 
 ENTRY_ERRORS_1 = {
     "LET": [EE("ILLEGAL_VARIABLE", "The name on the left is not a variable.")],
@@ -1257,6 +1259,17 @@ ENTRIES_4 = [
                "room. `MAT A = A * B` and `MAT A = TRN(A)` are not allowed. A matrix with no inverse does not stop the "
                "program: DET is 0 [4] pp. 53-61.", page="53-61", src=None),
 ]
+# Relations between strings (4th edition): the six operators get a second form.
+for _op, _action in (("=", "OP_EQ"), ("<>", "OP_NE"), (">", "OP_GT"), (">=", "OP_GE"), ("<", "OP_LT"), ("<=", "OP_LE")):
+    _e = find(ENTRIES_1, _op, "OPERATOR")
+    _num = copy.deepcopy(_e["forms"][0])
+    _num["title"] = "Between numbers"
+    ENTRIES_4.append(redo(_e, "Also between two strings.", forms=[
+        _num,
+        F(binary(_op, "STR_EXPR"), {}, [(_action.replace("OP_", "OP_STR_"), "FULL", None)], prec=1, op="RELATIONAL",
+          title="Between strings", page="65")],
+        notes="Strings are compared in alphabetical order, trailing blanks ignored [4] p. 65.", page="12, 65"))
+
 ENTRY_ERRORS_4 = {
     "ON...GO TO": [EE("ON_OUT_OF_RANGE", "The integer part is below 1 or beyond the number of lines.")],
     "DEF": [EE("NESTED_DEF", "A DEF inside a function of several lines.", form=2),

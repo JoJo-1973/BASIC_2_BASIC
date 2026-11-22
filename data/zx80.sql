@@ -1373,7 +1373,7 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (167, 38, 166, 1, 'PARAMETER', 0, NULL, 42, 4);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (168, 38, 166, 2, 'KEYWORD', 0, NULL, 16);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (169, 38, 166, 3, 'PARAMETER', 0, NULL, 43, 4);
-INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 38, id, 'FULL', NULL FROM action WHERE code = 'OP_EQ';
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 38, id, 'FULL', NULL FROM action WHERE code = 'OP_STR_EQ';
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (36, 37, 1, 'Equal numbers', 'True gives -1.', 'PRINT 2=2', '-1', 1, NULL);
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (36, 38, 2, 'Equal strings', NULL, '10 LET A$="YES"
 20 PRINT A$="YES"', '-1', 1, NULL);
@@ -1396,7 +1396,7 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (175, 40, 174, 1, 'PARAMETER', 0, NULL, 46, 4);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (176, 40, 174, 2, 'KEYWORD', 0, NULL, 17);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (177, 40, 174, 3, 'PARAMETER', 0, NULL, 47, 4);
-INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 40, id, 'FULL', NULL FROM action WHERE code = 'OP_GT';
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 40, id, 'FULL', NULL FROM action WHERE code = 'OP_STR_GT';
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (37, 39, 1, 'Greater than', NULL, 'PRINT 3>2', '-1', 1, NULL);
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (37, 39, 2, 'Chained comparisons', '(3>2)>1 means -1>1, which is false.', 'PRINT 3>2>1', '0', 1, NULL);
 
@@ -1418,7 +1418,7 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (183, 42, 182, 1, 'PARAMETER', 0, NULL, 50, 4);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (184, 42, 182, 2, 'KEYWORD', 0, NULL, 18);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (185, 42, 182, 3, 'PARAMETER', 0, NULL, 51, 4);
-INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 42, id, 'FULL', NULL FROM action WHERE code = 'OP_LT';
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 42, id, 'FULL', NULL FROM action WHERE code = 'OP_STR_LT';
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (38, 41, 1, 'Less than', 'False gives 0.', 'PRINT 3<2', '0', 1, NULL);
 
 -- NOT
@@ -1496,6 +1496,7 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (200, 46, 199, 1, 'PARAMETER', 1, NULL, 57, 3);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (201, 46, 199, 2, 'PARAMETER', 1, NULL, 57, 4);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (202, 46, 197, 3, 'LITERAL', 1, NULL, ')');
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 46, id, 'FULL', NULL FROM action WHERE code = 'OP_GROUP';
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id) VALUES (42, NULL, 1, 'Change the order', 'Without parentheses, 2+3*4 gives 14.', 'PRINT (2+3)*4', '20', 1, NULL);
 
 INSERT INTO open_question (layer_id, position, question) VALUES (1, 1, 'Compare the `original_syntax` headings with the printed manual: they come from an OCR transcription.');

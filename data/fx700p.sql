@@ -2319,6 +2319,7 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (1000277, 100061, 1000276, 1, 'LITERAL', 0, NULL, '(');
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (1000278, 100061, 1000276, 2, 'PARAMETER', 1, NULL, 100071, 100003);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (1000279, 100061, 1000276, 3, 'LITERAL', 1, NULL, ')');
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 100061, id, 'FULL', NULL FROM action WHERE code = 'OP_GROUP';
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id, page) VALUES (100051, NULL, 1, 'Order of calculation', NULL, 'MODE 4
 2+3*SIN(17+13)↑2', '2.75', 0, 100001, '10');
 
@@ -2340,7 +2341,7 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (1000285, 100063, 1000284, 1, 'PARAMETER', 0, NULL, 100074, 100004);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (1000286, 100063, 1000284, 2, 'KEYWORD', 0, NULL, 100053);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (1000287, 100063, 1000284, 3, 'PARAMETER', 0, NULL, 100075, 100004);
-INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 100063, id, 'FULL', NULL FROM action WHERE code = 'OP_EQ';
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 100063, id, 'FULL', NULL FROM action WHERE code = 'OP_STR_EQ';
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id, page) VALUES (100052, 100063, 1, 'Equal strings', NULL, '10 A$="XYZ"
 20 IF A$="XYZ" THEN 40
 30 END
@@ -2364,7 +2365,7 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (1000293, 100065, 1000292, 1, 'PARAMETER', 0, NULL, 100078, 100004);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (1000294, 100065, 1000292, 2, 'KEYWORD', 0, NULL, 100054);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (1000295, 100065, 1000292, 3, 'PARAMETER', 0, NULL, 100079, 100004);
-INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 100065, id, 'FULL', NULL FROM action WHERE code = 'OP_NE';
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 100065, id, 'FULL', NULL FROM action WHERE code = 'OP_STR_NE';
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id, page) VALUES (100053, 100065, 1, 'Different strings', NULL, '10 P$="A":Q$="B"
 20 IF P$≠Q$ THEN 40
 30 END
@@ -2388,7 +2389,7 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (1000301, 100067, 1000300, 1, 'PARAMETER', 0, NULL, 100082, 100004);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (1000302, 100067, 1000300, 2, 'KEYWORD', 0, NULL, 100055);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (1000303, 100067, 1000300, 3, 'PARAMETER', 0, NULL, 100083, 100004);
-INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 100067, id, 'FULL', NULL FROM action WHERE code = 'OP_GT';
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 100067, id, 'FULL', NULL FROM action WHERE code = 'OP_STR_GT';
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id, page) VALUES (100054, 100066, 1, 'Greater', NULL, '10 A=12
 20 IF A>10 THEN 40
 30 END
@@ -2412,7 +2413,7 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (1000309, 100069, 1000308, 1, 'PARAMETER', 0, NULL, 100086, 100004);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (1000310, 100069, 1000308, 2, 'KEYWORD', 0, NULL, 100056);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (1000311, 100069, 1000308, 3, 'PARAMETER', 0, NULL, 100087, 100004);
-INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 100069, id, 'FULL', NULL FROM action WHERE code = 'OP_GE';
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 100069, id, 'FULL', NULL FROM action WHERE code = 'OP_STR_GE';
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id, page) VALUES (100055, 100068, 1, 'Greater or equal', NULL, '10 X=5:Y=5
 20 IF X≥Y THEN 40
 30 END
@@ -2436,7 +2437,7 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (1000317, 100071, 1000316, 1, 'PARAMETER', 0, NULL, 100090, 100004);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (1000318, 100071, 1000316, 2, 'KEYWORD', 0, NULL, 100057);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (1000319, 100071, 1000316, 3, 'PARAMETER', 0, NULL, 100091, 100004);
-INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 100071, id, 'FULL', NULL FROM action WHERE code = 'OP_LT';
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 100071, id, 'FULL', NULL FROM action WHERE code = 'OP_STR_LT';
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id, page) VALUES (100056, 100070, 1, 'Less', NULL, '10 A=3
 20 IF A<10 THEN 40
 30 END
@@ -2460,7 +2461,7 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (1000325, 100073, 1000324, 1, 'PARAMETER', 0, NULL, 100094, 100004);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (1000326, 100073, 1000324, 2, 'KEYWORD', 0, NULL, 100058);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (1000327, 100073, 1000324, 3, 'PARAMETER', 0, NULL, 100095, 100004);
-INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 100073, id, 'FULL', NULL FROM action WHERE code = 'OP_LE';
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 100073, id, 'FULL', NULL FROM action WHERE code = 'OP_STR_LE';
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id, page) VALUES (100057, 100072, 1, 'Less or equal', NULL, '10 A=10
 20 IF A≤10 THEN 40
 30 END

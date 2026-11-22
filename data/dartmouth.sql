@@ -1647,12 +1647,13 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000182, 200037, 2000181, 1, 'LITERAL', 0, NULL, '(');
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000183, 200037, 2000181, 2, 'PARAMETER', 1, NULL, 200046, 200005);
 INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000184, 200037, 2000181, 3, 'LITERAL', 1, NULL, ')');
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200037, id, 'FULL', NULL FROM action WHERE code = 'OP_GROUP';
 INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id, page) VALUES (200036, NULL, 1, 'Parentheses', NULL, '10 LET X = (7+8)/3
 20 PRINT X
 30 END', '5', 0, 200001, '1');
 
 -- = (OPERATOR)
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200037, 200001, '=', 4, 'ADD', NULL, 'Equal: only in the relation of IF...THEN.', NULL, NULL);
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200037, 200001, '=', 4, 'ADD', NULL, 'Equal: only in the relation of IF...THEN.', NULL, 'Numbers only: strings came with the 4th edition.');
 INSERT INTO entry_source (entry_id, source_id, page) VALUES (200037, 200001, '12');
 INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200038, 200037, 1, NULL, NULL, NULL, 200001, '12', NULL, NULL, NULL, 1, 1, 1, NULL, 6, NULL);
 INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200047, 200038, 'a', 'NONE', NULL, NULL, NULL, NULL);
@@ -1670,7 +1671,7 @@ INSERT INTO example (entry_id, form_id, position, title, description, code, expe
 99 END', 'YES', 0, NULL, NULL);
 
 -- <> (OPERATOR)
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200038, 200001, '<>', 4, 'ADD', NULL, 'Not equal: only in the relation of IF...THEN.', NULL, NULL);
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200038, 200001, '<>', 4, 'ADD', NULL, 'Not equal: only in the relation of IF...THEN.', NULL, 'Numbers only: strings came with the 4th edition.');
 INSERT INTO entry_source (entry_id, source_id, page) VALUES (200038, 200001, '12');
 INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200039, 200038, 1, NULL, NULL, NULL, 200001, '12', NULL, NULL, NULL, 1, 1, 1, NULL, 6, NULL);
 INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200049, 200039, 'a', 'NONE', NULL, NULL, NULL, NULL);
@@ -1682,7 +1683,7 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200039, id, 'FULL', NULL FROM action WHERE code = 'OP_NE';
 
 -- > (OPERATOR)
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200039, 200001, '>', 4, 'ADD', NULL, 'Greater than: only in the relation of IF...THEN.', NULL, NULL);
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200039, 200001, '>', 4, 'ADD', NULL, 'Greater than: only in the relation of IF...THEN.', NULL, 'Numbers only: strings came with the 4th edition.');
 INSERT INTO entry_source (entry_id, source_id, page) VALUES (200039, 200001, '12');
 INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200040, 200039, 1, NULL, NULL, NULL, 200001, '12', NULL, NULL, NULL, 1, 1, 1, NULL, 6, NULL);
 INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200051, 200040, 'a', 'NONE', NULL, NULL, NULL, NULL);
@@ -1694,7 +1695,7 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200040, id, 'FULL', NULL FROM action WHERE code = 'OP_GT';
 
 -- >= (OPERATOR)
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200040, 200001, '>=', 4, 'ADD', NULL, 'Greater than or equal: only in the relation of IF...THEN.', NULL, NULL);
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200040, 200001, '>=', 4, 'ADD', NULL, 'Greater than or equal: only in the relation of IF...THEN.', NULL, 'Numbers only: strings came with the 4th edition.');
 INSERT INTO entry_source (entry_id, source_id, page) VALUES (200040, 200001, '12');
 INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200041, 200040, 1, NULL, NULL, NULL, 200001, '12', NULL, NULL, NULL, 1, 1, 1, NULL, 6, NULL);
 INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200053, 200041, 'a', 'NONE', NULL, NULL, NULL, NULL);
@@ -1706,7 +1707,7 @@ INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meani
 INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200041, id, 'FULL', NULL FROM action WHERE code = 'OP_GE';
 
 -- < (OPERATOR)
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200041, 200001, '<', 4, 'ADD', NULL, 'Less than: only in the relation of IF...THEN.', NULL, NULL);
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200041, 200001, '<', 4, 'ADD', NULL, 'Less than: only in the relation of IF...THEN.', NULL, 'Numbers only: strings came with the 4th edition.');
 INSERT INTO entry_source (entry_id, source_id, page) VALUES (200041, 200001, '12');
 INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200042, 200041, 1, NULL, NULL, NULL, 200001, '12', NULL, NULL, NULL, 1, 1, 1, NULL, 6, NULL);
 INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200055, 200042, 'a', 'NONE', NULL, NULL, NULL, NULL);
@@ -1723,7 +1724,7 @@ INSERT INTO example (entry_id, form_id, position, title, description, code, expe
 99 END', 'YES', 0, NULL, NULL);
 
 -- <= (OPERATOR)
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200042, 200001, '<=', 4, 'ADD', NULL, 'Less than or equal: only in the relation of IF...THEN.', NULL, NULL);
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200042, 200001, '<=', 4, 'ADD', NULL, 'Less than or equal: only in the relation of IF...THEN.', NULL, 'Numbers only: strings came with the 4th edition.');
 INSERT INTO entry_source (entry_id, source_id, page) VALUES (200042, 200001, '12');
 INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200043, 200042, 1, NULL, NULL, NULL, 200001, '12', NULL, NULL, NULL, 1, 1, 1, NULL, 6, NULL);
 INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200057, 200043, 'a', 'NONE', NULL, NULL, NULL, NULL);
@@ -3547,6 +3548,137 @@ INSERT INTO example (entry_id, form_id, position, title, description, code, expe
 
  0             .25', 0, NULL, NULL);
 
+-- = (OPERATOR)
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200097, 200004, '=', 4, 'REPLACE', 200037, 'Equal: only in the relation of IF...THEN.', 'Also between two strings.', 'Strings are compared in alphabetical order, trailing blanks ignored [4] p. 65.');
+INSERT INTO entry_source (entry_id, source_id, page) VALUES (200097, 200004, '12, 65');
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200120, 200097, 1, 'Between numbers', NULL, NULL, 200004, '12, 65', NULL, NULL, NULL, 1, 1, 1, NULL, 6, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200164, 200120, 'a', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200165, 200120, 'b', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000699, 200120, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000700, 200120, 2000699, 1, 'PARAMETER', 0, NULL, 200164, 200005);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000701, 200120, 2000699, 2, 'KEYWORD', 0, NULL, 200039);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000702, 200120, 2000699, 3, 'PARAMETER', 0, NULL, 200165, 200005);
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200120, id, 'FULL', NULL FROM action WHERE code = 'OP_EQ';
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200121, 200097, 2, 'Between strings', NULL, NULL, 200004, '65', NULL, NULL, NULL, 1, 1, 1, NULL, 6, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200166, 200121, 'a', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200167, 200121, 'b', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000703, 200121, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000704, 200121, 2000703, 1, 'PARAMETER', 0, NULL, 200166, 200015);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000705, 200121, 2000703, 2, 'KEYWORD', 0, NULL, 200039);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000706, 200121, 2000703, 3, 'PARAMETER', 0, NULL, 200167, 200015);
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200121, id, 'FULL', NULL FROM action WHERE code = 'OP_STR_EQ';
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id, page) VALUES (200097, NULL, 1, 'Equal', NULL, '10 LET A = 2
+20 IF A = 2 THEN 50
+30 PRINT "NO"
+40 GO TO 99
+50 PRINT "YES"
+99 END', 'YES', 0, NULL, NULL);
+
+-- <> (OPERATOR)
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200098, 200004, '<>', 4, 'REPLACE', 200038, 'Not equal: only in the relation of IF...THEN.', 'Also between two strings.', 'Strings are compared in alphabetical order, trailing blanks ignored [4] p. 65.');
+INSERT INTO entry_source (entry_id, source_id, page) VALUES (200098, 200004, '12, 65');
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200122, 200098, 1, 'Between numbers', NULL, NULL, 200004, '12, 65', NULL, NULL, NULL, 1, 1, 1, NULL, 6, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200168, 200122, 'a', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200169, 200122, 'b', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000707, 200122, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000708, 200122, 2000707, 1, 'PARAMETER', 0, NULL, 200168, 200005);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000709, 200122, 2000707, 2, 'KEYWORD', 0, NULL, 200044);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000710, 200122, 2000707, 3, 'PARAMETER', 0, NULL, 200169, 200005);
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200122, id, 'FULL', NULL FROM action WHERE code = 'OP_NE';
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200123, 200098, 2, 'Between strings', NULL, NULL, 200004, '65', NULL, NULL, NULL, 1, 1, 1, NULL, 6, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200170, 200123, 'a', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200171, 200123, 'b', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000711, 200123, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000712, 200123, 2000711, 1, 'PARAMETER', 0, NULL, 200170, 200015);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000713, 200123, 2000711, 2, 'KEYWORD', 0, NULL, 200044);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000714, 200123, 2000711, 3, 'PARAMETER', 0, NULL, 200171, 200015);
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200123, id, 'FULL', NULL FROM action WHERE code = 'OP_STR_NE';
+
+-- > (OPERATOR)
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200099, 200004, '>', 4, 'REPLACE', 200039, 'Greater than: only in the relation of IF...THEN.', 'Also between two strings.', 'Strings are compared in alphabetical order, trailing blanks ignored [4] p. 65.');
+INSERT INTO entry_source (entry_id, source_id, page) VALUES (200099, 200004, '12, 65');
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200124, 200099, 1, 'Between numbers', NULL, NULL, 200004, '12, 65', NULL, NULL, NULL, 1, 1, 1, NULL, 6, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200172, 200124, 'a', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200173, 200124, 'b', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000715, 200124, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000716, 200124, 2000715, 1, 'PARAMETER', 0, NULL, 200172, 200005);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000717, 200124, 2000715, 2, 'KEYWORD', 0, NULL, 200042);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000718, 200124, 2000715, 3, 'PARAMETER', 0, NULL, 200173, 200005);
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200124, id, 'FULL', NULL FROM action WHERE code = 'OP_GT';
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200125, 200099, 2, 'Between strings', NULL, NULL, 200004, '65', NULL, NULL, NULL, 1, 1, 1, NULL, 6, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200174, 200125, 'a', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200175, 200125, 'b', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000719, 200125, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000720, 200125, 2000719, 1, 'PARAMETER', 0, NULL, 200174, 200015);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000721, 200125, 2000719, 2, 'KEYWORD', 0, NULL, 200042);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000722, 200125, 2000719, 3, 'PARAMETER', 0, NULL, 200175, 200015);
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200125, id, 'FULL', NULL FROM action WHERE code = 'OP_STR_GT';
+
+-- >= (OPERATOR)
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200100, 200004, '>=', 4, 'REPLACE', 200040, 'Greater than or equal: only in the relation of IF...THEN.', 'Also between two strings.', 'Strings are compared in alphabetical order, trailing blanks ignored [4] p. 65.');
+INSERT INTO entry_source (entry_id, source_id, page) VALUES (200100, 200004, '12, 65');
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200126, 200100, 1, 'Between numbers', NULL, NULL, 200004, '12, 65', NULL, NULL, NULL, 1, 1, 1, NULL, 6, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200176, 200126, 'a', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200177, 200126, 'b', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000723, 200126, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000724, 200126, 2000723, 1, 'PARAMETER', 0, NULL, 200176, 200005);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000725, 200126, 2000723, 2, 'KEYWORD', 0, NULL, 200043);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000726, 200126, 2000723, 3, 'PARAMETER', 0, NULL, 200177, 200005);
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200126, id, 'FULL', NULL FROM action WHERE code = 'OP_GE';
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200127, 200100, 2, 'Between strings', NULL, NULL, 200004, '65', NULL, NULL, NULL, 1, 1, 1, NULL, 6, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200178, 200127, 'a', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200179, 200127, 'b', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000727, 200127, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000728, 200127, 2000727, 1, 'PARAMETER', 0, NULL, 200178, 200015);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000729, 200127, 2000727, 2, 'KEYWORD', 0, NULL, 200043);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000730, 200127, 2000727, 3, 'PARAMETER', 0, NULL, 200179, 200015);
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200127, id, 'FULL', NULL FROM action WHERE code = 'OP_STR_GE';
+
+-- < (OPERATOR)
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200101, 200004, '<', 4, 'REPLACE', 200041, 'Less than: only in the relation of IF...THEN.', 'Also between two strings.', 'Strings are compared in alphabetical order, trailing blanks ignored [4] p. 65.');
+INSERT INTO entry_source (entry_id, source_id, page) VALUES (200101, 200004, '12, 65');
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200128, 200101, 1, 'Between numbers', NULL, NULL, 200004, '12, 65', NULL, NULL, NULL, 1, 1, 1, NULL, 6, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200180, 200128, 'a', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200181, 200128, 'b', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000731, 200128, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000732, 200128, 2000731, 1, 'PARAMETER', 0, NULL, 200180, 200005);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000733, 200128, 2000731, 2, 'KEYWORD', 0, NULL, 200040);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000734, 200128, 2000731, 3, 'PARAMETER', 0, NULL, 200181, 200005);
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200128, id, 'FULL', NULL FROM action WHERE code = 'OP_LT';
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200129, 200101, 2, 'Between strings', NULL, NULL, 200004, '65', NULL, NULL, NULL, 1, 1, 1, NULL, 6, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200182, 200129, 'a', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200183, 200129, 'b', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000735, 200129, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000736, 200129, 2000735, 1, 'PARAMETER', 0, NULL, 200182, 200015);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000737, 200129, 2000735, 2, 'KEYWORD', 0, NULL, 200040);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000738, 200129, 2000735, 3, 'PARAMETER', 0, NULL, 200183, 200015);
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200129, id, 'FULL', NULL FROM action WHERE code = 'OP_STR_LT';
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id, page) VALUES (200101, NULL, 1, 'Less than', NULL, '10 IF 1 < 2 THEN 40
+20 PRINT "NO"
+30 GO TO 99
+40 PRINT "YES"
+99 END', 'YES', 0, NULL, NULL);
+
+-- <= (OPERATOR)
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200102, 200004, '<=', 4, 'REPLACE', 200042, 'Less than or equal: only in the relation of IF...THEN.', 'Also between two strings.', 'Strings are compared in alphabetical order, trailing blanks ignored [4] p. 65.');
+INSERT INTO entry_source (entry_id, source_id, page) VALUES (200102, 200004, '12, 65');
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200130, 200102, 1, 'Between numbers', NULL, NULL, 200004, '12, 65', NULL, NULL, NULL, 1, 1, 1, NULL, 6, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200184, 200130, 'a', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200185, 200130, 'b', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000739, 200130, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000740, 200130, 2000739, 1, 'PARAMETER', 0, NULL, 200184, 200005);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000741, 200130, 2000739, 2, 'KEYWORD', 0, NULL, 200041);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000742, 200130, 2000739, 3, 'PARAMETER', 0, NULL, 200185, 200005);
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200130, id, 'FULL', NULL FROM action WHERE code = 'OP_LE';
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200131, 200102, 2, 'Between strings', NULL, NULL, 200004, '65', NULL, NULL, NULL, 1, 1, 1, NULL, 6, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200186, 200131, 'a', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200187, 200131, 'b', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000743, 200131, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000744, 200131, 2000743, 1, 'PARAMETER', 0, NULL, 200186, 200015);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000745, 200131, 2000743, 2, 'KEYWORD', 0, NULL, 200041);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000746, 200131, 2000743, 3, 'PARAMETER', 0, NULL, 200187, 200015);
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200131, id, 'FULL', NULL FROM action WHERE code = 'OP_STR_LE';
+
 INSERT INTO reference (entry_id, related_entry_id, kind) VALUES (200084, 200011, 'SEE_ALSO');
 INSERT INTO reference (entry_id, related_entry_id, kind) VALUES (200085, 200090, 'SEE_ALSO');
 INSERT INTO reference (entry_id, related_entry_id, kind) VALUES (200092, 200078, 'SEE_ALSO');
@@ -3584,35 +3716,35 @@ INSERT INTO keyword (id, layer_id, text, notes) VALUES (200086, 200005, 'IDN', N
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (200087, 200005, 'TRN', NULL);
 INSERT INTO keyword (id, layer_id, text, notes) VALUES (200088, 200005, 'INV', NULL);
 
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200097, 200005, 'HELLO', 2, 'REMOVE', 200001, 'Inferred: Card BASIC is run from a deck of cards, and the manual does not describe Teletype commands for it.');
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200098, 200005, 'RUN', 2, 'REMOVE', 200002, 'Inferred: Card BASIC is run from a deck of cards, and the manual does not describe Teletype commands for it.');
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200099, 200005, 'LIST', 2, 'REMOVE', 200052, 'Inferred: Card BASIC is run from a deck of cards, and the manual does not describe Teletype commands for it.');
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200100, 200005, 'SAVE', 2, 'REMOVE', 200004, 'Inferred: Card BASIC is run from a deck of cards, and the manual does not describe Teletype commands for it.');
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200101, 200005, 'STOP', 2, 'REMOVE', 200005, 'Inferred: Card BASIC is run from a deck of cards, and the manual does not describe Teletype commands for it.');
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200102, 200005, 'NEW', 2, 'REMOVE', 200046, 'Inferred: Card BASIC is run from a deck of cards, and the manual does not describe Teletype commands for it.');
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200103, 200005, 'OLD', 2, 'REMOVE', 200047, 'Inferred: Card BASIC is run from a deck of cards, and the manual does not describe Teletype commands for it.');
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200104, 200005, 'SCRATCH', 2, 'REMOVE', 200048, 'Inferred: Card BASIC is run from a deck of cards, and the manual does not describe Teletype commands for it.');
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200105, 200005, 'RENAME', 2, 'REMOVE', 200049, 'Inferred: Card BASIC is run from a deck of cards, and the manual does not describe Teletype commands for it.');
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200106, 200005, 'CATALOG', 2, 'REMOVE', 200050, 'Inferred: Card BASIC is run from a deck of cards, and the manual does not describe Teletype commands for it.');
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200107, 200005, 'UNSAVE', 2, 'REMOVE', 200051, 'Inferred: Card BASIC is run from a deck of cards, and the manual does not describe Teletype commands for it.');
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200108, 200005, '=', 4, 'REMOVE', 200037, 'Relations are written as three-letter words on the cards [2] p. 50.');
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200109, 200005, '<>', 4, 'REMOVE', 200038, 'Relations are written as three-letter words on the cards [2] p. 50.');
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200110, 200005, '<', 4, 'REMOVE', 200041, 'Relations are written as three-letter words on the cards [2] p. 50.');
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200111, 200005, '<=', 4, 'REMOVE', 200042, 'Relations are written as three-letter words on the cards [2] p. 50.');
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200112, 200005, '>', 4, 'REMOVE', 200039, 'Relations are written as three-letter words on the cards [2] p. 50.');
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200113, 200005, '>=', 4, 'REMOVE', 200040, 'Relations are written as three-letter words on the cards [2] p. 50.');
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200103, 200005, 'HELLO', 2, 'REMOVE', 200001, 'Inferred: Card BASIC is run from a deck of cards, and the manual does not describe Teletype commands for it.');
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200104, 200005, 'RUN', 2, 'REMOVE', 200002, 'Inferred: Card BASIC is run from a deck of cards, and the manual does not describe Teletype commands for it.');
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200105, 200005, 'LIST', 2, 'REMOVE', 200052, 'Inferred: Card BASIC is run from a deck of cards, and the manual does not describe Teletype commands for it.');
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200106, 200005, 'SAVE', 2, 'REMOVE', 200004, 'Inferred: Card BASIC is run from a deck of cards, and the manual does not describe Teletype commands for it.');
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200107, 200005, 'STOP', 2, 'REMOVE', 200005, 'Inferred: Card BASIC is run from a deck of cards, and the manual does not describe Teletype commands for it.');
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200108, 200005, 'NEW', 2, 'REMOVE', 200046, 'Inferred: Card BASIC is run from a deck of cards, and the manual does not describe Teletype commands for it.');
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200109, 200005, 'OLD', 2, 'REMOVE', 200047, 'Inferred: Card BASIC is run from a deck of cards, and the manual does not describe Teletype commands for it.');
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200110, 200005, 'SCRATCH', 2, 'REMOVE', 200048, 'Inferred: Card BASIC is run from a deck of cards, and the manual does not describe Teletype commands for it.');
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200111, 200005, 'RENAME', 2, 'REMOVE', 200049, 'Inferred: Card BASIC is run from a deck of cards, and the manual does not describe Teletype commands for it.');
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200112, 200005, 'CATALOG', 2, 'REMOVE', 200050, 'Inferred: Card BASIC is run from a deck of cards, and the manual does not describe Teletype commands for it.');
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200113, 200005, 'UNSAVE', 2, 'REMOVE', 200051, 'Inferred: Card BASIC is run from a deck of cards, and the manual does not describe Teletype commands for it.');
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200114, 200005, '=', 4, 'REMOVE', 200037, 'Relations are written as three-letter words on the cards [2] p. 50.');
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200115, 200005, '<>', 4, 'REMOVE', 200038, 'Relations are written as three-letter words on the cards [2] p. 50.');
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200116, 200005, '<', 4, 'REMOVE', 200041, 'Relations are written as three-letter words on the cards [2] p. 50.');
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200117, 200005, '<=', 4, 'REMOVE', 200042, 'Relations are written as three-letter words on the cards [2] p. 50.');
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200118, 200005, '>', 4, 'REMOVE', 200039, 'Relations are written as three-letter words on the cards [2] p. 50.');
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200119, 200005, '>=', 4, 'REMOVE', 200040, 'Relations are written as three-letter words on the cards [2] p. 50.');
 -- EQU (OPERATOR)
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200114, 200005, 'EQU', 4, 'ADD', NULL, 'Equal: only in the relation of IF...THEN; written = on the Teletype.', NULL, 'Card equivalent of =: the key-punch has fewer symbols [2] p. 50.');
-INSERT INTO entry_source (entry_id, source_id, page) VALUES (200114, 200002, '50');
-INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200120, 200114, 1, NULL, NULL, 'A EQU B', 200002, '50', NULL, NULL, NULL, 1, 1, 1, NULL, 6, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200164, 200120, 'a', 'NONE', NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200165, 200120, 'b', 'NONE', NULL, NULL, NULL, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000699, 200120, NULL, 1, 'SEQUENCE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000700, 200120, 2000699, 1, 'PARAMETER', 0, NULL, 200164, 200005);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000701, 200120, 2000699, 2, 'KEYWORD', 0, NULL, 200076);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000702, 200120, 2000699, 3, 'PARAMETER', 0, NULL, 200165, 200005);
-INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200120, id, 'FULL', NULL FROM action WHERE code = 'OP_EQ';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id, page) VALUES (200114, NULL, 1, 'Equal', 'The last card is the data deck.', '10 READ A
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200120, 200005, 'EQU', 4, 'ADD', NULL, 'Equal: only in the relation of IF...THEN; written = on the Teletype.', NULL, 'Card equivalent of =: the key-punch has fewer symbols [2] p. 50.');
+INSERT INTO entry_source (entry_id, source_id, page) VALUES (200120, 200002, '50');
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200132, 200120, 1, NULL, NULL, 'A EQU B', 200002, '50', NULL, NULL, NULL, 1, 1, 1, NULL, 6, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200188, 200132, 'a', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200189, 200132, 'b', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000747, 200132, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000748, 200132, 2000747, 1, 'PARAMETER', 0, NULL, 200188, 200005);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000749, 200132, 2000747, 2, 'KEYWORD', 0, NULL, 200076);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000750, 200132, 2000747, 3, 'PARAMETER', 0, NULL, 200189, 200005);
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200132, id, 'FULL', NULL FROM action WHERE code = 'OP_EQ';
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id, page) VALUES (200120, NULL, 1, 'Equal', 'The last card is the data deck.', '10 READ A
 20 IF A EQU 2 THEN 50
 30 PRINT ''NO''
 40 STOP
@@ -3621,157 +3753,157 @@ INSERT INTO example (entry_id, form_id, position, title, description, code, expe
 2', 'YES', 0, NULL, NULL);
 
 -- NQU (OPERATOR)
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200115, 200005, 'NQU', 4, 'ADD', NULL, 'Not equal: only in the relation of IF...THEN; written <> on the Teletype.', NULL, 'Card equivalent of <>: the key-punch has fewer symbols [2] p. 50.');
-INSERT INTO entry_source (entry_id, source_id, page) VALUES (200115, 200002, '50');
-INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200121, 200115, 1, NULL, NULL, 'A NQU B', 200002, '50', NULL, NULL, NULL, 1, 1, 1, NULL, 6, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200166, 200121, 'a', 'NONE', NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200167, 200121, 'b', 'NONE', NULL, NULL, NULL, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000703, 200121, NULL, 1, 'SEQUENCE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000704, 200121, 2000703, 1, 'PARAMETER', 0, NULL, 200166, 200005);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000705, 200121, 2000703, 2, 'KEYWORD', 0, NULL, 200077);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000706, 200121, 2000703, 3, 'PARAMETER', 0, NULL, 200167, 200005);
-INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200121, id, 'FULL', NULL FROM action WHERE code = 'OP_NE';
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200121, 200005, 'NQU', 4, 'ADD', NULL, 'Not equal: only in the relation of IF...THEN; written <> on the Teletype.', NULL, 'Card equivalent of <>: the key-punch has fewer symbols [2] p. 50.');
+INSERT INTO entry_source (entry_id, source_id, page) VALUES (200121, 200002, '50');
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200133, 200121, 1, NULL, NULL, 'A NQU B', 200002, '50', NULL, NULL, NULL, 1, 1, 1, NULL, 6, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200190, 200133, 'a', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200191, 200133, 'b', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000751, 200133, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000752, 200133, 2000751, 1, 'PARAMETER', 0, NULL, 200190, 200005);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000753, 200133, 2000751, 2, 'KEYWORD', 0, NULL, 200077);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000754, 200133, 2000751, 3, 'PARAMETER', 0, NULL, 200191, 200005);
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200133, id, 'FULL', NULL FROM action WHERE code = 'OP_NE';
 
 -- LSS (OPERATOR)
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200116, 200005, 'LSS', 4, 'ADD', NULL, 'Less than: only in the relation of IF...THEN; written < on the Teletype.', NULL, 'Card equivalent of <: the key-punch has fewer symbols [2] p. 50.');
-INSERT INTO entry_source (entry_id, source_id, page) VALUES (200116, 200002, '50');
-INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200122, 200116, 1, NULL, NULL, 'A LSS B', 200002, '50', NULL, NULL, NULL, 1, 1, 1, NULL, 6, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200168, 200122, 'a', 'NONE', NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200169, 200122, 'b', 'NONE', NULL, NULL, NULL, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000707, 200122, NULL, 1, 'SEQUENCE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000708, 200122, 2000707, 1, 'PARAMETER', 0, NULL, 200168, 200005);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000709, 200122, 2000707, 2, 'KEYWORD', 0, NULL, 200078);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000710, 200122, 2000707, 3, 'PARAMETER', 0, NULL, 200169, 200005);
-INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200122, id, 'FULL', NULL FROM action WHERE code = 'OP_LT';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id, page) VALUES (200116, NULL, 1, 'Less than', NULL, '10 IF 1 LSS 2 THEN 40
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200122, 200005, 'LSS', 4, 'ADD', NULL, 'Less than: only in the relation of IF...THEN; written < on the Teletype.', NULL, 'Card equivalent of <: the key-punch has fewer symbols [2] p. 50.');
+INSERT INTO entry_source (entry_id, source_id, page) VALUES (200122, 200002, '50');
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200134, 200122, 1, NULL, NULL, 'A LSS B', 200002, '50', NULL, NULL, NULL, 1, 1, 1, NULL, 6, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200192, 200134, 'a', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200193, 200134, 'b', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000755, 200134, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000756, 200134, 2000755, 1, 'PARAMETER', 0, NULL, 200192, 200005);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000757, 200134, 2000755, 2, 'KEYWORD', 0, NULL, 200078);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000758, 200134, 2000755, 3, 'PARAMETER', 0, NULL, 200193, 200005);
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200134, id, 'FULL', NULL FROM action WHERE code = 'OP_LT';
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id, page) VALUES (200122, NULL, 1, 'Less than', NULL, '10 IF 1 LSS 2 THEN 40
 20 PRINT ''NO''
 30 STOP
 40 PRINT ''YES''
 50 END', 'YES', 0, NULL, NULL);
 
 -- LQU (OPERATOR)
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200117, 200005, 'LQU', 4, 'ADD', NULL, 'Less than or equal: only in the relation of IF...THEN; written <= on the Teletype.', NULL, 'Card equivalent of <=: the key-punch has fewer symbols [2] p. 50.');
-INSERT INTO entry_source (entry_id, source_id, page) VALUES (200117, 200002, '50');
-INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200123, 200117, 1, NULL, NULL, 'A LQU B', 200002, '50', NULL, NULL, NULL, 1, 1, 1, NULL, 6, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200170, 200123, 'a', 'NONE', NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200171, 200123, 'b', 'NONE', NULL, NULL, NULL, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000711, 200123, NULL, 1, 'SEQUENCE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000712, 200123, 2000711, 1, 'PARAMETER', 0, NULL, 200170, 200005);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000713, 200123, 2000711, 2, 'KEYWORD', 0, NULL, 200079);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000714, 200123, 2000711, 3, 'PARAMETER', 0, NULL, 200171, 200005);
-INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200123, id, 'FULL', NULL FROM action WHERE code = 'OP_LE';
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200123, 200005, 'LQU', 4, 'ADD', NULL, 'Less than or equal: only in the relation of IF...THEN; written <= on the Teletype.', NULL, 'Card equivalent of <=: the key-punch has fewer symbols [2] p. 50.');
+INSERT INTO entry_source (entry_id, source_id, page) VALUES (200123, 200002, '50');
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200135, 200123, 1, NULL, NULL, 'A LQU B', 200002, '50', NULL, NULL, NULL, 1, 1, 1, NULL, 6, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200194, 200135, 'a', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200195, 200135, 'b', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000759, 200135, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000760, 200135, 2000759, 1, 'PARAMETER', 0, NULL, 200194, 200005);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000761, 200135, 2000759, 2, 'KEYWORD', 0, NULL, 200079);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000762, 200135, 2000759, 3, 'PARAMETER', 0, NULL, 200195, 200005);
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200135, id, 'FULL', NULL FROM action WHERE code = 'OP_LE';
 
 -- GRT (OPERATOR)
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200118, 200005, 'GRT', 4, 'ADD', NULL, 'Greater than: only in the relation of IF...THEN; written > on the Teletype.', NULL, 'Card equivalent of >: the key-punch has fewer symbols [2] p. 50.');
-INSERT INTO entry_source (entry_id, source_id, page) VALUES (200118, 200002, '50');
-INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200124, 200118, 1, NULL, NULL, 'A GRT B', 200002, '50', NULL, NULL, NULL, 1, 1, 1, NULL, 6, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200172, 200124, 'a', 'NONE', NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200173, 200124, 'b', 'NONE', NULL, NULL, NULL, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000715, 200124, NULL, 1, 'SEQUENCE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000716, 200124, 2000715, 1, 'PARAMETER', 0, NULL, 200172, 200005);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000717, 200124, 2000715, 2, 'KEYWORD', 0, NULL, 200080);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000718, 200124, 2000715, 3, 'PARAMETER', 0, NULL, 200173, 200005);
-INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200124, id, 'FULL', NULL FROM action WHERE code = 'OP_GT';
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200124, 200005, 'GRT', 4, 'ADD', NULL, 'Greater than: only in the relation of IF...THEN; written > on the Teletype.', NULL, 'Card equivalent of >: the key-punch has fewer symbols [2] p. 50.');
+INSERT INTO entry_source (entry_id, source_id, page) VALUES (200124, 200002, '50');
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200136, 200124, 1, NULL, NULL, 'A GRT B', 200002, '50', NULL, NULL, NULL, 1, 1, 1, NULL, 6, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200196, 200136, 'a', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200197, 200136, 'b', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000763, 200136, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000764, 200136, 2000763, 1, 'PARAMETER', 0, NULL, 200196, 200005);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000765, 200136, 2000763, 2, 'KEYWORD', 0, NULL, 200080);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000766, 200136, 2000763, 3, 'PARAMETER', 0, NULL, 200197, 200005);
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200136, id, 'FULL', NULL FROM action WHERE code = 'OP_GT';
 
 -- GQU (OPERATOR)
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200119, 200005, 'GQU', 4, 'ADD', NULL, 'Greater than or equal: only in the relation of IF...THEN; written >= on the Teletype.', NULL, 'Card equivalent of >=: the key-punch has fewer symbols [2] p. 50.');
-INSERT INTO entry_source (entry_id, source_id, page) VALUES (200119, 200002, '50');
-INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200125, 200119, 1, NULL, NULL, 'A GQU B', 200002, '50', NULL, NULL, NULL, 1, 1, 1, NULL, 6, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200174, 200125, 'a', 'NONE', NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200175, 200125, 'b', 'NONE', NULL, NULL, NULL, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000719, 200125, NULL, 1, 'SEQUENCE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000720, 200125, 2000719, 1, 'PARAMETER', 0, NULL, 200174, 200005);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000721, 200125, 2000719, 2, 'KEYWORD', 0, NULL, 200081);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000722, 200125, 2000719, 3, 'PARAMETER', 0, NULL, 200175, 200005);
-INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200125, id, 'FULL', NULL FROM action WHERE code = 'OP_GE';
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200125, 200005, 'GQU', 4, 'ADD', NULL, 'Greater than or equal: only in the relation of IF...THEN; written >= on the Teletype.', NULL, 'Card equivalent of >=: the key-punch has fewer symbols [2] p. 50.');
+INSERT INTO entry_source (entry_id, source_id, page) VALUES (200125, 200002, '50');
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200137, 200125, 1, NULL, NULL, 'A GQU B', 200002, '50', NULL, NULL, NULL, 1, 1, 1, NULL, 6, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200198, 200137, 'a', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200199, 200137, 'b', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000767, 200137, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000768, 200137, 2000767, 1, 'PARAMETER', 0, NULL, 200198, 200005);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000769, 200137, 2000767, 2, 'KEYWORD', 0, NULL, 200081);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000770, 200137, 2000767, 3, 'PARAMETER', 0, NULL, 200199, 200005);
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200137, id, 'FULL', NULL FROM action WHERE code = 'OP_GE';
 
 -- PRINT (STATEMENT)
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200120, 200005, 'PRINT', 1, 'REPLACE', 200054, 'Types the values of formulas and labels on a line.', 'Labels between single quotes; the semicolon is punched as a multiple punch 5-8; 8 numbers per line on the printer.', 'Single quotes replace the double quotes; the semicolon is a 5-8 multiple punch [2] p. 50. The high-speed printer prints 8 numbers per line, up to 18 in packed format.');
-INSERT INTO entry_source (entry_id, source_id, page) VALUES (200120, 200002, '50');
-INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200126, 200120, 1, NULL, ''','' moves to the next zone of 15 characters (after the fifth, to the next line); '';'' moves to the next multiple of three characters, at least six per number. A PRINT ending with a comma or semicolon does not end the line; PRINT alone skips a line.', 'PRINT', 200002, '50', NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200176, 200126, 'label', 'NONE', NULL, NULL, 'Text in quotes, typed as it is; it fills whole zones.', 'MANUAL');
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200177, 200126, 'formula', 'NONE', NULL, NULL, 'Any formula: its value is typed.', 'MANUAL');
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000723, 200126, NULL, 1, 'SEQUENCE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000724, 200126, 2000723, 1, 'KEYWORD', 0, NULL, 200007);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000725, 200126, 2000723, 2, 'OPTIONAL', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000726, 200126, 2000725, 1, 'SEQUENCE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000727, 200126, 2000726, 1, 'CHOICE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000728, 200126, 2000727, 1, 'PARAMETER', 0, NULL, 200176, 200021);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000729, 200126, 2000727, 2, 'PARAMETER', 0, NULL, 200177, 200005);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000730, 200126, 2000727, 3, 'SEQUENCE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000731, 200126, 2000730, 1, 'PARAMETER', 0, NULL, 200176, 200021);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000732, 200126, 2000730, 2, 'PARAMETER', 0, NULL, 200177, 200005);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, separator, min_occ, max_occ) VALUES (2000733, 200126, 2000726, 2, 'REPEAT', 0, NULL, NULL, 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000734, 200126, 2000733, 1, 'SEQUENCE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000735, 200126, 2000734, 1, 'CHOICE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000736, 200126, 2000735, 1, 'LITERAL', 0, NULL, ',');
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000737, 200126, 2000735, 2, 'LITERAL', 0, NULL, ';');
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000738, 200126, 2000734, 2, 'CHOICE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000739, 200126, 2000738, 1, 'PARAMETER', 0, NULL, 200176, 200021);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000740, 200126, 2000738, 2, 'PARAMETER', 0, NULL, 200177, 200005);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000741, 200126, 2000738, 3, 'SEQUENCE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000742, 200126, 2000741, 1, 'PARAMETER', 0, NULL, 200176, 200021);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000743, 200126, 2000741, 2, 'PARAMETER', 0, NULL, 200177, 200005);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000744, 200126, 2000726, 3, 'OPTIONAL', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000745, 200126, 2000744, 1, 'CHOICE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000746, 200126, 2000745, 1, 'LITERAL', 0, NULL, ',');
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000747, 200126, 2000745, 2, 'LITERAL', 0, NULL, ';');
-INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200126, id, 'FULL', NULL FROM action WHERE code = 'IO_PRINT';
-INSERT INTO entry_error (entry_id, form_id, parameter_id, error_code, operation, cause, verified, position) VALUES (200120, NULL, NULL, 'TOO_MANY_LABELS', 'ADD', 'The labels of the program are too long altogether (from [2]).', 0, 1);
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id, page) VALUES (200120, NULL, 1, 'Label in single quotes', NULL, '10 PRINT ''SQUARE ROOT OF 2 ='' SQR(2)
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200126, 200005, 'PRINT', 1, 'REPLACE', 200054, 'Types the values of formulas and labels on a line.', 'Labels between single quotes; the semicolon is punched as a multiple punch 5-8; 8 numbers per line on the printer.', 'Single quotes replace the double quotes; the semicolon is a 5-8 multiple punch [2] p. 50. The high-speed printer prints 8 numbers per line, up to 18 in packed format.');
+INSERT INTO entry_source (entry_id, source_id, page) VALUES (200126, 200002, '50');
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200138, 200126, 1, NULL, ''','' moves to the next zone of 15 characters (after the fifth, to the next line); '';'' moves to the next multiple of three characters, at least six per number. A PRINT ending with a comma or semicolon does not end the line; PRINT alone skips a line.', 'PRINT', 200002, '50', NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200200, 200138, 'label', 'NONE', NULL, NULL, 'Text in quotes, typed as it is; it fills whole zones.', 'MANUAL');
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200201, 200138, 'formula', 'NONE', NULL, NULL, 'Any formula: its value is typed.', 'MANUAL');
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000771, 200138, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000772, 200138, 2000771, 1, 'KEYWORD', 0, NULL, 200007);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000773, 200138, 2000771, 2, 'OPTIONAL', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000774, 200138, 2000773, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000775, 200138, 2000774, 1, 'CHOICE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000776, 200138, 2000775, 1, 'PARAMETER', 0, NULL, 200200, 200021);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000777, 200138, 2000775, 2, 'PARAMETER', 0, NULL, 200201, 200005);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000778, 200138, 2000775, 3, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000779, 200138, 2000778, 1, 'PARAMETER', 0, NULL, 200200, 200021);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000780, 200138, 2000778, 2, 'PARAMETER', 0, NULL, 200201, 200005);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, separator, min_occ, max_occ) VALUES (2000781, 200138, 2000774, 2, 'REPEAT', 0, NULL, NULL, 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000782, 200138, 2000781, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000783, 200138, 2000782, 1, 'CHOICE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000784, 200138, 2000783, 1, 'LITERAL', 0, NULL, ',');
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000785, 200138, 2000783, 2, 'LITERAL', 0, NULL, ';');
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000786, 200138, 2000782, 2, 'CHOICE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000787, 200138, 2000786, 1, 'PARAMETER', 0, NULL, 200200, 200021);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000788, 200138, 2000786, 2, 'PARAMETER', 0, NULL, 200201, 200005);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000789, 200138, 2000786, 3, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000790, 200138, 2000789, 1, 'PARAMETER', 0, NULL, 200200, 200021);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000791, 200138, 2000789, 2, 'PARAMETER', 0, NULL, 200201, 200005);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000792, 200138, 2000774, 3, 'OPTIONAL', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000793, 200138, 2000792, 1, 'CHOICE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000794, 200138, 2000793, 1, 'LITERAL', 0, NULL, ',');
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000795, 200138, 2000793, 2, 'LITERAL', 0, NULL, ';');
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200138, id, 'FULL', NULL FROM action WHERE code = 'IO_PRINT';
+INSERT INTO entry_error (entry_id, form_id, parameter_id, error_code, operation, cause, verified, position) VALUES (200126, NULL, NULL, 'TOO_MANY_LABELS', 'ADD', 'The labels of the program are too long altogether (from [2]).', 0, 1);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id, page) VALUES (200126, NULL, 1, 'Label in single quotes', NULL, '10 PRINT ''SQUARE ROOT OF 2 ='' SQR(2)
 20 END', 'SQUARE ROOT OF 2 = 1.41421', 0, NULL, NULL);
 
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200121, 200005, 'DATA', 1, 'REMOVE', 200045, 'No DATA statement: the numbers are punched on a data deck after the END card [2] p. 50.');
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, difference_notes) VALUES (200127, 200005, 'DATA', 1, 'REMOVE', 200045, 'No DATA statement: the numbers are punched on a data deck after the END card [2] p. 50.');
 -- READ (STATEMENT)
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200122, 200005, 'READ', 1, 'REPLACE', 200014, 'Gives the variables the next numbers of the DATA statements.', 'The numbers come from the data deck after the END card, with no limit.', 'The data deck follows the END card: numbers separated by commas, as many per card as wanted, without line numbers or the word DATA; there is no limit on the data [2] pp. 50-51.');
-INSERT INTO entry_source (entry_id, source_id, page) VALUES (200122, 200002, '50-51');
-INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200127, 200122, 1, NULL, NULL, 'READ A, B, C', 200002, '50-51', NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200178, 200127, 'variable', 'NONE', NULL, NULL, 'Variables or elements, separated by commas.', 'MANUAL');
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000748, 200127, NULL, 1, 'SEQUENCE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000749, 200127, 2000748, 1, 'KEYWORD', 0, NULL, 200018);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, separator, min_occ, max_occ) VALUES (2000750, 200127, 2000748, 2, 'REPEAT', 0, NULL, ',', 1, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000751, 200127, 2000750, 1, 'PARAMETER', 0, NULL, 200178, 200009);
-INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200127, id, 'FULL', NULL FROM action WHERE code = 'DATA_READ';
-INSERT INTO entry_error (entry_id, form_id, parameter_id, error_code, operation, cause, verified, position) VALUES (200122, NULL, NULL, 'NO_DATA', 'ADD', 'No data deck after the END card.', 0, 1);
-INSERT INTO entry_error (entry_id, form_id, parameter_id, error_code, operation, cause, verified, position) VALUES (200122, NULL, NULL, 'ILLEGAL_VARIABLE', 'ADD', 'An item is not a variable.', 0, 2);
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id, page) VALUES (200122, NULL, 1, 'Data deck', 'The data card follows END.', '10 READ A, B
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200128, 200005, 'READ', 1, 'REPLACE', 200014, 'Gives the variables the next numbers of the DATA statements.', 'The numbers come from the data deck after the END card, with no limit.', 'The data deck follows the END card: numbers separated by commas, as many per card as wanted, without line numbers or the word DATA; there is no limit on the data [2] pp. 50-51.');
+INSERT INTO entry_source (entry_id, source_id, page) VALUES (200128, 200002, '50-51');
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200139, 200128, 1, NULL, NULL, 'READ A, B, C', 200002, '50-51', NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200202, 200139, 'variable', 'NONE', NULL, NULL, 'Variables or elements, separated by commas.', 'MANUAL');
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000796, 200139, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000797, 200139, 2000796, 1, 'KEYWORD', 0, NULL, 200018);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, separator, min_occ, max_occ) VALUES (2000798, 200139, 2000796, 2, 'REPEAT', 0, NULL, ',', 1, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000799, 200139, 2000798, 1, 'PARAMETER', 0, NULL, 200202, 200009);
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200139, id, 'FULL', NULL FROM action WHERE code = 'DATA_READ';
+INSERT INTO entry_error (entry_id, form_id, parameter_id, error_code, operation, cause, verified, position) VALUES (200128, NULL, NULL, 'NO_DATA', 'ADD', 'No data deck after the END card.', 0, 1);
+INSERT INTO entry_error (entry_id, form_id, parameter_id, error_code, operation, cause, verified, position) VALUES (200128, NULL, NULL, 'ILLEGAL_VARIABLE', 'ADD', 'An item is not a variable.', 0, 2);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id, page) VALUES (200128, NULL, 1, 'Data deck', 'The data card follows END.', '10 READ A, B
 20 PRINT A + B
 30 END
 3, 4', '7', 0, NULL, NULL);
 
 -- PAGE (STATEMENT)
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200123, 200005, 'PAGE', 1, 'ADD', NULL, 'Starts a new page of the printed output.', NULL, 'The manual gives no other detail [2] p. 50.');
-INSERT INTO entry_source (entry_id, source_id, page) VALUES (200123, 200002, '50');
-INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200128, 200123, 1, NULL, NULL, 'PAGE', 200002, '50', NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000752, 200128, NULL, 1, 'SEQUENCE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000753, 200128, 2000752, 1, 'KEYWORD', 0, NULL, 200082);
-INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200128, id, 'FULL', NULL FROM action WHERE code = 'IO_NEW_PAGE';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id, page) VALUES (200123, NULL, 1, 'Two pages', NULL, '10 PRINT ''FIRST''
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200129, 200005, 'PAGE', 1, 'ADD', NULL, 'Starts a new page of the printed output.', NULL, 'The manual gives no other detail [2] p. 50.');
+INSERT INTO entry_source (entry_id, source_id, page) VALUES (200129, 200002, '50');
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200140, 200129, 1, NULL, NULL, 'PAGE', 200002, '50', NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000800, 200140, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000801, 200140, 2000800, 1, 'KEYWORD', 0, NULL, 200082);
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200140, id, 'FULL', NULL FROM action WHERE code = 'IO_NEW_PAGE';
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id, page) VALUES (200129, NULL, 1, 'Two pages', NULL, '10 PRINT ''FIRST''
 20 PAGE
 30 PRINT ''SECOND''
 40 END', NULL, 0, NULL, NULL);
 
 -- MAT READ (STATEMENT)
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200124, 200005, 'MAT READ', 1, 'ADD', NULL, 'Reads one matrix of the dimensions shown from the data.', NULL, 'The dimensions can be formulas: `DIM A(20,20)`, `READ M`, `MAT READ A(M,M)` reads a square matrix of any size up to 20 × 20 [2] p. 52. A matrix must be first used in a MAT statement.');
-INSERT INTO entry_source (entry_id, source_id, page) VALUES (200124, 200002, '51-52');
-INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200129, 200124, 1, NULL, NULL, 'MAT READ A(M,N)', 200002, '51-52', NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200179, 200129, 'matrix', 'NONE', NULL, NULL, 'A matrix with a DIM.', 'MANUAL');
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200180, 200129, 'm', 'NONE', NULL, NULL, 'Rows: a formula, at most the DIM.', 'MANUAL');
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200181, 200129, 'n', 'NONE', NULL, NULL, 'Columns; without it a column vector.', 'MANUAL');
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000754, 200129, NULL, 1, 'SEQUENCE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000755, 200129, 2000754, 1, 'KEYWORD', 0, NULL, 200083);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000756, 200129, 2000754, 2, 'KEYWORD', 0, NULL, 200018);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000757, 200129, 2000754, 3, 'PARAMETER', 0, NULL, 200179, 200022);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000758, 200129, 2000754, 4, 'LITERAL', 1, NULL, '(');
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000759, 200129, 2000754, 5, 'PARAMETER', 1, NULL, 200180, 200005);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000760, 200129, 2000754, 6, 'OPTIONAL', 1, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000761, 200129, 2000760, 1, 'SEQUENCE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000762, 200129, 2000761, 1, 'LITERAL', 1, NULL, ',');
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000763, 200129, 2000761, 2, 'PARAMETER', 1, NULL, 200181, 200005);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000764, 200129, 2000754, 7, 'LITERAL', 1, NULL, ')');
-INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200129, id, 'FULL', NULL FROM action WHERE code = 'MAT_READ';
-INSERT INTO entry_error (entry_id, form_id, parameter_id, error_code, operation, cause, verified, position) VALUES (200124, NULL, NULL, 'DIMENSION_TOO_LARGE', 'ADD', 'More than the limits of [2] p. 51.', 0, 1);
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id, page) VALUES (200124, NULL, 1, 'Square matrix of any size', NULL, '10 DIM A(20,20)
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200130, 200005, 'MAT READ', 1, 'ADD', NULL, 'Reads one matrix of the dimensions shown from the data.', NULL, 'The dimensions can be formulas: `DIM A(20,20)`, `READ M`, `MAT READ A(M,M)` reads a square matrix of any size up to 20 × 20 [2] p. 52. A matrix must be first used in a MAT statement.');
+INSERT INTO entry_source (entry_id, source_id, page) VALUES (200130, 200002, '51-52');
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200141, 200130, 1, NULL, NULL, 'MAT READ A(M,N)', 200002, '51-52', NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200203, 200141, 'matrix', 'NONE', NULL, NULL, 'A matrix with a DIM.', 'MANUAL');
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200204, 200141, 'm', 'NONE', NULL, NULL, 'Rows: a formula, at most the DIM.', 'MANUAL');
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200205, 200141, 'n', 'NONE', NULL, NULL, 'Columns; without it a column vector.', 'MANUAL');
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000802, 200141, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000803, 200141, 2000802, 1, 'KEYWORD', 0, NULL, 200083);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000804, 200141, 2000802, 2, 'KEYWORD', 0, NULL, 200018);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000805, 200141, 2000802, 3, 'PARAMETER', 0, NULL, 200203, 200022);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000806, 200141, 2000802, 4, 'LITERAL', 1, NULL, '(');
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000807, 200141, 2000802, 5, 'PARAMETER', 1, NULL, 200204, 200005);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000808, 200141, 2000802, 6, 'OPTIONAL', 1, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000809, 200141, 2000808, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000810, 200141, 2000809, 1, 'LITERAL', 1, NULL, ',');
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000811, 200141, 2000809, 2, 'PARAMETER', 1, NULL, 200205, 200005);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000812, 200141, 2000802, 7, 'LITERAL', 1, NULL, ')');
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200141, id, 'FULL', NULL FROM action WHERE code = 'MAT_READ';
+INSERT INTO entry_error (entry_id, form_id, parameter_id, error_code, operation, cause, verified, position) VALUES (200130, NULL, NULL, 'DIMENSION_TOO_LARGE', 'ADD', 'More than the limits of [2] p. 51.', 0, 1);
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id, page) VALUES (200130, NULL, 1, 'Square matrix of any size', NULL, '10 DIM A(20,20)
 20 READ M
 30 MAT READ A(M,M)
 40 MAT PRINT A
@@ -3779,161 +3911,161 @@ INSERT INTO example (entry_id, form_id, position, title, description, code, expe
 2, 1, 2, 3, 4', NULL, 0, 200002, '52');
 
 -- MAT PRINT (STATEMENT)
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200125, 200005, 'MAT PRINT', 1, 'ADD', NULL, 'Prints one matrix; vectors are printed as rows.', NULL, NULL);
-INSERT INTO entry_source (entry_id, source_id, page) VALUES (200125, 200002, '51-52');
-INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200130, 200125, 1, NULL, 'Followed by the 5-8 punch (;) the matrix is printed packed.', 'MAT PRINT A', 200002, '51-52', NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200182, 200130, 'matrix', 'NONE', NULL, NULL, 'A matrix or vector.', 'MANUAL');
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000765, 200130, NULL, 1, 'SEQUENCE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000766, 200130, 2000765, 1, 'KEYWORD', 0, NULL, 200083);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000767, 200130, 2000765, 2, 'KEYWORD', 0, NULL, 200007);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000768, 200130, 2000765, 3, 'PARAMETER', 0, NULL, 200182, 200022);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000769, 200130, 2000765, 4, 'OPTIONAL', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000770, 200130, 2000769, 1, 'LITERAL', 0, NULL, ';');
-INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200130, id, 'FULL', NULL FROM action WHERE code = 'MAT_PRINT';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id, page) VALUES (200125, NULL, 1, 'Packed', NULL, '10 DIM A(3,3)
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200131, 200005, 'MAT PRINT', 1, 'ADD', NULL, 'Prints one matrix; vectors are printed as rows.', NULL, NULL);
+INSERT INTO entry_source (entry_id, source_id, page) VALUES (200131, 200002, '51-52');
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200142, 200131, 1, NULL, 'Followed by the 5-8 punch (;) the matrix is printed packed.', 'MAT PRINT A', 200002, '51-52', NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200206, 200142, 'matrix', 'NONE', NULL, NULL, 'A matrix or vector.', 'MANUAL');
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000813, 200142, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000814, 200142, 2000813, 1, 'KEYWORD', 0, NULL, 200083);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000815, 200142, 2000813, 2, 'KEYWORD', 0, NULL, 200007);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000816, 200142, 2000813, 3, 'PARAMETER', 0, NULL, 200206, 200022);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000817, 200142, 2000813, 4, 'OPTIONAL', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000818, 200142, 2000817, 1, 'LITERAL', 0, NULL, ';');
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200142, id, 'FULL', NULL FROM action WHERE code = 'MAT_PRINT';
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id, page) VALUES (200131, NULL, 1, 'Packed', NULL, '10 DIM A(3,3)
 20 MAT A = IDN(3)
 30 MAT PRINT A;
 40 END', NULL, 0, NULL, NULL);
 
 -- MAT (STATEMENT)
-INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200126, 200005, 'MAT', 1, 'ADD', NULL, 'Matrix arithmetic: sum, difference, product, multiple, zero, ones, identity, transpose, inverse.', NULL, 'The matrices must have a DIM and start with element 1; a vector can stand for a matrix [2] pp. 51-52.');
-INSERT INTO entry_source (entry_id, source_id, page) VALUES (200126, 200002, '51-52');
-INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200131, 200126, 1, 'Sum', NULL, 'MAT C = A + B', 200002, '51-52', NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200183, 200131, 'c', 'NONE', NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200184, 200131, 'a', 'NONE', NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200185, 200131, 'b', 'NONE', NULL, NULL, NULL, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000771, 200131, NULL, 1, 'SEQUENCE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000772, 200131, 2000771, 1, 'KEYWORD', 0, NULL, 200083);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000773, 200131, 2000771, 2, 'PARAMETER', 0, NULL, 200183, 200022);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000774, 200131, 2000771, 3, 'KEYWORD', 0, NULL, 200039);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000775, 200131, 2000771, 4, 'PARAMETER', 0, NULL, 200184, 200022);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000776, 200131, 2000771, 5, 'KEYWORD', 0, NULL, 200034);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000777, 200131, 2000771, 6, 'PARAMETER', 0, NULL, 200185, 200022);
-INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200131, id, 'FULL', NULL FROM action WHERE code = 'MAT_ADD';
-INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200132, 200126, 2, 'Difference', NULL, 'MAT C = A - B', 200002, '51-52', NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200186, 200132, 'c', 'NONE', NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200187, 200132, 'a', 'NONE', NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200188, 200132, 'b', 'NONE', NULL, NULL, NULL, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000778, 200132, NULL, 1, 'SEQUENCE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000779, 200132, 2000778, 1, 'KEYWORD', 0, NULL, 200083);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000780, 200132, 2000778, 2, 'PARAMETER', 0, NULL, 200186, 200022);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000781, 200132, 2000778, 3, 'KEYWORD', 0, NULL, 200039);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000782, 200132, 2000778, 4, 'PARAMETER', 0, NULL, 200187, 200022);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000783, 200132, 2000778, 5, 'KEYWORD', 0, NULL, 200035);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000784, 200132, 2000778, 6, 'PARAMETER', 0, NULL, 200188, 200022);
-INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200132, id, 'FULL', NULL FROM action WHERE code = 'MAT_SUB';
-INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200133, 200126, 3, 'Product', NULL, 'MAT C = A * B', 200002, '51-52', NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200189, 200133, 'c', 'NONE', NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200190, 200133, 'a', 'NONE', NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200191, 200133, 'b', 'NONE', NULL, NULL, NULL, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000785, 200133, NULL, 1, 'SEQUENCE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000786, 200133, 2000785, 1, 'KEYWORD', 0, NULL, 200083);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000787, 200133, 2000785, 2, 'PARAMETER', 0, NULL, 200189, 200022);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000788, 200133, 2000785, 3, 'KEYWORD', 0, NULL, 200039);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000789, 200133, 2000785, 4, 'PARAMETER', 0, NULL, 200190, 200022);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000790, 200133, 2000785, 5, 'KEYWORD', 0, NULL, 200036);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000791, 200133, 2000785, 6, 'PARAMETER', 0, NULL, 200191, 200022);
-INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200133, id, 'FULL', NULL FROM action WHERE code = 'MAT_MUL';
-INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200134, 200126, 4, 'Multiple', NULL, 'MAT C = (K) * A', 200002, '51-52', NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200192, 200134, 'c', 'NONE', NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200193, 200134, 'k', 'NONE', NULL, NULL, 'Any formula, in parentheses.', 'MANUAL');
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200194, 200134, 'a', 'NONE', NULL, NULL, NULL, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000792, 200134, NULL, 1, 'SEQUENCE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000793, 200134, 2000792, 1, 'KEYWORD', 0, NULL, 200083);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000794, 200134, 2000792, 2, 'PARAMETER', 0, NULL, 200192, 200022);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000795, 200134, 2000792, 3, 'KEYWORD', 0, NULL, 200039);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000796, 200134, 2000792, 4, 'LITERAL', 0, NULL, '(');
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000797, 200134, 2000792, 5, 'PARAMETER', 1, NULL, 200193, 200005);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000798, 200134, 2000792, 6, 'LITERAL', 1, NULL, ')');
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000799, 200134, 2000792, 7, 'KEYWORD', 0, NULL, 200036);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000800, 200134, 2000792, 8, 'PARAMETER', 0, NULL, 200194, 200022);
-INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200134, id, 'FULL', NULL FROM action WHERE code = 'MAT_SCALAR';
-INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200135, 200126, 5, 'Zero matrix', NULL, 'MAT C = ZER(M,N)', 200002, '51-52', NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200195, 200135, 'c', 'NONE', NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200196, 200135, 'm', 'NONE', NULL, NULL, 'Rows (a formula).', 'MANUAL');
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200197, 200135, 'n', 'NONE', NULL, NULL, 'Columns (a formula).', 'MANUAL');
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000801, 200135, NULL, 1, 'SEQUENCE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000802, 200135, 2000801, 1, 'KEYWORD', 0, NULL, 200083);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000803, 200135, 2000801, 2, 'PARAMETER', 0, NULL, 200195, 200022);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000804, 200135, 2000801, 3, 'KEYWORD', 0, NULL, 200039);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000805, 200135, 2000801, 4, 'KEYWORD', 0, NULL, 200084);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000806, 200135, 2000801, 5, 'OPTIONAL', 1, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000807, 200135, 2000806, 1, 'SEQUENCE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000808, 200135, 2000807, 1, 'LITERAL', 1, NULL, '(');
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000809, 200135, 2000807, 2, 'PARAMETER', 1, NULL, 200196, 200005);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000810, 200135, 2000807, 3, 'OPTIONAL', 1, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000811, 200135, 2000810, 1, 'SEQUENCE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000812, 200135, 2000811, 1, 'LITERAL', 1, NULL, ',');
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000813, 200135, 2000811, 2, 'PARAMETER', 1, NULL, 200197, 200005);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000814, 200135, 2000807, 4, 'LITERAL', 1, NULL, ')');
-INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200135, id, 'FULL', NULL FROM action WHERE code = 'MAT_ZERO';
-INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200136, 200126, 6, 'Ones', NULL, 'MAT C = CON(M,N)', 200002, '51-52', NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200198, 200136, 'c', 'NONE', NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200199, 200136, 'm', 'NONE', NULL, NULL, 'Rows (a formula).', 'MANUAL');
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200200, 200136, 'n', 'NONE', NULL, NULL, 'Columns (a formula).', 'MANUAL');
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000815, 200136, NULL, 1, 'SEQUENCE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000816, 200136, 2000815, 1, 'KEYWORD', 0, NULL, 200083);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000817, 200136, 2000815, 2, 'PARAMETER', 0, NULL, 200198, 200022);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000818, 200136, 2000815, 3, 'KEYWORD', 0, NULL, 200039);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000819, 200136, 2000815, 4, 'KEYWORD', 0, NULL, 200085);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000820, 200136, 2000815, 5, 'OPTIONAL', 1, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000821, 200136, 2000820, 1, 'SEQUENCE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000822, 200136, 2000821, 1, 'LITERAL', 1, NULL, '(');
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000823, 200136, 2000821, 2, 'PARAMETER', 1, NULL, 200199, 200005);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000824, 200136, 2000821, 3, 'OPTIONAL', 1, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000825, 200136, 2000824, 1, 'SEQUENCE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000826, 200136, 2000825, 1, 'LITERAL', 1, NULL, ',');
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000827, 200136, 2000825, 2, 'PARAMETER', 1, NULL, 200200, 200005);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000828, 200136, 2000821, 4, 'LITERAL', 1, NULL, ')');
-INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200136, id, 'FULL', NULL FROM action WHERE code = 'MAT_ONES';
-INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200137, 200126, 7, 'Identity', NULL, 'MAT C = IDN(N)', 200002, '51-52', NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200201, 200137, 'c', 'NONE', NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200202, 200137, 'n', 'NONE', NULL, NULL, 'Order of the square matrix.', 'MANUAL');
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000829, 200137, NULL, 1, 'SEQUENCE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000830, 200137, 2000829, 1, 'KEYWORD', 0, NULL, 200083);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000831, 200137, 2000829, 2, 'PARAMETER', 0, NULL, 200201, 200022);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000832, 200137, 2000829, 3, 'KEYWORD', 0, NULL, 200039);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000833, 200137, 2000829, 4, 'KEYWORD', 0, NULL, 200086);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000834, 200137, 2000829, 5, 'OPTIONAL', 1, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000835, 200137, 2000834, 1, 'SEQUENCE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000836, 200137, 2000835, 1, 'LITERAL', 1, NULL, '(');
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000837, 200137, 2000835, 2, 'PARAMETER', 1, NULL, 200202, 200005);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000838, 200137, 2000835, 3, 'LITERAL', 1, NULL, ')');
-INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200137, id, 'FULL', NULL FROM action WHERE code = 'MAT_IDENTITY';
-INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200138, 200126, 8, 'Transpose', NULL, 'MAT C = TRN(A)', 200002, '51-52', NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200203, 200138, 'c', 'NONE', NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200204, 200138, 'a', 'NONE', NULL, NULL, NULL, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000839, 200138, NULL, 1, 'SEQUENCE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000840, 200138, 2000839, 1, 'KEYWORD', 0, NULL, 200083);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000841, 200138, 2000839, 2, 'PARAMETER', 0, NULL, 200203, 200022);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000842, 200138, 2000839, 3, 'KEYWORD', 0, NULL, 200039);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000843, 200138, 2000839, 4, 'KEYWORD', 0, NULL, 200087);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000844, 200138, 2000839, 5, 'LITERAL', 1, NULL, '(');
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000845, 200138, 2000839, 6, 'PARAMETER', 1, NULL, 200204, 200022);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000846, 200138, 2000839, 7, 'LITERAL', 1, NULL, ')');
-INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200138, id, 'FULL', NULL FROM action WHERE code = 'MAT_TRANSPOSE';
-INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200139, 200126, 9, 'Inverse', NULL, 'MAT C = INV(A)', 200002, '51-52', NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200205, 200139, 'c', 'NONE', NULL, NULL, NULL, NULL);
-INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200206, 200139, 'a', 'NONE', NULL, NULL, NULL, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000847, 200139, NULL, 1, 'SEQUENCE', 0, NULL);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000848, 200139, 2000847, 1, 'KEYWORD', 0, NULL, 200083);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000849, 200139, 2000847, 2, 'PARAMETER', 0, NULL, 200205, 200022);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000850, 200139, 2000847, 3, 'KEYWORD', 0, NULL, 200039);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000851, 200139, 2000847, 4, 'KEYWORD', 0, NULL, 200088);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000852, 200139, 2000847, 5, 'LITERAL', 1, NULL, '(');
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000853, 200139, 2000847, 6, 'PARAMETER', 1, NULL, 200206, 200022);
-INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000854, 200139, 2000847, 7, 'LITERAL', 1, NULL, ')');
-INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200139, id, 'FULL', NULL FROM action WHERE code = 'MAT_INVERSE';
-INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id, page) VALUES (200126, 200139, 1, 'Inverse', NULL, '10 DIM A(2,2), B(2,2)
+INSERT INTO entry (id, layer_id, name, category_id, operation, redefines_id, description, difference_notes, notes) VALUES (200132, 200005, 'MAT', 1, 'ADD', NULL, 'Matrix arithmetic: sum, difference, product, multiple, zero, ones, identity, transpose, inverse.', NULL, 'The matrices must have a DIM and start with element 1; a vector can stand for a matrix [2] pp. 51-52.');
+INSERT INTO entry_source (entry_id, source_id, page) VALUES (200132, 200002, '51-52');
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200143, 200132, 1, 'Sum', NULL, 'MAT C = A + B', 200002, '51-52', NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200207, 200143, 'c', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200208, 200143, 'a', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200209, 200143, 'b', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000819, 200143, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000820, 200143, 2000819, 1, 'KEYWORD', 0, NULL, 200083);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000821, 200143, 2000819, 2, 'PARAMETER', 0, NULL, 200207, 200022);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000822, 200143, 2000819, 3, 'KEYWORD', 0, NULL, 200039);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000823, 200143, 2000819, 4, 'PARAMETER', 0, NULL, 200208, 200022);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000824, 200143, 2000819, 5, 'KEYWORD', 0, NULL, 200034);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000825, 200143, 2000819, 6, 'PARAMETER', 0, NULL, 200209, 200022);
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200143, id, 'FULL', NULL FROM action WHERE code = 'MAT_ADD';
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200144, 200132, 2, 'Difference', NULL, 'MAT C = A - B', 200002, '51-52', NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200210, 200144, 'c', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200211, 200144, 'a', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200212, 200144, 'b', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000826, 200144, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000827, 200144, 2000826, 1, 'KEYWORD', 0, NULL, 200083);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000828, 200144, 2000826, 2, 'PARAMETER', 0, NULL, 200210, 200022);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000829, 200144, 2000826, 3, 'KEYWORD', 0, NULL, 200039);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000830, 200144, 2000826, 4, 'PARAMETER', 0, NULL, 200211, 200022);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000831, 200144, 2000826, 5, 'KEYWORD', 0, NULL, 200035);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000832, 200144, 2000826, 6, 'PARAMETER', 0, NULL, 200212, 200022);
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200144, id, 'FULL', NULL FROM action WHERE code = 'MAT_SUB';
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200145, 200132, 3, 'Product', NULL, 'MAT C = A * B', 200002, '51-52', NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200213, 200145, 'c', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200214, 200145, 'a', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200215, 200145, 'b', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000833, 200145, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000834, 200145, 2000833, 1, 'KEYWORD', 0, NULL, 200083);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000835, 200145, 2000833, 2, 'PARAMETER', 0, NULL, 200213, 200022);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000836, 200145, 2000833, 3, 'KEYWORD', 0, NULL, 200039);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000837, 200145, 2000833, 4, 'PARAMETER', 0, NULL, 200214, 200022);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000838, 200145, 2000833, 5, 'KEYWORD', 0, NULL, 200036);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000839, 200145, 2000833, 6, 'PARAMETER', 0, NULL, 200215, 200022);
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200145, id, 'FULL', NULL FROM action WHERE code = 'MAT_MUL';
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200146, 200132, 4, 'Multiple', NULL, 'MAT C = (K) * A', 200002, '51-52', NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200216, 200146, 'c', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200217, 200146, 'k', 'NONE', NULL, NULL, 'Any formula, in parentheses.', 'MANUAL');
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200218, 200146, 'a', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000840, 200146, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000841, 200146, 2000840, 1, 'KEYWORD', 0, NULL, 200083);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000842, 200146, 2000840, 2, 'PARAMETER', 0, NULL, 200216, 200022);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000843, 200146, 2000840, 3, 'KEYWORD', 0, NULL, 200039);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000844, 200146, 2000840, 4, 'LITERAL', 0, NULL, '(');
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000845, 200146, 2000840, 5, 'PARAMETER', 1, NULL, 200217, 200005);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000846, 200146, 2000840, 6, 'LITERAL', 1, NULL, ')');
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000847, 200146, 2000840, 7, 'KEYWORD', 0, NULL, 200036);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000848, 200146, 2000840, 8, 'PARAMETER', 0, NULL, 200218, 200022);
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200146, id, 'FULL', NULL FROM action WHERE code = 'MAT_SCALAR';
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200147, 200132, 5, 'Zero matrix', NULL, 'MAT C = ZER(M,N)', 200002, '51-52', NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200219, 200147, 'c', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200220, 200147, 'm', 'NONE', NULL, NULL, 'Rows (a formula).', 'MANUAL');
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200221, 200147, 'n', 'NONE', NULL, NULL, 'Columns (a formula).', 'MANUAL');
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000849, 200147, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000850, 200147, 2000849, 1, 'KEYWORD', 0, NULL, 200083);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000851, 200147, 2000849, 2, 'PARAMETER', 0, NULL, 200219, 200022);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000852, 200147, 2000849, 3, 'KEYWORD', 0, NULL, 200039);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000853, 200147, 2000849, 4, 'KEYWORD', 0, NULL, 200084);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000854, 200147, 2000849, 5, 'OPTIONAL', 1, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000855, 200147, 2000854, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000856, 200147, 2000855, 1, 'LITERAL', 1, NULL, '(');
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000857, 200147, 2000855, 2, 'PARAMETER', 1, NULL, 200220, 200005);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000858, 200147, 2000855, 3, 'OPTIONAL', 1, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000859, 200147, 2000858, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000860, 200147, 2000859, 1, 'LITERAL', 1, NULL, ',');
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000861, 200147, 2000859, 2, 'PARAMETER', 1, NULL, 200221, 200005);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000862, 200147, 2000855, 4, 'LITERAL', 1, NULL, ')');
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200147, id, 'FULL', NULL FROM action WHERE code = 'MAT_ZERO';
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200148, 200132, 6, 'Ones', NULL, 'MAT C = CON(M,N)', 200002, '51-52', NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200222, 200148, 'c', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200223, 200148, 'm', 'NONE', NULL, NULL, 'Rows (a formula).', 'MANUAL');
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200224, 200148, 'n', 'NONE', NULL, NULL, 'Columns (a formula).', 'MANUAL');
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000863, 200148, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000864, 200148, 2000863, 1, 'KEYWORD', 0, NULL, 200083);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000865, 200148, 2000863, 2, 'PARAMETER', 0, NULL, 200222, 200022);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000866, 200148, 2000863, 3, 'KEYWORD', 0, NULL, 200039);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000867, 200148, 2000863, 4, 'KEYWORD', 0, NULL, 200085);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000868, 200148, 2000863, 5, 'OPTIONAL', 1, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000869, 200148, 2000868, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000870, 200148, 2000869, 1, 'LITERAL', 1, NULL, '(');
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000871, 200148, 2000869, 2, 'PARAMETER', 1, NULL, 200223, 200005);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000872, 200148, 2000869, 3, 'OPTIONAL', 1, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000873, 200148, 2000872, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000874, 200148, 2000873, 1, 'LITERAL', 1, NULL, ',');
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000875, 200148, 2000873, 2, 'PARAMETER', 1, NULL, 200224, 200005);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000876, 200148, 2000869, 4, 'LITERAL', 1, NULL, ')');
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200148, id, 'FULL', NULL FROM action WHERE code = 'MAT_ONES';
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200149, 200132, 7, 'Identity', NULL, 'MAT C = IDN(N)', 200002, '51-52', NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200225, 200149, 'c', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200226, 200149, 'n', 'NONE', NULL, NULL, 'Order of the square matrix.', 'MANUAL');
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000877, 200149, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000878, 200149, 2000877, 1, 'KEYWORD', 0, NULL, 200083);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000879, 200149, 2000877, 2, 'PARAMETER', 0, NULL, 200225, 200022);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000880, 200149, 2000877, 3, 'KEYWORD', 0, NULL, 200039);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000881, 200149, 2000877, 4, 'KEYWORD', 0, NULL, 200086);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000882, 200149, 2000877, 5, 'OPTIONAL', 1, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000883, 200149, 2000882, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000884, 200149, 2000883, 1, 'LITERAL', 1, NULL, '(');
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000885, 200149, 2000883, 2, 'PARAMETER', 1, NULL, 200226, 200005);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000886, 200149, 2000883, 3, 'LITERAL', 1, NULL, ')');
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200149, id, 'FULL', NULL FROM action WHERE code = 'MAT_IDENTITY';
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200150, 200132, 8, 'Transpose', NULL, 'MAT C = TRN(A)', 200002, '51-52', NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200227, 200150, 'c', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200228, 200150, 'a', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000887, 200150, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000888, 200150, 2000887, 1, 'KEYWORD', 0, NULL, 200083);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000889, 200150, 2000887, 2, 'PARAMETER', 0, NULL, 200227, 200022);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000890, 200150, 2000887, 3, 'KEYWORD', 0, NULL, 200039);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000891, 200150, 2000887, 4, 'KEYWORD', 0, NULL, 200087);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000892, 200150, 2000887, 5, 'LITERAL', 1, NULL, '(');
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000893, 200150, 2000887, 6, 'PARAMETER', 1, NULL, 200228, 200022);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000894, 200150, 2000887, 7, 'LITERAL', 1, NULL, ')');
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200150, id, 'FULL', NULL FROM action WHERE code = 'MAT_TRANSPOSE';
+INSERT INTO syntax_form (id, entry_id, position, title, description, original_syntax, source_id, page, return_type_id, return_min, return_max, return_min_inclusive, return_max_inclusive, precedence, associativity, operator_class_id, evidence) VALUES (200151, 200132, 9, 'Inverse', NULL, 'MAT C = INV(A)', 200002, '51-52', NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200229, 200151, 'c', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO parameter (id, form_id, name, conversion, error_code, missing_line, description, evidence) VALUES (200230, 200151, 'a', 'NONE', NULL, NULL, NULL, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning) VALUES (2000895, 200151, NULL, 1, 'SEQUENCE', 0, NULL);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000896, 200151, 2000895, 1, 'KEYWORD', 0, NULL, 200083);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000897, 200151, 2000895, 2, 'PARAMETER', 0, NULL, 200229, 200022);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000898, 200151, 2000895, 3, 'KEYWORD', 0, NULL, 200039);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, keyword_id) VALUES (2000899, 200151, 2000895, 4, 'KEYWORD', 0, NULL, 200088);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000900, 200151, 2000895, 5, 'LITERAL', 1, NULL, '(');
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, parameter_id, parameter_kind_id) VALUES (2000901, 200151, 2000895, 6, 'PARAMETER', 1, NULL, 200230, 200022);
+INSERT INTO syntax_node (id, form_id, parent_id, position, kind, attached, meaning, text) VALUES (2000902, 200151, 2000895, 7, 'LITERAL', 1, NULL, ')');
+INSERT INTO form_action (form_id, action_id, coverage, notes) SELECT 200151, id, 'FULL', NULL FROM action WHERE code = 'MAT_INVERSE';
+INSERT INTO example (entry_id, form_id, position, title, description, code, expected_result, verified, source_id, page) VALUES (200132, 200151, 1, 'Inverse', NULL, '10 DIM A(2,2), B(2,2)
 20 MAT READ A(2,2)
 30 MAT B = INV(A)
 40 MAT PRINT B
 50 END
 2, 0, 0, 4', NULL, 0, NULL, NULL);
 
-INSERT INTO reference (entry_id, related_entry_id, kind) VALUES (200124, 200126, 'SEE_ALSO');
-INSERT INTO reference (entry_id, related_entry_id, kind) VALUES (200125, 200126, 'SEE_ALSO');
-INSERT INTO reference (entry_id, related_entry_id, kind) VALUES (200123, 200120, 'SEE_ALSO');
+INSERT INTO reference (entry_id, related_entry_id, kind) VALUES (200130, 200132, 'SEE_ALSO');
+INSERT INTO reference (entry_id, related_entry_id, kind) VALUES (200131, 200132, 'SEE_ALSO');
+INSERT INTO reference (entry_id, related_entry_id, kind) VALUES (200129, 200126, 'SEE_ALSO');
 INSERT INTO open_question (layer_id, position, question) VALUES (200005, 1, 'The examples of the entries inherited from the 1st and 2nd edition are written for the Teletype (double quotes, relations as symbols): in Card BASIC they need single quotes and EQU, LSS, ...');
 INSERT INTO open_question (layer_id, position, question) VALUES (200005, 2, 'Card BASIC: are the Teletype commands really absent (removed here by inference)? How is the power written on the cards (↑ or something else)? Are the other limits (constants, GO TO) those of the Teletype version?');
 

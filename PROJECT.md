@@ -162,6 +162,8 @@ Possible future use: a **detokenizer** for .PRG files (tokenizing is not a goal)
 - **Rule**: what changes the *action* becomes a separate form (plain LINE / `,B` / `,BF`). What only changes the *way of writing* is a choice inside the tree (relative or polar coordinates).
 - **Actions** (`action`, grouped in `action_group`) are linked to forms by `form_action`, with `coverage` (`FULL` / `PARTIAL`) and notes (e.g. "relative coordinates").
 - `v_equivalence` returns the forms of different dialects that share an action. `v_uncovered_action` returns the actions with **no equivalent** in the target dialect.
+- **Comparisons of numbers and of strings are different actions** (decision, 2026-11-22): `OP_EQ`, `OP_NE`, `OP_GT`, `OP_LT`, `OP_GE`, `OP_LE` compare numbers; `OP_STR_EQ`, `OP_STR_NE`, `OP_STR_GT`, `OP_STR_LT`, `OP_STR_GE`, `OP_STR_LE` compare strings (all in the group Comparisons). So a relation between strings has no false equivalent in a dialect whose relations take only numbers (Dartmouth editions 1-3 and Card BASIC). The relational operators of ZX80 and FX-700P have a form *Between numbers* and a form *Between strings*, one action each; Dartmouth's 4th edition redefines the six operators (REPLACE) with both forms ([4] p. 65: alphabetical order, trailing blanks ignored), the earlier editions keep the numeric form only.
+- **Parentheses** have the action `OP_GROUP` ("Evaluate first (parentheses)", group Mathematics), so the `( )` entries of every dialect are no longer the only operators without an action.
 
 Checked on the test data:
 

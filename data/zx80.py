@@ -680,11 +680,12 @@ ENTRIES = [
 ]
 
 for _op, _action, _name in (("=", "OP_EQ", "Equal"), (">", "OP_GT", "Greater than"), ("<", "OP_LT", "Less than")):
+    _str_action = _action.replace("OP_", "OP_STR_")
     ENTRIES.append(E(_op, "OPERATOR", f"{_name}: -1 if true, 0 if false.", [
         F(binary(_op), {}, [(_action, "FULL", None)], orig=None, assoc=LEFT, prec=5, op="RELATIONAL",
           title="Between numbers", ret=("INT16", -1, 0), ev="TESTED"),
         F(S(P("s1", "STR_EXPR"), K(_op), P("s2", "STR_EXPR")), {},
-          [(_action, "FULL", None)], orig=f"s{_op}s", assoc=LEFT, prec=5, op="RELATIONAL", title="Between strings", ret=("INT16", -1, 0), ev="TESTED")]))
+          [(_str_action, "FULL", None)], orig=f"s{_op}s", assoc=LEFT, prec=5, op="RELATIONAL", title="Between strings", ret=("INT16", -1, 0), ev="TESTED")]))
 
 BITWISE_NOTE = ("With truth values (comparisons give -1 if true, 0 if false) it also behaves as a conditional "
                 "operator: this is a side effect of working bit by bit on signed 16-bit integers, the only numeric type.")
@@ -707,7 +708,7 @@ ENTRIES += [
     E("( )", "OPERATOR", "Parentheses: the expression inside is evaluated before what surrounds it.", [
         F(S(L("("), C(P("e", "NUM_EXPR", att=True), P("e", "STR_EXPR", att=True), att=True), L(")", att=True)),
           {"e": dict(descr="Numeric or string expression.")},
-          [], orig=None, op="GROUPING")]),
+          [("OP_GROUP", "FULL", None)], orig=None, op="GROUPING")]),
 ]
 
 # ---------------------------------------------------------------------

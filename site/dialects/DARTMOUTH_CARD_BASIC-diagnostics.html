@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Diagnostics · Dartmouth Card BASIC October 1964 · BASIC 2 BASIC</title>
-<link rel="stylesheet" href="../static/style.css?v=1795374828">
+<link rel="stylesheet" href="../static/style.css?v=1795376075">
 </head>
 <body data-root="../">
 <header class="topbar">
@@ -42,9 +42,9 @@
   <tr class=""><td><a href="#tables">Tables</a></td>
       <td class="num">8</td></tr>
   <tr class=""><td><a href="#gaps">Gaps</a></td>
-      <td class="num">105</td></tr>
+      <td class="num">104</td></tr>
   </tbody>
-  <tfoot><tr><th>Total</th><th class="num">587</th></tr></tfoot>
+  <tfoot><tr><th>Total</th><th class="num">586</th></tr></tfoot>
 </table>
 
 <h2 id="open-questions">Open questions <small>9</small></h2>
@@ -146,7 +146,7 @@ END</code></td></tr>
 20 LET X = X + 2
 30 PRINT X
 40 END</code></td></tr>
-  <tr><td class="name"><a href="../entries/MAT-200126.html">MAT</a></td>
+  <tr><td class="name"><a href="../entries/MAT-200132.html">MAT</a></td>
       <td>Inverse <small>(Inverse)</small></td>
       <td><code class="diag-code">10 DIM A(2,2), B(2,2)
 20 MAT READ A(2,2)
@@ -154,13 +154,13 @@ END</code></td></tr>
 40 MAT PRINT B
 50 END
 2, 0, 0, 4</code></td></tr>
-  <tr><td class="name"><a href="../entries/MAT-PRINT-200125.html">MAT PRINT</a></td>
+  <tr><td class="name"><a href="../entries/MAT-PRINT-200131.html">MAT PRINT</a></td>
       <td>Packed</td>
       <td><code class="diag-code">10 DIM A(3,3)
 20 MAT A = IDN(3)
 30 MAT PRINT A;
 40 END</code></td></tr>
-  <tr><td class="name"><a href="../entries/MAT-READ-200124.html">MAT READ</a></td>
+  <tr><td class="name"><a href="../entries/MAT-READ-200130.html">MAT READ</a></td>
       <td>Square matrix of any size</td>
       <td><code class="diag-code">10 DIM A(20,20)
 20 READ M
@@ -175,17 +175,17 @@ END</code></td></tr>
 30 PRINT X, EXP(X)
 40 NEXT X
 50 END</code></td></tr>
-  <tr><td class="name"><a href="../entries/PAGE-200123.html">PAGE</a></td>
+  <tr><td class="name"><a href="../entries/PAGE-200129.html">PAGE</a></td>
       <td>Two pages</td>
       <td><code class="diag-code">10 PRINT &#39;FIRST&#39;
 20 PAGE
 30 PRINT &#39;SECOND&#39;
 40 END</code></td></tr>
-  <tr><td class="name"><a href="../entries/PRINT-200120.html">PRINT</a></td>
+  <tr><td class="name"><a href="../entries/PRINT-200126.html">PRINT</a></td>
       <td>Label in single quotes</td>
       <td><code class="diag-code">10 PRINT &#39;SQUARE ROOT OF 2 =&#39; SQR(2)
 20 END</code></td></tr>
-  <tr><td class="name"><a href="../entries/READ-200122.html">READ</a></td>
+  <tr><td class="name"><a href="../entries/READ-200128.html">READ</a></td>
       <td>Data deck</td>
       <td><code class="diag-code">10 READ A, B
 20 PRINT A + B
@@ -281,7 +281,7 @@ END</code></td></tr>
       <td>Division from the left</td>
       <td><code class="diag-code">10 PRINT 24/4/2
 20 END</code></td></tr>
-  <tr><td class="name"><a href="../entries/EQU-200114.html">EQU</a></td>
+  <tr><td class="name"><a href="../entries/EQU-200120.html">EQU</a></td>
       <td>Equal</td>
       <td><code class="diag-code">10 READ A
 20 IF A EQU 2 THEN 50
@@ -290,7 +290,7 @@ END</code></td></tr>
 50 PRINT &#39;YES&#39;
 60 END
 2</code></td></tr>
-  <tr><td class="name"><a href="../entries/LSS-200116.html">LSS</a></td>
+  <tr><td class="name"><a href="../entries/LSS-200122.html">LSS</a></td>
       <td>Less than</td>
       <td><code class="diag-code">10 IF 1 LSS 2 THEN 40
 20 PRINT &#39;NO&#39;
@@ -305,7 +305,7 @@ END</code></td></tr>
 </table>
 <h3>Entries without examples <small>4</small></h3>
 
-<p class="diag-list"><a href="../entries/GQU-200119.html">GQU</a> · <a href="../entries/GRT-200118.html">GRT</a> · <a href="../entries/LQU-200117.html">LQU</a> · <a href="../entries/NQU-200115.html">NQU</a></p>
+<p class="diag-list"><a href="../entries/GQU-200125.html">GQU</a> · <a href="../entries/GRT-200124.html">GRT</a> · <a href="../entries/LQU-200123.html">LQU</a> · <a href="../entries/NQU-200121.html">NQU</a></p>
 <h2 id="errors">Errors <small>125</small></h2>
 <h3>Errors of the entries to verify <small>121</small></h3>
 
@@ -420,7 +420,7 @@ END</code></td></tr>
         <td><small>parameter_kind</small></td>
         <td><small>NUM_EXPR · <code class="par">formula</code></small></td>
         <td>The formula uses an FN function that is never defined.</td></tr>
-    <tr><td class="name" rowspan="12"><a href="../entries/MAT-200126.html">MAT</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+    <tr><td class="name" rowspan="12"><a href="../entries/MAT-200132.html">MAT</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
         <td><small>parameter_kind</small></td>
         <td><small>NUM_EXPR · <code class="par">k</code> (Multiple)</small></td>
         <td>The formula is not written correctly.</td></tr>
@@ -468,7 +468,7 @@ END</code></td></tr>
         <td><small>parameter_kind</small></td>
         <td><small>NUM_EXPR · <code class="par">n</code> (Identity)</small></td>
         <td>The formula uses an FN function that is never defined.</td></tr>
-    <tr><td class="name" rowspan="5"><a href="../entries/MAT-READ-200124.html">MAT READ</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>DIMENSION TOO LARGE</code></a></td>
+    <tr><td class="name" rowspan="5"><a href="../entries/MAT-READ-200130.html">MAT READ</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>DIMENSION TOO LARGE</code></a></td>
         <td><small>manual</small></td>
         <td><small></small></td>
         <td>More than the limits of [2] p. 51.</td></tr>
@@ -492,7 +492,7 @@ END</code></td></tr>
         <td><small>manual</small></td>
         <td><small></small></td>
         <td>Another variable than the FOR's, or loops crossed (from [2]).</td></tr>
-    <tr><td class="name" rowspan="3"><a href="../entries/PRINT-200120.html">PRINT</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>TOO MANY LABELS</code></a></td>
+    <tr><td class="name" rowspan="3"><a href="../entries/PRINT-200126.html">PRINT</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>TOO MANY LABELS</code></a></td>
         <td><small>manual</small></td>
         <td><small></small></td>
         <td>The labels of the program are too long altogether (from [2]).</td></tr>
@@ -504,7 +504,7 @@ END</code></td></tr>
         <td><small>parameter_kind</small></td>
         <td><small>NUM_EXPR · <code class="par">formula</code></small></td>
         <td>The formula uses an FN function that is never defined.</td></tr>
-    <tr><td class="name" rowspan="2"><a href="../entries/READ-200122.html">READ</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>NO DATA</code></a></td>
+    <tr><td class="name" rowspan="2"><a href="../entries/READ-200128.html">READ</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>NO DATA</code></a></td>
         <td><small>manual</small></td>
         <td><small></small></td>
         <td>No data deck after the END card.</td></tr>
@@ -684,7 +684,7 @@ END</code></td></tr>
         <td><small>parameter_kind</small></td>
         <td><small>NUM_EXPR · <code class="par">b</code></small></td>
         <td>The formula uses an FN function that is never defined.</td></tr>
-    <tr><td class="name" rowspan="4"><a href="../entries/EQU-200114.html">EQU</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+    <tr><td class="name" rowspan="4"><a href="../entries/EQU-200120.html">EQU</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
         <td><small>parameter_kind</small></td>
         <td><small>NUM_EXPR · <code class="par">a</code></small></td>
         <td>The formula is not written correctly.</td></tr>
@@ -700,7 +700,7 @@ END</code></td></tr>
         <td><small>parameter_kind</small></td>
         <td><small>NUM_EXPR · <code class="par">b</code></small></td>
         <td>The formula uses an FN function that is never defined.</td></tr>
-    <tr><td class="name" rowspan="4"><a href="../entries/GQU-200119.html">GQU</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+    <tr><td class="name" rowspan="4"><a href="../entries/GQU-200125.html">GQU</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
         <td><small>parameter_kind</small></td>
         <td><small>NUM_EXPR · <code class="par">a</code></small></td>
         <td>The formula is not written correctly.</td></tr>
@@ -716,7 +716,7 @@ END</code></td></tr>
         <td><small>parameter_kind</small></td>
         <td><small>NUM_EXPR · <code class="par">b</code></small></td>
         <td>The formula uses an FN function that is never defined.</td></tr>
-    <tr><td class="name" rowspan="4"><a href="../entries/GRT-200118.html">GRT</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+    <tr><td class="name" rowspan="4"><a href="../entries/GRT-200124.html">GRT</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
         <td><small>parameter_kind</small></td>
         <td><small>NUM_EXPR · <code class="par">a</code></small></td>
         <td>The formula is not written correctly.</td></tr>
@@ -732,7 +732,7 @@ END</code></td></tr>
         <td><small>parameter_kind</small></td>
         <td><small>NUM_EXPR · <code class="par">b</code></small></td>
         <td>The formula uses an FN function that is never defined.</td></tr>
-    <tr><td class="name" rowspan="4"><a href="../entries/LQU-200117.html">LQU</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+    <tr><td class="name" rowspan="4"><a href="../entries/LQU-200123.html">LQU</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
         <td><small>parameter_kind</small></td>
         <td><small>NUM_EXPR · <code class="par">a</code></small></td>
         <td>The formula is not written correctly.</td></tr>
@@ -748,7 +748,7 @@ END</code></td></tr>
         <td><small>parameter_kind</small></td>
         <td><small>NUM_EXPR · <code class="par">b</code></small></td>
         <td>The formula uses an FN function that is never defined.</td></tr>
-    <tr><td class="name" rowspan="4"><a href="../entries/LSS-200116.html">LSS</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+    <tr><td class="name" rowspan="4"><a href="../entries/LSS-200122.html">LSS</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
         <td><small>parameter_kind</small></td>
         <td><small>NUM_EXPR · <code class="par">a</code></small></td>
         <td>The formula is not written correctly.</td></tr>
@@ -764,7 +764,7 @@ END</code></td></tr>
         <td><small>parameter_kind</small></td>
         <td><small>NUM_EXPR · <code class="par">b</code></small></td>
         <td>The formula uses an FN function that is never defined.</td></tr>
-    <tr><td class="name" rowspan="4"><a href="../entries/NQU-200115.html">NQU</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
+    <tr><td class="name" rowspan="4"><a href="../entries/NQU-200121.html">NQU</a></td>        <td class="nowrap"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#errors"><code>ILLEGAL FORMULA</code></a></td>
         <td><small>parameter_kind</small></td>
         <td><small>NUM_EXPR · <code class="par">a</code></small></td>
         <td>The formula is not written correctly.</td></tr>
@@ -834,21 +834,21 @@ END</code></td></tr>
       <td><code class="syntax"><span class="kw">IF</span> <span class="par">relation</span> <span class="kw">THEN</span> <span class="par">n</span></code></td><td><code>IF F1 α F2 THEN N</code></td></tr>
   <tr><td class="name"><a href="../entries/LET-200006.html">LET</a></td>
       <td><code class="syntax"><span class="kw">LET</span> <span class="par">variable</span> <span class="kw">=</span> <span class="par">formula</span></code></td><td><code>LET V = F</code></td></tr>
-  <tr><td class="name"><a href="../entries/MAT-200126.html">MAT</a> <small>(Zero matrix)</small></td>
+  <tr><td class="name"><a href="../entries/MAT-200132.html">MAT</a> <small>(Zero matrix)</small></td>
       <td><code class="syntax"><span class="kw">MAT</span> <span class="par">c</span> <span class="kw">=</span> <span class="kw">ZER</span><span class="meta">[</span><span class="lit">(</span><span class="par">m</span><span class="meta">[</span><span class="lit">,</span><span class="par">n</span><span class="meta">]</span><span class="lit">)</span><span class="meta">]</span></code></td><td><code>MAT C = ZER(M,N)</code></td></tr>
-  <tr><td class="name"><a href="../entries/MAT-200126.html">MAT</a> <small>(Ones)</small></td>
+  <tr><td class="name"><a href="../entries/MAT-200132.html">MAT</a> <small>(Ones)</small></td>
       <td><code class="syntax"><span class="kw">MAT</span> <span class="par">c</span> <span class="kw">=</span> <span class="kw">CON</span><span class="meta">[</span><span class="lit">(</span><span class="par">m</span><span class="meta">[</span><span class="lit">,</span><span class="par">n</span><span class="meta">]</span><span class="lit">)</span><span class="meta">]</span></code></td><td><code>MAT C = CON(M,N)</code></td></tr>
-  <tr><td class="name"><a href="../entries/MAT-200126.html">MAT</a> <small>(Identity)</small></td>
+  <tr><td class="name"><a href="../entries/MAT-200132.html">MAT</a> <small>(Identity)</small></td>
       <td><code class="syntax"><span class="kw">MAT</span> <span class="par">c</span> <span class="kw">=</span> <span class="kw">IDN</span><span class="meta">[</span><span class="lit">(</span><span class="par">n</span><span class="lit">)</span><span class="meta">]</span></code></td><td><code>MAT C = IDN(N)</code></td></tr>
-  <tr><td class="name"><a href="../entries/MAT-PRINT-200125.html">MAT PRINT</a></td>
+  <tr><td class="name"><a href="../entries/MAT-PRINT-200131.html">MAT PRINT</a></td>
       <td><code class="syntax"><span class="kw">MAT</span> <span class="kw">PRINT</span> <span class="par">matrix</span> <span class="meta">[</span><span class="lit">;</span><span class="meta">]</span></code></td><td><code>MAT PRINT A</code></td></tr>
-  <tr><td class="name"><a href="../entries/MAT-READ-200124.html">MAT READ</a></td>
+  <tr><td class="name"><a href="../entries/MAT-READ-200130.html">MAT READ</a></td>
       <td><code class="syntax"><span class="kw">MAT</span> <span class="kw">READ</span> <span class="par">matrix</span><span class="lit">(</span><span class="par">m</span><span class="meta">[</span><span class="lit">,</span><span class="par">n</span><span class="meta">]</span><span class="lit">)</span></code></td><td><code>MAT READ A(M,N)</code></td></tr>
   <tr><td class="name"><a href="../entries/NEXT-200044.html">NEXT</a></td>
       <td><code class="syntax"><span class="kw">NEXT</span> <span class="par">v</span></code></td><td><code>NEXT &lt;unsubscripted variable&gt;</code></td></tr>
-  <tr><td class="name"><a href="../entries/PRINT-200120.html">PRINT</a></td>
+  <tr><td class="name"><a href="../entries/PRINT-200126.html">PRINT</a></td>
       <td><code class="syntax"><span class="kw">PRINT</span> <span class="meta">[</span><span class="meta">&lt;</span><span class="par">label</span> <span class="meta">|</span> <span class="par">formula</span> <span class="meta">|</span> <span class="par">label</span> <span class="par">formula</span><span class="meta">&gt;</span> <span class="meta">[</span><span class="meta">&lt;</span><span class="lit">,</span> <span class="meta">|</span> <span class="lit">;</span><span class="meta">&gt;</span> <span class="meta">&lt;</span><span class="par">label</span> <span class="meta">|</span> <span class="par">formula</span> <span class="meta">|</span> <span class="par">label</span> <span class="par">formula</span><span class="meta">&gt;</span><span class="meta">]</span><span class="meta">...</span> <span class="meta">[</span><span class="lit">,</span> <span class="meta">|</span> <span class="lit">;</span><span class="meta">]</span><span class="meta">]</span></code></td><td><code>PRINT</code></td></tr>
-  <tr><td class="name"><a href="../entries/READ-200122.html">READ</a></td>
+  <tr><td class="name"><a href="../entries/READ-200128.html">READ</a></td>
       <td><code class="syntax"><span class="kw">READ</span> <span class="par">variable</span><span class="meta">[</span>,<span class="par">variable</span><span class="meta">]</span><span class="meta">...</span></code></td><td><code>READ A, B, C</code></td></tr>
   <tr><td class="name"><a href="../entries/REM-200019.html">REM</a></td>
       <td><code class="syntax"><span class="kw">REM</span> <span class="meta">[</span><span class="par">text</span><span class="meta">]</span></code></td><td><code>REM</code></td></tr>
@@ -915,20 +915,20 @@ END</code></td></tr>
   <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/IF-THEN-200012.html">IF...THEN · n</a></li>
   <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/LET-200006.html">LET · variable</a></li>
   <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/LET-200006.html">LET · formula</a></li>
-  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MAT-200126.html">MAT (Multiple) · k</a></li>
-  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MAT-200126.html">MAT (Zero matrix) · m</a></li>
-  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MAT-200126.html">MAT (Zero matrix) · n</a></li>
-  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MAT-200126.html">MAT (Ones) · m</a></li>
-  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MAT-200126.html">MAT (Ones) · n</a></li>
-  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MAT-200126.html">MAT (Identity) · n</a></li>
-  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MAT-PRINT-200125.html">MAT PRINT · matrix</a></li>
-  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MAT-READ-200124.html">MAT READ · matrix</a></li>
-  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MAT-READ-200124.html">MAT READ · m</a></li>
-  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MAT-READ-200124.html">MAT READ · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MAT-200132.html">MAT (Multiple) · k</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MAT-200132.html">MAT (Zero matrix) · m</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MAT-200132.html">MAT (Zero matrix) · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MAT-200132.html">MAT (Ones) · m</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MAT-200132.html">MAT (Ones) · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MAT-200132.html">MAT (Identity) · n</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MAT-PRINT-200131.html">MAT PRINT · matrix</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MAT-READ-200130.html">MAT READ · matrix</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MAT-READ-200130.html">MAT READ · m</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/MAT-READ-200130.html">MAT READ · n</a></li>
   <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/NEXT-200044.html">NEXT · v</a></li>
-  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/PRINT-200120.html">PRINT · label</a></li>
-  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/PRINT-200120.html">PRINT · formula</a></li>
-  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/READ-200122.html">READ · variable</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/PRINT-200126.html">PRINT · label</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/PRINT-200126.html">PRINT · formula</a></li>
+  <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/READ-200128.html">READ · variable</a></li>
   <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/REM-200019.html">REM · text</a></li>
   <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/ABS-200027.html">ABS · x</a></li>
   <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/ATN-200023.html">ATN · x</a></li>
@@ -944,24 +944,24 @@ END</code></td></tr>
   <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/TAN-200022.html">TAN · x</a></li>
   <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/lparen-rparen-200036.html">( ) · f</a></li>
   <li class="ev-row-manual"><span class="ev ev-manual">MANUAL</span> <a href="../entries/x-200031.html">↑ · a</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Sum) · c</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Sum) · a</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Sum) · b</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Difference) · c</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Difference) · a</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Difference) · b</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Product) · c</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Product) · a</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Product) · b</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Multiple) · c</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Multiple) · a</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Zero matrix) · c</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Ones) · c</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Identity) · c</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Transpose) · c</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Transpose) · a</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Inverse) · c</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Inverse) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200132.html">MAT (Sum) · c</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200132.html">MAT (Sum) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200132.html">MAT (Sum) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200132.html">MAT (Difference) · c</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200132.html">MAT (Difference) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200132.html">MAT (Difference) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200132.html">MAT (Product) · c</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200132.html">MAT (Product) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200132.html">MAT (Product) · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200132.html">MAT (Multiple) · c</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200132.html">MAT (Multiple) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200132.html">MAT (Zero matrix) · c</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200132.html">MAT (Ones) · c</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200132.html">MAT (Identity) · c</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200132.html">MAT (Transpose) · c</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200132.html">MAT (Transpose) · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200132.html">MAT (Inverse) · c</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200132.html">MAT (Inverse) · a</a></li>
   <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/star-200033.html">* · a</a></li>
   <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/star-200033.html">* · b</a></li>
   <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/plus-200035.html">+ · a</a></li>
@@ -971,18 +971,18 @@ END</code></td></tr>
   <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/minus-200032.html">- (Subtraction) · b</a></li>
   <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/slash-200034.html">/ · a</a></li>
   <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/slash-200034.html">/ · b</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/EQU-200114.html">EQU · a</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/EQU-200114.html">EQU · b</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/GQU-200119.html">GQU · a</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/GQU-200119.html">GQU · b</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/GRT-200118.html">GRT · a</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/GRT-200118.html">GRT · b</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/LQU-200117.html">LQU · a</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/LQU-200117.html">LQU · b</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/LSS-200116.html">LSS · a</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/LSS-200116.html">LSS · b</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/NQU-200115.html">NQU · a</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/NQU-200115.html">NQU · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/EQU-200120.html">EQU · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/EQU-200120.html">EQU · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/GQU-200125.html">GQU · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/GQU-200125.html">GQU · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/GRT-200124.html">GRT · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/GRT-200124.html">GRT · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/LQU-200123.html">LQU · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/LQU-200123.html">LQU · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/LSS-200122.html">LSS · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/LSS-200122.html">LSS · b</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/NQU-200121.html">NQU · a</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/NQU-200121.html">NQU · b</a></li>
   <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/x-200031.html">↑ · b</a></li>
 </ul>
 <h3 id="ev-parameter_limit">Parameter limits <small>3 not tested</small></h3>
@@ -1014,21 +1014,21 @@ END</code></td></tr>
   <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/GO-TO-200011.html">GO TO</a></li>
   <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/IF-THEN-200012.html">IF...THEN</a></li>
   <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/LET-200006.html">LET</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Sum)</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Difference)</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Product)</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Multiple)</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Zero matrix)</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Ones)</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Identity)</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Transpose)</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200126.html">MAT (Inverse)</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-PRINT-200125.html">MAT PRINT</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-READ-200124.html">MAT READ</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200132.html">MAT (Sum)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200132.html">MAT (Difference)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200132.html">MAT (Product)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200132.html">MAT (Multiple)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200132.html">MAT (Zero matrix)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200132.html">MAT (Ones)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200132.html">MAT (Identity)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200132.html">MAT (Transpose)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-200132.html">MAT (Inverse)</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-PRINT-200131.html">MAT PRINT</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/MAT-READ-200130.html">MAT READ</a></li>
   <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/NEXT-200044.html">NEXT</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/PAGE-200123.html">PAGE</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/PRINT-200120.html">PRINT</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/READ-200122.html">READ</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/PAGE-200129.html">PAGE</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/PRINT-200126.html">PRINT</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/READ-200128.html">READ</a></li>
   <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/STOP-200053.html">STOP</a></li>
   <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/ATN-200023.html">ATN</a></li>
   <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/FN-200030.html">FN</a></li>
@@ -1041,12 +1041,12 @@ END</code></td></tr>
   <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/minus-200032.html">- (Change of sign)</a></li>
   <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/minus-200032.html">- (Subtraction)</a></li>
   <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/slash-200034.html">/</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/EQU-200114.html">EQU</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/GQU-200119.html">GQU</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/GRT-200118.html">GRT</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/LQU-200117.html">LQU</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/LSS-200116.html">LSS</a></li>
-  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/NQU-200115.html">NQU</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/EQU-200120.html">EQU</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/GQU-200125.html">GQU</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/GRT-200124.html">GRT</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/LQU-200123.html">LQU</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/LSS-200122.html">LSS</a></li>
+  <li class="ev-row-null"><span class="ev ev-null">NULL</span> <a href="../entries/NQU-200121.html">NQU</a></li>
 </ul>
 <h3 id="ev-character_code">Character codes <small>128 not tested</small></h3>
 
@@ -1082,12 +1082,12 @@ END</code></td></tr>
 <h3>Tables without any state <small>0</small></h3>
 <p class="nothing">Nothing left</p>
 
-<h2 id="gaps">Gaps <small>105</small></h2>
+<h2 id="gaps">Gaps <small>104</small></h2>
 <h3>Parameters without description <small>40</small></h3>
 
-<p class="diag-list"><a href="../entries/MAT-200126.html">MAT</a> <small>(Sum)</small> <code class="par">c</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Sum)</small> <code class="par">a</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Sum)</small> <code class="par">b</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Difference)</small> <code class="par">c</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Difference)</small> <code class="par">a</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Difference)</small> <code class="par">b</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Product)</small> <code class="par">c</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Product)</small> <code class="par">a</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Product)</small> <code class="par">b</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Multiple)</small> <code class="par">c</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Multiple)</small> <code class="par">a</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Zero matrix)</small> <code class="par">c</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Ones)</small> <code class="par">c</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Identity)</small> <code class="par">c</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Transpose)</small> <code class="par">c</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Transpose)</small> <code class="par">a</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Inverse)</small> <code class="par">c</code> · <a href="../entries/MAT-200126.html">MAT</a> <small>(Inverse)</small> <code class="par">a</code> · <a href="../entries/star-200033.html">*</a> <code class="par">a</code> · <a href="../entries/star-200033.html">*</a> <code class="par">b</code> · <a href="../entries/plus-200035.html">+</a> <code class="par">a</code> · <a href="../entries/plus-200035.html">+</a> <code class="par">b</code> · <a href="../entries/minus-200032.html">-</a> <small>(Change of sign)</small> <code class="par">a</code> · <a href="../entries/minus-200032.html">-</a> <small>(Subtraction)</small> <code class="par">a</code> · <a href="../entries/minus-200032.html">-</a> <small>(Subtraction)</small> <code class="par">b</code> · <a href="../entries/slash-200034.html">/</a> <code class="par">a</code> · <a href="../entries/slash-200034.html">/</a> <code class="par">b</code> · <a href="../entries/EQU-200114.html">EQU</a> <code class="par">a</code> · <a href="../entries/EQU-200114.html">EQU</a> <code class="par">b</code> · <a href="../entries/GQU-200119.html">GQU</a> <code class="par">a</code> · <a href="../entries/GQU-200119.html">GQU</a> <code class="par">b</code> · <a href="../entries/GRT-200118.html">GRT</a> <code class="par">a</code> · <a href="../entries/GRT-200118.html">GRT</a> <code class="par">b</code> · <a href="../entries/LQU-200117.html">LQU</a> <code class="par">a</code> · <a href="../entries/LQU-200117.html">LQU</a> <code class="par">b</code> · <a href="../entries/LSS-200116.html">LSS</a> <code class="par">a</code> · <a href="../entries/LSS-200116.html">LSS</a> <code class="par">b</code> · <a href="../entries/NQU-200115.html">NQU</a> <code class="par">a</code> · <a href="../entries/NQU-200115.html">NQU</a> <code class="par">b</code> · <a href="../entries/x-200031.html">↑</a> <code class="par">b</code></p><h3>Forms without actions <small>1</small></h3>
-
-<p class="diag-list"><a href="../entries/lparen-rparen-200036.html">( )</a></p><h3>Keywords without token <small>64</small></h3>
+<p class="diag-list"><a href="../entries/MAT-200132.html">MAT</a> <small>(Sum)</small> <code class="par">c</code> · <a href="../entries/MAT-200132.html">MAT</a> <small>(Sum)</small> <code class="par">a</code> · <a href="../entries/MAT-200132.html">MAT</a> <small>(Sum)</small> <code class="par">b</code> · <a href="../entries/MAT-200132.html">MAT</a> <small>(Difference)</small> <code class="par">c</code> · <a href="../entries/MAT-200132.html">MAT</a> <small>(Difference)</small> <code class="par">a</code> · <a href="../entries/MAT-200132.html">MAT</a> <small>(Difference)</small> <code class="par">b</code> · <a href="../entries/MAT-200132.html">MAT</a> <small>(Product)</small> <code class="par">c</code> · <a href="../entries/MAT-200132.html">MAT</a> <small>(Product)</small> <code class="par">a</code> · <a href="../entries/MAT-200132.html">MAT</a> <small>(Product)</small> <code class="par">b</code> · <a href="../entries/MAT-200132.html">MAT</a> <small>(Multiple)</small> <code class="par">c</code> · <a href="../entries/MAT-200132.html">MAT</a> <small>(Multiple)</small> <code class="par">a</code> · <a href="../entries/MAT-200132.html">MAT</a> <small>(Zero matrix)</small> <code class="par">c</code> · <a href="../entries/MAT-200132.html">MAT</a> <small>(Ones)</small> <code class="par">c</code> · <a href="../entries/MAT-200132.html">MAT</a> <small>(Identity)</small> <code class="par">c</code> · <a href="../entries/MAT-200132.html">MAT</a> <small>(Transpose)</small> <code class="par">c</code> · <a href="../entries/MAT-200132.html">MAT</a> <small>(Transpose)</small> <code class="par">a</code> · <a href="../entries/MAT-200132.html">MAT</a> <small>(Inverse)</small> <code class="par">c</code> · <a href="../entries/MAT-200132.html">MAT</a> <small>(Inverse)</small> <code class="par">a</code> · <a href="../entries/star-200033.html">*</a> <code class="par">a</code> · <a href="../entries/star-200033.html">*</a> <code class="par">b</code> · <a href="../entries/plus-200035.html">+</a> <code class="par">a</code> · <a href="../entries/plus-200035.html">+</a> <code class="par">b</code> · <a href="../entries/minus-200032.html">-</a> <small>(Change of sign)</small> <code class="par">a</code> · <a href="../entries/minus-200032.html">-</a> <small>(Subtraction)</small> <code class="par">a</code> · <a href="../entries/minus-200032.html">-</a> <small>(Subtraction)</small> <code class="par">b</code> · <a href="../entries/slash-200034.html">/</a> <code class="par">a</code> · <a href="../entries/slash-200034.html">/</a> <code class="par">b</code> · <a href="../entries/EQU-200120.html">EQU</a> <code class="par">a</code> · <a href="../entries/EQU-200120.html">EQU</a> <code class="par">b</code> · <a href="../entries/GQU-200125.html">GQU</a> <code class="par">a</code> · <a href="../entries/GQU-200125.html">GQU</a> <code class="par">b</code> · <a href="../entries/GRT-200124.html">GRT</a> <code class="par">a</code> · <a href="../entries/GRT-200124.html">GRT</a> <code class="par">b</code> · <a href="../entries/LQU-200123.html">LQU</a> <code class="par">a</code> · <a href="../entries/LQU-200123.html">LQU</a> <code class="par">b</code> · <a href="../entries/LSS-200122.html">LSS</a> <code class="par">a</code> · <a href="../entries/LSS-200122.html">LSS</a> <code class="par">b</code> · <a href="../entries/NQU-200121.html">NQU</a> <code class="par">a</code> · <a href="../entries/NQU-200121.html">NQU</a> <code class="par">b</code> · <a href="../entries/x-200031.html">↑</a> <code class="par">b</code></p><h3>Forms without actions <small>0</small></h3>
+<p class="nothing">Nothing left</p>
+<h3>Keywords without token <small>64</small></h3>
 
 <p class="diag-list"><a class="kw" href="../keywords/star-200036.html">*</a> · <a class="kw" href="../keywords/plus-200034.html">+</a> · <a class="kw" href="../keywords/minus-200035.html">-</a> · <a class="kw" href="../keywords/slash-200037.html">/</a> · <a class="kw" href="../keywords/semicolon-200051.html">;</a> · <a class="kw" href="../keywords/lt-200040.html">&lt;</a> · <a class="kw" href="../keywords/lt-eq-200041.html">&lt;=</a> · <a class="kw" href="../keywords/lt-gt-200044.html">&lt;&gt;</a> · <a class="kw" href="../keywords/eq-200039.html">=</a> · <a class="kw" href="../keywords/gt-200042.html">&gt;</a> · <a class="kw" href="../keywords/gt-eq-200043.html">&gt;=</a> · <a class="kw" href="../keywords/ABS-200031.html">ABS</a> · <a class="kw" href="../keywords/ATN-200027.html">ATN</a> · <a class="kw" href="../keywords/CATALOG-200049.html">CATALOG</a> · <a class="kw" href="../keywords/CON-200085.html">CON</a> · <a class="kw" href="../keywords/COS-200025.html">COS</a> · <a class="kw" href="../keywords/DATA-200019.html">DATA</a> · <a class="kw" href="../keywords/DEF-200016.html">DEF</a> · <a class="kw" href="../keywords/DIM-200022.html">DIM</a> · <a class="kw" href="../keywords/END-200008.html">END</a> · <a class="kw" href="../keywords/EQU-200076.html">EQU</a> · <a class="kw" href="../keywords/EXP-200028.html">EXP</a> · <a class="kw" href="../keywords/FN-200017.html">FN</a> · <a class="kw" href="../keywords/FOR-200009.html">FOR</a> · <a class="kw" href="../keywords/GO-TO-200013.html">GO TO</a> · <a class="kw" href="../keywords/GOSUB-200020.html">GOSUB</a> · <a class="kw" href="../keywords/GQU-200081.html">GQU</a> · <a class="kw" href="../keywords/GRT-200080.html">GRT</a> · <a class="kw" href="../keywords/HELLO-200001.html">HELLO</a> · <a class="kw" href="../keywords/IDN-200086.html">IDN</a> · <a class="kw" href="../keywords/IF-200014.html">IF</a> · <a class="kw" href="../keywords/INT-200033.html">INT</a> · <a class="kw" href="../keywords/INV-200088.html">INV</a> · <a class="kw" href="../keywords/LET-200006.html">LET</a> · <a class="kw" href="../keywords/LIST-200003.html">LIST</a> · <a class="kw" href="../keywords/LOG-200029.html">LOG</a> · <a class="kw" href="../keywords/LQU-200079.html">LQU</a> · <a class="kw" href="../keywords/LSS-200078.html">LSS</a> · <a class="kw" href="../keywords/MAT-200083.html">MAT</a> · <a class="kw" href="../keywords/NEW-200045.html">NEW</a> · <a class="kw" href="../keywords/NEXT-200012.html">NEXT</a> · <a class="kw" href="../keywords/NQU-200077.html">NQU</a> · <a class="kw" href="../keywords/OLD-200046.html">OLD</a> · <a class="kw" href="../keywords/PAGE-200082.html">PAGE</a> · <a class="kw" href="../keywords/PRINT-200007.html">PRINT</a> · <a class="kw" href="../keywords/READ-200018.html">READ</a> · <a class="kw" href="../keywords/REM-200023.html">REM</a> · <a class="kw" href="../keywords/RENAME-200048.html">RENAME</a> · <a class="kw" href="../keywords/RETURN-200021.html">RETURN</a> · <a class="kw" href="../keywords/RND-200032.html">RND</a> · <a class="kw" href="../keywords/RUN-200002.html">RUN</a> · <a class="kw" href="../keywords/SAVE-200004.html">SAVE</a> · <a class="kw" href="../keywords/SCRATCH-200047.html">SCRATCH</a> · <a class="kw" href="../keywords/SIN-200024.html">SIN</a> · <a class="kw" href="../keywords/SQR-200030.html">SQR</a> · <a class="kw" href="../keywords/STEP-200011.html">STEP</a> · <a class="kw" href="../keywords/STOP-200005.html">STOP</a> · <a class="kw" href="../keywords/TAN-200026.html">TAN</a> · <a class="kw" href="../keywords/THEN-200015.html">THEN</a> · <a class="kw" href="../keywords/TO-200010.html">TO</a> · <a class="kw" href="../keywords/TRN-200087.html">TRN</a> · <a class="kw" href="../keywords/UNSAVE-200050.html">UNSAVE</a> · <a class="kw" href="../keywords/ZER-200084.html">ZER</a> · <a class="kw" href="../keywords/x-200038.html">↑</a></p><h3>Variable types without name length <small>0</small></h3>
 <p class="nothing">Nothing left</p>
@@ -1095,7 +1095,7 @@ END</code></td></tr>
 <p class="nothing">Nothing left</p>
 </main>
 <footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
-<script src="../static/search_index.js?v=1795374828"></script>
-<script src="../static/search.js?v=1795374828"></script>
+<script src="../static/search_index.js?v=1795376075"></script>
+<script src="../static/search.js?v=1795376075"></script>
 </body>
 </html>

@@ -140,12 +140,16 @@ INSERT INTO action (id, code, name, group_id, description) VALUES
  (120,'OP_NOT','Logical negation',12,NULL),
  (121,'OP_AND','Logical conjunction',12,NULL),
  (122,'OP_OR','Logical disjunction',12,NULL),
- (130,'OP_EQ','Equal',13,NULL),
- (131,'OP_GT','Greater than',13,NULL),
- (132,'OP_LT','Less than',13,NULL),
- (133,'OP_NE','Not equal',13,NULL),
- (134,'OP_GE','Greater than or equal',13,NULL),
- (135,'OP_LE','Less than or equal',13,NULL),
+ (130,'OP_EQ','Equal (numbers)',13,'Comparison of two numbers; strings are OP_STR_EQ'),
+ (131,'OP_GT','Greater than (numbers)',13,NULL),
+ (132,'OP_LT','Less than (numbers)',13,NULL),
+ (133,'OP_NE','Not equal (numbers)',13,NULL),
+ (134,'OP_GE','Greater than or equal (numbers)',13,NULL),
+ (135,'OP_LE','Less than or equal (numbers)',13,NULL),
+ (136,'OP_STR_EQ','Equal (strings)',13,'Comparison of two strings: dialects whose relations take only numbers have no equivalent'),
+ (137,'OP_STR_GT','Greater than (strings)',13,NULL),
+ (138,'OP_STR_LT','Less than (strings)',13,NULL),
+ (139,'OP_STR_NE','Not equal (strings)',13,NULL),
  -- more mathematics
  (140,'MATH_COS','Cosine',3,NULL),
  (141,'MATH_TAN','Tangent',3,NULL),
@@ -196,7 +200,11 @@ INSERT INTO action (id, code, name, group_id, description) VALUES
  (191,'MAT_INVERSE','Inverse of a matrix',14,NULL),
  (192,'MAT_COPY','Copy a matrix',14,NULL),
  (193,'MAT_DET','Determinant of a matrix',14,NULL),
- (194,'MAT_INPUT_COUNT','Number of values read by a matrix input',14,NULL);
+ (194,'MAT_INPUT_COUNT','Number of values read by a matrix input',14,NULL),
+ -- more comparisons and grouping
+ (195,'OP_STR_GE','Greater than or equal (strings)',13,NULL),
+ (196,'OP_STR_LE','Less than or equal (strings)',13,NULL),
+ (197,'OP_GROUP','Evaluate first (parentheses)',3,'The expression in parentheses is computed before what surrounds it');
 
 COMMIT;
 

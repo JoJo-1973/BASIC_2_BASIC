@@ -941,7 +941,7 @@ ENTRIES = [
             "(7 characters, 30 for $).", page="24"),
     E("( )", "OPERATOR", "Parentheses: the expression inside is calculated first.", [
         F(S(L("("), P("e", "NUM_EXPR", att=True), L(")", att=True)), {"e": dict(descr="Numeric expression.")},
-          [], orig=None, op="GROUPING")], page="10"),
+          [("OP_GROUP", "FULL", None)], orig=None, op="GROUPING")], page="10"),
 ]
 
 for _op, _action, _name in (("=", "OP_EQ", "Equal"), ("≠", "OP_NE", "Not equal"), (">", "OP_GT", "Greater than"),
@@ -949,7 +949,8 @@ for _op, _action, _name in (("=", "OP_EQ", "Equal"), ("≠", "OP_NE", "Not equal
                             ("≤", "OP_LE", "Less than or equal")):
     ENTRIES.append(E(_op, "OPERATOR", f"{_name}: only in the comparison of IF.", [
         F(binary(_op), {}, [(_action, "FULL", None)], orig=None, prec=1, op="RELATIONAL", title="Between numbers"),
-        F(S(P("a", "STR_EXPR"), K(_op), P("b", "STR_EXPR")), {}, [(_action, "FULL", None)], orig=None, prec=1,
+        F(S(P("a", "STR_EXPR"), K(_op), P("b", "STR_EXPR")), {}, [(_action.replace("OP_", "OP_STR_"), "FULL", None)],
+          orig=None, prec=1,
           op="RELATIONAL", title="Between strings")],
       notes="Strings are compared by their character codes (the manual says ASCII); a number cannot be compared "
             "with a string.", page="40"))

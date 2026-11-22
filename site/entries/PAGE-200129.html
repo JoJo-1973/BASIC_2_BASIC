@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PAGE · BASIC 2 BASIC</title>
+<link rel="stylesheet" href="../static/style.css?v=1795376075">
+</head>
+<body data-root="../">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="cursor">█</span> BASIC 2 BASIC</a>
+  <nav>
+    <a href="../index.html">Machines</a>
+    <a href="../actions.html">Actions</a>
+    <a href="../translator.html">Translator</a>
+  </nav>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search entries, dialects, tokens ($99)…" autocomplete="off" aria-label="Search">
+    <ul id="results" hidden></ul>
+  </div>
+</header>
+<main>
+<nav class="entry-nav entry-nav-top" aria-label="Entries of Dartmouth Card BASIC October 1964">
+<a class="prev" rel="prev" href="../entries/NEXT-200044.html" title="Previous entry (←)">‹ <span>NEXT</span></a>  <a class="where" href="../dialects/DARTMOUTH_CARD_BASIC.html#entries">13 / 41</a>
+<a class="next" rel="next" href="../entries/PRINT-200126.html" title="Next entry (→)"><span>PRINT</span> ›</a></nav>
+
+<p class="breadcrumbs"><a href="../dialects/DARTMOUTH_CARD_BASIC.html#entries">Dartmouth Card BASIC October 1964</a> ›</p>
+<h1><span class="entry-name">PAGE</span> <span class="category">Statement</span></h1>
+<div class="subtitle md"><p>Starts a new page of the printed output.</p></div>
+<dl class="facts">
+  <dt>Layer</dt><dd><code>DARTMOUTH_CARD_layer</code> — Card BASIC</dd>
+  <dt>Dialects</dt><dd><a href="../dialects/DARTMOUTH_CARD_BASIC.html">Dartmouth Card BASIC October 1964</a></dd>
+</dl>
+
+
+<section class="form">
+  <h2>Syntax</h2>
+  <pre class="syntax"><span class="kw">PAGE</span></pre>
+  <p class="manual">In the manual (BASIC (1 October 1964), p. 50):
+    <code>PAGE</code>
+</p>
+
+
+
+  <h3>Equivalents in other dialects</h3>
+  <div class="action">
+    <p><a href="../actions.html#IO_NEW_PAGE" class="action-code">IO_NEW_PAGE</a> Start a new page
+</p>
+<p class="uncovered">No equivalent in: Casio FX-700P BASIC, Dartmouth BASIC (1st edition), Dartmouth BASIC (2nd edition), Dartmouth BASIC (3rd edition), Dartmouth BASIC (4th edition), Sinclair ZX80 BASIC 4K ROM</p>  </div>
+</section>
+
+
+
+<h2>Keywords</h2>
+<table>
+  <thead><tr><th>Keyword</th><th>Token</th><th>Abbreviation</th></tr></thead>
+  <tbody>
+  <tr><td><a class="kw" href="../keywords/PAGE-200082.html">PAGE</a></td>
+      <td></td>
+      <td></td></tr>
+  </tbody>
+</table>
+
+<h2>Examples</h2>
+<figure class="example">
+<h3>Two pages <span class="tag warning">to verify</span></h3>  <pre>10 PRINT &#39;FIRST&#39;
+20 PAGE
+30 PRINT &#39;SECOND&#39;
+40 END</pre>
+</figure>
+
+<h2>Notes</h2>
+<div class="md"><p>The manual gives no other detail [2] p. 50.</p></div>
+<h2>Related entries</h2>
+<ul><li>See also: <a href="../entries/PRINT-200126.html">PRINT</a></li></ul>
+
+<h2>Sources</h2>
+<ul><li><a href="https://bitsavers.org/pdf/dartmouth/dtss/196410_BASIC.pdf">BASIC (1 October 1964)</a>, John G. Kemeny, Thomas E. Kurtz (1964), p. 50</li></ul>
+<nav class="entry-nav entry-nav-bottom" aria-label="Entries of Dartmouth Card BASIC October 1964">
+<a class="prev" rel="prev" href="../entries/NEXT-200044.html" title="Previous entry (←)">‹ <span>NEXT</span></a>  <a class="where" href="../dialects/DARTMOUTH_CARD_BASIC.html#entries">13 / 41</a>
+<a class="next" rel="next" href="../entries/PRINT-200126.html" title="Next entry (→)"><span>PRINT</span> ›</a></nav>
+
+</main>
+<footer>Encyclopedia of the BASIC dialects of 8-bit computers · pages built from the database</footer>
+<script src="../static/search_index.js?v=1795376075"></script>
+<script src="../static/search.js?v=1795376075"></script>
+<script>
+// ← and → move to the previous and next entry (first dialect), unless typing in a field
+document.addEventListener("keydown", function (e) {
+  if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  var t = document.activeElement.tagName;
+  if (t === "INPUT" || t === "SELECT" || t === "TEXTAREA") return;
+  var a = document.querySelector(".entry-nav-top " + (e.key === "ArrowLeft" ? "a.prev" : e.key === "ArrowRight" ? "a.next" : "x"));
+  if (a) location.href = a.href;
+});
+</script>
+</body>
+</html>
